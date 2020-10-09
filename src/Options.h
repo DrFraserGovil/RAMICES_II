@@ -1,4 +1,6 @@
-#pragma once
+#ifndef OPTIONS
+
+#define OPTIONS
 #include <string>
 
 //the options class holds a number of stuff for global variable-type access and definitions of variables which are used everywhere. It also interfaces with the command-line parser, enabling command line-level access to internal variables.
@@ -138,3 +140,4 @@ class Options
 		
 		Options();
 };
+#endif

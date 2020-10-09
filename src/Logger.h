@@ -1,13 +1,17 @@
-#pragma once
+#ifndef LOGGER
+
+#define LOGGER
 #include <string>
 #include <fstream>
 #include <iostream>
-
+#include <vector>
+#include <regex>
+#include "FileHandler.h"
 #include "Options.h"
 
-int internal_LogToFile = false;
-int internal_LogToTerminal = true;
-int internal_LoggingLevel = 1;
+bool internal_LogToFile = false;
+bool internal_LogToTerminal = true;
+int internal_LoggingLevel = 2;
 std::fstream logStream;
 
 class LogStream 
@@ -34,8 +38,10 @@ class LogStream
 					logStream << mValue;
 				}
 			}
-	    }
+	    };
 };
+
+
 inline LogStream& log(int level) 
 { 
 	
@@ -57,15 +63,22 @@ inline LogStream& log(int level)
 			static LogStream l(1);
 			return l;
 			break;
-	}
-	
-	
-	
+	}	
 }
 
 
 
-void initialiseLogger(Options* opts)
+void asciiArt()
+{
+	forLineInFile("Resources/ascii.dat",
+	
+		log(1) << FILE_LINE + "\n";
+	);
+}
+
+
+
+void initialiseLogger(Options* opts,std::vector<std::string> prelog)
 {
 	internal_LoggingLevel = opts->Simulation.LoggingLevel;
 	internal_LogToTerminal = opts->Simulation.LogToTerminal;
@@ -75,8 +88,15 @@ void initialiseLogger(Options* opts)
 		std::string fileName = opts->Simulation.FileRoot + "Output.log";
 		logStream.open(fileName,std::fstream::out );
 	}
-	std::string strip = "=========================================================";
-	log(1) << strip + "\n\n\tRAMICES II SIMULATION INITIALISED.\n\n" + strip + "\n  Options Parsed and Logger Initialised\n";
+	
+	asciiArt();
+	
+	log(1) << "\nRAMICES II Simulation Initialised.\n\nLogger Initialised\n";
+	
+	for (std::string entry : prelog)
+	{
+		log(1) << entry + "\n";
+	}
 }
 
 void shutDownLogger()
@@ -85,3 +105,8 @@ void shutDownLogger()
 	
 	logStream.close();
 }
+
+#endif
+
+
+
