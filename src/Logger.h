@@ -98,6 +98,7 @@ void initialiseLogger(Options* opts,std::vector<std::string> prelog)
 		log(1) << entry + "\n";
 	}
 	
+	
 }
 
 void shutDownLogger()
