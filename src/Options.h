@@ -2,7 +2,7 @@
 
 #define OPTIONS
 #include <string>
-
+#include <vector>
 //the options class holds a number of stuff for global variable-type access and definitions of variables which are used everywhere. It also interfaces with the command-line parser, enabling command line-level access to internal variables.
 	//for ease of use, the options are split into multiple sub-options, to prevent too many variables being stored in a single class
 
@@ -19,6 +19,7 @@ class SimulationOptions
 		int ParallelThreads;
 		int NRings;
 		bool UseOldYieldGrid;
+		bool UseSpinningYields;
 		
 		int LoggingLevel;
 		bool LogToFile;
@@ -48,6 +49,8 @@ class ElementOptions
 		int CobaltID;
 		int EuropiumID;
 		
+		std::vector<std::string> ElementNames;
+		
 		double SolarHydrogen;
 		double SolarHelium;
 		double SolarMetals;
@@ -72,6 +75,8 @@ class StellarOptions
 	public:
 		double MaxMass; 
 		double MinMass;
+		double MinZ;
+		double MaxZ;
 		double DeathLossFraction;
 		StellarOptions();
 	

@@ -169,7 +169,7 @@ bool changeFileRoot(char* arg)
 {
 
 	std::string FILEROOT = (std::string)arg;
-	opts.Simulation.FileRoot = FILEROOT;
+	
 	int n = FILEROOT.size();
 	std::string lastCharacter =FILEROOT.substr(n -1);
 	bool needsSlash = (lastCharacter.compare("/"));
@@ -206,6 +206,7 @@ bool changeFileRoot(char* arg)
 			return false;
 		}
 	}
+	opts.Simulation.FileRoot = FILEROOT;
 	return true;
 }
 

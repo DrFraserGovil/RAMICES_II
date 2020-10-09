@@ -6,7 +6,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
+#include "StringAlgorithms.h"
 
 #define forLineInFile(macroFileName, ...)\
 {								\

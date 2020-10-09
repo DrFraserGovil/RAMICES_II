@@ -4,7 +4,7 @@
 #include "Logger.h"
 #include "Options.h"
 #include "CommandParser.h";
-
+#include "YieldGrid.h"
 int main(int argc, char** argv)
 {
 	Options options;
@@ -23,6 +23,9 @@ int main(int argc, char** argv)
 		return 1;
 	}
 	
+	
+	YieldGrid demosthenes = YieldGrid(&options);
+
 	shutDownLogger();
 	return 0;
 }

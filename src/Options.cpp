@@ -11,7 +11,7 @@ SimulationOptions::SimulationOptions()
 	FileRoot = "Output/";
 	ParallelThreads = 1;
 	NRings = 100;
-	UseOldYieldGrid = true;
+	UseOldYieldGrid = false;
 	
 	LoggingLevel = 3;
 	LogToFile = true;
@@ -36,7 +36,7 @@ ElementOptions::ElementOptions()
 	CobaltID = 11;
 	EuropiumID = 12;
 	
-	
+	ElementNames = {"Hydrogen", "Helium", "Z", "Iron", "Oxygen", "Magnesium", "Carbon", "Silicon", "Calcium", "Manganese", "Chromium", "Cobalt", "Europium"};
 	SolarHydrogen = 0.7;
 	SolarHelium = 0.29;
 	SolarMetals = 0.014;
@@ -56,6 +56,8 @@ StellarOptions::StellarOptions()
 {
 	MinMass = 0.5;
 	MaxMass = 100;
+	MinZ = 10e-6;
+	MaxZ = 0.08;
 	DeathLossFraction = 0.45;
 }
 
