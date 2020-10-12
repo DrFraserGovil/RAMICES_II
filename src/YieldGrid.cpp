@@ -1,32 +1,44 @@
 #include "YieldGrid.h"
 
+//Several of the more in-depth functions to do with the loading and interpolation of the data within YieldGrid and StellarYield objects are found within the YieldLoaders file.
+
 StellarYield::StellarYield()
 {
 	//default initializer?
 }
+
 StellarYield::StellarYield(Options * opts,int ElementalID)
 {
 	Opts = opts;
-	GridSize = 200;
+	GridSize = 100;
 	Element = ElementalID;
-	Yield = std::vector<std::vector<double>>(GridSize, std::vector<double>(GridSize,0.0));
-	
-	
+	Yield = std::vector<std::vector<double>>(GridSize, std::vector<double>(GridSize,0.0));	
 }
-
 
 void StellarYield::Print()
 {
 	
-	std::string outFile = Opts->Simulation.FileRoot + "/YieldTable_" + Opts->Element.ElementNames[Element] + ".dat";
+	std::string gridFile = Opts->Simulation.FileRoot + "/YieldTable_" + Opts->Element.ElementNames[Element] + ".dat";
+	std::string ridgeFile = Opts->Simulation.FileRoot + "/Ridges_" + Opts->Element.ElementNames[Element] + ".dat";
 	
 	std::fstream file;
-	file.open(outFile,std::fstream::out ); 
+	file.open(ridgeFile,std::fstream::out ); 
 	for (YieldRidge ridge : Ridges)
 	{
-		for (int i = 0; i < ridge.Masses.size(); ++i)
+		for (int i = 0; i < ridge.Points.size(); ++i)
 		{
-			file << ridge.Masses[i] << "\t" << ridge.Z << "\t" << ridge.Yields[i] << "\n";
+			file << ridge.Points[i].Mass << "\t" << ridge.Z << "\t" << ridge.Points[i].Yield << "\t" << ridge.SourceID << "\n";
+		}
+	}
+	file.close();
+	
+	
+	file.open(gridFile, std::fstream::out);
+	for (int mIndex = 0; mIndex < GridSize; ++mIndex)
+	{
+		for (int zIndex = 0; zIndex < GridSize; ++zIndex)
+		{
+			file << MFromIndex(mIndex) << "\t" << ZFromIndex(zIndex) <<"\t" << Yield[mIndex][zIndex] << std::endl;
 		}
 	}
 	file.close();
@@ -34,11 +46,10 @@ void StellarYield::Print()
 }
 
 //you MUST make sure that the forward AND backward extrapolations of indices match!
-
 double StellarYield::MFromIndex(int index)
 {
 	double factor = (double)index/(GridSize - 1);
-	return factor*factor *(Opts->Stellar.MaxMass - Opts->Stellar.MinMass) + Opts->Stellar.MaxMass;
+	return factor*factor *(Opts->Stellar.MaxMass - Opts->Stellar.MinMass) + Opts->Stellar.MinMass;
 }
 
 int StellarYield::IndexFromM(double M)
@@ -47,7 +58,6 @@ int StellarYield::IndexFromM(double M)
 	double fracIndex = (GridSize - 1) * sqrt( massDistance);
 	
 	double index = round(fracIndex);
-
 	if (index >= GridSize)
 	{
 		log(2) << "A mass index greater than grid size was called. Defaulting to max grid size" ;
@@ -58,11 +68,8 @@ int StellarYield::IndexFromM(double M)
 		log(2) << "A mass index less than zero was called. Defaulting to 0" ;
 		index = 0;
 	}
-	
 	return index;
-	
 }
-
 
 double StellarYield::ZFromIndex(int index)
 {
@@ -70,13 +77,12 @@ double StellarYield::ZFromIndex(int index)
 	{
 		return 0;
 	}
-	double powerfactor = (double)(index-1)/(GridSize - 1);
+	//this correction is to ensure that Z = 0 is included in the otherwise-log scaled grid
+	double powerfactor = (double)(index-1)/(GridSize - 2);
 	double basefactor = Opts->Stellar.MaxZ / Opts->Stellar.MinZ;
 	
-	return std::pow(basefactor,powerfactor);
+	return std::pow(basefactor,powerfactor) * Opts->Stellar.MinZ;
 }
-
-
 
 int StellarYield::IndexFromZ(double Z)
 {
@@ -90,12 +96,22 @@ int StellarYield::IndexFromZ(double Z)
 	return 1 + round((GridSize - 1)* metDistance);
 }
 
-double::StellarYield::GrabYield(double M, double Z)
+double StellarYield::GrabYield(double M, double Z)
 {
 	int MIndex = IndexFromM(M);
 	int ZIndex = IndexFromZ(Z);
 	
 	return Yield[MIndex][ZIndex];
+}
+
+void StellarYield::PrepareGrids()
+{
+	log(3) << "\t\tInterpolating " + Opts->Element.ElementNames[Element] + " Grid\n";
+	FilterRidges();
+	
+	InterpolateGrid();
+	
+	SmoothGrid();
 	
 }
 
@@ -142,6 +158,7 @@ void YieldGrid::ReUseYields()
 {
 	
 }
+
 void YieldGrid::CalculateYields()
 {
 	//comment out/add sections here to use additional data in the yield calculations
@@ -156,6 +173,12 @@ void YieldGrid::CalculateYields()
 		LoadOrfeoYields();
 		LoadLimongiYields();
 		LoadMaederYields();
+		
+		log(1) << "\tBeginning Grid Interpolation\n";
+		for (int i = 0; i < Element.size(); ++i)
+		{
+			Element[i].PrepareGrids();
+		}
 	}
 }
 
@@ -163,10 +186,13 @@ YieldRidge::YieldRidge()
 {
 	Z = 0;
 }
+
 YieldRidge::YieldRidge(int ID, double z, int nPoints)
 {
 	SourceID = ID;
 	Z = z;
-	Masses = std::vector<double>(nPoints,0.0);
-	Yields = std::vector<double>(nPoints,0.0);
+	Merged = false;
+
+	
+	Points = std::vector<YieldPoint>(nPoints, YieldPoint(0.0,0.0));
 }

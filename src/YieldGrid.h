@@ -2,21 +2,65 @@
 #include <vector>
 #include <math.h>
 #include <fstream>
+#include <algorithm>
 #include "Logger.h"
 #include "Options.h"
+
+struct YieldPoint
+{
+	double Mass;
+	double Yield;
+	YieldPoint(double m, double y)
+	{
+		Mass = m;
+		Yield = y;
+	}
+};
+
+
 
 class YieldRidge
 {
 	public:
 		double SourceID;
 		double Z;
-		std::vector<double> Masses;
-		std::vector<double> Yields;
-		double MinMass;
-		double MaxMass;
+		std::vector<YieldPoint> Points;
+
+
+		bool Merged;
 		
 		YieldRidge();
 		YieldRidge(int id, double Z, int nPoints);
+		
+		double MassInterp(double mass, Options * opts);
+};
+
+struct YieldBracket
+{
+	bool isEnclosed;
+	bool hasSingle;
+	YieldRidge UpperRidge;
+	YieldRidge LowerRidge;
+	
+	YieldBracket()
+	{
+		isEnclosed = false;
+		hasSingle = false;
+	}
+	YieldBracket(YieldRidge r1, YieldRidge r2)
+	{
+		isEnclosed = true;
+		UpperRidge = r1;
+		LowerRidge = r2;
+	}
+	YieldBracket(YieldRidge r1)
+	{
+		isEnclosed = false;
+		hasSingle = true;
+		LowerRidge = r1;
+		UpperRidge = r1;
+	}
+	
 };
 
 class StellarYield
@@ -30,6 +74,8 @@ class StellarYield
 	
 	
 		std::vector<YieldRidge> Ridges;
+		
+		void PrepareGrids();
 		void Print();
 	private:
 		Options * Opts;
@@ -41,6 +87,10 @@ class StellarYield
 		int IndexFromZ(double Z);
 		double MFromIndex(int index);
 		double ZFromIndex(int index);
+		void FilterRidges();
+		void InterpolateGrid();
+		void SmoothGrid();
+		YieldBracket FindBracket(double m, double z);
 };
 
 

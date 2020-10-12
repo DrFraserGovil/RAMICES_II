@@ -50,14 +50,23 @@ ElementOptions::ElementOptions()
 	SolarChromium = 2.4322227342857144e-05;
 	SolarCobalt = 4.90740625e-06;
 	SolarEuropium = 0.0000001;
+	
+	
+	OrfeoID = 0;
+	MarigoID = 1;
+	LimongiID = 2;
+	MaederID = 3;
+	MixedID = -1;
+	
+	maxInterpolationFactor = 0.5;
 }
 
 StellarOptions::StellarOptions()
 {
 	MinMass = 0.5;
 	MaxMass = 100;
-	MinZ = 10e-6;
-	MaxZ = 0.08;
+	MinZ = 10e-7;
+	MaxZ = 0.022;
 	DeathLossFraction = 0.45;
 }
 

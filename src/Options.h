@@ -69,6 +69,9 @@ class ElementOptions
 		int MarigoID;
 		int LimongiID;
 		int MaederID;
+		int MixedID;
+		
+		double maxInterpolationFactor;
 		ElementOptions();
 };
 

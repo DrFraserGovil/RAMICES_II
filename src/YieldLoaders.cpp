@@ -55,8 +55,8 @@ void YieldGrid::LoadMarigoYields()
 						
 			for (int i = 0; i < nElementsPresent; ++i)
 			{
-				Ridges[i].Masses[lineCount] = mass; 
-				Ridges[i].Yields[lineCount] = yields[i] / ejectaMass;
+				double yield =  yields[i] / ejectaMass;
+				Ridges[i].Points[lineCount] = YieldPoint(mass, yield);
 			}
 		
 			++lineCount;
@@ -105,8 +105,8 @@ void YieldGrid::LoadOrfeoYields()
 	
 	//matches elements in the file to their internal ids
 
-	std::vector<int> elementsPresent = {Opts->Element.HydrogenID, Opts->Element.HeliumID, Opts->Element.MetalsID, Opts->Element.CarbonID, Opts->Element.OxygenID, Opts->Element.MagnesiumID, Opts->Element.SiliconID, Opts->Element.CalciumID, Opts->Element.ManganeseID, Opts->Element.ChromiumID, Opts->Element.CobaltID};
-	std::vector<int> elementMasses = {1,2,-1,26,8,12,6,14,20,25,24,26};
+	std::vector<int> elementsPresent = {Opts->Element.HydrogenID, Opts->Element.HeliumID, Opts->Element.MetalsID, Opts->Element.IronID, Opts->Element.CarbonID, Opts->Element.OxygenID, Opts->Element.MagnesiumID, Opts->Element.SiliconID, Opts->Element.CalciumID, Opts->Element.ManganeseID, Opts->Element.ChromiumID, Opts->Element.CobaltID,};
+	std::vector<int> elementMasses = {1,2,-1,26,8,12,6,14,20,25,24,27};
 	
 	std::vector<YieldRidge> Ridges = std::vector<YieldRidge>(elementsPresent.size(), YieldRidge(Opts->Element.OrfeoID,z, masses.size()));
 	YieldRidge	RemnantRidge = YieldRidge(Opts->Element.OrfeoID,z,masses.size());
@@ -148,37 +148,37 @@ void YieldGrid::LoadOrfeoYields()
 		double lowNiRemnant = std::stod(lowNiLine[0]);
 		double remnantMass = lowNiRemnant + linInterp * (highNiRemnant - lowNiRemnant);
 		double ejectaMass = m - remnantMass;
-		RemnantRidge.Masses[i] = m;
-		RemnantRidge.Yields[i] = remnantMass / m;
+
 		
+		RemnantRidge.Points[i] = YieldPoint(m,remnantMass / m);
 		for (int j = 0; j < Ridges.size(); ++j)
 		{
 			
 			int column = elementMasses[j];
-			Ridges[j].Masses[i] = m;
+
 			if (column > -1)
 			{
 				double highYield = std::stod(highNiLine[column]);
 				double lowYield= std::stod(lowNiLine[column]);
 				
 				double yield = lowYield + linInterp * (highYield - lowYield);
-				
-				Ridges[j].Yields[i] = yield;
+
+				Ridges[j].Points[i] = YieldPoint(m,yield);
 			}
 			else
 			{
 				//this is for metallicity
-				double z = m  - remnantMass - (Ridges[0].Yields[i] + Ridges[1].Yields[i]) ;
+				double z = m  - remnantMass - (Ridges[0].Points[i].Yield + Ridges[1].Points[i].Yield) ;
 				//above is fraction of star which is metals - need to convert into fraction of ejecta which is metals 
-				
-				Ridges[j].Yields[i] = z;
+
+				Ridges[j].Points[i] = YieldPoint(m,z);
 			}
 		}
 		
 		//loop back through now all linking has been completed
 		for (int j = 0; j < Ridges.size(); ++j)
 		{
-			Ridges[j].Yields[i] = Ridges[j].Yields[i] / ejectaMass - orfeoSolarValues[elementsPresent[j]];
+			Ridges[j].Points[i].Yield = Ridges[j].Points[i].Yield / ejectaMass - orfeoSolarValues[elementsPresent[j]];
 		}
 	}
 	
@@ -186,10 +186,12 @@ void YieldGrid::LoadOrfeoYields()
 	for (int i = 0; i < Ridges.size(); ++i)
 	{
 		int ridgeId = elementsPresent[i];
-		Element[ridgeId].Ridges.push_back(Ridges[i]);
-		
+		if (ridgeId != Opts->Element.MagnesiumID)
+		{
+			std::cout << "ORFEO loading..." << Opts->Element.ElementNames[ridgeId] << std::endl;
+			Element[ridgeId].Ridges.push_back(Ridges[i]);
+		}
 	}
-	
 }
 
 void YieldGrid::LoadLimongiYields()
@@ -254,9 +256,8 @@ void YieldGrid::LoadLimongiYields()
 		double relicMass = std::stod(FILE_LINE_VECTOR[3]);
 		double ejectaMass = mass - relicMass;
 		
-		
-		RemnantRidges[zIndex].Masses[mIndex] = mass;
-		RemnantRidges[zIndex].Yields[mIndex] = relicMass / mass;
+
+		RemnantRidges[zIndex].Points[mIndex] = YieldPoint(mass, relicMass / mass);
 		for (int j = 0; j < elementsPresent.size(); ++j)
 		{	
 			double solarValue = solarElements[j];
@@ -265,8 +266,8 @@ void YieldGrid::LoadLimongiYields()
 				solarValue *= z / Opts->Element.SolarMetals;
 			}
 			double yield = std::stod(FILE_LINE_VECTOR[5+j])/ejectaMass - solarElements[j];
-			Ridges[j][zIndex].Masses[mIndex] = mass;
-			Ridges[j][zIndex].Yields[mIndex] = yield;
+
+			Ridges[j][zIndex].Points[mIndex] = YieldPoint(mass, yield);
 		}
 		
 		
@@ -275,9 +276,12 @@ void YieldGrid::LoadLimongiYields()
 	
 	for (int i = 0; i < elementsPresent.size() ; ++i)
 	{
-		for (YieldRidge ridge : Ridges[i])
+		if (elementsPresent[i] != Opts->Element.IronID)
 		{
-			Element[elementsPresent[i]].Ridges.push_back(ridge);
+			for (YieldRidge ridge : Ridges[i])
+			{
+				Element[elementsPresent[i]].Ridges.push_back(ridge);
+			}
 		}
 	}
 	
@@ -287,7 +291,6 @@ void YieldGrid::LoadLimongiYields()
 	}
 	
 }
-
 
 void YieldGrid::LoadMaederYields()
 {
@@ -338,23 +341,16 @@ void YieldGrid::LoadMaederYields()
 		double y = heliumContent[zIndex];
 		double x = 1.0 - z - y;
 		
+		double relicMass = std::stod(FILE_LINE_VECTOR[2]);
+		double ejectaMass = mass - relicMass;
 		
-		
-		
-		double ejectaMass = std::stod(FILE_LINE_VECTOR[2]);
-		double relicMass = mass - ejectaMass;
-		
-		
-		RemnantRidges[zIndex].Masses[mIndex] = mass;
-		RemnantRidges[zIndex].Yields[mIndex] = relicMass / mass;
+		RemnantRidges[zIndex].Points[mIndex] = YieldPoint(mass, relicMass / mass);
 		for (int j = 0; j < elementsPresent.size(); ++j)
 		{	
-			
-			double yield = std::stod(FILE_LINE_VECTOR[3+j])/ejectaMass;
-			Ridges[j][zIndex].Masses[mIndex] = mass;
-			Ridges[j][zIndex].Yields[mIndex] = yield;
+			double rawYield = std::stod(FILE_LINE_VECTOR[3+j]);
+			double yield = rawYield/ ejectaMass;
+			Ridges[j][zIndex].Points[mIndex] = YieldPoint(mass, yield);
 		}
-		
 		
 		++lineCount;
 	);
@@ -372,4 +368,385 @@ void YieldGrid::LoadMaederYields()
 		RelicMass.Ridges.push_back(relics);
 	}
 	
+}
+
+YieldRidge MergeRidges(std::vector<YieldRidge> candidates, Options * opts)
+{
+	//order goes from left to right - first element takes highest priority
+	std::vector<double> PriorityOrder = {opts->Element.OrfeoID,opts->Element.MaederID, opts->Element.MarigoID, opts->Element.LimongiID};
+	
+
+	
+	std::vector<YieldPoint> mergedPoints = {};
+
+	double sumZ = 0;
+	for (int i = 0; i < candidates.size(); ++i)
+	{		
+		sumZ += candidates[i].Z;
+		auto basePriority = std::find(PriorityOrder.begin(), PriorityOrder.end(), candidates[i].SourceID);
+		for (YieldPoint point : candidates[i].Points)
+		{
+			bool noConflict = true;
+			
+			
+			
+			for (int j = 0; j < candidates.size(); ++j)
+			{
+				if (i != j)
+				{	
+					YieldRidge ridge2 = candidates[j];
+					auto [minM2, maxM2] = std::minmax_element(ridge2.Points.begin(), ridge2.Points.end(), [](const YieldPoint& a, const YieldPoint& b) {  return a.Mass < b.Mass;});
+					YieldPoint low2 = *minM2;
+					YieldPoint top2= *maxM2;
+				
+					bool liesInsideRegion = (  point.Mass <= top2.Mass) && (point.Mass >= low2.Mass);
+					
+					if (liesInsideRegion)
+					{
+						auto comparisonPriority = std::find(PriorityOrder.begin(), PriorityOrder.end(), candidates[j].SourceID);
+						
+						if (comparisonPriority < basePriority)
+						{
+							noConflict = false;
+						}
+					}
+					
+				}
+			}
+			
+			if (noConflict)
+			{
+				mergedPoints.push_back(point);
+			}
+		
+		}
+	}
+	
+	sort(mergedPoints.begin(), mergedPoints.end(), [](const YieldPoint& a, const YieldPoint& b) {  return a.Mass < b.Mass;});
+	
+	double meanZ = sumZ / candidates.size();
+	YieldRidge merger;
+	merger.Z = meanZ;
+	merger.Points = mergedPoints;
+	merger.Merged = true;
+	merger.SourceID = opts->Element.MixedID;
+	return merger;
+}
+
+
+
+
+bool isSharedMetal(double Z, double Reference)
+{
+	const double checkSensitivity = 0.1;
+	
+	double solFactor = Z / Reference;
+	
+	return ( solFactor < (1.0 + checkSensitivity) ) && (  solFactor > (1.0 - checkSensitivity)  );
+}
+
+void StellarYield::FilterRidges()
+{
+	//Filtering ridges means checking for any overlaps + removing excess data
+	if (Ridges.size() == 0)
+	{
+		log(3) << "\nWARNING: The yield grid associated with " + Opts->Element.ElementNames[Element] + " has not been assigned any data ridges. The yield grid will default to zero yield at all points\n";
+		return;
+	}
+	
+	if (Ridges.size() == 1)
+	{
+		log(3) << "\nWARNING: The yield grid associated with " +  Opts->Element.ElementNames[Element] + " has been assigned only a single data ridge. This means the results will be metallicity independent\n";
+		return;
+	}
+	sort(Ridges.begin(), Ridges.end(), [](const YieldRidge& a, const YieldRidge& b) {  return a.Z < b.Z;});
+
+	
+	
+
+	std::vector<YieldRidge> FinalisedRidges;
+	
+	
+	for (int i = 0; i < Ridges.size() - 1; ++i)
+	{
+		
+		if (Ridges[i].Merged == false)
+		{
+			double baseZ = Ridges[i].Z;
+			std::vector<YieldRidge> ConcatenateRepository = {Ridges[i]};
+			
+			for (int j = i + 1; j < Ridges.size(); ++j)
+			{
+				double compZ = Ridges[j].Z;
+				
+				if (isSharedMetal(baseZ, compZ))
+				{
+					ConcatenateRepository.push_back(Ridges[j]);
+					Ridges[j].Merged = true;
+				}
+			}
+			
+			if (ConcatenateRepository.size() > 1)
+			{
+				YieldRidge merged = MergeRidges(ConcatenateRepository, Opts);
+				Ridges[i] = merged;
+			}
+			
+			FinalisedRidges.push_back(Ridges[i]);
+		}
+	}
+	
+	Ridges = FinalisedRidges;
+}
+
+
+
+double YieldRidge::MassInterp(double mass,Options * opts)
+{
+	bool isOverweight = mass > Points[Points.size()-1].Mass;
+	bool isUnderweight = mass <= Points[0].Mass;
+	
+	int topID = 0;
+	if ( isOverweight || isUnderweight)
+	{
+		if (isOverweight)
+		{
+			topID = Points.size() - 1;
+		}
+		else
+		{
+			topID = 1;
+		}
+	}
+	else
+	{
+		while ( Points[topID].Mass < mass)
+		{
+			++topID;
+		}
+	}
+
+	double topMass = Points[topID].Mass;
+	double lowMass = Points[topID-1].Mass;
+	
+	double interpFactor = (mass - lowMass)/(topMass - lowMass);
+	double maxInterp = 1.0 + opts->Element.maxInterpolationFactor;
+	double minInterp = - opts->Element.maxInterpolationFactor;
+	if (interpFactor > maxInterp)
+	{
+		interpFactor = maxInterp;
+	}
+	if (interpFactor < minInterp)
+	{
+		interpFactor = minInterp;
+	}
+	
+	double midYield =  Points[topID-1].Yield + (Points[topID].Yield - Points[topID - 1].Yield) * interpFactor;
+	return midYield;
+}
+
+void StellarYield::InterpolateGrid()
+{
+	for (int mIndex = 0; mIndex < GridSize; ++mIndex)
+	{
+		
+		double mass = MFromIndex(mIndex);
+		for (int zIndex = 0; zIndex < GridSize; ++zIndex)
+		{
+			double Z = ZFromIndex(zIndex);
+			
+			
+			YieldBracket bracket = FindBracket(mass, Z);
+			
+			if (bracket.isEnclosed)
+			{
+				double topYield = bracket.UpperRidge.MassInterp(mass,Opts);
+				double lowYield = bracket.LowerRidge.MassInterp(mass,Opts);
+				
+				
+				bool logInterpActive = false;
+				double interpolatedYield = 0;
+				
+				double bruchFactor = (Z - bracket.LowerRidge.Z)/(bracket.UpperRidge.Z - bracket.LowerRidge.Z);
+				
+				if (logInterpActive)
+				{
+					interpolatedYield = lowYield * pow(topYield/lowYield, bruchFactor);
+				}
+				else
+				{
+					interpolatedYield = lowYield + (topYield - lowYield) * bruchFactor;
+				}
+				
+				//~ if (Element == Opts->Element.HeliumID)
+				//~ {
+					//~ std::cout << mass << ", " << Z 
+				//~ }
+				
+				Yield[mIndex][zIndex] = interpolatedYield;
+			}
+			else
+			{
+				if (bracket.hasSingle)
+				{
+					YieldRidge singleRidge = bracket.UpperRidge;
+					double yield = singleRidge.MassInterp(mass,Opts);
+					Yield[mIndex][zIndex] = yield;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+YieldBracket StellarYield::FindBracket(double mass, double Z)
+{
+	YieldBracket bracket;
+	
+	double upperFudge = 30;
+	double lowerFudge = 2;
+	
+	//~ if (Element == Opts->Element.IronID)
+	//~ {
+		//~ lowerFudge = 4;
+	//~ }
+	if (Element == Opts->Element.MagnesiumID)
+	{
+		upperFudge = 100;
+	}
+	
+	
+	bool hasLower = false;
+	bool hasUpper = false;
+	
+	bool hasFudgedUpper = false;
+	bool hasFudgedLower = false;
+	
+	int previousRidgeID = -1;
+	int savedRidgeID = -1;
+	int fudgedLow = -1;
+	int fudgedTop = -1;
+	for (int i = 0; i < Ridges.size(); ++i)
+	{
+
+		double topMass = Ridges[i].Points[Ridges[i].Points.size()-1].Mass;
+		double lowMass = Ridges[i].Points[0].Mass;
+		
+		bool isInMassRange = ( mass < topMass ) && (mass > lowMass);
+		
+		double fudgedTopMass = topMass + upperFudge;
+		double fudgedLowerMass = lowMass - lowerFudge;
+		
+		bool isInFudgedRange = ( mass < fudgedTopMass ) && (mass > fudgedLowerMass);
+		
+		if (isInMassRange || isInFudgedRange)
+		{
+			if (Ridges[i].Z > Z)
+			{
+				if(isInMassRange)
+				{
+					savedRidgeID = i;
+					hasUpper = true;
+					
+					i = Ridges.size();
+				}
+				else
+				{
+					fudgedTop = i;
+					hasFudgedUpper = true;
+				}
+			}
+			else
+			{
+				if (isInMassRange)
+				{
+					previousRidgeID = i;
+					hasLower = true;
+				}
+				else
+				{
+					fudgedLow = i;
+					hasFudgedLower = true;
+				}
+			}
+		}
+	}
+	
+	
+	if ( hasUpper == false && hasFudgedUpper)
+	{
+		hasUpper = true;
+		savedRidgeID = fudgedTop;
+	}
+	if( hasLower == false && hasFudgedLower)
+	{
+		hasLower = true;
+		previousRidgeID = fudgedLow;
+	}
+	
+	
+	
+	if (hasUpper && hasLower)
+	{
+		YieldRidge topRidge = Ridges[savedRidgeID];
+		YieldRidge lowRidge = Ridges[previousRidgeID];
+		
+		bracket.isEnclosed = true;
+		bracket.LowerRidge = lowRidge;
+		bracket.UpperRidge = topRidge;
+	}
+	
+	
+		
+	if (hasUpper & !(hasLower))
+	{
+		bracket = YieldBracket(Ridges[savedRidgeID]);
+	}
+	if (hasLower & !(hasUpper))
+	{
+		bracket = YieldBracket(Ridges[previousRidgeID]);
+	}
+	return bracket;
+}
+
+void StellarYield::SmoothGrid()
+{
+	double smoothingLength = 1;
+	
+	std::vector<std::vector<double>> smoothedYield = Yield;
+	
+	for (int mIndex = 0; mIndex < GridSize; ++mIndex)
+	{
+		for (int zIndex = 0; zIndex < GridSize; ++zIndex)
+		{
+			int nSmoothers = 0;
+			double meaner = 0;
+			bool anyAdded = false;
+			for (int modM = mIndex - smoothingLength; modM <= mIndex + smoothingLength; ++modM)
+			{
+				
+				for (int modZ = zIndex - smoothingLength; modZ <= zIndex + smoothingLength; ++ modZ)
+				{
+					bool validZ = (modZ >=0 ) && (modZ < GridSize);
+					bool validM = (modM >=0) && (modM < GridSize);
+					
+					if (validZ && validM)
+					{
+						meaner += Yield[modM][modZ];
+						anyAdded = true;
+						++nSmoothers;
+					}
+					
+					
+				}
+				
+				
+			}
+			smoothedYield[mIndex][zIndex] = meaner/nSmoothers;
+		}
+	}
+	Yield = smoothedYield;
 }
