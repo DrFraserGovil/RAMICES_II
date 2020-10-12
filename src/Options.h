@@ -65,6 +65,10 @@ class ElementOptions
 		double SolarCobalt;
 		double SolarEuropium;
 		
+		int OrfeoID;
+		int MarigoID;
+		int LimongiID;
+		int MaederID;
 		ElementOptions();
 };
 

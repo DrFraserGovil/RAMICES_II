@@ -8,6 +8,7 @@
 class YieldRidge
 {
 	public:
+		double SourceID;
 		double Z;
 		std::vector<double> Masses;
 		std::vector<double> Yields;
@@ -15,7 +16,7 @@ class YieldRidge
 		double MaxMass;
 		
 		YieldRidge();
-		YieldRidge(double Z, int nPoints);
+		YieldRidge(int id, double Z, int nPoints);
 };
 
 class StellarYield
