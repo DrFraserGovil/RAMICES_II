@@ -9,6 +9,7 @@ Options::Options()
 SimulationOptions::SimulationOptions()
 {
 	FileRoot = "Output/";
+	Resources = "Resources/";
 	ParallelThreads = 1;
 	NRings = 100;
 	UseOldYieldGrid = false;
@@ -59,6 +60,9 @@ ElementOptions::ElementOptions()
 	MixedID = -1;
 	
 	maxInterpolationFactor = 0.5;
+	
+	PrintYieldRidges = false;
+	PrintYieldGrid = true;
 }
 
 StellarOptions::StellarOptions()
@@ -66,7 +70,7 @@ StellarOptions::StellarOptions()
 	MinMass = 0.5;
 	MaxMass = 100;
 	MinZ = 10e-7;
-	MaxZ = 0.022;
+	MaxZ = 0.052;
 	DeathLossFraction = 0.45;
 }
 

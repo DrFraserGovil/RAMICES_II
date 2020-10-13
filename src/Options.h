@@ -16,6 +16,7 @@ class SimulationOptions
 	
 	public:
 		std::string FileRoot;
+		std::string Resources;
 		int ParallelThreads;
 		int NRings;
 		bool UseOldYieldGrid;
@@ -72,6 +73,9 @@ class ElementOptions
 		int MixedID;
 		
 		double maxInterpolationFactor;
+		
+		bool PrintYieldRidges;
+		bool PrintYieldGrid;
 		ElementOptions();
 };
 

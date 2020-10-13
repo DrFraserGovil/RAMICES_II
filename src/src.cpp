@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <iostream>
 
-#include "Logger.h"
+
 #include "Options.h"
-#include "CommandParser.h";
-#include "YieldGrid.h"
+#include "GenericFunctions/Logger.h"
+#include "GenericFunctions/CommandParser.h";
+#include "ChemicalAssemblers/YieldGrid.h"
 int main(int argc, char** argv)
 {
 	Options options;
