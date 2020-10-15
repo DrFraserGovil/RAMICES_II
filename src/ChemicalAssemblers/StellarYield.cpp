@@ -25,7 +25,23 @@ void StellarYield::PrintRidges()
 		exit(2);
 	}
 	
-	std::string ridgeFile = chemFile + Opts->Element.ElementNames[Element] + ".dat";
+	std::string fileID;
+	if (Element < Opts->Element.ElementNames.size())
+	{
+		fileID = Opts->Element.ElementNames[Element];
+	}
+	else
+	{
+		if (Element == -1)
+		{
+			fileID = "RelicMass";
+		}
+		else
+		{
+			fileID = "RelicType";
+		}
+	}
+	std::string ridgeFile = chemFile + fileID + ".dat";
 	
 	std::fstream file;
 	file.open(ridgeFile,std::fstream::out ); 
@@ -84,14 +100,20 @@ int StellarYield::IndexFromZ(double Z)
 	{
 		return 0;
 	}
-	if (Z > Opts->Stellar.MaxZ)
+	if (Z >= Opts->Stellar.MaxZ)
 	{
 		return GridSize - 1;
 	}
 	double metDistance = log(Z/Opts->Stellar.MinZ) / log(Opts->Stellar.MaxZ / Opts->Stellar.MinZ);
 	
 	//offset of one is because i = 0 corresponds to Z = 0, and i = 1 corresponds to Z_min, since logarithms cannot go to zero!
-	return 1 + round((GridSize - 1)* metDistance);
+	int ID = 1 + round((GridSize - 1)* metDistance);
+	
+	if (ID >= GridSize - 1)
+	{
+		return GridSize -1;
+	}
+	return ID;
 }
 
 double StellarYield::GrabYield(double M, double Z)
@@ -376,4 +398,42 @@ void StellarYield::SmoothGrid()
 		}
 	}
 	Yield = smoothedYield;
+}
+
+int relicType(double mass, double z)
+{
+	int type;
+	if (mass <= 3.2)
+	{
+		type = 0;
+	}
+	
+	if (3.2 < mass && mass < 8.5)
+	{
+		type = 3;
+	}
+	if (8.5 <= mass && mass < 40)
+	{
+		type = 1;
+	}
+	if (mass >= 40)
+	{
+		type = 2;
+	}
+	return type;
+}
+
+void StellarYield::PrepareTypeGrid()
+{
+	for (int mIndex = 0; mIndex < GridSize; ++mIndex)
+	{
+		double m = MFromIndex(mIndex);
+		for (int zIndex = 0; zIndex < GridSize; ++zIndex)
+		{
+			double z = ZFromIndex(zIndex);
+			Yield[mIndex][zIndex] = relicType(m,z);
+		}
+		
+	}
+	
 }

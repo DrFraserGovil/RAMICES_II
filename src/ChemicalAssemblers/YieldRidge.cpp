@@ -58,6 +58,17 @@ double YieldRidge::MassInterp(double mass,Options * opts)
 	}
 	
 	double midYield =  Points[topID-1].Yield + (Points[topID].Yield - Points[topID - 1].Yield) * interpFactor;
+	
+	int interpolateSign = (midYield > 0);
+	int upDataSign = (Points[topID-1].Yield > 0);
+	int downDataSign = (Points[topID].Yield > 0);
+	
+	if ( (interpolateSign != upDataSign) && (interpolateSign != downDataSign))
+	{
+		midYield = 0;
+	}
+	
+	
 	return midYield;
 }
 

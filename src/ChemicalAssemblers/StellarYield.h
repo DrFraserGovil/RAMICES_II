@@ -19,6 +19,7 @@ class StellarYield
 		std::vector<YieldRidge> Ridges;
 		
 		void PrepareGrids();
+		void PrepareTypeGrid();
 		void PrintRidges();
 		int GridSize;
 		double MFromIndex(int index);

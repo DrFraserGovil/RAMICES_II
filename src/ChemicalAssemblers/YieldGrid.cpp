@@ -35,6 +35,7 @@ YieldGrid::YieldGrid(Options * opts)
 		{
 			element.PrintRidges();
 		}
+		RelicMass.PrintRidges();
 	}
 	if (Opts->Element.PrintYieldGrid)
 	{
@@ -73,6 +74,8 @@ void YieldGrid::CalculateYields()
 		{
 			Element[i].PrepareGrids();
 		}
+		RelicMass.PrepareGrids();
+		RelicType.PrepareTypeGrid();
 	}
 }
 
@@ -83,31 +86,31 @@ void YieldGrid::SaveYields()
 
 	
 	std::ostringstream text;
-	std::vector<std::string> titles = {"Mass", "Metallicity", "Relic Mass", "Relic Type"};
+	std::vector<std::string> titles = {"Mass", "Metallicity", "RelicMass", "RelicType"};
 	titles.insert(titles.end(), Opts->Element.ElementNames.begin(), Opts->Element.ElementNames.end() );
 	int width = 15;
 	for (auto title : titles)
 	{
-		text << std::setw(width) << std::left << title;
+		text << std::setw(width) << std::left << title << ", ";
 	}
 	text << "\n";
 	int N = Element[0].GridSize;
 	for(int mIndex = 0; mIndex < N; ++mIndex)
 	{
 		double M = Element[0].MFromIndex(mIndex);
-		std::cout << M <<std::endl;
 		for (int zIndex = 0; zIndex < N; ++zIndex)
 		{
 			double Z = Element[0].ZFromIndex(zIndex);
-			text <<  std::setw(width) << std::left << M;	
-			text << std::setw(width) << std::left  << Z;	
-			text << std::setw(width) << std::left  << "??";
-			text << std::setw(width) << std::left  << "??";
+			text <<  std::setw(width) << std::left << M << ", ";	
+			text << std::setw(width) << std::left  << Z << ", ";	
+			text << std::setw(width) << std::left  << RelicMass.GrabYield(M,Z) << ", ";
+			text << std::setw(width) << std::left  << (int)RelicType.GrabYield(M,Z) << ", ";
 			
 			
 			
 			for (StellarYield elem : Element)
 			{
+				text << ", ";
 				text << std::setw(width) << std::left << elem.GrabYield(mIndex,zIndex);			
 			}
 			text << "\n";

@@ -61,7 +61,7 @@ ElementOptions::ElementOptions()
 	
 	maxInterpolationFactor = 0.5;
 	
-	PrintYieldRidges = false;
+	PrintYieldRidges = true;
 	PrintYieldGrid = true;
 }
 
