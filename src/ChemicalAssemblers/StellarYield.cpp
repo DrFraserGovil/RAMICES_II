@@ -131,7 +131,10 @@ double StellarYield::GrabYield(int mIndex, int zIndex)
 
 void StellarYield::PrepareGrids()
 {
-	log(3) << "\t\tInterpolating " + Opts->Element.ElementNames[Element] + " Grid\n";
+	if (Element < Opts->Element.ElementNames.size() )
+	{
+		log(3) << "\t\tInterpolating " + Opts->Element.ElementNames[Element] + " Grid\n";
+	}
 	FilterRidges();
 	
 	InterpolateGrid();

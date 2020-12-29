@@ -17,6 +17,11 @@ SimulationOptions::SimulationOptions()
 	LoggingLevel = 3;
 	LogToFile = true;
 	LogToTerminal = true;
+	
+	TimeStep = 0.05;
+	FinalTime = 14.0;
+	
+	GalaxyStateFile = "GalacticState.dat";
 }
 
 ElementOptions::ElementOptions()
@@ -99,5 +104,16 @@ ThermalOptions::ThermalOptions()
 
 GalaxyOptions::GalaxyOptions()
 {
+	PrimordialMass = 1.8;
+	PrimordialHotFraction = 0.0;
+	MaxRadius = 20.0;
 	
+	MinScaleLength = 0.75;
+	MaxScaleLength = 3.75;
+	ScaleLengthDelay = 1.0;
+	ScaleLengthGrowth = 2.0;
+	ScaleLengthTimeTether = 12.0;
+	
+	InfallMasses  = {4.5,45};
+	InfallTimeScales = {0.3,14.0};
 }
