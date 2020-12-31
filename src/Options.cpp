@@ -18,8 +18,8 @@ SimulationOptions::SimulationOptions()
 	LogToFile = true;
 	LogToTerminal = true;
 	
-	TimeStep = 0.05;
-	FinalTime = 14.0;
+	TimeStep = 0.1;
+	FinalTime = 14;
 	
 	GalaxyStateFile = "GalacticState.dat";
 }
@@ -116,4 +116,7 @@ GalaxyOptions::GalaxyOptions()
 	
 	InfallMasses  = {4.5,45};
 	InfallTimeScales = {0.3,14.0};
+	
+	InflowParameterA = 0.33;
+	InflowParameterB = 0.53;
 }

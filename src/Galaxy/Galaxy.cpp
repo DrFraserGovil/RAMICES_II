@@ -102,19 +102,54 @@ void Galaxy::UpdateGasMass(double t)
 	double newMass = (GasMass + totalInfall);
 	
 	double newMassSum = 0.0;
+	//loop through first time to calculate required gas
+	log(3) << "Beginning request loop at t = " + std::to_string(t) + "\n";
+	double previousAsk = 0;
 	for (int ringID = 0; ringID < nRings; ++ringID)
 	{
-		Rings[ringID].Accrete(t,newMass, newR);
-		newMassSum+= Rings[ringID].Gas.Mass;
+		GasRequest request = Rings[ringID].AccretionRequest(t,newMass, newR);
+
+		GasReservoir igm = PullIGM(request.IGM);
+		
+		igm.AddTo(&Rings[ringID].Gas);
+		
+		if (ringID < nRings - 1)
+		{
+			Rings[ringID].Gas.TakeFrom(&Rings[ringID+1].Gas,request.Disc);
+		}
+
+
+		Rings[ringID].UpdateInternalProperties();
+		newMassSum += Rings[ringID].Gas.Mass;
 	}
-	GasMass = newMassSum;
+	
+
+	GasMass = newMass;
+}
+
+GasReservoir Galaxy::PullIGM(double m)
+{
+	//simply copies the current IGM abundance into a new object and sets it to 100% cold gas. Does not alter the IGM.
+	GasReservoir subset = IGM;
+	subset.Mass = m;
+	subset.ColdMass = m;
+	subset.HotMass = 0;
+	
+	return subset;
 }
 
 void Galaxy::SaveState(double t)
 {
 	int width = 10;
+	
 	for (int id = 0; id < Opts->Simulation.NRings; ++id)
 	{
-		GalaxyState << std::setw(width) << t << "\t" << Rings[id].Radius << "\t" << Rings[id].Mass() << "\t" << Rings[id].SurfaceDensity << "\t" << Rings[id].Gas.Mass<< "\t" << GasMass <<"\n";
+		std::vector<double> GalaxySaver = {t,Rings[id].Radius, Rings[id].Mass(), Rings[id].SurfaceDensity, Rings[id].Gas.Mass,GasMass};
+		
+		for (auto const &saver : GalaxySaver)
+		{
+			GalaxyState << std::setw(width)  << std::to_string(saver)+",";
+		}
+		GalaxyState << "\n";
 	}
 }

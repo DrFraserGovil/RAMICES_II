@@ -185,3 +185,20 @@ void GasReservoir::TakeFrom(GasReservoir * givingGas, double coldMass, double ho
 {
 	ShiftGas(givingGas,this,coldMass,hotMass);
 }
+
+void GasReservoir::GiveTo(GasReservoir * receivingGas,double mixedMass)
+{
+	double coldFrac = ColdMass / Mass;
+	double coldMass = mixedMass * coldFrac;
+	double hotMass = mixedMass * (1.0 - coldFrac);
+	
+	ShiftGas(this,receivingGas,coldMass,hotMass);
+}
+
+void GasReservoir::TakeFrom(GasReservoir * givingGas, double mixedMass)
+{
+	double coldFrac = ColdMass / Mass;
+	double coldMass = mixedMass * coldFrac;
+	double hotMass = mixedMass * (1.0 - coldFrac);
+	ShiftGas(givingGas,this,coldMass,hotMass);
+}

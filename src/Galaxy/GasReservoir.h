@@ -21,8 +21,9 @@ class GasReservoir
 		GasReservoir(Options * opts, std::vector<double> coldChemicals, std::vector<double> hotChemicals);
 		
 		void GiveTo(GasReservoir * recievingGas,double coldMass, double hotMass);
+		void GiveTo(GasReservoir * recievingGas,double mixedMass);
 		void TakeFrom(GasReservoir * givingGas, double coldMass, double hotMass);
-		
+		void TakeFrom(GasReservoir * givingGas, double mixedMass);
 		void AddTo(GasReservoir * acceptor);
 		void SubtractFrom(GasReservoir * loser);
 		void SetPrimordial(double mass);

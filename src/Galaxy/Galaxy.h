@@ -34,7 +34,7 @@ class Galaxy
 		double ColdGasMass();
 		double HotGasMass();
 		
-		
+		GasReservoir PullIGM(double mass);
 		
 		//saving and logging stuff
 		void OpenLogs();
