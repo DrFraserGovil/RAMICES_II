@@ -31,6 +31,7 @@ Ring::Ring(Options * opts, int id, double width, Galaxy * parent)
 	Gas.SetPrimordial(annulusMass);
 	SurfaceDensity = annulusMass / Area;
 
+	Stars = StellarPopulation(opts);
 }
 
 GasRequest Ring::AccretionRequest(double t, double newGalaxyMass, double newR)
@@ -41,7 +42,7 @@ GasRequest Ring::AccretionRequest(double t, double newGalaxyMass, double newR)
 	
 	double targetMass = RingMass(newGalaxyMass,newR);
 	double massDeficit = targetMass - Gas.Mass;// + lowerRingRequest;
-	
+
 	if (massDeficit < 0)
 	{
 		Request.IGM = 0.0;
@@ -64,7 +65,7 @@ GasRequest Ring::AccretionRequest(double t, double newGalaxyMass, double newR)
 		//~ }
 		
 		double igmGrab = std::max(0.0,massDeficit / (1.0 + bilitewskiRatio));
-		double discGrab = massDeficit - igmGrab;
+		double discGrab = std::max(0.0,massDeficit - igmGrab);
 	
 
 		//check that this does not empty out the rings
@@ -82,7 +83,6 @@ GasRequest Ring::AccretionRequest(double t, double newGalaxyMass, double newR)
 			discGrab = 0;
 		}
 
-		std::cout << discGrab << "   " << igmGrab << "   " << massDeficit<< "   " << bilitewskiRatio << std::endl;
 		Request.IGM = igmGrab;
 		Request.Disc = discGrab;
 	}
@@ -117,7 +117,63 @@ double Ring::Mass()
 	return stellarMass + remnantMass + gasMass;
 }
 
+void Ring::FormStars(double t)
+{
+	double FormedMass = StarFormationRate();
+	double FeedbackMass = FormedMass * Opts->Galaxy.FeedbackFactor;
+	
+	//removes the gas
+	Parent->PushIGM(ID,FeedbackMass, 0.0);
+	Gas.Deplete(FormedMass,0.0);
+	
+	
+	//fake star formation
+	StarSet s= StarSet(Opts,FormedMass,0,1);
+	Stars.Stars.push_back(s);
+}
+
+double Ring::StarFormationRate()
+{
+	double cut = Opts->Galaxy.SchmidtCut;
+	
+	double sfrDensityRate = 0.0;
+
+	if (SurfaceDensity > cut)
+	{
+		sfrDensityRate = pow(SurfaceDensity,1.4);
+	}
+	else
+	{
+		sfrDensityRate = pow(SurfaceDensity,4) / pow(cut,2.6);
+	}
+
+	double deltaMassFormed = sfrDensityRate * Area * Opts->Simulation.TimeStep * Opts->Galaxy.SchmidtPrefactor;
+
+	//checks that sfr + feedback will not empty gas, if so - use feedback to limit SFR
+	double deltaMassAll = (1.0 + Opts->Galaxy.FeedbackFactor) * deltaMassFormed;
+	double maxFormingMass = Gas.ColdMass * Opts->Galaxy.MaxSFRFraction;
+	if (deltaMassAll > maxFormingMass)
+	{
+		deltaMassFormed = maxFormingMass / (1.0 + Opts->Galaxy.FeedbackFactor);
+	}
+
+	return deltaMassFormed;
+	
+}
+
 void Ring::UpdateInternalProperties()
 {
 	SurfaceDensity = Gas.Mass / Area;
+}
+
+std::vector<std::string> Ring::PropertyHeaders()
+{
+	std::vector<std::string> headers = {"Time", "Radius", "Area", "TotalMass", "ColdGasMass", "HotGasMass", "StellarMass", "RemnantMass", "SFRRate"};
+	return headers;
+}
+
+std::vector<double> Ring::ReportProperties(double t)
+{
+	std::vector<double> properties = {t, Radius, Area, Mass(), Gas.ColdMass, Gas.HotMass, Stars.Mass(), 0.0,0.0};
+	return properties;
 }

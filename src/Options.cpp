@@ -18,10 +18,11 @@ SimulationOptions::SimulationOptions()
 	LogToFile = true;
 	LogToTerminal = true;
 	
-	TimeStep = 0.1;
+	TimeStep = 0.01;
 	FinalTime = 14;
 	
 	GalaxyStateFile = "GalacticState.dat";
+	RingStateFile = "RingState.dat";
 }
 
 ElementOptions::ElementOptions()
@@ -77,6 +78,8 @@ StellarOptions::StellarOptions()
 	MinZ = 10e-7;
 	MaxZ = 0.052;
 	DeathLossFraction = 0.45;
+	
+	
 }
 
 RemnantOptions::RemnantOptions()
@@ -105,10 +108,10 @@ ThermalOptions::ThermalOptions()
 GalaxyOptions::GalaxyOptions()
 {
 	PrimordialMass = 1.8;
-	PrimordialHotFraction = 0.0;
+	PrimordialHotFraction = 0;
 	MaxRadius = 20.0;
 	
-	MinScaleLength = 0.75;
+	MinScaleLength = 1.75;
 	MaxScaleLength = 3.75;
 	ScaleLengthDelay = 1.0;
 	ScaleLengthGrowth = 2.0;
@@ -119,4 +122,13 @@ GalaxyOptions::GalaxyOptions()
 	
 	InflowParameterA = 0.33;
 	InflowParameterB = 0.53;
+	
+	SchmidtIndex = 1.4;
+	SchmidtPrefactor = 2;
+	SchmidtCut = 4e-7; //this is a guess based on Ralph's units -- double check!
+	
+	MaxSFRFraction = 0.98;
+	
+	FeedbackFactor = 0.4;
+	IMFIndex = 2.3;
 }

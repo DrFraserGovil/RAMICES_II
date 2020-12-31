@@ -202,3 +202,10 @@ void GasReservoir::TakeFrom(GasReservoir * givingGas, double mixedMass)
 	double hotMass = mixedMass * (1.0 - coldFrac);
 	ShiftGas(givingGas,this,coldMass,hotMass);
 }
+void GasReservoir::Deplete(double coldMass, double hotMass)
+{
+	//depleting a reservoir removes a set amount of gas, without altering the chemical balance
+	Mass -= coldMass + hotMass;
+	ColdMass -= coldMass;
+	HotMass -= hotMass;
+}

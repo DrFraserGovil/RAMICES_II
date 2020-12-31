@@ -24,6 +24,7 @@ class GasReservoir
 		void GiveTo(GasReservoir * recievingGas,double mixedMass);
 		void TakeFrom(GasReservoir * givingGas, double coldMass, double hotMass);
 		void TakeFrom(GasReservoir * givingGas, double mixedMass);
+		void Deplete(double coldMass, double hotMass);
 		void AddTo(GasReservoir * acceptor);
 		void SubtractFrom(GasReservoir * loser);
 		void SetPrimordial(double mass);

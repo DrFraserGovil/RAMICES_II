@@ -33,6 +33,7 @@ class SimulationOptions
 		
 		
 		std::string GalaxyStateFile;
+		std::string RingStateFile;
 		SimulationOptions();
 };
 
@@ -156,6 +157,16 @@ class GalaxyOptions
 		
 		double InflowParameterA;
 		double InflowParameterB;
+		
+		
+		double SchmidtIndex;
+		double SchmidtPrefactor;
+		double SchmidtCut; //this is a guess based on Ralph's units -- double check!
+	
+		double MaxSFRFraction; //maximum fraction which can be removed by SFR + associated feedback 
+	
+		double FeedbackFactor;
+		double IMFIndex;
 		
 		GalaxyOptions();
 	

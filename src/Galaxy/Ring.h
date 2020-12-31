@@ -5,6 +5,8 @@
 #include "Galaxy.h"
 #include "algorithm"
 #include <math.h>
+#include "../Stars/StellarPopulation.h"
+
 class Galaxy; //placeholder to allow parent/child and child/parent interaction
 
 struct GasRequest
@@ -21,16 +23,23 @@ class Ring
 		double Radius;
 		double SurfaceDensity;
 		
-		GasRequest AccretionRequest(double t, double newDensity, double newR);
 		double Mass();
 		
+		GasRequest AccretionRequest(double t, double newDensity, double newR);
+		void FormStars(double t);
+		
+		void UpdateInternalProperties();
 		
 		
+		std::vector<std::string> PropertyHeaders();
+		std::vector<double> ReportProperties(double t);
 		Ring(Options * opts);
 		Ring(Options * opts, int id, double dr, Galaxy * parent);
-		void UpdateInternalProperties();
+		
+		StellarPopulation Stars;
 	private:
 		Options * Opts;
+		
 		
 		double Width;
 		double InnerRadius;
@@ -41,5 +50,7 @@ class Ring
 		Galaxy * Parent;
 		
 		double RingMass(double GalaxyMass, double ScaleLength);
+		
+		double StarFormationRate();
 };
 
