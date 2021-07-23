@@ -1,6 +1,7 @@
 # Prerequisites
 *.d
-
+Output/
+RAMICES_II
 # Compiled Object files
 *.slo
 *.lo
