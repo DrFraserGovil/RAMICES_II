@@ -3,6 +3,8 @@
 #define OPTIONS
 #include <string>
 #include <vector>
+#define PI 3.14159265358979323846
+
 //the options class holds a number of stuff for global variable-type access and definitions of variables which are used everywhere. It also interfaces with the command-line parser, enabling command line-level access to internal variables.
 	//for ease of use, the options are split into multiple sub-options, to prevent too many variables being stored in a single class
 
@@ -26,6 +28,12 @@ class SimulationOptions
 		bool LogToFile;
 		bool LogToTerminal;
 		
+		double TimeStep;
+		double FinalTime;
+		
+		
+		std::string GalaxyStateFile;
+		std::string RingStateFile;
 		SimulationOptions();
 };
 
@@ -134,6 +142,31 @@ class GalaxyOptions
 	//the galaxy suboptions contians variables associated with the galaxy as a whole, such as the maximum radius, and various mass/infall properties
 	
 	public:
+		double PrimordialMass;
+		double PrimordialHotFraction;
+		double MaxRadius;
+		
+		double MinScaleLength;
+		double MaxScaleLength;
+		double ScaleLengthDelay;
+		double ScaleLengthGrowth;
+		double ScaleLengthTimeTether;
+		
+		std::vector<double> InfallMasses;
+		std::vector<double> InfallTimeScales;
+		
+		double InflowParameterA;
+		double InflowParameterB;
+		
+		
+		double SchmidtIndex;
+		double SchmidtPrefactor;
+		double SchmidtCut; //this is a guess based on Ralph's units -- double check!
+	
+		double MaxSFRFraction; //maximum fraction which can be removed by SFR + associated feedback 
+	
+		double FeedbackFactor;
+		double IMFIndex;
 		
 		GalaxyOptions();
 	

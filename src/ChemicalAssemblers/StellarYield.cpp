@@ -131,7 +131,10 @@ double StellarYield::GrabYield(int mIndex, int zIndex)
 
 void StellarYield::PrepareGrids()
 {
-	log(3) << "\t\tInterpolating " + Opts->Element.ElementNames[Element] + " Grid\n";
+	if (Element < Opts->Element.ElementNames.size() )
+	{
+		log(3) << "\t\tInterpolating " + Opts->Element.ElementNames[Element] + " Grid\n";
+	}
 	FilterRidges();
 	
 	InterpolateGrid();
@@ -152,15 +155,21 @@ bool isSharedMetal(double Z, double Reference)
 void StellarYield::FilterRidges()
 {
 	//Filtering ridges means checking for any overlaps + removing excess data
+	
+	std::string name = "Relics";
+	if (Element < Opts->Element.ElementNames.Size() )
+	{
+		name = Opts->Element.ElementNames[Element];
+	}
 	if (Ridges.size() == 0)
 	{
-		log(3) << "\nWARNING: The yield grid associated with " + Opts->Element.ElementNames[Element] + " has not been assigned any data ridges. The yield grid will default to zero yield at all points\n";
+		log(3) << "\nWARNING: The yield grid associated with " + name + " has not been assigned any data ridges. The yield grid will default to zero yield at all points\n";
 		return;
 	}
 	
 	if (Ridges.size() == 1)
 	{
-		log(3) << "\nWARNING: The yield grid associated with " +  Opts->Element.ElementNames[Element] + " has been assigned only a single data ridge. This means the results will be metallicity independent\n";
+		log(3) << "\nWARNING: The yield grid associated with " +  name + " has been assigned only a single data ridge. This means the results will be metallicity independent\n";
 		return;
 	}
 	sort(Ridges.begin(), Ridges.end(), [](const YieldRidge& a, const YieldRidge& b) {  return a.Z < b.Z;});

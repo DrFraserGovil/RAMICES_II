@@ -6,6 +6,10 @@
 #include "GenericFunctions/Logger.h"
 #include "GenericFunctions/CommandParser.h";
 #include "ChemicalAssemblers/YieldGrid.h"
+#include "Galaxy/GasReservoir.h"
+#include "Galaxy/Galaxy.h"
+
+
 int main(int argc, char** argv)
 {
 	Options options;
@@ -24,9 +28,13 @@ int main(int argc, char** argv)
 		return 1;
 	}
 	
-	
-	YieldGrid demosthenes = YieldGrid(&options);
+	//initialise main galaxy object
+	Galaxy g = Galaxy(&options);
 
+	g.Evolve();
+	
+	
+	
 	shutDownLogger();
 	return 0;
 }
