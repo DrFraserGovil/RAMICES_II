@@ -21,6 +21,8 @@ class GasStream
 		double HotMass();
 		double ColdMass();
 		
+		void Deplete(double amountToRemove);
+		void Deplete(double amountToRemove_Cold, double amountToRemove_Hot);
 		void Absorb(const GasStream & input);
 		void StreamIn(const Gas & input, double hotFraction);
 	private:

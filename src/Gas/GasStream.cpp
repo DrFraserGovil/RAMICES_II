@@ -31,7 +31,26 @@ void GasStream::Absorb(const GasStream & input)
 	}
 	NeedsRecomputing = true;
 }
-
+void GasStream::Deplete(double amountToLose)
+{
+	double lossFraction = amountToLose/Mass();
+	
+	double coldLossFraction = amountToLose/ColdMass();
+	double hotLossFraction = amountToLose/ HotMass();
+	//~ std::cout << lossFraction << std::endl;
+	for (int i = 0; i < ElementCount; ++i)
+	{
+		if (Cold.Species[i] > 0)
+		{
+			Cold.Species[i] *= (1.0 - coldLossFraction);
+		}
+		if (Hot.Species[i] > 0)
+		{
+			Hot.Species[i] *= (1.0 - hotLossFraction);	
+		}	
+	}
+	NeedsRecomputing = true;
+}
 void GasStream::StreamIn(const Gas & input, double hotFrac)
 {
 	double coldFrac = (1.0 - hotFrac);

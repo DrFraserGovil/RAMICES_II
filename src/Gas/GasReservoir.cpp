@@ -23,6 +23,34 @@ const GasStream & GasReservoir::Component(SourceProcess source) const
 }
 
 
+double GasReservoir::Mass()
+{
+	double sum = 0;
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		sum += Components[i].Mass();
+	}
+	return sum;
+}
+double GasReservoir::ColdMass()
+{
+	double sum = 0;
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		sum += Components[i].ColdMass();
+	}
+	return sum;
+}
+double GasReservoir::HotMass()
+{
+	double sum = 0;
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		sum += Components[i].HotMass();
+	}
+	return sum;
+}
+
 void GasReservoir::Absorb(const GasReservoir & givingGas)
 {
 	for (int i = 0; i < ProcessCount; ++i)
@@ -30,6 +58,23 @@ void GasReservoir::Absorb(const GasReservoir & givingGas)
 		SourceProcess source = (SourceProcess)i;
 		Absorb(givingGas.Component(source));
 	}
+}
+
+void GasReservoir::Deplete(double amountToLose)
+{
+	double totalMass = Mass();
+	amountToLose = std::min(amountToLose,totalMass);
+	double contFraction = amountToLose / Mass();
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		if (Components[i].Mass() > 0)
+		{
+			double componentContribution =  Components[i].Mass() * contFraction;
+			std::cout << contFraction << "  " << componentContribution << "  " << Components[i].Mass() << std::endl;
+			Components[i].Deplete(componentContribution);
+		}
+	}
+	
 }
 void GasReservoir::Absorb(const GasStream & givingGas)
 {

@@ -8,6 +8,21 @@
 
 GlobalParameters Params;
 
+void printRes(GasReservoir r)
+{
+	
+	for (int c = 0; c < 2; ++c)
+	{
+		SourceProcess source = (SourceProcess)c;
+		auto stream = r.Component(source);
+		std::cout << "From process " << c << ": \n";
+		for (int i = 0; i < ElementCount; ++i)
+		{
+			std::cout << "\tElement " << i << " Cold = " << stream.Cold.Species[i] << "  Hot = " << stream.Hot.Species[i] << std::endl;
+		}
+	}
+}
+
 int main(int argc, char** argv)
 {
 		
@@ -22,18 +37,14 @@ int main(int argc, char** argv)
 
 	//~ g.Evolve();
 	GasReservoir r = GasReservoir::Primordial(10,Params);
-
-	for (int c = 0; c < ProcessCount; ++c)
-	{
-		SourceProcess source = (SourceProcess)c;
-		auto stream = r.Component(source);
-		std::cout << "From process " << c << ": \n";
-		for (int i = 0; i < ElementCount; ++i)
-		{
-			std::cout << "\tElement " << i << " Cold = " << stream.Cold.Species[i] << "  Hot = " << stream.Hot.Species[i] << std::endl;
-		}
-	}
-
-
+	GasStream g(Accreted);
+	Gas p2 = Gas::Primordial(20.0);
+	g.StreamIn(p2,1);
+	r.Absorb(g);
+	printRes(r);
+	r.Deplete(2);
+	printRes(r);
+	
+	std::cout << r.Mass() << std::endl;
 	return 0;
 }

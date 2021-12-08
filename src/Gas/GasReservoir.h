@@ -20,7 +20,7 @@ class GasReservoir
 		//gas movement options
 		void Absorb(const GasReservoir & givingGas);
 		void Absorb(const GasStream & givingGas);		
-		void TakeFrom(GasReservoir & givingGas, double amountToTake);
+
 		void Deplete(double amountToLose);
 		void Deplete(double amountToLose_Cold, double amountToLose_Hot);
 		
@@ -28,7 +28,7 @@ class GasReservoir
 		const GasStream & Component(SourceProcess source) const;
 	private:
 		std::vector<GasStream> Components;
-	
+		
 	
 		
 };
