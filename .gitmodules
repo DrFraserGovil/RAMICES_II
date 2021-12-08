@@ -1,0 +1,3 @@
+[submodule "libs/JSL"]
+	path = libs/JSL
+	url = https://github.com/JTFraser/JSL

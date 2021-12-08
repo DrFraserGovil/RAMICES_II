@@ -2,39 +2,24 @@
 #include <iostream>
 
 
-#include "Options.h"
-#include "GenericFunctions/Logger.h"
-#include "GenericFunctions/CommandParser.h";
-#include "ChemicalAssemblers/YieldGrid.h"
-#include "Galaxy/GasReservoir.h"
-#include "Galaxy/Galaxy.h"
+#include "Parameters/GlobalParameters.h"
 
+GlobalParameters Params;
 
 int main(int argc, char** argv)
 {
-	Options options;
+		
 	
-	ParserOutput parser = parseCommandLine(argc, argv);
+	Params.Initialise(argc,argv);
 	
+	std::cout << Params.Galaxy.PrimordialHotFraction <<"\n";
+	std::cout << Params.Thermal.GasCoolingTimeScale <<std::endl;
 	
-	
-	
-	options = parser.options;
-	
-	initialiseLogger(&options,parser.PreLog);
-	
-	if (parser.SuccessfulParse == false)
-	{
-		return 1;
-	}
-	
-	//initialise main galaxy object
-	Galaxy g = Galaxy(&options);
+	//~ //initialise main galaxy object
+	//~ Galaxy g = Galaxy(&options);
 
-	g.Evolve();
+	//~ g.Evolve();
 	
-	
-	
-	shutDownLogger();
+
 	return 0;
 }
