@@ -64,8 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Data Fields</a>  </div>
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Gas Class Reference</div>  </div>
 </div><!--header-->
@@ -76,27 +76,30 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6506127f6d3c2f0e15e9592c1e0134ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGas.html#a6506127f6d3c2f0e15e9592c1e0134ea">Gas</a> ()</td></tr>
+<tr class="memdesc:a6506127f6d3c2f0e15e9592c1e0134ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor initialises the chunk of gas to have zero mass.  <a href="classGas.html#a6506127f6d3c2f0e15e9592c1e0134ea">More...</a><br /></td></tr>
 <tr class="separator:a6506127f6d3c2f0e15e9592c1e0134ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72c22f9017710f7c97af4f727e481bd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGas.html#a72c22f9017710f7c97af4f727e481bd4">Gas</a> (const std::vector&lt; double &gt; &amp;elements)</td></tr>
+<tr class="memdesc:a72c22f9017710f7c97af4f727e481bd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the elements array into the <a class="el" href="classGas.html#a3ed913e9c0c680090dfccb63d0aa6a8c" title="The central mass array. Has ElementCount elements, indexed by ElementID.">Species</a> entity, otherwise does nothing interesting.  <a href="classGas.html#a72c22f9017710f7c97af4f727e481bd4">More...</a><br /></td></tr>
 <tr class="separator:a72c22f9017710f7c97af4f727e481bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a292ef4704a70acb9aacf7bd10d04f7f3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGas.html#a292ef4704a70acb9aacf7bd10d04f7f3">Mass</a> ()</td></tr>
 <tr class="separator:a292ef4704a70acb9aacf7bd10d04f7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae68d91b5ab415a0478e7dcf14cfdc7ca"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGas.html#ae68d91b5ab415a0478e7dcf14cfdc7ca">operator[]</a> (<a class="el" href="EnumSets_8h.html#a8f434816783a791128b48a39ae663f15">ElementID</a> id)</td></tr>
 <tr class="separator:ae68d91b5ab415a0478e7dcf14cfdc7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a585dae425060668c22526512e5d7e2b5"><td class="memItemLeft" align="right" valign="top">const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGas.html#a585dae425060668c22526512e5d7e2b5">operator[]</a> (<a class="el" href="EnumSets_8h.html#a8f434816783a791128b48a39ae663f15">ElementID</a> id) const</td></tr>
+<tr class="memdesc:a585dae425060668c22526512e5d7e2b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">An annoyingly necessary redeclaration for when the object is const and normal references don't behave nicely.  <a href="classGas.html#a585dae425060668c22526512e5d7e2b5">More...</a><br /></td></tr>
 <tr class="separator:a585dae425060668c22526512e5d7e2b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a6e79d1e5d17931e7ea6a9f823016f648"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classGas.html">Gas</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGas.html#a6e79d1e5d17931e7ea6a9f823016f648">Empty</a> ()</td></tr>
 <tr class="separator:a6e79d1e5d17931e7ea6a9f823016f648"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b2398801ceb8fc5b08b00beab3b4eea"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classGas.html">Gas</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGas.html#a2b2398801ceb8fc5b08b00beab3b4eea">Primordial</a> (double mass)</td></tr>
 <tr class="separator:a2b2398801ceb8fc5b08b00beab3b4eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Data Fields</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
 <tr class="memitem:a3ed913e9c0c680090dfccb63d0aa6a8c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGas.html#a3ed913e9c0c680090dfccb63d0aa6a8c">Species</a></td></tr>
-<tr class="memdesc:a3ed913e9c0c680090dfccb63d0aa6a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The central mass array. Has.  <a href="classGas.html#a3ed913e9c0c680090dfccb63d0aa6a8c">More...</a><br /></td></tr>
+<tr class="memdesc:a3ed913e9c0c680090dfccb63d0aa6a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The central mass array. Has <a class="el" href="EnumSets_8h.html#a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e" title="The final entry should always be ElementCount, as the numbering system inherent in enums makes this t...">ElementCount</a> elements, indexed by ElementID.  <a href="classGas.html#a3ed913e9c0c680090dfccb63d0aa6a8c">More...</a><br /></td></tr>
 <tr class="separator:a3ed913e9c0c680090dfccb63d0aa6a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -117,6 +120,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Default Constructor initialises the chunk of gas to have zero mass. </p>
+
 </div>
 </div>
 <a id="a72c22f9017710f7c97af4f727e481bd4"></a>
@@ -134,6 +139,8 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Turns the elements array into the <a class="el" href="classGas.html#a3ed913e9c0c680090dfccb63d0aa6a8c" title="The central mass array. Has ElementCount elements, indexed by ElementID.">Species</a> entity, otherwise does nothing interesting. </p>
 
 </div>
 </div>
@@ -156,10 +163,11 @@ Data Fields</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A default-constructed object, but name is clear that the object is empty </dd></dl>
 
 </div>
 </div>
@@ -177,6 +185,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The current total mass within the <a class="el" href="classGas.html#a3ed913e9c0c680090dfccb63d0aa6a8c" title="The central mass array. Has ElementCount elements, indexed by ElementID.">Species</a> array </dd></dl>
 
 </div>
 </div>
@@ -195,6 +204,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A reference to the indexed member of <a class="el" href="classGas.html#a3ed913e9c0c680090dfccb63d0aa6a8c" title="The central mass array. Has ElementCount elements, indexed by ElementID.">Species</a>, allowing for vector like access </dd></dl>
 
 </div>
 </div>
@@ -213,6 +223,8 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>An annoyingly necessary redeclaration for when the object is const and normal references don't behave nicely. </p>
 
 </div>
 </div>
@@ -235,10 +247,11 @@ Data Fields</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>A gas object of the specified mass but with a primordial elemental abundance distribution (X = 0.75, Y = 0.25 etc) </dd></dl>
 
 </div>
 </div>
@@ -248,14 +261,22 @@ Data Fields</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;double&gt; Gas::Species</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>The central mass array. Has. </p>
+<p>The central mass array. Has <a class="el" href="EnumSets_8h.html#a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e" title="The final entry should always be ElementCount, as the numbering system inherent in enums makes this t...">ElementCount</a> elements, indexed by ElementID. </p>
 
 </div>
 </div>

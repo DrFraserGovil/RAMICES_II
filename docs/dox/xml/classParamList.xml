@@ -15,12 +15,13 @@
         <argsstring></argsstring>
         <name>argPointers</name>
         <briefdescription>
+<para>A list of pointers to member variables of the child classes which want to be initialised against command line / config-file values. Any Argument objects not added to this array will not be initialised! This array should be allocated during the individual subclass constructors. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="15" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" bodystart="13" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="20" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" bodystart="16" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -39,12 +40,13 @@
           <array>[]</array>
         </param>
         <briefdescription>
+<para>Loops over all members of the argPointers array and calls the configuration/command line API on them to initialise the members of the child classes. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="12" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="13" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -57,16 +59,17 @@
           <declname>resourceRoot</declname>
         </param>
         <briefdescription>
+<para>A (hopefully) rarely used function which calls any additional functions which can only be called <emphasis>after</emphasis> the configuration has been run. For most members, this is an empty function. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="13" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" bodystart="13" bodyend="13"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="16" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" bodystart="16" bodyend="16"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>generic superclass structure so that I can heterogenously loop over arrays </para>
+<para>A Generic superclass structure so that I can heterogenously loop over the various members of <ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref> without writing it all out arduously. Also provides a consistent interface with the <ref refid="classJSL_1_1Argument" kindref="compound">JSL::Argument</ref> environment. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -106,7 +109,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="10" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" bodystart="9" bodyend="17"/>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="10" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" bodystart="9" bodyend="22"/>
     <listofallmembers>
       <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>ParamList</scope><name>argPointers</name></member>
       <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>ParamList</scope><name>Configure</name></member>

@@ -3,6 +3,11 @@
 GasReservoir::GasReservoir()
 {
 	Components.resize(ProcessCount);
+	//make sure each stream has its own label correctly
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		Components[i].Source = (ProcessSource)i;
+	}
 }
 
 GasReservoir GasReservoir::Primordial(double mass, GlobalParameters & param)
@@ -75,7 +80,6 @@ void GasReservoir::Deplete(double amountToLose)
 		if (Components[i].Mass() > 0)
 		{
 			double componentContribution =  Components[i].Mass() * contFraction;
-			std::cout << contFraction << "  " << componentContribution << "  " << Components[i].Mass() << std::endl;
 			Components[i].Deplete(componentContribution);
 		}
 	}

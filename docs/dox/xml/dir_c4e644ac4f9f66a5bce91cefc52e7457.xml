@@ -3,7 +3,7 @@
   <compounddef id="dir_c4e644ac4f9f66a5bce91cefc52e7457" kind="dir">
     <compoundname>/home/jack/Documents/Work/RAMICES_II/src/Gas</compoundname>
     <innerfile refid="Gas_8h">Gas.h</innerfile>
-    <innerfile refid="src_2Gas_2GasReservoir_8h">GasReservoir.h</innerfile>
+    <innerfile refid="GasReservoir_8h">GasReservoir.h</innerfile>
     <innerfile refid="GasStream_8h">GasStream.h</innerfile>
     <briefdescription>
     </briefdescription>

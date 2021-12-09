@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Runtime Parameters &#8212; RAMICES_II 0.1 documentation</title>
+    <title>Global Parameters &#8212; RAMICES_II 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -35,7 +35,7 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">RAMICES_II 0.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="params_master.html" accesskey="U">Global &amp; Runtime Parameters</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Runtime Parameters</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Global Parameters</a></li> 
       </ul>
     </div>  
 
@@ -44,22 +44,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="runtime-parameters">
-<h1>Runtime Parameters<a class="headerlink" href="#runtime-parameters" title="Permalink to this headline">¶</a></h1>
+  <section id="global-parameters">
+<h1>Global Parameters<a class="headerlink" href="#global-parameters" title="Permalink to this headline">¶</a></h1>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv416GlobalParameters">
 <span id="_CPPv316GlobalParameters"></span><span id="_CPPv216GlobalParameters"></span><span id="GlobalParameters"></span><span class="target" id="classGlobalParameters"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GlobalParameters</span></span></span><a class="headerlink" href="#_CPPv416GlobalParameters" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>A package of global parameter objects which can be passed around by reference. Most of the internal values are set as JSL::Argument objects and so can be initialised from the command line / config file. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N16GlobalParameters16GlobalParametersEv">
 <span id="_CPPv3N16GlobalParameters16GlobalParametersEv"></span><span id="_CPPv2N16GlobalParameters16GlobalParametersEv"></span><span id="GlobalParameters::GlobalParameters"></span><span class="target" id="classGlobalParameters_1a9dc5211c8317889b10c16daf49f7e916"></span><span class="sig-name descname"><span class="n"><span class="pre">GlobalParameters</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16GlobalParameters16GlobalParametersEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Does absolutely nothing! </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N16GlobalParameters10InitialiseEiA_Pc">
 <span id="_CPPv3N16GlobalParameters10InitialiseEiA_Pc"></span><span id="_CPPv2N16GlobalParameters10InitialiseEiA_Pc"></span><span id="GlobalParameters::Initialise__i.cPA"></span><span class="target" id="classGlobalParameters_1a49a012a4c9a2972a33ae78ef2d500d32"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Initialise</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16GlobalParameters10InitialiseEiA_Pc" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Loops over the ParamMembers and initialises their values according to the <a class="reference internal" href="params_list_super.html#classParamList"><span class="std std-ref">ParamList</span></a> object. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -67,32 +70,38 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N16GlobalParameters4MetaE">
 <span id="_CPPv3N16GlobalParameters4MetaE"></span><span id="_CPPv2N16GlobalParameters4MetaE"></span><span id="GlobalParameters::Meta__MetaValues"></span><span class="target" id="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9"></span><a class="reference internal" href="params_list.html#_CPPv410MetaValues" title="MetaValues"><span class="n"><span class="pre">MetaValues</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Meta</span></span></span><a class="headerlink" href="#_CPPv4N16GlobalParameters4MetaE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Simulation values - timescales, output directories etc. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N16GlobalParameters7ElementE">
 <span id="_CPPv3N16GlobalParameters7ElementE"></span><span id="_CPPv2N16GlobalParameters7ElementE"></span><span id="GlobalParameters::Element__ElementValues"></span><span class="target" id="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668"></span><a class="reference internal" href="params_list.html#_CPPv413ElementValues" title="ElementValues"><span class="n"><span class="pre">ElementValues</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Element</span></span></span><a class="headerlink" href="#_CPPv4N16GlobalParameters7ElementE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Abundance data + resource location data. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N16GlobalParameters7StellarE">
 <span id="_CPPv3N16GlobalParameters7StellarE"></span><span id="_CPPv2N16GlobalParameters7StellarE"></span><span id="GlobalParameters::Stellar__StellarValues"></span><span class="target" id="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778"></span><a class="reference internal" href="params_list.html#_CPPv413StellarValues" title="StellarValues"><span class="n"><span class="pre">StellarValues</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stellar</span></span></span><a class="headerlink" href="#_CPPv4N16GlobalParameters7StellarE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Stellar limits (mass, metallicity) </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N16GlobalParameters7ThermalE">
 <span id="_CPPv3N16GlobalParameters7ThermalE"></span><span id="_CPPv2N16GlobalParameters7ThermalE"></span><span id="GlobalParameters::Thermal__ThermalValues"></span><span class="target" id="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef"></span><a class="reference internal" href="params_list.html#_CPPv413ThermalValues" title="ThermalValues"><span class="n"><span class="pre">ThermalValues</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Thermal</span></span></span><a class="headerlink" href="#_CPPv4N16GlobalParameters7ThermalE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Hot gas cooling/injection parameters. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N16GlobalParameters6GalaxyE">
 <span id="_CPPv3N16GlobalParameters6GalaxyE"></span><span id="_CPPv2N16GlobalParameters6GalaxyE"></span><span id="GlobalParameters::Galaxy__GalaxyValues"></span><span class="target" id="classGlobalParameters_1abe614bae6bfab6d1fbe2b5e9db5adaa3"></span><a class="reference internal" href="params_list.html#_CPPv412GalaxyValues" title="GalaxyValues"><span class="n"><span class="pre">GalaxyValues</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Galaxy</span></span></span><a class="headerlink" href="#_CPPv4N16GlobalParameters6GalaxyE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Galactic size/ evolution parameters. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N16GlobalParameters12ParamMembersE">
 <span id="_CPPv3N16GlobalParameters12ParamMembersE"></span><span id="_CPPv2N16GlobalParameters12ParamMembersE"></span><span id="GlobalParameters::ParamMembers__std::vector:ParamListP:"></span><span class="target" id="classGlobalParameters_1ad5ed3bfeb016b8c1aeb2570b5bdc8385"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="params_list_super.html#_CPPv49ParamList" title="ParamList"><span class="n"><span class="pre">ParamList</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParamMembers</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="o"><span class="pre">&amp;</span></span><a class="reference internal" href="#_CPPv4N16GlobalParameters4MetaE" title="GlobalParameters::Meta"><span class="n"><span class="pre">Meta</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="o"><span class="pre">&amp;</span></span><a class="reference internal" href="#_CPPv4N16GlobalParameters7ElementE" title="GlobalParameters::Element"><span class="n"><span class="pre">Element</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="o"><span class="pre">&amp;</span></span><a class="reference internal" href="#_CPPv4N16GlobalParameters7StellarE" title="GlobalParameters::Stellar"><span class="n"><span class="pre">Stellar</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="o"><span class="pre">&amp;</span></span><a class="reference internal" href="#_CPPv4N16GlobalParameters7ThermalE" title="GlobalParameters::Thermal"><span class="n"><span class="pre">Thermal</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="o"><span class="pre">&amp;</span></span><a class="reference internal" href="#_CPPv4N16GlobalParameters6GalaxyE" title="GlobalParameters::Galaxy"><span class="n"><span class="pre">Galaxy</span></span></a><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N16GlobalParameters12ParamMembersE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>A heterogeneous pointer array, which allows for a nice loop over the members. Any new parameter pack needs to be inserted here so that the member values can be initialised. </p>
+</dd></dl>
 
 </div>
 </dd></dl>
@@ -147,7 +156,7 @@
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">RAMICES_II 0.1 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="params_master.html" >Global &amp; Runtime Parameters</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Runtime Parameters</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Global Parameters</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

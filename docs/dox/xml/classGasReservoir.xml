@@ -2,100 +2,21 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classGasReservoir" kind="class" language="C++" prot="public">
     <compoundname>GasReservoir</compoundname>
-    <includes refid="old__src_2Galaxy_2GasReservoir_8h" local="no">GasReservoir.h</includes>
-      <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="classGasReservoir_1aea626701c1b5e5b89cfb08924216c98e" prot="public" static="no" mutable="no">
-        <type>double</type>
-        <definition>double GasReservoir::Mass</definition>
-        <argsstring></argsstring>
-        <name>Mass</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="9" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" bodystart="9" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classGasReservoir_1a3caa9edbe4b0f806bedc5c4830829c16" prot="public" static="no" mutable="no">
-        <type>double</type>
-        <definition>double GasReservoir::ColdMass</definition>
-        <argsstring></argsstring>
-        <name>ColdMass</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="11" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" bodystart="11" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classGasReservoir_1a17d95c3947fa8f3ee5282d4da722c967" prot="public" static="no" mutable="no">
-        <type>double</type>
-        <definition>double GasReservoir::HotMass</definition>
-        <argsstring></argsstring>
-        <name>HotMass</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="12" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" bodystart="12" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classGasReservoir_1a1d43d0769c764d1e6c17047304258919" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; GasReservoir::ColdChemicals</definition>
-        <argsstring></argsstring>
-        <name>ColdChemicals</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="15" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" bodystart="15" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classGasReservoir_1aa26d57d78b9b163d3b23b68c05bbff1c" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; GasReservoir::HotChemicals</definition>
-        <argsstring></argsstring>
-        <name>HotChemicals</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="16" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" bodystart="16" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
+    <includes refid="GasReservoir_8h" local="no">GasReservoir.h</includes>
       <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="classGasReservoir_1a7b53bcdf142e133760ad226d6c494202" prot="private" static="no" mutable="no">
-        <type>Options *</type>
-        <definition>Options* GasReservoir::Opts</definition>
-        <argsstring></argsstring>
-        <name>Opts</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="38" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" bodystart="38" bodyend="-1"/>
-      </memberdef>
       <memberdef kind="variable" id="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="classGasStream" kindref="compound">GasStream</ref> &gt;</type>
         <definition>std::vector&lt;GasStream&gt; GasReservoir::Components</definition>
         <argsstring></argsstring>
         <name>Components</name>
         <briefdescription>
+<para>A representation of the total amount of gas within the reservoir, separated by the origin of the gas. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="32" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" bodystart="32" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="53" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -105,299 +26,49 @@
         <argsstring>()</argsstring>
         <name>GasReservoir</name>
         <briefdescription>
+<para>Default constructor. Initialises the <ref refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kindref="member">Components</ref> and gives them their <ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref> ID. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="18" column="1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="16" column="1"/>
       </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a05180d21ff08f04f4fd7ea7ba0e1873d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>GasReservoir::GasReservoir</definition>
-        <argsstring>(Options *opts)</argsstring>
-        <name>GasReservoir</name>
+      <memberdef kind="function" id="classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classGasStream" kindref="compound">GasStream</ref> &amp;</type>
+        <definition>GasStream&amp; GasReservoir::operator[]</definition>
+        <argsstring>(SourceProcess source)</argsstring>
+        <name>operator[]</name>
         <param>
-          <type>Options *</type>
-          <declname>opts</declname>
+          <type><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref></type>
+          <declname>source</declname>
         </param>
         <briefdescription>
+<para>A vector-like access overload, allowing indexing into the <ref refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kindref="member">Components</ref> vector using appropriate #SourceProcesses. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="19" column="1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="19" column="12"/>
       </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1ab82144f8aa458efc5f16feb035910d41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>GasReservoir::GasReservoir</definition>
-        <argsstring>(Options *opts, std::vector&lt; double &gt; coldChemicals)</argsstring>
-        <name>GasReservoir</name>
+      <memberdef kind="function" id="classGasReservoir_1a438c98990290d468fd5de4caa476b632" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classGasStream" kindref="compound">GasStream</ref> &amp;</type>
+        <definition>const GasStream&amp; GasReservoir::operator[]</definition>
+        <argsstring>(SourceProcess source) const</argsstring>
+        <name>operator[]</name>
         <param>
-          <type>Options *</type>
-          <declname>opts</declname>
-        </param>
-        <param>
-          <type>std::vector&lt; double &gt;</type>
-          <declname>coldChemicals</declname>
+          <type><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref></type>
+          <declname>source</declname>
         </param>
         <briefdescription>
+<para>An annoyingly necessary redeclaration for when constant references don&apos;t want to play ball. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="20" column="1"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a717e3d4d5f5ffaa7eb7a49716192d4d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>GasReservoir::GasReservoir</definition>
-        <argsstring>(Options *opts, std::vector&lt; double &gt; coldChemicals, std::vector&lt; double &gt; hotChemicals)</argsstring>
-        <name>GasReservoir</name>
-        <param>
-          <type>Options *</type>
-          <declname>opts</declname>
-        </param>
-        <param>
-          <type>std::vector&lt; double &gt;</type>
-          <declname>coldChemicals</declname>
-        </param>
-        <param>
-          <type>std::vector&lt; double &gt;</type>
-          <declname>hotChemicals</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="21" column="1"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a3d2820df4fc12b2ea4d13ce6e02b7c52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void GasReservoir::GiveTo</definition>
-        <argsstring>(GasReservoir *recievingGas, double coldMass, double hotMass)</argsstring>
-        <name>GiveTo</name>
-        <param>
-          <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> *</type>
-          <declname>recievingGas</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>coldMass</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>hotMass</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="23" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a39b0e32cbbb7cec116e20a99d81da6e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void GasReservoir::GiveTo</definition>
-        <argsstring>(GasReservoir *recievingGas, double mixedMass)</argsstring>
-        <name>GiveTo</name>
-        <param>
-          <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> *</type>
-          <declname>recievingGas</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>mixedMass</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="24" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1aed9bd582791da7a8f6b9c7277bb76804" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void GasReservoir::TakeFrom</definition>
-        <argsstring>(GasReservoir *givingGas, double coldMass, double hotMass)</argsstring>
-        <name>TakeFrom</name>
-        <param>
-          <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> *</type>
-          <declname>givingGas</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>coldMass</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>hotMass</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="25" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a3ee1e1213611fab0315ef1cf1d55371b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void GasReservoir::TakeFrom</definition>
-        <argsstring>(GasReservoir *givingGas, double mixedMass)</argsstring>
-        <name>TakeFrom</name>
-        <param>
-          <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> *</type>
-          <declname>givingGas</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>mixedMass</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="26" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a239f8b4171f5612f9516df0c71fba0c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void GasReservoir::Deplete</definition>
-        <argsstring>(double coldMass, double hotMass)</argsstring>
-        <name>Deplete</name>
-        <param>
-          <type>double</type>
-          <declname>coldMass</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>hotMass</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="27" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a1e2dc5a53f77d33b5018f0abeaee10cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void GasReservoir::AddTo</definition>
-        <argsstring>(GasReservoir *acceptor)</argsstring>
-        <name>AddTo</name>
-        <param>
-          <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> *</type>
-          <declname>acceptor</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="28" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a04707bc0aee8ad21cc53bdc5b095614d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void GasReservoir::SubtractFrom</definition>
-        <argsstring>(GasReservoir *loser)</argsstring>
-        <name>SubtractFrom</name>
-        <param>
-          <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> *</type>
-          <declname>loser</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="29" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a0ff726738097ecacea29828bc7ae7d2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void GasReservoir::SetPrimordial</definition>
-        <argsstring>(double mass)</argsstring>
-        <name>SetPrimordial</name>
-        <param>
-          <type>double</type>
-          <declname>mass</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="30" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1aad8ff33ac1d7fd8079043e6f6133e052" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref></type>
-        <definition>GasReservoir GasReservoir::operator+</definition>
-        <argsstring>(const GasReservoir &amp;b)</argsstring>
-        <name>operator+</name>
-        <param>
-          <type>const <ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> &amp;</type>
-          <declname>b</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="32" column="14"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a3d785554838f3130d1fc29c4b69b7586" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref></type>
-        <definition>GasReservoir GasReservoir::operator-</definition>
-        <argsstring>(const GasReservoir &amp;b)</argsstring>
-        <name>operator-</name>
-        <param>
-          <type>const <ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> &amp;</type>
-          <declname>b</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="33" column="14"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a0c5847c1454a9f93054ed94ec89f50df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void GasReservoir::Print</definition>
-        <argsstring>()</argsstring>
-        <name>Print</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="35" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>GasReservoir::GasReservoir</definition>
-        <argsstring>()</argsstring>
-        <name>GasReservoir</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="14" column="1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="22" column="18"/>
       </memberdef>
       <memberdef kind="function" id="classGasReservoir_1a841a10da610c205d4eb8de4e9ab9ce8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -407,10 +78,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>The current total mass of the reservoir, the sum of <ref refid="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9" kindref="member">GasStream::Mass()</ref> calls over the <ref refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kindref="member">Components</ref> vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="16" column="8"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="26" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGasReservoir_1a57f681a7cedc98b43dc9aeca96e8f3cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -420,10 +94,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>The current total cold-gas mass of the reservoir, the sum of <ref refid="classGasStream_1a82682ae8856ff675869cce398a6bbd26" kindref="member">GasStream::ColdMass()</ref> calls over the <ref refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kindref="member">Components</ref> vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="17" column="8"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="29" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGasReservoir_1acf13e9d636ab41d1838548ec08d26f00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -433,10 +110,13 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>The current total hot-gas mass of the reservoir, the sum of <ref refid="classGasStream_1ab030a30e5279402f9c2134110c0f7fb5" kindref="member">GasStream::HotMass()</ref> calls over the <ref refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kindref="member">Components</ref> vector. </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="18" column="8"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="32" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGasReservoir_1a5a6aa00a210d88d1469d3fb565d255d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -448,12 +128,23 @@
           <declname>givingGas</declname>
         </param>
         <briefdescription>
+<para>Transfer the contents of the input reservoir and sum them into the reservoir. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>givingGas</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the reservoir which will be summed into the current object (unaltered) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="21" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="35" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGasReservoir_1a2f358644898f78a0e1594de154e53047" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -465,12 +156,23 @@
           <declname>givingGas</declname>
         </param>
         <briefdescription>
+<para>Transfer the contents of the input stream into the element of <ref refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kindref="member">Components</ref> indicated by the input&apos;s <ref refid="classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5" kindref="member">GasStream::Source</ref> flag. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>givingGas</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the stream which is absorbed into the reservoir (unaltered) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="22" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="38" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGasReservoir_1ae2e4fdaa1f6b3f7a335b0948e1af1a9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -482,12 +184,23 @@
           <declname>amountToLose</declname>
         </param>
         <briefdescription>
+<para>Calls <ref refid="classGasStream_1af8e82b7a64f1d8a1af93db0473de284f" kindref="member">GasStream::Deplete(double)</ref> on each element of <ref refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kindref="member">Components</ref>, keeping the relative mass contribution of each component equal. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>amountToLose</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total amount of mass to be lost from the reservoir (shared amongst components) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="24" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="41" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGasReservoir_1a81bf7608a5ca448d267ce0a563786361" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -503,46 +216,31 @@
           <declname>amountToLose_Hot</declname>
         </param>
         <briefdescription>
+<para>Calls <ref refid="classGasStream_1a44ab71ee97b6bf6cb7fba7ce0c861a32" kindref="member">GasStream::Deplete(double, double)</ref> on each element of <ref refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kindref="member">Components</ref>, keeping the relative hot mass and cold mass contribution of each component equal. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>amountToLose_Cold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total amount of cold gas mass to be lost from the reservoir (shared amongst components)</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>amountToLose_Hot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total amount of hot gas mass to be lost from the reservoir (shared amongst components) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="25" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classGasStream" kindref="compound">GasStream</ref> &amp;</type>
-        <definition>GasStream&amp; GasReservoir::operator[]</definition>
-        <argsstring>(SourceProcess source)</argsstring>
-        <name>operator[]</name>
-        <param>
-          <type><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref></type>
-          <declname>source</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="29" column="12"/>
-      </memberdef>
-      <memberdef kind="function" id="classGasReservoir_1a438c98990290d468fd5de4caa476b632" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="classGasStream" kindref="compound">GasStream</ref> &amp;</type>
-        <definition>const GasStream&amp; GasReservoir::operator[]</definition>
-        <argsstring>(SourceProcess source) const</argsstring>
-        <name>operator[]</name>
-        <param>
-          <type><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref></type>
-          <declname>source</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="30" column="18"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="44" column="6"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -560,54 +258,52 @@
           <declname>param</declname>
         </param>
         <briefdescription>
+<para>Generates a primordial gas reservoir of the specified mass <ndash/> only the <ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2" kindref="member">Primordial</ref> component is populated, with the nature of that component determined by several key parameters in <ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref>. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total mass of the new reservoir</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>param</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the global parameter set - required for primordial abundances and hot-gas fractions </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="27" column="21"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="48" column="21"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>A <ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM In practicality, they are a container for a vector of <ref refid="classGasStream" kindref="compound">GasStream</ref> objects + assorted ways for these objects to interact with one another </para>
+<para>A <ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM. In practicality, they are a container for a vector of <ref refid="classGasStream" kindref="compound">GasStream</ref> objects + assorted ways for these objects to interact with one another </para>
     </detaileddescription>
-    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" line="7" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h" bodystart="6" bodyend="39"/>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" line="12" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h" bodystart="11" bodyend="57"/>
     <listofallmembers>
       <member refid="classGasReservoir_1a5a6aa00a210d88d1469d3fb565d255d3" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>Absorb</name></member>
       <member refid="classGasReservoir_1a2f358644898f78a0e1594de154e53047" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>Absorb</name></member>
-      <member refid="classGasReservoir_1a1e2dc5a53f77d33b5018f0abeaee10cd" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>AddTo</name></member>
-      <member refid="classGasReservoir_1a1d43d0769c764d1e6c17047304258919" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>ColdChemicals</name></member>
-      <member refid="classGasReservoir_1a3caa9edbe4b0f806bedc5c4830829c16" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>ColdMass</name></member>
       <member refid="classGasReservoir_1a57f681a7cedc98b43dc9aeca96e8f3cd" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>ColdMass</name></member>
       <member refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" prot="private" virt="non-virtual"><scope>GasReservoir</scope><name>Components</name></member>
-      <member refid="classGasReservoir_1a239f8b4171f5612f9516df0c71fba0c7" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>Deplete</name></member>
       <member refid="classGasReservoir_1ae2e4fdaa1f6b3f7a335b0948e1af1a9e" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>Deplete</name></member>
       <member refid="classGasReservoir_1a81bf7608a5ca448d267ce0a563786361" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>Deplete</name></member>
       <member refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>GasReservoir</name></member>
-      <member refid="classGasReservoir_1a05180d21ff08f04f4fd7ea7ba0e1873d" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>GasReservoir</name></member>
-      <member refid="classGasReservoir_1ab82144f8aa458efc5f16feb035910d41" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>GasReservoir</name></member>
-      <member refid="classGasReservoir_1a717e3d4d5f5ffaa7eb7a49716192d4d0" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>GasReservoir</name></member>
-      <member refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>GasReservoir</name></member>
-      <member refid="classGasReservoir_1a3d2820df4fc12b2ea4d13ce6e02b7c52" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>GiveTo</name></member>
-      <member refid="classGasReservoir_1a39b0e32cbbb7cec116e20a99d81da6e9" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>GiveTo</name></member>
-      <member refid="classGasReservoir_1aa26d57d78b9b163d3b23b68c05bbff1c" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>HotChemicals</name></member>
-      <member refid="classGasReservoir_1a17d95c3947fa8f3ee5282d4da722c967" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>HotMass</name></member>
       <member refid="classGasReservoir_1acf13e9d636ab41d1838548ec08d26f00" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>HotMass</name></member>
-      <member refid="classGasReservoir_1aea626701c1b5e5b89cfb08924216c98e" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>Mass</name></member>
       <member refid="classGasReservoir_1a841a10da610c205d4eb8de4e9ab9ce8c" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>Mass</name></member>
-      <member refid="classGasReservoir_1aad8ff33ac1d7fd8079043e6f6133e052" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>operator+</name></member>
-      <member refid="classGasReservoir_1a3d785554838f3130d1fc29c4b69b7586" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>operator-</name></member>
       <member refid="classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>operator[]</name></member>
       <member refid="classGasReservoir_1a438c98990290d468fd5de4caa476b632" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>operator[]</name></member>
-      <member refid="classGasReservoir_1a7b53bcdf142e133760ad226d6c494202" prot="private" virt="non-virtual"><scope>GasReservoir</scope><name>Opts</name></member>
       <member refid="classGasReservoir_1aa202265472304d22898beb78a4882b8b" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>Primordial</name></member>
-      <member refid="classGasReservoir_1a0c5847c1454a9f93054ed94ec89f50df" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>Print</name></member>
-      <member refid="classGasReservoir_1a0ff726738097ecacea29828bc7ae7d2a" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>SetPrimordial</name></member>
-      <member refid="classGasReservoir_1a04707bc0aee8ad21cc53bdc5b095614d" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>SubtractFrom</name></member>
-      <member refid="classGasReservoir_1aed9bd582791da7a8f6b9c7277bb76804" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>TakeFrom</name></member>
-      <member refid="classGasReservoir_1a3ee1e1213611fab0315ef1cf1d55371b" prot="public" virt="non-virtual"><scope>GasReservoir</scope><name>TakeFrom</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

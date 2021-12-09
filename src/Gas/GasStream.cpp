@@ -51,7 +51,7 @@ void GasStream::Deplete(double amountToLose)
 	}
 	NeedsRecomputing = true;
 }
-void GasStream::StreamIn(const Gas & input, double hotFrac)
+void GasStream::Absorb(const Gas & input, double hotFrac)
 {
 	double coldFrac = (1.0 - hotFrac);
 	for (int i = 0; i < ElementCount; ++i)
@@ -64,13 +64,8 @@ void GasStream::StreamIn(const Gas & input, double hotFrac)
 
 void GasStream::ComputeMasses()
 {
-	internal_ColdMass = 0;
-	internal_HotMass = 0;
-	for (int i = 0; i < ElementCount; ++i)
-	{
-		internal_ColdMass += Cold.Species[i];
-		internal_HotMass += Hot.Species[i];
-	}
+	internal_ColdMass = Cold.Mass();
+	internal_HotMass = Hot.Mass();
 	internal_TotalMass = internal_ColdMass + internal_HotMass;
 	NeedsRecomputing = false;
 }

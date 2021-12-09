@@ -46,6 +46,7 @@
             
   <section id="parameter-lists">
 <h1>Parameter Lists<a class="headerlink" href="#parameter-lists" title="Permalink to this headline">¶</a></h1>
+<p>The GlobalParameters object contains a bunch of subclasses of the ParamList object, which are separated only for human readability.</p>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv410MetaValues">
 <span id="_CPPv310MetaValues"></span><span id="_CPPv210MetaValues"></span><span id="MetaValues"></span><span class="target" id="classMetaValues"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MetaValues</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="params_list_super.html#_CPPv49ParamList" title="ParamList"><span class="n"><span class="pre">ParamList</span></span></a><a class="headerlink" href="#_CPPv410MetaValues" title="Permalink to this definition">¶</a><br /></dt>
@@ -55,7 +56,8 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N10MetaValues10MetaValuesEv">
 <span id="_CPPv3N10MetaValues10MetaValuesEv"></span><span id="_CPPv2N10MetaValues10MetaValuesEv"></span><span id="MetaValues::MetaValues"></span><span class="target" id="classMetaValues_1a8766aac9dd6865deee6647ab0a6d7ef4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MetaValues</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N10MetaValues10MetaValuesEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Boring constructor  slots in the relevant arguments into the ParamList::argPointer array. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -96,12 +98,13 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv413ElementValues">
 <span id="_CPPv313ElementValues"></span><span id="_CPPv213ElementValues"></span><span id="ElementValues"></span><span class="target" id="classElementValues"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ElementValues</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="params_list_super.html#_CPPv49ParamList" title="ParamList"><span class="n"><span class="pre">ParamList</span></span></a><a class="headerlink" href="#_CPPv413ElementValues" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>The elemental suboptions contains variables and data associated with the solar abundances (and where to locate them), and how to extract and extrapolate the yield data from files. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp enum">
 <dt class="sig sig-object cpp" id="_CPPv4N13ElementValues9SourceIDsE">
 <span id="_CPPv3N13ElementValues9SourceIDsE"></span><span id="_CPPv2N13ElementValues9SourceIDsE"></span><span class="target" id="classElementValues_1a817b2576427ffe893ad83162f5111a0b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SourceIDs</span></span></span><a class="headerlink" href="#_CPPv4N13ElementValues9SourceIDsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Enums to identify different elemental yield sources. </p>
+<dd><p>Enums to identify the theoretical basis for different yield tables. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N13ElementValues9SourceIDs5OrfeoE">
@@ -136,17 +139,20 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N13ElementValues13ElementValuesEv">
 <span id="_CPPv3N13ElementValues13ElementValuesEv"></span><span id="_CPPv2N13ElementValues13ElementValuesEv"></span><span id="ElementValues::ElementValues"></span><span class="target" id="classElementValues_1a5adc37ca7878e4a47493a9e18743d464"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ElementValues</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13ElementValues13ElementValuesEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Boring constructor  slots in the relevant arguments into the ParamList::argPointer array. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N13ElementValues10InitialiseENSt6stringE">
 <span id="_CPPv3N13ElementValues10InitialiseENSt6stringE"></span><span id="_CPPv2N13ElementValues10InitialiseENSt6stringE"></span><span id="ElementValues::Initialise__ss"></span><span class="target" id="classElementValues_1a76dc3cddb13b0673840cabf96b3bbe87"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Initialise</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">resourceRoot</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13ElementValues10InitialiseENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>An overload of a normally empty function. Loads in the values fo the solar abundance data file into the SolarAbundances vector. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N13ElementValues17GiveElementsNamesEv">
 <span id="_CPPv3N13ElementValues17GiveElementsNamesEv"></span><span id="_CPPv2N13ElementValues17GiveElementsNamesEv"></span><span id="ElementValues::GiveElementsNames"></span><span class="target" id="classElementValues_1a7ffa1bc21d1b35c4dae9959a12d5e221"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GiveElementsNames</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13ElementValues17GiveElementsNamesEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>A fairly dumbly-written function which sorts the elemental symbols in ElementNames into the order specified by the global id-enum. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -187,12 +193,14 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv413StellarValues">
 <span id="_CPPv313StellarValues"></span><span id="_CPPv213StellarValues"></span><span id="StellarValues"></span><span class="target" id="classStellarValues"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">StellarValues</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="params_list_super.html#_CPPv49ParamList" title="ParamList"><span class="n"><span class="pre">ParamList</span></span></a><a class="headerlink" href="#_CPPv413StellarValues" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>The subset of values associated with stars + their remnants. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N13StellarValues13StellarValuesEv">
 <span id="_CPPv3N13StellarValues13StellarValuesEv"></span><span id="_CPPv2N13StellarValues13StellarValuesEv"></span><span id="StellarValues::StellarValues"></span><span class="target" id="classStellarValues_1aae44507bd5653641e14b3a4e6a880dcc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">StellarValues</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13StellarValues13StellarValuesEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Boring constructor  slots in the relevant arguments into the ParamList::argPointer array. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -200,42 +208,50 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N13StellarValues14MaxStellarMassE">
 <span id="_CPPv3N13StellarValues14MaxStellarMassE"></span><span id="_CPPv2N13StellarValues14MaxStellarMassE"></span><span id="StellarValues::MaxStellarMass__Argument:double:"></span><span class="target" id="classStellarValues_1ad87b9db57efd7c785e2e7009e3f6c8c8"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MaxStellarMass</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">100</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-max-mass&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13StellarValues14MaxStellarMassE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Minimum stellar mass that IMF can generate. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N13StellarValues14MinStellarMassE">
 <span id="_CPPv3N13StellarValues14MinStellarMassE"></span><span id="_CPPv2N13StellarValues14MinStellarMassE"></span><span id="StellarValues::MinStellarMass__Argument:double:"></span><span class="target" id="classStellarValues_1aebf3fb39167a9719618d7bf381543171"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MinStellarMass</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.5</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-min-mass&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13StellarValues14MinStellarMassE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Maxmimum stellar mass that IMF can generate. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N13StellarValues4MinZE">
 <span id="_CPPv3N13StellarValues4MinZE"></span><span id="_CPPv2N13StellarValues4MinZE"></span><span id="StellarValues::MinZ__Argument:double:"></span><span class="target" id="classStellarValues_1ab575d1540bc306e4d295806b86712502"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MinZ</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">1e-7</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-min-z&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13StellarValues4MinZE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Minimum Z that the ILM(??) can consider. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N13StellarValues4MaxZE">
 <span id="_CPPv3N13StellarValues4MaxZE"></span><span id="_CPPv2N13StellarValues4MaxZE"></span><span id="StellarValues::MaxZ__Argument:double:"></span><span class="target" id="classStellarValues_1ae337595f7ddf523dd01e07fc95ed719b"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MaxZ</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.052</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-max-z&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13StellarValues4MaxZE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Maximum Z that the ILM(??) can consider. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N13StellarValues16EjectionFractionE">
 <span id="_CPPv3N13StellarValues16EjectionFractionE"></span><span id="_CPPv2N13StellarValues16EjectionFractionE"></span><span id="StellarValues::EjectionFraction__Argument:double:"></span><span class="target" id="classStellarValues_1aadc9b602660ad5cea7a6266bfcdc2a62"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">EjectionFraction</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.45</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;eject&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13StellarValues16EjectionFractionE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N13StellarValues12SNIaFractionE">
-<span id="_CPPv3N13StellarValues12SNIaFractionE"></span><span id="_CPPv2N13StellarValues12SNIaFractionE"></span><span id="StellarValues::SNIaFraction__Argument:double:"></span><span class="target" id="classStellarValues_1a6f4290b1dbd5032297414ada54703379"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SNIaFraction</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.05</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-sn1a-frac&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13StellarValues12SNIaFractionE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N13StellarValues11NSMFractionE">
-<span id="_CPPv3N13StellarValues11NSMFractionE"></span><span id="_CPPv2N13StellarValues11NSMFractionE"></span><span id="StellarValues::NSMFraction__Argument:double:"></span><span class="target" id="classStellarValues_1ad49ac36512a6b86cd4a61647baf315f4"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NSMFraction</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.0001</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-nsm-frac&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13StellarValues11NSMFractionE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The fraction of supernovae ejecta which is thrown into the IGM. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N13StellarValues14FeedbackFactorE">
 <span id="_CPPv3N13StellarValues14FeedbackFactorE"></span><span id="_CPPv2N13StellarValues14FeedbackFactorE"></span><span id="StellarValues::FeedbackFactor__Argument:double:"></span><span class="target" id="classStellarValues_1a69d9a1255ae9b0895009d14879567957"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FeedbackFactor</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.4</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-mass-load&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13StellarValues14FeedbackFactorE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13StellarValues12SNIaFractionE">
+<span id="_CPPv3N13StellarValues12SNIaFractionE"></span><span id="_CPPv2N13StellarValues12SNIaFractionE"></span><span id="StellarValues::SNIaFraction__Argument:double:"></span><span class="target" id="classStellarValues_1a6f4290b1dbd5032297414ada54703379"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SNIaFraction</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.05</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-sn1a-frac&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13StellarValues12SNIaFractionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The fraction of white dwarfs which go SNIa. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13StellarValues11NSMFractionE">
+<span id="_CPPv3N13StellarValues11NSMFractionE"></span><span id="_CPPv2N13StellarValues11NSMFractionE"></span><span id="StellarValues::NSMFraction__Argument:double:"></span><span class="target" id="classStellarValues_1ad49ac36512a6b86cd4a61647baf315f4"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NSMFraction</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.0001</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-nsm-frac&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13StellarValues11NSMFractionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The fraction of neutron stars which go NSM. </p>
+</dd></dl>
 
 </div>
 </dd></dl>
@@ -243,12 +259,14 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv413ThermalValues">
 <span id="_CPPv313ThermalValues"></span><span id="_CPPv213ThermalValues"></span><span id="ThermalValues"></span><span class="target" id="classThermalValues"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ThermalValues</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="params_list_super.html#_CPPv49ParamList" title="ParamList"><span class="n"><span class="pre">ParamList</span></span></a><a class="headerlink" href="#_CPPv413ThermalValues" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>Thermal suboptions contain variables which deal with the thermal subroutines - cooling timescales injection fractions etc. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N13ThermalValues13ThermalValuesEv">
 <span id="_CPPv3N13ThermalValues13ThermalValuesEv"></span><span id="_CPPv2N13ThermalValues13ThermalValuesEv"></span><span id="ThermalValues::ThermalValues"></span><span class="target" id="classThermalValues_1a49141fdedc915346bdfa0a7a3f974310"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ThermalValues</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13ThermalValues13ThermalValuesEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Boring constructor  slots in the relevant arguments into the ParamList::argPointer array. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -256,22 +274,26 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N13ThermalValues17HotInjection_CCSNE">
 <span id="_CPPv3N13ThermalValues17HotInjection_CCSNE"></span><span id="_CPPv2N13ThermalValues17HotInjection_CCSNE"></span><span id="ThermalValues::HotInjection_CCSN__Argument:double:"></span><span class="target" id="classThermalValues_1a225d63d98c19be0b7cdabf2464e223b3"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HotInjection_CCSN</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.7</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-fh-ccsn&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13ThermalValues17HotInjection_CCSNE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Fraction of CCSN ejecta which is put into the hot phase. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N13ThermalValues16HotInjection_NSME">
 <span id="_CPPv3N13ThermalValues16HotInjection_NSME"></span><span id="_CPPv2N13ThermalValues16HotInjection_NSME"></span><span id="ThermalValues::HotInjection_NSM__Argument:double:"></span><span class="target" id="classThermalValues_1a0faba77dff54e82e0f3743295a45cdee"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HotInjection_NSM</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.4</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-fh-nsm&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13ThermalValues16HotInjection_NSME" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Fraction of NSM ejecta which is put into the hot phase. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N13ThermalValues17HotInjection_SNIaE">
 <span id="_CPPv3N13ThermalValues17HotInjection_SNIaE"></span><span id="_CPPv2N13ThermalValues17HotInjection_SNIaE"></span><span id="ThermalValues::HotInjection_SNIa__Argument:double:"></span><span class="target" id="classThermalValues_1ab6d948b7790af5931b26440ca3ad7423"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HotInjection_SNIa</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.99</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-fh-sn1a&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13ThermalValues17HotInjection_SNIaE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Fraction of SNIa ejecta which is put into the hot phase. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N13ThermalValues19GasCoolingTimeScaleE">
 <span id="_CPPv3N13ThermalValues19GasCoolingTimeScaleE"></span><span id="_CPPv2N13ThermalValues19GasCoolingTimeScaleE"></span><span id="ThermalValues::GasCoolingTimeScale__Argument:double:"></span><span class="target" id="classThermalValues_1a2227511e41c87c5e71dec0ee9d13aec7"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GasCoolingTimeScale</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">1.0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;cool&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N13ThermalValues19GasCoolingTimeScaleE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The exponential timescale over which the hot gas cools into the cold gas. </p>
+</dd></dl>
 
 </div>
 </dd></dl>
@@ -279,12 +301,14 @@
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv412GalaxyValues">
 <span id="_CPPv312GalaxyValues"></span><span id="_CPPv212GalaxyValues"></span><span id="GalaxyValues"></span><span class="target" id="classGalaxyValues"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GalaxyValues</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="params_list_super.html#_CPPv49ParamList" title="ParamList"><span class="n"><span class="pre">ParamList</span></span></a><a class="headerlink" href="#_CPPv412GalaxyValues" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef docutils container">
+<dd><p>The galaxy suboptions contians variables associated with the galaxy as a whole, such as the maximum radius, and various mass/infall properties. </p>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues12GalaxyValuesEv">
 <span id="_CPPv3N12GalaxyValues12GalaxyValuesEv"></span><span id="_CPPv2N12GalaxyValues12GalaxyValuesEv"></span><span id="GalaxyValues::GalaxyValues"></span><span class="target" id="classGalaxyValues_1a21533ba013a6f9a5b1df16191c7e93d2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GalaxyValues</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12GalaxyValues12GalaxyValuesEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Boring constructor  slots in the relevant arguments into the ParamList::argPointer array. </p>
+</dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -292,77 +316,92 @@
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues6NRingsE">
 <span id="_CPPv3N12GalaxyValues6NRingsE"></span><span id="_CPPv2N12GalaxyValues6NRingsE"></span><span id="GalaxyValues::NRings__Argument:i:"></span><span class="target" id="classGalaxyValues_1a5a0435dd3b41af00845239640082ad53"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NRings</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">100</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;rings&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues6NRingsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues14PrimordialMassE">
-<span id="_CPPv3N12GalaxyValues14PrimordialMassE"></span><span id="_CPPv2N12GalaxyValues14PrimordialMassE"></span><span id="GalaxyValues::PrimordialMass__Argument:double:"></span><span class="target" id="classGalaxyValues_1a0b8bb4de49945b5bf21c44c46750482b"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PrimordialMass</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">1.8</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;M0&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues14PrimordialMassE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues21PrimordialHotFractionE">
-<span id="_CPPv3N12GalaxyValues21PrimordialHotFractionE"></span><span id="_CPPv2N12GalaxyValues21PrimordialHotFractionE"></span><span id="GalaxyValues::PrimordialHotFraction__Argument:double:"></span><span class="target" id="classGalaxyValues_1ae72dee5f4f6eb8c1c4573b5caa6d82af"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PrimordialHotFraction</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-primordial-hot&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues21PrimordialHotFractionE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The number of annuli into which the galaxy is split. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues9MaxRadiusE">
 <span id="_CPPv3N12GalaxyValues9MaxRadiusE"></span><span id="_CPPv2N12GalaxyValues9MaxRadiusE"></span><span id="GalaxyValues::MaxRadius__Argument:double:"></span><span class="target" id="classGalaxyValues_1aa4a085809db57a041180774df21e4938"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MaxRadius</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">20.0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;radius&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues9MaxRadiusE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The cutoff radius of the galaxy. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues14PrimordialMassE">
+<span id="_CPPv3N12GalaxyValues14PrimordialMassE"></span><span id="_CPPv2N12GalaxyValues14PrimordialMassE"></span><span id="GalaxyValues::PrimordialMass__Argument:double:"></span><span class="target" id="classGalaxyValues_1a0b8bb4de49945b5bf21c44c46750482b"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PrimordialMass</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">1.8</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;M0&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues14PrimordialMassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initial in-situ mass of the galaxy (assumed to be 100% gas) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues21PrimordialHotFractionE">
+<span id="_CPPv3N12GalaxyValues21PrimordialHotFractionE"></span><span id="_CPPv2N12GalaxyValues21PrimordialHotFractionE"></span><span id="GalaxyValues::PrimordialHotFraction__Argument:double:"></span><span class="target" id="classGalaxyValues_1ae72dee5f4f6eb8c1c4573b5caa6d82af"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PrimordialHotFraction</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-primordial-hot&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues21PrimordialHotFractionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Fraction of primordial gas which is hot. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues14MinScaleLengthE">
 <span id="_CPPv3N12GalaxyValues14MinScaleLengthE"></span><span id="_CPPv2N12GalaxyValues14MinScaleLengthE"></span><span id="GalaxyValues::MinScaleLength__Argument:double:"></span><span class="target" id="classGalaxyValues_1a239f649cbcecf52fbe441aabe2575d5b"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MinScaleLength</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">1.75</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-scale-length-min&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues14MinScaleLengthE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The initial exponential scale length of the galaxy. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues14MaxScaleLengthE">
 <span id="_CPPv3N12GalaxyValues14MaxScaleLengthE"></span><span id="_CPPv2N12GalaxyValues14MaxScaleLengthE"></span><span id="GalaxyValues::MaxScaleLength__Argument:double:"></span><span class="target" id="classGalaxyValues_1a1eadee2260b53785ed45e4fc1adefa1b"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MaxScaleLength</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">3.75</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-scale-length-max&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues14MaxScaleLengthE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The exponential scale length that the galaxy achieves at ScaleLengthFinalTime. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues16ScaleLengthDelayE">
 <span id="_CPPv3N12GalaxyValues16ScaleLengthDelayE"></span><span id="_CPPv2N12GalaxyValues16ScaleLengthDelayE"></span><span id="GalaxyValues::ScaleLengthDelay__Argument:double:"></span><span class="target" id="classGalaxyValues_1af6825df7eafbc2a2394beeb674f63c14"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ScaleLengthDelay</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">1.0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-scale-length-delay&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues16ScaleLengthDelayE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The delay time before the scale length begins to grow. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues20ScaleLengthTimeScaleE">
 <span id="_CPPv3N12GalaxyValues20ScaleLengthTimeScaleE"></span><span id="_CPPv2N12GalaxyValues20ScaleLengthTimeScaleE"></span><span id="GalaxyValues::ScaleLengthTimeScale__Argument:double:"></span><span class="target" id="classGalaxyValues_1ad737d3b239e948f2b9f59a1ba18e298d"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ScaleLengthTimeScale</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">2.0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-scale-length-time&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues20ScaleLengthTimeScaleE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The speed with which the scale length grows. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues20ScaleLengthFinalTimeE">
 <span id="_CPPv3N12GalaxyValues20ScaleLengthFinalTimeE"></span><span id="_CPPv2N12GalaxyValues20ScaleLengthFinalTimeE"></span><span id="GalaxyValues::ScaleLengthFinalTime__Argument:double:"></span><span class="target" id="classGalaxyValues_1a79f49f1cfb772db8fbe0b6b2a36c532d"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ScaleLengthFinalTime</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">12.0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-scale-length-final&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues20ScaleLengthFinalTimeE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The time at which the scale length stops growing at becomes fixed. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues11InfallMass1E">
 <span id="_CPPv3N12GalaxyValues11InfallMass1E"></span><span id="_CPPv2N12GalaxyValues11InfallMass1E"></span><span id="GalaxyValues::InfallMass1__Argument:double:"></span><span class="target" id="classGalaxyValues_1a684319d15ecbdd2434fd30de9e49236d"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InfallMass1</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">4.5</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;M1&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues11InfallMass1E" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The mass of the first (fast) exponential infall. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues11InfallMass2E">
 <span id="_CPPv3N12GalaxyValues11InfallMass2E"></span><span id="_CPPv2N12GalaxyValues11InfallMass2E"></span><span id="GalaxyValues::InfallMass2__Argument:double:"></span><span class="target" id="classGalaxyValues_1af9f7596b0a1d23af97619a0b3e8be305"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InfallMass2</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">45</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;M2&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues11InfallMass2E" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The mass of the second (slow) exponential infall. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues11InfallTime1E">
 <span id="_CPPv3N12GalaxyValues11InfallTime1E"></span><span id="_CPPv2N12GalaxyValues11InfallTime1E"></span><span id="GalaxyValues::InfallTime1__Argument:double:"></span><span class="target" id="classGalaxyValues_1a70b8b11bafce6aed3fb78751e5d955e6"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InfallTime1</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;b1&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues11InfallTime1E" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The exponential timescale for the first (fast) exponential infall. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues11InfallTime2E">
 <span id="_CPPv3N12GalaxyValues11InfallTime2E"></span><span id="_CPPv2N12GalaxyValues11InfallTime2E"></span><span id="GalaxyValues::InfallTime2__Argument:double:"></span><span class="target" id="classGalaxyValues_1a21c48e7fba737968ac3e64beb83d46ea"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InfallTime2</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">14.0</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;b2&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues11InfallTime2E" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>The exponential timescale for the second (slow) exponential infall. </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues16InflowParameterAE">
 <span id="_CPPv3N12GalaxyValues16InflowParameterAE"></span><span id="_CPPv2N12GalaxyValues16InflowParameterAE"></span><span id="GalaxyValues::InflowParameterA__Argument:double:"></span><span class="target" id="classGalaxyValues_1a01c4dcc116ec4bf4214e8194e29f3f9b"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InflowParameterA</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.33</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-inflow-a&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues16InflowParameterAE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>A parameter to do with the inflow weighting scheme (icky) </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues16InflowParameterBE">
 <span id="_CPPv3N12GalaxyValues16InflowParameterBE"></span><span id="_CPPv2N12GalaxyValues16InflowParameterBE"></span><span id="GalaxyValues::InflowParameterB__Argument:double:"></span><span class="target" id="classGalaxyValues_1a1a4150d770c9723ec34ac23fefb012b4"></span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InflowParameterB</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Argument</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">(</span></span><span class="m"><span class="pre">0.53</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><s><span class="pre">&quot;-inflow-b&quot;</span></s><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv4N12GalaxyValues16InflowParameterBE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>A parameter to do with the inflow weighting scheme (icky) </p>
+</dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N12GalaxyValues14MaxSFRFractionE">

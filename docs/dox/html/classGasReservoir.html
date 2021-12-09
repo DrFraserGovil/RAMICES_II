@@ -65,49 +65,25 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Data Fields</a> &#124;
 <a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">GasReservoir Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="old__src_2Galaxy_2GasReservoir_8h_source.html">GasReservoir.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="GasReservoir_8h_source.html">GasReservoir.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af461f3f039a67daecb68c26f2fd6149f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#af461f3f039a67daecb68c26f2fd6149f">GasReservoir</a> ()</td></tr>
+<tr class="memdesc:af461f3f039a67daecb68c26f2fd6149f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. Initialises the <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> and gives them their <a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b" title="Defines a globally recognised set of aliases for sources of gas, used to label GasStream objects.">SourceProcess</a> ID.  <a href="classGasReservoir.html#af461f3f039a67daecb68c26f2fd6149f">More...</a><br /></td></tr>
 <tr class="separator:af461f3f039a67daecb68c26f2fd6149f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05180d21ff08f04f4fd7ea7ba0e1873d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a05180d21ff08f04f4fd7ea7ba0e1873d">GasReservoir</a> (Options *opts)</td></tr>
-<tr class="separator:a05180d21ff08f04f4fd7ea7ba0e1873d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab82144f8aa458efc5f16feb035910d41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#ab82144f8aa458efc5f16feb035910d41">GasReservoir</a> (Options *opts, std::vector&lt; double &gt; coldChemicals)</td></tr>
-<tr class="separator:ab82144f8aa458efc5f16feb035910d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a717e3d4d5f5ffaa7eb7a49716192d4d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a717e3d4d5f5ffaa7eb7a49716192d4d0">GasReservoir</a> (Options *opts, std::vector&lt; double &gt; coldChemicals, std::vector&lt; double &gt; hotChemicals)</td></tr>
-<tr class="separator:a717e3d4d5f5ffaa7eb7a49716192d4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d2820df4fc12b2ea4d13ce6e02b7c52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a3d2820df4fc12b2ea4d13ce6e02b7c52">GiveTo</a> (<a class="el" href="classGasReservoir.html">GasReservoir</a> *recievingGas, double coldMass, double hotMass)</td></tr>
-<tr class="separator:a3d2820df4fc12b2ea4d13ce6e02b7c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39b0e32cbbb7cec116e20a99d81da6e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a39b0e32cbbb7cec116e20a99d81da6e9">GiveTo</a> (<a class="el" href="classGasReservoir.html">GasReservoir</a> *recievingGas, double mixedMass)</td></tr>
-<tr class="separator:a39b0e32cbbb7cec116e20a99d81da6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed9bd582791da7a8f6b9c7277bb76804"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#aed9bd582791da7a8f6b9c7277bb76804">TakeFrom</a> (<a class="el" href="classGasReservoir.html">GasReservoir</a> *givingGas, double coldMass, double hotMass)</td></tr>
-<tr class="separator:aed9bd582791da7a8f6b9c7277bb76804"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ee1e1213611fab0315ef1cf1d55371b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a3ee1e1213611fab0315ef1cf1d55371b">TakeFrom</a> (<a class="el" href="classGasReservoir.html">GasReservoir</a> *givingGas, double mixedMass)</td></tr>
-<tr class="separator:a3ee1e1213611fab0315ef1cf1d55371b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a239f8b4171f5612f9516df0c71fba0c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a239f8b4171f5612f9516df0c71fba0c7">Deplete</a> (double coldMass, double hotMass)</td></tr>
-<tr class="separator:a239f8b4171f5612f9516df0c71fba0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e2dc5a53f77d33b5018f0abeaee10cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a1e2dc5a53f77d33b5018f0abeaee10cd">AddTo</a> (<a class="el" href="classGasReservoir.html">GasReservoir</a> *acceptor)</td></tr>
-<tr class="separator:a1e2dc5a53f77d33b5018f0abeaee10cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04707bc0aee8ad21cc53bdc5b095614d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a04707bc0aee8ad21cc53bdc5b095614d">SubtractFrom</a> (<a class="el" href="classGasReservoir.html">GasReservoir</a> *loser)</td></tr>
-<tr class="separator:a04707bc0aee8ad21cc53bdc5b095614d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ff726738097ecacea29828bc7ae7d2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a0ff726738097ecacea29828bc7ae7d2a">SetPrimordial</a> (double mass)</td></tr>
-<tr class="separator:a0ff726738097ecacea29828bc7ae7d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad8ff33ac1d7fd8079043e6f6133e052"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGasReservoir.html">GasReservoir</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#aad8ff33ac1d7fd8079043e6f6133e052">operator+</a> (const <a class="el" href="classGasReservoir.html">GasReservoir</a> &amp;b)</td></tr>
-<tr class="separator:aad8ff33ac1d7fd8079043e6f6133e052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d785554838f3130d1fc29c4b69b7586"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGasReservoir.html">GasReservoir</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a3d785554838f3130d1fc29c4b69b7586">operator-</a> (const <a class="el" href="classGasReservoir.html">GasReservoir</a> &amp;b)</td></tr>
-<tr class="separator:a3d785554838f3130d1fc29c4b69b7586"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c5847c1454a9f93054ed94ec89f50df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a0c5847c1454a9f93054ed94ec89f50df">Print</a> ()</td></tr>
-<tr class="separator:a0c5847c1454a9f93054ed94ec89f50df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af461f3f039a67daecb68c26f2fd6149f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#af461f3f039a67daecb68c26f2fd6149f">GasReservoir</a> ()</td></tr>
-<tr class="separator:af461f3f039a67daecb68c26f2fd6149f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae082c5254cca8d39c72e90ffa6784645"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGasStream.html">GasStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#ae082c5254cca8d39c72e90ffa6784645">operator[]</a> (<a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b">SourceProcess</a> source)</td></tr>
+<tr class="memdesc:ae082c5254cca8d39c72e90ffa6784645"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector-like access overload, allowing indexing into the <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> vector using appropriate #SourceProcesses.  <a href="classGasReservoir.html#ae082c5254cca8d39c72e90ffa6784645">More...</a><br /></td></tr>
+<tr class="separator:ae082c5254cca8d39c72e90ffa6784645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a438c98990290d468fd5de4caa476b632"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classGasStream.html">GasStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a438c98990290d468fd5de4caa476b632">operator[]</a> (<a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b">SourceProcess</a> source) const</td></tr>
+<tr class="memdesc:a438c98990290d468fd5de4caa476b632"><td class="mdescLeft">&#160;</td><td class="mdescRight">An annoyingly necessary redeclaration for when constant references don't want to play ball.  <a href="classGasReservoir.html#a438c98990290d468fd5de4caa476b632">More...</a><br /></td></tr>
+<tr class="separator:a438c98990290d468fd5de4caa476b632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a841a10da610c205d4eb8de4e9ab9ce8c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a841a10da610c205d4eb8de4e9ab9ce8c">Mass</a> ()</td></tr>
 <tr class="separator:a841a10da610c205d4eb8de4e9ab9ce8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57f681a7cedc98b43dc9aeca96e8f3cd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a57f681a7cedc98b43dc9aeca96e8f3cd">ColdMass</a> ()</td></tr>
@@ -115,48 +91,35 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acf13e9d636ab41d1838548ec08d26f00"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#acf13e9d636ab41d1838548ec08d26f00">HotMass</a> ()</td></tr>
 <tr class="separator:acf13e9d636ab41d1838548ec08d26f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a6aa00a210d88d1469d3fb565d255d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a5a6aa00a210d88d1469d3fb565d255d3">Absorb</a> (const <a class="el" href="classGasReservoir.html">GasReservoir</a> &amp;givingGas)</td></tr>
+<tr class="memdesc:a5a6aa00a210d88d1469d3fb565d255d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer the contents of the input reservoir and sum them into the reservoir.  <a href="classGasReservoir.html#a5a6aa00a210d88d1469d3fb565d255d3">More...</a><br /></td></tr>
 <tr class="separator:a5a6aa00a210d88d1469d3fb565d255d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f358644898f78a0e1594de154e53047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a2f358644898f78a0e1594de154e53047">Absorb</a> (const <a class="el" href="classGasStream.html">GasStream</a> &amp;givingGas)</td></tr>
+<tr class="memdesc:a2f358644898f78a0e1594de154e53047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer the contents of the input stream into the element of <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> indicated by the input's <a class="el" href="classGasStream.html#a1ff8e94b9aefcfa71119c35a191ff4d5" title="A label identifying where and how this gas stream was created.">GasStream::Source</a> flag.  <a href="classGasReservoir.html#a2f358644898f78a0e1594de154e53047">More...</a><br /></td></tr>
 <tr class="separator:a2f358644898f78a0e1594de154e53047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2e4fdaa1f6b3f7a335b0948e1af1a9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#ae2e4fdaa1f6b3f7a335b0948e1af1a9e">Deplete</a> (double amountToLose)</td></tr>
+<tr class="memdesc:ae2e4fdaa1f6b3f7a335b0948e1af1a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="classGasStream.html#af8e82b7a64f1d8a1af93db0473de284f" title="Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental ab...">GasStream::Deplete(double)</a> on each element of <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a>, keeping the relative mass contribution of each component equal.  <a href="classGasReservoir.html#ae2e4fdaa1f6b3f7a335b0948e1af1a9e">More...</a><br /></td></tr>
 <tr class="separator:ae2e4fdaa1f6b3f7a335b0948e1af1a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81bf7608a5ca448d267ce0a563786361"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a81bf7608a5ca448d267ce0a563786361">Deplete</a> (double amountToLose_Cold, double amountToLose_Hot)</td></tr>
+<tr class="memdesc:a81bf7608a5ca448d267ce0a563786361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="classGasStream.html#a44ab71ee97b6bf6cb7fba7ce0c861a32" title="Removes (i.e. throws away) the mass from the hot and cold components, keeping the individual elementa...">GasStream::Deplete(double, double)</a> on each element of <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a>, keeping the relative hot mass and cold mass contribution of each component equal.  <a href="classGasReservoir.html#a81bf7608a5ca448d267ce0a563786361">More...</a><br /></td></tr>
 <tr class="separator:a81bf7608a5ca448d267ce0a563786361"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae082c5254cca8d39c72e90ffa6784645"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGasStream.html">GasStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#ae082c5254cca8d39c72e90ffa6784645">operator[]</a> (<a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b">SourceProcess</a> source)</td></tr>
-<tr class="separator:ae082c5254cca8d39c72e90ffa6784645"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a438c98990290d468fd5de4caa476b632"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classGasStream.html">GasStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a438c98990290d468fd5de4caa476b632">operator[]</a> (<a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b">SourceProcess</a> source) const</td></tr>
-<tr class="separator:a438c98990290d468fd5de4caa476b632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa202265472304d22898beb78a4882b8b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classGasReservoir.html">GasReservoir</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#aa202265472304d22898beb78a4882b8b">Primordial</a> (double mass, <a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;param)</td></tr>
+<tr class="memdesc:aa202265472304d22898beb78a4882b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a primordial gas reservoir of the specified mass &ndash; only the <a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2">Primordial</a> component is populated, with the nature of that component determined by several key parameters in <a class="el" href="classGlobalParameters.html" title="A package of global parameter objects which can be passed around by reference. Most of the internal v...">GlobalParameters</a>.  <a href="classGasReservoir.html#aa202265472304d22898beb78a4882b8b">More...</a><br /></td></tr>
 <tr class="separator:aa202265472304d22898beb78a4882b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Data Fields</h2></td></tr>
-<tr class="memitem:aea626701c1b5e5b89cfb08924216c98e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#aea626701c1b5e5b89cfb08924216c98e">Mass</a></td></tr>
-<tr class="separator:aea626701c1b5e5b89cfb08924216c98e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3caa9edbe4b0f806bedc5c4830829c16"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a3caa9edbe4b0f806bedc5c4830829c16">ColdMass</a></td></tr>
-<tr class="separator:a3caa9edbe4b0f806bedc5c4830829c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17d95c3947fa8f3ee5282d4da722c967"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a17d95c3947fa8f3ee5282d4da722c967">HotMass</a></td></tr>
-<tr class="separator:a17d95c3947fa8f3ee5282d4da722c967"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d43d0769c764d1e6c17047304258919"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a1d43d0769c764d1e6c17047304258919">ColdChemicals</a></td></tr>
-<tr class="separator:a1d43d0769c764d1e6c17047304258919"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa26d57d78b9b163d3b23b68c05bbff1c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#aa26d57d78b9b163d3b23b68c05bbff1c">HotChemicals</a></td></tr>
-<tr class="separator:aa26d57d78b9b163d3b23b68c05bbff1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a7b53bcdf142e133760ad226d6c494202"><td class="memItemLeft" align="right" valign="top">Options *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a7b53bcdf142e133760ad226d6c494202">Opts</a></td></tr>
-<tr class="separator:a7b53bcdf142e133760ad226d6c494202"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a605b8cee25a348cc3f2899b5108ba674"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classGasStream.html">GasStream</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674">Components</a></td></tr>
+<tr class="memdesc:a605b8cee25a348cc3f2899b5108ba674"><td class="mdescLeft">&#160;</td><td class="mdescRight">A representation of the total amount of gas within the reservoir, separated by the origin of the gas.  <a href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674">More...</a><br /></td></tr>
 <tr class="separator:a605b8cee25a348cc3f2899b5108ba674"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A <a class="el" href="classGasReservoir.html">GasReservoir</a> is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM In practicality, they are a container for a vector of <a class="el" href="classGasStream.html">GasStream</a> objects + assorted ways for these objects to interact with one another </p>
+<div class="textblock"><p>A <a class="el" href="classGasReservoir.html">GasReservoir</a> is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM. In practicality, they are a container for a vector of <a class="el" href="classGasStream.html">GasStream</a> objects + assorted ways for these objects to interact with one another </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af461f3f039a67daecb68c26f2fd6149f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af461f3f039a67daecb68c26f2fd6149f">&#9670;&nbsp;</a></span>GasReservoir() <span class="overload">[1/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af461f3f039a67daecb68c26f2fd6149f">&#9670;&nbsp;</a></span>GasReservoir()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,102 +133,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a05180d21ff08f04f4fd7ea7ba0e1873d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05180d21ff08f04f4fd7ea7ba0e1873d">&#9670;&nbsp;</a></span>GasReservoir() <span class="overload">[2/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GasReservoir::GasReservoir </td>
-          <td>(</td>
-          <td class="paramtype">Options *&#160;</td>
-          <td class="paramname"><em>opts</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab82144f8aa458efc5f16feb035910d41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab82144f8aa458efc5f16feb035910d41">&#9670;&nbsp;</a></span>GasReservoir() <span class="overload">[3/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GasReservoir::GasReservoir </td>
-          <td>(</td>
-          <td class="paramtype">Options *&#160;</td>
-          <td class="paramname"><em>opts</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
-          <td class="paramname"><em>coldChemicals</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a717e3d4d5f5ffaa7eb7a49716192d4d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a717e3d4d5f5ffaa7eb7a49716192d4d0">&#9670;&nbsp;</a></span>GasReservoir() <span class="overload">[4/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GasReservoir::GasReservoir </td>
-          <td>(</td>
-          <td class="paramtype">Options *&#160;</td>
-          <td class="paramname"><em>opts</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
-          <td class="paramname"><em>coldChemicals</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
-          <td class="paramname"><em>hotChemicals</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af461f3f039a67daecb68c26f2fd6149f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af461f3f039a67daecb68c26f2fd6149f">&#9670;&nbsp;</a></span>GasReservoir() <span class="overload">[5/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GasReservoir::GasReservoir </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Default constructor. Initialises the <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> and gives them their <a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b" title="Defines a globally recognised set of aliases for sources of gas, used to label GasStream objects.">SourceProcess</a> ID. </p>
 
 </div>
 </div>
@@ -286,6 +154,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Transfer the contents of the input reservoir and sum them into the reservoir. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">givingGas</td><td>the reservoir which will be summed into the current object (unaltered) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2f358644898f78a0e1594de154e53047"></a>
@@ -304,23 +180,13 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a1e2dc5a53f77d33b5018f0abeaee10cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e2dc5a53f77d33b5018f0abeaee10cd">&#9670;&nbsp;</a></span>AddTo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GasReservoir::AddTo </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classGasReservoir.html">GasReservoir</a> *&#160;</td>
-          <td class="paramname"><em>acceptor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Transfer the contents of the input stream into the element of <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> indicated by the input's <a class="el" href="classGasStream.html#a1ff8e94b9aefcfa71119c35a191ff4d5" title="A label identifying where and how this gas stream was created.">GasStream::Source</a> flag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">givingGas</td><td>the stream which is absorbed into the reservoir (unaltered) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -338,11 +204,12 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The current total cold-gas mass of the reservoir, the sum of <a class="el" href="classGasStream.html#a82682ae8856ff675869cce398a6bbd26" title="See Mass() for details.">GasStream::ColdMass()</a> calls over the <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> vector. </dd></dl>
 
 </div>
 </div>
 <a id="ae2e4fdaa1f6b3f7a335b0948e1af1a9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2e4fdaa1f6b3f7a335b0948e1af1a9e">&#9670;&nbsp;</a></span>Deplete() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2e4fdaa1f6b3f7a335b0948e1af1a9e">&#9670;&nbsp;</a></span>Deplete() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,10 +224,18 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calls <a class="el" href="classGasStream.html#af8e82b7a64f1d8a1af93db0473de284f" title="Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental ab...">GasStream::Deplete(double)</a> on each element of <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a>, keeping the relative mass contribution of each component equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amountToLose</td><td>The total amount of mass to be lost from the reservoir (shared amongst components) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a81bf7608a5ca448d267ce0a563786361"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81bf7608a5ca448d267ce0a563786361">&#9670;&nbsp;</a></span>Deplete() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a81bf7608a5ca448d267ce0a563786361">&#9670;&nbsp;</a></span>Deplete() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -385,95 +260,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a239f8b4171f5612f9516df0c71fba0c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a239f8b4171f5612f9516df0c71fba0c7">&#9670;&nbsp;</a></span>Deplete() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GasReservoir::Deplete </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>coldMass</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>hotMass</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3d2820df4fc12b2ea4d13ce6e02b7c52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d2820df4fc12b2ea4d13ce6e02b7c52">&#9670;&nbsp;</a></span>GiveTo() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GasReservoir::GiveTo </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classGasReservoir.html">GasReservoir</a> *&#160;</td>
-          <td class="paramname"><em>recievingGas</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>coldMass</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>hotMass</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a39b0e32cbbb7cec116e20a99d81da6e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39b0e32cbbb7cec116e20a99d81da6e9">&#9670;&nbsp;</a></span>GiveTo() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GasReservoir::GiveTo </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classGasReservoir.html">GasReservoir</a> *&#160;</td>
-          <td class="paramname"><em>recievingGas</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>mixedMass</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Calls <a class="el" href="classGasStream.html#a44ab71ee97b6bf6cb7fba7ce0c861a32" title="Removes (i.e. throws away) the mass from the hot and cold components, keeping the individual elementa...">GasStream::Deplete(double, double)</a> on each element of <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a>, keeping the relative hot mass and cold mass contribution of each component equal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amountToLose_Cold</td><td>The total amount of cold gas mass to be lost from the reservoir (shared amongst components)</td></tr>
+    <tr><td class="paramname">amountToLose_Hot</td><td>The total amount of hot gas mass to be lost from the reservoir (shared amongst components) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -491,6 +285,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The current total hot-gas mass of the reservoir, the sum of <a class="el" href="classGasStream.html#ab030a30e5279402f9c2134110c0f7fb5" title="See Mass() for details.">GasStream::HotMass()</a> calls over the <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> vector. </dd></dl>
 
 </div>
 </div>
@@ -508,42 +303,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="aad8ff33ac1d7fd8079043e6f6133e052"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad8ff33ac1d7fd8079043e6f6133e052">&#9670;&nbsp;</a></span>operator+()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classGasReservoir.html">GasReservoir</a> GasReservoir::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classGasReservoir.html">GasReservoir</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3d785554838f3130d1fc29c4b69b7586"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d785554838f3130d1fc29c4b69b7586">&#9670;&nbsp;</a></span>operator-()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classGasReservoir.html">GasReservoir</a> GasReservoir::operator- </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classGasReservoir.html">GasReservoir</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The current total mass of the reservoir, the sum of <a class="el" href="classGasStream.html#a5cdf9a3ce114e3ddb766fbd8e97c40d9" title="This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary,...">GasStream::Mass()</a> calls over the <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> vector. </dd></dl>
 
 </div>
 </div>
@@ -563,6 +323,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A vector-like access overload, allowing indexing into the <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> vector using appropriate #SourceProcesses. </p>
+
 </div>
 </div>
 <a id="a438c98990290d468fd5de4caa476b632"></a>
@@ -580,6 +342,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>An annoyingly necessary redeclaration for when constant references don't want to play ball. </p>
 
 </div>
 </div>
@@ -617,152 +381,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a0c5847c1454a9f93054ed94ec89f50df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c5847c1454a9f93054ed94ec89f50df">&#9670;&nbsp;</a></span>Print()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GasReservoir::Print </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0ff726738097ecacea29828bc7ae7d2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ff726738097ecacea29828bc7ae7d2a">&#9670;&nbsp;</a></span>SetPrimordial()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GasReservoir::SetPrimordial </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>mass</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a04707bc0aee8ad21cc53bdc5b095614d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04707bc0aee8ad21cc53bdc5b095614d">&#9670;&nbsp;</a></span>SubtractFrom()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GasReservoir::SubtractFrom </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classGasReservoir.html">GasReservoir</a> *&#160;</td>
-          <td class="paramname"><em>loser</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aed9bd582791da7a8f6b9c7277bb76804"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed9bd582791da7a8f6b9c7277bb76804">&#9670;&nbsp;</a></span>TakeFrom() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GasReservoir::TakeFrom </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classGasReservoir.html">GasReservoir</a> *&#160;</td>
-          <td class="paramname"><em>givingGas</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>coldMass</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>hotMass</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3ee1e1213611fab0315ef1cf1d55371b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ee1e1213611fab0315ef1cf1d55371b">&#9670;&nbsp;</a></span>TakeFrom() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GasReservoir::TakeFrom </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classGasReservoir.html">GasReservoir</a> *&#160;</td>
-          <td class="paramname"><em>givingGas</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>mixedMass</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Generates a primordial gas reservoir of the specified mass &ndash; only the <a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2">Primordial</a> component is populated, with the nature of that component determined by several key parameters in <a class="el" href="classGlobalParameters.html" title="A package of global parameter objects which can be passed around by reference. Most of the internal v...">GlobalParameters</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mass</td><td>The total mass of the new reservoir</td></tr>
+    <tr><td class="paramname">param</td><td>A reference to the global parameter set - required for primordial abundances and hot-gas fractions </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
-<a id="a1d43d0769c764d1e6c17047304258919"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d43d0769c764d1e6c17047304258919">&#9670;&nbsp;</a></span>ColdChemicals</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;double&gt; GasReservoir::ColdChemicals</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3caa9edbe4b0f806bedc5c4830829c16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3caa9edbe4b0f806bedc5c4830829c16">&#9670;&nbsp;</a></span>ColdMass</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double GasReservoir::ColdMass</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a605b8cee25a348cc3f2899b5108ba674"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a605b8cee25a348cc3f2899b5108ba674">&#9670;&nbsp;</a></span>Components</h2>
 
@@ -783,74 +413,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="aa26d57d78b9b163d3b23b68c05bbff1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa26d57d78b9b163d3b23b68c05bbff1c">&#9670;&nbsp;</a></span>HotChemicals</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;double&gt; GasReservoir::HotChemicals</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a17d95c3947fa8f3ee5282d4da722c967"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17d95c3947fa8f3ee5282d4da722c967">&#9670;&nbsp;</a></span>HotMass</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double GasReservoir::HotMass</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aea626701c1b5e5b89cfb08924216c98e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea626701c1b5e5b89cfb08924216c98e">&#9670;&nbsp;</a></span>Mass</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double GasReservoir::Mass</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7b53bcdf142e133760ad226d6c494202"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b53bcdf142e133760ad226d6c494202">&#9670;&nbsp;</a></span>Opts</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Options* GasReservoir::Opts</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>A representation of the total amount of gas within the reservoir, separated by the origin of the gas. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/<a class="el" href="old__src_2Galaxy_2GasReservoir_8h_source.html">GasReservoir.h</a></li>
+<li>/home/jack/Documents/Work/RAMICES_II/src/Gas/<a class="el" href="GasReservoir_8h_source.html">GasReservoir.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

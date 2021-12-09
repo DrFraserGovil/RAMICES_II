@@ -283,15 +283,29 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="4">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
       <node id="1">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h</label>
         <link refid="Gas_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
+      <node id="5">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
       <node id="3">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
-        <link refid="src_2Gas_2GasReservoir_8h"/>
+        <link refid="GasReservoir_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="classGas" prot="public">Gas</innerclass>
@@ -306,19 +320,26 @@
 <codeline lineno="7" refid="classGas" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGas" kindref="compound">Gas</ref></highlight></codeline>
 <codeline lineno="8"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="11" refid="classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c" kindref="member">Species</ref>;</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGas_1a6506127f6d3c2f0e15e9592c1e0134ea" kindref="member">Gas</ref>();</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGas_1a6506127f6d3c2f0e15e9592c1e0134ea" kindref="member">Gas</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>&amp;<sp/>elements);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGas_1a6506127f6d3c2f0e15e9592c1e0134ea" kindref="member">Gas</ref>();</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGas_1a292ef4704a70acb9aacf7bd10d04f7f3" kindref="member">Mass</ref>();</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGas_1ae68d91b5ab415a0478e7dcf14cfdc7ca" kindref="member">operator[]</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGas_1ae68d91b5ab415a0478e7dcf14cfdc7ca" kindref="member">operator[]</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/><ref refid="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" kindref="member">Empty</ref>();</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/><ref refid="classGas_1a2b2398801ceb8fc5b08b00beab3b4eea" kindref="member">Primordial</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
-<codeline lineno="22"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGas_1a6506127f6d3c2f0e15e9592c1e0134ea" kindref="member">Gas</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>&amp;<sp/>elements);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGas_1a292ef4704a70acb9aacf7bd10d04f7f3" kindref="member">Mass</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGas_1ae68d91b5ab415a0478e7dcf14cfdc7ca" kindref="member">operator[]</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGas_1ae68d91b5ab415a0478e7dcf14cfdc7ca" kindref="member">operator[]</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29" refid="classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c" kindref="member">Species</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/><ref refid="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" kindref="member">Empty</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/><ref refid="classGas_1a2b2398801ceb8fc5b08b00beab3b4eea" kindref="member">Primordial</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h"/>
   </compounddef>

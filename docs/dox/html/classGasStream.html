@@ -77,53 +77,73 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af53972311a6821deda7f211a828f65e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#af53972311a6821deda7f211a828f65e7">GasStream</a> ()</td></tr>
+<tr class="memdesc:af53972311a6821deda7f211a828f65e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor &ndash; assigns itself as <a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a>, with zero mass.  <a href="classGasStream.html#af53972311a6821deda7f211a828f65e7">More...</a><br /></td></tr>
 <tr class="separator:af53972311a6821deda7f211a828f65e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c4c6fe0b3df01b5586cca667eaf11ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a9c4c6fe0b3df01b5586cca667eaf11ca">GasStream</a> (<a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b">SourceProcess</a> source)</td></tr>
+<tr class="memdesc:a9c4c6fe0b3df01b5586cca667eaf11ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives itself zero mass in both components.  <a href="classGasStream.html#a9c4c6fe0b3df01b5586cca667eaf11ca">More...</a><br /></td></tr>
 <tr class="separator:a9c4c6fe0b3df01b5586cca667eaf11ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83de215a9348757ca94bdf5b9d491328"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a83de215a9348757ca94bdf5b9d491328">GasStream</a> (<a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b">SourceProcess</a> source, const <a class="el" href="classGas.html">Gas</a> &amp;hot, const <a class="el" href="classGas.html">Gas</a> &amp;cold)</td></tr>
+<tr class="memdesc:a83de215a9348757ca94bdf5b9d491328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises itself to the correct hot/cold components.  <a href="classGasStream.html#a83de215a9348757ca94bdf5b9d491328">More...</a><br /></td></tr>
 <tr class="separator:a83de215a9348757ca94bdf5b9d491328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07e893367e97b31d50c6b1dd31394c88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a07e893367e97b31d50c6b1dd31394c88">GasStream</a> (<a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b">SourceProcess</a> source, const <a class="el" href="classGas.html">Gas</a> &amp;gas, double hotFraction)</td></tr>
+<tr class="memdesc:a07e893367e97b31d50c6b1dd31394c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a single <a class="el" href="classGas.html">Gas</a> object up into fractions determined by the hot fraction.  <a href="classGasStream.html#a07e893367e97b31d50c6b1dd31394c88">More...</a><br /></td></tr>
 <tr class="separator:a07e893367e97b31d50c6b1dd31394c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cdf9a3ce114e3ddb766fbd8e97c40d9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a5cdf9a3ce114e3ddb766fbd8e97c40d9">Mass</a> ()</td></tr>
+<tr class="memdesc:a5cdf9a3ce114e3ddb766fbd8e97c40d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary, calls <a class="el" href="classGasStream.html#ae0827e81446bddfc0c36ff0591a765fb" title="If NeedsRecomputing is true, this recalculates internal_HotMass and internal_ColdMass.">ComputeMasses()</a>, then sets the flag accordingly. Should reduce the number of loops needed.  <a href="classGasStream.html#a5cdf9a3ce114e3ddb766fbd8e97c40d9">More...</a><br /></td></tr>
 <tr class="separator:a5cdf9a3ce114e3ddb766fbd8e97c40d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab030a30e5279402f9c2134110c0f7fb5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#ab030a30e5279402f9c2134110c0f7fb5">HotMass</a> ()</td></tr>
+<tr class="memdesc:ab030a30e5279402f9c2134110c0f7fb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="classGasStream.html#a5cdf9a3ce114e3ddb766fbd8e97c40d9" title="This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary,...">Mass()</a> for details.  <a href="classGasStream.html#ab030a30e5279402f9c2134110c0f7fb5">More...</a><br /></td></tr>
 <tr class="separator:ab030a30e5279402f9c2134110c0f7fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82682ae8856ff675869cce398a6bbd26"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a82682ae8856ff675869cce398a6bbd26">ColdMass</a> ()</td></tr>
+<tr class="memdesc:a82682ae8856ff675869cce398a6bbd26"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="classGasStream.html#a5cdf9a3ce114e3ddb766fbd8e97c40d9" title="This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary,...">Mass()</a> for details.  <a href="classGasStream.html#a82682ae8856ff675869cce398a6bbd26">More...</a><br /></td></tr>
 <tr class="separator:a82682ae8856ff675869cce398a6bbd26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8e82b7a64f1d8a1af93db0473de284f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#af8e82b7a64f1d8a1af93db0473de284f">Deplete</a> (double amountToRemove)</td></tr>
+<tr class="memdesc:af8e82b7a64f1d8a1af93db0473de284f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental abundances the same.  <a href="classGasStream.html#af8e82b7a64f1d8a1af93db0473de284f">More...</a><br /></td></tr>
 <tr class="separator:af8e82b7a64f1d8a1af93db0473de284f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44ab71ee97b6bf6cb7fba7ce0c861a32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a44ab71ee97b6bf6cb7fba7ce0c861a32">Deplete</a> (double amountToRemove_Cold, double amountToRemove_Hot)</td></tr>
+<tr class="memdesc:a44ab71ee97b6bf6cb7fba7ce0c861a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes (i.e. throws away) the mass from the hot and cold components, keeping the individual elemental abundances the same.  <a href="classGasStream.html#a44ab71ee97b6bf6cb7fba7ce0c861a32">More...</a><br /></td></tr>
 <tr class="separator:a44ab71ee97b6bf6cb7fba7ce0c861a32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65732759a83d7eb8bd23d7f944fe5217"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a65732759a83d7eb8bd23d7f944fe5217">Absorb</a> (const <a class="el" href="classGasStream.html">GasStream</a> &amp;input)</td></tr>
+<tr class="memdesc:a65732759a83d7eb8bd23d7f944fe5217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the gas contained within the input to the current stream.  <a href="classGasStream.html#a65732759a83d7eb8bd23d7f944fe5217">More...</a><br /></td></tr>
 <tr class="separator:a65732759a83d7eb8bd23d7f944fe5217"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e76f8c95afdff611d73dec5e7cc366e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a6e76f8c95afdff611d73dec5e7cc366e">StreamIn</a> (const <a class="el" href="classGas.html">Gas</a> &amp;input, double hotFraction)</td></tr>
-<tr class="separator:a6e76f8c95afdff611d73dec5e7cc366e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd41dd93fa28b504760b8e85ce21047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#abbd41dd93fa28b504760b8e85ce21047">Absorb</a> (const <a class="el" href="classGas.html">Gas</a> &amp;input, double hotFraction)</td></tr>
+<tr class="memdesc:abbd41dd93fa28b504760b8e85ce21047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the gas to the current stream, splitting it according to the hotFraction.  <a href="classGasStream.html#abbd41dd93fa28b504760b8e85ce21047">More...</a><br /></td></tr>
+<tr class="separator:abbd41dd93fa28b504760b8e85ce21047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3801d0fc9d450844cea477c3dfe27e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#ac3801d0fc9d450844cea477c3dfe27e1">Dirty</a> ()</td></tr>
+<tr class="memdesc:ac3801d0fc9d450844cea477c3dfe27e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="classGasStream.html#ac3bb7ece9c3a7453879c2cd2c4760b3a" title="A flag used to prevent excessive recomputing of the internal masses. By design, if Absorb(),...">NeedsRecomputing</a> flag to true. Used to inform the Stream that someone (most probably a call through <a class="el" href="classGasReservoir.html#ae082c5254cca8d39c72e90ffa6784645" title="A vector-like access overload, allowing indexing into the Components vector using appropriate #Source...">GasReservoir::operator[]</a>) has gone over its head and touched its internal workings.  <a href="classGasStream.html#ac3801d0fc9d450844cea477c3dfe27e1">More...</a><br /></td></tr>
 <tr class="separator:ac3801d0fc9d450844cea477c3dfe27e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a1ff8e94b9aefcfa71119c35a191ff4d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b">SourceProcess</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a1ff8e94b9aefcfa71119c35a191ff4d5">Source</a></td></tr>
+<tr class="memdesc:a1ff8e94b9aefcfa71119c35a191ff4d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A label identifying where and how this gas stream was created.  <a href="classGasStream.html#a1ff8e94b9aefcfa71119c35a191ff4d5">More...</a><br /></td></tr>
 <tr class="separator:a1ff8e94b9aefcfa71119c35a191ff4d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48c6a6e0bed770b63231f2c7364b3db0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGas.html">Gas</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a48c6a6e0bed770b63231f2c7364b3db0">Hot</a></td></tr>
+<tr class="memdesc:a48c6a6e0bed770b63231f2c7364b3db0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The container for the hot component.  <a href="classGasStream.html#a48c6a6e0bed770b63231f2c7364b3db0">More...</a><br /></td></tr>
 <tr class="separator:a48c6a6e0bed770b63231f2c7364b3db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d9cb8da4073a28aa8fe38921c048a7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGas.html">Gas</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a7d9cb8da4073a28aa8fe38921c048a7a">Cold</a></td></tr>
+<tr class="memdesc:a7d9cb8da4073a28aa8fe38921c048a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The container for the cold component.  <a href="classGasStream.html#a7d9cb8da4073a28aa8fe38921c048a7a">More...</a><br /></td></tr>
 <tr class="separator:a7d9cb8da4073a28aa8fe38921c048a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ae0827e81446bddfc0c36ff0591a765fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#ae0827e81446bddfc0c36ff0591a765fb">ComputeMasses</a> ()</td></tr>
+<tr class="memdesc:ae0827e81446bddfc0c36ff0591a765fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">If <a class="el" href="classGasStream.html#ac3bb7ece9c3a7453879c2cd2c4760b3a" title="A flag used to prevent excessive recomputing of the internal masses. By design, if Absorb(),...">NeedsRecomputing</a> is true, this recalculates <a class="el" href="classGasStream.html#abe1a79f69bd2d9f597e9bb2ede651bca" title="The last computed value of Hot.Gas::Mass()">internal_HotMass</a> and <a class="el" href="classGasStream.html#aea8b87c6a88f4c386f06d03ed3139e63" title="The last computed value of Cold.Gas::Mass()">internal_ColdMass</a>.  <a href="classGasStream.html#ae0827e81446bddfc0c36ff0591a765fb">More...</a><br /></td></tr>
 <tr class="separator:ae0827e81446bddfc0c36ff0591a765fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ac3bb7ece9c3a7453879c2cd2c4760b3a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#ac3bb7ece9c3a7453879c2cd2c4760b3a">NeedsRecomputing</a></td></tr>
+<tr class="memdesc:ac3bb7ece9c3a7453879c2cd2c4760b3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A flag used to prevent excessive recomputing of the internal masses. By design, if <a class="el" href="classGasStream.html#a65732759a83d7eb8bd23d7f944fe5217" title="Adds the gas contained within the input to the current stream.">Absorb()</a>, <a class="el" href="classGasStream.html#af8e82b7a64f1d8a1af93db0473de284f" title="Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental ab...">Deplete()</a> etc. calls are avoided, the components of <a class="el" href="classGasStream.html#a48c6a6e0bed770b63231f2c7364b3db0" title="The container for the hot component.">Hot</a> and <a class="el" href="classGasStream.html#a7d9cb8da4073a28aa8fe38921c048a7a" title="The container for the cold component.">Cold</a> are invariant, so the values of <a class="el" href="classGasStream.html#a5cdf9a3ce114e3ddb766fbd8e97c40d9" title="This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary,...">Mass()</a> are constant. Therefore if this flag is false, simply returns the last computed value of the mass value.  <a href="classGasStream.html#ac3bb7ece9c3a7453879c2cd2c4760b3a">More...</a><br /></td></tr>
 <tr class="separator:ac3bb7ece9c3a7453879c2cd2c4760b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe1a79f69bd2d9f597e9bb2ede651bca"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#abe1a79f69bd2d9f597e9bb2ede651bca">internal_HotMass</a></td></tr>
+<tr class="memdesc:abe1a79f69bd2d9f597e9bb2ede651bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The last computed value of <a class="el" href="classGasStream.html#a48c6a6e0bed770b63231f2c7364b3db0" title="The container for the hot component.">Hot</a>.<a class="el" href="classGas.html#a292ef4704a70acb9aacf7bd10d04f7f3">Gas::Mass()</a>  <a href="classGasStream.html#abe1a79f69bd2d9f597e9bb2ede651bca">More...</a><br /></td></tr>
 <tr class="separator:abe1a79f69bd2d9f597e9bb2ede651bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea8b87c6a88f4c386f06d03ed3139e63"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#aea8b87c6a88f4c386f06d03ed3139e63">internal_ColdMass</a></td></tr>
+<tr class="memdesc:aea8b87c6a88f4c386f06d03ed3139e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">The last computed value of <a class="el" href="classGasStream.html#a7d9cb8da4073a28aa8fe38921c048a7a" title="The container for the cold component.">Cold</a>.<a class="el" href="classGas.html#a292ef4704a70acb9aacf7bd10d04f7f3">Gas::Mass()</a>  <a href="classGasStream.html#aea8b87c6a88f4c386f06d03ed3139e63">More...</a><br /></td></tr>
 <tr class="separator:aea8b87c6a88f4c386f06d03ed3139e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14fe3a90aa022cedea487e27ddcb57ac"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasStream.html#a14fe3a90aa022cedea487e27ddcb57ac">internal_TotalMass</a></td></tr>
+<tr class="memdesc:a14fe3a90aa022cedea487e27ddcb57ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">The sum of <a class="el" href="classGasStream.html#abe1a79f69bd2d9f597e9bb2ede651bca" title="The last computed value of Hot.Gas::Mass()">internal_HotMass</a> and <a class="el" href="classGasStream.html#aea8b87c6a88f4c386f06d03ed3139e63" title="The last computed value of Cold.Gas::Mass()">internal_ColdMass</a>.  <a href="classGasStream.html#a14fe3a90aa022cedea487e27ddcb57ac">More...</a><br /></td></tr>
 <tr class="separator:a14fe3a90aa022cedea487e27ddcb57ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -144,6 +164,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Default constructor &ndash; assigns itself as <a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb">Unknown</a>, with zero mass. </p>
+
 </div>
 </div>
 <a id="a9c4c6fe0b3df01b5586cca667eaf11ca"></a>
@@ -161,6 +183,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gives itself zero mass in both components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>The value of <a class="el" href="classGasStream.html#a1ff8e94b9aefcfa71119c35a191ff4d5" title="A label identifying where and how this gas stream was created.">Source</a> which this object inherits </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -196,6 +226,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialises itself to the correct hot/cold components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>The value of <a class="el" href="classGasStream.html#a1ff8e94b9aefcfa71119c35a191ff4d5" title="A label identifying where and how this gas stream was created.">Source</a> which this object inherits</td></tr>
+    <tr><td class="paramname">hot</td><td>The gas component which is copied into <a class="el" href="classGasStream.html#a48c6a6e0bed770b63231f2c7364b3db0" title="The container for the hot component.">Hot</a></td></tr>
+    <tr><td class="paramname">cold</td><td>The gas component which is copied into <a class="el" href="classGasStream.html#a7d9cb8da4073a28aa8fe38921c048a7a" title="The container for the cold component.">Cold</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a07e893367e97b31d50c6b1dd31394c88"></a>
@@ -230,11 +270,58 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Splits a single <a class="el" href="classGas.html">Gas</a> object up into fractions determined by the hot fraction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>The value of <a class="el" href="classGasStream.html#a1ff8e94b9aefcfa71119c35a191ff4d5" title="A label identifying where and how this gas stream was created.">Source</a> which this object inherits</td></tr>
+    <tr><td class="paramname">gas</td><td>The total gas mass of the new stream</td></tr>
+    <tr><td class="paramname">hotFraction</td><td>the fraction of the gas which is put into <a class="el" href="classGasStream.html#a48c6a6e0bed770b63231f2c7364b3db0" title="The container for the hot component.">Hot</a>, keeping the elemental abundances the same </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="abbd41dd93fa28b504760b8e85ce21047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd41dd93fa28b504760b8e85ce21047">&#9670;&nbsp;</a></span>Absorb() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GasStream::Absorb </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classGas.html">Gas</a> &amp;&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>hotFraction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds the gas to the current stream, splitting it according to the hotFraction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The object which donates the gas (unaltered)</td></tr>
+    <tr><td class="paramname">hotFraction</td><td>The amount of the input which goes into the <a class="el" href="classGasStream.html#a48c6a6e0bed770b63231f2c7364b3db0" title="The container for the hot component.">Hot</a> stream </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a65732759a83d7eb8bd23d7f944fe5217"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65732759a83d7eb8bd23d7f944fe5217">&#9670;&nbsp;</a></span>Absorb()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a65732759a83d7eb8bd23d7f944fe5217">&#9670;&nbsp;</a></span>Absorb() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -248,6 +335,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds the gas contained within the input to the current stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The object which donates the gas (unaltered) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -265,6 +360,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>See <a class="el" href="classGasStream.html#a5cdf9a3ce114e3ddb766fbd8e97c40d9" title="This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary,...">Mass()</a> for details. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current mass of the <a class="el" href="classGasStream.html#a7d9cb8da4073a28aa8fe38921c048a7a" title="The container for the cold component.">Cold</a> component </dd></dl>
 
 </div>
 </div>
@@ -291,6 +389,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>If <a class="el" href="classGasStream.html#ac3bb7ece9c3a7453879c2cd2c4760b3a" title="A flag used to prevent excessive recomputing of the internal masses. By design, if Absorb(),...">NeedsRecomputing</a> is true, this recalculates <a class="el" href="classGasStream.html#abe1a79f69bd2d9f597e9bb2ede651bca" title="The last computed value of Hot.Gas::Mass()">internal_HotMass</a> and <a class="el" href="classGasStream.html#aea8b87c6a88f4c386f06d03ed3139e63" title="The last computed value of Cold.Gas::Mass()">internal_ColdMass</a>. </p>
+
 </div>
 </div>
 <a id="af8e82b7a64f1d8a1af93db0473de284f"></a>
@@ -308,6 +408,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental abundances the same. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amountToRemove</td><td>The amount of mass to lose from the stream </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -337,6 +445,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Removes (i.e. throws away) the mass from the hot and cold components, keeping the individual elemental abundances the same. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amountToRemove_Cold,the</td><td>amount of cold gas to lose</td></tr>
+    <tr><td class="paramname">amountToRemove_Hot,the</td><td>amount of hot gas to lose </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac3801d0fc9d450844cea477c3dfe27e1"></a>
@@ -353,6 +470,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the <a class="el" href="classGasStream.html#ac3bb7ece9c3a7453879c2cd2c4760b3a" title="A flag used to prevent excessive recomputing of the internal masses. By design, if Absorb(),...">NeedsRecomputing</a> flag to true. Used to inform the Stream that someone (most probably a call through <a class="el" href="classGasReservoir.html#ae082c5254cca8d39c72e90ffa6784645" title="A vector-like access overload, allowing indexing into the Components vector using appropriate #Source...">GasReservoir::operator[]</a>) has gone over its head and touched its internal workings. </p>
 
 </div>
 </div>
@@ -371,6 +490,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>See <a class="el" href="classGasStream.html#a5cdf9a3ce114e3ddb766fbd8e97c40d9" title="This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary,...">Mass()</a> for details. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current mass of the <a class="el" href="classGasStream.html#a48c6a6e0bed770b63231f2c7364b3db0" title="The container for the hot component.">Hot</a> component </dd></dl>
+
 </div>
 </div>
 <a id="a5cdf9a3ce114e3ddb766fbd8e97c40d9"></a>
@@ -388,33 +510,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a6e76f8c95afdff611d73dec5e7cc366e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e76f8c95afdff611d73dec5e7cc366e">&#9670;&nbsp;</a></span>StreamIn()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GasStream::StreamIn </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classGas.html">Gas</a> &amp;&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>hotFraction</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary, calls <a class="el" href="classGasStream.html#ae0827e81446bddfc0c36ff0591a765fb" title="If NeedsRecomputing is true, this recalculates internal_HotMass and internal_ColdMass.">ComputeMasses()</a>, then sets the flag accordingly. Should reduce the number of loops needed. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current total mass of the stream </dd></dl>
 
 </div>
 </div>
@@ -431,6 +528,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The container for the cold component. </p>
+
 </div>
 </div>
 <a id="a48c6a6e0bed770b63231f2c7364b3db0"></a>
@@ -444,6 +543,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The container for the hot component. </p>
 
 </div>
 </div>
@@ -467,6 +568,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>The last computed value of <a class="el" href="classGasStream.html#a7d9cb8da4073a28aa8fe38921c048a7a" title="The container for the cold component.">Cold</a>.<a class="el" href="classGas.html#a292ef4704a70acb9aacf7bd10d04f7f3">Gas::Mass()</a> </p>
+
 </div>
 </div>
 <a id="abe1a79f69bd2d9f597e9bb2ede651bca"></a>
@@ -488,6 +591,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The last computed value of <a class="el" href="classGasStream.html#a48c6a6e0bed770b63231f2c7364b3db0" title="The container for the hot component.">Hot</a>.<a class="el" href="classGas.html#a292ef4704a70acb9aacf7bd10d04f7f3">Gas::Mass()</a> </p>
 
 </div>
 </div>
@@ -511,6 +616,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>The sum of <a class="el" href="classGasStream.html#abe1a79f69bd2d9f597e9bb2ede651bca" title="The last computed value of Hot.Gas::Mass()">internal_HotMass</a> and <a class="el" href="classGasStream.html#aea8b87c6a88f4c386f06d03ed3139e63" title="The last computed value of Cold.Gas::Mass()">internal_ColdMass</a>. </p>
+
 </div>
 </div>
 <a id="ac3bb7ece9c3a7453879c2cd2c4760b3a"></a>
@@ -533,6 +640,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>A flag used to prevent excessive recomputing of the internal masses. By design, if <a class="el" href="classGasStream.html#a65732759a83d7eb8bd23d7f944fe5217" title="Adds the gas contained within the input to the current stream.">Absorb()</a>, <a class="el" href="classGasStream.html#af8e82b7a64f1d8a1af93db0473de284f" title="Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental ab...">Deplete()</a> etc. calls are avoided, the components of <a class="el" href="classGasStream.html#a48c6a6e0bed770b63231f2c7364b3db0" title="The container for the hot component.">Hot</a> and <a class="el" href="classGasStream.html#a7d9cb8da4073a28aa8fe38921c048a7a" title="The container for the cold component.">Cold</a> are invariant, so the values of <a class="el" href="classGasStream.html#a5cdf9a3ce114e3ddb766fbd8e97c40d9" title="This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary,...">Mass()</a> are constant. Therefore if this flag is false, simply returns the last computed value of the mass value. </p>
+
 </div>
 </div>
 <a id="a1ff8e94b9aefcfa71119c35a191ff4d5"></a>
@@ -546,6 +655,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A label identifying where and how this gas stream was created. </p>
 
 </div>
 </div>

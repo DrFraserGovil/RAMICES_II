@@ -71,9 +71,9 @@
   </compound>
   <compound refid="classGalaxyValues" kind="class"><name>GalaxyValues</name>
     <member refid="classGalaxyValues_1a5a0435dd3b41af00845239640082ad53" kind="variable"><name>NRings</name></member>
+    <member refid="classGalaxyValues_1aa4a085809db57a041180774df21e4938" kind="variable"><name>MaxRadius</name></member>
     <member refid="classGalaxyValues_1a0b8bb4de49945b5bf21c44c46750482b" kind="variable"><name>PrimordialMass</name></member>
     <member refid="classGalaxyValues_1ae72dee5f4f6eb8c1c4573b5caa6d82af" kind="variable"><name>PrimordialHotFraction</name></member>
-    <member refid="classGalaxyValues_1aa4a085809db57a041180774df21e4938" kind="variable"><name>MaxRadius</name></member>
     <member refid="classGalaxyValues_1a239f649cbcecf52fbe441aabe2575d5b" kind="variable"><name>MinScaleLength</name></member>
     <member refid="classGalaxyValues_1a1eadee2260b53785ed45e4fc1adefa1b" kind="variable"><name>MaxScaleLength</name></member>
     <member refid="classGalaxyValues_1af6825df7eafbc2a2394beeb674f63c14" kind="variable"><name>ScaleLengthDelay</name></member>
@@ -103,29 +103,10 @@
     <member refid="structGasRequest_1a0e53faa0291662d8421753770d45c276" kind="variable"><name>Disc</name></member>
   </compound>
   <compound refid="classGasReservoir" kind="class"><name>GasReservoir</name>
-    <member refid="classGasReservoir_1aea626701c1b5e5b89cfb08924216c98e" kind="variable"><name>Mass</name></member>
-    <member refid="classGasReservoir_1a3caa9edbe4b0f806bedc5c4830829c16" kind="variable"><name>ColdMass</name></member>
-    <member refid="classGasReservoir_1a17d95c3947fa8f3ee5282d4da722c967" kind="variable"><name>HotMass</name></member>
-    <member refid="classGasReservoir_1a1d43d0769c764d1e6c17047304258919" kind="variable"><name>ColdChemicals</name></member>
-    <member refid="classGasReservoir_1aa26d57d78b9b163d3b23b68c05bbff1c" kind="variable"><name>HotChemicals</name></member>
-    <member refid="classGasReservoir_1a7b53bcdf142e133760ad226d6c494202" kind="variable"><name>Opts</name></member>
     <member refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kind="variable"><name>Components</name></member>
     <member refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" kind="function"><name>GasReservoir</name></member>
-    <member refid="classGasReservoir_1a05180d21ff08f04f4fd7ea7ba0e1873d" kind="function"><name>GasReservoir</name></member>
-    <member refid="classGasReservoir_1ab82144f8aa458efc5f16feb035910d41" kind="function"><name>GasReservoir</name></member>
-    <member refid="classGasReservoir_1a717e3d4d5f5ffaa7eb7a49716192d4d0" kind="function"><name>GasReservoir</name></member>
-    <member refid="classGasReservoir_1a3d2820df4fc12b2ea4d13ce6e02b7c52" kind="function"><name>GiveTo</name></member>
-    <member refid="classGasReservoir_1a39b0e32cbbb7cec116e20a99d81da6e9" kind="function"><name>GiveTo</name></member>
-    <member refid="classGasReservoir_1aed9bd582791da7a8f6b9c7277bb76804" kind="function"><name>TakeFrom</name></member>
-    <member refid="classGasReservoir_1a3ee1e1213611fab0315ef1cf1d55371b" kind="function"><name>TakeFrom</name></member>
-    <member refid="classGasReservoir_1a239f8b4171f5612f9516df0c71fba0c7" kind="function"><name>Deplete</name></member>
-    <member refid="classGasReservoir_1a1e2dc5a53f77d33b5018f0abeaee10cd" kind="function"><name>AddTo</name></member>
-    <member refid="classGasReservoir_1a04707bc0aee8ad21cc53bdc5b095614d" kind="function"><name>SubtractFrom</name></member>
-    <member refid="classGasReservoir_1a0ff726738097ecacea29828bc7ae7d2a" kind="function"><name>SetPrimordial</name></member>
-    <member refid="classGasReservoir_1aad8ff33ac1d7fd8079043e6f6133e052" kind="function"><name>operator+</name></member>
-    <member refid="classGasReservoir_1a3d785554838f3130d1fc29c4b69b7586" kind="function"><name>operator-</name></member>
-    <member refid="classGasReservoir_1a0c5847c1454a9f93054ed94ec89f50df" kind="function"><name>Print</name></member>
-    <member refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" kind="function"><name>GasReservoir</name></member>
+    <member refid="classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645" kind="function"><name>operator[]</name></member>
+    <member refid="classGasReservoir_1a438c98990290d468fd5de4caa476b632" kind="function"><name>operator[]</name></member>
     <member refid="classGasReservoir_1a841a10da610c205d4eb8de4e9ab9ce8c" kind="function"><name>Mass</name></member>
     <member refid="classGasReservoir_1a57f681a7cedc98b43dc9aeca96e8f3cd" kind="function"><name>ColdMass</name></member>
     <member refid="classGasReservoir_1acf13e9d636ab41d1838548ec08d26f00" kind="function"><name>HotMass</name></member>
@@ -133,8 +114,6 @@
     <member refid="classGasReservoir_1a2f358644898f78a0e1594de154e53047" kind="function"><name>Absorb</name></member>
     <member refid="classGasReservoir_1ae2e4fdaa1f6b3f7a335b0948e1af1a9e" kind="function"><name>Deplete</name></member>
     <member refid="classGasReservoir_1a81bf7608a5ca448d267ce0a563786361" kind="function"><name>Deplete</name></member>
-    <member refid="classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645" kind="function"><name>operator[]</name></member>
-    <member refid="classGasReservoir_1a438c98990290d468fd5de4caa476b632" kind="function"><name>operator[]</name></member>
     <member refid="classGasReservoir_1aa202265472304d22898beb78a4882b8b" kind="function"><name>Primordial</name></member>
   </compound>
   <compound refid="classGasStream" kind="class"><name>GasStream</name>
@@ -155,7 +134,7 @@
     <member refid="classGasStream_1af8e82b7a64f1d8a1af93db0473de284f" kind="function"><name>Deplete</name></member>
     <member refid="classGasStream_1a44ab71ee97b6bf6cb7fba7ce0c861a32" kind="function"><name>Deplete</name></member>
     <member refid="classGasStream_1a65732759a83d7eb8bd23d7f944fe5217" kind="function"><name>Absorb</name></member>
-    <member refid="classGasStream_1a6e76f8c95afdff611d73dec5e7cc366e" kind="function"><name>StreamIn</name></member>
+    <member refid="classGasStream_1abbd41dd93fa28b504760b8e85ce21047" kind="function"><name>Absorb</name></member>
     <member refid="classGasStream_1ac3801d0fc9d450844cea477c3dfe27e1" kind="function"><name>Dirty</name></member>
     <member refid="classGasStream_1ae0827e81446bddfc0c36ff0591a765fb" kind="function"><name>ComputeMasses</name></member>
   </compound>
@@ -310,9 +289,9 @@
     <member refid="classStellarValues_1ab575d1540bc306e4d295806b86712502" kind="variable"><name>MinZ</name></member>
     <member refid="classStellarValues_1ae337595f7ddf523dd01e07fc95ed719b" kind="variable"><name>MaxZ</name></member>
     <member refid="classStellarValues_1aadc9b602660ad5cea7a6266bfcdc2a62" kind="variable"><name>EjectionFraction</name></member>
+    <member refid="classStellarValues_1a69d9a1255ae9b0895009d14879567957" kind="variable"><name>FeedbackFactor</name></member>
     <member refid="classStellarValues_1a6f4290b1dbd5032297414ada54703379" kind="variable"><name>SNIaFraction</name></member>
     <member refid="classStellarValues_1ad49ac36512a6b86cd4a61647baf315f4" kind="variable"><name>NSMFraction</name></member>
-    <member refid="classStellarValues_1a69d9a1255ae9b0895009d14879567957" kind="variable"><name>FeedbackFactor</name></member>
     <member refid="classStellarValues_1aae44507bd5653641e14b3a4e6a880dcc" kind="function"><name>StellarValues</name></member>
   </compound>
   <compound refid="classStellarYield" kind="class"><name>StellarYield</name>
@@ -530,10 +509,6 @@
   </compound>
   <compound refid="Galaxy_8h" kind="file"><name>Galaxy.h</name>
   </compound>
-  <compound refid="old__src_2Galaxy_2GasReservoir_8h" kind="file"><name>GasReservoir.h</name>
-  </compound>
-  <compound refid="src_2Gas_2GasReservoir_8h" kind="file"><name>GasReservoir.h</name>
-  </compound>
   <compound refid="Ring_8h" kind="file"><name>Ring.h</name>
   </compound>
   <compound refid="CommandParser_8h" kind="file"><name>CommandParser.h</name>
@@ -565,6 +540,8 @@
   <compound refid="StellarPopulation_8h" kind="file"><name>StellarPopulation.h</name>
   </compound>
   <compound refid="Gas_8h" kind="file"><name>Gas.h</name>
+  </compound>
+  <compound refid="GasReservoir_8h" kind="file"><name>GasReservoir.h</name>
   </compound>
   <compound refid="GasStream_8h" kind="file"><name>GasStream.h</name>
   </compound>

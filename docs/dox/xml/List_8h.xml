@@ -258,10 +258,22 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
+      <node id="7">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
       <node id="4">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h</label>
         <link refid="Gas_8h"/>
         <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="2">
@@ -272,7 +284,9 @@
       </node>
       <node id="6">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
-        <link refid="src_2Gas_2GasReservoir_8h"/>
+        <link refid="GasReservoir_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
       <node id="3">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h</label>
@@ -301,12 +315,14 @@
 <codeline lineno="9" refid="classParamList" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classParamList" kindref="compound">ParamList</ref></highlight></codeline>
 <codeline lineno="10"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" kindref="member">Configure</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>argv[]);</highlight></codeline>
-<codeline lineno="13" refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" kindref="member">Initialise</ref>(std::string<sp/>resourceRoot){};</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;JSL::ArgumentInterface<sp/>*&gt;<sp/><ref refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" kindref="member">argPointers</ref>;</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" kindref="member">Configure</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>argv[]);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="16" refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" kindref="member">Initialise</ref>(std::string<sp/>resourceRoot){};</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;JSL::ArgumentInterface<sp/>*&gt;<sp/><ref refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" kindref="member">argPointers</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">};</highlight></codeline>
     </programlisting>
     <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h"/>
   </compounddef>

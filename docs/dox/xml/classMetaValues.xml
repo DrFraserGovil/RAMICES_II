@@ -88,12 +88,13 @@
         <argsstring>()</argsstring>
         <name>MetaValues</name>
         <briefdescription>
+<para>Boring constructor <ndash/> slots in the relevant arguments into the ParamList::argPointer array. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="28" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="28" bodyend="31"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="29" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="29" bodyend="32"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -158,7 +159,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="10" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="9" bodyend="32"/>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="10" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="9" bodyend="33"/>
     <listofallmembers>
       <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>MetaValues</scope><name>argPointers</name></member>
       <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>MetaValues</scope><name>Configure</name></member>

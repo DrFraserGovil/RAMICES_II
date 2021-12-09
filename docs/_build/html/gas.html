@@ -18,6 +18,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Gas Stream" href="gas_stream.html" />
     <link rel="prev" title="Gas &amp; Containers" href="gas_master.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -26,6 +27,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gas_stream.html" title="Gas Stream"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="gas_master.html" title="Gas &amp; Containers"
              accesskey="P">previous</a> |</li>
@@ -51,49 +55,72 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3Gas3GasEv">
 <span id="_CPPv3N3Gas3GasEv"></span><span id="_CPPv2N3Gas3GasEv"></span><span id="Gas::Gas"></span><span class="target" id="classGas_1a6506127f6d3c2f0e15e9592c1e0134ea"></span><span class="sig-name descname"><span class="n"><span class="pre">Gas</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3Gas3GasEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Default Constructor initialises the chunk of gas to have zero mass. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3Gas3GasERKNSt6vectorIdEE">
 <span id="_CPPv3N3Gas3GasERKNSt6vectorIdEE"></span><span id="_CPPv2N3Gas3GasERKNSt6vectorIdEE"></span><span id="Gas::Gas__std::vector:double:CR"></span><span class="target" id="classGas_1a72c22f9017710f7c97af4f727e481bd4"></span><span class="sig-name descname"><span class="n"><span class="pre">Gas</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">elements</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3Gas3GasERKNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><p>Turns the elements array into the <a class="reference internal" href="#classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c"><span class="std std-ref">Species</span></a> entity, otherwise does nothing interesting. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3Gas4MassEv">
 <span id="_CPPv3N3Gas4MassEv"></span><span id="_CPPv2N3Gas4MassEv"></span><span id="Gas::Mass"></span><span class="target" id="classGas_1a292ef4704a70acb9aacf7bd10d04f7f3"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mass</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3Gas4MassEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current total mass within the <a class="reference internal" href="#classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c"><span class="std std-ref">Species</span></a> array </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3GasixE9ElementID">
 <span id="_CPPv3N3GasixE9ElementID"></span><span id="_CPPv2N3GasixE9ElementID"></span><span id="Gas::subscript-operator__ElementID"></span><span class="target" id="classGas_1ae68d91b5ab415a0478e7dcf14cfdc7ca"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="enums.html#_CPPv49ElementID" title="ElementID"><span class="n"><span class="pre">ElementID</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">id</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3GasixE9ElementID" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A reference to the indexed member of <a class="reference internal" href="#classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c"><span class="std std-ref">Species</span></a>, allowing for vector like access </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK3GasixE9ElementID">
 <span id="_CPPv3NK3GasixE9ElementID"></span><span id="_CPPv2NK3GasixE9ElementID"></span><span id="Gas::subscript-operator__ElementIDC"></span><span class="target" id="classGas_1a585dae425060668c22526512e5d7e2b5"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="enums.html#_CPPv49ElementID" title="ElementID"><span class="n"><span class="pre">ElementID</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">id</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK3GasixE9ElementID" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
-
-</div>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
-<dl class="cpp var">
-<dt class="sig sig-object cpp" id="_CPPv4N3Gas7SpeciesE">
-<span id="_CPPv3N3Gas7SpeciesE"></span><span id="_CPPv2N3Gas7SpeciesE"></span><span id="Gas::Species__std::vector:double:"></span><span class="target" id="classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Species</span></span></span><a class="headerlink" href="#_CPPv4N3Gas7SpeciesE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>The central mass array. Has. </p>
+<dd><p>An annoyingly necessary redeclaration for when the object is const and normal references don’t behave nicely. </p>
 </dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3Gas7SpeciesE">
+<span id="_CPPv3N3Gas7SpeciesE"></span><span id="_CPPv2N3Gas7SpeciesE"></span><span id="Gas::Species__std::vector:double:"></span><span class="target" id="classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Species</span></span></span><a class="headerlink" href="#_CPPv4N3Gas7SpeciesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The central mass array. Has <a class="reference internal" href="enums.html#EnumSets_8h_1a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e"><span class="std std-ref">ElementCount</span></a> elements, indexed by ElementID. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-functions">Private Static Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3Gas5EmptyEv">
 <span id="_CPPv3N3Gas5EmptyEv"></span><span id="_CPPv2N3Gas5EmptyEv"></span><span id="Gas::Empty"></span><span class="target" id="classGas_1a6e79d1e5d17931e7ea6a9f823016f648"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv43Gas" title="Gas"><span class="n"><span class="pre">Gas</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Empty</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3Gas5EmptyEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A default-constructed object, but name is clear that the object is empty </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N3Gas10PrimordialEd">
 <span id="_CPPv3N3Gas10PrimordialEd"></span><span id="_CPPv2N3Gas10PrimordialEd"></span><span id="Gas::Primordial__double"></span><span class="target" id="classGas_1a2b2398801ceb8fc5b08b00beab3b4eea"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv43Gas" title="Gas"><span class="n"><span class="pre">Gas</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Primordial</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">mass</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N3Gas10PrimordialEd" title="Permalink to this definition">¶</a><br /></dt>
-<dd></dd></dl>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A gas object of the specified mass but with a primordial elemental abundance distribution (X = 0.75, Y = 0.25 etc) </p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </dd></dl>
@@ -110,6 +137,9 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="gas_master.html"
                         title="previous chapter">Gas &amp; Containers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gas_stream.html"
+                        title="next chapter">Gas Stream</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -137,6 +167,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="gas_stream.html" title="Gas Stream"
+             >next</a> |</li>
         <li class="right" >
           <a href="gas_master.html" title="Gas &amp; Containers"
              >previous</a> |</li>

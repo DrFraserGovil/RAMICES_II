@@ -10,12 +10,13 @@
         <argsstring></argsstring>
         <name>Source</name>
         <briefdescription>
+<para>A label identifying where and how this gas stream was created. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="10" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="10" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="11" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="11" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0" prot="public" static="no" mutable="no">
         <type><ref refid="classGas" kindref="compound">Gas</ref></type>
@@ -23,12 +24,13 @@
         <argsstring></argsstring>
         <name>Hot</name>
         <briefdescription>
+<para>The container for the hot component. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="12" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="12" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="14" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a" prot="public" static="no" mutable="no">
         <type><ref refid="classGas" kindref="compound">Gas</ref></type>
@@ -36,12 +38,13 @@
         <argsstring></argsstring>
         <name>Cold</name>
         <briefdescription>
+<para>The container for the cold component. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="13" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="13" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="17" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -51,12 +54,13 @@
         <argsstring></argsstring>
         <name>NeedsRecomputing</name>
         <briefdescription>
+<para>A flag used to prevent excessive recomputing of the internal masses. By design, if <ref refid="classGasStream_1a65732759a83d7eb8bd23d7f944fe5217" kindref="member">Absorb()</ref>, <ref refid="classGasStream_1af8e82b7a64f1d8a1af93db0473de284f" kindref="member">Deplete()</ref> etc. calls are avoided, the components of <ref refid="classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0" kindref="member">Hot</ref> and <ref refid="classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a" kindref="member">Cold</ref> are invariant, so the values of <ref refid="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9" kindref="member">Mass()</ref> are constant. Therefore if this flag is false, simply returns the last computed value of the mass value. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="32" column="6" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="32" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="58" column="6" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -64,12 +68,13 @@
         <argsstring></argsstring>
         <name>internal_HotMass</name>
         <briefdescription>
+<para>The last computed value of <ref refid="classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0" kindref="member">Hot</ref>.<ref refid="classGas_1a292ef4704a70acb9aacf7bd10d04f7f3" kindref="member">Gas::Mass()</ref> </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="33" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="33" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="61" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -77,12 +82,13 @@
         <argsstring></argsstring>
         <name>internal_ColdMass</name>
         <briefdescription>
+<para>The last computed value of <ref refid="classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a" kindref="member">Cold</ref>.<ref refid="classGas_1a292ef4704a70acb9aacf7bd10d04f7f3" kindref="member">Gas::Mass()</ref> </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="34" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="34" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="64" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGasStream_1a14fe3a90aa022cedea487e27ddcb57ac" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -90,12 +96,13 @@
         <argsstring></argsstring>
         <name>internal_TotalMass</name>
         <briefdescription>
+<para>The sum of <ref refid="classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca" kindref="member">internal_HotMass</ref> and <ref refid="classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63" kindref="member">internal_ColdMass</ref>. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="35" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="35" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="67" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -105,12 +112,13 @@
         <argsstring>()</argsstring>
         <name>GasStream</name>
         <briefdescription>
+<para>Default constructor <ndash/> assigns itself as <ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb" kindref="member">Unknown</ref>, with zero mass. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="15" column="1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="20" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classGasStream_1a9c4c6fe0b3df01b5586cca667eaf11ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -122,12 +130,23 @@
           <declname>source</declname>
         </param>
         <briefdescription>
+<para>Gives itself zero mass in both components. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of <ref refid="classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5" kindref="member">Source</ref> which this object inherits </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="16" column="1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="23" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classGasStream_1a83de215a9348757ca94bdf5b9d491328" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -147,12 +166,39 @@
           <declname>cold</declname>
         </param>
         <briefdescription>
+<para>Initialises itself to the correct hot/cold components. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of <ref refid="classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5" kindref="member">Source</ref> which this object inherits</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gas component which is copied into <ref refid="classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0" kindref="member">Hot</ref></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gas component which is copied into <ref refid="classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a" kindref="member">Cold</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="17" column="1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="26" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classGasStream_1a07e893367e97b31d50c6b1dd31394c88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -172,12 +218,39 @@
           <declname>hotFraction</declname>
         </param>
         <briefdescription>
+<para>Splits a single <ref refid="classGas" kindref="compound">Gas</ref> object up into fractions determined by the hot fraction. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of <ref refid="classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5" kindref="member">Source</ref> which this object inherits</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gas</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The total gas mass of the new stream</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hotFraction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the fraction of the gas which is put into <ref refid="classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0" kindref="member">Hot</ref>, keeping the elemental abundances the same </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="18" column="1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="29" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -185,12 +258,16 @@
         <argsstring>()</argsstring>
         <name>Mass</name>
         <briefdescription>
+<para>This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary, calls <ref refid="classGasStream_1ae0827e81446bddfc0c36ff0591a765fb" kindref="member">ComputeMasses()</ref>, then sets the flag accordingly. Should reduce the number of loops needed. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>The current total mass of the stream </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="20" column="8"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="32" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGasStream_1ab030a30e5279402f9c2134110c0f7fb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -198,12 +275,16 @@
         <argsstring>()</argsstring>
         <name>HotMass</name>
         <briefdescription>
+<para>See <ref refid="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9" kindref="member">Mass()</ref> for details. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>The current mass of the <ref refid="classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0" kindref="member">Hot</ref> component </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="21" column="8"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="35" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGasStream_1a82682ae8856ff675869cce398a6bbd26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -211,12 +292,16 @@
         <argsstring>()</argsstring>
         <name>ColdMass</name>
         <briefdescription>
+<para>See <ref refid="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9" kindref="member">Mass()</ref> for details. </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="return"><para>The current mass of the <ref refid="classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a" kindref="member">Cold</ref> component </para>
+</simplesect>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="22" column="8"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="38" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGasStream_1af8e82b7a64f1d8a1af93db0473de284f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -228,12 +313,23 @@
           <declname>amountToRemove</declname>
         </param>
         <briefdescription>
+<para>Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental abundances the same. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>amountToRemove</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The amount of mass to lose from the stream </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="24" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="41" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGasStream_1a44ab71ee97b6bf6cb7fba7ce0c861a32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -249,12 +345,33 @@
           <declname>amountToRemove_Hot</declname>
         </param>
         <briefdescription>
+<para>Removes (i.e. throws away) the mass from the hot and cold components, keeping the individual elemental abundances the same. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>amountToRemove_Cold</parametername>
+<parametername>the</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>amount of cold gas to lose</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>amountToRemove_Hot</parametername>
+<parametername>the</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>amount of hot gas to lose </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="25" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="44" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGasStream_1a65732759a83d7eb8bd23d7f944fe5217" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -266,18 +383,29 @@
           <declname>input</declname>
         </param>
         <briefdescription>
+<para>Adds the gas contained within the input to the current stream. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object which donates the gas (unaltered) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="26" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="47" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="classGasStream_1a6e76f8c95afdff611d73dec5e7cc366e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classGasStream_1abbd41dd93fa28b504760b8e85ce21047" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void GasStream::StreamIn</definition>
+        <definition>void GasStream::Absorb</definition>
         <argsstring>(const Gas &amp;input, double hotFraction)</argsstring>
-        <name>StreamIn</name>
+        <name>Absorb</name>
         <param>
           <type>const <ref refid="classGas" kindref="compound">Gas</ref> &amp;</type>
           <declname>input</declname>
@@ -287,12 +415,31 @@
           <declname>hotFraction</declname>
         </param>
         <briefdescription>
+<para>Adds the gas to the current stream, splitting it according to the hotFraction. </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object which donates the gas (unaltered)</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hotFraction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The amount of the input which goes into the <ref refid="classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0" kindref="member">Hot</ref> stream </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="27" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="50" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGasStream_1ac3801d0fc9d450844cea477c3dfe27e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -300,12 +447,13 @@
         <argsstring>()</argsstring>
         <name>Dirty</name>
         <briefdescription>
+<para>Sets the <ref refid="classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a" kindref="member">NeedsRecomputing</ref> flag to true. Used to inform the Stream that someone (most probably a call through <ref refid="classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645" kindref="member">GasReservoir::operator[]</ref>) has gone over its head and touched its internal workings. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="28" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="53" column="6"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -315,12 +463,13 @@
         <argsstring>()</argsstring>
         <name>ComputeMasses</name>
         <briefdescription>
+<para>If <ref refid="classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a" kindref="member">NeedsRecomputing</ref> is true, this recalculates <ref refid="classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca" kindref="member">internal_HotMass</ref> and <ref refid="classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63" kindref="member">internal_ColdMass</ref>. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="36" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="70" column="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -342,9 +491,10 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="8" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="7" bodyend="37"/>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" line="8" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h" bodystart="7" bodyend="71"/>
     <listofallmembers>
       <member refid="classGasStream_1a65732759a83d7eb8bd23d7f944fe5217" prot="public" virt="non-virtual"><scope>GasStream</scope><name>Absorb</name></member>
+      <member refid="classGasStream_1abbd41dd93fa28b504760b8e85ce21047" prot="public" virt="non-virtual"><scope>GasStream</scope><name>Absorb</name></member>
       <member refid="classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a" prot="public" virt="non-virtual"><scope>GasStream</scope><name>Cold</name></member>
       <member refid="classGasStream_1a82682ae8856ff675869cce398a6bbd26" prot="public" virt="non-virtual"><scope>GasStream</scope><name>ColdMass</name></member>
       <member refid="classGasStream_1ae0827e81446bddfc0c36ff0591a765fb" prot="private" virt="non-virtual"><scope>GasStream</scope><name>ComputeMasses</name></member>
@@ -363,7 +513,6 @@
       <member refid="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9" prot="public" virt="non-virtual"><scope>GasStream</scope><name>Mass</name></member>
       <member refid="classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a" prot="private" virt="non-virtual"><scope>GasStream</scope><name>NeedsRecomputing</name></member>
       <member refid="classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5" prot="public" virt="non-virtual"><scope>GasStream</scope><name>Source</name></member>
-      <member refid="classGasStream_1a6e76f8c95afdff611d73dec5e7cc366e" prot="public" virt="non-virtual"><scope>GasStream</scope><name>StreamIn</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

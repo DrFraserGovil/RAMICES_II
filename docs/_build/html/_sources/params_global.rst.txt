@@ -1,7 +1,7 @@
 .. params_global
 
 ########################
-Runtime Parameters
+Global Parameters
 ########################
 
 .. doxygenclass:: GlobalParameters

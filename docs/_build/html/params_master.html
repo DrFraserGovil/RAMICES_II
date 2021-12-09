@@ -18,7 +18,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Runtime Parameters" href="params_global.html" />
+    <link rel="next" title="Global Parameters" href="params_global.html" />
     <link rel="prev" title="RAMICES II Documentation" href="index.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,7 +28,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="params_global.html" title="Runtime Parameters"
+          <a href="params_global.html" title="Global Parameters"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="RAMICES II Documentation"
@@ -46,11 +46,11 @@
   <section id="global-runtime-parameters">
 <h1>Global &amp; Runtime Parameters<a class="headerlink" href="#global-runtime-parameters" title="Permalink to this headline">¶</a></h1>
 <p>Global variables are horrible, but in a project with this many twiddly dials, also fairly unavoidable.</p>
-<p>We package most objects around in the following object and its members:</p>
+<p>To avoid having truly “global parameters”, we package the vast majority of our values into a GlobalParameters object, which is then passed around by reference. This object makes extensive use of the <a class="reference external" href="https://jackstandardlibrary.readthedocs.io/en/latest/argument.html">JSL::Argument</a> object, which is included as a submodule.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="params_global.html">Runtime Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="params_global.html">Global Parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="params_list_super.html">List Superclass</a></li>
 <li class="toctree-l1"><a class="reference internal" href="params_list.html">Parameter Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="enums.html">Global Enumerators</a></li>
@@ -70,7 +70,7 @@
                         title="previous chapter">RAMICES II Documentation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="params_global.html"
-                        title="next chapter">Runtime Parameters</a></p>
+                        title="next chapter">Global Parameters</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -99,7 +99,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="params_global.html" title="Runtime Parameters"
+          <a href="params_global.html" title="Global Parameters"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="RAMICES II Documentation"

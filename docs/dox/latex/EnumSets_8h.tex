@@ -34,7 +34,7 @@ enum \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Pro
 \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb}{Unknown}}, 
 \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8}{Process\+Count}}
  \}
-\begin{DoxyCompactList}\small\item\em Defines a globally recognised set of aliases for sources of gas, used to label \mbox{\hyperlink{classGasStream}{Gas\+Stream}} objects. As with Element\+ID, final entry is used to count the number of elements. This must always be the final entry! \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Defines a globally recognised set of aliases for sources of gas, used to label \mbox{\hyperlink{classGasStream}{Gas\+Stream}} objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Enumeration Type Documentation}
@@ -44,7 +44,7 @@ enum \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Pro
 \doxysubsubsection{\texorpdfstring{ElementID}{ElementID}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}
 
-Defines a globally recognised ordering of the elements + provides them with a nice readable name. The final entry should always be \char`\"{}\+Element\+Count\char`\"{}, as the numbering system inherent in enums makes this true only if it is the last entry! \begin{DoxyEnumFields}{Enumerator}
+Defines a globally recognised ordering of the elements + provides them with a nice readable name. \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Hydrogen@{Hydrogen}!EnumSets.h@{EnumSets.h}}\index{EnumSets.h@{EnumSets.h}!Hydrogen@{Hydrogen}}}\mbox{\Hypertarget{EnumSets_8h_a8f434816783a791128b48a39ae663f15a20fa2720571344499f799d2839b23c7e}\label{EnumSets_8h_a8f434816783a791128b48a39ae663f15a20fa2720571344499f799d2839b23c7e}} 
 Hydrogen&\\
 \hline
@@ -98,7 +98,7 @@ Europium&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{ElementCount@{ElementCount}!EnumSets.h@{EnumSets.h}}\index{EnumSets.h@{EnumSets.h}!ElementCount@{ElementCount}}}\mbox{\Hypertarget{EnumSets_8h_a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e}\label{EnumSets_8h_a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e}} 
-Element\+Count&\\
+Element\+Count&The final entry should always be Element\+Count, as the numbering system inherent in enums makes this true only if it is the last entry! \\
 \hline
 
 \end{DoxyEnumFields}
@@ -110,7 +110,7 @@ Element\+Count&\\
 
 
 
-Defines a globally recognised set of aliases for sources of gas, used to label \mbox{\hyperlink{classGasStream}{Gas\+Stream}} objects. As with Element\+ID, final entry is used to count the number of elements. This must always be the final entry! 
+Defines a globally recognised set of aliases for sources of gas, used to label \mbox{\hyperlink{classGasStream}{Gas\+Stream}} objects. 
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Primordial@{Primordial}!EnumSets.h@{EnumSets.h}}\index{EnumSets.h@{EnumSets.h}!Primordial@{Primordial}}}\mbox{\Hypertarget{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2}\label{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2}} 
@@ -142,7 +142,7 @@ Unknown&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{ProcessCount@{ProcessCount}!EnumSets.h@{EnumSets.h}}\index{EnumSets.h@{EnumSets.h}!ProcessCount@{ProcessCount}}}\mbox{\Hypertarget{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8}\label{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8}} 
-Process\+Count&\\
+Process\+Count&As with Element\+ID, final entry is used to count the number of elements. This must always be the final entry. \\
 \hline
 
 \end{DoxyEnumFields}

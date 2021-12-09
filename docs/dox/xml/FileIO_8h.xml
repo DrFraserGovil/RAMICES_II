@@ -116,10 +116,10 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="14">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h</label>
         <link refid="List_8h"/>
-        <childnode refid="11" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
@@ -128,6 +128,12 @@
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h</label>
         <link refid="GasStream_8h"/>
         <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -149,12 +155,18 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="12">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h</label>
         <link refid="ParameterLists_8h"/>
         <childnode refid="7" relation="include">
@@ -168,7 +180,9 @@
       </node>
       <node id="10">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
-        <link refid="src_2Gas_2GasReservoir_8h"/>
+        <link refid="GasReservoir_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>/home/jack/Documents/Work/RAMICES_II/libs/JSL/FileIO/FileIO.h</label>

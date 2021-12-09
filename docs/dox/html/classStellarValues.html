@@ -70,6 +70,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>The subset of values associated with stars + their remnants.  
+ <a href="classStellarValues.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ParameterLists_8h_source.html">ParameterLists.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for StellarValues:</div>
@@ -77,46 +80,60 @@ Inheritance diagram for StellarValues:</div>
  <div class="center">
   <img src="classStellarValues.png" usemap="#StellarValues_map" alt=""/>
   <map id="StellarValues_map" name="StellarValues_map">
-<area href="classParamList.html" title="generic superclass structure so that I can heterogenously loop over arrays" alt="ParamList" shape="rect" coords="0,0,87,24"/>
+<area href="classParamList.html" title="A Generic superclass structure so that I can heterogenously loop over the various members of GlobalPa..." alt="ParamList" shape="rect" coords="0,0,87,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aae44507bd5653641e14b3a4e6a880dcc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStellarValues.html#aae44507bd5653641e14b3a4e6a880dcc">StellarValues</a> ()</td></tr>
+<tr class="memdesc:aae44507bd5653641e14b3a4e6a880dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boring constructor &ndash; slots in the relevant arguments into the ParamList::argPointer array.  <a href="classStellarValues.html#aae44507bd5653641e14b3a4e6a880dcc">More...</a><br /></td></tr>
 <tr class="separator:aae44507bd5653641e14b3a4e6a880dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classParamList"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classParamList')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classParamList.html">ParamList</a></td></tr>
 <tr class="memitem:a7ea5ff6efbbfd83e5c5c9a638bcd38d8 inherit pub_methods_classParamList"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamList.html#a7ea5ff6efbbfd83e5c5c9a638bcd38d8">Configure</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:a7ea5ff6efbbfd83e5c5c9a638bcd38d8 inherit pub_methods_classParamList"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loops over all members of the argPointers array and calls the configuration/command line API on them to initialise the members of the child classes.  <a href="classParamList.html#a7ea5ff6efbbfd83e5c5c9a638bcd38d8">More...</a><br /></td></tr>
 <tr class="separator:a7ea5ff6efbbfd83e5c5c9a638bcd38d8 inherit pub_methods_classParamList"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bc1e8cffb0062a056193e34b80f3475 inherit pub_methods_classParamList"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamList.html#a7bc1e8cffb0062a056193e34b80f3475">Initialise</a> (std::string resourceRoot)</td></tr>
+<tr class="memdesc:a7bc1e8cffb0062a056193e34b80f3475 inherit pub_methods_classParamList"><td class="mdescLeft">&#160;</td><td class="mdescRight">A (hopefully) rarely used function which calls any additional functions which can only be called <em>after</em> the configuration has been run. For most members, this is an empty function.  <a href="classParamList.html#a7bc1e8cffb0062a056193e34b80f3475">More...</a><br /></td></tr>
 <tr class="separator:a7bc1e8cffb0062a056193e34b80f3475 inherit pub_methods_classParamList"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:ad87b9db57efd7c785e2e7009e3f6c8c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStellarValues.html#ad87b9db57efd7c785e2e7009e3f6c8c8">MaxStellarMass</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;double&gt;(100,&quot;-max-mass&quot;)</td></tr>
+<tr class="memdesc:ad87b9db57efd7c785e2e7009e3f6c8c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum stellar mass that IMF can generate.  <a href="classStellarValues.html#ad87b9db57efd7c785e2e7009e3f6c8c8">More...</a><br /></td></tr>
 <tr class="separator:ad87b9db57efd7c785e2e7009e3f6c8c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebf3fb39167a9719618d7bf381543171"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStellarValues.html#aebf3fb39167a9719618d7bf381543171">MinStellarMass</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;double&gt;(0.5,&quot;-min-mass&quot;)</td></tr>
+<tr class="memdesc:aebf3fb39167a9719618d7bf381543171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maxmimum stellar mass that IMF can generate.  <a href="classStellarValues.html#aebf3fb39167a9719618d7bf381543171">More...</a><br /></td></tr>
 <tr class="separator:aebf3fb39167a9719618d7bf381543171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab575d1540bc306e4d295806b86712502"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStellarValues.html#ab575d1540bc306e4d295806b86712502">MinZ</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;double&gt;(1e-7,&quot;-min-z&quot;)</td></tr>
+<tr class="memdesc:ab575d1540bc306e4d295806b86712502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum Z that the ILM(??) can consider.  <a href="classStellarValues.html#ab575d1540bc306e4d295806b86712502">More...</a><br /></td></tr>
 <tr class="separator:ab575d1540bc306e4d295806b86712502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae337595f7ddf523dd01e07fc95ed719b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStellarValues.html#ae337595f7ddf523dd01e07fc95ed719b">MaxZ</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;double&gt;(0.052,&quot;-max-z&quot;)</td></tr>
+<tr class="memdesc:ae337595f7ddf523dd01e07fc95ed719b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum Z that the ILM(??) can consider.  <a href="classStellarValues.html#ae337595f7ddf523dd01e07fc95ed719b">More...</a><br /></td></tr>
 <tr class="separator:ae337595f7ddf523dd01e07fc95ed719b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aadc9b602660ad5cea7a6266bfcdc2a62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStellarValues.html#aadc9b602660ad5cea7a6266bfcdc2a62">EjectionFraction</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;double&gt;(0.45,&quot;eject&quot;)</td></tr>
+<tr class="memdesc:aadc9b602660ad5cea7a6266bfcdc2a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fraction of supernovae ejecta which is thrown into the IGM.  <a href="classStellarValues.html#aadc9b602660ad5cea7a6266bfcdc2a62">More...</a><br /></td></tr>
 <tr class="separator:aadc9b602660ad5cea7a6266bfcdc2a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69d9a1255ae9b0895009d14879567957"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStellarValues.html#a69d9a1255ae9b0895009d14879567957">FeedbackFactor</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;double&gt;(0.4,&quot;-mass-load&quot;)</td></tr>
+<tr class="memdesc:a69d9a1255ae9b0895009d14879567957"><td class="mdescLeft">&#160;</td><td class="mdescRight">For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase.  <a href="classStellarValues.html#a69d9a1255ae9b0895009d14879567957">More...</a><br /></td></tr>
+<tr class="separator:a69d9a1255ae9b0895009d14879567957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f4290b1dbd5032297414ada54703379"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStellarValues.html#a6f4290b1dbd5032297414ada54703379">SNIaFraction</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;double&gt;(0.05,&quot;-sn1a-frac&quot;)</td></tr>
+<tr class="memdesc:a6f4290b1dbd5032297414ada54703379"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fraction of white dwarfs which go SNIa.  <a href="classStellarValues.html#a6f4290b1dbd5032297414ada54703379">More...</a><br /></td></tr>
 <tr class="separator:a6f4290b1dbd5032297414ada54703379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad49ac36512a6b86cd4a61647baf315f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStellarValues.html#ad49ac36512a6b86cd4a61647baf315f4">NSMFraction</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;double&gt;(0.0001,&quot;-nsm-frac&quot;)</td></tr>
+<tr class="memdesc:ad49ac36512a6b86cd4a61647baf315f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fraction of neutron stars which go NSM.  <a href="classStellarValues.html#ad49ac36512a6b86cd4a61647baf315f4">More...</a><br /></td></tr>
 <tr class="separator:ad49ac36512a6b86cd4a61647baf315f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69d9a1255ae9b0895009d14879567957"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStellarValues.html#a69d9a1255ae9b0895009d14879567957">FeedbackFactor</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;double&gt;(0.4,&quot;-mass-load&quot;)</td></tr>
-<tr class="separator:a69d9a1255ae9b0895009d14879567957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classParamList"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classParamList')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classParamList.html">ParamList</a></td></tr>
 <tr class="memitem:a5dd9bcd80fa4f11fd9607bd47f697ca2 inherit pro_attribs_classParamList"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classJSL_1_1ArgumentInterface.html">JSL::ArgumentInterface</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamList.html#a5dd9bcd80fa4f11fd9607bd47f697ca2">argPointers</a></td></tr>
+<tr class="memdesc:a5dd9bcd80fa4f11fd9607bd47f697ca2 inherit pro_attribs_classParamList"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of pointers to member variables of the child classes which want to be initialised against command line / config-file values. Any Argument objects not added to this array will not be initialised! This array should be allocated during the individual subclass constructors.  <a href="classParamList.html#a5dd9bcd80fa4f11fd9607bd47f697ca2">More...</a><br /></td></tr>
 <tr class="separator:a5dd9bcd80fa4f11fd9607bd47f697ca2 inherit pro_attribs_classParamList"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The subset of values associated with stars + their remnants. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aae44507bd5653641e14b3a4e6a880dcc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aae44507bd5653641e14b3a4e6a880dcc">&#9670;&nbsp;</a></span>StellarValues()</h2>
 
@@ -140,6 +157,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Boring constructor &ndash; slots in the relevant arguments into the ParamList::argPointer array. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -155,6 +174,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The fraction of supernovae ejecta which is thrown into the IGM. </p>
+
 </div>
 </div>
 <a id="a69d9a1255ae9b0895009d14879567957"></a>
@@ -168,6 +189,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase. </p>
 
 </div>
 </div>
@@ -183,6 +206,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Minimum stellar mass that IMF can generate. </p>
+
 </div>
 </div>
 <a id="ae337595f7ddf523dd01e07fc95ed719b"></a>
@@ -196,6 +221,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Maximum Z that the ILM(??) can consider. </p>
 
 </div>
 </div>
@@ -211,6 +238,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Maxmimum stellar mass that IMF can generate. </p>
+
 </div>
 </div>
 <a id="ab575d1540bc306e4d295806b86712502"></a>
@@ -224,6 +253,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Minimum Z that the ILM(??) can consider. </p>
 
 </div>
 </div>
@@ -239,6 +270,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The fraction of neutron stars which go NSM. </p>
+
 </div>
 </div>
 <a id="a6f4290b1dbd5032297414ada54703379"></a>
@@ -252,6 +285,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The fraction of white dwarfs which go SNIa. </p>
 
 </div>
 </div>

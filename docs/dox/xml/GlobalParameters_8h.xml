@@ -9,7 +9,7 @@
     <includes refid="List_8h" local="yes">List.h</includes>
     <includes refid="EnumSets_8h" local="yes">EnumSets.h</includes>
     <includedby refid="Gas_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h</includedby>
-    <includedby refid="src_2Gas_2GasReservoir_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</includedby>
+    <includedby refid="GasReservoir_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</includedby>
     <includedby refid="GasStream_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h</includedby>
     <incdepgraph>
       <node id="13">
@@ -284,15 +284,29 @@
         <childnode refid="4" relation="include">
         </childnode>
       </node>
+      <node id="5">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
       <node id="2">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h</label>
         <link refid="Gas_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
+      <node id="6">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
       <node id="4">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
-        <link refid="src_2Gas_2GasReservoir_8h"/>
+        <link refid="GasReservoir_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h</label>
@@ -337,23 +351,26 @@
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"></highlight></codeline>
-<codeline lineno="15" refid="classGlobalParameters" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref></highlight></codeline>
+<codeline lineno="15" refid="classGlobalParameters" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref></highlight></codeline>
 <codeline lineno="16"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="20" refid="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classMetaValues" kindref="compound">MetaValues</ref><sp/><ref refid="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9" kindref="member">Meta</ref>;</highlight></codeline>
-<codeline lineno="21" refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classElementValues" kindref="compound">ElementValues</ref><sp/><ref refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" kindref="member">Element</ref>;</highlight></codeline>
-<codeline lineno="22" refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classStellarValues" kindref="compound">StellarValues</ref><sp/><ref refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" kindref="member">Stellar</ref>;</highlight></codeline>
-<codeline lineno="23" refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classThermalValues" kindref="compound">ThermalValues</ref><sp/><ref refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" kindref="member">Thermal</ref>;</highlight></codeline>
-<codeline lineno="24" refid="classGlobalParameters_1abe614bae6bfab6d1fbe2b5e9db5adaa3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGalaxyValues" kindref="compound">GalaxyValues</ref><sp/><ref refid="classGlobalParameters_1abe614bae6bfab6d1fbe2b5e9db5adaa3" kindref="member">Galaxy</ref>;</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26" refid="classGlobalParameters_1ad5ed3bfeb016b8c1aeb2570b5bdc8385" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;ParamList<sp/>*&gt;<sp/><ref refid="classGlobalParameters_1ad5ed3bfeb016b8c1aeb2570b5bdc8385" kindref="member">ParamMembers</ref><sp/>=<sp/>{&amp;<ref refid="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9" kindref="member">Meta</ref>,&amp;<ref refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" kindref="member">Element</ref>,&amp;<ref refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" kindref="member">Stellar</ref>,&amp;<ref refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" kindref="member">Thermal</ref>,&amp;<ref refid="classGalaxy" kindref="compound">Galaxy</ref>};</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGlobalParameters_1a9dc5211c8317889b10c16daf49f7e916" kindref="member">GlobalParameters</ref>();</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters_1a49a012a4c9a2972a33ae78ef2d500d32" kindref="member">Initialise</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>argv[]);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23" refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classElementValues" kindref="compound">ElementValues</ref><sp/><ref refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" kindref="member">Element</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26" refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classStellarValues" kindref="compound">StellarValues</ref><sp/><ref refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" kindref="member">Stellar</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classThermalValues" kindref="compound">ThermalValues</ref><sp/><ref refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" kindref="member">Thermal</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32" refid="classGlobalParameters_1abe614bae6bfab6d1fbe2b5e9db5adaa3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGalaxyValues" kindref="compound">GalaxyValues</ref><sp/><ref refid="classGlobalParameters_1abe614bae6bfab6d1fbe2b5e9db5adaa3" kindref="member">Galaxy</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classGlobalParameters_1ad5ed3bfeb016b8c1aeb2570b5bdc8385" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;ParamList<sp/>*&gt;<sp/><ref refid="classGlobalParameters_1ad5ed3bfeb016b8c1aeb2570b5bdc8385" kindref="member">ParamMembers</ref><sp/>=<sp/>{&amp;<ref refid="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9" kindref="member">Meta</ref>,&amp;<ref refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" kindref="member">Element</ref>,&amp;<ref refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" kindref="member">Stellar</ref>,&amp;<ref refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" kindref="member">Thermal</ref>,&amp;<ref refid="classGalaxy" kindref="compound">Galaxy</ref>};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGlobalParameters_1a9dc5211c8317889b10c16daf49f7e916" kindref="member">GlobalParameters</ref>();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters_1a49a012a4c9a2972a33ae78ef2d500d32" kindref="member">Initialise</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>argv[]);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">};</highlight></codeline>
     </programlisting>
     <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h"/>
   </compounddef>

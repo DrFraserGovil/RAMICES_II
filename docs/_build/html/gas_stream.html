@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Gas Stream &#8212; RAMICES_II 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Gas Reservoir" href="gas_reservoir.html" />
+    <link rel="prev" title="Gas Object" href="gas.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gas_reservoir.html" title="Gas Reservoir"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gas.html" title="Gas Object"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RAMICES_II 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="gas_master.html" accesskey="U">Gas &amp; Containers</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Gas Stream</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="gas-stream">
+<h1>Gas Stream<a class="headerlink" href="#gas-stream" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv49GasStream">
+<span id="_CPPv39GasStream"></span><span id="_CPPv29GasStream"></span><span id="GasStream"></span><span class="target" id="classGasStream"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GasStream</span></span></span><a class="headerlink" href="#_CPPv49GasStream" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A gas stream is how a homogeneously-sourced set of gas gets moved around . They are created through SourceEvents - such as CCSN or accretion events. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream9GasStreamEv">
+<span id="_CPPv3N9GasStream9GasStreamEv"></span><span id="_CPPv2N9GasStream9GasStreamEv"></span><span id="GasStream::GasStream"></span><span class="target" id="classGasStream_1af53972311a6821deda7f211a828f65e7"></span><span class="sig-name descname"><span class="n"><span class="pre">GasStream</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream9GasStreamEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Default constructor  assigns itself as <a class="reference internal" href="enums.html#EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb"><span class="std std-ref">Unknown</span></a>, with zero mass. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream9GasStreamE13SourceProcess">
+<span id="_CPPv3N9GasStream9GasStreamE13SourceProcess"></span><span id="_CPPv2N9GasStream9GasStreamE13SourceProcess"></span><span id="GasStream::GasStream__SourceProcess"></span><span class="target" id="classGasStream_1a9c4c6fe0b3df01b5586cca667eaf11ca"></span><span class="sig-name descname"><span class="n"><span class="pre">GasStream</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="enums.html#_CPPv413SourceProcess" title="SourceProcess"><span class="n"><span class="pre">SourceProcess</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">source</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream9GasStreamE13SourceProcess" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Gives itself zero mass in both components. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source</strong> – The value of <a class="reference internal" href="#classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5"><span class="std std-ref">Source</span></a> which this object inherits </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream9GasStreamE13SourceProcessRK3GasRK3Gas">
+<span id="_CPPv3N9GasStream9GasStreamE13SourceProcessRK3GasRK3Gas"></span><span id="_CPPv2N9GasStream9GasStreamE13SourceProcessRK3GasRK3Gas"></span><span id="GasStream::GasStream__SourceProcess.GasCR.GasCR"></span><span class="target" id="classGasStream_1a83de215a9348757ca94bdf5b9d491328"></span><span class="sig-name descname"><span class="n"><span class="pre">GasStream</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="enums.html#_CPPv413SourceProcess" title="SourceProcess"><span class="n"><span class="pre">SourceProcess</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">source</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="gas.html#_CPPv43Gas" title="Gas"><span class="n"><span class="pre">Gas</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">hot</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="gas.html#_CPPv43Gas" title="Gas"><span class="n"><span class="pre">Gas</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">cold</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream9GasStreamE13SourceProcessRK3GasRK3Gas" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialises itself to the correct hot/cold components. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – The value of <a class="reference internal" href="#classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5"><span class="std std-ref">Source</span></a> which this object inherits</p></li>
+<li><p><strong>hot</strong> – The gas component which is copied into <a class="reference internal" href="#classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0"><span class="std std-ref">Hot</span></a></p></li>
+<li><p><strong>cold</strong> – The gas component which is copied into <a class="reference internal" href="#classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a"><span class="std std-ref">Cold</span></a> </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream9GasStreamE13SourceProcessRK3Gasd">
+<span id="_CPPv3N9GasStream9GasStreamE13SourceProcessRK3Gasd"></span><span id="_CPPv2N9GasStream9GasStreamE13SourceProcessRK3Gasd"></span><span id="GasStream::GasStream__SourceProcess.GasCR.double"></span><span class="target" id="classGasStream_1a07e893367e97b31d50c6b1dd31394c88"></span><span class="sig-name descname"><span class="n"><span class="pre">GasStream</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="enums.html#_CPPv413SourceProcess" title="SourceProcess"><span class="n"><span class="pre">SourceProcess</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">source</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="gas.html#_CPPv43Gas" title="Gas"><span class="n"><span class="pre">Gas</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">gas</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">hotFraction</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream9GasStreamE13SourceProcessRK3Gasd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Splits a single <a class="reference internal" href="gas.html#classGas"><span class="std std-ref">Gas</span></a> object up into fractions determined by the hot fraction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> – The value of <a class="reference internal" href="#classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5"><span class="std std-ref">Source</span></a> which this object inherits</p></li>
+<li><p><strong>gas</strong> – The total gas mass of the new stream</p></li>
+<li><p><strong>hotFraction</strong> – the fraction of the gas which is put into <a class="reference internal" href="#classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0"><span class="std std-ref">Hot</span></a>, keeping the elemental abundances the same </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream4MassEv">
+<span id="_CPPv3N9GasStream4MassEv"></span><span id="_CPPv2N9GasStream4MassEv"></span><span id="GasStream::Mass"></span><span class="target" id="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mass</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream4MassEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary, calls <a class="reference internal" href="#classGasStream_1ae0827e81446bddfc0c36ff0591a765fb"><span class="std std-ref">ComputeMasses()</span></a>, then sets the flag accordingly. Should reduce the number of loops needed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current total mass of the stream </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream7HotMassEv">
+<span id="_CPPv3N9GasStream7HotMassEv"></span><span id="_CPPv2N9GasStream7HotMassEv"></span><span id="GasStream::HotMass"></span><span class="target" id="classGasStream_1ab030a30e5279402f9c2134110c0f7fb5"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HotMass</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream7HotMassEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9"><span class="std std-ref">Mass()</span></a> for details. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current mass of the <a class="reference internal" href="#classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0"><span class="std std-ref">Hot</span></a> component </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream8ColdMassEv">
+<span id="_CPPv3N9GasStream8ColdMassEv"></span><span id="_CPPv2N9GasStream8ColdMassEv"></span><span id="GasStream::ColdMass"></span><span class="target" id="classGasStream_1a82682ae8856ff675869cce398a6bbd26"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ColdMass</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream8ColdMassEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>See <a class="reference internal" href="#classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9"><span class="std std-ref">Mass()</span></a> for details. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The current mass of the <a class="reference internal" href="#classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a"><span class="std std-ref">Cold</span></a> component </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream7DepleteEd">
+<span id="_CPPv3N9GasStream7DepleteEd"></span><span id="_CPPv2N9GasStream7DepleteEd"></span><span id="GasStream::Deplete__double"></span><span class="target" id="classGasStream_1af8e82b7a64f1d8a1af93db0473de284f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Deplete</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">amountToRemove</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream7DepleteEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental abundances the same. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>amountToRemove</strong> – The amount of mass to lose from the stream </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream7DepleteEdd">
+<span id="_CPPv3N9GasStream7DepleteEdd"></span><span id="_CPPv2N9GasStream7DepleteEdd"></span><span id="GasStream::Deplete__double.double"></span><span class="target" id="classGasStream_1a44ab71ee97b6bf6cb7fba7ce0c861a32"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Deplete</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">amountToRemove_Cold</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">amountToRemove_Hot</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream7DepleteEdd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Removes (i.e. throws away) the mass from the hot and cold components, keeping the individual elemental abundances the same. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amountToRemove_Cold, the</strong> – amount of cold gas to lose</p></li>
+<li><p><strong>amountToRemove_Hot, the</strong> – amount of hot gas to lose </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream6AbsorbERK9GasStream">
+<span id="_CPPv3N9GasStream6AbsorbERK9GasStream"></span><span id="_CPPv2N9GasStream6AbsorbERK9GasStream"></span><span id="GasStream::Absorb__GasStreamCR"></span><span class="target" id="classGasStream_1a65732759a83d7eb8bd23d7f944fe5217"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Absorb</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv49GasStream" title="GasStream"><span class="n"><span class="pre">GasStream</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream6AbsorbERK9GasStream" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Adds the gas contained within the input to the current stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> – The object which donates the gas (unaltered) </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream6AbsorbERK3Gasd">
+<span id="_CPPv3N9GasStream6AbsorbERK3Gasd"></span><span id="_CPPv2N9GasStream6AbsorbERK3Gasd"></span><span id="GasStream::Absorb__GasCR.double"></span><span class="target" id="classGasStream_1abbd41dd93fa28b504760b8e85ce21047"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Absorb</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="gas.html#_CPPv43Gas" title="Gas"><span class="n"><span class="pre">Gas</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">hotFraction</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream6AbsorbERK3Gasd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Adds the gas to the current stream, splitting it according to the hotFraction. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – The object which donates the gas (unaltered)</p></li>
+<li><p><strong>hotFraction</strong> – The amount of the input which goes into the <a class="reference internal" href="#classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0"><span class="std std-ref">Hot</span></a> stream </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream5DirtyEv">
+<span id="_CPPv3N9GasStream5DirtyEv"></span><span id="_CPPv2N9GasStream5DirtyEv"></span><span id="GasStream::Dirty"></span><span class="target" id="classGasStream_1ac3801d0fc9d450844cea477c3dfe27e1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Dirty</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream5DirtyEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the <a class="reference internal" href="#classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a"><span class="std std-ref">NeedsRecomputing</span></a> flag to true. Used to inform the Stream that someone (most probably a call through <a class="reference internal" href="gas_reservoir.html#classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645"><span class="std std-ref">GasReservoir::operator[]</span></a>) has gone over its head and touched its internal workings. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream6SourceE">
+<span id="_CPPv3N9GasStream6SourceE"></span><span id="_CPPv2N9GasStream6SourceE"></span><span id="GasStream::Source__SourceProcess"></span><span class="target" id="classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5"></span><a class="reference internal" href="enums.html#_CPPv413SourceProcess" title="SourceProcess"><span class="n"><span class="pre">SourceProcess</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Source</span></span></span><a class="headerlink" href="#_CPPv4N9GasStream6SourceE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A label identifying where and how this gas stream was created. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream3HotE">
+<span id="_CPPv3N9GasStream3HotE"></span><span id="_CPPv2N9GasStream3HotE"></span><span id="GasStream::Hot__Gas"></span><span class="target" id="classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0"></span><a class="reference internal" href="gas.html#_CPPv43Gas" title="Gas"><span class="n"><span class="pre">Gas</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Hot</span></span></span><a class="headerlink" href="#_CPPv4N9GasStream3HotE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The container for the hot component. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream4ColdE">
+<span id="_CPPv3N9GasStream4ColdE"></span><span id="_CPPv2N9GasStream4ColdE"></span><span id="GasStream::Cold__Gas"></span><span class="target" id="classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a"></span><a class="reference internal" href="gas.html#_CPPv43Gas" title="Gas"><span class="n"><span class="pre">Gas</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Cold</span></span></span><a class="headerlink" href="#_CPPv4N9GasStream4ColdE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The container for the cold component. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream13ComputeMassesEv">
+<span id="_CPPv3N9GasStream13ComputeMassesEv"></span><span id="_CPPv2N9GasStream13ComputeMassesEv"></span><span id="GasStream::ComputeMasses"></span><span class="target" id="classGasStream_1ae0827e81446bddfc0c36ff0591a765fb"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ComputeMasses</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9GasStream13ComputeMassesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If <a class="reference internal" href="#classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a"><span class="std std-ref">NeedsRecomputing</span></a> is true, this recalculates <a class="reference internal" href="#classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca"><span class="std std-ref">internal_HotMass</span></a> and <a class="reference internal" href="#classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63"><span class="std std-ref">internal_ColdMass</span></a>. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream16NeedsRecomputingE">
+<span id="_CPPv3N9GasStream16NeedsRecomputingE"></span><span id="_CPPv2N9GasStream16NeedsRecomputingE"></span><span id="GasStream::NeedsRecomputing__b"></span><span class="target" id="classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NeedsRecomputing</span></span></span><a class="headerlink" href="#_CPPv4N9GasStream16NeedsRecomputingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A flag used to prevent excessive recomputing of the internal masses. By design, if <a class="reference internal" href="#classGasStream_1a65732759a83d7eb8bd23d7f944fe5217"><span class="std std-ref">Absorb()</span></a>, <a class="reference internal" href="#classGasStream_1af8e82b7a64f1d8a1af93db0473de284f"><span class="std std-ref">Deplete()</span></a> etc. calls are avoided, the components of <a class="reference internal" href="#classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0"><span class="std std-ref">Hot</span></a> and <a class="reference internal" href="#classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a"><span class="std std-ref">Cold</span></a> are invariant, so the values of <a class="reference internal" href="#classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9"><span class="std std-ref">Mass()</span></a> are constant. Therefore if this flag is false, simply returns the last computed value of the mass value. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream16internal_HotMassE">
+<span id="_CPPv3N9GasStream16internal_HotMassE"></span><span id="_CPPv2N9GasStream16internal_HotMassE"></span><span id="GasStream::internal_HotMass__double"></span><span class="target" id="classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">internal_HotMass</span></span></span><a class="headerlink" href="#_CPPv4N9GasStream16internal_HotMassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The last computed value of <a class="reference internal" href="#classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0"><span class="std std-ref">Hot</span></a>.<a class="reference internal" href="gas.html#classGas_1a292ef4704a70acb9aacf7bd10d04f7f3"><span class="std std-ref">Gas::Mass()</span></a> </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream17internal_ColdMassE">
+<span id="_CPPv3N9GasStream17internal_ColdMassE"></span><span id="_CPPv2N9GasStream17internal_ColdMassE"></span><span id="GasStream::internal_ColdMass__double"></span><span class="target" id="classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">internal_ColdMass</span></span></span><a class="headerlink" href="#_CPPv4N9GasStream17internal_ColdMassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The last computed value of <a class="reference internal" href="#classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a"><span class="std std-ref">Cold</span></a>.<a class="reference internal" href="gas.html#classGas_1a292ef4704a70acb9aacf7bd10d04f7f3"><span class="std std-ref">Gas::Mass()</span></a> </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9GasStream18internal_TotalMassE">
+<span id="_CPPv3N9GasStream18internal_TotalMassE"></span><span id="_CPPv2N9GasStream18internal_TotalMassE"></span><span id="GasStream::internal_TotalMass__double"></span><span class="target" id="classGasStream_1a14fe3a90aa022cedea487e27ddcb57ac"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">internal_TotalMass</span></span></span><a class="headerlink" href="#_CPPv4N9GasStream18internal_TotalMassE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The sum of <a class="reference internal" href="#classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca"><span class="std std-ref">internal_HotMass</span></a> and <a class="reference internal" href="#classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63"><span class="std std-ref">internal_ColdMass</span></a>. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gas.html"
+                        title="previous chapter">Gas Object</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gas_reservoir.html"
+                        title="next chapter">Gas Reservoir</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/gas_stream.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gas_reservoir.html" title="Gas Reservoir"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gas.html" title="Gas Object"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RAMICES_II 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="gas_master.html" >Gas &amp; Containers</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Gas Stream</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, J. Fraser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
+    </div>
+  </body>
+</html>

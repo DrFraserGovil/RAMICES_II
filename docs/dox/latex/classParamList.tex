@@ -2,7 +2,7 @@
 \label{classParamList}\index{ParamList@{ParamList}}
 
 
-generic superclass structure so that I can heterogenously loop over arrays  
+A Generic superclass structure so that I can heterogenously loop over the various members of \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} without writing it all out arduously. Also provides a consistent interface with the \mbox{\hyperlink{classJSL_1_1Argument}{J\+S\+L\+::\+Argument}} environment.  
 
 
 
@@ -19,18 +19,18 @@ Inheritance diagram for Param\+List\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classParamList_a7ea5ff6efbbfd83e5c5c9a638bcd38d8}{Configure}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
-\item 
+\begin{DoxyCompactList}\small\item\em Loops over all members of the arg\+Pointers array and calls the configuration/command line A\+PI on them to initialise the members of the child classes. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classParamList_a7bc1e8cffb0062a056193e34b80f3475}{Initialise}} (std\+::string resource\+Root)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A (hopefully) rarely used function which calls any additional functions which can only be called {\itshape after} the configuration has been run. For most members, this is an empty function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::vector$<$ \mbox{\hyperlink{classJSL_1_1ArgumentInterface}{J\+S\+L\+::\+Argument\+Interface}} $\ast$ $>$ \mbox{\hyperlink{classParamList_a5dd9bcd80fa4f11fd9607bd47f697ca2}{arg\+Pointers}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A list of pointers to member variables of the child classes which want to be initialised against command line / config-\/file values. Any Argument objects not added to this array will not be initialised! This array should be allocated during the individual subclass constructors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-generic superclass structure so that I can heterogenously loop over arrays 
+A Generic superclass structure so that I can heterogenously loop over the various members of \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} without writing it all out arduously. Also provides a consistent interface with the \mbox{\hyperlink{classJSL_1_1Argument}{J\+S\+L\+::\+Argument}} environment. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classParamList_a7ea5ff6efbbfd83e5c5c9a638bcd38d8}\label{classParamList_a7ea5ff6efbbfd83e5c5c9a638bcd38d8}} 
@@ -39,11 +39,19 @@ generic superclass structure so that I can heterogenously loop over arrays
 \doxysubsubsection{\texorpdfstring{Configure()}{Configure()}}
 {\footnotesize\ttfamily void Param\+List\+::\+Configure (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
 
+
+
+Loops over all members of the arg\+Pointers array and calls the configuration/command line A\+PI on them to initialise the members of the child classes. 
+
 \mbox{\Hypertarget{classParamList_a7bc1e8cffb0062a056193e34b80f3475}\label{classParamList_a7bc1e8cffb0062a056193e34b80f3475}} 
 \index{ParamList@{ParamList}!Initialise@{Initialise}}
 \index{Initialise@{Initialise}!ParamList@{ParamList}}
 \doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
 {\footnotesize\ttfamily virtual void Param\+List\+::\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{resource\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+A (hopefully) rarely used function which calls any additional functions which can only be called {\itshape after} the configuration has been run. For most members, this is an empty function. 
 
 
 
@@ -57,6 +65,10 @@ Reimplemented in \mbox{\hyperlink{classElementValues_a76dc3cddb13b0673840cabf96b
 \index{argPointers@{argPointers}!ParamList@{ParamList}}
 \doxysubsubsection{\texorpdfstring{argPointers}{argPointers}}
 {\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classJSL_1_1ArgumentInterface}{J\+S\+L\+::\+Argument\+Interface}} $\ast$$>$ Param\+List\+::arg\+Pointers\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+A list of pointers to member variables of the child classes which want to be initialised against command line / config-\/file values. Any Argument objects not added to this array will not be initialised! This array should be allocated during the individual subclass constructors. 
 
 
 

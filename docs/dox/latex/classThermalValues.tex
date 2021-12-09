@@ -2,6 +2,11 @@
 \label{classThermalValues}\index{ThermalValues@{ThermalValues}}
 
 
+Thermal suboptions contain variables which deal with the thermal subroutines -\/ cooling timescales injection fractions etc.  
+
+
+
+
 {\ttfamily \#include $<$Parameter\+Lists.\+h$>$}
 
 Inheritance diagram for Thermal\+Values\+:\begin{figure}[H]
@@ -14,20 +19,23 @@ Inheritance diagram for Thermal\+Values\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classThermalValues_a49141fdedc915346bdfa0a7a3f974310}{Thermal\+Values}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classThermalValues_a225d63d98c19be0b7cdabf2464e223b3}{Hot\+Injection\+\_\+\+C\+C\+SN}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+7,\char`\"{}-\/fh-\/ccsn\char`\"{})
-\item 
+\begin{DoxyCompactList}\small\item\em Fraction of C\+C\+SN ejecta which is put into the hot phase. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classThermalValues_a0faba77dff54e82e0f3743295a45cdee}{Hot\+Injection\+\_\+\+N\+SM}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+4,\char`\"{}-\/fh-\/nsm\char`\"{})
-\item 
+\begin{DoxyCompactList}\small\item\em Fraction of N\+SM ejecta which is put into the hot phase. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classThermalValues_ab6d948b7790af5931b26440ca3ad7423}{Hot\+Injection\+\_\+\+S\+N\+Ia}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+99,\char`\"{}-\/fh-\/sn1a\char`\"{})
-\item 
+\begin{DoxyCompactList}\small\item\em Fraction of S\+N\+Ia ejecta which is put into the hot phase. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classThermalValues_a2227511e41c87c5e71dec0ee9d13aec7}{Gas\+Cooling\+Time\+Scale}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(1.\+0,\char`\"{}cool\char`\"{})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The exponential timescale over which the hot gas cools into the cold gas. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
+
+\doxysubsection{Detailed Description}
+Thermal suboptions contain variables which deal with the thermal subroutines -\/ cooling timescales injection fractions etc. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classThermalValues_a49141fdedc915346bdfa0a7a3f974310}\label{classThermalValues_a49141fdedc915346bdfa0a7a3f974310}} 
@@ -38,6 +46,10 @@ Inheritance diagram for Thermal\+Values\+:\begin{figure}[H]
 
 
 
+Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. 
+
+
+
 \doxysubsection{Field Documentation}
 \mbox{\Hypertarget{classThermalValues_a2227511e41c87c5e71dec0ee9d13aec7}\label{classThermalValues_a2227511e41c87c5e71dec0ee9d13aec7}} 
 \index{ThermalValues@{ThermalValues}!GasCoolingTimeScale@{GasCoolingTimeScale}}
@@ -45,11 +57,19 @@ Inheritance diagram for Thermal\+Values\+:\begin{figure}[H]
 \doxysubsubsection{\texorpdfstring{GasCoolingTimeScale}{GasCoolingTimeScale}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Thermal\+Values\+::\+Gas\+Cooling\+Time\+Scale = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(1.\+0,\char`\"{}cool\char`\"{})}
 
+
+
+The exponential timescale over which the hot gas cools into the cold gas. 
+
 \mbox{\Hypertarget{classThermalValues_a225d63d98c19be0b7cdabf2464e223b3}\label{classThermalValues_a225d63d98c19be0b7cdabf2464e223b3}} 
 \index{ThermalValues@{ThermalValues}!HotInjection\_CCSN@{HotInjection\_CCSN}}
 \index{HotInjection\_CCSN@{HotInjection\_CCSN}!ThermalValues@{ThermalValues}}
 \doxysubsubsection{\texorpdfstring{HotInjection\_CCSN}{HotInjection\_CCSN}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Thermal\+Values\+::\+Hot\+Injection\+\_\+\+C\+C\+SN = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+7,\char`\"{}-\/fh-\/ccsn\char`\"{})}
+
+
+
+Fraction of C\+C\+SN ejecta which is put into the hot phase. 
 
 \mbox{\Hypertarget{classThermalValues_a0faba77dff54e82e0f3743295a45cdee}\label{classThermalValues_a0faba77dff54e82e0f3743295a45cdee}} 
 \index{ThermalValues@{ThermalValues}!HotInjection\_NSM@{HotInjection\_NSM}}
@@ -57,11 +77,19 @@ Inheritance diagram for Thermal\+Values\+:\begin{figure}[H]
 \doxysubsubsection{\texorpdfstring{HotInjection\_NSM}{HotInjection\_NSM}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Thermal\+Values\+::\+Hot\+Injection\+\_\+\+N\+SM = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+4,\char`\"{}-\/fh-\/nsm\char`\"{})}
 
+
+
+Fraction of N\+SM ejecta which is put into the hot phase. 
+
 \mbox{\Hypertarget{classThermalValues_ab6d948b7790af5931b26440ca3ad7423}\label{classThermalValues_ab6d948b7790af5931b26440ca3ad7423}} 
 \index{ThermalValues@{ThermalValues}!HotInjection\_SNIa@{HotInjection\_SNIa}}
 \index{HotInjection\_SNIa@{HotInjection\_SNIa}!ThermalValues@{ThermalValues}}
 \doxysubsubsection{\texorpdfstring{HotInjection\_SNIa}{HotInjection\_SNIa}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Thermal\+Values\+::\+Hot\+Injection\+\_\+\+S\+N\+Ia = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+99,\char`\"{}-\/fh-\/sn1a\char`\"{})}
+
+
+
+Fraction of S\+N\+Ia ejecta which is put into the hot phase. 
 
 
 

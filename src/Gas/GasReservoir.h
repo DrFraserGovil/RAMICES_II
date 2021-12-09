@@ -3,7 +3,7 @@
 #include "../Parameters/GlobalParameters.h"
 #include "GasStream.h"
 /*!
- *  A GasReservoir is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM
+ *  A GasReservoir is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM.
  * In practicality, they are a container for a vector of GasStream objects + assorted ways for these objects to interact with one another
  * 
 */
@@ -11,24 +11,45 @@
 class GasReservoir
 {
 	public:
+		
+		//! Default constructor. Initialises the #Components and gives them their #SourceProcess ID.
 		GasReservoir();
 		
+		//! A vector-like access overload, allowing indexing into the #Components vector using appropriate #SourceProcesses
+		GasStream & operator[](SourceProcess source);
+		
+		//! An annoyingly necessary redeclaration for when constant references don't want to play ball
+		const GasStream & operator[](SourceProcess source) const;
+		
+		
+		//!\returns The current total mass of the reservoir, the sum of GasStream::Mass() calls over the #Components vector.
 		double Mass();
+		
+		//!\returns The current total cold-gas mass of the reservoir, the sum of GasStream::ColdMass() calls over the #Components vector.
 		double ColdMass();
+		
+		//!\returns The current total hot-gas mass of the reservoir, the sum of GasStream::HotMass() calls over the #Components vector.
 		double HotMass();
 		
-		//gas movement options
+		//! Transfer the contents of the input reservoir and sum them into the reservoir \param givingGas the reservoir which will be summed into the current object (unaltered)
 		void Absorb(const GasReservoir & givingGas);
+		
+		//! Transfer the contents of the input stream into the element of #Components indicated by the input's #GasStream::Source flag. \param givingGas the stream which is absorbed into the reservoir (unaltered)
 		void Absorb(const GasStream & givingGas);		
 
+		//! Calls #GasStream::Deplete(double) on each element of #Components, keeping the relative mass contribution of each component equal \param amountToLose The total amount of mass to be lost from the reservoir (shared amongst components)
 		void Deplete(double amountToLose);
+		
+		//! Calls #GasStream::Deplete(double, double) on each element of #Components, keeping the relative hot mass and cold mass contribution of each component equal \param amountToLose_Cold The total amount of cold gas mass to be lost from the reservoir (shared amongst components) \param amountToLose_Hot The total amount of hot gas mass to be lost from the reservoir (shared amongst components)
 		void Deplete(double amountToLose_Cold, double amountToLose_Hot);
 		
+		
+		//! Generates a primordial gas reservoir of the specified mass -- only the ::Primordial component is populated, with the nature of that component determined by several key parameters in GlobalParameters \param mass The total mass of the new reservoir \param param A reference to the global parameter set - required for primordial abundances and hot-gas fractions 
 		static GasReservoir Primordial(double mass, GlobalParameters & param);
-
-		GasStream & operator[](SourceProcess source);
-		const GasStream & operator[](SourceProcess source) const;
+		
 	private:
+	
+		//! A representation of the total amount of gas within the reservoir, separated by the origin of the gas
 		std::vector<GasStream> Components;
 		
 	

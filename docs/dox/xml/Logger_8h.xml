@@ -13,7 +13,6 @@
     <includedby refid="StellarYield_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h</includedby>
     <includedby refid="YieldGrid_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h</includedby>
     <includedby refid="Galaxy_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</includedby>
-    <includedby refid="old__src_2Galaxy_2GasReservoir_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h</includedby>
     <incdepgraph>
       <node id="8">
         <label>iomanip</label>
@@ -115,8 +114,6 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
       </node>
       <node id="3">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h</label>
@@ -135,12 +132,6 @@
       <node id="5">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
         <link refid="Galaxy_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/GasReservoir.h</label>
-        <link refid="old__src_2Galaxy_2GasReservoir_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
       </node>

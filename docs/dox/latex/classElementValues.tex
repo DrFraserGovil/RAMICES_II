@@ -2,6 +2,11 @@
 \label{classElementValues}\index{ElementValues@{ElementValues}}
 
 
+The elemental suboptions contains variables and data associated with the solar abundances (and where to locate them), and how to extract and extrapolate the yield data from files.  
+
+
+
+
 {\ttfamily \#include $<$Parameter\+Lists.\+h$>$}
 
 Inheritance diagram for Element\+Values\+:\begin{figure}[H]
@@ -21,16 +26,16 @@ enum \mbox{\hyperlink{classElementValues_a817b2576427ffe893ad83162f5111a0b}{Sour
 \newline
 \mbox{\hyperlink{classElementValues_a817b2576427ffe893ad83162f5111a0ba8eefe85166576dbfeff9f8f101bf81aa}{Mixed}}
  \}
-\begin{DoxyCompactList}\small\item\em Enums to identify different elemental yield sources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Enums to identify the theoretical basis for different yield tables. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classElementValues_a5adc37ca7878e4a47493a9e18743d464}{Element\+Values}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classElementValues_a76dc3cddb13b0673840cabf96b3bbe87}{Initialise}} (std\+::string resource\+Root)
-\item 
+\begin{DoxyCompactList}\small\item\em An overload of a normally empty function. Loads in the values fo the solar abundance data file into the Solar\+Abundances vector. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classElementValues_a7ffa1bc21d1b35c4dae9959a12d5e221}{Give\+Elements\+Names}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A fairly dumbly-\/written function which sorts the elemental symbols in Element\+Names into the order specified by the global id-\/enum. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
@@ -47,6 +52,9 @@ std\+::vector$<$ double $>$ \mbox{\hyperlink{classElementValues_aa18a62ae74cffc6
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+The elemental suboptions contains variables and data associated with the solar abundances (and where to locate them), and how to extract and extrapolate the yield data from files. 
+
 \doxysubsection{Member Enumeration Documentation}
 \mbox{\Hypertarget{classElementValues_a817b2576427ffe893ad83162f5111a0b}\label{classElementValues_a817b2576427ffe893ad83162f5111a0b}} 
 \index{ElementValues@{ElementValues}!SourceIDs@{SourceIDs}}
@@ -56,7 +64,7 @@ std\+::vector$<$ double $>$ \mbox{\hyperlink{classElementValues_aa18a62ae74cffc6
 
 
 
-Enums to identify different elemental yield sources. 
+Enums to identify the theoretical basis for different yield tables. 
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Orfeo@{Orfeo}!ElementValues@{ElementValues}}\index{ElementValues@{ElementValues}!Orfeo@{Orfeo}}}\mbox{\Hypertarget{classElementValues_a817b2576427ffe893ad83162f5111a0baa55a878e01d11546ba44bc134ea8b5e2}\label{classElementValues_a817b2576427ffe893ad83162f5111a0baa55a878e01d11546ba44bc134ea8b5e2}} 
@@ -91,6 +99,10 @@ Mixed&\\
 
 
 
+Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. 
+
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classElementValues_a7ffa1bc21d1b35c4dae9959a12d5e221}\label{classElementValues_a7ffa1bc21d1b35c4dae9959a12d5e221}} 
 \index{ElementValues@{ElementValues}!GiveElementsNames@{GiveElementsNames}}
@@ -98,11 +110,19 @@ Mixed&\\
 \doxysubsubsection{\texorpdfstring{GiveElementsNames()}{GiveElementsNames()}}
 {\footnotesize\ttfamily void Element\+Values\+::\+Give\+Elements\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+A fairly dumbly-\/written function which sorts the elemental symbols in Element\+Names into the order specified by the global id-\/enum. 
+
 \mbox{\Hypertarget{classElementValues_a76dc3cddb13b0673840cabf96b3bbe87}\label{classElementValues_a76dc3cddb13b0673840cabf96b3bbe87}} 
 \index{ElementValues@{ElementValues}!Initialise@{Initialise}}
 \index{Initialise@{Initialise}!ElementValues@{ElementValues}}
 \doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
 {\footnotesize\ttfamily virtual void Element\+Values\+::\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{resource\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+An overload of a normally empty function. Loads in the values fo the solar abundance data file into the Solar\+Abundances vector. 
 
 
 

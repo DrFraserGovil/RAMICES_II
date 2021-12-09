@@ -58,10 +58,10 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="11">
+      <node id="13">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h</label>
         <link refid="List_8h"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
@@ -72,7 +72,13 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="10">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
         <label>/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h</label>
         <link refid="Q__temp_8h"/>
       </node>
@@ -95,12 +101,18 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="11">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h</label>
         <link refid="ParameterLists_8h"/>
         <childnode refid="6" relation="include">
@@ -114,14 +126,16 @@
       </node>
       <node id="9">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
-        <link refid="src_2Gas_2GasReservoir_8h"/>
+        <link refid="GasReservoir_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h</label>
         <link refid="matrix_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="6">

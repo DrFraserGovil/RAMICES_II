@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>generic superclass structure so that I can heterogenously loop over arrays  
+<p>A Generic superclass structure so that I can heterogenously loop over the various members of <a class="el" href="classGlobalParameters.html" title="A package of global parameter objects which can be passed around by reference. Most of the internal v...">GlobalParameters</a> without writing it all out arduously. Also provides a consistent interface with the <a class="el" href="classJSL_1_1Argument.html">JSL::Argument</a> environment.  
  <a href="classParamList.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="List_8h_source.html">List.h</a>&gt;</code></p>
@@ -80,28 +80,31 @@ Inheritance diagram for ParamList:</div>
  <div class="center">
   <img src="classParamList.png" usemap="#ParamList_map" alt=""/>
   <map id="ParamList_map" name="ParamList_map">
-<area href="classElementValues.html" alt="ElementValues" shape="rect" coords="0,56,96,80"/>
-<area href="classGalaxyValues.html" alt="GalaxyValues" shape="rect" coords="106,56,202,80"/>
+<area href="classElementValues.html" title="The elemental suboptions contains variables and data associated with the solar abundances (and where ..." alt="ElementValues" shape="rect" coords="0,56,96,80"/>
+<area href="classGalaxyValues.html" title="The galaxy suboptions contians variables associated with the galaxy as a whole, such as the maximum r..." alt="GalaxyValues" shape="rect" coords="106,56,202,80"/>
 <area href="classMetaValues.html" title="The MetaValues contains variables associated with the base-level information about the sumulation - t..." alt="MetaValues" shape="rect" coords="212,56,308,80"/>
-<area href="classStellarValues.html" alt="StellarValues" shape="rect" coords="318,56,414,80"/>
-<area href="classThermalValues.html" alt="ThermalValues" shape="rect" coords="424,56,520,80"/>
+<area href="classStellarValues.html" title="The subset of values associated with stars + their remnants." alt="StellarValues" shape="rect" coords="318,56,414,80"/>
+<area href="classThermalValues.html" title="Thermal suboptions contain variables which deal with the thermal subroutines - cooling timescales inj..." alt="ThermalValues" shape="rect" coords="424,56,520,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7ea5ff6efbbfd83e5c5c9a638bcd38d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamList.html#a7ea5ff6efbbfd83e5c5c9a638bcd38d8">Configure</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:a7ea5ff6efbbfd83e5c5c9a638bcd38d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loops over all members of the argPointers array and calls the configuration/command line API on them to initialise the members of the child classes.  <a href="classParamList.html#a7ea5ff6efbbfd83e5c5c9a638bcd38d8">More...</a><br /></td></tr>
 <tr class="separator:a7ea5ff6efbbfd83e5c5c9a638bcd38d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bc1e8cffb0062a056193e34b80f3475"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamList.html#a7bc1e8cffb0062a056193e34b80f3475">Initialise</a> (std::string resourceRoot)</td></tr>
+<tr class="memdesc:a7bc1e8cffb0062a056193e34b80f3475"><td class="mdescLeft">&#160;</td><td class="mdescRight">A (hopefully) rarely used function which calls any additional functions which can only be called <em>after</em> the configuration has been run. For most members, this is an empty function.  <a href="classParamList.html#a7bc1e8cffb0062a056193e34b80f3475">More...</a><br /></td></tr>
 <tr class="separator:a7bc1e8cffb0062a056193e34b80f3475"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a5dd9bcd80fa4f11fd9607bd47f697ca2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classJSL_1_1ArgumentInterface.html">JSL::ArgumentInterface</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamList.html#a5dd9bcd80fa4f11fd9607bd47f697ca2">argPointers</a></td></tr>
+<tr class="memdesc:a5dd9bcd80fa4f11fd9607bd47f697ca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of pointers to member variables of the child classes which want to be initialised against command line / config-file values. Any Argument objects not added to this array will not be initialised! This array should be allocated during the individual subclass constructors.  <a href="classParamList.html#a5dd9bcd80fa4f11fd9607bd47f697ca2">More...</a><br /></td></tr>
 <tr class="separator:a5dd9bcd80fa4f11fd9607bd47f697ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>generic superclass structure so that I can heterogenously loop over arrays </p>
+<div class="textblock"><p>A Generic superclass structure so that I can heterogenously loop over the various members of <a class="el" href="classGlobalParameters.html" title="A package of global parameter objects which can be passed around by reference. Most of the internal v...">GlobalParameters</a> without writing it all out arduously. Also provides a consistent interface with the <a class="el" href="classJSL_1_1Argument.html">JSL::Argument</a> environment. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7ea5ff6efbbfd83e5c5c9a638bcd38d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ea5ff6efbbfd83e5c5c9a638bcd38d8">&#9670;&nbsp;</a></span>Configure()</h2>
@@ -129,6 +132,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Loops over all members of the argPointers array and calls the configuration/command line API on them to initialise the members of the child classes. </p>
+
 </div>
 </div>
 <a id="a7bc1e8cffb0062a056193e34b80f3475"></a>
@@ -155,6 +160,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>A (hopefully) rarely used function which calls any additional functions which can only be called <em>after</em> the configuration has been run. For most members, this is an empty function. </p>
+
 <p>Reimplemented in <a class="el" href="classElementValues.html#a76dc3cddb13b0673840cabf96b3bbe87">ElementValues</a>.</p>
 
 </div>
@@ -179,6 +186,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>A list of pointers to member variables of the child classes which want to be initialised against command line / config-file values. Any Argument objects not added to this array will not be initialised! This array should be allocated during the individual subclass constructors. </p>
 
 </div>
 </div>

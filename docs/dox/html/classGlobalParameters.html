@@ -70,31 +70,44 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A package of global parameter objects which can be passed around by reference. Most of the internal values are set as <a class="el" href="classJSL_1_1Argument.html">JSL::Argument</a> objects and so can be initialised from the command line / config file.  
+ <a href="classGlobalParameters.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="GlobalParameters_8h_source.html">GlobalParameters.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9dc5211c8317889b10c16daf49f7e916"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalParameters.html#a9dc5211c8317889b10c16daf49f7e916">GlobalParameters</a> ()</td></tr>
+<tr class="memdesc:a9dc5211c8317889b10c16daf49f7e916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does absolutely nothing!  <a href="classGlobalParameters.html#a9dc5211c8317889b10c16daf49f7e916">More...</a><br /></td></tr>
 <tr class="separator:a9dc5211c8317889b10c16daf49f7e916"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49a012a4c9a2972a33ae78ef2d500d32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalParameters.html#a49a012a4c9a2972a33ae78ef2d500d32">Initialise</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:a49a012a4c9a2972a33ae78ef2d500d32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loops over the ParamMembers and initialises their values according to the <a class="el" href="classParamList.html" title="A Generic superclass structure so that I can heterogenously loop over the various members of GlobalPa...">ParamList</a> object.  <a href="classGlobalParameters.html#a49a012a4c9a2972a33ae78ef2d500d32">More...</a><br /></td></tr>
 <tr class="separator:a49a012a4c9a2972a33ae78ef2d500d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:acadf3dc072a866179ff6cbb659bfe9f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMetaValues.html">MetaValues</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalParameters.html#acadf3dc072a866179ff6cbb659bfe9f9">Meta</a></td></tr>
+<tr class="memdesc:acadf3dc072a866179ff6cbb659bfe9f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulation values - timescales, output directories etc.  <a href="classGlobalParameters.html#acadf3dc072a866179ff6cbb659bfe9f9">More...</a><br /></td></tr>
 <tr class="separator:acadf3dc072a866179ff6cbb659bfe9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c19b1581da94aa75d4007b045ca3668"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classElementValues.html">ElementValues</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalParameters.html#a6c19b1581da94aa75d4007b045ca3668">Element</a></td></tr>
+<tr class="memdesc:a6c19b1581da94aa75d4007b045ca3668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abundance data + resource location data.  <a href="classGlobalParameters.html#a6c19b1581da94aa75d4007b045ca3668">More...</a><br /></td></tr>
 <tr class="separator:a6c19b1581da94aa75d4007b045ca3668"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fecec8fd7a856462e6d2a156bced778"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStellarValues.html">StellarValues</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalParameters.html#a0fecec8fd7a856462e6d2a156bced778">Stellar</a></td></tr>
+<tr class="memdesc:a0fecec8fd7a856462e6d2a156bced778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stellar limits (mass, metallicity)  <a href="classGlobalParameters.html#a0fecec8fd7a856462e6d2a156bced778">More...</a><br /></td></tr>
 <tr class="separator:a0fecec8fd7a856462e6d2a156bced778"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4286ecf9679555c20b9176178e3cafef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThermalValues.html">ThermalValues</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalParameters.html#a4286ecf9679555c20b9176178e3cafef">Thermal</a></td></tr>
+<tr class="memdesc:a4286ecf9679555c20b9176178e3cafef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hot gas cooling/injection parameters.  <a href="classGlobalParameters.html#a4286ecf9679555c20b9176178e3cafef">More...</a><br /></td></tr>
 <tr class="separator:a4286ecf9679555c20b9176178e3cafef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe614bae6bfab6d1fbe2b5e9db5adaa3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGalaxyValues.html">GalaxyValues</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalParameters.html#abe614bae6bfab6d1fbe2b5e9db5adaa3">Galaxy</a></td></tr>
+<tr class="memdesc:abe614bae6bfab6d1fbe2b5e9db5adaa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Galactic size/ evolution parameters.  <a href="classGlobalParameters.html#abe614bae6bfab6d1fbe2b5e9db5adaa3">More...</a><br /></td></tr>
 <tr class="separator:abe614bae6bfab6d1fbe2b5e9db5adaa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5ed3bfeb016b8c1aeb2570b5bdc8385"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classParamList.html">ParamList</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGlobalParameters.html#ad5ed3bfeb016b8c1aeb2570b5bdc8385">ParamMembers</a> = {&amp;<a class="el" href="classGlobalParameters.html#acadf3dc072a866179ff6cbb659bfe9f9">Meta</a>,&amp;<a class="el" href="classGlobalParameters.html#a6c19b1581da94aa75d4007b045ca3668">Element</a>,&amp;<a class="el" href="classGlobalParameters.html#a0fecec8fd7a856462e6d2a156bced778">Stellar</a>,&amp;<a class="el" href="classGlobalParameters.html#a4286ecf9679555c20b9176178e3cafef">Thermal</a>,&amp;<a class="el" href="classGalaxy.html">Galaxy</a>}</td></tr>
+<tr class="memdesc:ad5ed3bfeb016b8c1aeb2570b5bdc8385"><td class="mdescLeft">&#160;</td><td class="mdescRight">A heterogeneous pointer array, which allows for a nice loop over the members. Any new parameter pack needs to be inserted here so that the member values can be initialised.  <a href="classGlobalParameters.html#ad5ed3bfeb016b8c1aeb2570b5bdc8385">More...</a><br /></td></tr>
 <tr class="separator:ad5ed3bfeb016b8c1aeb2570b5bdc8385"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A package of global parameter objects which can be passed around by reference. Most of the internal values are set as <a class="el" href="classJSL_1_1Argument.html">JSL::Argument</a> objects and so can be initialised from the command line / config file. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9dc5211c8317889b10c16daf49f7e916"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9dc5211c8317889b10c16daf49f7e916">&#9670;&nbsp;</a></span>GlobalParameters()</h2>
 
@@ -109,6 +122,8 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Does absolutely nothing! </p>
 
 </div>
 </div>
@@ -139,6 +154,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Loops over the ParamMembers and initialises their values according to the <a class="el" href="classParamList.html" title="A Generic superclass structure so that I can heterogenously loop over the various members of GlobalPa...">ParamList</a> object. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
@@ -154,6 +171,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Abundance data + resource location data. </p>
+
 </div>
 </div>
 <a id="abe614bae6bfab6d1fbe2b5e9db5adaa3"></a>
@@ -167,6 +186,8 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Galactic size/ evolution parameters. </p>
 
 </div>
 </div>
@@ -182,6 +203,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Simulation values - timescales, output directories etc. </p>
+
 </div>
 </div>
 <a id="ad5ed3bfeb016b8c1aeb2570b5bdc8385"></a>
@@ -195,6 +218,8 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A heterogeneous pointer array, which allows for a nice loop over the members. Any new parameter pack needs to be inserted here so that the member values can be initialised. </p>
 
 </div>
 </div>
@@ -210,6 +235,8 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Stellar limits (mass, metallicity) </p>
+
 </div>
 </div>
 <a id="a4286ecf9679555c20b9176178e3cafef"></a>
@@ -223,6 +250,8 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Hot gas cooling/injection parameters. </p>
 
 </div>
 </div>

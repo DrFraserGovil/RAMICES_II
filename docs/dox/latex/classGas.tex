@@ -8,27 +8,27 @@
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classGas_a6506127f6d3c2f0e15e9592c1e0134ea}{Gas}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default Constructor initialises the chunk of gas to have zero mass. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGas_a72c22f9017710f7c97af4f727e481bd4}{Gas}} (const std\+::vector$<$ double $>$ \&elements)
-\item 
+\begin{DoxyCompactList}\small\item\em Turns the elements array into the \mbox{\hyperlink{classGas_a3ed913e9c0c680090dfccb63d0aa6a8c}{Species}} entity, otherwise does nothing interesting. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Mass}} ()
 \item 
 double \& \mbox{\hyperlink{classGas_ae68d91b5ab415a0478e7dcf14cfdc7ca}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} id)
 \item 
 const double \& \mbox{\hyperlink{classGas_a585dae425060668c22526512e5d7e2b5}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} id) const
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactList}\small\item\em An annoyingly necessary redeclaration for when the object is const and normal references don\textquotesingle{}t behave nicely. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGas_a6e79d1e5d17931e7ea6a9f823016f648}{Empty}} ()
 \item 
 static \mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGas_a2b2398801ceb8fc5b08b00beab3b4eea}{Primordial}} (double mass)
 \end{DoxyCompactItemize}
-\doxysubsection*{Data Fields}
+\doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::vector$<$ double $>$ \mbox{\hyperlink{classGas_a3ed913e9c0c680090dfccb63d0aa6a8c}{Species}}
-\begin{DoxyCompactList}\small\item\em The central mass array. Has. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The central mass array. Has \mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e}{Element\+Count}} elements, indexed by Element\+ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -41,6 +41,10 @@ The most basic gas object there is -- an array of element-\/masses and some rule
 \doxysubsubsection{\texorpdfstring{Gas()}{Gas()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Gas\+::\+Gas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Default Constructor initialises the chunk of gas to have zero mass. 
+
 \mbox{\Hypertarget{classGas_a72c22f9017710f7c97af4f727e481bd4}\label{classGas_a72c22f9017710f7c97af4f727e481bd4}} 
 \index{Gas@{Gas}!Gas@{Gas}}
 \index{Gas@{Gas}!Gas@{Gas}}
@@ -49,37 +53,57 @@ The most basic gas object there is -- an array of element-\/masses and some rule
 
 
 
+Turns the elements array into the \mbox{\hyperlink{classGas_a3ed913e9c0c680090dfccb63d0aa6a8c}{Species}} entity, otherwise does nothing interesting. 
+
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classGas_a6e79d1e5d17931e7ea6a9f823016f648}\label{classGas_a6e79d1e5d17931e7ea6a9f823016f648}} 
 \index{Gas@{Gas}!Empty@{Empty}}
 \index{Empty@{Empty}!Gas@{Gas}}
 \doxysubsubsection{\texorpdfstring{Empty()}{Empty()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{classGas}{Gas}} Gas\+::\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classGas}{Gas}} Gas\+::\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+\begin{DoxyReturn}{Returns}
+A default-\/constructed object, but name is clear that the object is empty 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}\label{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}} 
 \index{Gas@{Gas}!Mass@{Mass}}
 \index{Mass@{Mass}!Gas@{Gas}}
 \doxysubsubsection{\texorpdfstring{Mass()}{Mass()}}
 {\footnotesize\ttfamily double Gas\+::\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+\begin{DoxyReturn}{Returns}
+The current total mass within the \mbox{\hyperlink{classGas_a3ed913e9c0c680090dfccb63d0aa6a8c}{Species}} array 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classGas_ae68d91b5ab415a0478e7dcf14cfdc7ca}\label{classGas_ae68d91b5ab415a0478e7dcf14cfdc7ca}} 
 \index{Gas@{Gas}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!Gas@{Gas}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily double\& Gas\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{id }\end{DoxyParamCaption})}
 
+\begin{DoxyReturn}{Returns}
+A reference to the indexed member of \mbox{\hyperlink{classGas_a3ed913e9c0c680090dfccb63d0aa6a8c}{Species}}, allowing for vector like access 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classGas_a585dae425060668c22526512e5d7e2b5}\label{classGas_a585dae425060668c22526512e5d7e2b5}} 
 \index{Gas@{Gas}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!Gas@{Gas}}
 \doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const double\& Gas\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{id }\end{DoxyParamCaption}) const}
 
+
+
+An annoyingly necessary redeclaration for when the object is const and normal references don\textquotesingle{}t behave nicely. 
+
 \mbox{\Hypertarget{classGas_a2b2398801ceb8fc5b08b00beab3b4eea}\label{classGas_a2b2398801ceb8fc5b08b00beab3b4eea}} 
 \index{Gas@{Gas}!Primordial@{Primordial}}
 \index{Primordial@{Primordial}!Gas@{Gas}}
 \doxysubsubsection{\texorpdfstring{Primordial()}{Primordial()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{classGas}{Gas}} Gas\+::\+Primordial (\begin{DoxyParamCaption}\item[{double}]{mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classGas}{Gas}} Gas\+::\+Primordial (\begin{DoxyParamCaption}\item[{double}]{mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+\begin{DoxyReturn}{Returns}
+A gas object of the specified mass but with a primordial elemental abundance distribution (X = 0.\+75, Y = 0.\+25 etc) 
+\end{DoxyReturn}
 
 
 \doxysubsection{Field Documentation}
@@ -87,11 +111,11 @@ The most basic gas object there is -- an array of element-\/masses and some rule
 \index{Gas@{Gas}!Species@{Species}}
 \index{Species@{Species}!Gas@{Gas}}
 \doxysubsubsection{\texorpdfstring{Species}{Species}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Gas\+::\+Species}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Gas\+::\+Species\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-The central mass array. Has. 
+The central mass array. Has \mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e}{Element\+Count}} elements, indexed by Element\+ID. 
 
 
 

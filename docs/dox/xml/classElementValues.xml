@@ -44,13 +44,13 @@
           </detaileddescription>
         </enumvalue>
         <briefdescription>
-<para>Enums to identify different elemental yield sources. </para>
+<para>Enums to identify the theoretical basis for different yield tables. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="58" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="58" bodyend="58"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="59" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="59" bodyend="59"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="43" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="43" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="44" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classElementValues_1aa18a62ae74cffc6134cc11465468cfbe" prot="public" static="no" mutable="no">
         <type>std::vector&lt; double &gt;</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="46" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="46" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="47" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classElementValues_1aa94dedbdce87b7e605dedb51e31ed234" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; std::string &gt;</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="49" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="49" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="50" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classElementValues_1af9f7f3d2cc8b20c63d8ff488ea8e2756" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; int &gt;</type>
@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="52" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="52" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="53" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classElementValues_1ae9bb2bf686a05c389fa1af650e019705" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; int &gt;</type>
@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="55" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="55" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="56" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="56" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -135,12 +135,13 @@
         <argsstring>()</argsstring>
         <name>ElementValues</name>
         <briefdescription>
+<para>Boring constructor <ndash/> slots in the relevant arguments into the ParamList::argPointer array. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="60" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="60" bodyend="63"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="62" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="62" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="classElementValues_1a76dc3cddb13b0673840cabf96b3bbe87" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -153,12 +154,13 @@
           <declname>resourceRoot</declname>
         </param>
         <briefdescription>
+<para>An overload of a normally empty function. Loads in the values fo the solar abundance data file into the SolarAbundances vector. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="64" column="14"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="68" column="14"/>
       </memberdef>
       <memberdef kind="function" id="classElementValues_1a7ffa1bc21d1b35c4dae9959a12d5e221" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -166,15 +168,17 @@
         <argsstring>()</argsstring>
         <name>GiveElementsNames</name>
         <briefdescription>
+<para>A fairly dumbly-written function which sorts the elemental symbols in ElementNames into the order specified by the global id-enum. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="65" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="71" column="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>The elemental suboptions contains variables and data associated with the solar abundances (and where to locate them), and how to extract and extrapolate the yield data from files. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -225,7 +229,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="37" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="36" bodyend="67"/>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="38" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="37" bodyend="73"/>
     <listofallmembers>
       <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>ElementValues</scope><name>argPointers</name></member>
       <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>Configure</name></member>

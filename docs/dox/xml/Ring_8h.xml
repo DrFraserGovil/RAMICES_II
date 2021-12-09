@@ -3,7 +3,7 @@
   <compounddef id="Ring_8h" kind="file" language="C++">
     <compoundname>Ring.h</compoundname>
     <includes local="no">vector</includes>
-    <includes refid="old__src_2Galaxy_2GasReservoir_8h" local="yes">GasReservoir.h</includes>
+    <includes refid="GasReservoir_8h" local="yes">GasReservoir.h</includes>
     <includes local="yes">../Options.h</includes>
     <includes refid="Galaxy_8h" local="yes">Galaxy.h</includes>
     <includes local="yes">algorithm</includes>
@@ -11,35 +11,66 @@
     <includes refid="StellarPopulation_8h" local="yes">../Stars/StellarPopulation.h</includes>
     <includedby refid="Galaxy_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</includedby>
     <incdepgraph>
-      <node id="23">
-        <label>Star.h</label>
-        <link refid="Star_8h"/>
-        <childnode refid="14" relation="include">
+      <node id="15">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="25">
+        <label>Argument.h</label>
+        <link refid="Argument_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="51">
+        <label>Star.h</label>
+        <link refid="Star_8h"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>List.h</label>
+        <link refid="List_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
         <label>iomanip</label>
       </node>
-      <node id="18">
+      <node id="46">
         <label>../ChemicalAssemblers/YieldGrid.h</label>
         <link refid="YieldGrid_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="47" relation="include">
         </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>GasStream.h</label>
+        <link refid="GasStream_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="38" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -49,84 +80,160 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="40" relation="include">
         </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>UnitTest.h</label>
+        <link refid="UnitTest_8h"/>
         <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>vector.h</label>
+        <link refid="vector_8h"/>
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
         </childnode>
       </node>
-      <node id="15">
-        <label>numeric</label>
+      <node id="33">
+        <label>cmath</label>
       </node>
-      <node id="4">
+      <node id="17">
+        <label>stdexcept</label>
+      </node>
+      <node id="41">
         <label>../GenericFunctions/Logger.h</label>
         <link refid="Logger_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="42" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
+        <childnode refid="43" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
       </node>
       <node id="5">
         <label>string</label>
       </node>
-      <node id="21">
+      <node id="49">
         <label>StellarYield.h</label>
         <link refid="StellarYield_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="47" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="48" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="41" relation="include">
         </childnode>
       </node>
-      <node id="8">
+      <node id="42">
         <label>regex</label>
       </node>
-      <node id="14">
+      <node id="8">
+        <label>LineReader.h</label>
+        <link refid="LineReader_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
         <label>../Options.h</label>
       </node>
-      <node id="6">
+      <node id="9">
         <label>fstream</label>
       </node>
-      <node id="20">
+      <node id="48">
         <label>YieldRidge.h</label>
         <link refid="YieldRidge_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="47" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>Testing_UnitTests.h</label>
+        <link refid="Testing__UnitTests_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>Gas.h</label>
+        <link refid="Gas_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="13">
+      <node id="18">
+        <label>fileWriter.h</label>
+        <link refid="fileWriter_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>Time.h</label>
+        <link refid="Time_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>string.h</label>
+      </node>
+      <node id="45">
         <label>StringAlgorithms.h</label>
         <link refid="StringAlgorithms_8h"/>
-        <childnode refid="6" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
@@ -135,47 +242,91 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="50">
         <label>../Stars/StellarPopulation.h</label>
         <link refid="StellarPopulation_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Strings/Strings.h</label>
+        <link refid="Strings_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>rm.h</label>
+        <link refid="rm_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>mkdir.h</label>
+        <link refid="mkdir_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="2">
         <label>vector</label>
       </node>
-      <node id="16">
+      <node id="6">
+        <label>JSL.h</label>
+        <link refid="JSL_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
         <label>Galaxy.h</label>
         <link refid="Galaxy_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="41" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="46" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="44" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="1" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="43">
         <label>FileHandler.h</label>
         <link refid="FileHandler_8h"/>
-        <childnode refid="10" relation="include">
+        <childnode refid="44" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
@@ -183,36 +334,137 @@
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
         <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
         </childnode>
       </node>
       <node id="11">
         <label>sstream</label>
       </node>
-      <node id="17">
+      <node id="34">
+        <label>ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>Testing/Testing.h</label>
+        <link refid="Testing_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
         <label>math.h</label>
       </node>
-      <node id="7">
-        <label>iostream</label>
+      <node id="10">
+        <label>../Strings/split.h</label>
+        <link refid="split_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>EnumSets.h</label>
+        <link refid="EnumSets_8h"/>
       </node>
       <node id="3">
         <label>GasReservoir.h</label>
-        <link refid="old__src_2Galaxy_2GasReservoir_8h"/>
+        <link refid="GasReservoir_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>iostream</label>
+      </node>
+      <node id="29">
+        <label>matrix.h</label>
+        <link refid="matrix_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>chrono</label>
+      </node>
+      <node id="14">
+        <label>locationExists.h</label>
+        <link refid="locationExists_8h"/>
+        <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="19">
+      <node id="7">
+        <label>FileIO/FileIO.h</label>
+        <link refid="FileIO_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Parameters/GlobalParameters.h</label>
+        <link refid="GlobalParameters_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
         <label>algorithm</label>
       </node>
-      <node id="12">
+      <node id="24">
+        <label>CommandArgs/CommandArgs.h</label>
+        <link refid="CommandArgs_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>Maths/Maths.h</label>
+        <link refid="Maths_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
         <label>dirent.h</label>
       </node>
     </incdepgraph>
@@ -239,7 +491,7 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="old__src_2Galaxy_2GasReservoir_8h" kindref="compound">GasReservoir.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="GasReservoir_8h" kindref="compound">GasReservoir.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Options.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Galaxy_8h" kindref="compound">Galaxy.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;algorithm&quot;</highlight><highlight class="normal"></highlight></codeline>

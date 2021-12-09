@@ -2,31 +2,39 @@
 \label{classGlobalParameters}\index{GlobalParameters@{GlobalParameters}}
 
 
+A package of global parameter objects which can be passed around by reference. Most of the internal values are set as \mbox{\hyperlink{classJSL_1_1Argument}{J\+S\+L\+::\+Argument}} objects and so can be initialised from the command line / config file.  
+
+
+
+
 {\ttfamily \#include $<$Global\+Parameters.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classGlobalParameters_a9dc5211c8317889b10c16daf49f7e916}{Global\+Parameters}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Does absolutely nothing! \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGlobalParameters_a49a012a4c9a2972a33ae78ef2d500d32}{Initialise}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Loops over the Param\+Members and initialises their values according to the \mbox{\hyperlink{classParamList}{Param\+List}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classMetaValues}{Meta\+Values}} \mbox{\hyperlink{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}{Meta}}
-\item 
+\begin{DoxyCompactList}\small\item\em Simulation values -\/ timescales, output directories etc. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classElementValues}{Element\+Values}} \mbox{\hyperlink{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}{Element}}
-\item 
+\begin{DoxyCompactList}\small\item\em Abundance data + resource location data. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classStellarValues}{Stellar\+Values}} \mbox{\hyperlink{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}{Stellar}}
-\item 
+\begin{DoxyCompactList}\small\item\em Stellar limits (mass, metallicity) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classThermalValues}{Thermal\+Values}} \mbox{\hyperlink{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}{Thermal}}
-\item 
+\begin{DoxyCompactList}\small\item\em Hot gas cooling/injection parameters. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGalaxyValues}{Galaxy\+Values}} \mbox{\hyperlink{classGlobalParameters_abe614bae6bfab6d1fbe2b5e9db5adaa3}{Galaxy}}
-\item 
+\begin{DoxyCompactList}\small\item\em Galactic size/ evolution parameters. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{classParamList}{Param\+List}} $\ast$ $>$ \mbox{\hyperlink{classGlobalParameters_ad5ed3bfeb016b8c1aeb2570b5bdc8385}{Param\+Members}} = \{\&\mbox{\hyperlink{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}{Meta}},\&\mbox{\hyperlink{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}{Element}},\&\mbox{\hyperlink{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}{Stellar}},\&\mbox{\hyperlink{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}{Thermal}},\&\mbox{\hyperlink{classGalaxy}{Galaxy}}\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A heterogeneous pointer array, which allows for a nice loop over the members. Any new parameter pack needs to be inserted here so that the member values can be initialised. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A package of global parameter objects which can be passed around by reference. Most of the internal values are set as \mbox{\hyperlink{classJSL_1_1Argument}{J\+S\+L\+::\+Argument}} objects and so can be initialised from the command line / config file. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classGlobalParameters_a9dc5211c8317889b10c16daf49f7e916}\label{classGlobalParameters_a9dc5211c8317889b10c16daf49f7e916}} 
@@ -34,6 +42,10 @@ std\+::vector$<$ \mbox{\hyperlink{classParamList}{Param\+List}} $\ast$ $>$ \mbox
 \index{GlobalParameters@{GlobalParameters}!GlobalParameters@{GlobalParameters}}
 \doxysubsubsection{\texorpdfstring{GlobalParameters()}{GlobalParameters()}}
 {\footnotesize\ttfamily Global\+Parameters\+::\+Global\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Does absolutely nothing! 
 
 
 
@@ -46,6 +58,10 @@ std\+::vector$<$ \mbox{\hyperlink{classParamList}{Param\+List}} $\ast$ $>$ \mbox
 
 
 
+Loops over the Param\+Members and initialises their values according to the \mbox{\hyperlink{classParamList}{Param\+List}} object. 
+
+
+
 \doxysubsection{Field Documentation}
 \mbox{\Hypertarget{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}\label{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}} 
 \index{GlobalParameters@{GlobalParameters}!Element@{Element}}
@@ -53,11 +69,19 @@ std\+::vector$<$ \mbox{\hyperlink{classParamList}{Param\+List}} $\ast$ $>$ \mbox
 \doxysubsubsection{\texorpdfstring{Element}{Element}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classElementValues}{Element\+Values}} Global\+Parameters\+::\+Element}
 
+
+
+Abundance data + resource location data. 
+
 \mbox{\Hypertarget{classGlobalParameters_abe614bae6bfab6d1fbe2b5e9db5adaa3}\label{classGlobalParameters_abe614bae6bfab6d1fbe2b5e9db5adaa3}} 
 \index{GlobalParameters@{GlobalParameters}!Galaxy@{Galaxy}}
 \index{Galaxy@{Galaxy}!GlobalParameters@{GlobalParameters}}
 \doxysubsubsection{\texorpdfstring{Galaxy}{Galaxy}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classGalaxyValues}{Galaxy\+Values}} Global\+Parameters\+::\+Galaxy}
+
+
+
+Galactic size/ evolution parameters. 
 
 \mbox{\Hypertarget{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}\label{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}} 
 \index{GlobalParameters@{GlobalParameters}!Meta@{Meta}}
@@ -65,11 +89,19 @@ std\+::vector$<$ \mbox{\hyperlink{classParamList}{Param\+List}} $\ast$ $>$ \mbox
 \doxysubsubsection{\texorpdfstring{Meta}{Meta}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classMetaValues}{Meta\+Values}} Global\+Parameters\+::\+Meta}
 
+
+
+Simulation values -\/ timescales, output directories etc. 
+
 \mbox{\Hypertarget{classGlobalParameters_ad5ed3bfeb016b8c1aeb2570b5bdc8385}\label{classGlobalParameters_ad5ed3bfeb016b8c1aeb2570b5bdc8385}} 
 \index{GlobalParameters@{GlobalParameters}!ParamMembers@{ParamMembers}}
 \index{ParamMembers@{ParamMembers}!GlobalParameters@{GlobalParameters}}
 \doxysubsubsection{\texorpdfstring{ParamMembers}{ParamMembers}}
 {\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classParamList}{Param\+List}} $\ast$$>$ Global\+Parameters\+::\+Param\+Members = \{\&\mbox{\hyperlink{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}{Meta}},\&\mbox{\hyperlink{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}{Element}},\&\mbox{\hyperlink{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}{Stellar}},\&\mbox{\hyperlink{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}{Thermal}},\&\mbox{\hyperlink{classGalaxy}{Galaxy}}\}}
+
+
+
+A heterogeneous pointer array, which allows for a nice loop over the members. Any new parameter pack needs to be inserted here so that the member values can be initialised. 
 
 \mbox{\Hypertarget{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}\label{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}} 
 \index{GlobalParameters@{GlobalParameters}!Stellar@{Stellar}}
@@ -77,11 +109,19 @@ std\+::vector$<$ \mbox{\hyperlink{classParamList}{Param\+List}} $\ast$ $>$ \mbox
 \doxysubsubsection{\texorpdfstring{Stellar}{Stellar}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classStellarValues}{Stellar\+Values}} Global\+Parameters\+::\+Stellar}
 
+
+
+Stellar limits (mass, metallicity) 
+
 \mbox{\Hypertarget{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}\label{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}} 
 \index{GlobalParameters@{GlobalParameters}!Thermal@{Thermal}}
 \index{Thermal@{Thermal}!GlobalParameters@{GlobalParameters}}
 \doxysubsubsection{\texorpdfstring{Thermal}{Thermal}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classThermalValues}{Thermal\+Values}} Global\+Parameters\+::\+Thermal}
+
+
+
+Hot gas cooling/injection parameters. 
 
 
 

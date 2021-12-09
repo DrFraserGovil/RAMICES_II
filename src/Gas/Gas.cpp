@@ -16,6 +16,7 @@ double Gas::Mass()
 	{
 		sum += Species[i];	
 	}
+	return sum;
 }
 
 Gas Gas::Empty()

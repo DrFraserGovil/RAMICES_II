@@ -10,6 +10,7 @@
         <argsstring></argsstring>
         <name>Meta</name>
         <briefdescription>
+<para>Simulation values - timescales, output directories etc. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -23,32 +24,7 @@
         <argsstring></argsstring>
         <name>Element</name>
         <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="21" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="21" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" prot="public" static="no" mutable="no">
-        <type><ref refid="classStellarValues" kindref="compound">StellarValues</ref></type>
-        <definition>StellarValues GlobalParameters::Stellar</definition>
-        <argsstring></argsstring>
-        <name>Stellar</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="22" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="22" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" prot="public" static="no" mutable="no">
-        <type><ref refid="classThermalValues" kindref="compound">ThermalValues</ref></type>
-        <definition>ThermalValues GlobalParameters::Thermal</definition>
-        <argsstring></argsstring>
-        <name>Thermal</name>
-        <briefdescription>
+<para>Abundance data + resource location data. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -56,18 +32,47 @@
         </inbodydescription>
         <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="23" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="23" bodyend="-1"/>
       </memberdef>
+      <memberdef kind="variable" id="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" prot="public" static="no" mutable="no">
+        <type><ref refid="classStellarValues" kindref="compound">StellarValues</ref></type>
+        <definition>StellarValues GlobalParameters::Stellar</definition>
+        <argsstring></argsstring>
+        <name>Stellar</name>
+        <briefdescription>
+<para>Stellar limits (mass, metallicity) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="26" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" prot="public" static="no" mutable="no">
+        <type><ref refid="classThermalValues" kindref="compound">ThermalValues</ref></type>
+        <definition>ThermalValues GlobalParameters::Thermal</definition>
+        <argsstring></argsstring>
+        <name>Thermal</name>
+        <briefdescription>
+<para>Hot gas cooling/injection parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="29" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
       <memberdef kind="variable" id="classGlobalParameters_1abe614bae6bfab6d1fbe2b5e9db5adaa3" prot="public" static="no" mutable="no">
         <type><ref refid="classGalaxyValues" kindref="compound">GalaxyValues</ref></type>
         <definition>GalaxyValues GlobalParameters::Galaxy</definition>
         <argsstring></argsstring>
         <name>Galaxy</name>
         <briefdescription>
+<para>Galactic size/ evolution parameters. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="24" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="24" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="32" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGlobalParameters_1ad5ed3bfeb016b8c1aeb2570b5bdc8385" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="classParamList" kindref="compound">ParamList</ref> * &gt;</type>
@@ -76,12 +81,13 @@
         <name>ParamMembers</name>
         <initializer>= {&amp;<ref refid="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9" kindref="member">Meta</ref>,&amp;<ref refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" kindref="member">Element</ref>,&amp;<ref refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" kindref="member">Stellar</ref>,&amp;<ref refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" kindref="member">Thermal</ref>,&amp;<ref refid="classGalaxy" kindref="compound">Galaxy</ref>}</initializer>
         <briefdescription>
+<para>A heterogeneous pointer array, which allows for a nice loop over the members. Any new parameter pack needs to be inserted here so that the member values can be initialised. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="26" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="26" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="35" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -91,12 +97,13 @@
         <argsstring>()</argsstring>
         <name>GlobalParameters</name>
         <briefdescription>
+<para>Does absolutely nothing! </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="28" column="1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="38" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classGlobalParameters_1a49a012a4c9a2972a33ae78ef2d500d32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -113,15 +120,17 @@
           <array>[]</array>
         </param>
         <briefdescription>
+<para>Loops over the ParamMembers and initialises their values according to the <ref refid="classParamList" kindref="compound">ParamList</ref> object. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="29" column="6"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="41" column="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>A package of global parameter objects which can be passed around by reference. Most of the internal values are set as <ref refid="classJSL_1_1Argument" kindref="compound">JSL::Argument</ref> objects and so can be initialised from the command line / config file. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -174,8 +183,8 @@
         <childnode refid="3" relation="public-inheritance">
         </childnode>
         <childnode refid="8" relation="usage">
-          <edgelabel>FeedbackFactor</edgelabel>
           <edgelabel>NSMFraction</edgelabel>
+          <edgelabel>FeedbackFactor</edgelabel>
           <edgelabel>SNIaFraction</edgelabel>
           <edgelabel>EjectionFraction</edgelabel>
           <edgelabel>MaxZ</edgelabel>
@@ -252,7 +261,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="16" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="15" bodyend="30"/>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="16" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="15" bodyend="42"/>
     <listofallmembers>
       <member refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" prot="public" virt="non-virtual"><scope>GlobalParameters</scope><name>Element</name></member>
       <member refid="classGlobalParameters_1abe614bae6bfab6d1fbe2b5e9db5adaa3" prot="public" virt="non-virtual"><scope>GlobalParameters</scope><name>Galaxy</name></member>
