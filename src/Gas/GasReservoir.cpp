@@ -17,8 +17,13 @@ GasReservoir GasReservoir::Primordial(double mass, GlobalParameters & param)
 	return prim;
 	
 }
-const GasStream & GasReservoir::Component(SourceProcess source) const
+const GasStream & GasReservoir::operator[](SourceProcess source) const
 {
+	return Components[source];
+}
+GasStream & GasReservoir::operator[](SourceProcess source)
+{
+	Components[source].Dirty();
 	return Components[source];
 }
 
@@ -56,7 +61,7 @@ void GasReservoir::Absorb(const GasReservoir & givingGas)
 	for (int i = 0; i < ProcessCount; ++i)
 	{
 		SourceProcess source = (SourceProcess)i;
-		Absorb(givingGas.Component(source));
+		Absorb(givingGas[source]);
 	}
 }
 

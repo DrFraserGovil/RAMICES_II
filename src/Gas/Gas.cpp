@@ -31,3 +31,12 @@ Gas Gas::Primordial(double mass)
 	g.Species[Helium] = primordialY * mass;
 	return g;
 }
+
+double & Gas::operator[](ElementID id)
+{
+	return Species[id];
+}
+const double & Gas::operator[](ElementID id) const
+{
+	return Species[id];
+}

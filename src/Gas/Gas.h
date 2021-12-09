@@ -11,7 +11,9 @@ class Gas
 		
 		double Mass();
 	
-	
+		double & operator[](ElementID id);
+		const double & operator[](ElementID id) const;
+		
 		static Gas Empty();
 		static Gas Primordial(double mass);
 };

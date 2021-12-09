@@ -99,3 +99,7 @@ double GasStream::ColdMass()
 	}
 	return internal_ColdMass;
 }
+void GasStream::Dirty()
+{
+	NeedsRecomputing = true;
+}

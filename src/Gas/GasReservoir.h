@@ -25,7 +25,9 @@ class GasReservoir
 		void Deplete(double amountToLose_Cold, double amountToLose_Hot);
 		
 		static GasReservoir Primordial(double mass, GlobalParameters & param);
-		const GasStream & Component(SourceProcess source) const;
+
+		GasStream & operator[](SourceProcess source);
+		const GasStream & operator[](SourceProcess source) const;
 	private:
 		std::vector<GasStream> Components;
 		

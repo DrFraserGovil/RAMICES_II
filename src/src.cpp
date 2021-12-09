@@ -14,7 +14,7 @@ void printRes(GasReservoir r)
 	for (int c = 0; c < 2; ++c)
 	{
 		SourceProcess source = (SourceProcess)c;
-		auto stream = r.Component(source);
+		auto stream = r[source];
 		std::cout << "From process " << c << ": \n";
 		for (int i = 0; i < ElementCount; ++i)
 		{
@@ -37,10 +37,8 @@ int main(int argc, char** argv)
 
 	//~ g.Evolve();
 	GasReservoir r = GasReservoir::Primordial(10,Params);
-	GasStream g(Accreted);
-	Gas p2 = Gas::Primordial(20.0);
-	g.StreamIn(p2,1);
-	r.Absorb(g);
+	r[Accreted].Hot[Hydrogen] = 10;
+	
 	printRes(r);
 	r.Deplete(2);
 	printRes(r);
