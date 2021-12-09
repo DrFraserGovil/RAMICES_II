@@ -1,0 +1,81 @@
+\hypertarget{LineReader_8h}{}\doxysection{/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/libs/\+J\+S\+L/\+File\+I\+O/\+Line\+Reader.h File Reference}
+\label{LineReader_8h}\index{/home/jack/Documents/Work/RAMICES\_II/libs/JSL/FileIO/LineReader.h@{/home/jack/Documents/Work/RAMICES\_II/libs/JSL/FileIO/LineReader.h}}
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}../\+Strings/split.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{LineReader_8h_a5480fba013891b2f3033cc97d5d8edf4}{for\+Line\+In}}(macro\+File\+Name, ...)
+\item 
+\#define \mbox{\hyperlink{LineReader_8h_abdfa973ea7dd7efb90a74e8ec636f5ed}{for\+Line\+Vector\+In}}(macro\+File\+Name,  token, ...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{LineReader_8h_a5480fba013891b2f3033cc97d5d8edf4}\label{LineReader_8h_a5480fba013891b2f3033cc97d5d8edf4}} 
+\index{LineReader.h@{LineReader.h}!forLineIn@{forLineIn}}
+\index{forLineIn@{forLineIn}!LineReader.h@{LineReader.h}}
+\doxysubsubsection{\texorpdfstring{forLineIn}{forLineIn}}
+{\footnotesize\ttfamily \#define for\+Line\+In(\begin{DoxyParamCaption}\item[{}]{macro\+File\+Name,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{                               \(\backslash\)}
+\DoxyCodeLine{    do                          \(\backslash\)}
+\DoxyCodeLine{    \{                           \(\backslash\)}
+\DoxyCodeLine{        std::ifstream macroFile(macroFileName); \(\backslash\)}
+\DoxyCodeLine{        if (!macroFile.is\_open())   \(\backslash\)}
+\DoxyCodeLine{        \{                           \(\backslash\)}
+\DoxyCodeLine{            std::cout << \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)nERROR: Could not find the file '"} << macroFileName << \textcolor{stringliteral}{".\(\backslash\)n\(\backslash\)nPlease provide a valid filepath.\(\backslash\)n\(\backslash\)n "} << std::endl;  \(\backslash\)}
+\DoxyCodeLine{            exit(1);                \(\backslash\)}
+\DoxyCodeLine{        \}                           \(\backslash\)}
+\DoxyCodeLine{        std::string FILE\_LINE;              \(\backslash\)}
+\DoxyCodeLine{        while (getline(macroFile,FILE\_LINE))    \(\backslash\)}
+\DoxyCodeLine{        \{                           \(\backslash\)}
+\DoxyCodeLine{            \_\_VA\_ARGS\_\_             \(\backslash\)}
+\DoxyCodeLine{        \}                           \(\backslash\)}
+\DoxyCodeLine{        macroFile.close();          \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while}(0);                     \(\backslash\)}
+\DoxyCodeLine{\}                                   \(\backslash\)}
+
+\end{DoxyCode}
+Iterates through the file line-\/by-\/line (until E\+OF), saving the current line to {\ttfamily std\+::string F\+I\+L\+E\+\_\+\+L\+I\+NE} 
+\begin{DoxyParams}{Parameters}
+{\em macro\+File\+Name} & The target file to search through \\
+\hline
+{\em ...} & A custom block of C++ code which executes on every line of the file. You may use any externally defined variables within this block. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Current line is accessible via the variable {\ttfamily std\+::string F\+I\+L\+E\+\_\+\+L\+I\+NE}. If the file does not exist, throws an {\ttfamily exit(1)} command 
+\end{DoxyReturn}
+\mbox{\Hypertarget{LineReader_8h_abdfa973ea7dd7efb90a74e8ec636f5ed}\label{LineReader_8h_abdfa973ea7dd7efb90a74e8ec636f5ed}} 
+\index{LineReader.h@{LineReader.h}!forLineVectorIn@{forLineVectorIn}}
+\index{forLineVectorIn@{forLineVectorIn}!LineReader.h@{LineReader.h}}
+\doxysubsubsection{\texorpdfstring{forLineVectorIn}{forLineVectorIn}}
+{\footnotesize\ttfamily \#define for\+Line\+Vector\+In(\begin{DoxyParamCaption}\item[{}]{macro\+File\+Name,  }\item[{}]{token,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{                               \(\backslash\)}
+\DoxyCodeLine{    forLineIn(macroFileName,                    \(\backslash\)}
+\DoxyCodeLine{            std::vector<std::string> FILE\_LINE\_VECTOR = \mbox{\hyperlink{namespaceJSL_a34a7ba28084b304e97a707c653dce887}{JSL::split}}(FILE\_LINE,token);  \(\backslash\)}
+\DoxyCodeLine{            \_\_VA\_ARGS\_\_;                \(\backslash\)}
+\DoxyCodeLine{    );                                  \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Iterates through the file line-\/by-\/line (until E\+OF), saving the current line to {\ttfamily std\+::string F\+I\+L\+E\+\_\+\+L\+I\+NE}, and then tokenises it using \mbox{\hyperlink{StringAlgorithms_8h_a2d4f48de4652460fe98887d2ff4b549f}{split()}}, based on the chosen delimiter, saving it to {\ttfamily std\+::vector$<$std\+::string$>$$>$ F\+I\+L\+E\+\_\+\+L\+I\+N\+E\+\_\+\+V\+E\+C\+T\+OR} 
+\begin{DoxyParams}{Parameters}
+{\em macro\+File\+Name} & The target file to search through \\
+\hline
+{\em token} & The delimiter used to break up {\ttfamily F\+I\+L\+E\+\_\+\+L\+I\+NE} into {\ttfamily F\+I\+L\+E\+\_\+\+L\+I\+N\+E\+\_\+\+V\+E\+C\+T\+OR} \\
+\hline
+{\em ...} & A custom block of C++ code which executes on every line of the file. You may use any externally defined variables within this block. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Current line is accessible via the variable {\ttfamily std\+::string F\+I\+L\+E\+\_\+\+L\+I\+NE} and {\ttfamily std\+::vector$<$std\+::string$>$$>$ F\+I\+L\+E\+\_\+\+L\+I\+N\+E\+\_\+\+V\+E\+C\+T\+OR}. If the file does not exist, throws an {\ttfamily exit(1)} command 
+\end{DoxyReturn}

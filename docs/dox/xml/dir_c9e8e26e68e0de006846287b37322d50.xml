@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_c9e8e26e68e0de006846287b37322d50" kind="dir">
+    <compoundname>/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths</compoundname>
+    <innerfile refid="Maths_8h">Maths.h</innerfile>
+    <innerfile refid="matrix_8h">matrix.h</innerfile>
+    <innerfile refid="Q__temp_8h">Q_temp.h</innerfile>
+    <innerfile refid="vector_8h">vector.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/"/>
+  </compounddef>
+</doxygen>

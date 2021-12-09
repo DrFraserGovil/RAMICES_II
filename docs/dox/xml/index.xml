@@ -1,0 +1,634 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.17">
+  <compound refid="classJSL_1_1Argument" kind="class"><name>JSL::Argument</name>
+    <member refid="classJSL_1_1Argument_1a83ada5bfa412192f76dd4290f679defd" kind="variable"><name>Value</name></member>
+    <member refid="classJSL_1_1Argument_1ab438509a3c030516de72f3f493295bd5" kind="function"><name>Argument</name></member>
+    <member refid="classJSL_1_1Argument_1ab07e7981db832cce30f534c67f6491f4" kind="function"><name>Argument</name></member>
+    <member refid="classJSL_1_1Argument_1a2511f7c98ee2b0b59650f468341b8747" kind="function"><name>Argument</name></member>
+    <member refid="classJSL_1_1Argument_1a4d187d2fb658021866b173987b920ab4" kind="function"><name>Argument</name></member>
+    <member refid="classJSL_1_1Argument_1a83799e9089f88d7e6cf30990fae42610" kind="function"><name>Argument</name></member>
+    <member refid="classJSL_1_1Argument_1aa626ff37dbebaf0501614dc625a76383" kind="function"><name>Configure</name></member>
+    <member refid="classJSL_1_1Argument_1aa2b18bb35e90f91e224a06d60835053a" kind="function"><name>ListParse</name></member>
+    <member refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0" kind="function"><name>Parse</name></member>
+    <member refid="classJSL_1_1Argument_1a965bc0dfdce6e03380605af313f8c880" kind="function"><name>operator T</name></member>
+    <member refid="classJSL_1_1Argument_1a8614eb66f807132c4323847e05e666c4" kind="function"><name>CheckForInvalidTriggers</name></member>
+    <member refid="classJSL_1_1Argument_1ac77530598054943c996dbb5fb677b844" kind="function"><name>AssignValue</name></member>
+    <member refid="classJSL_1_1Argument_1ab62b81b196fdc434ab03cd3257ab4aef" kind="function"><name>AssignValue</name></member>
+    <member refid="classJSL_1_1Argument_1ad023ca0ed8f956af79fb060eabd844c9" kind="function"><name>AssignValue</name></member>
+    <member refid="classJSL_1_1Argument_1ad379e95cccb05516525e2634cba93579" kind="function"><name>AssignValue</name></member>
+    <member refid="classJSL_1_1Argument_1a3a1fc796058e3bc1b1a4778688249baf" kind="function"><name>AssignValue</name></member>
+  </compound>
+  <compound refid="classJSL_1_1ArgumentInterface" kind="class"><name>JSL::ArgumentInterface</name>
+    <member refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" kind="variable"><name>TriggerString</name></member>
+    <member refid="classJSL_1_1ArgumentInterface_1a28b487f7a4fa6e721ed6629abe2073f2" kind="function"><name>Parse</name></member>
+    <member refid="classJSL_1_1ArgumentInterface_1a256b5bd88b5f6638353f108c48f3ee65" kind="function"><name>ListParse</name></member>
+    <member refid="classJSL_1_1ArgumentInterface_1aac7c3106f99c407e625b9bc6a6c8c446" kind="function"><name>Configure</name></member>
+  </compound>
+  <compound refid="classJSL__Testing_1_1ArgumentTest" kind="class"><name>JSL_Testing::ArgumentTest</name>
+    <member refid="classJSL__Testing_1_1ArgumentTest_1a3d83658826bd70b33349e53a7326ae5a" kind="function"><name>ArgumentTest</name></member>
+    <member refid="classJSL__Testing_1_1ArgumentTest_1a1c4c626d57e448da86866ef414308e97" kind="function"><name>Run_Test</name></member>
+  </compound>
+  <compound refid="classElementValues" kind="class"><name>ElementValues</name>
+    <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0b" kind="enum"><name>SourceIDs</name></member>
+    <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0baa55a878e01d11546ba44bc134ea8b5e2" kind="enumvalue"><name>Orfeo</name></member>
+    <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0ba5a9ce28314aafe9bdeaef9fc34fc53c4" kind="enumvalue"><name>Marigo</name></member>
+    <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0baa1793587a4ee3a5d733ec4449c8d6380" kind="enumvalue"><name>Limongi</name></member>
+    <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0ba8df4688bf70b45e6c5e770fbb0738de3" kind="enumvalue"><name>Maeder</name></member>
+    <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0ba8eefe85166576dbfeff9f8f101bf81aa" kind="enumvalue"><name>Mixed</name></member>
+    <member refid="classElementValues_1aca3788700e99d2422ea7b2392c2db6a3" kind="variable"><name>ElementNames</name></member>
+    <member refid="classElementValues_1aa18a62ae74cffc6134cc11465468cfbe" kind="variable"><name>SolarAbundances</name></member>
+    <member refid="classElementValues_1aa94dedbdce87b7e605dedb51e31ed234" kind="variable"><name>SolarAbundanceFile</name></member>
+    <member refid="classElementValues_1af9f7f3d2cc8b20c63d8ff488ea8e2756" kind="variable"><name>SolarAbundanceFileNameColumn</name></member>
+    <member refid="classElementValues_1ae9bb2bf686a05c389fa1af650e019705" kind="variable"><name>SolarAbundanceFileDataColumn</name></member>
+    <member refid="classElementValues_1a5adc37ca7878e4a47493a9e18743d464" kind="function"><name>ElementValues</name></member>
+    <member refid="classElementValues_1a76dc3cddb13b0673840cabf96b3bbe87" kind="function"><name>Initialise</name></member>
+    <member refid="classElementValues_1a7ffa1bc21d1b35c4dae9959a12d5e221" kind="function"><name>GiveElementsNames</name></member>
+  </compound>
+  <compound refid="classGalaxy" kind="class"><name>Galaxy</name>
+    <member refid="classGalaxy_1acebf3c89d2dd1c75148f82aca4279c21" kind="variable"><name>Rings</name></member>
+    <member refid="classGalaxy_1a337b7f34ddf0d2eae54e16929b04a698" kind="variable"><name>Mass</name></member>
+    <member refid="classGalaxy_1a6b6f0928caabc47b067d4fae75655eac" kind="variable"><name>Opts</name></member>
+    <member refid="classGalaxy_1a2871f848eb9784ccd08da4feff040c19" kind="variable"><name>Demosthenes</name></member>
+    <member refid="classGalaxy_1a9dcf49a989ebbd5b43b279a61fcc4570" kind="variable"><name>IGM</name></member>
+    <member refid="classGalaxy_1abd8592aefb87239ebcd305011c8f7ae4" kind="variable"><name>RingState</name></member>
+    <member refid="classGalaxy_1aa63ef779b97034043b9c0e5bb8970cbf" kind="variable"><name>GalaxyState</name></member>
+    <member refid="classGalaxy_1ac901256296640efbb40beb83b2d0ecfc" kind="variable"><name>GasExcess</name></member>
+    <member refid="classGalaxy_1afaad94ff4ab36cd98744c773e4b34923" kind="function"><name>GasScaleLength</name></member>
+    <member refid="classGalaxy_1a67e32cd9cfbef78fdb19989e5f0f0d30" kind="function"><name>InfallRate</name></member>
+    <member refid="classGalaxy_1a63119c07647ce95af35b9f860e8b088f" kind="function"><name>Galaxy</name></member>
+    <member refid="classGalaxy_1a5898095189818af6050d11aee8f23e81" kind="function"><name>Evolve</name></member>
+    <member refid="classGalaxy_1a2f9013e3430b28ebb7a73ac1feae22f4" kind="function"><name>PullIGM</name></member>
+    <member refid="classGalaxy_1a285372d26bf2fca5f9cd78dbb0bb3fec" kind="function"><name>PushIGM</name></member>
+    <member refid="classGalaxy_1ae9ca23e689a849dbc16850139dfbae69" kind="function"><name>UpdateGasMass</name></member>
+    <member refid="classGalaxy_1a0fcd1201164fd7cc6649db93e6640e06" kind="function"><name>ColdGasMass</name></member>
+    <member refid="classGalaxy_1aac58bab6b1a9ed7d2c725e9691af630c" kind="function"><name>HotGasMass</name></member>
+    <member refid="classGalaxy_1a32892b81e1db6c78adf3e85a52483c06" kind="function"><name>OpenLogs</name></member>
+    <member refid="classGalaxy_1a9b65ee4e7c6cc7d944d61976f5d5dac7" kind="function"><name>CloseLogs</name></member>
+    <member refid="classGalaxy_1a52b629e1b19610b2a6d77761e0bbbfae" kind="function"><name>ChemicalEvolution</name></member>
+    <member refid="classGalaxy_1ab4aaea6ebfe1d72381f671d74c8e3e8a" kind="function"><name>PropertyHeaders</name></member>
+    <member refid="classGalaxy_1afdb07ef56f8c439a4ee9975d7d753382" kind="function"><name>ReportProperties</name></member>
+    <member refid="classGalaxy_1a4429308d9426e2dd167de7f8618b8bcb" kind="function"><name>SaveState</name></member>
+  </compound>
+  <compound refid="classGalaxyValues" kind="class"><name>GalaxyValues</name>
+    <member refid="classGalaxyValues_1a5a0435dd3b41af00845239640082ad53" kind="variable"><name>NRings</name></member>
+    <member refid="classGalaxyValues_1a0b8bb4de49945b5bf21c44c46750482b" kind="variable"><name>PrimordialMass</name></member>
+    <member refid="classGalaxyValues_1ae72dee5f4f6eb8c1c4573b5caa6d82af" kind="variable"><name>PrimordialHotFraction</name></member>
+    <member refid="classGalaxyValues_1aa4a085809db57a041180774df21e4938" kind="variable"><name>MaxRadius</name></member>
+    <member refid="classGalaxyValues_1a239f649cbcecf52fbe441aabe2575d5b" kind="variable"><name>MinScaleLength</name></member>
+    <member refid="classGalaxyValues_1a1eadee2260b53785ed45e4fc1adefa1b" kind="variable"><name>MaxScaleLength</name></member>
+    <member refid="classGalaxyValues_1af6825df7eafbc2a2394beeb674f63c14" kind="variable"><name>ScaleLengthDelay</name></member>
+    <member refid="classGalaxyValues_1ad737d3b239e948f2b9f59a1ba18e298d" kind="variable"><name>ScaleLengthTimeScale</name></member>
+    <member refid="classGalaxyValues_1a79f49f1cfb772db8fbe0b6b2a36c532d" kind="variable"><name>ScaleLengthFinalTime</name></member>
+    <member refid="classGalaxyValues_1a684319d15ecbdd2434fd30de9e49236d" kind="variable"><name>InfallMass1</name></member>
+    <member refid="classGalaxyValues_1af9f7596b0a1d23af97619a0b3e8be305" kind="variable"><name>InfallMass2</name></member>
+    <member refid="classGalaxyValues_1a70b8b11bafce6aed3fb78751e5d955e6" kind="variable"><name>InfallTime1</name></member>
+    <member refid="classGalaxyValues_1a21c48e7fba737968ac3e64beb83d46ea" kind="variable"><name>InfallTime2</name></member>
+    <member refid="classGalaxyValues_1a01c4dcc116ec4bf4214e8194e29f3f9b" kind="variable"><name>InflowParameterA</name></member>
+    <member refid="classGalaxyValues_1a1a4150d770c9723ec34ac23fefb012b4" kind="variable"><name>InflowParameterB</name></member>
+    <member refid="classGalaxyValues_1aead472c67bfd2186b59126721f40b6c8" kind="variable"><name>MaxSFRFraction</name></member>
+    <member refid="classGalaxyValues_1a21533ba013a6f9a5b1df16191c7e93d2" kind="function"><name>GalaxyValues</name></member>
+  </compound>
+  <compound refid="classGas" kind="class"><name>Gas</name>
+    <member refid="classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c" kind="variable"><name>Species</name></member>
+    <member refid="classGas_1a6506127f6d3c2f0e15e9592c1e0134ea" kind="function"><name>Gas</name></member>
+    <member refid="classGas_1a72c22f9017710f7c97af4f727e481bd4" kind="function"><name>Gas</name></member>
+    <member refid="classGas_1a292ef4704a70acb9aacf7bd10d04f7f3" kind="function"><name>Mass</name></member>
+    <member refid="classGas_1ae68d91b5ab415a0478e7dcf14cfdc7ca" kind="function"><name>operator[]</name></member>
+    <member refid="classGas_1a585dae425060668c22526512e5d7e2b5" kind="function"><name>operator[]</name></member>
+    <member refid="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" kind="function"><name>Empty</name></member>
+    <member refid="classGas_1a2b2398801ceb8fc5b08b00beab3b4eea" kind="function"><name>Primordial</name></member>
+  </compound>
+  <compound refid="structGasRequest" kind="struct"><name>GasRequest</name>
+    <member refid="structGasRequest_1ad266fd3876b284d317b5b37ce13bac0f" kind="variable"><name>IGM</name></member>
+    <member refid="structGasRequest_1a0e53faa0291662d8421753770d45c276" kind="variable"><name>Disc</name></member>
+  </compound>
+  <compound refid="classGasReservoir" kind="class"><name>GasReservoir</name>
+    <member refid="classGasReservoir_1aea626701c1b5e5b89cfb08924216c98e" kind="variable"><name>Mass</name></member>
+    <member refid="classGasReservoir_1a3caa9edbe4b0f806bedc5c4830829c16" kind="variable"><name>ColdMass</name></member>
+    <member refid="classGasReservoir_1a17d95c3947fa8f3ee5282d4da722c967" kind="variable"><name>HotMass</name></member>
+    <member refid="classGasReservoir_1a1d43d0769c764d1e6c17047304258919" kind="variable"><name>ColdChemicals</name></member>
+    <member refid="classGasReservoir_1aa26d57d78b9b163d3b23b68c05bbff1c" kind="variable"><name>HotChemicals</name></member>
+    <member refid="classGasReservoir_1a7b53bcdf142e133760ad226d6c494202" kind="variable"><name>Opts</name></member>
+    <member refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kind="variable"><name>Components</name></member>
+    <member refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" kind="function"><name>GasReservoir</name></member>
+    <member refid="classGasReservoir_1a05180d21ff08f04f4fd7ea7ba0e1873d" kind="function"><name>GasReservoir</name></member>
+    <member refid="classGasReservoir_1ab82144f8aa458efc5f16feb035910d41" kind="function"><name>GasReservoir</name></member>
+    <member refid="classGasReservoir_1a717e3d4d5f5ffaa7eb7a49716192d4d0" kind="function"><name>GasReservoir</name></member>
+    <member refid="classGasReservoir_1a3d2820df4fc12b2ea4d13ce6e02b7c52" kind="function"><name>GiveTo</name></member>
+    <member refid="classGasReservoir_1a39b0e32cbbb7cec116e20a99d81da6e9" kind="function"><name>GiveTo</name></member>
+    <member refid="classGasReservoir_1aed9bd582791da7a8f6b9c7277bb76804" kind="function"><name>TakeFrom</name></member>
+    <member refid="classGasReservoir_1a3ee1e1213611fab0315ef1cf1d55371b" kind="function"><name>TakeFrom</name></member>
+    <member refid="classGasReservoir_1a239f8b4171f5612f9516df0c71fba0c7" kind="function"><name>Deplete</name></member>
+    <member refid="classGasReservoir_1a1e2dc5a53f77d33b5018f0abeaee10cd" kind="function"><name>AddTo</name></member>
+    <member refid="classGasReservoir_1a04707bc0aee8ad21cc53bdc5b095614d" kind="function"><name>SubtractFrom</name></member>
+    <member refid="classGasReservoir_1a0ff726738097ecacea29828bc7ae7d2a" kind="function"><name>SetPrimordial</name></member>
+    <member refid="classGasReservoir_1aad8ff33ac1d7fd8079043e6f6133e052" kind="function"><name>operator+</name></member>
+    <member refid="classGasReservoir_1a3d785554838f3130d1fc29c4b69b7586" kind="function"><name>operator-</name></member>
+    <member refid="classGasReservoir_1a0c5847c1454a9f93054ed94ec89f50df" kind="function"><name>Print</name></member>
+    <member refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" kind="function"><name>GasReservoir</name></member>
+    <member refid="classGasReservoir_1a841a10da610c205d4eb8de4e9ab9ce8c" kind="function"><name>Mass</name></member>
+    <member refid="classGasReservoir_1a57f681a7cedc98b43dc9aeca96e8f3cd" kind="function"><name>ColdMass</name></member>
+    <member refid="classGasReservoir_1acf13e9d636ab41d1838548ec08d26f00" kind="function"><name>HotMass</name></member>
+    <member refid="classGasReservoir_1a5a6aa00a210d88d1469d3fb565d255d3" kind="function"><name>Absorb</name></member>
+    <member refid="classGasReservoir_1a2f358644898f78a0e1594de154e53047" kind="function"><name>Absorb</name></member>
+    <member refid="classGasReservoir_1ae2e4fdaa1f6b3f7a335b0948e1af1a9e" kind="function"><name>Deplete</name></member>
+    <member refid="classGasReservoir_1a81bf7608a5ca448d267ce0a563786361" kind="function"><name>Deplete</name></member>
+    <member refid="classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645" kind="function"><name>operator[]</name></member>
+    <member refid="classGasReservoir_1a438c98990290d468fd5de4caa476b632" kind="function"><name>operator[]</name></member>
+    <member refid="classGasReservoir_1aa202265472304d22898beb78a4882b8b" kind="function"><name>Primordial</name></member>
+  </compound>
+  <compound refid="classGasStream" kind="class"><name>GasStream</name>
+    <member refid="classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5" kind="variable"><name>Source</name></member>
+    <member refid="classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0" kind="variable"><name>Hot</name></member>
+    <member refid="classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a" kind="variable"><name>Cold</name></member>
+    <member refid="classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a" kind="variable"><name>NeedsRecomputing</name></member>
+    <member refid="classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca" kind="variable"><name>internal_HotMass</name></member>
+    <member refid="classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63" kind="variable"><name>internal_ColdMass</name></member>
+    <member refid="classGasStream_1a14fe3a90aa022cedea487e27ddcb57ac" kind="variable"><name>internal_TotalMass</name></member>
+    <member refid="classGasStream_1af53972311a6821deda7f211a828f65e7" kind="function"><name>GasStream</name></member>
+    <member refid="classGasStream_1a9c4c6fe0b3df01b5586cca667eaf11ca" kind="function"><name>GasStream</name></member>
+    <member refid="classGasStream_1a83de215a9348757ca94bdf5b9d491328" kind="function"><name>GasStream</name></member>
+    <member refid="classGasStream_1a07e893367e97b31d50c6b1dd31394c88" kind="function"><name>GasStream</name></member>
+    <member refid="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9" kind="function"><name>Mass</name></member>
+    <member refid="classGasStream_1ab030a30e5279402f9c2134110c0f7fb5" kind="function"><name>HotMass</name></member>
+    <member refid="classGasStream_1a82682ae8856ff675869cce398a6bbd26" kind="function"><name>ColdMass</name></member>
+    <member refid="classGasStream_1af8e82b7a64f1d8a1af93db0473de284f" kind="function"><name>Deplete</name></member>
+    <member refid="classGasStream_1a44ab71ee97b6bf6cb7fba7ce0c861a32" kind="function"><name>Deplete</name></member>
+    <member refid="classGasStream_1a65732759a83d7eb8bd23d7f944fe5217" kind="function"><name>Absorb</name></member>
+    <member refid="classGasStream_1a6e76f8c95afdff611d73dec5e7cc366e" kind="function"><name>StreamIn</name></member>
+    <member refid="classGasStream_1ac3801d0fc9d450844cea477c3dfe27e1" kind="function"><name>Dirty</name></member>
+    <member refid="classGasStream_1ae0827e81446bddfc0c36ff0591a765fb" kind="function"><name>ComputeMasses</name></member>
+  </compound>
+  <compound refid="classGlobalParameters" kind="class"><name>GlobalParameters</name>
+    <member refid="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9" kind="variable"><name>Meta</name></member>
+    <member refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" kind="variable"><name>Element</name></member>
+    <member refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" kind="variable"><name>Stellar</name></member>
+    <member refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" kind="variable"><name>Thermal</name></member>
+    <member refid="classGlobalParameters_1abe614bae6bfab6d1fbe2b5e9db5adaa3" kind="variable"><name>Galaxy</name></member>
+    <member refid="classGlobalParameters_1ad5ed3bfeb016b8c1aeb2570b5bdc8385" kind="variable"><name>ParamMembers</name></member>
+    <member refid="classGlobalParameters_1a9dc5211c8317889b10c16daf49f7e916" kind="function"><name>GlobalParameters</name></member>
+    <member refid="classGlobalParameters_1a49a012a4c9a2972a33ae78ef2d500d32" kind="function"><name>Initialise</name></member>
+  </compound>
+  <compound refid="classJSL__Testing_1_1IOTest" kind="class"><name>JSL_Testing::IOTest</name>
+    <member refid="classJSL__Testing_1_1IOTest_1a75479573809562118ab4d233c2bc0471" kind="function"><name>IOTest</name></member>
+    <member refid="classJSL__Testing_1_1IOTest_1a85daecacc71354b5dc0dee36840b8704" kind="function"><name>Run_Test</name></member>
+  </compound>
+  <compound refid="classLogStream" kind="class"><name>LogStream</name>
+    <member refid="classLogStream_1ad686b15a214aaff84bb4658bfe7f6823" kind="variable"><name>Level</name></member>
+    <member refid="classLogStream_1a56670710a5bca953cc30c7a623d05291" kind="function"><name>LogStream</name></member>
+    <member refid="classLogStream_1aa7d8127ced878dbea382025250170e8e" kind="function"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="structMassKeeper" kind="struct"><name>MassKeeper</name>
+    <member refid="structMassKeeper_1a1205002bb454490e99fc102a35d3b457" kind="variable"><name>HotGas</name></member>
+    <member refid="structMassKeeper_1a61a6c00543eaf720e7c9bdb3d9a3b4d0" kind="variable"><name>ColdGas</name></member>
+    <member refid="structMassKeeper_1a3589f1fadd252ffddf31e1e044227d58" kind="variable"><name>Stellar</name></member>
+    <member refid="structMassKeeper_1a101f6cf470211606fdc3ef9021e720c8" kind="variable"><name>Remnant</name></member>
+    <member refid="structMassKeeper_1a47f93d636747b4bf98977ff60772943b" kind="function"><name>Total</name></member>
+  </compound>
+  <compound refid="classJSL_1_1Matrix" kind="class"><name>JSL::Matrix</name>
+    <member refid="classJSL_1_1Matrix_1a446d23ba93238f3e2dfc79a3a4d5eb7e" kind="variable"><name>Data</name></member>
+    <member refid="classJSL_1_1Matrix_1a7b7a081bbf419b613f19142a634b2cfa" kind="variable"><name>nRows</name></member>
+    <member refid="classJSL_1_1Matrix_1aef59f1402d2137e86aebf6b21f97ee6d" kind="variable"><name>nCols</name></member>
+    <member refid="classJSL_1_1Matrix_1a90ddd1113043b8959b0943be24f9ad9f" kind="function"><name>Matrix</name></member>
+    <member refid="classJSL_1_1Matrix_1ab6bc06d3dcc5f25f2083d3a3946378df" kind="function"><name>Matrix</name></member>
+    <member refid="classJSL_1_1Matrix_1ae6198f4beabaff7700265fffeb490ed7" kind="function"><name>Matrix</name></member>
+    <member refid="classJSL_1_1Matrix_1af784cad8dcbb502c06be62e2e328ef6c" kind="function"><name>Rows</name></member>
+    <member refid="classJSL_1_1Matrix_1a8aba7f9803b553df2aeae68aba3445f5" kind="function"><name>Columns</name></member>
+    <member refid="classJSL_1_1Matrix_1a984691eac759ff0e8f98252d07be7e1a" kind="function"><name>Transpose</name></member>
+    <member refid="classJSL_1_1Matrix_1aa8bae8650234f5e5569277563d68f22d" kind="function"><name>GetRow</name></member>
+    <member refid="classJSL_1_1Matrix_1a11ea58ca43e028123f628966eb4834a0" kind="function"><name>GetColumn</name></member>
+    <member refid="classJSL_1_1Matrix_1a23d8192e8a00d213693b82b3caeb0ceb" kind="function"><name>operator()</name></member>
+    <member refid="classJSL_1_1Matrix_1ab5dd212faa491611c31288644db66a60" kind="function"><name>operator()</name></member>
+    <member refid="classJSL_1_1Matrix_1ae317e4316d0d40ce919fb22a9f4824a7" kind="function"><name>operator+=</name></member>
+    <member refid="classJSL_1_1Matrix_1abec89912c20210f6b49c5d09e1c1845b" kind="function"><name>operator-=</name></member>
+    <member refid="classJSL_1_1Matrix_1ae2dfa2fcbc80ee24c02125e5739bc0c1" kind="function"><name>operator+=</name></member>
+    <member refid="classJSL_1_1Matrix_1a894ff64b1350616ddf2a48ec0f58e2c5" kind="function"><name>operator-=</name></member>
+    <member refid="classJSL_1_1Matrix_1a3d9d4857ed227d7c6db87814f15af2ea" kind="function"><name>operator*=</name></member>
+    <member refid="classJSL_1_1Matrix_1a2a9cdd54f835135496bf3e87aea4dfc9" kind="function"><name>operator*=</name></member>
+    <member refid="classJSL_1_1Matrix_1a6caa5725c4dacc9a841147e80e9c43a4" kind="function"><name>operator/=</name></member>
+    <member refid="classJSL_1_1Matrix_1abcf44559767ab6939851f0d3b60c6fa8" kind="function"><name>to_string</name></member>
+    <member refid="classJSL_1_1Matrix_1afd9edd73e5f559eed02b063d4c4e47f8" kind="function"><name>Identity</name></member>
+    <member refid="classJSL_1_1Matrix_1a92eb431da436e1e2922b211a9f158203" kind="function"><name>outOfBoundsError</name></member>
+  </compound>
+  <compound refid="classJSL__Testing_1_1MatrixTest" kind="class"><name>JSL_Testing::MatrixTest</name>
+    <member refid="classJSL__Testing_1_1MatrixTest_1a9cd56fe4c4d7db6cfd53c86252e8d033" kind="function"><name>MatrixTest</name></member>
+    <member refid="classJSL__Testing_1_1MatrixTest_1a8fe2a671faf414dbd13c407ab52b75fb" kind="function"><name>Run_Test</name></member>
+  </compound>
+  <compound refid="classJSL__Testing_1_1MetaTest" kind="class"><name>JSL_Testing::MetaTest</name>
+    <member refid="classJSL__Testing_1_1MetaTest_1a17efe6a92ae4934828a61d9f1120e67d" kind="function"><name>MetaTest</name></member>
+    <member refid="classJSL__Testing_1_1MetaTest_1a176352dcd54f9ec7df8f1548882e6820" kind="function"><name>Run_Test</name></member>
+  </compound>
+  <compound refid="classMetaValues" kind="class"><name>MetaValues</name>
+    <member refid="classMetaValues_1a6473d91b7e971e2e44e87e3f38e14502" kind="variable"><name>SaveRoot</name></member>
+    <member refid="classMetaValues_1a8b73fd409e1e258b7d638b8aebef72e2" kind="variable"><name>ResourceRoot</name></member>
+    <member refid="classMetaValues_1ac8e1adbfb77ba566a39caf86dfb46a11" kind="variable"><name>ParallelThreads</name></member>
+    <member refid="classMetaValues_1a91fd337f6d6ad536e6174b3e769b3bcf" kind="variable"><name>TimeStep</name></member>
+    <member refid="classMetaValues_1a99960686637e59874cc6cd5e1b7b71b8" kind="variable"><name>SimulationDuration</name></member>
+    <member refid="classMetaValues_1a8766aac9dd6865deee6647ab0a6d7ef4" kind="function"><name>MetaValues</name></member>
+  </compound>
+  <compound refid="structmkdirReturn" kind="struct"><name>mkdirReturn</name>
+    <member refid="structmkdirReturn_1af4dfc985a8a93ea6ff6ba42108c218dd" kind="variable"><name>Successful</name></member>
+    <member refid="structmkdirReturn_1a5c91bece12cdeabcd157eed58738df0b" kind="variable"><name>Message</name></member>
+  </compound>
+  <compound refid="structJSL_1_1mkdirReturn" kind="struct"><name>JSL::mkdirReturn</name>
+    <member refid="structJSL_1_1mkdirReturn_1a76abe5af61a20e13756f833b79782b7f" kind="variable"><name>Successful</name></member>
+    <member refid="structJSL_1_1mkdirReturn_1a64650d2f4b3d2ca29de3a4dcfdadbd0e" kind="variable"><name>Message</name></member>
+  </compound>
+  <compound refid="classParamList" kind="class"><name>ParamList</name>
+    <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" kind="variable"><name>argPointers</name></member>
+    <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" kind="function"><name>Configure</name></member>
+    <member refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" kind="function"><name>Initialise</name></member>
+  </compound>
+  <compound refid="structParserOutput" kind="struct"><name>ParserOutput</name>
+    <member refid="structParserOutput_1a4ba2df0652983b7a3327f57e5ad9ab37" kind="variable"><name>options</name></member>
+    <member refid="structParserOutput_1afb4b057bc4cfdd451bfac9fa9cecd5ab" kind="variable"><name>SuccessfulParse</name></member>
+    <member refid="structParserOutput_1a94585fdf303b30ce5ce8a24114f12daf" kind="variable"><name>PreLog</name></member>
+  </compound>
+  <compound refid="classJSL_1_1Quaternion" kind="class"><name>JSL::Quaternion</name>
+    <member refid="classJSL_1_1Quaternion_1a3bfe577832b38cdf2dbbb143c9487add" kind="function"><name>Quaternion</name></member>
+    <member refid="classJSL_1_1Quaternion_1ae31be96e94176f1e5278cfaeba39dedc" kind="function"><name>Quaternion</name></member>
+    <member refid="classJSL_1_1Quaternion_1ac0fa428adfcbc3db2eff9b5c86e7a075" kind="function"><name>Quaternion</name></member>
+    <member refid="classJSL_1_1Quaternion_1a6b71605f5fafada8e94bab1bf9af55bd" kind="function"><name>Quaternion</name></member>
+    <member refid="classJSL_1_1Quaternion_1a738b4fb82caf2a0334818ac4e6c494de" kind="function"><name>Quaternion</name></member>
+    <member refid="classJSL_1_1Quaternion_1a67d6b60a4863985f94d23c68953dcd91" kind="function"><name>Scalar</name></member>
+    <member refid="classJSL_1_1Quaternion_1a92b7311aecae986edb373e0b40d5bfdd" kind="function"><name>Vector</name></member>
+    <member refid="classJSL_1_1Quaternion_1aba8a8ac1d2101f8b374387349412035b" kind="function"><name>Scalar</name></member>
+    <member refid="classJSL_1_1Quaternion_1a5243fa5db9d466bf1485a83325a682b0" kind="function"><name>Vector</name></member>
+    <member refid="classJSL_1_1Quaternion_1a0255f2026ec4af9cff42d09d2309af01" kind="function"><name>Vector</name></member>
+    <member refid="classJSL_1_1Quaternion_1a9bea717f4cd1b5d4e3bdb8eedfbaed2c" kind="function"><name>Conjugate</name></member>
+    <member refid="classJSL_1_1Quaternion_1ada6a7067e13b60a65a6103f7508f62f3" kind="function"><name>LeftMultiplicationMatrix</name></member>
+    <member refid="classJSL_1_1Quaternion_1a081b38fc741f2dc9d4f2b955acbed833" kind="function"><name>RightMultiplicationMatrix</name></member>
+    <member refid="classJSL_1_1Quaternion_1adf0c22bf67a2ab873b998b34583de2e0" kind="function"><name>One</name></member>
+    <member refid="classJSL_1_1Quaternion_1a63e84edb5230efc8378d86b5d182221d" kind="function"><name>Zero</name></member>
+    <member refid="classJSL_1_1Quaternion_1a8d47df19d5d74b82a8e348391e8ef8c4" kind="function"><name>Random</name></member>
+  </compound>
+  <compound refid="classRing" kind="class"><name>Ring</name>
+    <member refid="classRing_1a07a56d858310883fcd0884168f672aa5" kind="variable"><name>Gas</name></member>
+    <member refid="classRing_1a85ca5dfb0e8dda469a877943bb1a91d4" kind="variable"><name>Radius</name></member>
+    <member refid="classRing_1a499c0d45f534f04a115573aa4f39743b" kind="variable"><name>SurfaceDensity</name></member>
+    <member refid="classRing_1a854edeaee31fc2579f86d9dc4b8a77b7" kind="variable"><name>Stars</name></member>
+    <member refid="classRing_1aa4f60bfc8f60790513824b130569d78f" kind="variable"><name>Opts</name></member>
+    <member refid="classRing_1a974990af6b5e342f8397acded3bc036d" kind="variable"><name>Width</name></member>
+    <member refid="classRing_1ae504175835d37e56cee8fb0042ba49de" kind="variable"><name>InnerRadius</name></member>
+    <member refid="classRing_1a8f8fe4995320dcc963d9e966b770fa22" kind="variable"><name>OuterRadius</name></member>
+    <member refid="classRing_1a646e6b4dc69c04926fecd53f2a60a001" kind="variable"><name>Area</name></member>
+    <member refid="classRing_1aaee9522e870bddc5fda5bd9d8c45dc82" kind="variable"><name>ID</name></member>
+    <member refid="classRing_1af2ad94d6e3c930a6a52cddb6bc61cf9b" kind="variable"><name>Parent</name></member>
+    <member refid="classRing_1aaf04a946616f5ec362541acb5d8f64a7" kind="function"><name>Mass</name></member>
+    <member refid="classRing_1a3603a35a11069c3a09a325f592485888" kind="function"><name>AccretionRequest</name></member>
+    <member refid="classRing_1ac0e89b2ff4f16eb212df406612957324" kind="function"><name>FormStars</name></member>
+    <member refid="classRing_1a02f9116714dc4f501caa8a2d3560357d" kind="function"><name>UpdateInternalProperties</name></member>
+    <member refid="classRing_1a571ecead833a1919a4d9791f3ac5ee00" kind="function"><name>PropertyHeaders</name></member>
+    <member refid="classRing_1a971ecf443202c92aab533855a57da564" kind="function"><name>ReportProperties</name></member>
+    <member refid="classRing_1ac171f1f73adeadb4cfbe90cc39664b3c" kind="function"><name>Ring</name></member>
+    <member refid="classRing_1a94ee90a62a38d0d5fcb80ecd8dde98f2" kind="function"><name>Ring</name></member>
+    <member refid="classRing_1a453e3dbe47906636b64305598d124d2e" kind="function"><name>RingMass</name></member>
+    <member refid="classRing_1a25774bb524fc42f8417ec778e265d3d5" kind="function"><name>StarFormationRate</name></member>
+  </compound>
+  <compound refid="classStarSet" kind="class"><name>StarSet</name>
+    <member refid="classStarSet_1ae54053ddcbb74698dd6a6aaa0044819f" kind="variable"><name>Mass</name></member>
+    <member refid="classStarSet_1a02910b13f3c9869c2c581d466c8cd31d" kind="variable"><name>NStars</name></member>
+    <member refid="classStarSet_1a03c10b36a5bf13d0975a31652c381ad5" kind="variable"><name>Metallicity</name></member>
+    <member refid="classStarSet_1a90dce4d854f34dfac2f34f523ed07679" kind="variable"><name>RemainingLifeTime</name></member>
+    <member refid="classStarSet_1acaac9cd6f1a4ac47f96ce51f4b4bcc73" kind="variable"><name>BirthTime</name></member>
+    <member refid="classStarSet_1ad76fe312f1af80d7bfbfcdd07c799680" kind="variable"><name>LifeTime</name></member>
+    <member refid="classStarSet_1a420c70e6576daf8976fe7ab170be9acb" kind="variable"><name>Opts</name></member>
+    <member refid="classStarSet_1a1241a88b11402aea5fa6ccb11ac888b2" kind="function"><name>StarSet</name></member>
+    <member refid="classStarSet_1af81c61be08635d438778cb10f8fb9fcb" kind="function"><name>StarSet</name></member>
+    <member refid="classStarSet_1aebc9dcefc6eb41330fe2d3847e6b058d" kind="function"><name>StarSet</name></member>
+  </compound>
+  <compound refid="classStellarPopulation" kind="class"><name>StellarPopulation</name>
+    <member refid="classStellarPopulation_1a4f36818fc6ecfdd558ad003ce7e10019" kind="variable"><name>Stars</name></member>
+    <member refid="classStellarPopulation_1a4b4ed197645138392c812a2aabc4d480" kind="variable"><name>Opts</name></member>
+    <member refid="classStellarPopulation_1a77981d08b1f3e08d40cb0f037521ea78" kind="function"><name>StellarPopulation</name></member>
+    <member refid="classStellarPopulation_1aebb8c7f64f5f745ba026641d144dfc51" kind="function"><name>StellarPopulation</name></member>
+    <member refid="classStellarPopulation_1aa39d2fd1bcfca874ba1a935b7d9a81d0" kind="function"><name>Mass</name></member>
+  </compound>
+  <compound refid="classStellarValues" kind="class"><name>StellarValues</name>
+    <member refid="classStellarValues_1ad87b9db57efd7c785e2e7009e3f6c8c8" kind="variable"><name>MaxStellarMass</name></member>
+    <member refid="classStellarValues_1aebf3fb39167a9719618d7bf381543171" kind="variable"><name>MinStellarMass</name></member>
+    <member refid="classStellarValues_1ab575d1540bc306e4d295806b86712502" kind="variable"><name>MinZ</name></member>
+    <member refid="classStellarValues_1ae337595f7ddf523dd01e07fc95ed719b" kind="variable"><name>MaxZ</name></member>
+    <member refid="classStellarValues_1aadc9b602660ad5cea7a6266bfcdc2a62" kind="variable"><name>EjectionFraction</name></member>
+    <member refid="classStellarValues_1a6f4290b1dbd5032297414ada54703379" kind="variable"><name>SNIaFraction</name></member>
+    <member refid="classStellarValues_1ad49ac36512a6b86cd4a61647baf315f4" kind="variable"><name>NSMFraction</name></member>
+    <member refid="classStellarValues_1a69d9a1255ae9b0895009d14879567957" kind="variable"><name>FeedbackFactor</name></member>
+    <member refid="classStellarValues_1aae44507bd5653641e14b3a4e6a880dcc" kind="function"><name>StellarValues</name></member>
+  </compound>
+  <compound refid="classStellarYield" kind="class"><name>StellarYield</name>
+    <member refid="classStellarYield_1ad6f50c9526738d6be3de8bd6d77fd6b6" kind="variable"><name>Ridges</name></member>
+    <member refid="classStellarYield_1a9ce6bcdf5472486f989c5f35836e8064" kind="variable"><name>GridSize</name></member>
+    <member refid="classStellarYield_1aa27f5de9d75510537ae6a1b8cee0f4cb" kind="variable"><name>Opts</name></member>
+    <member refid="classStellarYield_1a7e7be7a534d2fffeb5b2ff268df791a5" kind="variable"><name>Yield</name></member>
+    <member refid="classStellarYield_1a41d1c9ff3126c9eee32330cacbbb0504" kind="variable"><name>Element</name></member>
+    <member refid="classStellarYield_1ae4b2a49087ff52dfd7e799ef98af3913" kind="function"><name>StellarYield</name></member>
+    <member refid="classStellarYield_1a31b510df120e8a1253997422fc4d1f09" kind="function"><name>StellarYield</name></member>
+    <member refid="classStellarYield_1aeae10e9ca524286a134a04b5bc2ac041" kind="function"><name>GrabYield</name></member>
+    <member refid="classStellarYield_1ae9bd7a624850745903f44ab22dac7092" kind="function"><name>GrabYield</name></member>
+    <member refid="classStellarYield_1ae18dd1abb2539f997740208af7c0fa89" kind="function"><name>PrepareGrids</name></member>
+    <member refid="classStellarYield_1ae1d3826804a087f4b5a4d306c009998b" kind="function"><name>PrepareTypeGrid</name></member>
+    <member refid="classStellarYield_1a27fa5fbe659a00fdfa8ed18f41aa618a" kind="function"><name>PrintRidges</name></member>
+    <member refid="classStellarYield_1a9914e64569f85144e5d08ac1ec4ca4f0" kind="function"><name>MFromIndex</name></member>
+    <member refid="classStellarYield_1aedb56f34d4562cae748662d03ed8f74f" kind="function"><name>ZFromIndex</name></member>
+    <member refid="classStellarYield_1a5d398a0e13afeab4514789feef7851a6" kind="function"><name>IndexFromM</name></member>
+    <member refid="classStellarYield_1a0e8cc10495dfeeb659b9d465d0f0ba5e" kind="function"><name>IndexFromZ</name></member>
+    <member refid="classStellarYield_1a8fe6b87611d4449b371a33dd2acf790c" kind="function"><name>FilterRidges</name></member>
+    <member refid="classStellarYield_1a42917f502bbca4492aee1184714553af" kind="function"><name>InterpolateGrid</name></member>
+    <member refid="classStellarYield_1acba2e9974f0c2182ec3387fa3584675a" kind="function"><name>SmoothGrid</name></member>
+    <member refid="classStellarYield_1a301919356380cd1c89690d9e635c1734" kind="function"><name>FindBracket</name></member>
+  </compound>
+  <compound refid="classJSL__Testing_1_1StringTest" kind="class"><name>JSL_Testing::StringTest</name>
+    <member refid="classJSL__Testing_1_1StringTest_1a5be5ef071697a4e106c1a1e51ded1cf6" kind="function"><name>StringTest</name></member>
+    <member refid="classJSL__Testing_1_1StringTest_1ada0409cd10e3f09788994a9115331ff7" kind="function"><name>Run_Test</name></member>
+  </compound>
+  <compound refid="classThermalValues" kind="class"><name>ThermalValues</name>
+    <member refid="classThermalValues_1a225d63d98c19be0b7cdabf2464e223b3" kind="variable"><name>HotInjection_CCSN</name></member>
+    <member refid="classThermalValues_1a0faba77dff54e82e0f3743295a45cdee" kind="variable"><name>HotInjection_NSM</name></member>
+    <member refid="classThermalValues_1ab6d948b7790af5931b26440ca3ad7423" kind="variable"><name>HotInjection_SNIa</name></member>
+    <member refid="classThermalValues_1a2227511e41c87c5e71dec0ee9d13aec7" kind="variable"><name>GasCoolingTimeScale</name></member>
+    <member refid="classThermalValues_1a49141fdedc915346bdfa0a7a3f974310" kind="function"><name>ThermalValues</name></member>
+  </compound>
+  <compound refid="classJSL_1_1UnitTest" kind="class"><name>JSL::UnitTest</name>
+    <member refid="classJSL_1_1UnitTest_1a53c19424147e72fa6392470627f15049" kind="variable"><name>Name</name></member>
+    <member refid="classJSL_1_1UnitTest_1afac1f363a8406fad39316ee772a837a9" kind="variable"><name>Passed</name></member>
+    <member refid="classJSL_1_1UnitTest_1a54dc4908d757c7f523be12a4275e595c" kind="variable"><name>NonCriticalFailure</name></member>
+    <member refid="classJSL_1_1UnitTest_1a3dcc71e7e8f72f0f07b8fc552b777ad8" kind="variable"><name>MessageBuffer</name></member>
+    <member refid="classJSL_1_1UnitTest_1aa3bc8d5c99696d5bc6e63b8da358a0ed" kind="function"><name>UnitTest</name></member>
+    <member refid="classJSL_1_1UnitTest_1aa8369ab1ce2a537bff2ea7e1c8818490" kind="function"><name>Run_Test</name></member>
+    <member refid="classJSL_1_1UnitTest_1aabec19b081be8a428f12e4b5e3dc2a9c" kind="function"><name>BufferedTest</name></member>
+    <member refid="classJSL_1_1UnitTest_1a39e1076dd985334ce21606ae2a383f70" kind="function"><name>Results</name></member>
+    <member refid="classJSL_1_1UnitTest_1a3629d1bca071da7a2af6b7de29be1430" kind="function"><name>basicConditionCheck</name></member>
+    <member refid="classJSL_1_1UnitTest_1a53ede0c6b420eaf64faf752c0518340e" kind="function"><name>basicConditionCheck</name></member>
+  </compound>
+  <compound refid="classJSL_1_1Vector" kind="class"><name>JSL::Vector</name>
+    <member refid="classJSL_1_1Vector_1aec102ab8391080ddaedeb4605ef40c5c" kind="variable"><name>Data</name></member>
+    <member refid="classJSL_1_1Vector_1a84eb32f5917a770c895e106834a6c05d" kind="variable"><name>nElements</name></member>
+    <member refid="classJSL_1_1Vector_1a840fca607f8eae7dea1494b2954d3a3c" kind="function"><name>Vector</name></member>
+    <member refid="classJSL_1_1Vector_1aea8654ed3fb875d43f669a5f2e26fb25" kind="function"><name>Vector</name></member>
+    <member refid="classJSL_1_1Vector_1af5be93b29e1c2aab2882827d5001a2aa" kind="function"><name>Vector</name></member>
+    <member refid="classJSL_1_1Vector_1a53b26ca32061ebf41430fe2322f79c0c" kind="function"><name>Size</name></member>
+    <member refid="classJSL_1_1Vector_1a7ff5112a7be30ca24b8ed953aaadd045" kind="function"><name>operator[]</name></member>
+    <member refid="classJSL_1_1Vector_1ae461792ef0aeb62ac07c939dacedda99" kind="function"><name>operator[]</name></member>
+    <member refid="classJSL_1_1Vector_1a60660b5a26e0ddace46f31699834b671" kind="function"><name>Dot</name></member>
+    <member refid="classJSL_1_1Vector_1a59ff98a99ebcf2b589290b9e57b8e184" kind="function"><name>Cross</name></member>
+    <member refid="classJSL_1_1Vector_1ac1346e26bc981bf45d2c1c4317dac4e6" kind="function"><name>SqNorm</name></member>
+    <member refid="classJSL_1_1Vector_1aa8af717591f5548ff471b6e4b28d7f9c" kind="function"><name>Norm</name></member>
+    <member refid="classJSL_1_1Vector_1a0529640bc02ce994026184d93f43f9c3" kind="function"><name>AngleBetween</name></member>
+    <member refid="classJSL_1_1Vector_1a73579b4a194cc924341806a5d9ea3817" kind="function"><name>to_string</name></member>
+    <member refid="classJSL_1_1Vector_1ad2d0bfdb432809a88a49f4576b0afb5a" kind="function"><name>to_simple_string</name></member>
+    <member refid="classJSL_1_1Vector_1a91d4cf29c2865069520d03292844d84f" kind="function"><name>to_string_precision</name></member>
+    <member refid="classJSL_1_1Vector_1ad46bf395dd6122ce152c33aad2672a9b" kind="function"><name>operator+=</name></member>
+    <member refid="classJSL_1_1Vector_1a71720a9266944049cd3adfbe50e1703f" kind="function"><name>operator-=</name></member>
+    <member refid="classJSL_1_1Vector_1aeca45a175db04725394a1b576507e708" kind="function"><name>operator+=</name></member>
+    <member refid="classJSL_1_1Vector_1a8a395851b8dffbe5b0aea7e051f9aac8" kind="function"><name>operator-=</name></member>
+    <member refid="classJSL_1_1Vector_1ad2fb2b88e3447881c1dac08897c5c8a8" kind="function"><name>operator*=</name></member>
+    <member refid="classJSL_1_1Vector_1a0ce3dc2b4c99dbe6acdec350e2f46ab6" kind="function"><name>operator/=</name></member>
+    <member refid="classJSL_1_1Vector_1ad7dc3af5e90b59e3ba2efc458e192a4c" kind="function"><name>isnan</name></member>
+    <member refid="classJSL_1_1Vector_1ac41d3cb075c2bd871c31b96dedba08fe" kind="function"><name>negativeIntegerError</name></member>
+    <member refid="classJSL_1_1Vector_1ab081a68e1fc526f4bf866de0ba61a09b" kind="function"><name>outOfBoundsError</name></member>
+  </compound>
+  <compound refid="classJSL__Testing_1_1VectorTest" kind="class"><name>JSL_Testing::VectorTest</name>
+    <member refid="classJSL__Testing_1_1VectorTest_1a4750f287bc10a0df1f4f28cb84598bc2" kind="function"><name>VectorTest</name></member>
+    <member refid="classJSL__Testing_1_1VectorTest_1ad79bb4654e6f7b59d31d7239ee0c2b82" kind="function"><name>Run_Test</name></member>
+  </compound>
+  <compound refid="structYieldBracket" kind="struct"><name>YieldBracket</name>
+    <member refid="structYieldBracket_1a9f834c019d58825c87c3d0d3d252dc80" kind="variable"><name>isEnclosed</name></member>
+    <member refid="structYieldBracket_1acdf5f0eecea0363668780a8de710b332" kind="variable"><name>hasSingle</name></member>
+    <member refid="structYieldBracket_1a85eabbd462db24334a50830c142d664d" kind="variable"><name>UpperRidge</name></member>
+    <member refid="structYieldBracket_1ab1e158ccdbb0973c42c5d0c9820537c0" kind="variable"><name>LowerRidge</name></member>
+    <member refid="structYieldBracket_1afda57a4e243a20ffbc44c36fe22501d8" kind="function"><name>YieldBracket</name></member>
+    <member refid="structYieldBracket_1a53658400d9935aadccc5b318f69e23f9" kind="function"><name>YieldBracket</name></member>
+    <member refid="structYieldBracket_1a860a73d7db3c90e805c56a0eec682b0e" kind="function"><name>YieldBracket</name></member>
+  </compound>
+  <compound refid="classYieldGrid" kind="class"><name>YieldGrid</name>
+    <member refid="classYieldGrid_1adaa90ca8e93f904a7eb295debac77601" kind="variable"><name>Opts</name></member>
+    <member refid="classYieldGrid_1a1709c93c6a8b8ad880a6d1294c2b07a1" kind="variable"><name>Element</name></member>
+    <member refid="classYieldGrid_1a49d1703b9a0eba10c82e20c4968868bc" kind="variable"><name>RelicMass</name></member>
+    <member refid="classYieldGrid_1adac05cd0c5c0a32b4ca242af143da7d7" kind="variable"><name>RelicType</name></member>
+    <member refid="classYieldGrid_1ac672384875813434fb983de36287694e" kind="function"><name>YieldGrid</name></member>
+    <member refid="classYieldGrid_1a0a07f64bfb06724498459d49b6fee782" kind="function"><name>YieldGrid</name></member>
+    <member refid="classYieldGrid_1a7da7738f26cf3b294d9cb8ad14ddfbcc" kind="function"><name>Synthesis</name></member>
+    <member refid="classYieldGrid_1a31378ee9b89ab8a6644ed76f3ab3c117" kind="function"><name>ReUseYields</name></member>
+    <member refid="classYieldGrid_1a4809c8307e77aeb7aa501b87362fec5b" kind="function"><name>CalculateYields</name></member>
+    <member refid="classYieldGrid_1aa7d85eac45383a8ec79bdc54c3e5ef45" kind="function"><name>LoadMarigoYields</name></member>
+    <member refid="classYieldGrid_1a9c37ebce300a08e836ce5fceca2038e0" kind="function"><name>LoadOrfeoYields</name></member>
+    <member refid="classYieldGrid_1a74e21e2aeeef26a0a5e2c6aa1a7d6c41" kind="function"><name>LoadLimongiYields</name></member>
+    <member refid="classYieldGrid_1a4863d66b1772f1beba4db999f4a51d6a" kind="function"><name>LoadMaederYields</name></member>
+    <member refid="classYieldGrid_1ad8316014cb63bddf4225c10620cbf92a" kind="function"><name>SaveYields</name></member>
+  </compound>
+  <compound refid="structYieldPoint" kind="struct"><name>YieldPoint</name>
+    <member refid="structYieldPoint_1aaad9fda478a0d67806a751a05188d2e9" kind="variable"><name>Mass</name></member>
+    <member refid="structYieldPoint_1ae64b418c2ce69565cd6e4f4c887e71b3" kind="variable"><name>Yield</name></member>
+    <member refid="structYieldPoint_1a60665d3c3f1303cd9de35bb410485a90" kind="function"><name>YieldPoint</name></member>
+  </compound>
+  <compound refid="classYieldRidge" kind="class"><name>YieldRidge</name>
+    <member refid="classYieldRidge_1a6b9d1768e3ec318844eb35fb7ccc60db" kind="variable"><name>SourceID</name></member>
+    <member refid="classYieldRidge_1adbdf07b5253ca532487d425aecd18a21" kind="variable"><name>Z</name></member>
+    <member refid="classYieldRidge_1ae51cb55ca48605ef243d1bb90619de0c" kind="variable"><name>Points</name></member>
+    <member refid="classYieldRidge_1a505cdb763c0924e273bca1ac47826593" kind="variable"><name>Merged</name></member>
+    <member refid="classYieldRidge_1ac569016e1ac93e704a9dd65d4d28b67d" kind="function"><name>YieldRidge</name></member>
+    <member refid="classYieldRidge_1a970e62626d1624dbdf2cd0c1b8993415" kind="function"><name>YieldRidge</name></member>
+    <member refid="classYieldRidge_1a07557fb74cf0db94f4660a31abe0bf5e" kind="function"><name>MassInterp</name></member>
+  </compound>
+  <compound refid="namespaceJSL" kind="namespace"><name>JSL</name>
+    <member refid="namespaceJSL_1a47d8cb112d513ee5a3ae38ca6a89743d" kind="function"><name>initialiseFile</name></member>
+    <member refid="namespaceJSL_1a838b3a913896993bc008408d164ec19d" kind="function"><name>writeStringToFile</name></member>
+    <member refid="namespaceJSL_1a1d611217d83275af846cbc091ff98f53" kind="function"><name>writeVectorToFile</name></member>
+    <member refid="namespaceJSL_1a8c08233b0cb834d4dcde1153b4b8c8c7" kind="function"><name>writeMatrixToFile</name></member>
+    <member refid="namespaceJSL_1a1752cd7c6e1134da51e9307527e0d788" kind="function"><name>locationExists</name></member>
+    <member refid="namespaceJSL_1abf525d02b8c49f21ef7faa68b7571f93" kind="function"><name>mkdir</name></member>
+    <member refid="namespaceJSL_1ae48b92e64fb9d321121df976b770efa6" kind="function"><name>rm</name></member>
+    <member refid="namespaceJSL_1a682c8bb3fff54370f38dcb16794fc7c5" kind="function"><name>operator==</name></member>
+    <member refid="namespaceJSL_1a8b19814a4b6cb667d1e27133acc38513" kind="function"><name>operator!=</name></member>
+    <member refid="namespaceJSL_1a38d1bbf23dc57ec028ea8d91a9688957" kind="function"><name>MatrixSizesEqual</name></member>
+    <member refid="namespaceJSL_1ad1bcc74167579ecff71209bf8c9c47a3" kind="function"><name>operator+</name></member>
+    <member refid="namespaceJSL_1a4f1a2a224c7f6a8c57627b03594cd89f" kind="function"><name>operator-</name></member>
+    <member refid="namespaceJSL_1ad779a68a2d565490f76dd16adfc3091e" kind="function"><name>operator+</name></member>
+    <member refid="namespaceJSL_1a95d670e99aed43f857d8ba5e6f3d7897" kind="function"><name>operator*</name></member>
+    <member refid="namespaceJSL_1a823f5e48d384320644698917c0a1c85c" kind="function"><name>operator*</name></member>
+    <member refid="namespaceJSL_1a5f6c1988cf84b088617e0f12fc1e98da" kind="function"><name>operator+</name></member>
+    <member refid="namespaceJSL_1a6d5304adbdadcb062246266f4ece24a1" kind="function"><name>operator-</name></member>
+    <member refid="namespaceJSL_1a80fcd230a03dd81f1c37fec030619bf9" kind="function"><name>operator*</name></member>
+    <member refid="namespaceJSL_1a69548e09ba5835ee87ac4d28907b5435" kind="function"><name>operator*</name></member>
+    <member refid="namespaceJSL_1ab1f3153179f59c59a0c2a5e553889eb1" kind="function"><name>operator/</name></member>
+    <member refid="namespaceJSL_1aebaffa5dc8073b816908a9708a36b7bf" kind="function"><name>operator-</name></member>
+    <member refid="namespaceJSL_1a91df7f3a77ef2e000058e0f58efb99e6" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceJSL_1aff956bc38fdc0a19f41e202699560dff" kind="function"><name>operator*</name></member>
+    <member refid="namespaceJSL_1a87842870ba7998a0ec521782b2d2f621" kind="function"><name>operator*</name></member>
+    <member refid="namespaceJSL_1a68fed2d9fae3ec9612dd8e8282cf1336" kind="function"><name>operator/</name></member>
+    <member refid="namespaceJSL_1a943a21cab5e9abe4331b20d37cd3f8a1" kind="function"><name>exp</name></member>
+    <member refid="namespaceJSL_1aeae64b7e0cfdc1ab5f35cca90c32d9f6" kind="function"><name>VectorDotProduct</name></member>
+    <member refid="namespaceJSL_1aa7816eb0cd81b74241ce460237990e70" kind="function"><name>VectorCrossProduct</name></member>
+    <member refid="namespaceJSL_1a09355c91f84fd99d4634bf9189fef51d" kind="function"><name>AngleBetweenVectors</name></member>
+    <member refid="namespaceJSL_1a7fad54be308ccb76f68933d91c3c542f" kind="function"><name>operator==</name></member>
+    <member refid="namespaceJSL_1a394a4f9cee0747c76d1190b0365c7b5a" kind="function"><name>operator!=</name></member>
+    <member refid="namespaceJSL_1ae6530b77174d0dfae8e0d6e2a810f672" kind="function"><name>operator+</name></member>
+    <member refid="namespaceJSL_1a1d8393f2865dc23e7975ad041e341ba5" kind="function"><name>operator-</name></member>
+    <member refid="namespaceJSL_1a4b293e2ac3df51113e80022cb3c2ac99" kind="function"><name>operator+</name></member>
+    <member refid="namespaceJSL_1ac5ceabb8b9e657c5e2d0faf9b20a36e8" kind="function"><name>operator+</name></member>
+    <member refid="namespaceJSL_1ac6bd9311dd73aa6227d826bdb94e748d" kind="function"><name>operator-</name></member>
+    <member refid="namespaceJSL_1ab3d17c5cc03a2048e8637d2054fbc138" kind="function"><name>operator-</name></member>
+    <member refid="namespaceJSL_1ab4eefbed468f275164855895335b8a29" kind="function"><name>operator*</name></member>
+    <member refid="namespaceJSL_1afc5e092de4a9bdc5795d40ee0f51c7b9" kind="function"><name>operator*</name></member>
+    <member refid="namespaceJSL_1a1427fd44260592b7d65d27946969fba1" kind="function"><name>operator/</name></member>
+    <member refid="namespaceJSL_1a6fd4487b0a8ac5713df4a37079287913" kind="function"><name>Hadamard</name></member>
+    <member refid="namespaceJSL_1ad9900d0292867da361ddb3f1200a1f99" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceJSL_1a34a7ba28084b304e97a707c653dce887" kind="function"><name>split</name></member>
+    <member refid="namespaceJSL_1ae58b7096986a16b70a27e1609eff3014" kind="function"><name>CurrentTime</name></member>
+    <member refid="namespaceJSL_1ad7ff2220bbab0294b95b9aa85332a222" kind="function"><name>FormatDuration</name></member>
+    <member refid="namespaceJSL_1ae7af96a0311784e019209221335f76d9" kind="function"><name>FormatClock</name></member>
+  </compound>
+  <compound refid="namespaceJSL__Testing" kind="namespace"><name>JSL_Testing</name>
+    <member refid="namespaceJSL__Testing_1a509a70d20fdc2e9975d9b0b8ae424ef1" kind="function"><name>RunAllTests</name></member>
+  </compound>
+  <compound refid="Argument_8h" kind="file"><name>Argument.h</name>
+  </compound>
+  <compound refid="CommandArgs_8h" kind="file"><name>CommandArgs.h</name>
+  </compound>
+  <compound refid="FileIO_8h" kind="file"><name>FileIO.h</name>
+  </compound>
+  <compound refid="fileWriter_8h" kind="file"><name>fileWriter.h</name>
+  </compound>
+  <compound refid="LineReader_8h" kind="file"><name>LineReader.h</name>
+    <member refid="LineReader_8h_1a5480fba013891b2f3033cc97d5d8edf4" kind="define"><name>forLineIn</name></member>
+    <member refid="LineReader_8h_1abdfa973ea7dd7efb90a74e8ec636f5ed" kind="define"><name>forLineVectorIn</name></member>
+  </compound>
+  <compound refid="locationExists_8h" kind="file"><name>locationExists.h</name>
+  </compound>
+  <compound refid="mkdir_8h" kind="file"><name>mkdir.h</name>
+  </compound>
+  <compound refid="rm_8h" kind="file"><name>rm.h</name>
+  </compound>
+  <compound refid="JSL_8h" kind="file"><name>JSL.h</name>
+  </compound>
+  <compound refid="Maths_8h" kind="file"><name>Maths.h</name>
+  </compound>
+  <compound refid="matrix_8h" kind="file"><name>matrix.h</name>
+  </compound>
+  <compound refid="Q__temp_8h" kind="file"><name>Q_temp.h</name>
+  </compound>
+  <compound refid="vector_8h" kind="file"><name>vector.h</name>
+  </compound>
+  <compound refid="split_8h" kind="file"><name>split.h</name>
+  </compound>
+  <compound refid="Strings_8h" kind="file"><name>Strings.h</name>
+  </compound>
+  <compound refid="Time_8h" kind="file"><name>Time.h</name>
+  </compound>
+  <compound refid="Testing_8h" kind="file"><name>Testing.h</name>
+  </compound>
+  <compound refid="Testing__UnitTests_8h" kind="file"><name>Testing_UnitTests.h</name>
+  </compound>
+  <compound refid="UnitTest_8h" kind="file"><name>UnitTest.h</name>
+  </compound>
+  <compound refid="StellarYield_8h" kind="file"><name>StellarYield.h</name>
+  </compound>
+  <compound refid="YieldGrid_8h" kind="file"><name>YieldGrid.h</name>
+  </compound>
+  <compound refid="YieldRidge_8h" kind="file"><name>YieldRidge.h</name>
+    <member refid="YieldRidge_8h_1acef28b17c1d55e929da66d41a6a2ea0b" kind="function"><name>MergeRidges</name></member>
+  </compound>
+  <compound refid="Galaxy_8h" kind="file"><name>Galaxy.h</name>
+  </compound>
+  <compound refid="old__src_2Galaxy_2GasReservoir_8h" kind="file"><name>GasReservoir.h</name>
+  </compound>
+  <compound refid="src_2Gas_2GasReservoir_8h" kind="file"><name>GasReservoir.h</name>
+  </compound>
+  <compound refid="Ring_8h" kind="file"><name>Ring.h</name>
+  </compound>
+  <compound refid="CommandParser_8h" kind="file"><name>CommandParser.h</name>
+    <member refid="CommandParser_8h_1a4f07b9683808c0c57e3388d8570ec60f" kind="typedef"><name>parseFunctions</name></member>
+    <member refid="CommandParser_8h_1ae95706c97ff3a40d4346144bf70fa0ea" kind="function"><name>help</name></member>
+    <member refid="CommandParser_8h_1a5bddad4418012c40027b0d7d15e520ea" kind="function"><name>changeFileRoot</name></member>
+    <member refid="CommandParser_8h_1aad34c26ebf385bf43e99271e82ba24d7" kind="function"><name>parseCommandLine</name></member>
+  </compound>
+  <compound refid="FileHandler_8h" kind="file"><name>FileHandler.h</name>
+    <member refid="FileHandler_8h_1afaf801bcb7f7250a7a809ff8be891966" kind="define"><name>forLineInFile</name></member>
+    <member refid="FileHandler_8h_1a071173977188e46e42e85001c6ca67e2" kind="define"><name>forLineVectorInFile</name></member>
+    <member refid="FileHandler_8h_1a06261f3d2cd75035c63f36efc1aeac64" kind="function"><name>mkdirSafely</name></member>
+  </compound>
+  <compound refid="Logger_8h" kind="file"><name>Logger.h</name>
+    <member refid="Logger_8h_1a4e5c132dab612d4b177739b6dd27cd05" kind="variable"><name>internal_LogToFile</name></member>
+    <member refid="Logger_8h_1a3bbf37c2e78053ceb38863ac7ad0f757" kind="variable"><name>internal_LogToTerminal</name></member>
+    <member refid="Logger_8h_1a1ed726ae4cd96b9a60d8a3abf6f121e3" kind="variable"><name>internal_LoggingLevel</name></member>
+    <member refid="Logger_8h_1a2d4c98278973e6f5f921d62e285d55d0" kind="variable"><name>logStream</name></member>
+    <member refid="Logger_8h_1a714ab3ba232f3e6250aae6762e464375" kind="function"><name>log</name></member>
+    <member refid="Logger_8h_1a65cca0a297a35275feafb94ffc94c038" kind="function"><name>asciiArt</name></member>
+    <member refid="Logger_8h_1afaf15fa78926fed0d5bebdc6e25a48d0" kind="function"><name>initialiseLogger</name></member>
+    <member refid="Logger_8h_1ae65ffd4a4ff6e23f1cc91206665a25e5" kind="function"><name>shutDownLogger</name></member>
+  </compound>
+  <compound refid="StringAlgorithms_8h" kind="file"><name>StringAlgorithms.h</name>
+    <member refid="StringAlgorithms_8h_1a2d4f48de4652460fe98887d2ff4b549f" kind="function"><name>split</name></member>
+  </compound>
+  <compound refid="Star_8h" kind="file"><name>Star.h</name>
+  </compound>
+  <compound refid="StellarPopulation_8h" kind="file"><name>StellarPopulation.h</name>
+  </compound>
+  <compound refid="Gas_8h" kind="file"><name>Gas.h</name>
+  </compound>
+  <compound refid="GasStream_8h" kind="file"><name>GasStream.h</name>
+  </compound>
+  <compound refid="EnumSets_8h" kind="file"><name>EnumSets.h</name>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kind="enum"><name>ElementID</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a20fa2720571344499f799d2839b23c7e" kind="enumvalue"><name>Hydrogen</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aa34644900f0e5c1f8961367a789bcd86" kind="enumvalue"><name>Helium</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a9da6d40a92c5df1a279634c5290edc4c" kind="enumvalue"><name>Metals</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a8750950e70ba4037061ecd568a56b944" kind="enumvalue"><name>Iron</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15ae54b22e3be885eb43db3925118a89f02" kind="enumvalue"><name>Oxygen</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aff5ab7e500a1c16d48b11aa93bb60439" kind="enumvalue"><name>Magnesium</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a29aed61cddc081ff18d77c441b9fedb2" kind="enumvalue"><name>Carbon</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af260a42c612c683947aba40e8e49142a" kind="enumvalue"><name>Silicon</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a40f67c18f45fbcb3396df8fb55e41145" kind="enumvalue"><name>Calcium</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a2481971aeae9ed91247d0e6c69447bcf" kind="enumvalue"><name>Manganese</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a306622f80fd1cfd979de999e20c08a91" kind="enumvalue"><name>Chromium</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a075486eef49beec48c269d23371d4ba7" kind="enumvalue"><name>Cobalt</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15acb3c47b24392c8c6560eb7a7060a3dd9" kind="enumvalue"><name>Europium</name></member>
+    <member refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e" kind="enumvalue"><name>ElementCount</name></member>
+    <member refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kind="enum"><name>SourceProcess</name></member>
+    <member refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2" kind="enumvalue"><name>Primordial</name></member>
+    <member refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba5eded54a4939154f3a8794b2e3702935" kind="enumvalue"><name>Accreted</name></member>
+    <member refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba6b931856a2c41dafbac513228fead00d" kind="enumvalue"><name>CCSN</name></member>
+    <member refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238baf91104016e7ac32d698e35719246e224" kind="enumvalue"><name>SNIa</name></member>
+    <member refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238badb82d907ddf6c04771cbaefe83152476" kind="enumvalue"><name>NSM</name></member>
+    <member refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba708c0e4c443c8d8788ac87e0921883eb" kind="enumvalue"><name>Collapsars</name></member>
+    <member refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb" kind="enumvalue"><name>Unknown</name></member>
+    <member refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8" kind="enumvalue"><name>ProcessCount</name></member>
+  </compound>
+  <compound refid="GlobalParameters_8h" kind="file"><name>GlobalParameters.h</name>
+    <member refid="GlobalParameters_8h_1a598a3330b3c21701223ee0ca14316eca" kind="define"><name>PI</name></member>
+  </compound>
+  <compound refid="List_8h" kind="file"><name>List.h</name>
+  </compound>
+  <compound refid="ParameterLists_8h" kind="file"><name>ParameterLists.h</name>
+  </compound>
+  <compound refid="dir_b0f48f036a3b175296b10e5223011ebf" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers</name>
+  </compound>
+  <compound refid="dir_2874dae9605f0224ac5788d19c7dfbcd" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs</name>
+  </compound>
+  <compound refid="dir_4bf86a16ce68e3976ed369fde08f14b6" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/libs/JSL/FileIO</name>
+  </compound>
+  <compound refid="dir_e0861e9414ed5a230750454d2ebdb81f" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy</name>
+  </compound>
+  <compound refid="dir_c4e644ac4f9f66a5bce91cefc52e7457" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/src/Gas</name>
+  </compound>
+  <compound refid="dir_3f39f967e54c14bf35b04bc894081314" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions</name>
+  </compound>
+  <compound refid="dir_9ed050a2c1ded898f03e7cda4bbbc421" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/libs/JSL</name>
+  </compound>
+  <compound refid="dir_6719ab1f1f7655efc2fa43f7eb574fd1" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/libs</name>
+  </compound>
+  <compound refid="dir_c9e8e26e68e0de006846287b37322d50" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths</name>
+  </compound>
+  <compound refid="dir_5843af8ce2f5b333429c2c603c19372b" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/old_src</name>
+  </compound>
+  <compound refid="dir_ce109ecd4eeb88b8d6c4b74fa63f5e17" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/src/Parameters</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/src</name>
+  </compound>
+  <compound refid="dir_6222b6d179b58e89a7fe86b4e97221df" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/old_src/Stars</name>
+  </compound>
+  <compound refid="dir_837aab53d9abcc5260cde2177c775945" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/libs/JSL/Strings</name>
+  </compound>
+  <compound refid="dir_dc22bd37673fc53f719aa12d552cf9f9" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/libs/JSL/Testing</name>
+  </compound>
+</doxygenindex>

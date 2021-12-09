@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_b0f48f036a3b175296b10e5223011ebf" kind="dir">
+    <compoundname>/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers</compoundname>
+    <innerfile refid="StellarYield_8h">StellarYield.h</innerfile>
+    <innerfile refid="YieldGrid_8h">YieldGrid.h</innerfile>
+    <innerfile refid="YieldRidge_8h">YieldRidge.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/"/>
+  </compounddef>
+</doxygen>

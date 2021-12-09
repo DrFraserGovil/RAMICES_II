@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classGalaxyValues" kind="class" language="C++" prot="public">
+    <compoundname>GalaxyValues</compoundname>
+    <basecompoundref refid="classParamList" prot="public" virt="non-virtual">ParamList</basecompoundref>
+    <includes refid="ParameterLists_8h" local="no">ParameterLists.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classGalaxyValues_1a5a0435dd3b41af00845239640082ad53" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; int &gt;</type>
+        <definition>Argument&lt;int&gt; GalaxyValues::NRings</definition>
+        <argsstring></argsstring>
+        <name>NRings</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;int&gt;(100,&quot;rings&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="114" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1a0b8bb4de49945b5bf21c44c46750482b" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::PrimordialMass</definition>
+        <argsstring></argsstring>
+        <name>PrimordialMass</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(1.8,&quot;M0&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="116" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1ae72dee5f4f6eb8c1c4573b5caa6d82af" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::PrimordialHotFraction</definition>
+        <argsstring></argsstring>
+        <name>PrimordialHotFraction</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0,&quot;-primordial-hot&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="117" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1aa4a085809db57a041180774df21e4938" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::MaxRadius</definition>
+        <argsstring></argsstring>
+        <name>MaxRadius</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(20.0,&quot;radius&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="118" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1a239f649cbcecf52fbe441aabe2575d5b" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::MinScaleLength</definition>
+        <argsstring></argsstring>
+        <name>MinScaleLength</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(1.75,&quot;-scale-length-min&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="120" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1a1eadee2260b53785ed45e4fc1adefa1b" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::MaxScaleLength</definition>
+        <argsstring></argsstring>
+        <name>MaxScaleLength</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(3.75,&quot;-scale-length-max&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="121" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1af6825df7eafbc2a2394beeb674f63c14" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::ScaleLengthDelay</definition>
+        <argsstring></argsstring>
+        <name>ScaleLengthDelay</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(1.0,&quot;-scale-length-delay&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="122" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1ad737d3b239e948f2b9f59a1ba18e298d" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::ScaleLengthTimeScale</definition>
+        <argsstring></argsstring>
+        <name>ScaleLengthTimeScale</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(2.0,&quot;-scale-length-time&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="123" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1a79f49f1cfb772db8fbe0b6b2a36c532d" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::ScaleLengthFinalTime</definition>
+        <argsstring></argsstring>
+        <name>ScaleLengthFinalTime</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(12.0,&quot;-scale-length-final&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="124" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1a684319d15ecbdd2434fd30de9e49236d" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::InfallMass1</definition>
+        <argsstring></argsstring>
+        <name>InfallMass1</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(4.5,&quot;M1&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="126" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1af9f7596b0a1d23af97619a0b3e8be305" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::InfallMass2</definition>
+        <argsstring></argsstring>
+        <name>InfallMass2</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(45,&quot;M2&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="127" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1a70b8b11bafce6aed3fb78751e5d955e6" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::InfallTime1</definition>
+        <argsstring></argsstring>
+        <name>InfallTime1</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.3,&quot;b1&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="128" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1a21c48e7fba737968ac3e64beb83d46ea" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::InfallTime2</definition>
+        <argsstring></argsstring>
+        <name>InfallTime2</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(14.0,&quot;b2&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="129" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1a01c4dcc116ec4bf4214e8194e29f3f9b" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::InflowParameterA</definition>
+        <argsstring></argsstring>
+        <name>InflowParameterA</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.33,&quot;-inflow-a&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="131" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1a1a4150d770c9723ec34ac23fefb012b4" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::InflowParameterB</definition>
+        <argsstring></argsstring>
+        <name>InflowParameterB</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.53,&quot;-inflow-b&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="132" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxyValues_1aead472c67bfd2186b59126721f40b6c8" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; GalaxyValues::MaxSFRFraction</definition>
+        <argsstring></argsstring>
+        <name>MaxSFRFraction</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.98,&quot;-max-sfr&quot;)</initializer>
+        <briefdescription>
+<para>maximum fraction which can be removed by SFR + associated feedback </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="135" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGalaxyValues_1a21533ba013a6f9a5b1df16191c7e93d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GalaxyValues::GalaxyValues</definition>
+        <argsstring>()</argsstring>
+        <name>GalaxyValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="138" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="138" bodyend="141"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="1">
+        <label>GalaxyValues</label>
+        <link refid="classGalaxyValues"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="3">
+        <label>JSL::Argument&lt; double &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>JSL::Argument&lt; int &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>JSL::ArgumentInterface</label>
+        <link refid="classJSL_1_1ArgumentInterface"/>
+      </node>
+      <node id="1">
+        <label>GalaxyValues</label>
+        <link refid="classGalaxyValues"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ScaleLengthFinalTime</edgelabel>
+          <edgelabel>MaxSFRFraction</edgelabel>
+          <edgelabel>MaxScaleLength</edgelabel>
+          <edgelabel>ScaleLengthTimeScale</edgelabel>
+          <edgelabel>InflowParameterA</edgelabel>
+          <edgelabel>MinScaleLength</edgelabel>
+          <edgelabel>InflowParameterB</edgelabel>
+          <edgelabel>PrimordialHotFraction</edgelabel>
+          <edgelabel>InfallTime1</edgelabel>
+          <edgelabel>InfallTime2</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>NRings</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="110" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="109" bodyend="143"/>
+    <listofallmembers>
+      <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>GalaxyValues</scope><name>argPointers</name></member>
+      <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>Configure</name></member>
+      <member refid="classGalaxyValues_1a21533ba013a6f9a5b1df16191c7e93d2" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>GalaxyValues</name></member>
+      <member refid="classGalaxyValues_1a684319d15ecbdd2434fd30de9e49236d" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>InfallMass1</name></member>
+      <member refid="classGalaxyValues_1af9f7596b0a1d23af97619a0b3e8be305" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>InfallMass2</name></member>
+      <member refid="classGalaxyValues_1a70b8b11bafce6aed3fb78751e5d955e6" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>InfallTime1</name></member>
+      <member refid="classGalaxyValues_1a21c48e7fba737968ac3e64beb83d46ea" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>InfallTime2</name></member>
+      <member refid="classGalaxyValues_1a01c4dcc116ec4bf4214e8194e29f3f9b" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>InflowParameterA</name></member>
+      <member refid="classGalaxyValues_1a1a4150d770c9723ec34ac23fefb012b4" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>InflowParameterB</name></member>
+      <member refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" prot="public" virt="virtual"><scope>GalaxyValues</scope><name>Initialise</name></member>
+      <member refid="classGalaxyValues_1aa4a085809db57a041180774df21e4938" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>MaxRadius</name></member>
+      <member refid="classGalaxyValues_1a1eadee2260b53785ed45e4fc1adefa1b" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>MaxScaleLength</name></member>
+      <member refid="classGalaxyValues_1aead472c67bfd2186b59126721f40b6c8" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>MaxSFRFraction</name></member>
+      <member refid="classGalaxyValues_1a239f649cbcecf52fbe441aabe2575d5b" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>MinScaleLength</name></member>
+      <member refid="classGalaxyValues_1a5a0435dd3b41af00845239640082ad53" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>NRings</name></member>
+      <member refid="classGalaxyValues_1ae72dee5f4f6eb8c1c4573b5caa6d82af" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>PrimordialHotFraction</name></member>
+      <member refid="classGalaxyValues_1a0b8bb4de49945b5bf21c44c46750482b" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>PrimordialMass</name></member>
+      <member refid="classGalaxyValues_1af6825df7eafbc2a2394beeb674f63c14" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>ScaleLengthDelay</name></member>
+      <member refid="classGalaxyValues_1a79f49f1cfb772db8fbe0b6b2a36c532d" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>ScaleLengthFinalTime</name></member>
+      <member refid="classGalaxyValues_1ad737d3b239e948f2b9f59a1ba18e298d" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>ScaleLengthTimeScale</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classMetaValues" kind="class" language="C++" prot="public">
+    <compoundname>MetaValues</compoundname>
+    <basecompoundref refid="classParamList" prot="public" virt="non-virtual">ParamList</basecompoundref>
+    <includes refid="ParameterLists_8h" local="no">ParameterLists.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classMetaValues_1a6473d91b7e971e2e44e87e3f38e14502" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; std::string &gt;</type>
+        <definition>Argument&lt;std::string&gt; MetaValues::SaveRoot</definition>
+        <argsstring></argsstring>
+        <name>SaveRoot</name>
+        <initializer>=  <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;std::string&gt;(&quot;Output/&quot;,&quot;output&quot;)</initializer>
+        <briefdescription>
+<para>The name of the output directory into which the output will be saved. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="14" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMetaValues_1a8b73fd409e1e258b7d638b8aebef72e2" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; std::string &gt;</type>
+        <definition>Argument&lt;std::string&gt; MetaValues::ResourceRoot</definition>
+        <argsstring></argsstring>
+        <name>ResourceRoot</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;std::string&gt;(&quot;Resources/&quot;,&quot;resource&quot;)</initializer>
+        <briefdescription>
+<para>The location of the directory which the code looks for its expected resource file structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="17" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMetaValues_1ac8e1adbfb77ba566a39caf86dfb46a11" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; int &gt;</type>
+        <definition>Argument&lt;int&gt; MetaValues::ParallelThreads</definition>
+        <argsstring></argsstring>
+        <name>ParallelThreads</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;int&gt;(1,&quot;thread&quot;)</initializer>
+        <briefdescription>
+<para>The maximum number of parallel threads which can be active at any given time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="20" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMetaValues_1a91fd337f6d6ad536e6174b3e769b3bcf" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; MetaValues::TimeStep</definition>
+        <argsstring></argsstring>
+        <name>TimeStep</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.1,&quot;timestep&quot;)</initializer>
+        <briefdescription>
+<para>The top level timestep used in the main chemical loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="23" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMetaValues_1a99960686637e59874cc6cd5e1b7b71b8" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; MetaValues::SimulationDuration</definition>
+        <argsstring></argsstring>
+        <name>SimulationDuration</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(14.0,&quot;duration&quot;)</initializer>
+        <briefdescription>
+<para>The total duration of the chemical simulation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="26" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMetaValues_1a8766aac9dd6865deee6647ab0a6d7ef4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MetaValues::MetaValues</definition>
+        <argsstring>()</argsstring>
+        <name>MetaValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="28" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="28" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classMetaValues" kindref="compound">MetaValues</ref> contains variables associated with the base-level information about the sumulation - the number of cores to access, the timesteps etc. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="1">
+        <label>MetaValues</label>
+        <link refid="classMetaValues"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="3">
+        <label>JSL::Argument&lt; double &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>JSL::Argument&lt; int &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>JSL::ArgumentInterface</label>
+        <link refid="classJSL_1_1ArgumentInterface"/>
+      </node>
+      <node id="1">
+        <label>MetaValues</label>
+        <link refid="classMetaValues"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>TimeStep</edgelabel>
+          <edgelabel>SimulationDuration</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>SaveRoot</edgelabel>
+          <edgelabel>ResourceRoot</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>ParallelThreads</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>JSL::Argument&lt; std::string &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="10" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="9" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>MetaValues</scope><name>argPointers</name></member>
+      <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>MetaValues</scope><name>Configure</name></member>
+      <member refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" prot="public" virt="virtual"><scope>MetaValues</scope><name>Initialise</name></member>
+      <member refid="classMetaValues_1a8766aac9dd6865deee6647ab0a6d7ef4" prot="public" virt="non-virtual"><scope>MetaValues</scope><name>MetaValues</name></member>
+      <member refid="classMetaValues_1ac8e1adbfb77ba566a39caf86dfb46a11" prot="public" virt="non-virtual"><scope>MetaValues</scope><name>ParallelThreads</name></member>
+      <member refid="classMetaValues_1a8b73fd409e1e258b7d638b8aebef72e2" prot="public" virt="non-virtual"><scope>MetaValues</scope><name>ResourceRoot</name></member>
+      <member refid="classMetaValues_1a6473d91b7e971e2e44e87e3f38e14502" prot="public" virt="non-virtual"><scope>MetaValues</scope><name>SaveRoot</name></member>
+      <member refid="classMetaValues_1a99960686637e59874cc6cd5e1b7b71b8" prot="public" virt="non-virtual"><scope>MetaValues</scope><name>SimulationDuration</name></member>
+      <member refid="classMetaValues_1a91fd337f6d6ad536e6174b3e769b3bcf" prot="public" virt="non-virtual"><scope>MetaValues</scope><name>TimeStep</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

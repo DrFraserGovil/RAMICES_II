@@ -1,0 +1,299 @@
+\hypertarget{classGasReservoir}{}\doxysection{Gas\+Reservoir Class Reference}
+\label{classGasReservoir}\index{GasReservoir@{GasReservoir}}
+
+
+{\ttfamily \#include $<$Gas\+Reservoir.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}{Gas\+Reservoir}} ()
+\item 
+\mbox{\hyperlink{classGasReservoir_a05180d21ff08f04f4fd7ea7ba0e1873d}{Gas\+Reservoir}} (Options $\ast$opts)
+\item 
+\mbox{\hyperlink{classGasReservoir_ab82144f8aa458efc5f16feb035910d41}{Gas\+Reservoir}} (Options $\ast$opts, std\+::vector$<$ double $>$ cold\+Chemicals)
+\item 
+\mbox{\hyperlink{classGasReservoir_a717e3d4d5f5ffaa7eb7a49716192d4d0}{Gas\+Reservoir}} (Options $\ast$opts, std\+::vector$<$ double $>$ cold\+Chemicals, std\+::vector$<$ double $>$ hot\+Chemicals)
+\item 
+void \mbox{\hyperlink{classGasReservoir_a3d2820df4fc12b2ea4d13ce6e02b7c52}{Give\+To}} (\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$recieving\+Gas, double cold\+Mass, double hot\+Mass)
+\item 
+void \mbox{\hyperlink{classGasReservoir_a39b0e32cbbb7cec116e20a99d81da6e9}{Give\+To}} (\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$recieving\+Gas, double mixed\+Mass)
+\item 
+void \mbox{\hyperlink{classGasReservoir_aed9bd582791da7a8f6b9c7277bb76804}{Take\+From}} (\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$giving\+Gas, double cold\+Mass, double hot\+Mass)
+\item 
+void \mbox{\hyperlink{classGasReservoir_a3ee1e1213611fab0315ef1cf1d55371b}{Take\+From}} (\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$giving\+Gas, double mixed\+Mass)
+\item 
+void \mbox{\hyperlink{classGasReservoir_a239f8b4171f5612f9516df0c71fba0c7}{Deplete}} (double cold\+Mass, double hot\+Mass)
+\item 
+void \mbox{\hyperlink{classGasReservoir_a1e2dc5a53f77d33b5018f0abeaee10cd}{Add\+To}} (\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$acceptor)
+\item 
+void \mbox{\hyperlink{classGasReservoir_a04707bc0aee8ad21cc53bdc5b095614d}{Subtract\+From}} (\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$loser)
+\item 
+void \mbox{\hyperlink{classGasReservoir_a0ff726738097ecacea29828bc7ae7d2a}{Set\+Primordial}} (double mass)
+\item 
+\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classGasReservoir_aad8ff33ac1d7fd8079043e6f6133e052}{operator+}} (const \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&b)
+\item 
+\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classGasReservoir_a3d785554838f3130d1fc29c4b69b7586}{operator-\/}} (const \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&b)
+\item 
+void \mbox{\hyperlink{classGasReservoir_a0c5847c1454a9f93054ed94ec89f50df}{Print}} ()
+\item 
+\mbox{\hyperlink{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}{Gas\+Reservoir}} ()
+\item 
+double \mbox{\hyperlink{classGasReservoir_a841a10da610c205d4eb8de4e9ab9ce8c}{Mass}} ()
+\item 
+double \mbox{\hyperlink{classGasReservoir_a57f681a7cedc98b43dc9aeca96e8f3cd}{Cold\+Mass}} ()
+\item 
+double \mbox{\hyperlink{classGasReservoir_acf13e9d636ab41d1838548ec08d26f00}{Hot\+Mass}} ()
+\item 
+void \mbox{\hyperlink{classGasReservoir_a5a6aa00a210d88d1469d3fb565d255d3}{Absorb}} (const \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&giving\+Gas)
+\item 
+void \mbox{\hyperlink{classGasReservoir_a2f358644898f78a0e1594de154e53047}{Absorb}} (const \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \&giving\+Gas)
+\item 
+void \mbox{\hyperlink{classGasReservoir_ae2e4fdaa1f6b3f7a335b0948e1af1a9e}{Deplete}} (double amount\+To\+Lose)
+\item 
+void \mbox{\hyperlink{classGasReservoir_a81bf7608a5ca448d267ce0a563786361}{Deplete}} (double amount\+To\+Lose\+\_\+\+Cold, double amount\+To\+Lose\+\_\+\+Hot)
+\item 
+\mbox{\hyperlink{classGasStream}{Gas\+Stream}} \& \mbox{\hyperlink{classGasReservoir_ae082c5254cca8d39c72e90ffa6784645}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} source)
+\item 
+const \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \& \mbox{\hyperlink{classGasReservoir_a438c98990290d468fd5de4caa476b632}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} source) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classGasReservoir_aa202265472304d22898beb78a4882b8b}{Primordial}} (double mass, \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&param)
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classGasReservoir_aea626701c1b5e5b89cfb08924216c98e}{Mass}}
+\item 
+double \mbox{\hyperlink{classGasReservoir_a3caa9edbe4b0f806bedc5c4830829c16}{Cold\+Mass}}
+\item 
+double \mbox{\hyperlink{classGasReservoir_a17d95c3947fa8f3ee5282d4da722c967}{Hot\+Mass}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classGasReservoir_a1d43d0769c764d1e6c17047304258919}{Cold\+Chemicals}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classGasReservoir_aa26d57d78b9b163d3b23b68c05bbff1c}{Hot\+Chemicals}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Options $\ast$ \mbox{\hyperlink{classGasReservoir_a7b53bcdf142e133760ad226d6c494202}{Opts}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classGasStream}{Gas\+Stream}} $>$ \mbox{\hyperlink{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}{Components}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} is a heterogenously sourced pool of gas, such as those found within each ring, or representing the I\+GM In practicality, they are a container for a vector of \mbox{\hyperlink{classGasStream}{Gas\+Stream}} objects + assorted ways for these objects to interact with one another 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}\label{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}} 
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{GasReservoir()}{GasReservoir()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Gas\+Reservoir\+::\+Gas\+Reservoir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a05180d21ff08f04f4fd7ea7ba0e1873d}\label{classGasReservoir_a05180d21ff08f04f4fd7ea7ba0e1873d}} 
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{GasReservoir()}{GasReservoir()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Gas\+Reservoir\+::\+Gas\+Reservoir (\begin{DoxyParamCaption}\item[{Options $\ast$}]{opts }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_ab82144f8aa458efc5f16feb035910d41}\label{classGasReservoir_ab82144f8aa458efc5f16feb035910d41}} 
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{GasReservoir()}{GasReservoir()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Gas\+Reservoir\+::\+Gas\+Reservoir (\begin{DoxyParamCaption}\item[{Options $\ast$}]{opts,  }\item[{std\+::vector$<$ double $>$}]{cold\+Chemicals }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a717e3d4d5f5ffaa7eb7a49716192d4d0}\label{classGasReservoir_a717e3d4d5f5ffaa7eb7a49716192d4d0}} 
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{GasReservoir()}{GasReservoir()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Gas\+Reservoir\+::\+Gas\+Reservoir (\begin{DoxyParamCaption}\item[{Options $\ast$}]{opts,  }\item[{std\+::vector$<$ double $>$}]{cold\+Chemicals,  }\item[{std\+::vector$<$ double $>$}]{hot\+Chemicals }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}\label{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}} 
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{GasReservoir()}{GasReservoir()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Gas\+Reservoir\+::\+Gas\+Reservoir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGasReservoir_a5a6aa00a210d88d1469d3fb565d255d3}\label{classGasReservoir_a5a6aa00a210d88d1469d3fb565d255d3}} 
+\index{GasReservoir@{GasReservoir}!Absorb@{Absorb}}
+\index{Absorb@{Absorb}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Absorb()}{Absorb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Absorb (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&}]{giving\+Gas }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a2f358644898f78a0e1594de154e53047}\label{classGasReservoir_a2f358644898f78a0e1594de154e53047}} 
+\index{GasReservoir@{GasReservoir}!Absorb@{Absorb}}
+\index{Absorb@{Absorb}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Absorb()}{Absorb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Absorb (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \&}]{giving\+Gas }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a1e2dc5a53f77d33b5018f0abeaee10cd}\label{classGasReservoir_a1e2dc5a53f77d33b5018f0abeaee10cd}} 
+\index{GasReservoir@{GasReservoir}!AddTo@{AddTo}}
+\index{AddTo@{AddTo}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{AddTo()}{AddTo()}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Add\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$}]{acceptor }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a57f681a7cedc98b43dc9aeca96e8f3cd}\label{classGasReservoir_a57f681a7cedc98b43dc9aeca96e8f3cd}} 
+\index{GasReservoir@{GasReservoir}!ColdMass@{ColdMass}}
+\index{ColdMass@{ColdMass}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{ColdMass()}{ColdMass()}}
+{\footnotesize\ttfamily double Gas\+Reservoir\+::\+Cold\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_ae2e4fdaa1f6b3f7a335b0948e1af1a9e}\label{classGasReservoir_ae2e4fdaa1f6b3f7a335b0948e1af1a9e}} 
+\index{GasReservoir@{GasReservoir}!Deplete@{Deplete}}
+\index{Deplete@{Deplete}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Deplete()}{Deplete()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Deplete (\begin{DoxyParamCaption}\item[{double}]{amount\+To\+Lose }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a81bf7608a5ca448d267ce0a563786361}\label{classGasReservoir_a81bf7608a5ca448d267ce0a563786361}} 
+\index{GasReservoir@{GasReservoir}!Deplete@{Deplete}}
+\index{Deplete@{Deplete}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Deplete()}{Deplete()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Deplete (\begin{DoxyParamCaption}\item[{double}]{amount\+To\+Lose\+\_\+\+Cold,  }\item[{double}]{amount\+To\+Lose\+\_\+\+Hot }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a239f8b4171f5612f9516df0c71fba0c7}\label{classGasReservoir_a239f8b4171f5612f9516df0c71fba0c7}} 
+\index{GasReservoir@{GasReservoir}!Deplete@{Deplete}}
+\index{Deplete@{Deplete}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Deplete()}{Deplete()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Deplete (\begin{DoxyParamCaption}\item[{double}]{cold\+Mass,  }\item[{double}]{hot\+Mass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a3d2820df4fc12b2ea4d13ce6e02b7c52}\label{classGasReservoir_a3d2820df4fc12b2ea4d13ce6e02b7c52}} 
+\index{GasReservoir@{GasReservoir}!GiveTo@{GiveTo}}
+\index{GiveTo@{GiveTo}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{GiveTo()}{GiveTo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Give\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$}]{recieving\+Gas,  }\item[{double}]{cold\+Mass,  }\item[{double}]{hot\+Mass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a39b0e32cbbb7cec116e20a99d81da6e9}\label{classGasReservoir_a39b0e32cbbb7cec116e20a99d81da6e9}} 
+\index{GasReservoir@{GasReservoir}!GiveTo@{GiveTo}}
+\index{GiveTo@{GiveTo}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{GiveTo()}{GiveTo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Give\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$}]{recieving\+Gas,  }\item[{double}]{mixed\+Mass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_acf13e9d636ab41d1838548ec08d26f00}\label{classGasReservoir_acf13e9d636ab41d1838548ec08d26f00}} 
+\index{GasReservoir@{GasReservoir}!HotMass@{HotMass}}
+\index{HotMass@{HotMass}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{HotMass()}{HotMass()}}
+{\footnotesize\ttfamily double Gas\+Reservoir\+::\+Hot\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a841a10da610c205d4eb8de4e9ab9ce8c}\label{classGasReservoir_a841a10da610c205d4eb8de4e9ab9ce8c}} 
+\index{GasReservoir@{GasReservoir}!Mass@{Mass}}
+\index{Mass@{Mass}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}}
+{\footnotesize\ttfamily double Gas\+Reservoir\+::\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_aad8ff33ac1d7fd8079043e6f6133e052}\label{classGasReservoir_aad8ff33ac1d7fd8079043e6f6133e052}} 
+\index{GasReservoir@{GasReservoir}!operator+@{operator+}}
+\index{operator+@{operator+}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} Gas\+Reservoir\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a3d785554838f3130d1fc29c4b69b7586}\label{classGasReservoir_a3d785554838f3130d1fc29c4b69b7586}} 
+\index{GasReservoir@{GasReservoir}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} Gas\+Reservoir\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_ae082c5254cca8d39c72e90ffa6784645}\label{classGasReservoir_ae082c5254cca8d39c72e90ffa6784645}} 
+\index{GasReservoir@{GasReservoir}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGasStream}{Gas\+Stream}}\& Gas\+Reservoir\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}}}]{source }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a438c98990290d468fd5de4caa476b632}\label{classGasReservoir_a438c98990290d468fd5de4caa476b632}} 
+\index{GasReservoir@{GasReservoir}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classGasStream}{Gas\+Stream}}\& Gas\+Reservoir\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}}}]{source }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classGasReservoir_aa202265472304d22898beb78a4882b8b}\label{classGasReservoir_aa202265472304d22898beb78a4882b8b}} 
+\index{GasReservoir@{GasReservoir}!Primordial@{Primordial}}
+\index{Primordial@{Primordial}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Primordial()}{Primordial()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} Gas\+Reservoir\+::\+Primordial (\begin{DoxyParamCaption}\item[{double}]{mass,  }\item[{\mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classGasReservoir_a0c5847c1454a9f93054ed94ec89f50df}\label{classGasReservoir_a0c5847c1454a9f93054ed94ec89f50df}} 
+\index{GasReservoir@{GasReservoir}!Print@{Print}}
+\index{Print@{Print}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a0ff726738097ecacea29828bc7ae7d2a}\label{classGasReservoir_a0ff726738097ecacea29828bc7ae7d2a}} 
+\index{GasReservoir@{GasReservoir}!SetPrimordial@{SetPrimordial}}
+\index{SetPrimordial@{SetPrimordial}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{SetPrimordial()}{SetPrimordial()}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Set\+Primordial (\begin{DoxyParamCaption}\item[{double}]{mass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a04707bc0aee8ad21cc53bdc5b095614d}\label{classGasReservoir_a04707bc0aee8ad21cc53bdc5b095614d}} 
+\index{GasReservoir@{GasReservoir}!SubtractFrom@{SubtractFrom}}
+\index{SubtractFrom@{SubtractFrom}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{SubtractFrom()}{SubtractFrom()}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Subtract\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$}]{loser }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_aed9bd582791da7a8f6b9c7277bb76804}\label{classGasReservoir_aed9bd582791da7a8f6b9c7277bb76804}} 
+\index{GasReservoir@{GasReservoir}!TakeFrom@{TakeFrom}}
+\index{TakeFrom@{TakeFrom}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{TakeFrom()}{TakeFrom()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Take\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$}]{giving\+Gas,  }\item[{double}]{cold\+Mass,  }\item[{double}]{hot\+Mass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_a3ee1e1213611fab0315ef1cf1d55371b}\label{classGasReservoir_a3ee1e1213611fab0315ef1cf1d55371b}} 
+\index{GasReservoir@{GasReservoir}!TakeFrom@{TakeFrom}}
+\index{TakeFrom@{TakeFrom}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{TakeFrom()}{TakeFrom()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Take\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $\ast$}]{giving\+Gas,  }\item[{double}]{mixed\+Mass }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classGasReservoir_a1d43d0769c764d1e6c17047304258919}\label{classGasReservoir_a1d43d0769c764d1e6c17047304258919}} 
+\index{GasReservoir@{GasReservoir}!ColdChemicals@{ColdChemicals}}
+\index{ColdChemicals@{ColdChemicals}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{ColdChemicals}{ColdChemicals}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Gas\+Reservoir\+::\+Cold\+Chemicals}
+
+\mbox{\Hypertarget{classGasReservoir_a3caa9edbe4b0f806bedc5c4830829c16}\label{classGasReservoir_a3caa9edbe4b0f806bedc5c4830829c16}} 
+\index{GasReservoir@{GasReservoir}!ColdMass@{ColdMass}}
+\index{ColdMass@{ColdMass}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{ColdMass}{ColdMass}}
+{\footnotesize\ttfamily double Gas\+Reservoir\+::\+Cold\+Mass}
+
+\mbox{\Hypertarget{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}\label{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}} 
+\index{GasReservoir@{GasReservoir}!Components@{Components}}
+\index{Components@{Components}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Components}{Components}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classGasStream}{Gas\+Stream}}$>$ Gas\+Reservoir\+::\+Components\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGasReservoir_aa26d57d78b9b163d3b23b68c05bbff1c}\label{classGasReservoir_aa26d57d78b9b163d3b23b68c05bbff1c}} 
+\index{GasReservoir@{GasReservoir}!HotChemicals@{HotChemicals}}
+\index{HotChemicals@{HotChemicals}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{HotChemicals}{HotChemicals}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Gas\+Reservoir\+::\+Hot\+Chemicals}
+
+\mbox{\Hypertarget{classGasReservoir_a17d95c3947fa8f3ee5282d4da722c967}\label{classGasReservoir_a17d95c3947fa8f3ee5282d4da722c967}} 
+\index{GasReservoir@{GasReservoir}!HotMass@{HotMass}}
+\index{HotMass@{HotMass}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{HotMass}{HotMass}}
+{\footnotesize\ttfamily double Gas\+Reservoir\+::\+Hot\+Mass}
+
+\mbox{\Hypertarget{classGasReservoir_aea626701c1b5e5b89cfb08924216c98e}\label{classGasReservoir_aea626701c1b5e5b89cfb08924216c98e}} 
+\index{GasReservoir@{GasReservoir}!Mass@{Mass}}
+\index{Mass@{Mass}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Mass}{Mass}}
+{\footnotesize\ttfamily double Gas\+Reservoir\+::\+Mass}
+
+\mbox{\Hypertarget{classGasReservoir_a7b53bcdf142e133760ad226d6c494202}\label{classGasReservoir_a7b53bcdf142e133760ad226d6c494202}} 
+\index{GasReservoir@{GasReservoir}!Opts@{Opts}}
+\index{Opts@{Opts}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Opts}{Opts}}
+{\footnotesize\ttfamily Options$\ast$ Gas\+Reservoir\+::\+Opts\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/old\+\_\+src/\+Galaxy/\mbox{\hyperlink{old__src_2Galaxy_2GasReservoir_8h}{Gas\+Reservoir.\+h}}\end{DoxyCompactItemize}

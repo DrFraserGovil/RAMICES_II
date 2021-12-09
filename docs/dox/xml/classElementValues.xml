@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classElementValues" kind="class" language="C++" prot="public">
+    <compoundname>ElementValues</compoundname>
+    <basecompoundref refid="classParamList" prot="public" virt="non-virtual">ParamList</basecompoundref>
+    <includes refid="ParameterLists_8h" local="no">ParameterLists.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classElementValues_1a817b2576427ffe893ad83162f5111a0b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SourceIDs</name>
+        <enumvalue id="classElementValues_1a817b2576427ffe893ad83162f5111a0baa55a878e01d11546ba44bc134ea8b5e2" prot="public">
+          <name>Orfeo</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classElementValues_1a817b2576427ffe893ad83162f5111a0ba5a9ce28314aafe9bdeaef9fc34fc53c4" prot="public">
+          <name>Marigo</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classElementValues_1a817b2576427ffe893ad83162f5111a0baa1793587a4ee3a5d733ec4449c8d6380" prot="public">
+          <name>Limongi</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classElementValues_1a817b2576427ffe893ad83162f5111a0ba8df4688bf70b45e6c5e770fbb0738de3" prot="public">
+          <name>Maeder</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classElementValues_1a817b2576427ffe893ad83162f5111a0ba8eefe85166576dbfeff9f8f101bf81aa" prot="public">
+          <name>Mixed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enums to identify different elemental yield sources. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="58" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classElementValues_1aca3788700e99d2422ea7b2392c2db6a3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; ElementValues::ElementNames</definition>
+        <argsstring></argsstring>
+        <name>ElementNames</name>
+        <briefdescription>
+<para>Human readable names for the elements, in the order associated with the ElementIDs. These names are primarily elemental symbols, except Metals, which uses &quot;Z&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="43" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classElementValues_1aa18a62ae74cffc6134cc11465468cfbe" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; ElementValues::SolarAbundances</definition>
+        <argsstring></argsstring>
+        <name>SolarAbundances</name>
+        <briefdescription>
+<para>Solar abundances (in mass units) of the elements, in the order associated with the ElementIDs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="46" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classElementValues_1aa94dedbdce87b7e605dedb51e31ed234" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; std::string &gt;</type>
+        <definition>Argument&lt;std::string&gt; ElementValues::SolarAbundanceFile</definition>
+        <argsstring></argsstring>
+        <name>SolarAbundanceFile</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;std::string&gt;(&quot;ChemicalData/SolarAbundances.dat&quot;,&quot;-solar-values-file&quot;)</initializer>
+        <briefdescription>
+<para>The file in which the solar abundances can be found as a csv. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="49" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classElementValues_1af9f7f3d2cc8b20c63d8ff488ea8e2756" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; int &gt;</type>
+        <definition>Argument&lt;int&gt; ElementValues::SolarAbundanceFileNameColumn</definition>
+        <argsstring></argsstring>
+        <name>SolarAbundanceFileNameColumn</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;int&gt;(0,&quot;-solar-values-name-col&quot;)</initializer>
+        <briefdescription>
+<para>The column of the solar abundance files which contains the ElementName for cross matching. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="52" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classElementValues_1ae9bb2bf686a05c389fa1af650e019705" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; int &gt;</type>
+        <definition>Argument&lt;int&gt; ElementValues::SolarAbundanceFileDataColumn</definition>
+        <argsstring></argsstring>
+        <name>SolarAbundanceFileDataColumn</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;int&gt;(3,&quot;-solar-values-data-col&quot;)</initializer>
+        <briefdescription>
+<para>The column of the solar abundance file which contains the relevant solar abundance value to be saved to memory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="55" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classElementValues_1a5adc37ca7878e4a47493a9e18743d464" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ElementValues::ElementValues</definition>
+        <argsstring>()</argsstring>
+        <name>ElementValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="60" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classElementValues_1a76dc3cddb13b0673840cabf96b3bbe87" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void ElementValues::Initialise</definition>
+        <argsstring>(std::string resourceRoot)</argsstring>
+        <name>Initialise</name>
+        <reimplements refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475">Initialise</reimplements>
+        <param>
+          <type>std::string</type>
+          <declname>resourceRoot</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="64" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classElementValues_1a7ffa1bc21d1b35c4dae9959a12d5e221" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ElementValues::GiveElementsNames</definition>
+        <argsstring>()</argsstring>
+        <name>GiveElementsNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="65" column="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="1">
+        <label>ElementValues</label>
+        <link refid="classElementValues"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="1">
+        <label>ElementValues</label>
+        <link refid="classElementValues"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>SolarAbundanceFile</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>SolarAbundanceFileNameColumn</edgelabel>
+          <edgelabel>SolarAbundanceFileDataColumn</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>JSL::Argument&lt; int &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>JSL::ArgumentInterface</label>
+        <link refid="classJSL_1_1ArgumentInterface"/>
+      </node>
+      <node id="3">
+        <label>JSL::Argument&lt; std::string &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="37" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="36" bodyend="67"/>
+    <listofallmembers>
+      <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>ElementValues</scope><name>argPointers</name></member>
+      <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>Configure</name></member>
+      <member refid="classElementValues_1aca3788700e99d2422ea7b2392c2db6a3" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>ElementNames</name></member>
+      <member refid="classElementValues_1a5adc37ca7878e4a47493a9e18743d464" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>ElementValues</name></member>
+      <member refid="classElementValues_1a7ffa1bc21d1b35c4dae9959a12d5e221" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>GiveElementsNames</name></member>
+      <member refid="classElementValues_1a76dc3cddb13b0673840cabf96b3bbe87" prot="public" virt="virtual"><scope>ElementValues</scope><name>Initialise</name></member>
+      <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0baa1793587a4ee3a5d733ec4449c8d6380" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>Limongi</name></member>
+      <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0ba8df4688bf70b45e6c5e770fbb0738de3" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>Maeder</name></member>
+      <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0ba5a9ce28314aafe9bdeaef9fc34fc53c4" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>Marigo</name></member>
+      <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0ba8eefe85166576dbfeff9f8f101bf81aa" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>Mixed</name></member>
+      <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0baa55a878e01d11546ba44bc134ea8b5e2" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>Orfeo</name></member>
+      <member refid="classElementValues_1aa94dedbdce87b7e605dedb51e31ed234" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>SolarAbundanceFile</name></member>
+      <member refid="classElementValues_1ae9bb2bf686a05c389fa1af650e019705" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>SolarAbundanceFileDataColumn</name></member>
+      <member refid="classElementValues_1af9f7f3d2cc8b20c63d8ff488ea8e2756" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>SolarAbundanceFileNameColumn</name></member>
+      <member refid="classElementValues_1aa18a62ae74cffc6134cc11465468cfbe" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>SolarAbundances</name></member>
+      <member refid="classElementValues_1a817b2576427ffe893ad83162f5111a0b" prot="public" virt="non-virtual"><scope>ElementValues</scope><name>SourceIDs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

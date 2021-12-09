@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classStellarYield" kind="class" language="C++" prot="public">
+    <compoundname>StellarYield</compoundname>
+    <includes refid="StellarYield_8h" local="no">StellarYield.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classStellarYield_1ad6f50c9526738d6be3de8bd6d77fd6b6" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classYieldRidge" kindref="compound">YieldRidge</ref> &gt;</type>
+        <definition>std::vector&lt;YieldRidge&gt; StellarYield::Ridges</definition>
+        <argsstring></argsstring>
+        <name>Ridges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="19" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarYield_1a9ce6bcdf5472486f989c5f35836e8064" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int StellarYield::GridSize</definition>
+        <argsstring></argsstring>
+        <name>GridSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="24" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classStellarYield_1aa27f5de9d75510537ae6a1b8cee0f4cb" prot="private" static="no" mutable="no">
+        <type>Options *</type>
+        <definition>Options* StellarYield::Opts</definition>
+        <argsstring></argsstring>
+        <name>Opts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="28" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarYield_1a7e7be7a534d2fffeb5b2ff268df791a5" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; StellarYield::Yield</definition>
+        <argsstring></argsstring>
+        <name>Yield</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="30" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarYield_1a41d1c9ff3126c9eee32330cacbbb0504" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int StellarYield::Element</definition>
+        <argsstring></argsstring>
+        <name>Element</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="31" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classStellarYield_1ae4b2a49087ff52dfd7e799ef98af3913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StellarYield::StellarYield</definition>
+        <argsstring>()</argsstring>
+        <name>StellarYield</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1a31b510df120e8a1253997422fc4d1f09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StellarYield::StellarYield</definition>
+        <argsstring>(Options *opts, int ElementalID)</argsstring>
+        <name>StellarYield</name>
+        <param>
+          <type>Options *</type>
+          <declname>opts</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ElementalID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1aeae10e9ca524286a134a04b5bc2ac041" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double StellarYield::GrabYield</definition>
+        <argsstring>(double M, double Z)</argsstring>
+        <name>GrabYield</name>
+        <param>
+          <type>double</type>
+          <declname>M</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="16" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1ae9bd7a624850745903f44ab22dac7092" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double StellarYield::GrabYield</definition>
+        <argsstring>(int mIndex, int zIndex)</argsstring>
+        <name>GrabYield</name>
+        <param>
+          <type>int</type>
+          <declname>mIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>zIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="17" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1ae18dd1abb2539f997740208af7c0fa89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StellarYield::PrepareGrids</definition>
+        <argsstring>()</argsstring>
+        <name>PrepareGrids</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="21" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1ae1d3826804a087f4b5a4d306c009998b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StellarYield::PrepareTypeGrid</definition>
+        <argsstring>()</argsstring>
+        <name>PrepareTypeGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="22" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1a27fa5fbe659a00fdfa8ed18f41aa618a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StellarYield::PrintRidges</definition>
+        <argsstring>()</argsstring>
+        <name>PrintRidges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="23" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1a9914e64569f85144e5d08ac1ec4ca4f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double StellarYield::MFromIndex</definition>
+        <argsstring>(int index)</argsstring>
+        <name>MFromIndex</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="25" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1aedb56f34d4562cae748662d03ed8f74f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double StellarYield::ZFromIndex</definition>
+        <argsstring>(int index)</argsstring>
+        <name>ZFromIndex</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="26" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classStellarYield_1a5d398a0e13afeab4514789feef7851a6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int StellarYield::IndexFromM</definition>
+        <argsstring>(double M)</argsstring>
+        <name>IndexFromM</name>
+        <param>
+          <type>double</type>
+          <declname>M</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="33" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1a0e8cc10495dfeeb659b9d465d0f0ba5e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int StellarYield::IndexFromZ</definition>
+        <argsstring>(double Z)</argsstring>
+        <name>IndexFromZ</name>
+        <param>
+          <type>double</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="34" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1a8fe6b87611d4449b371a33dd2acf790c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StellarYield::FilterRidges</definition>
+        <argsstring>()</argsstring>
+        <name>FilterRidges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="36" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1a42917f502bbca4492aee1184714553af" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StellarYield::InterpolateGrid</definition>
+        <argsstring>()</argsstring>
+        <name>InterpolateGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="37" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1acba2e9974f0c2182ec3387fa3584675a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StellarYield::SmoothGrid</definition>
+        <argsstring>()</argsstring>
+        <name>SmoothGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="38" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarYield_1a301919356380cd1c89690d9e635c1734" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structYieldBracket" kindref="compound">YieldBracket</ref></type>
+        <definition>YieldBracket StellarYield::FindBracket</definition>
+        <argsstring>(double m, double z)</argsstring>
+        <name>FindBracket</name>
+        <param>
+          <type>double</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="39" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" line="10" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h" bodystart="9" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classStellarYield_1a41d1c9ff3126c9eee32330cacbbb0504" prot="private" virt="non-virtual"><scope>StellarYield</scope><name>Element</name></member>
+      <member refid="classStellarYield_1a8fe6b87611d4449b371a33dd2acf790c" prot="private" virt="non-virtual"><scope>StellarYield</scope><name>FilterRidges</name></member>
+      <member refid="classStellarYield_1a301919356380cd1c89690d9e635c1734" prot="private" virt="non-virtual"><scope>StellarYield</scope><name>FindBracket</name></member>
+      <member refid="classStellarYield_1aeae10e9ca524286a134a04b5bc2ac041" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>GrabYield</name></member>
+      <member refid="classStellarYield_1ae9bd7a624850745903f44ab22dac7092" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>GrabYield</name></member>
+      <member refid="classStellarYield_1a9ce6bcdf5472486f989c5f35836e8064" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>GridSize</name></member>
+      <member refid="classStellarYield_1a5d398a0e13afeab4514789feef7851a6" prot="private" virt="non-virtual"><scope>StellarYield</scope><name>IndexFromM</name></member>
+      <member refid="classStellarYield_1a0e8cc10495dfeeb659b9d465d0f0ba5e" prot="private" virt="non-virtual"><scope>StellarYield</scope><name>IndexFromZ</name></member>
+      <member refid="classStellarYield_1a42917f502bbca4492aee1184714553af" prot="private" virt="non-virtual"><scope>StellarYield</scope><name>InterpolateGrid</name></member>
+      <member refid="classStellarYield_1a9914e64569f85144e5d08ac1ec4ca4f0" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>MFromIndex</name></member>
+      <member refid="classStellarYield_1aa27f5de9d75510537ae6a1b8cee0f4cb" prot="private" virt="non-virtual"><scope>StellarYield</scope><name>Opts</name></member>
+      <member refid="classStellarYield_1ae18dd1abb2539f997740208af7c0fa89" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>PrepareGrids</name></member>
+      <member refid="classStellarYield_1ae1d3826804a087f4b5a4d306c009998b" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>PrepareTypeGrid</name></member>
+      <member refid="classStellarYield_1a27fa5fbe659a00fdfa8ed18f41aa618a" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>PrintRidges</name></member>
+      <member refid="classStellarYield_1ad6f50c9526738d6be3de8bd6d77fd6b6" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>Ridges</name></member>
+      <member refid="classStellarYield_1acba2e9974f0c2182ec3387fa3584675a" prot="private" virt="non-virtual"><scope>StellarYield</scope><name>SmoothGrid</name></member>
+      <member refid="classStellarYield_1ae4b2a49087ff52dfd7e799ef98af3913" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>StellarYield</name></member>
+      <member refid="classStellarYield_1a31b510df120e8a1253997422fc4d1f09" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>StellarYield</name></member>
+      <member refid="classStellarYield_1a7e7be7a534d2fffeb5b2ff268df791a5" prot="private" virt="non-virtual"><scope>StellarYield</scope><name>Yield</name></member>
+      <member refid="classStellarYield_1aedb56f34d4562cae748662d03ed8f74f" prot="public" virt="non-virtual"><scope>StellarYield</scope><name>ZFromIndex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

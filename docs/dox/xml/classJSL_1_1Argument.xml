@@ -1,0 +1,535 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classJSL_1_1Argument" kind="class" language="C++" prot="public">
+    <compoundname>JSL::Argument</compoundname>
+    <basecompoundref refid="classJSL_1_1ArgumentInterface" prot="public" virt="non-virtual">JSL::ArgumentInterface</basecompoundref>
+    <includes refid="Argument_8h" local="no">Argument.h</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classJSL_1_1Argument_1a83ada5bfa412192f76dd4290f679defd" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T JSL::Argument&lt; T &gt;::Value</definition>
+        <argsstring></argsstring>
+        <name>Value</name>
+        <briefdescription>
+<para>The current value of the argument. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="40" column="3" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classJSL_1_1Argument_1ab438509a3c030516de72f3f493295bd5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Argument&lt; T &gt;::Argument</definition>
+        <argsstring>()</argsstring>
+        <name>Argument</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="43" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1ab07e7981db832cce30f534c67f6491f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Argument&lt; T &gt;::Argument</definition>
+        <argsstring>(std::string trigger)</argsstring>
+        <name>Argument</name>
+        <param>
+          <type>std::string</type>
+          <declname>trigger</declname>
+        </param>
+        <briefdescription>
+<para>Constructor initialising the <ref refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" kindref="member">TriggerString</ref>. Value is set to uninitialised memory of the Template type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>trigger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of <ref refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" kindref="member">TriggerString</ref>, and the &quot;name&quot; of this parameter </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="46" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="46" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1a2511f7c98ee2b0b59650f468341b8747" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Argument&lt; T &gt;::Argument</definition>
+        <argsstring>(T defaultValue, std::string trigger)</argsstring>
+        <name>Argument</name>
+        <param>
+          <type>T</type>
+          <declname>defaultValue</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>trigger</declname>
+        </param>
+        <briefdescription>
+<para>Constructor which initialises the <ref refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" kindref="member">TriggerString</ref> and <ref refid="classJSL_1_1Argument_1a83ada5bfa412192f76dd4290f679defd" kindref="member">Value</ref> members. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>defaultValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initialisation value of <ref refid="classJSL_1_1Argument_1a83ada5bfa412192f76dd4290f679defd" kindref="member">Value</ref> - overridden if <ref refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0" kindref="member">Parse()</ref> is called.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trigger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of <ref refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" kindref="member">TriggerString</ref>, and the &quot;name&quot; of this parameter </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="53" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="53" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1a4d187d2fb658021866b173987b920ab4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Argument&lt; T &gt;::Argument</definition>
+        <argsstring>(T defaultValue, std::string trigger, int argc, char *argv[])</argsstring>
+        <name>Argument</name>
+        <param>
+          <type>T</type>
+          <declname>defaultValue</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>trigger</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Constructor which initialises as per <ref refid="classJSL_1_1Argument_1a2511f7c98ee2b0b59650f468341b8747" kindref="member">Argument(T defaultValue, std::string trigger)</ref>, but which also immediately calls <ref refid="classJSL_1_1Argument_1aa2b18bb35e90f91e224a06d60835053a" kindref="member">ListParse()</ref> to check for assignment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>defaultValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initialisation value of <ref refid="classJSL_1_1Argument_1a83ada5bfa412192f76dd4290f679defd" kindref="member">Value</ref> - overridden if <ref refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0" kindref="member">Parse()</ref> is called.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trigger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of <ref refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" kindref="member">TriggerString</ref>, and the &quot;name&quot; of this parameter</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>argc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of commandline arguments</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>argv[]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the command line list </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="61" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="61" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1a83799e9089f88d7e6cf30990fae42610" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Argument&lt; T &gt;::Argument</definition>
+        <argsstring>(T defaultValue, std::string trigger, std::string configFile, char configDelimiter)</argsstring>
+        <name>Argument</name>
+        <param>
+          <type>T</type>
+          <declname>defaultValue</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>trigger</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>configFile</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>configDelimiter</declname>
+        </param>
+        <briefdescription>
+<para>Constructor which initialises as per <ref refid="classJSL_1_1Argument_1a2511f7c98ee2b0b59650f468341b8747" kindref="member">Argument(T defaultValue, std::string trigger)</ref>, but which also immediately calls <ref refid="classJSL_1_1Argument_1aa626ff37dbebaf0501614dc625a76383" kindref="member">Configure()</ref> to check for assignment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>defaultValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The initialisation value of <ref refid="classJSL_1_1Argument_1a83ada5bfa412192f76dd4290f679defd" kindref="member">Value</ref> - overridden if <ref refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0" kindref="member">Parse()</ref> is called.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trigger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of <ref refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" kindref="member">TriggerString</ref>, and the &quot;name&quot; of this parameter</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to the file to open and parse for configuration data</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configDelimiter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The delimiter used to separate Name/Value pairs in the cofiguration file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="71" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="71" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1aa626ff37dbebaf0501614dc625a76383" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void JSL::Argument&lt; T &gt;::Configure</definition>
+        <argsstring>(std::string configFile, char configDelimiter)</argsstring>
+        <name>Configure</name>
+        <reimplements refid="classJSL_1_1ArgumentInterface_1aac7c3106f99c407e625b9bc6a6c8c446">Configure</reimplements>
+        <param>
+          <type>std::string</type>
+          <declname>configFile</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>configDelimiter</declname>
+        </param>
+        <briefdescription>
+<para>Iterate through a configuration file, extracting Name/Value pairs and calling <ref refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0" kindref="member">Parse()</ref> in them. Each Name/Value pair should be on a new line in the file, and separated by the <emphasis>configDelimiter</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>configFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to the file to open and parse for configuration data</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configDelimiter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The delimiter used to separate Name/Value pairs in the cofiguration file </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="80" column="6" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="80" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1aa2b18bb35e90f91e224a06d60835053a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void JSL::Argument&lt; T &gt;::ListParse</definition>
+        <argsstring>(int argc, char *argv[])</argsstring>
+        <name>ListParse</name>
+        <reimplements refid="classJSL_1_1ArgumentInterface_1a256b5bd88b5f6638353f108c48f3ee65">ListParse</reimplements>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Iterate through the provided commandline args, extracting Name/Value pairs and calling <ref refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0" kindref="member">Parse()</ref> on them. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>argc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of arguments passed to the program</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>argv[]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The argument list (argv[0] is assumed to be the the name of the program, and is ignored) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="91" column="6" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="91" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void JSL::Argument&lt; T &gt;::Parse</definition>
+        <argsstring>(char *name, char *value)</argsstring>
+        <name>Parse</name>
+        <reimplements refid="classJSL_1_1ArgumentInterface_1a28b487f7a4fa6e721ed6629abe2073f2">Parse</reimplements>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Checks if the Name matches the TriggerString. For a successful match, Name must be prefaced by one more dash than found in TriggerString. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name-string of the Name/Value pair</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value-string of the Name/Value pair. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="100" column="6" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="100" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1a965bc0dfdce6e03380605af313f8c880" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Argument&lt; T &gt;::operator T</definition>
+        <argsstring>()</argsstring>
+        <name>operator T</name>
+        <briefdescription>
+<para>Allow the <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref> object to be implicitly casted into the value of <ref refid="classJSL_1_1Argument_1a83ada5bfa412192f76dd4290f679defd" kindref="member">Value</ref>, and hence treated as an object of the templated type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="110" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="110" bodyend="113"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classJSL_1_1Argument_1a8614eb66f807132c4323847e05e666c4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void JSL::Argument&lt; T &gt;::CheckForInvalidTriggers</definition>
+        <argsstring>()</argsstring>
+        <name>CheckForInvalidTriggers</name>
+        <briefdescription>
+<para>Some Triggers are disallowed - they usually are protected names such as &quot;help&quot;, though other properties may trigger this funciton to throw an error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="118" column="6" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="118" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1ac77530598054943c996dbb5fb677b844" prot="private" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void JSL::Argument&lt; T &gt;::AssignValue</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>AssignValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Virtual override for template-specific AssignValue calls. Most template types will require a custom handler to convert value into the chosen template type <ndash/> some default ones are provided below. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="132" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1ab62b81b196fdc434ab03cd3257ab4aef" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void JSL::Argument&lt; int &gt;::AssignValue</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>AssignValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Override of the <ref refid="classJSL_1_1Argument_1ac77530598054943c996dbb5fb677b844" kindref="member">AssignValue()</ref> function for <ref refid="classJSL_1_1Argument" kindref="compound">Argument&lt;double&gt;</ref> objects. Throws an error if the value is a non-integer, to prevent silent casting/truncation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="138" column="22" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="138" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1ad023ca0ed8f956af79fb060eabd844c9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void JSL::Argument&lt; double &gt;::AssignValue</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>AssignValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Override of the <ref refid="classJSL_1_1Argument_1ac77530598054943c996dbb5fb677b844" kindref="member">AssignValue()</ref> function for <ref refid="classJSL_1_1Argument" kindref="compound">Argument&lt;double&gt;</ref> objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="155" column="22" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="155" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1ad379e95cccb05516525e2634cba93579" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void JSL::Argument&lt; std::string &gt;::AssignValue</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>AssignValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Override of the <ref refid="classJSL_1_1Argument_1ac77530598054943c996dbb5fb677b844" kindref="member">AssignValue()</ref> function for <ref refid="classJSL_1_1Argument" kindref="compound">Argument&lt;std::string&gt;</ref> objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="162" column="22" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="162" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Argument_1a3a1fc796058e3bc1b1a4778688249baf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void JSL::Argument&lt; bool &gt;::AssignValue</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>AssignValue</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Override of the <ref refid="classJSL_1_1Argument_1ac77530598054943c996dbb5fb677b844" kindref="member">AssignValue()</ref> function for Argument&lt;bool&gt; objects. Accepts only 0/1 as valid bool-strings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="169" column="22" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="169" bodyend="177"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A class which allows arbitrary template parameters to be read in as command-line arguments or from a configuraiton file using a Name/Value pair system. Upon construction, the <ref refid="classJSL_1_1Argument_1a83ada5bfa412192f76dd4290f679defd" kindref="member">Value</ref> parameter takes the default value (if provided), until it is overriden by a successful argument/<ref refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" kindref="member">TriggerString</ref> match. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JSL::ArgumentInterface</label>
+        <link refid="classJSL_1_1ArgumentInterface"/>
+      </node>
+      <node id="1">
+        <label>JSL::Argument&lt; T &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>JSL::ArgumentInterface</label>
+        <link refid="classJSL_1_1ArgumentInterface"/>
+      </node>
+      <node id="1">
+        <label>JSL::Argument&lt; T &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="36" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="35" bodyend="134"/>
+    <listofallmembers>
+      <member refid="classJSL_1_1Argument_1ab438509a3c030516de72f3f493295bd5" prot="public" virt="non-virtual"><scope>JSL::Argument</scope><name>Argument</name></member>
+      <member refid="classJSL_1_1Argument_1ab07e7981db832cce30f534c67f6491f4" prot="public" virt="non-virtual"><scope>JSL::Argument</scope><name>Argument</name></member>
+      <member refid="classJSL_1_1Argument_1a2511f7c98ee2b0b59650f468341b8747" prot="public" virt="non-virtual"><scope>JSL::Argument</scope><name>Argument</name></member>
+      <member refid="classJSL_1_1Argument_1a4d187d2fb658021866b173987b920ab4" prot="public" virt="non-virtual"><scope>JSL::Argument</scope><name>Argument</name></member>
+      <member refid="classJSL_1_1Argument_1a83799e9089f88d7e6cf30990fae42610" prot="public" virt="non-virtual"><scope>JSL::Argument</scope><name>Argument</name></member>
+      <member refid="classJSL_1_1Argument_1ac77530598054943c996dbb5fb677b844" prot="private" virt="virtual"><scope>JSL::Argument</scope><name>AssignValue</name></member>
+      <member refid="classJSL_1_1Argument_1ab62b81b196fdc434ab03cd3257ab4aef" prot="private" virt="non-virtual"><scope>JSL::Argument</scope><name>AssignValue</name></member>
+      <member refid="classJSL_1_1Argument_1ad023ca0ed8f956af79fb060eabd844c9" prot="private" virt="non-virtual"><scope>JSL::Argument</scope><name>AssignValue</name></member>
+      <member refid="classJSL_1_1Argument_1ad379e95cccb05516525e2634cba93579" prot="private" virt="non-virtual"><scope>JSL::Argument</scope><name>AssignValue</name></member>
+      <member refid="classJSL_1_1Argument_1a3a1fc796058e3bc1b1a4778688249baf" prot="private" virt="non-virtual"><scope>JSL::Argument</scope><name>AssignValue</name></member>
+      <member refid="classJSL_1_1Argument_1a8614eb66f807132c4323847e05e666c4" prot="private" virt="non-virtual"><scope>JSL::Argument</scope><name>CheckForInvalidTriggers</name></member>
+      <member refid="classJSL_1_1Argument_1aa626ff37dbebaf0501614dc625a76383" prot="public" virt="virtual"><scope>JSL::Argument</scope><name>Configure</name></member>
+      <member refid="classJSL_1_1Argument_1aa2b18bb35e90f91e224a06d60835053a" prot="public" virt="virtual"><scope>JSL::Argument</scope><name>ListParse</name></member>
+      <member refid="classJSL_1_1Argument_1a965bc0dfdce6e03380605af313f8c880" prot="public" virt="non-virtual"><scope>JSL::Argument</scope><name>operator T</name></member>
+      <member refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0" prot="public" virt="virtual"><scope>JSL::Argument</scope><name>Parse</name></member>
+      <member refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" prot="protected" virt="non-virtual"><scope>JSL::Argument</scope><name>TriggerString</name></member>
+      <member refid="classJSL_1_1Argument_1a83ada5bfa412192f76dd4290f679defd" prot="public" virt="non-virtual"><scope>JSL::Argument</scope><name>Value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

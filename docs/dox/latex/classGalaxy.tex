@@ -1,0 +1,216 @@
+\hypertarget{classGalaxy}{}\doxysection{Galaxy Class Reference}
+\label{classGalaxy}\index{Galaxy@{Galaxy}}
+
+
+{\ttfamily \#include $<$Galaxy.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classGalaxy_afaad94ff4ab36cd98744c773e4b34923}{Gas\+Scale\+Length}} (double t)
+\item 
+double \mbox{\hyperlink{classGalaxy_a67e32cd9cfbef78fdb19989e5f0f0d30}{Infall\+Rate}} (double t)
+\item 
+\mbox{\hyperlink{classGalaxy_a63119c07647ce95af35b9f860e8b088f}{Galaxy}} (Options $\ast$opts)
+\item 
+void \mbox{\hyperlink{classGalaxy_a5898095189818af6050d11aee8f23e81}{Evolve}} ()
+\item 
+\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classGalaxy_a2f9013e3430b28ebb7a73ac1feae22f4}{Pull\+I\+GM}} (double mass)
+\item 
+void \mbox{\hyperlink{classGalaxy_a285372d26bf2fca5f9cd78dbb0bb3fec}{Push\+I\+GM}} (int donor\+ID, double hotmass, double coldmass)
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classRing}{Ring}} $>$ \mbox{\hyperlink{classGalaxy_acebf3c89d2dd1c75148f82aca4279c21}{Rings}}
+\item 
+\mbox{\hyperlink{structMassKeeper}{Mass\+Keeper}} \mbox{\hyperlink{classGalaxy_a337b7f34ddf0d2eae54e16929b04a698}{Mass}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGalaxy_ae9ca23e689a849dbc16850139dfbae69}{Update\+Gas\+Mass}} (double t)
+\item 
+double \mbox{\hyperlink{classGalaxy_a0fcd1201164fd7cc6649db93e6640e06}{Cold\+Gas\+Mass}} ()
+\item 
+double \mbox{\hyperlink{classGalaxy_aac58bab6b1a9ed7d2c725e9691af630c}{Hot\+Gas\+Mass}} ()
+\item 
+void \mbox{\hyperlink{classGalaxy_a32892b81e1db6c78adf3e85a52483c06}{Open\+Logs}} ()
+\item 
+void \mbox{\hyperlink{classGalaxy_a9b65ee4e7c6cc7d944d61976f5d5dac7}{Close\+Logs}} ()
+\item 
+void \mbox{\hyperlink{classGalaxy_a52b629e1b19610b2a6d77761e0bbbfae}{Chemical\+Evolution}} (double t)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classGalaxy_ab4aaea6ebfe1d72381f671d74c8e3e8a}{Property\+Headers}} ()
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classGalaxy_afdb07ef56f8c439a4ee9975d7d753382}{Report\+Properties}} (double t)
+\item 
+void \mbox{\hyperlink{classGalaxy_a4429308d9426e2dd167de7f8618b8bcb}{Save\+State}} (double t)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Options $\ast$ \mbox{\hyperlink{classGalaxy_a6b6f0928caabc47b067d4fae75655eac}{Opts}}
+\item 
+\mbox{\hyperlink{classYieldGrid}{Yield\+Grid}} \mbox{\hyperlink{classGalaxy_a2871f848eb9784ccd08da4feff040c19}{Demosthenes}}
+\item 
+\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classGalaxy_a9dcf49a989ebbd5b43b279a61fcc4570}{I\+GM}}
+\item 
+std\+::fstream \mbox{\hyperlink{classGalaxy_abd8592aefb87239ebcd305011c8f7ae4}{Ring\+State}}
+\item 
+std\+::fstream \mbox{\hyperlink{classGalaxy_aa63ef779b97034043b9c0e5bb8970cbf}{Galaxy\+State}}
+\item 
+double \mbox{\hyperlink{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}{Gas\+Excess}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGalaxy_a63119c07647ce95af35b9f860e8b088f}\label{classGalaxy_a63119c07647ce95af35b9f860e8b088f}} 
+\index{Galaxy@{Galaxy}!Galaxy@{Galaxy}}
+\index{Galaxy@{Galaxy}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Galaxy()}{Galaxy()}}
+{\footnotesize\ttfamily Galaxy\+::\+Galaxy (\begin{DoxyParamCaption}\item[{Options $\ast$}]{opts }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGalaxy_a52b629e1b19610b2a6d77761e0bbbfae}\label{classGalaxy_a52b629e1b19610b2a6d77761e0bbbfae}} 
+\index{Galaxy@{Galaxy}!ChemicalEvolution@{ChemicalEvolution}}
+\index{ChemicalEvolution@{ChemicalEvolution}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{ChemicalEvolution()}{ChemicalEvolution()}}
+{\footnotesize\ttfamily void Galaxy\+::\+Chemical\+Evolution (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a9b65ee4e7c6cc7d944d61976f5d5dac7}\label{classGalaxy_a9b65ee4e7c6cc7d944d61976f5d5dac7}} 
+\index{Galaxy@{Galaxy}!CloseLogs@{CloseLogs}}
+\index{CloseLogs@{CloseLogs}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{CloseLogs()}{CloseLogs()}}
+{\footnotesize\ttfamily void Galaxy\+::\+Close\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a0fcd1201164fd7cc6649db93e6640e06}\label{classGalaxy_a0fcd1201164fd7cc6649db93e6640e06}} 
+\index{Galaxy@{Galaxy}!ColdGasMass@{ColdGasMass}}
+\index{ColdGasMass@{ColdGasMass}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{ColdGasMass()}{ColdGasMass()}}
+{\footnotesize\ttfamily double Galaxy\+::\+Cold\+Gas\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a5898095189818af6050d11aee8f23e81}\label{classGalaxy_a5898095189818af6050d11aee8f23e81}} 
+\index{Galaxy@{Galaxy}!Evolve@{Evolve}}
+\index{Evolve@{Evolve}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Evolve()}{Evolve()}}
+{\footnotesize\ttfamily void Galaxy\+::\+Evolve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGalaxy_afaad94ff4ab36cd98744c773e4b34923}\label{classGalaxy_afaad94ff4ab36cd98744c773e4b34923}} 
+\index{Galaxy@{Galaxy}!GasScaleLength@{GasScaleLength}}
+\index{GasScaleLength@{GasScaleLength}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{GasScaleLength()}{GasScaleLength()}}
+{\footnotesize\ttfamily double Galaxy\+::\+Gas\+Scale\+Length (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGalaxy_aac58bab6b1a9ed7d2c725e9691af630c}\label{classGalaxy_aac58bab6b1a9ed7d2c725e9691af630c}} 
+\index{Galaxy@{Galaxy}!HotGasMass@{HotGasMass}}
+\index{HotGasMass@{HotGasMass}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{HotGasMass()}{HotGasMass()}}
+{\footnotesize\ttfamily double Galaxy\+::\+Hot\+Gas\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a67e32cd9cfbef78fdb19989e5f0f0d30}\label{classGalaxy_a67e32cd9cfbef78fdb19989e5f0f0d30}} 
+\index{Galaxy@{Galaxy}!InfallRate@{InfallRate}}
+\index{InfallRate@{InfallRate}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{InfallRate()}{InfallRate()}}
+{\footnotesize\ttfamily double Galaxy\+::\+Infall\+Rate (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGalaxy_a32892b81e1db6c78adf3e85a52483c06}\label{classGalaxy_a32892b81e1db6c78adf3e85a52483c06}} 
+\index{Galaxy@{Galaxy}!OpenLogs@{OpenLogs}}
+\index{OpenLogs@{OpenLogs}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{OpenLogs()}{OpenLogs()}}
+{\footnotesize\ttfamily void Galaxy\+::\+Open\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_ab4aaea6ebfe1d72381f671d74c8e3e8a}\label{classGalaxy_ab4aaea6ebfe1d72381f671d74c8e3e8a}} 
+\index{Galaxy@{Galaxy}!PropertyHeaders@{PropertyHeaders}}
+\index{PropertyHeaders@{PropertyHeaders}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{PropertyHeaders()}{PropertyHeaders()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Galaxy\+::\+Property\+Headers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a2f9013e3430b28ebb7a73ac1feae22f4}\label{classGalaxy_a2f9013e3430b28ebb7a73ac1feae22f4}} 
+\index{Galaxy@{Galaxy}!PullIGM@{PullIGM}}
+\index{PullIGM@{PullIGM}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{PullIGM()}{PullIGM()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} Galaxy\+::\+Pull\+I\+GM (\begin{DoxyParamCaption}\item[{double}]{mass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGalaxy_a285372d26bf2fca5f9cd78dbb0bb3fec}\label{classGalaxy_a285372d26bf2fca5f9cd78dbb0bb3fec}} 
+\index{Galaxy@{Galaxy}!PushIGM@{PushIGM}}
+\index{PushIGM@{PushIGM}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{PushIGM()}{PushIGM()}}
+{\footnotesize\ttfamily void Galaxy\+::\+Push\+I\+GM (\begin{DoxyParamCaption}\item[{int}]{donor\+ID,  }\item[{double}]{hotmass,  }\item[{double}]{coldmass }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGalaxy_afdb07ef56f8c439a4ee9975d7d753382}\label{classGalaxy_afdb07ef56f8c439a4ee9975d7d753382}} 
+\index{Galaxy@{Galaxy}!ReportProperties@{ReportProperties}}
+\index{ReportProperties@{ReportProperties}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{ReportProperties()}{ReportProperties()}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Galaxy\+::\+Report\+Properties (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a4429308d9426e2dd167de7f8618b8bcb}\label{classGalaxy_a4429308d9426e2dd167de7f8618b8bcb}} 
+\index{Galaxy@{Galaxy}!SaveState@{SaveState}}
+\index{SaveState@{SaveState}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{SaveState()}{SaveState()}}
+{\footnotesize\ttfamily void Galaxy\+::\+Save\+State (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_ae9ca23e689a849dbc16850139dfbae69}\label{classGalaxy_ae9ca23e689a849dbc16850139dfbae69}} 
+\index{Galaxy@{Galaxy}!UpdateGasMass@{UpdateGasMass}}
+\index{UpdateGasMass@{UpdateGasMass}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{UpdateGasMass()}{UpdateGasMass()}}
+{\footnotesize\ttfamily void Galaxy\+::\+Update\+Gas\+Mass (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classGalaxy_a2871f848eb9784ccd08da4feff040c19}\label{classGalaxy_a2871f848eb9784ccd08da4feff040c19}} 
+\index{Galaxy@{Galaxy}!Demosthenes@{Demosthenes}}
+\index{Demosthenes@{Demosthenes}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Demosthenes}{Demosthenes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classYieldGrid}{Yield\+Grid}} Galaxy\+::\+Demosthenes\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_aa63ef779b97034043b9c0e5bb8970cbf}\label{classGalaxy_aa63ef779b97034043b9c0e5bb8970cbf}} 
+\index{Galaxy@{Galaxy}!GalaxyState@{GalaxyState}}
+\index{GalaxyState@{GalaxyState}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{GalaxyState}{GalaxyState}}
+{\footnotesize\ttfamily std\+::fstream Galaxy\+::\+Galaxy\+State\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}\label{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}} 
+\index{Galaxy@{Galaxy}!GasExcess@{GasExcess}}
+\index{GasExcess@{GasExcess}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{GasExcess}{GasExcess}}
+{\footnotesize\ttfamily double Galaxy\+::\+Gas\+Excess\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a9dcf49a989ebbd5b43b279a61fcc4570}\label{classGalaxy_a9dcf49a989ebbd5b43b279a61fcc4570}} 
+\index{Galaxy@{Galaxy}!IGM@{IGM}}
+\index{IGM@{IGM}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{IGM}{IGM}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} Galaxy\+::\+I\+GM\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a337b7f34ddf0d2eae54e16929b04a698}\label{classGalaxy_a337b7f34ddf0d2eae54e16929b04a698}} 
+\index{Galaxy@{Galaxy}!Mass@{Mass}}
+\index{Mass@{Mass}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Mass}{Mass}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMassKeeper}{Mass\+Keeper}} Galaxy\+::\+Mass}
+
+\mbox{\Hypertarget{classGalaxy_a6b6f0928caabc47b067d4fae75655eac}\label{classGalaxy_a6b6f0928caabc47b067d4fae75655eac}} 
+\index{Galaxy@{Galaxy}!Opts@{Opts}}
+\index{Opts@{Opts}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Opts}{Opts}}
+{\footnotesize\ttfamily Options$\ast$ Galaxy\+::\+Opts\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_acebf3c89d2dd1c75148f82aca4279c21}\label{classGalaxy_acebf3c89d2dd1c75148f82aca4279c21}} 
+\index{Galaxy@{Galaxy}!Rings@{Rings}}
+\index{Rings@{Rings}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Rings}{Rings}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classRing}{Ring}}$>$ Galaxy\+::\+Rings}
+
+\mbox{\Hypertarget{classGalaxy_abd8592aefb87239ebcd305011c8f7ae4}\label{classGalaxy_abd8592aefb87239ebcd305011c8f7ae4}} 
+\index{Galaxy@{Galaxy}!RingState@{RingState}}
+\index{RingState@{RingState}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{RingState}{RingState}}
+{\footnotesize\ttfamily std\+::fstream Galaxy\+::\+Ring\+State\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/old\+\_\+src/\+Galaxy/\mbox{\hyperlink{Galaxy_8h}{Galaxy.\+h}}\end{DoxyCompactItemize}

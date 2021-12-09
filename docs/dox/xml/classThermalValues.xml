@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classThermalValues" kind="class" language="C++" prot="public">
+    <compoundname>ThermalValues</compoundname>
+    <basecompoundref refid="classParamList" prot="public" virt="non-virtual">ParamList</basecompoundref>
+    <includes refid="ParameterLists_8h" local="no">ParameterLists.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classThermalValues_1a225d63d98c19be0b7cdabf2464e223b3" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; ThermalValues::HotInjection_CCSN</definition>
+        <argsstring></argsstring>
+        <name>HotInjection_CCSN</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.7,&quot;-fh-ccsn&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="96" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThermalValues_1a0faba77dff54e82e0f3743295a45cdee" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; ThermalValues::HotInjection_NSM</definition>
+        <argsstring></argsstring>
+        <name>HotInjection_NSM</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.4,&quot;-fh-nsm&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="97" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThermalValues_1ab6d948b7790af5931b26440ca3ad7423" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; ThermalValues::HotInjection_SNIa</definition>
+        <argsstring></argsstring>
+        <name>HotInjection_SNIa</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.99,&quot;-fh-sn1a&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="98" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThermalValues_1a2227511e41c87c5e71dec0ee9d13aec7" prot="public" static="no" mutable="no">
+        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; ThermalValues::GasCoolingTimeScale</definition>
+        <argsstring></argsstring>
+        <name>GasCoolingTimeScale</name>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(1.0,&quot;cool&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="100" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classThermalValues_1a49141fdedc915346bdfa0a7a3f974310" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ThermalValues::ThermalValues</definition>
+        <argsstring>()</argsstring>
+        <name>ThermalValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="103" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="103" bodyend="106"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="1">
+        <label>ThermalValues</label>
+        <link refid="classThermalValues"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="3">
+        <label>JSL::Argument&lt; double &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>JSL::ArgumentInterface</label>
+        <link refid="classJSL_1_1ArgumentInterface"/>
+      </node>
+      <node id="1">
+        <label>ThermalValues</label>
+        <link refid="classThermalValues"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>HotInjection_SNIa</edgelabel>
+          <edgelabel>HotInjection_NSM</edgelabel>
+          <edgelabel>HotInjection_CCSN</edgelabel>
+          <edgelabel>GasCoolingTimeScale</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="92" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="91" bodyend="107"/>
+    <listofallmembers>
+      <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>ThermalValues</scope><name>argPointers</name></member>
+      <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>Configure</name></member>
+      <member refid="classThermalValues_1a2227511e41c87c5e71dec0ee9d13aec7" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>GasCoolingTimeScale</name></member>
+      <member refid="classThermalValues_1a225d63d98c19be0b7cdabf2464e223b3" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>HotInjection_CCSN</name></member>
+      <member refid="classThermalValues_1a0faba77dff54e82e0f3743295a45cdee" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>HotInjection_NSM</name></member>
+      <member refid="classThermalValues_1ab6d948b7790af5931b26440ca3ad7423" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>HotInjection_SNIa</name></member>
+      <member refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" prot="public" virt="virtual"><scope>ThermalValues</scope><name>Initialise</name></member>
+      <member refid="classThermalValues_1a49141fdedc915346bdfa0a7a3f974310" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>ThermalValues</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

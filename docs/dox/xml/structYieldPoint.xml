@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structYieldPoint" kind="struct" language="C++" prot="public">
+    <compoundname>YieldPoint</compoundname>
+    <includes refid="YieldRidge_8h" local="no">YieldRidge.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structYieldPoint_1aaad9fda478a0d67806a751a05188d2e9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double YieldPoint::Mass</definition>
+        <argsstring></argsstring>
+        <name>Mass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="9" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structYieldPoint_1ae64b418c2ce69565cd6e4f4c887e71b3" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double YieldPoint::Yield</definition>
+        <argsstring></argsstring>
+        <name>Yield</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="10" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structYieldPoint_1a60665d3c3f1303cd9de35bb410485a90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>YieldPoint::YieldPoint</definition>
+        <argsstring>(double m, double y)</argsstring>
+        <name>YieldPoint</name>
+        <param>
+          <type>double</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="11" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="11" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="8" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="7" bodyend="16"/>
+    <listofallmembers>
+      <member refid="structYieldPoint_1aaad9fda478a0d67806a751a05188d2e9" prot="public" virt="non-virtual"><scope>YieldPoint</scope><name>Mass</name></member>
+      <member refid="structYieldPoint_1ae64b418c2ce69565cd6e4f4c887e71b3" prot="public" virt="non-virtual"><scope>YieldPoint</scope><name>Yield</name></member>
+      <member refid="structYieldPoint_1a60665d3c3f1303cd9de35bb410485a90" prot="public" virt="non-virtual"><scope>YieldPoint</scope><name>YieldPoint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

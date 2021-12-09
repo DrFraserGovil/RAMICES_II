@@ -1,0 +1,90 @@
+\hypertarget{Logger_8h}{}\doxysection{/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/old\+\_\+src/\+Generic\+Functions/\+Logger.h File Reference}
+\label{Logger_8h}\index{/home/jack/Documents/Work/RAMICES\_II/old\_src/GenericFunctions/Logger.h@{/home/jack/Documents/Work/RAMICES\_II/old\_src/GenericFunctions/Logger.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+{\ttfamily \#include \char`\"{}File\+Handler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Options.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classLogStream}{Log\+Stream}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogStream}{Log\+Stream}} \& \mbox{\hyperlink{Logger_8h_a714ab3ba232f3e6250aae6762e464375}{log}} (int level)
+\item 
+void \mbox{\hyperlink{Logger_8h_a65cca0a297a35275feafb94ffc94c038}{ascii\+Art}} ()
+\item 
+void \mbox{\hyperlink{Logger_8h_afaf15fa78926fed0d5bebdc6e25a48d0}{initialise\+Logger}} (Options $\ast$opts, std\+::vector$<$ std\+::string $>$ prelog)
+\item 
+void \mbox{\hyperlink{Logger_8h_ae65ffd4a4ff6e23f1cc91206665a25e5}{shut\+Down\+Logger}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{Logger_8h_a4e5c132dab612d4b177739b6dd27cd05}{internal\+\_\+\+Log\+To\+File}}
+\item 
+bool \mbox{\hyperlink{Logger_8h_a3bbf37c2e78053ceb38863ac7ad0f757}{internal\+\_\+\+Log\+To\+Terminal}}
+\item 
+int \mbox{\hyperlink{Logger_8h_a1ed726ae4cd96b9a60d8a3abf6f121e3}{internal\+\_\+\+Logging\+Level}}
+\item 
+std\+::fstream \mbox{\hyperlink{Logger_8h_a2d4c98278973e6f5f921d62e285d55d0}{log\+Stream}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Logger_8h_a65cca0a297a35275feafb94ffc94c038}\label{Logger_8h_a65cca0a297a35275feafb94ffc94c038}} 
+\index{Logger.h@{Logger.h}!asciiArt@{asciiArt}}
+\index{asciiArt@{asciiArt}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{asciiArt()}{asciiArt()}}
+{\footnotesize\ttfamily void ascii\+Art (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Logger_8h_afaf15fa78926fed0d5bebdc6e25a48d0}\label{Logger_8h_afaf15fa78926fed0d5bebdc6e25a48d0}} 
+\index{Logger.h@{Logger.h}!initialiseLogger@{initialiseLogger}}
+\index{initialiseLogger@{initialiseLogger}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{initialiseLogger()}{initialiseLogger()}}
+{\footnotesize\ttfamily void initialise\+Logger (\begin{DoxyParamCaption}\item[{Options $\ast$}]{opts,  }\item[{std\+::vector$<$ std\+::string $>$}]{prelog }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Logger_8h_a714ab3ba232f3e6250aae6762e464375}\label{Logger_8h_a714ab3ba232f3e6250aae6762e464375}} 
+\index{Logger.h@{Logger.h}!log@{log}}
+\index{log@{log}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogStream}{Log\+Stream}}\& log (\begin{DoxyParamCaption}\item[{int}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{Logger_8h_ae65ffd4a4ff6e23f1cc91206665a25e5}\label{Logger_8h_ae65ffd4a4ff6e23f1cc91206665a25e5}} 
+\index{Logger.h@{Logger.h}!shutDownLogger@{shutDownLogger}}
+\index{shutDownLogger@{shutDownLogger}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{shutDownLogger()}{shutDownLogger()}}
+{\footnotesize\ttfamily void shut\+Down\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{Logger_8h_a1ed726ae4cd96b9a60d8a3abf6f121e3}\label{Logger_8h_a1ed726ae4cd96b9a60d8a3abf6f121e3}} 
+\index{Logger.h@{Logger.h}!internal\_LoggingLevel@{internal\_LoggingLevel}}
+\index{internal\_LoggingLevel@{internal\_LoggingLevel}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{internal\_LoggingLevel}{internal\_LoggingLevel}}
+{\footnotesize\ttfamily int internal\+\_\+\+Logging\+Level}
+
+\mbox{\Hypertarget{Logger_8h_a4e5c132dab612d4b177739b6dd27cd05}\label{Logger_8h_a4e5c132dab612d4b177739b6dd27cd05}} 
+\index{Logger.h@{Logger.h}!internal\_LogToFile@{internal\_LogToFile}}
+\index{internal\_LogToFile@{internal\_LogToFile}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{internal\_LogToFile}{internal\_LogToFile}}
+{\footnotesize\ttfamily bool internal\+\_\+\+Log\+To\+File}
+
+\mbox{\Hypertarget{Logger_8h_a3bbf37c2e78053ceb38863ac7ad0f757}\label{Logger_8h_a3bbf37c2e78053ceb38863ac7ad0f757}} 
+\index{Logger.h@{Logger.h}!internal\_LogToTerminal@{internal\_LogToTerminal}}
+\index{internal\_LogToTerminal@{internal\_LogToTerminal}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{internal\_LogToTerminal}{internal\_LogToTerminal}}
+{\footnotesize\ttfamily bool internal\+\_\+\+Log\+To\+Terminal}
+
+\mbox{\Hypertarget{Logger_8h_a2d4c98278973e6f5f921d62e285d55d0}\label{Logger_8h_a2d4c98278973e6f5f921d62e285d55d0}} 
+\index{Logger.h@{Logger.h}!logStream@{logStream}}
+\index{logStream@{logStream}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{logStream}{logStream}}
+{\footnotesize\ttfamily std\+::fstream log\+Stream}
+

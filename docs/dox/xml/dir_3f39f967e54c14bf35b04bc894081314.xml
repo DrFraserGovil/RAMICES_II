@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_3f39f967e54c14bf35b04bc894081314" kind="dir">
+    <compoundname>/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions</compoundname>
+    <innerfile refid="CommandParser_8h">CommandParser.h</innerfile>
+    <innerfile refid="FileHandler_8h">FileHandler.h</innerfile>
+    <innerfile refid="Logger_8h">Logger.h</innerfile>
+    <innerfile refid="StringAlgorithms_8h">StringAlgorithms.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/"/>
+  </compounddef>
+</doxygen>

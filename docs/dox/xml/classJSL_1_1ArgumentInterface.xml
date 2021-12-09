@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classJSL_1_1ArgumentInterface" kind="class" language="C++" prot="public">
+    <compoundname>JSL::ArgumentInterface</compoundname>
+    <derivedcompoundref refid="classJSL_1_1Argument" prot="public" virt="non-virtual">JSL::Argument&lt; double &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classJSL_1_1Argument" prot="public" virt="non-virtual">JSL::Argument&lt; int &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classJSL_1_1Argument" prot="public" virt="non-virtual">JSL::Argument&lt; std::string &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classJSL_1_1Argument" prot="public" virt="non-virtual">JSL::Argument&lt; T &gt;</derivedcompoundref>
+    <includes refid="Argument_8h" local="no">Argument.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string JSL::ArgumentInterface::TriggerString</definition>
+        <argsstring></argsstring>
+        <name>TriggerString</name>
+        <briefdescription>
+<para>The chosen &quot;Name&quot; of the <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref> - the string which will trigger the <ref refid="classJSL_1_1ArgumentInterface_1a28b487f7a4fa6e721ed6629abe2073f2" kindref="member">Parse()</ref> function to write in the passed value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="26" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classJSL_1_1ArgumentInterface_1a28b487f7a4fa6e721ed6629abe2073f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void JSL::ArgumentInterface::Parse</definition>
+        <argsstring>(char *name, char *value)</argsstring>
+        <name>Parse</name>
+        <reimplementedby refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0">Parse</reimplementedby>
+        <reimplementedby refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0">Parse</reimplementedby>
+        <reimplementedby refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0">Parse</reimplementedby>
+        <reimplementedby refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0">Parse</reimplementedby>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Virtual alias for <ref refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0" kindref="member">Argument::Parse()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="17" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1ArgumentInterface_1a256b5bd88b5f6638353f108c48f3ee65" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void JSL::ArgumentInterface::ListParse</definition>
+        <argsstring>(int argc, char *argv[])</argsstring>
+        <name>ListParse</name>
+        <reimplementedby refid="classJSL_1_1Argument_1aa2b18bb35e90f91e224a06d60835053a">ListParse</reimplementedby>
+        <reimplementedby refid="classJSL_1_1Argument_1aa2b18bb35e90f91e224a06d60835053a">ListParse</reimplementedby>
+        <reimplementedby refid="classJSL_1_1Argument_1aa2b18bb35e90f91e224a06d60835053a">ListParse</reimplementedby>
+        <reimplementedby refid="classJSL_1_1Argument_1aa2b18bb35e90f91e224a06d60835053a">ListParse</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Virtual alias for <ref refid="classJSL_1_1Argument_1aa2b18bb35e90f91e224a06d60835053a" kindref="member">Argument::ListParse()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="20" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1ArgumentInterface_1aac7c3106f99c407e625b9bc6a6c8c446" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void JSL::ArgumentInterface::Configure</definition>
+        <argsstring>(std::string configFile, char configDelimiter)</argsstring>
+        <name>Configure</name>
+        <reimplementedby refid="classJSL_1_1Argument_1aa626ff37dbebaf0501614dc625a76383">Configure</reimplementedby>
+        <reimplementedby refid="classJSL_1_1Argument_1aa626ff37dbebaf0501614dc625a76383">Configure</reimplementedby>
+        <reimplementedby refid="classJSL_1_1Argument_1aa626ff37dbebaf0501614dc625a76383">Configure</reimplementedby>
+        <reimplementedby refid="classJSL_1_1Argument_1aa626ff37dbebaf0501614dc625a76383">Configure</reimplementedby>
+        <param>
+          <type>std::string</type>
+          <declname>configFile</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>configDelimiter</declname>
+        </param>
+        <briefdescription>
+<para>Virtual alias for <ref refid="classJSL_1_1Argument_1aa626ff37dbebaf0501614dc625a76383" kindref="member">Argument::Configure()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="23" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A wrapper class for all <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref> objects, enabling heterogenous argument lists etc. to be constructed. <linebreak/>
+ Contains the virtual methods common to all objects. All <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref> objects are assumed to take name-value pairs, with the associated name indicated by the <ref refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" kindref="member">TriggerString</ref> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>JSL::Argument&lt; double &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>JSL::Argument&lt; int &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>JSL::ArgumentInterface</label>
+        <link refid="classJSL_1_1ArgumentInterface"/>
+      </node>
+      <node id="5">
+        <label>JSL::Argument&lt; T &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>JSL::Argument&lt; std::string &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" line="13" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h" bodystart="12" bodyend="27"/>
+    <listofallmembers>
+      <member refid="classJSL_1_1ArgumentInterface_1aac7c3106f99c407e625b9bc6a6c8c446" prot="public" virt="virtual"><scope>JSL::ArgumentInterface</scope><name>Configure</name></member>
+      <member refid="classJSL_1_1ArgumentInterface_1a256b5bd88b5f6638353f108c48f3ee65" prot="public" virt="virtual"><scope>JSL::ArgumentInterface</scope><name>ListParse</name></member>
+      <member refid="classJSL_1_1ArgumentInterface_1a28b487f7a4fa6e721ed6629abe2073f2" prot="public" virt="virtual"><scope>JSL::ArgumentInterface</scope><name>Parse</name></member>
+      <member refid="classJSL_1_1ArgumentInterface_1afa2d1f96c4971070d3de5824f297312f" prot="protected" virt="non-virtual"><scope>JSL::ArgumentInterface</scope><name>TriggerString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

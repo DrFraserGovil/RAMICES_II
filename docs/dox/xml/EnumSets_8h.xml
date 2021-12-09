@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="EnumSets_8h" kind="file" language="C++">
+    <compoundname>EnumSets.h</compoundname>
+    <includedby refid="ParameterLists_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h</includedby>
+    <includedby refid="GlobalParameters_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h</includedby>
+    <invincdepgraph>
+      <node id="5">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h</label>
+        <link refid="GasStream_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h</label>
+        <link refid="Gas_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h</label>
+        <link refid="EnumSets_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
+        <link refid="src_2Gas_2GasReservoir_8h"/>
+      </node>
+      <node id="3">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h</label>
+        <link refid="GlobalParameters_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ElementID</name>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a20fa2720571344499f799d2839b23c7e" prot="public">
+          <name>Hydrogen</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aa34644900f0e5c1f8961367a789bcd86" prot="public">
+          <name>Helium</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a9da6d40a92c5df1a279634c5290edc4c" prot="public">
+          <name>Metals</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a8750950e70ba4037061ecd568a56b944" prot="public">
+          <name>Iron</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15ae54b22e3be885eb43db3925118a89f02" prot="public">
+          <name>Oxygen</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aff5ab7e500a1c16d48b11aa93bb60439" prot="public">
+          <name>Magnesium</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a29aed61cddc081ff18d77c441b9fedb2" prot="public">
+          <name>Carbon</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af260a42c612c683947aba40e8e49142a" prot="public">
+          <name>Silicon</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a40f67c18f45fbcb3396df8fb55e41145" prot="public">
+          <name>Calcium</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a2481971aeae9ed91247d0e6c69447bcf" prot="public">
+          <name>Manganese</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a306622f80fd1cfd979de999e20c08a91" prot="public">
+          <name>Chromium</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a075486eef49beec48c269d23371d4ba7" prot="public">
+          <name>Cobalt</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15acb3c47b24392c8c6560eb7a7060a3dd9" prot="public">
+          <name>Europium</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e" prot="public">
+          <name>ElementCount</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines a globally recognised ordering of the elements + provides them with a nice readable name. The final entry should always be &quot;ElementCount&quot;, as the numbering system inherent in enums makes this true only if it is the last entry! </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h" line="7" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h" bodystart="7" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="enum" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SourceProcess</name>
+        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2" prot="public">
+          <name>Primordial</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba5eded54a4939154f3a8794b2e3702935" prot="public">
+          <name>Accreted</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba6b931856a2c41dafbac513228fead00d" prot="public">
+          <name>CCSN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238baf91104016e7ac32d698e35719246e224" prot="public">
+          <name>SNIa</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238badb82d907ddf6c04771cbaefe83152476" prot="public">
+          <name>NSM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba708c0e4c443c8d8788ac87e0921883eb" prot="public">
+          <name>Collapsars</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb" prot="public">
+          <name>Unknown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8" prot="public">
+          <name>ProcessCount</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Defines a globally recognised set of aliases for sources of gas, used to label <ref refid="classGasStream" kindref="compound">GasStream</ref> objects. As with ElementID, final entry is used to count the number of elements. This must always be the final entry! </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h" line="10" column="19" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h" bodystart="10" bodyend="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af260a42c612c683947aba40e8e49142a" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>{<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a20fa2720571344499f799d2839b23c7e" kindref="member">Hydrogen</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aa34644900f0e5c1f8961367a789bcd86" kindref="member">Helium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a9da6d40a92c5df1a279634c5290edc4c" kindref="member">Metals</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a8750950e70ba4037061ecd568a56b944" kindref="member">Iron</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15ae54b22e3be885eb43db3925118a89f02" kindref="member">Oxygen</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aff5ab7e500a1c16d48b11aa93bb60439" kindref="member">Magnesium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a29aed61cddc081ff18d77c441b9fedb2" kindref="member">Carbon</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af260a42c612c683947aba40e8e49142a" kindref="member">Silicon</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a40f67c18f45fbcb3396df8fb55e41145" kindref="member">Calcium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a2481971aeae9ed91247d0e6c69447bcf" kindref="member">Manganese</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a306622f80fd1cfd979de999e20c08a91" kindref="member">Chromium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a075486eef49beec48c269d23371d4ba7" kindref="member">Cobalt</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15acb3c47b24392c8c6560eb7a7060a3dd9" kindref="member">Europium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e" kindref="member">ElementCount</ref>};</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>{<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2" kindref="member">Primordial</ref>,<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba5eded54a4939154f3a8794b2e3702935" kindref="member">Accreted</ref>,<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba6b931856a2c41dafbac513228fead00d" kindref="member">CCSN</ref>,<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238baf91104016e7ac32d698e35719246e224" kindref="member">SNIa</ref>,<sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238badb82d907ddf6c04771cbaefe83152476" kindref="member">NSM</ref>,<sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba708c0e4c443c8d8788ac87e0921883eb" kindref="member">Collapsars</ref>,<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb" kindref="member">Unknown</ref>,<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8" kindref="member">ProcessCount</ref>};</highlight></codeline>
+    </programlisting>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="CommandParser_8h" kind="file" language="C++">
+    <compoundname>CommandParser.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="no">string</includes>
+    <includes local="no">iomanip</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">sys/types.h</includes>
+    <includes local="no">dirent.h</includes>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="yes">../Options.h</includes>
+    <includes refid="FileHandler_8h" local="yes">FileHandler.h</includes>
+    <includes refid="StringAlgorithms_8h" local="yes">StringAlgorithms.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>iomanip</label>
+      </node>
+      <node id="9">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="10">
+        <label>../Options.h</label>
+      </node>
+      <node id="12">
+        <label>fstream</label>
+      </node>
+      <node id="6">
+        <label>sys/types.h</label>
+      </node>
+      <node id="14">
+        <label>StringAlgorithms.h</label>
+        <link refid="StringAlgorithms_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+      <node id="11">
+        <label>FileHandler.h</label>
+        <link refid="FileHandler_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>sstream</label>
+      </node>
+      <node id="1">
+        <label>/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/CommandParser.h</label>
+        <link refid="CommandParser_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>iostream</label>
+      </node>
+      <node id="8">
+        <label>stdio.h</label>
+      </node>
+      <node id="7">
+        <label>dirent.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structParserOutput" prot="public">ParserOutput</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="CommandParser_8h_1a4f07b9683808c0c57e3388d8570ec60f" prot="public" static="no">
+        <type>bool(*</type>
+        <definition>typedef bool(* parseFunctions) (char *arg)</definition>
+        <argsstring>)(char *arg)</argsstring>
+        <name>parseFunctions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/CommandParser.h" line="17" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/CommandParser.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="CommandParser_8h_1ae95706c97ff3a40d4346144bf70fa0ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool help</definition>
+        <argsstring>(char *arg)</argsstring>
+        <name>help</name>
+        <param>
+          <type>char *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/CommandParser.h" line="21" column="6" declfile="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/CommandParser.h" declline="21" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="CommandParser_8h_1a5bddad4418012c40027b0d7d15e520ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool changeFileRoot</definition>
+        <argsstring>(char *arg)</argsstring>
+        <name>changeFileRoot</name>
+        <param>
+          <type>char *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/CommandParser.h" line="22" column="6" declfile="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/CommandParser.h" declline="22" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="CommandParser_8h_1aad34c26ebf385bf43e99271e82ba24d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structParserOutput" kindref="compound">ParserOutput</ref></type>
+        <definition>ParserOutput parseCommandLine</definition>
+        <argsstring>(int argc, char **argv)</argsstring>
+        <name>parseCommandLine</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/CommandParser.h" line="33" column="14" declfile="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/CommandParser.h" declline="33" declcolumn="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>COMMANDPARSER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMMANDPARSER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;dirent.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Options.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="FileHandler_8h" kindref="compound">FileHandler.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="StringAlgorithms_8h" kindref="compound">StringAlgorithms.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//See<sp/>.cpp<sp/>for<sp/>initialisation<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="CommandParser_8h_1a4f07b9683808c0c57e3388d8570ec60f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>bool<sp/>(*<ref refid="CommandParser_8h_1a4f07b9683808c0c57e3388d8570ec60f" kindref="member">parseFunctions</ref>)<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>arg);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//designated<sp/>&quot;special<sp/>functions&quot;<sp/>(see<sp/>.cpp<sp/>for<sp/>more<sp/>detail)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="CommandParser_8h_1ae95706c97ff3a40d4346144bf70fa0ea" kindref="member">help</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>arg);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="CommandParser_8h_1a5bddad4418012c40027b0d7d15e520ea" kindref="member">changeFileRoot</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>arg);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//Caller</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="structParserOutput" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structParserOutput" kindref="compound">ParserOutput</ref></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28" refid="structParserOutput_1a4ba2df0652983b7a3327f57e5ad9ab37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Options<sp/><ref refid="structParserOutput_1a4ba2df0652983b7a3327f57e5ad9ab37" kindref="member">options</ref>;</highlight></codeline>
+<codeline lineno="29" refid="structParserOutput_1afb4b057bc4cfdd451bfac9fa9cecd5ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structParserOutput_1afb4b057bc4cfdd451bfac9fa9cecd5ab" kindref="member">SuccessfulParse</ref>;</highlight></codeline>
+<codeline lineno="30" refid="structParserOutput_1a94585fdf303b30ce5ce8a24114f12daf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="structParserOutput_1a94585fdf303b30ce5ce8a24114f12daf" kindref="member">PreLog</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><ref refid="structParserOutput" kindref="compound">ParserOutput</ref><sp/><ref refid="CommandParser_8h_1aad34c26ebf385bf43e99271e82ba24d7" kindref="member">parseCommandLine</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/CommandParser.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_ce109ecd4eeb88b8d6c4b74fa63f5e17" kind="dir">
+    <compoundname>/home/jack/Documents/Work/RAMICES_II/src/Parameters</compoundname>
+    <innerfile refid="EnumSets_8h">EnumSets.h</innerfile>
+    <innerfile refid="GlobalParameters_8h">GlobalParameters.h</innerfile>
+    <innerfile refid="List_8h">List.h</innerfile>
+    <innerfile refid="ParameterLists_8h">ParameterLists.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/"/>
+  </compounddef>
+</doxygen>

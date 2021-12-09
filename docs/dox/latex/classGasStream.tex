@@ -1,0 +1,195 @@
+\hypertarget{classGasStream}{}\doxysection{Gas\+Stream Class Reference}
+\label{classGasStream}\index{GasStream@{GasStream}}
+
+
+{\ttfamily \#include $<$Gas\+Stream.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGasStream_af53972311a6821deda7f211a828f65e7}{Gas\+Stream}} ()
+\item 
+\mbox{\hyperlink{classGasStream_a9c4c6fe0b3df01b5586cca667eaf11ca}{Gas\+Stream}} (\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} source)
+\item 
+\mbox{\hyperlink{classGasStream_a83de215a9348757ca94bdf5b9d491328}{Gas\+Stream}} (\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} source, const \mbox{\hyperlink{classGas}{Gas}} \&hot, const \mbox{\hyperlink{classGas}{Gas}} \&cold)
+\item 
+\mbox{\hyperlink{classGasStream_a07e893367e97b31d50c6b1dd31394c88}{Gas\+Stream}} (\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} source, const \mbox{\hyperlink{classGas}{Gas}} \&gas, double hot\+Fraction)
+\item 
+double \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass}} ()
+\item 
+double \mbox{\hyperlink{classGasStream_ab030a30e5279402f9c2134110c0f7fb5}{Hot\+Mass}} ()
+\item 
+double \mbox{\hyperlink{classGasStream_a82682ae8856ff675869cce398a6bbd26}{Cold\+Mass}} ()
+\item 
+void \mbox{\hyperlink{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}{Deplete}} (double amount\+To\+Remove)
+\item 
+void \mbox{\hyperlink{classGasStream_a44ab71ee97b6bf6cb7fba7ce0c861a32}{Deplete}} (double amount\+To\+Remove\+\_\+\+Cold, double amount\+To\+Remove\+\_\+\+Hot)
+\item 
+void \mbox{\hyperlink{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}{Absorb}} (const \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \&input)
+\item 
+void \mbox{\hyperlink{classGasStream_a6e76f8c95afdff611d73dec5e7cc366e}{Stream\+In}} (const \mbox{\hyperlink{classGas}{Gas}} \&input, double hot\+Fraction)
+\item 
+void \mbox{\hyperlink{classGasStream_ac3801d0fc9d450844cea477c3dfe27e1}{Dirty}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} \mbox{\hyperlink{classGasStream_a1ff8e94b9aefcfa71119c35a191ff4d5}{Source}}
+\item 
+\mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGasStream_a48c6a6e0bed770b63231f2c7364b3db0}{Hot}}
+\item 
+\mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGasStream_a7d9cb8da4073a28aa8fe38921c048a7a}{Cold}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGasStream_ae0827e81446bddfc0c36ff0591a765fb}{Compute\+Masses}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}{Needs\+Recomputing}}
+\item 
+double \mbox{\hyperlink{classGasStream_abe1a79f69bd2d9f597e9bb2ede651bca}{internal\+\_\+\+Hot\+Mass}}
+\item 
+double \mbox{\hyperlink{classGasStream_aea8b87c6a88f4c386f06d03ed3139e63}{internal\+\_\+\+Cold\+Mass}}
+\item 
+double \mbox{\hyperlink{classGasStream_a14fe3a90aa022cedea487e27ddcb57ac}{internal\+\_\+\+Total\+Mass}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A gas stream is how a homogeneously-\/sourced set of gas gets moved around . They are created through Source\+Events -\/ such as C\+C\+SN or accretion events. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGasStream_af53972311a6821deda7f211a828f65e7}\label{classGasStream_af53972311a6821deda7f211a828f65e7}} 
+\index{GasStream@{GasStream}!GasStream@{GasStream}}
+\index{GasStream@{GasStream}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{GasStream()}{GasStream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Gas\+Stream\+::\+Gas\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_a9c4c6fe0b3df01b5586cca667eaf11ca}\label{classGasStream_a9c4c6fe0b3df01b5586cca667eaf11ca}} 
+\index{GasStream@{GasStream}!GasStream@{GasStream}}
+\index{GasStream@{GasStream}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{GasStream()}{GasStream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Gas\+Stream\+::\+Gas\+Stream (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}}}]{source }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_a83de215a9348757ca94bdf5b9d491328}\label{classGasStream_a83de215a9348757ca94bdf5b9d491328}} 
+\index{GasStream@{GasStream}!GasStream@{GasStream}}
+\index{GasStream@{GasStream}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{GasStream()}{GasStream()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Gas\+Stream\+::\+Gas\+Stream (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}}}]{source,  }\item[{const \mbox{\hyperlink{classGas}{Gas}} \&}]{hot,  }\item[{const \mbox{\hyperlink{classGas}{Gas}} \&}]{cold }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_a07e893367e97b31d50c6b1dd31394c88}\label{classGasStream_a07e893367e97b31d50c6b1dd31394c88}} 
+\index{GasStream@{GasStream}!GasStream@{GasStream}}
+\index{GasStream@{GasStream}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{GasStream()}{GasStream()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Gas\+Stream\+::\+Gas\+Stream (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}}}]{source,  }\item[{const \mbox{\hyperlink{classGas}{Gas}} \&}]{gas,  }\item[{double}]{hot\+Fraction }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}\label{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}} 
+\index{GasStream@{GasStream}!Absorb@{Absorb}}
+\index{Absorb@{Absorb}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Absorb()}{Absorb()}}
+{\footnotesize\ttfamily void Gas\+Stream\+::\+Absorb (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \&}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_a82682ae8856ff675869cce398a6bbd26}\label{classGasStream_a82682ae8856ff675869cce398a6bbd26}} 
+\index{GasStream@{GasStream}!ColdMass@{ColdMass}}
+\index{ColdMass@{ColdMass}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{ColdMass()}{ColdMass()}}
+{\footnotesize\ttfamily double Gas\+Stream\+::\+Cold\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_ae0827e81446bddfc0c36ff0591a765fb}\label{classGasStream_ae0827e81446bddfc0c36ff0591a765fb}} 
+\index{GasStream@{GasStream}!ComputeMasses@{ComputeMasses}}
+\index{ComputeMasses@{ComputeMasses}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{ComputeMasses()}{ComputeMasses()}}
+{\footnotesize\ttfamily void Gas\+Stream\+::\+Compute\+Masses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}\label{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}} 
+\index{GasStream@{GasStream}!Deplete@{Deplete}}
+\index{Deplete@{Deplete}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Deplete()}{Deplete()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Gas\+Stream\+::\+Deplete (\begin{DoxyParamCaption}\item[{double}]{amount\+To\+Remove }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_a44ab71ee97b6bf6cb7fba7ce0c861a32}\label{classGasStream_a44ab71ee97b6bf6cb7fba7ce0c861a32}} 
+\index{GasStream@{GasStream}!Deplete@{Deplete}}
+\index{Deplete@{Deplete}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Deplete()}{Deplete()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Gas\+Stream\+::\+Deplete (\begin{DoxyParamCaption}\item[{double}]{amount\+To\+Remove\+\_\+\+Cold,  }\item[{double}]{amount\+To\+Remove\+\_\+\+Hot }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_ac3801d0fc9d450844cea477c3dfe27e1}\label{classGasStream_ac3801d0fc9d450844cea477c3dfe27e1}} 
+\index{GasStream@{GasStream}!Dirty@{Dirty}}
+\index{Dirty@{Dirty}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Dirty()}{Dirty()}}
+{\footnotesize\ttfamily void Gas\+Stream\+::\+Dirty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_ab030a30e5279402f9c2134110c0f7fb5}\label{classGasStream_ab030a30e5279402f9c2134110c0f7fb5}} 
+\index{GasStream@{GasStream}!HotMass@{HotMass}}
+\index{HotMass@{HotMass}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{HotMass()}{HotMass()}}
+{\footnotesize\ttfamily double Gas\+Stream\+::\+Hot\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}\label{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}} 
+\index{GasStream@{GasStream}!Mass@{Mass}}
+\index{Mass@{Mass}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}}
+{\footnotesize\ttfamily double Gas\+Stream\+::\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_a6e76f8c95afdff611d73dec5e7cc366e}\label{classGasStream_a6e76f8c95afdff611d73dec5e7cc366e}} 
+\index{GasStream@{GasStream}!StreamIn@{StreamIn}}
+\index{StreamIn@{StreamIn}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{StreamIn()}{StreamIn()}}
+{\footnotesize\ttfamily void Gas\+Stream\+::\+Stream\+In (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGas}{Gas}} \&}]{input,  }\item[{double}]{hot\+Fraction }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classGasStream_a7d9cb8da4073a28aa8fe38921c048a7a}\label{classGasStream_a7d9cb8da4073a28aa8fe38921c048a7a}} 
+\index{GasStream@{GasStream}!Cold@{Cold}}
+\index{Cold@{Cold}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Cold}{Cold}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGas}{Gas}} Gas\+Stream\+::\+Cold}
+
+\mbox{\Hypertarget{classGasStream_a48c6a6e0bed770b63231f2c7364b3db0}\label{classGasStream_a48c6a6e0bed770b63231f2c7364b3db0}} 
+\index{GasStream@{GasStream}!Hot@{Hot}}
+\index{Hot@{Hot}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Hot}{Hot}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGas}{Gas}} Gas\+Stream\+::\+Hot}
+
+\mbox{\Hypertarget{classGasStream_aea8b87c6a88f4c386f06d03ed3139e63}\label{classGasStream_aea8b87c6a88f4c386f06d03ed3139e63}} 
+\index{GasStream@{GasStream}!internal\_ColdMass@{internal\_ColdMass}}
+\index{internal\_ColdMass@{internal\_ColdMass}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{internal\_ColdMass}{internal\_ColdMass}}
+{\footnotesize\ttfamily double Gas\+Stream\+::internal\+\_\+\+Cold\+Mass\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGasStream_abe1a79f69bd2d9f597e9bb2ede651bca}\label{classGasStream_abe1a79f69bd2d9f597e9bb2ede651bca}} 
+\index{GasStream@{GasStream}!internal\_HotMass@{internal\_HotMass}}
+\index{internal\_HotMass@{internal\_HotMass}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{internal\_HotMass}{internal\_HotMass}}
+{\footnotesize\ttfamily double Gas\+Stream\+::internal\+\_\+\+Hot\+Mass\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGasStream_a14fe3a90aa022cedea487e27ddcb57ac}\label{classGasStream_a14fe3a90aa022cedea487e27ddcb57ac}} 
+\index{GasStream@{GasStream}!internal\_TotalMass@{internal\_TotalMass}}
+\index{internal\_TotalMass@{internal\_TotalMass}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{internal\_TotalMass}{internal\_TotalMass}}
+{\footnotesize\ttfamily double Gas\+Stream\+::internal\+\_\+\+Total\+Mass\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}\label{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}} 
+\index{GasStream@{GasStream}!NeedsRecomputing@{NeedsRecomputing}}
+\index{NeedsRecomputing@{NeedsRecomputing}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{NeedsRecomputing}{NeedsRecomputing}}
+{\footnotesize\ttfamily bool Gas\+Stream\+::\+Needs\+Recomputing\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGasStream_a1ff8e94b9aefcfa71119c35a191ff4d5}\label{classGasStream_a1ff8e94b9aefcfa71119c35a191ff4d5}} 
+\index{GasStream@{GasStream}!Source@{Source}}
+\index{Source@{Source}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Source}{Source}}
+{\footnotesize\ttfamily \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} Gas\+Stream\+::\+Source}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Gas/\mbox{\hyperlink{GasStream_8h}{Gas\+Stream.\+h}}\end{DoxyCompactItemize}

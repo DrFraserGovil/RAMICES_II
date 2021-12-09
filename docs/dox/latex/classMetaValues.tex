@@ -1,0 +1,106 @@
+\hypertarget{classMetaValues}{}\doxysection{Meta\+Values Class Reference}
+\label{classMetaValues}\index{MetaValues@{MetaValues}}
+
+
+The \mbox{\hyperlink{classMetaValues}{Meta\+Values}} contains variables associated with the base-\/level information about the sumulation -\/ the number of cores to access, the timesteps etc.  
+
+
+
+
+{\ttfamily \#include $<$Parameter\+Lists.\+h$>$}
+
+Inheritance diagram for Meta\+Values\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMetaValues}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMetaValues_a8766aac9dd6865deee6647ab0a6d7ef4}{Meta\+Values}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classMetaValues_a6473d91b7e971e2e44e87e3f38e14502}{Save\+Root}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Output/\char`\"{},\char`\"{}output\char`\"{})
+\begin{DoxyCompactList}\small\item\em The name of the output directory into which the output will be saved. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classMetaValues_a8b73fd409e1e258b7d638b8aebef72e2}{Resource\+Root}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Resources/\char`\"{},\char`\"{}resource\char`\"{})
+\begin{DoxyCompactList}\small\item\em The location of the directory which the code looks for its expected resource file structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ int $>$ \mbox{\hyperlink{classMetaValues_ac8e1adbfb77ba566a39caf86dfb46a11}{Parallel\+Threads}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(1,\char`\"{}thread\char`\"{})
+\begin{DoxyCompactList}\small\item\em The maximum number of parallel threads which can be active at any given time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}{Time\+Step}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+1,\char`\"{}timestep\char`\"{})
+\begin{DoxyCompactList}\small\item\em The top level timestep used in the main chemical loop. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}{Simulation\+Duration}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(14.\+0,\char`\"{}duration\char`\"{})
+\begin{DoxyCompactList}\small\item\em The total duration of the chemical simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classMetaValues}{Meta\+Values}} contains variables associated with the base-\/level information about the sumulation -\/ the number of cores to access, the timesteps etc. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMetaValues_a8766aac9dd6865deee6647ab0a6d7ef4}\label{classMetaValues_a8766aac9dd6865deee6647ab0a6d7ef4}} 
+\index{MetaValues@{MetaValues}!MetaValues@{MetaValues}}
+\index{MetaValues@{MetaValues}!MetaValues@{MetaValues}}
+\doxysubsubsection{\texorpdfstring{MetaValues()}{MetaValues()}}
+{\footnotesize\ttfamily Meta\+Values\+::\+Meta\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classMetaValues_ac8e1adbfb77ba566a39caf86dfb46a11}\label{classMetaValues_ac8e1adbfb77ba566a39caf86dfb46a11}} 
+\index{MetaValues@{MetaValues}!ParallelThreads@{ParallelThreads}}
+\index{ParallelThreads@{ParallelThreads}!MetaValues@{MetaValues}}
+\doxysubsubsection{\texorpdfstring{ParallelThreads}{ParallelThreads}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$ Meta\+Values\+::\+Parallel\+Threads = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(1,\char`\"{}thread\char`\"{})}
+
+
+
+The maximum number of parallel threads which can be active at any given time. 
+
+\mbox{\Hypertarget{classMetaValues_a8b73fd409e1e258b7d638b8aebef72e2}\label{classMetaValues_a8b73fd409e1e258b7d638b8aebef72e2}} 
+\index{MetaValues@{MetaValues}!ResourceRoot@{ResourceRoot}}
+\index{ResourceRoot@{ResourceRoot}!MetaValues@{MetaValues}}
+\doxysubsubsection{\texorpdfstring{ResourceRoot}{ResourceRoot}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Meta\+Values\+::\+Resource\+Root = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Resources/\char`\"{},\char`\"{}resource\char`\"{})}
+
+
+
+The location of the directory which the code looks for its expected resource file structure. 
+
+\mbox{\Hypertarget{classMetaValues_a6473d91b7e971e2e44e87e3f38e14502}\label{classMetaValues_a6473d91b7e971e2e44e87e3f38e14502}} 
+\index{MetaValues@{MetaValues}!SaveRoot@{SaveRoot}}
+\index{SaveRoot@{SaveRoot}!MetaValues@{MetaValues}}
+\doxysubsubsection{\texorpdfstring{SaveRoot}{SaveRoot}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Meta\+Values\+::\+Save\+Root = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Output/\char`\"{},\char`\"{}output\char`\"{})}
+
+
+
+The name of the output directory into which the output will be saved. 
+
+\mbox{\Hypertarget{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}\label{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}} 
+\index{MetaValues@{MetaValues}!SimulationDuration@{SimulationDuration}}
+\index{SimulationDuration@{SimulationDuration}!MetaValues@{MetaValues}}
+\doxysubsubsection{\texorpdfstring{SimulationDuration}{SimulationDuration}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Meta\+Values\+::\+Simulation\+Duration = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(14.\+0,\char`\"{}duration\char`\"{})}
+
+
+
+The total duration of the chemical simulation. 
+
+\mbox{\Hypertarget{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}\label{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}} 
+\index{MetaValues@{MetaValues}!TimeStep@{TimeStep}}
+\index{TimeStep@{TimeStep}!MetaValues@{MetaValues}}
+\doxysubsubsection{\texorpdfstring{TimeStep}{TimeStep}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Meta\+Values\+::\+Time\+Step = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+1,\char`\"{}timestep\char`\"{})}
+
+
+
+The top level timestep used in the main chemical loop. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}

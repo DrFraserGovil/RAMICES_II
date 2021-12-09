@@ -1,0 +1,141 @@
+\hypertarget{classYieldGrid}{}\doxysection{Yield\+Grid Class Reference}
+\label{classYieldGrid}\index{YieldGrid@{YieldGrid}}
+
+
+{\ttfamily \#include $<$Yield\+Grid.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classYieldGrid_ac672384875813434fb983de36287694e}{Yield\+Grid}} ()
+\item 
+\mbox{\hyperlink{classYieldGrid_a0a07f64bfb06724498459d49b6fee782}{Yield\+Grid}} (Options $\ast$opts)
+\item 
+double \mbox{\hyperlink{classYieldGrid_a7da7738f26cf3b294d9cb8ad14ddfbcc}{Synthesis}} (int Element\+Code, double M, double Z)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classYieldGrid_a31378ee9b89ab8a6644ed76f3ab3c117}{Re\+Use\+Yields}} ()
+\item 
+void \mbox{\hyperlink{classYieldGrid_a4809c8307e77aeb7aa501b87362fec5b}{Calculate\+Yields}} ()
+\item 
+void \mbox{\hyperlink{classYieldGrid_aa7d85eac45383a8ec79bdc54c3e5ef45}{Load\+Marigo\+Yields}} ()
+\item 
+void \mbox{\hyperlink{classYieldGrid_a9c37ebce300a08e836ce5fceca2038e0}{Load\+Orfeo\+Yields}} ()
+\item 
+void \mbox{\hyperlink{classYieldGrid_a74e21e2aeeef26a0a5e2c6aa1a7d6c41}{Load\+Limongi\+Yields}} ()
+\item 
+void \mbox{\hyperlink{classYieldGrid_a4863d66b1772f1beba4db999f4a51d6a}{Load\+Maeder\+Yields}} ()
+\item 
+void \mbox{\hyperlink{classYieldGrid_ad8316014cb63bddf4225c10620cbf92a}{Save\+Yields}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Options $\ast$ \mbox{\hyperlink{classYieldGrid_adaa90ca8e93f904a7eb295debac77601}{Opts}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classStellarYield}{Stellar\+Yield}} $>$ \mbox{\hyperlink{classYieldGrid_a1709c93c6a8b8ad880a6d1294c2b07a1}{Element}}
+\item 
+\mbox{\hyperlink{classStellarYield}{Stellar\+Yield}} \mbox{\hyperlink{classYieldGrid_a49d1703b9a0eba10c82e20c4968868bc}{Relic\+Mass}}
+\item 
+\mbox{\hyperlink{classStellarYield}{Stellar\+Yield}} \mbox{\hyperlink{classYieldGrid_adac05cd0c5c0a32b4ca242af143da7d7}{Relic\+Type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classYieldGrid_ac672384875813434fb983de36287694e}\label{classYieldGrid_ac672384875813434fb983de36287694e}} 
+\index{YieldGrid@{YieldGrid}!YieldGrid@{YieldGrid}}
+\index{YieldGrid@{YieldGrid}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{YieldGrid()}{YieldGrid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Yield\+Grid\+::\+Yield\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classYieldGrid_a0a07f64bfb06724498459d49b6fee782}\label{classYieldGrid_a0a07f64bfb06724498459d49b6fee782}} 
+\index{YieldGrid@{YieldGrid}!YieldGrid@{YieldGrid}}
+\index{YieldGrid@{YieldGrid}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{YieldGrid()}{YieldGrid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Yield\+Grid\+::\+Yield\+Grid (\begin{DoxyParamCaption}\item[{Options $\ast$}]{opts }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classYieldGrid_a4809c8307e77aeb7aa501b87362fec5b}\label{classYieldGrid_a4809c8307e77aeb7aa501b87362fec5b}} 
+\index{YieldGrid@{YieldGrid}!CalculateYields@{CalculateYields}}
+\index{CalculateYields@{CalculateYields}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{CalculateYields()}{CalculateYields()}}
+{\footnotesize\ttfamily void Yield\+Grid\+::\+Calculate\+Yields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classYieldGrid_a74e21e2aeeef26a0a5e2c6aa1a7d6c41}\label{classYieldGrid_a74e21e2aeeef26a0a5e2c6aa1a7d6c41}} 
+\index{YieldGrid@{YieldGrid}!LoadLimongiYields@{LoadLimongiYields}}
+\index{LoadLimongiYields@{LoadLimongiYields}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{LoadLimongiYields()}{LoadLimongiYields()}}
+{\footnotesize\ttfamily void Yield\+Grid\+::\+Load\+Limongi\+Yields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classYieldGrid_a4863d66b1772f1beba4db999f4a51d6a}\label{classYieldGrid_a4863d66b1772f1beba4db999f4a51d6a}} 
+\index{YieldGrid@{YieldGrid}!LoadMaederYields@{LoadMaederYields}}
+\index{LoadMaederYields@{LoadMaederYields}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{LoadMaederYields()}{LoadMaederYields()}}
+{\footnotesize\ttfamily void Yield\+Grid\+::\+Load\+Maeder\+Yields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classYieldGrid_aa7d85eac45383a8ec79bdc54c3e5ef45}\label{classYieldGrid_aa7d85eac45383a8ec79bdc54c3e5ef45}} 
+\index{YieldGrid@{YieldGrid}!LoadMarigoYields@{LoadMarigoYields}}
+\index{LoadMarigoYields@{LoadMarigoYields}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{LoadMarigoYields()}{LoadMarigoYields()}}
+{\footnotesize\ttfamily void Yield\+Grid\+::\+Load\+Marigo\+Yields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classYieldGrid_a9c37ebce300a08e836ce5fceca2038e0}\label{classYieldGrid_a9c37ebce300a08e836ce5fceca2038e0}} 
+\index{YieldGrid@{YieldGrid}!LoadOrfeoYields@{LoadOrfeoYields}}
+\index{LoadOrfeoYields@{LoadOrfeoYields}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{LoadOrfeoYields()}{LoadOrfeoYields()}}
+{\footnotesize\ttfamily void Yield\+Grid\+::\+Load\+Orfeo\+Yields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classYieldGrid_a31378ee9b89ab8a6644ed76f3ab3c117}\label{classYieldGrid_a31378ee9b89ab8a6644ed76f3ab3c117}} 
+\index{YieldGrid@{YieldGrid}!ReUseYields@{ReUseYields}}
+\index{ReUseYields@{ReUseYields}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{ReUseYields()}{ReUseYields()}}
+{\footnotesize\ttfamily void Yield\+Grid\+::\+Re\+Use\+Yields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classYieldGrid_ad8316014cb63bddf4225c10620cbf92a}\label{classYieldGrid_ad8316014cb63bddf4225c10620cbf92a}} 
+\index{YieldGrid@{YieldGrid}!SaveYields@{SaveYields}}
+\index{SaveYields@{SaveYields}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{SaveYields()}{SaveYields()}}
+{\footnotesize\ttfamily void Yield\+Grid\+::\+Save\+Yields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classYieldGrid_a7da7738f26cf3b294d9cb8ad14ddfbcc}\label{classYieldGrid_a7da7738f26cf3b294d9cb8ad14ddfbcc}} 
+\index{YieldGrid@{YieldGrid}!Synthesis@{Synthesis}}
+\index{Synthesis@{Synthesis}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{Synthesis()}{Synthesis()}}
+{\footnotesize\ttfamily double Yield\+Grid\+::\+Synthesis (\begin{DoxyParamCaption}\item[{int}]{Element\+Code,  }\item[{double}]{M,  }\item[{double}]{Z }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classYieldGrid_a1709c93c6a8b8ad880a6d1294c2b07a1}\label{classYieldGrid_a1709c93c6a8b8ad880a6d1294c2b07a1}} 
+\index{YieldGrid@{YieldGrid}!Element@{Element}}
+\index{Element@{Element}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{Element}{Element}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classStellarYield}{Stellar\+Yield}}$>$ Yield\+Grid\+::\+Element\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classYieldGrid_adaa90ca8e93f904a7eb295debac77601}\label{classYieldGrid_adaa90ca8e93f904a7eb295debac77601}} 
+\index{YieldGrid@{YieldGrid}!Opts@{Opts}}
+\index{Opts@{Opts}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{Opts}{Opts}}
+{\footnotesize\ttfamily Options$\ast$ Yield\+Grid\+::\+Opts\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classYieldGrid_a49d1703b9a0eba10c82e20c4968868bc}\label{classYieldGrid_a49d1703b9a0eba10c82e20c4968868bc}} 
+\index{YieldGrid@{YieldGrid}!RelicMass@{RelicMass}}
+\index{RelicMass@{RelicMass}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{RelicMass}{RelicMass}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStellarYield}{Stellar\+Yield}} Yield\+Grid\+::\+Relic\+Mass\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classYieldGrid_adac05cd0c5c0a32b4ca242af143da7d7}\label{classYieldGrid_adac05cd0c5c0a32b4ca242af143da7d7}} 
+\index{YieldGrid@{YieldGrid}!RelicType@{RelicType}}
+\index{RelicType@{RelicType}!YieldGrid@{YieldGrid}}
+\doxysubsubsection{\texorpdfstring{RelicType}{RelicType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStellarYield}{Stellar\+Yield}} Yield\+Grid\+::\+Relic\+Type\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/old\+\_\+src/\+Chemical\+Assemblers/\mbox{\hyperlink{YieldGrid_8h}{Yield\+Grid.\+h}}\end{DoxyCompactItemize}

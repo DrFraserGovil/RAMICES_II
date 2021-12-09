@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classGlobalParameters" kind="class" language="C++" prot="public">
+    <compoundname>GlobalParameters</compoundname>
+    <includes refid="GlobalParameters_8h" local="no">GlobalParameters.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9" prot="public" static="no" mutable="no">
+        <type><ref refid="classMetaValues" kindref="compound">MetaValues</ref></type>
+        <definition>MetaValues GlobalParameters::Meta</definition>
+        <argsstring></argsstring>
+        <name>Meta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="20" column="12" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" prot="public" static="no" mutable="no">
+        <type><ref refid="classElementValues" kindref="compound">ElementValues</ref></type>
+        <definition>ElementValues GlobalParameters::Element</definition>
+        <argsstring></argsstring>
+        <name>Element</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="21" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" prot="public" static="no" mutable="no">
+        <type><ref refid="classStellarValues" kindref="compound">StellarValues</ref></type>
+        <definition>StellarValues GlobalParameters::Stellar</definition>
+        <argsstring></argsstring>
+        <name>Stellar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="22" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" prot="public" static="no" mutable="no">
+        <type><ref refid="classThermalValues" kindref="compound">ThermalValues</ref></type>
+        <definition>ThermalValues GlobalParameters::Thermal</definition>
+        <argsstring></argsstring>
+        <name>Thermal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="23" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGlobalParameters_1abe614bae6bfab6d1fbe2b5e9db5adaa3" prot="public" static="no" mutable="no">
+        <type><ref refid="classGalaxyValues" kindref="compound">GalaxyValues</ref></type>
+        <definition>GalaxyValues GlobalParameters::Galaxy</definition>
+        <argsstring></argsstring>
+        <name>Galaxy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="24" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGlobalParameters_1ad5ed3bfeb016b8c1aeb2570b5bdc8385" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classParamList" kindref="compound">ParamList</ref> * &gt;</type>
+        <definition>std::vector&lt;ParamList *&gt; GlobalParameters::ParamMembers</definition>
+        <argsstring></argsstring>
+        <name>ParamMembers</name>
+        <initializer>= {&amp;<ref refid="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9" kindref="member">Meta</ref>,&amp;<ref refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" kindref="member">Element</ref>,&amp;<ref refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" kindref="member">Stellar</ref>,&amp;<ref refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" kindref="member">Thermal</ref>,&amp;<ref refid="classGalaxy" kindref="compound">Galaxy</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="26" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGlobalParameters_1a9dc5211c8317889b10c16daf49f7e916" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GlobalParameters::GlobalParameters</definition>
+        <argsstring>()</argsstring>
+        <name>GlobalParameters</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="28" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classGlobalParameters_1a49a012a4c9a2972a33ae78ef2d500d32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GlobalParameters::Initialise</definition>
+        <argsstring>(int argc, char *argv[])</argsstring>
+        <name>Initialise</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="29" column="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GlobalParameters</label>
+        <link refid="classGlobalParameters"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Element</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Meta</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Thermal</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Galaxy</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Stellar</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="2">
+        <label>ElementValues</label>
+        <link refid="classElementValues"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>SolarAbundanceFile</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>SolarAbundanceFileNameColumn</edgelabel>
+          <edgelabel>SolarAbundanceFileDataColumn</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>JSL::Argument&lt; double &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>StellarValues</label>
+        <link refid="classStellarValues"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>FeedbackFactor</edgelabel>
+          <edgelabel>NSMFraction</edgelabel>
+          <edgelabel>SNIaFraction</edgelabel>
+          <edgelabel>EjectionFraction</edgelabel>
+          <edgelabel>MaxZ</edgelabel>
+          <edgelabel>MinZ</edgelabel>
+          <edgelabel>MinStellarMass</edgelabel>
+          <edgelabel>MaxStellarMass</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>JSL::Argument&lt; int &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>JSL::ArgumentInterface</label>
+        <link refid="classJSL_1_1ArgumentInterface"/>
+      </node>
+      <node id="7">
+        <label>MetaValues</label>
+        <link refid="classMetaValues"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>TimeStep</edgelabel>
+          <edgelabel>SimulationDuration</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>SaveRoot</edgelabel>
+          <edgelabel>ResourceRoot</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>ParallelThreads</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>JSL::Argument&lt; std::string &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>ThermalValues</label>
+        <link refid="classThermalValues"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>HotInjection_SNIa</edgelabel>
+          <edgelabel>HotInjection_NSM</edgelabel>
+          <edgelabel>HotInjection_CCSN</edgelabel>
+          <edgelabel>GasCoolingTimeScale</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>GalaxyValues</label>
+        <link refid="classGalaxyValues"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>ScaleLengthFinalTime</edgelabel>
+          <edgelabel>MaxSFRFraction</edgelabel>
+          <edgelabel>MaxScaleLength</edgelabel>
+          <edgelabel>ScaleLengthTimeScale</edgelabel>
+          <edgelabel>InflowParameterA</edgelabel>
+          <edgelabel>MinScaleLength</edgelabel>
+          <edgelabel>InflowParameterB</edgelabel>
+          <edgelabel>PrimordialHotFraction</edgelabel>
+          <edgelabel>InfallTime1</edgelabel>
+          <edgelabel>InfallTime2</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>NRings</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" line="16" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h" bodystart="15" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" prot="public" virt="non-virtual"><scope>GlobalParameters</scope><name>Element</name></member>
+      <member refid="classGlobalParameters_1abe614bae6bfab6d1fbe2b5e9db5adaa3" prot="public" virt="non-virtual"><scope>GlobalParameters</scope><name>Galaxy</name></member>
+      <member refid="classGlobalParameters_1a9dc5211c8317889b10c16daf49f7e916" prot="public" virt="non-virtual"><scope>GlobalParameters</scope><name>GlobalParameters</name></member>
+      <member refid="classGlobalParameters_1a49a012a4c9a2972a33ae78ef2d500d32" prot="public" virt="non-virtual"><scope>GlobalParameters</scope><name>Initialise</name></member>
+      <member refid="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9" prot="public" virt="non-virtual"><scope>GlobalParameters</scope><name>Meta</name></member>
+      <member refid="classGlobalParameters_1ad5ed3bfeb016b8c1aeb2570b5bdc8385" prot="public" virt="non-virtual"><scope>GlobalParameters</scope><name>ParamMembers</name></member>
+      <member refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" prot="public" virt="non-virtual"><scope>GlobalParameters</scope><name>Stellar</name></member>
+      <member refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" prot="public" virt="non-virtual"><scope>GlobalParameters</scope><name>Thermal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

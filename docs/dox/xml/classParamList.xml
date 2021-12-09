@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classParamList" kind="class" language="C++" prot="public">
+    <compoundname>ParamList</compoundname>
+    <derivedcompoundref refid="classElementValues" prot="public" virt="non-virtual">ElementValues</derivedcompoundref>
+    <derivedcompoundref refid="classGalaxyValues" prot="public" virt="non-virtual">GalaxyValues</derivedcompoundref>
+    <derivedcompoundref refid="classMetaValues" prot="public" virt="non-virtual">MetaValues</derivedcompoundref>
+    <derivedcompoundref refid="classStellarValues" prot="public" virt="non-virtual">StellarValues</derivedcompoundref>
+    <derivedcompoundref refid="classThermalValues" prot="public" virt="non-virtual">ThermalValues</derivedcompoundref>
+    <includes refid="List_8h" local="no">List.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classJSL_1_1ArgumentInterface" kindref="compound">JSL::ArgumentInterface</ref> * &gt;</type>
+        <definition>std::vector&lt;JSL::ArgumentInterface *&gt; ParamList::argPointers</definition>
+        <argsstring></argsstring>
+        <name>argPointers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="15" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ParamList::Configure</definition>
+        <argsstring>(int argc, char *argv[])</argsstring>
+        <name>Configure</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="12" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void ParamList::Initialise</definition>
+        <argsstring>(std::string resourceRoot)</argsstring>
+        <name>Initialise</name>
+        <reimplementedby refid="classElementValues_1a76dc3cddb13b0673840cabf96b3bbe87">Initialise</reimplementedby>
+        <param>
+          <type>std::string</type>
+          <declname>resourceRoot</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="13" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" bodystart="13" bodyend="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>generic superclass structure so that I can heterogenously loop over arrays </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="2">
+        <label>ElementValues</label>
+        <link refid="classElementValues"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>StellarValues</label>
+        <link refid="classStellarValues"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>MetaValues</label>
+        <link refid="classMetaValues"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ThermalValues</label>
+        <link refid="classThermalValues"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GalaxyValues</label>
+        <link refid="classGalaxyValues"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" line="10" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h" bodystart="9" bodyend="17"/>
+    <listofallmembers>
+      <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>ParamList</scope><name>argPointers</name></member>
+      <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>ParamList</scope><name>Configure</name></member>
+      <member refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" prot="public" virt="virtual"><scope>ParamList</scope><name>Initialise</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

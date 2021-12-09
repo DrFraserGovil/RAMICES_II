@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['radius_252',['Radius',['../classRing.html#a85ca5dfb0e8dda469a877943bb1a91d4',1,'Ring']]],
+  ['random_253',['Random',['../classJSL_1_1Quaternion.html#a8d47df19d5d74b82a8e348391e8ef8c4',1,'JSL::Quaternion']]],
+  ['relicmass_254',['RelicMass',['../classYieldGrid.html#a49d1703b9a0eba10c82e20c4968868bc',1,'YieldGrid']]],
+  ['relictype_255',['RelicType',['../classYieldGrid.html#adac05cd0c5c0a32b4ca242af143da7d7',1,'YieldGrid']]],
+  ['remaininglifetime_256',['RemainingLifeTime',['../classStarSet.html#a90dce4d854f34dfac2f34f523ed07679',1,'StarSet']]],
+  ['remnant_257',['Remnant',['../structMassKeeper.html#a101f6cf470211606fdc3ef9021e720c8',1,'MassKeeper']]],
+  ['reportproperties_258',['ReportProperties',['../classGalaxy.html#afdb07ef56f8c439a4ee9975d7d753382',1,'Galaxy::ReportProperties()'],['../classRing.html#a971ecf443202c92aab533855a57da564',1,'Ring::ReportProperties()']]],
+  ['resourceroot_259',['ResourceRoot',['../classMetaValues.html#a8b73fd409e1e258b7d638b8aebef72e2',1,'MetaValues']]],
+  ['results_260',['Results',['../classJSL_1_1UnitTest.html#a39e1076dd985334ce21606ae2a383f70',1,'JSL::UnitTest']]],
+  ['reuseyields_261',['ReUseYields',['../classYieldGrid.html#a31378ee9b89ab8a6644ed76f3ab3c117',1,'YieldGrid']]],
+  ['ridges_262',['Ridges',['../classStellarYield.html#ad6f50c9526738d6be3de8bd6d77fd6b6',1,'StellarYield']]],
+  ['rightmultiplicationmatrix_263',['RightMultiplicationMatrix',['../classJSL_1_1Quaternion.html#a081b38fc741f2dc9d4f2b955acbed833',1,'JSL::Quaternion']]],
+  ['ring_264',['Ring',['../classRing.html',1,'Ring'],['../classRing.html#ac171f1f73adeadb4cfbe90cc39664b3c',1,'Ring::Ring(Options *opts)'],['../classRing.html#a94ee90a62a38d0d5fcb80ecd8dde98f2',1,'Ring::Ring(Options *opts, int id, double dr, Galaxy *parent)']]],
+  ['ring_2eh_265',['Ring.h',['../Ring_8h.html',1,'']]],
+  ['ringmass_266',['RingMass',['../classRing.html#a453e3dbe47906636b64305598d124d2e',1,'Ring']]],
+  ['rings_267',['Rings',['../classGalaxy.html#acebf3c89d2dd1c75148f82aca4279c21',1,'Galaxy']]],
+  ['ringstate_268',['RingState',['../classGalaxy.html#abd8592aefb87239ebcd305011c8f7ae4',1,'Galaxy']]],
+  ['rm_269',['rm',['../namespaceJSL.html#ae48b92e64fb9d321121df976b770efa6',1,'JSL']]],
+  ['rm_2eh_270',['rm.h',['../rm_8h.html',1,'']]],
+  ['rows_271',['Rows',['../classJSL_1_1Matrix.html#af784cad8dcbb502c06be62e2e328ef6c',1,'JSL::Matrix']]],
+  ['run_5ftest_272',['Run_Test',['../classJSL__Testing_1_1MetaTest.html#a176352dcd54f9ec7df8f1548882e6820',1,'JSL_Testing::MetaTest::Run_Test()'],['../classJSL__Testing_1_1StringTest.html#ada0409cd10e3f09788994a9115331ff7',1,'JSL_Testing::StringTest::Run_Test()'],['../classJSL__Testing_1_1IOTest.html#a85daecacc71354b5dc0dee36840b8704',1,'JSL_Testing::IOTest::Run_Test()'],['../classJSL__Testing_1_1ArgumentTest.html#a1c4c626d57e448da86866ef414308e97',1,'JSL_Testing::ArgumentTest::Run_Test()'],['../classJSL__Testing_1_1VectorTest.html#ad79bb4654e6f7b59d31d7239ee0c2b82',1,'JSL_Testing::VectorTest::Run_Test()'],['../classJSL__Testing_1_1MatrixTest.html#a8fe2a671faf414dbd13c407ab52b75fb',1,'JSL_Testing::MatrixTest::Run_Test()'],['../classJSL_1_1UnitTest.html#aa8369ab1ce2a537bff2ea7e1c8818490',1,'JSL::UnitTest::Run_Test()']]],
+  ['runalltests_273',['RunAllTests',['../namespaceJSL__Testing.html#a509a70d20fdc2e9975d9b0b8ae424ef1',1,'JSL_Testing']]]
+];

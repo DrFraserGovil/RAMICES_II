@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classYieldGrid" kind="class" language="C++" prot="public">
+    <compoundname>YieldGrid</compoundname>
+    <includes refid="YieldGrid_8h" local="no">YieldGrid.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classYieldGrid_1adaa90ca8e93f904a7eb295debac77601" prot="private" static="no" mutable="no">
+        <type>Options *</type>
+        <definition>Options* YieldGrid::Opts</definition>
+        <argsstring></argsstring>
+        <name>Opts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="21" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classYieldGrid_1a1709c93c6a8b8ad880a6d1294c2b07a1" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classStellarYield" kindref="compound">StellarYield</ref> &gt;</type>
+        <definition>std::vector&lt;StellarYield&gt; YieldGrid::Element</definition>
+        <argsstring></argsstring>
+        <name>Element</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="22" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classYieldGrid_1a49d1703b9a0eba10c82e20c4968868bc" prot="private" static="no" mutable="no">
+        <type><ref refid="classStellarYield" kindref="compound">StellarYield</ref></type>
+        <definition>StellarYield YieldGrid::RelicMass</definition>
+        <argsstring></argsstring>
+        <name>RelicMass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="23" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classYieldGrid_1adac05cd0c5c0a32b4ca242af143da7d7" prot="private" static="no" mutable="no">
+        <type><ref refid="classStellarYield" kindref="compound">StellarYield</ref></type>
+        <definition>StellarYield YieldGrid::RelicType</definition>
+        <argsstring></argsstring>
+        <name>RelicType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="24" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classYieldGrid_1ac672384875813434fb983de36287694e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>YieldGrid::YieldGrid</definition>
+        <argsstring>()</argsstring>
+        <name>YieldGrid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classYieldGrid_1a0a07f64bfb06724498459d49b6fee782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>YieldGrid::YieldGrid</definition>
+        <argsstring>(Options *opts)</argsstring>
+        <name>YieldGrid</name>
+        <param>
+          <type>Options *</type>
+          <declname>opts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classYieldGrid_1a7da7738f26cf3b294d9cb8ad14ddfbcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double YieldGrid::Synthesis</definition>
+        <argsstring>(int ElementCode, double M, double Z)</argsstring>
+        <name>Synthesis</name>
+        <param>
+          <type>int</type>
+          <declname>ElementCode</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>M</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="18" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classYieldGrid_1a31378ee9b89ab8a6644ed76f3ab3c117" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void YieldGrid::ReUseYields</definition>
+        <argsstring>()</argsstring>
+        <name>ReUseYields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="26" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classYieldGrid_1a4809c8307e77aeb7aa501b87362fec5b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void YieldGrid::CalculateYields</definition>
+        <argsstring>()</argsstring>
+        <name>CalculateYields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="27" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classYieldGrid_1aa7d85eac45383a8ec79bdc54c3e5ef45" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void YieldGrid::LoadMarigoYields</definition>
+        <argsstring>()</argsstring>
+        <name>LoadMarigoYields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="29" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classYieldGrid_1a9c37ebce300a08e836ce5fceca2038e0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void YieldGrid::LoadOrfeoYields</definition>
+        <argsstring>()</argsstring>
+        <name>LoadOrfeoYields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classYieldGrid_1a74e21e2aeeef26a0a5e2c6aa1a7d6c41" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void YieldGrid::LoadLimongiYields</definition>
+        <argsstring>()</argsstring>
+        <name>LoadLimongiYields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="31" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classYieldGrid_1a4863d66b1772f1beba4db999f4a51d6a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void YieldGrid::LoadMaederYields</definition>
+        <argsstring>()</argsstring>
+        <name>LoadMaederYields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classYieldGrid_1ad8316014cb63bddf4225c10620cbf92a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void YieldGrid::SaveYields</definition>
+        <argsstring>()</argsstring>
+        <name>SaveYields</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="33" column="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>YieldGrid</label>
+        <link refid="classYieldGrid"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>RelicType</edgelabel>
+          <edgelabel>RelicMass</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>StellarYield</label>
+        <link refid="classStellarYield"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" line="13" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h" bodystart="12" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classYieldGrid_1a4809c8307e77aeb7aa501b87362fec5b" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>CalculateYields</name></member>
+      <member refid="classYieldGrid_1a1709c93c6a8b8ad880a6d1294c2b07a1" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>Element</name></member>
+      <member refid="classYieldGrid_1a74e21e2aeeef26a0a5e2c6aa1a7d6c41" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>LoadLimongiYields</name></member>
+      <member refid="classYieldGrid_1a4863d66b1772f1beba4db999f4a51d6a" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>LoadMaederYields</name></member>
+      <member refid="classYieldGrid_1aa7d85eac45383a8ec79bdc54c3e5ef45" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>LoadMarigoYields</name></member>
+      <member refid="classYieldGrid_1a9c37ebce300a08e836ce5fceca2038e0" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>LoadOrfeoYields</name></member>
+      <member refid="classYieldGrid_1adaa90ca8e93f904a7eb295debac77601" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>Opts</name></member>
+      <member refid="classYieldGrid_1a49d1703b9a0eba10c82e20c4968868bc" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>RelicMass</name></member>
+      <member refid="classYieldGrid_1adac05cd0c5c0a32b4ca242af143da7d7" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>RelicType</name></member>
+      <member refid="classYieldGrid_1a31378ee9b89ab8a6644ed76f3ab3c117" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>ReUseYields</name></member>
+      <member refid="classYieldGrid_1ad8316014cb63bddf4225c10620cbf92a" prot="private" virt="non-virtual"><scope>YieldGrid</scope><name>SaveYields</name></member>
+      <member refid="classYieldGrid_1a7da7738f26cf3b294d9cb8ad14ddfbcc" prot="public" virt="non-virtual"><scope>YieldGrid</scope><name>Synthesis</name></member>
+      <member refid="classYieldGrid_1ac672384875813434fb983de36287694e" prot="public" virt="non-virtual"><scope>YieldGrid</scope><name>YieldGrid</name></member>
+      <member refid="classYieldGrid_1a0a07f64bfb06724498459d49b6fee782" prot="public" virt="non-virtual"><scope>YieldGrid</scope><name>YieldGrid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

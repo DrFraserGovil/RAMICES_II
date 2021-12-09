@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>List Superclass &#8212; RAMICES_II 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parameter Lists" href="params_list.html" />
+    <link rel="prev" title="Runtime Parameters" href="params_global.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="params_list.html" title="Parameter Lists"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="params_global.html" title="Runtime Parameters"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RAMICES_II 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="params_master.html" accesskey="U">Global &amp; Runtime Parameters</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">List Superclass</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="list-superclass">
+<h1>List Superclass<a class="headerlink" href="#list-superclass" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv49ParamList">
+<span id="_CPPv39ParamList"></span><span id="_CPPv29ParamList"></span><span id="ParamList"></span><span class="target" id="classParamList"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParamList</span></span></span><a class="headerlink" href="#_CPPv49ParamList" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>generic superclass structure so that I can heterogenously loop over arrays </p>
+<p>Subclassed by <a class="reference internal" href="params_list.html#classElementValues"><span class="std std-ref">ElementValues</span></a>, <a class="reference internal" href="params_list.html#classGalaxyValues"><span class="std std-ref">GalaxyValues</span></a>, <a class="reference internal" href="params_list.html#classMetaValues"><span class="std std-ref">MetaValues</span></a>, <a class="reference internal" href="params_list.html#classStellarValues"><span class="std std-ref">StellarValues</span></a>, <a class="reference internal" href="params_list.html#classThermalValues"><span class="std std-ref">ThermalValues</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9ParamList9ConfigureEiA_Pc">
+<span id="_CPPv3N9ParamList9ConfigureEiA_Pc"></span><span id="_CPPv2N9ParamList9ConfigureEiA_Pc"></span><span id="ParamList::Configure__i.cPA"></span><span class="target" id="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Configure</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9ParamList9ConfigureEiA_Pc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9ParamList10InitialiseENSt6stringE">
+<span id="_CPPv3N9ParamList10InitialiseENSt6stringE"></span><span id="_CPPv2N9ParamList10InitialiseENSt6stringE"></span><span id="ParamList::Initialise__ss"></span><span class="target" id="classParamList_1a7bc1e8cffb0062a056193e34b80f3475"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Initialise</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">resourceRoot</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9ParamList10InitialiseENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9ParamList11argPointersE">
+<span id="_CPPv3N9ParamList11argPointersE"></span><span id="_CPPv2N9ParamList11argPointersE"></span><span id="ParamList::argPointers__std::vector:JSL::ArgumentInterfaceP:"></span><span class="target" id="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">JSL</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ArgumentInterface</span></span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">argPointers</span></span></span><a class="headerlink" href="#_CPPv4N9ParamList11argPointersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="params_global.html"
+                        title="previous chapter">Runtime Parameters</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="params_list.html"
+                        title="next chapter">Parameter Lists</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/params_list_super.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="params_list.html" title="Parameter Lists"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="params_global.html" title="Runtime Parameters"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RAMICES_II 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="params_master.html" >Global &amp; Runtime Parameters</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">List Superclass</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, J. Fraser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
+    </div>
+  </body>
+</html>

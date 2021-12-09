@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classJSL_1_1Quaternion" kind="class" language="C++" prot="public">
+    <compoundname>JSL::Quaternion</compoundname>
+    <basecompoundref refid="classJSL_1_1Vector" prot="public" virt="non-virtual">JSL::Vector</basecompoundref>
+    <includes refid="Q__temp_8h" local="no">Q_temp.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a3bfe577832b38cdf2dbbb143c9487add" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Quaternion::Quaternion</definition>
+        <argsstring>()</argsstring>
+        <name>Quaternion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="21" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1ae31be96e94176f1e5278cfaeba39dedc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Quaternion::Quaternion</definition>
+        <argsstring>(const double &amp;scalar, const JSL::Vector &amp;vec)</argsstring>
+        <name>Quaternion</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>scalar</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classJSL_1_1Vector" kindref="compound">JSL::Vector</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="23" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="23" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1ac0fa428adfcbc3db2eff9b5c86e7a075" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Quaternion::Quaternion</definition>
+        <argsstring>(const double &amp;a, const double &amp;b, const double &amp;c, const double &amp;d)</argsstring>
+        <name>Quaternion</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>const double &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="35" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="35" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a6b71605f5fafada8e94bab1bf9af55bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Quaternion::Quaternion</definition>
+        <argsstring>(const JSL::Vector &amp;vec4)</argsstring>
+        <name>Quaternion</name>
+        <param>
+          <type>const <ref refid="classJSL_1_1Vector" kindref="compound">JSL::Vector</ref> &amp;</type>
+          <declname>vec4</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="42" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="42" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a738b4fb82caf2a0334818ac4e6c494de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Quaternion::Quaternion</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;vec4)</argsstring>
+        <name>Quaternion</name>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>vec4</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="49" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="49" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a67d6b60a4863985f94d23c68953dcd91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double &amp;</type>
+        <definition>double&amp; JSL::Quaternion::Scalar</definition>
+        <argsstring>()</argsstring>
+        <name>Scalar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="79" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a92b7311aecae986edb373e0b40d5bfdd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double &amp;</type>
+        <definition>double&amp; JSL::Quaternion::Vector</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Vector</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="83" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1aba8a8ac1d2101f8b374387349412035b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double &amp;</type>
+        <definition>const double&amp; JSL::Quaternion::Scalar</definition>
+        <argsstring>() const</argsstring>
+        <name>Scalar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="87" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a5243fa5db9d466bf1485a83325a682b0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double &amp;</type>
+        <definition>const double&amp; JSL::Quaternion::Vector</definition>
+        <argsstring>(int id) const</argsstring>
+        <name>Vector</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="91" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a0255f2026ec4af9cff42d09d2309af01" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Vector" kindref="compound">JSL::Vector</ref></type>
+        <definition>JSL::Vector JSL::Quaternion::Vector</definition>
+        <argsstring>() const</argsstring>
+        <name>Vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="95" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a9bea717f4cd1b5d4e3bdb8eedfbaed2c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>Quaternion JSL::Quaternion::Conjugate</definition>
+        <argsstring>() const</argsstring>
+        <name>Conjugate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="100" column="12" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1ada6a7067e13b60a65a6103f7508f62f3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">JSL::Matrix</ref></type>
+        <definition>JSL::Matrix JSL::Quaternion::LeftMultiplicationMatrix</definition>
+        <argsstring>() const</argsstring>
+        <name>LeftMultiplicationMatrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="106" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="106" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a081b38fc741f2dc9d4f2b955acbed833" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">JSL::Matrix</ref></type>
+        <definition>JSL::Matrix JSL::Quaternion::RightMultiplicationMatrix</definition>
+        <argsstring>() const</argsstring>
+        <name>RightMultiplicationMatrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="129" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="129" bodyend="150"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1adf0c22bf67a2ab873b998b34583de2e0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion JSL::Quaternion::One</definition>
+        <argsstring>()</argsstring>
+        <name>One</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="57" column="19" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="57" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a63e84edb5230efc8378d86b5d182221d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion JSL::Quaternion::Zero</definition>
+        <argsstring>()</argsstring>
+        <name>Zero</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="63" column="19" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="63" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Quaternion_1a8d47df19d5d74b82a8e348391e8ef8c4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Quaternion" kindref="compound">Quaternion</ref></type>
+        <definition>static Quaternion JSL::Quaternion::Random</definition>
+        <argsstring>()</argsstring>
+        <name>Random</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="68" column="19" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="68" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>JSL::Quaternion</label>
+        <link refid="classJSL_1_1Quaternion"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>JSL::Vector</label>
+        <link refid="classJSL_1_1Vector"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>JSL::Quaternion</label>
+        <link refid="classJSL_1_1Quaternion"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>JSL::Vector</label>
+        <link refid="classJSL_1_1Vector"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" line="18" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/Q_temp.h" bodystart="17" bodyend="155"/>
+    <listofallmembers>
+      <member refid="classJSL_1_1Vector_1a0529640bc02ce994026184d93f43f9c3" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>AngleBetween</name></member>
+      <member refid="classJSL_1_1Quaternion_1a9bea717f4cd1b5d4e3bdb8eedfbaed2c" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Conjugate</name></member>
+      <member refid="classJSL_1_1Vector_1a59ff98a99ebcf2b589290b9e57b8e184" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Cross</name></member>
+      <member refid="classJSL_1_1Vector_1aec102ab8391080ddaedeb4605ef40c5c" prot="protected" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Data</name></member>
+      <member refid="classJSL_1_1Vector_1a60660b5a26e0ddace46f31699834b671" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Dot</name></member>
+      <member refid="classJSL_1_1Vector_1ad7dc3af5e90b59e3ba2efc458e192a4c" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>isnan</name></member>
+      <member refid="classJSL_1_1Quaternion_1ada6a7067e13b60a65a6103f7508f62f3" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>LeftMultiplicationMatrix</name></member>
+      <member refid="classJSL_1_1Vector_1ac41d3cb075c2bd871c31b96dedba08fe" prot="protected" virt="non-virtual"><scope>JSL::Quaternion</scope><name>negativeIntegerError</name></member>
+      <member refid="classJSL_1_1Vector_1a84eb32f5917a770c895e106834a6c05d" prot="protected" virt="non-virtual"><scope>JSL::Quaternion</scope><name>nElements</name></member>
+      <member refid="classJSL_1_1Vector_1aa8af717591f5548ff471b6e4b28d7f9c" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Norm</name></member>
+      <member refid="classJSL_1_1Quaternion_1adf0c22bf67a2ab873b998b34583de2e0" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>One</name></member>
+      <member refid="classJSL_1_1Vector_1ad2fb2b88e3447881c1dac08897c5c8a8" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>operator*=</name></member>
+      <member refid="classJSL_1_1Vector_1ad46bf395dd6122ce152c33aad2672a9b" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>operator+=</name></member>
+      <member refid="classJSL_1_1Vector_1aeca45a175db04725394a1b576507e708" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>operator+=</name></member>
+      <member refid="classJSL_1_1Vector_1a71720a9266944049cd3adfbe50e1703f" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>operator-=</name></member>
+      <member refid="classJSL_1_1Vector_1a8a395851b8dffbe5b0aea7e051f9aac8" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>operator-=</name></member>
+      <member refid="classJSL_1_1Vector_1a0ce3dc2b4c99dbe6acdec350e2f46ab6" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>operator/=</name></member>
+      <member refid="classJSL_1_1Vector_1a7ff5112a7be30ca24b8ed953aaadd045" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>operator[]</name></member>
+      <member refid="classJSL_1_1Vector_1ae461792ef0aeb62ac07c939dacedda99" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>operator[]</name></member>
+      <member refid="classJSL_1_1Vector_1ab081a68e1fc526f4bf866de0ba61a09b" prot="protected" virt="non-virtual"><scope>JSL::Quaternion</scope><name>outOfBoundsError</name></member>
+      <member refid="classJSL_1_1Quaternion_1a3bfe577832b38cdf2dbbb143c9487add" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Quaternion</name></member>
+      <member refid="classJSL_1_1Quaternion_1ae31be96e94176f1e5278cfaeba39dedc" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Quaternion</name></member>
+      <member refid="classJSL_1_1Quaternion_1ac0fa428adfcbc3db2eff9b5c86e7a075" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Quaternion</name></member>
+      <member refid="classJSL_1_1Quaternion_1a6b71605f5fafada8e94bab1bf9af55bd" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Quaternion</name></member>
+      <member refid="classJSL_1_1Quaternion_1a738b4fb82caf2a0334818ac4e6c494de" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Quaternion</name></member>
+      <member refid="classJSL_1_1Quaternion_1a8d47df19d5d74b82a8e348391e8ef8c4" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Random</name></member>
+      <member refid="classJSL_1_1Quaternion_1a081b38fc741f2dc9d4f2b955acbed833" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>RightMultiplicationMatrix</name></member>
+      <member refid="classJSL_1_1Quaternion_1a67d6b60a4863985f94d23c68953dcd91" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Scalar</name></member>
+      <member refid="classJSL_1_1Quaternion_1aba8a8ac1d2101f8b374387349412035b" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Scalar</name></member>
+      <member refid="classJSL_1_1Vector_1a53b26ca32061ebf41430fe2322f79c0c" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Size</name></member>
+      <member refid="classJSL_1_1Vector_1ac1346e26bc981bf45d2c1c4317dac4e6" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>SqNorm</name></member>
+      <member refid="classJSL_1_1Vector_1ad2d0bfdb432809a88a49f4576b0afb5a" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>to_simple_string</name></member>
+      <member refid="classJSL_1_1Vector_1a73579b4a194cc924341806a5d9ea3817" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>to_string</name></member>
+      <member refid="classJSL_1_1Vector_1a91d4cf29c2865069520d03292844d84f" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>to_string_precision</name></member>
+      <member refid="classJSL_1_1Quaternion_1a92b7311aecae986edb373e0b40d5bfdd" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Vector</name></member>
+      <member refid="classJSL_1_1Quaternion_1a5243fa5db9d466bf1485a83325a682b0" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Vector</name></member>
+      <member refid="classJSL_1_1Quaternion_1a0255f2026ec4af9cff42d09d2309af01" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Vector</name></member>
+      <member refid="classJSL_1_1Vector_1a840fca607f8eae7dea1494b2954d3a3c" prot="public" virt="non-virtual" ambiguityscope="JSL::Vector::"><scope>JSL::Quaternion</scope><name>Vector</name></member>
+      <member refid="classJSL_1_1Vector_1af5be93b29e1c2aab2882827d5001a2aa" prot="public" virt="non-virtual" ambiguityscope="JSL::Vector::"><scope>JSL::Quaternion</scope><name>Vector</name></member>
+      <member refid="classJSL_1_1Quaternion_1a63e84edb5230efc8378d86b5d182221d" prot="public" virt="non-virtual"><scope>JSL::Quaternion</scope><name>Zero</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

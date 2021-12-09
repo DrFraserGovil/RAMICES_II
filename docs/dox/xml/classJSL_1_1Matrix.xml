@@ -1,0 +1,503 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classJSL_1_1Matrix" kind="class" language="C++" prot="public">
+    <compoundname>JSL::Matrix</compoundname>
+    <includes refid="matrix_8h" local="no">matrix.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classJSL_1_1Matrix_1a446d23ba93238f3e2dfc79a3a4d5eb7e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; JSL::Matrix::Data</definition>
+        <argsstring></argsstring>
+        <name>Data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="286" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classJSL_1_1Matrix_1a7b7a081bbf419b613f19142a634b2cfa" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int JSL::Matrix::nRows</definition>
+        <argsstring></argsstring>
+        <name>nRows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="288" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classJSL_1_1Matrix_1aef59f1402d2137e86aebf6b21f97ee6d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int JSL::Matrix::nCols</definition>
+        <argsstring></argsstring>
+        <name>nCols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="289" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classJSL_1_1Matrix_1a90ddd1113043b8959b0943be24f9ad9f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Matrix::Matrix</definition>
+        <argsstring>(const int n, const int m)</argsstring>
+        <name>Matrix</name>
+        <param>
+          <type>const int</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="15" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1ab6bc06d3dcc5f25f2083d3a3946378df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Matrix::Matrix</definition>
+        <argsstring>(std::vector&lt; std::vector&lt; double &gt;&gt; input)</argsstring>
+        <name>Matrix</name>
+        <param>
+          <type>std::vector&lt; std::vector&lt; double &gt;&gt;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="20" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="20" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1ae6198f4beabaff7700265fffeb490ed7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>JSL::Matrix::Matrix</definition>
+        <argsstring>(const Matrix &amp;input)</argsstring>
+        <name>Matrix</name>
+        <param>
+          <type>const <ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="42" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="42" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1af784cad8dcbb502c06be62e2e328ef6c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int JSL::Matrix::Rows</definition>
+        <argsstring>() const</argsstring>
+        <name>Rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="55" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1a8aba7f9803b553df2aeae68aba3445f5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int JSL::Matrix::Columns</definition>
+        <argsstring>() const</argsstring>
+        <name>Columns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="59" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1a984691eac759ff0e8f98252d07be7e1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref></type>
+        <definition>Matrix JSL::Matrix::Transpose</definition>
+        <argsstring>()</argsstring>
+        <name>Transpose</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="64" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="64" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1aa8bae8650234f5e5569277563d68f22d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Vector" kindref="compound">JSL::Vector</ref></type>
+        <definition>JSL::Vector JSL::Matrix::GetRow</definition>
+        <argsstring>(int rowID) const</argsstring>
+        <name>GetRow</name>
+        <param>
+          <type>int</type>
+          <declname>rowID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="77" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="77" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1a11ea58ca43e028123f628966eb4834a0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Vector" kindref="compound">JSL::Vector</ref></type>
+        <definition>JSL::Vector JSL::Matrix::GetColumn</definition>
+        <argsstring>(int colID) const</argsstring>
+        <name>GetColumn</name>
+        <param>
+          <type>int</type>
+          <declname>colID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="88" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="88" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1a23d8192e8a00d213693b82b3caeb0ceb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double &amp;</type>
+        <definition>double&amp; JSL::Matrix::operator()</definition>
+        <argsstring>(int rowID, int columnID)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>int</type>
+          <declname>rowID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>columnID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="119" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="119" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1ab5dd212faa491611c31288644db66a60" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double &amp;</type>
+        <definition>const double&amp; JSL::Matrix::operator()</definition>
+        <argsstring>(int rowID, int columnID) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>int</type>
+          <declname>rowID</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>columnID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="131" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="131" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1ae317e4316d0d40ce919fb22a9f4824a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+        <definition>Matrix&amp; JSL::Matrix::operator+=</definition>
+        <argsstring>(const Matrix &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>In-place addition of two matrices. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The matrix to be accumulated into the current object. Must be the same dimensions as the calling object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A reference to the now-modified calling object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="145" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="145" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1abec89912c20210f6b49c5d09e1c1845b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+        <definition>Matrix&amp; JSL::Matrix::operator-=</definition>
+        <argsstring>(const Matrix &amp;rhs)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>In-place subtraction of two matrices. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The matrix to be subtracted from the current object. Must be the same dimensions as the calling object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A reference to the now-modified calling object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="162" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="162" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1ae2dfa2fcbc80ee24c02125e5739bc0c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+        <definition>Matrix&amp; JSL::Matrix::operator+=</definition>
+        <argsstring>(const double &amp;scalar)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>scalar</declname>
+        </param>
+        <briefdescription>
+<para>In-place addition of a scalar onto the calling object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The double to be accumulated into the current object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A reference to the now-modified calling object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="179" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="179" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1a894ff64b1350616ddf2a48ec0f58e2c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+        <definition>Matrix&amp; JSL::Matrix::operator-=</definition>
+        <argsstring>(const double &amp;scalar)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>scalar</declname>
+        </param>
+        <briefdescription>
+<para>In-place subtraction of a scalar onto the calling object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The double to be subtracted from the current object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A reference to the now-modified calling object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="192" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="192" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1a3d9d4857ed227d7c6db87814f15af2ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+        <definition>Matrix&amp; JSL::Matrix::operator*=</definition>
+        <argsstring>(const double &amp;scalar)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>scalar</declname>
+        </param>
+        <briefdescription>
+<para>In-place multiplication of a scalar onto the calling object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The double to be accumulated into the current object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A reference to the now-modified calling object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="205" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="205" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1a2a9cdd54f835135496bf3e87aea4dfc9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+        <definition>Matrix&amp; JSL::Matrix::operator*=</definition>
+        <argsstring>(const Matrix &amp;rhs)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="217" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="217" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1a6caa5725c4dacc9a841147e80e9c43a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref> &amp;</type>
+        <definition>Matrix&amp; JSL::Matrix::operator/=</definition>
+        <argsstring>(const double &amp;scalar)</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>const double &amp;</type>
+          <declname>scalar</declname>
+        </param>
+        <briefdescription>
+<para>In-place division of a scalar onto the calling object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scalar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The double to divide the current object by. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A reference to the now-modified calling object </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="247" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="247" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classJSL_1_1Matrix_1abcf44559767ab6939851f0d3b60c6fa8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string JSL::Matrix::to_string</definition>
+        <argsstring>() const</argsstring>
+        <name>to_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="259" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="259" bodyend="281"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classJSL_1_1Matrix_1afd9edd73e5f559eed02b063d4c4e47f8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classJSL_1_1Matrix" kindref="compound">Matrix</ref></type>
+        <definition>static Matrix JSL::Matrix::Identity</definition>
+        <argsstring>(int n)</argsstring>
+        <name>Identity</name>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>specialised psuedo-constructor for the identity matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="108" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="108" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classJSL_1_1Matrix_1a92eb431da436e1e2922b211a9f158203" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string JSL::Matrix::outOfBoundsError</definition>
+        <argsstring>(int idx1, int idx2) const</argsstring>
+        <name>outOfBoundsError</name>
+        <param>
+          <type>int</type>
+          <declname>idx1</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="291" column="20" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="291" bodyend="296"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" line="12" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Maths/matrix.h" bodystart="11" bodyend="297"/>
+    <listofallmembers>
+      <member refid="classJSL_1_1Matrix_1a8aba7f9803b553df2aeae68aba3445f5" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>Columns</name></member>
+      <member refid="classJSL_1_1Matrix_1a446d23ba93238f3e2dfc79a3a4d5eb7e" prot="private" virt="non-virtual"><scope>JSL::Matrix</scope><name>Data</name></member>
+      <member refid="classJSL_1_1Matrix_1a11ea58ca43e028123f628966eb4834a0" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>GetColumn</name></member>
+      <member refid="classJSL_1_1Matrix_1aa8bae8650234f5e5569277563d68f22d" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>GetRow</name></member>
+      <member refid="classJSL_1_1Matrix_1afd9edd73e5f559eed02b063d4c4e47f8" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>Identity</name></member>
+      <member refid="classJSL_1_1Matrix_1a90ddd1113043b8959b0943be24f9ad9f" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>Matrix</name></member>
+      <member refid="classJSL_1_1Matrix_1ab6bc06d3dcc5f25f2083d3a3946378df" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>Matrix</name></member>
+      <member refid="classJSL_1_1Matrix_1ae6198f4beabaff7700265fffeb490ed7" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>Matrix</name></member>
+      <member refid="classJSL_1_1Matrix_1aef59f1402d2137e86aebf6b21f97ee6d" prot="private" virt="non-virtual"><scope>JSL::Matrix</scope><name>nCols</name></member>
+      <member refid="classJSL_1_1Matrix_1a7b7a081bbf419b613f19142a634b2cfa" prot="private" virt="non-virtual"><scope>JSL::Matrix</scope><name>nRows</name></member>
+      <member refid="classJSL_1_1Matrix_1a23d8192e8a00d213693b82b3caeb0ceb" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>operator()</name></member>
+      <member refid="classJSL_1_1Matrix_1ab5dd212faa491611c31288644db66a60" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>operator()</name></member>
+      <member refid="classJSL_1_1Matrix_1a3d9d4857ed227d7c6db87814f15af2ea" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>operator*=</name></member>
+      <member refid="classJSL_1_1Matrix_1a2a9cdd54f835135496bf3e87aea4dfc9" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>operator*=</name></member>
+      <member refid="classJSL_1_1Matrix_1ae317e4316d0d40ce919fb22a9f4824a7" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>operator+=</name></member>
+      <member refid="classJSL_1_1Matrix_1ae2dfa2fcbc80ee24c02125e5739bc0c1" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>operator+=</name></member>
+      <member refid="classJSL_1_1Matrix_1abec89912c20210f6b49c5d09e1c1845b" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>operator-=</name></member>
+      <member refid="classJSL_1_1Matrix_1a894ff64b1350616ddf2a48ec0f58e2c5" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>operator-=</name></member>
+      <member refid="classJSL_1_1Matrix_1a6caa5725c4dacc9a841147e80e9c43a4" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>operator/=</name></member>
+      <member refid="classJSL_1_1Matrix_1a92eb431da436e1e2922b211a9f158203" prot="private" virt="non-virtual"><scope>JSL::Matrix</scope><name>outOfBoundsError</name></member>
+      <member refid="classJSL_1_1Matrix_1af784cad8dcbb502c06be62e2e328ef6c" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>Rows</name></member>
+      <member refid="classJSL_1_1Matrix_1abcf44559767ab6939851f0d3b60c6fa8" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>to_string</name></member>
+      <member refid="classJSL_1_1Matrix_1a984691eac759ff0e8f98252d07be7e1a" prot="public" virt="non-virtual"><scope>JSL::Matrix</scope><name>Transpose</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

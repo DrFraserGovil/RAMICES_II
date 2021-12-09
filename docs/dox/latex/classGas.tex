@@ -1,0 +1,100 @@
+\hypertarget{classGas}{}\doxysection{Gas Class Reference}
+\label{classGas}\index{Gas@{Gas}}
+
+
+{\ttfamily \#include $<$Gas.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGas_a6506127f6d3c2f0e15e9592c1e0134ea}{Gas}} ()
+\item 
+\mbox{\hyperlink{classGas_a72c22f9017710f7c97af4f727e481bd4}{Gas}} (const std\+::vector$<$ double $>$ \&elements)
+\item 
+double \mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Mass}} ()
+\item 
+double \& \mbox{\hyperlink{classGas_ae68d91b5ab415a0478e7dcf14cfdc7ca}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} id)
+\item 
+const double \& \mbox{\hyperlink{classGas_a585dae425060668c22526512e5d7e2b5}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} id) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGas_a6e79d1e5d17931e7ea6a9f823016f648}{Empty}} ()
+\item 
+static \mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGas_a2b2398801ceb8fc5b08b00beab3b4eea}{Primordial}} (double mass)
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classGas_a3ed913e9c0c680090dfccb63d0aa6a8c}{Species}}
+\begin{DoxyCompactList}\small\item\em The central mass array. Has. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The most basic gas object there is -- an array of element-\/masses and some rules for interacting with it. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGas_a6506127f6d3c2f0e15e9592c1e0134ea}\label{classGas_a6506127f6d3c2f0e15e9592c1e0134ea}} 
+\index{Gas@{Gas}!Gas@{Gas}}
+\index{Gas@{Gas}!Gas@{Gas}}
+\doxysubsubsection{\texorpdfstring{Gas()}{Gas()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Gas\+::\+Gas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGas_a72c22f9017710f7c97af4f727e481bd4}\label{classGas_a72c22f9017710f7c97af4f727e481bd4}} 
+\index{Gas@{Gas}!Gas@{Gas}}
+\index{Gas@{Gas}!Gas@{Gas}}
+\doxysubsubsection{\texorpdfstring{Gas()}{Gas()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Gas\+::\+Gas (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{elements }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGas_a6e79d1e5d17931e7ea6a9f823016f648}\label{classGas_a6e79d1e5d17931e7ea6a9f823016f648}} 
+\index{Gas@{Gas}!Empty@{Empty}}
+\index{Empty@{Empty}!Gas@{Gas}}
+\doxysubsubsection{\texorpdfstring{Empty()}{Empty()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classGas}{Gas}} Gas\+::\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}\label{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}} 
+\index{Gas@{Gas}!Mass@{Mass}}
+\index{Mass@{Mass}!Gas@{Gas}}
+\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}}
+{\footnotesize\ttfamily double Gas\+::\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGas_ae68d91b5ab415a0478e7dcf14cfdc7ca}\label{classGas_ae68d91b5ab415a0478e7dcf14cfdc7ca}} 
+\index{Gas@{Gas}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Gas@{Gas}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double\& Gas\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGas_a585dae425060668c22526512e5d7e2b5}\label{classGas_a585dae425060668c22526512e5d7e2b5}} 
+\index{Gas@{Gas}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Gas@{Gas}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const double\& Gas\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{id }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classGas_a2b2398801ceb8fc5b08b00beab3b4eea}\label{classGas_a2b2398801ceb8fc5b08b00beab3b4eea}} 
+\index{Gas@{Gas}!Primordial@{Primordial}}
+\index{Primordial@{Primordial}!Gas@{Gas}}
+\doxysubsubsection{\texorpdfstring{Primordial()}{Primordial()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classGas}{Gas}} Gas\+::\+Primordial (\begin{DoxyParamCaption}\item[{double}]{mass }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classGas_a3ed913e9c0c680090dfccb63d0aa6a8c}\label{classGas_a3ed913e9c0c680090dfccb63d0aa6a8c}} 
+\index{Gas@{Gas}!Species@{Species}}
+\index{Species@{Species}!Gas@{Gas}}
+\doxysubsubsection{\texorpdfstring{Species}{Species}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Gas\+::\+Species}
+
+
+
+The central mass array. Has. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Gas/\mbox{\hyperlink{Gas_8h}{Gas.\+h}}\end{DoxyCompactItemize}

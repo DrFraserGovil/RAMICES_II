@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structMassKeeper" kind="struct" language="C++" prot="public">
+    <compoundname>MassKeeper</compoundname>
+    <includes refid="Galaxy_8h" local="no">Galaxy.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMassKeeper_1a1205002bb454490e99fc102a35d3b457" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MassKeeper::HotGas</definition>
+        <argsstring></argsstring>
+        <name>HotGas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="21" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMassKeeper_1a61a6c00543eaf720e7c9bdb3d9a3b4d0" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MassKeeper::ColdGas</definition>
+        <argsstring></argsstring>
+        <name>ColdGas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="22" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMassKeeper_1a3589f1fadd252ffddf31e1e044227d58" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MassKeeper::Stellar</definition>
+        <argsstring></argsstring>
+        <name>Stellar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="23" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMassKeeper_1a101f6cf470211606fdc3ef9021e720c8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double MassKeeper::Remnant</definition>
+        <argsstring></argsstring>
+        <name>Remnant</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="24" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structMassKeeper_1a47f93d636747b4bf98977ff60772943b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double MassKeeper::Total</definition>
+        <argsstring>()</argsstring>
+        <name>Total</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="17" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="17" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="16" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="15" bodyend="25"/>
+    <listofallmembers>
+      <member refid="structMassKeeper_1a61a6c00543eaf720e7c9bdb3d9a3b4d0" prot="public" virt="non-virtual"><scope>MassKeeper</scope><name>ColdGas</name></member>
+      <member refid="structMassKeeper_1a1205002bb454490e99fc102a35d3b457" prot="public" virt="non-virtual"><scope>MassKeeper</scope><name>HotGas</name></member>
+      <member refid="structMassKeeper_1a101f6cf470211606fdc3ef9021e720c8" prot="public" virt="non-virtual"><scope>MassKeeper</scope><name>Remnant</name></member>
+      <member refid="structMassKeeper_1a3589f1fadd252ffddf31e1e044227d58" prot="public" virt="non-virtual"><scope>MassKeeper</scope><name>Stellar</name></member>
+      <member refid="structMassKeeper_1a47f93d636747b4bf98977ff60772943b" prot="public" virt="non-virtual"><scope>MassKeeper</scope><name>Total</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

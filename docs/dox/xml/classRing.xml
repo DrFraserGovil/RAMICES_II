@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classRing" kind="class" language="C++" prot="public">
+    <compoundname>Ring</compoundname>
+    <includes refid="Ring_8h" local="no">Ring.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRing_1a07a56d858310883fcd0884168f672aa5" prot="public" static="no" mutable="no">
+        <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref></type>
+        <definition>GasReservoir Ring::Gas</definition>
+        <argsstring></argsstring>
+        <name>Gas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="22" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1a85ca5dfb0e8dda469a877943bb1a91d4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Ring::Radius</definition>
+        <argsstring></argsstring>
+        <name>Radius</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="23" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1a499c0d45f534f04a115573aa4f39743b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Ring::SurfaceDensity</definition>
+        <argsstring></argsstring>
+        <name>SurfaceDensity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="24" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1a854edeaee31fc2579f86d9dc4b8a77b7" prot="public" static="no" mutable="no">
+        <type><ref refid="classStellarPopulation" kindref="compound">StellarPopulation</ref></type>
+        <definition>StellarPopulation Ring::Stars</definition>
+        <argsstring></argsstring>
+        <name>Stars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="39" column="19" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRing_1aa4f60bfc8f60790513824b130569d78f" prot="private" static="no" mutable="no">
+        <type>Options *</type>
+        <definition>Options* Ring::Opts</definition>
+        <argsstring></argsstring>
+        <name>Opts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="41" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1a974990af6b5e342f8397acded3bc036d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Ring::Width</definition>
+        <argsstring></argsstring>
+        <name>Width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="44" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1ae504175835d37e56cee8fb0042ba49de" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Ring::InnerRadius</definition>
+        <argsstring></argsstring>
+        <name>InnerRadius</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="45" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1a8f8fe4995320dcc963d9e966b770fa22" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Ring::OuterRadius</definition>
+        <argsstring></argsstring>
+        <name>OuterRadius</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="46" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1a646e6b4dc69c04926fecd53f2a60a001" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Ring::Area</definition>
+        <argsstring></argsstring>
+        <name>Area</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="48" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1aaee9522e870bddc5fda5bd9d8c45dc82" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Ring::ID</definition>
+        <argsstring></argsstring>
+        <name>ID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="49" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1af2ad94d6e3c930a6a52cddb6bc61cf9b" prot="private" static="no" mutable="no">
+        <type><ref refid="classGalaxy" kindref="compound">Galaxy</ref> *</type>
+        <definition>Galaxy* Ring::Parent</definition>
+        <argsstring></argsstring>
+        <name>Parent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="50" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRing_1aaf04a946616f5ec362541acb5d8f64a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Ring::Mass</definition>
+        <argsstring>()</argsstring>
+        <name>Mass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="26" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classRing_1a3603a35a11069c3a09a325f592485888" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGasRequest" kindref="compound">GasRequest</ref></type>
+        <definition>GasRequest Ring::AccretionRequest</definition>
+        <argsstring>(double t, double newDensity, double newR)</argsstring>
+        <name>AccretionRequest</name>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>newDensity</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>newR</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="28" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classRing_1ac0e89b2ff4f16eb212df406612957324" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Ring::FormStars</definition>
+        <argsstring>(double t)</argsstring>
+        <name>FormStars</name>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="29" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classRing_1a02f9116714dc4f501caa8a2d3560357d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Ring::UpdateInternalProperties</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateInternalProperties</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="31" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classRing_1a571ecead833a1919a4d9791f3ac5ee00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; Ring::PropertyHeaders</definition>
+        <argsstring>()</argsstring>
+        <name>PropertyHeaders</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="34" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRing_1a971ecf443202c92aab533855a57da564" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; Ring::ReportProperties</definition>
+        <argsstring>(double t)</argsstring>
+        <name>ReportProperties</name>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="35" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRing_1ac171f1f73adeadb4cfbe90cc39664b3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Ring::Ring</definition>
+        <argsstring>(Options *opts)</argsstring>
+        <name>Ring</name>
+        <param>
+          <type>Options *</type>
+          <declname>opts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classRing_1a94ee90a62a38d0d5fcb80ecd8dde98f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Ring::Ring</definition>
+        <argsstring>(Options *opts, int id, double dr, Galaxy *parent)</argsstring>
+        <name>Ring</name>
+        <param>
+          <type>Options *</type>
+          <declname>opts</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dr</declname>
+        </param>
+        <param>
+          <type><ref refid="classGalaxy" kindref="compound">Galaxy</ref> *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="37" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRing_1a453e3dbe47906636b64305598d124d2e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Ring::RingMass</definition>
+        <argsstring>(double GalaxyMass, double ScaleLength)</argsstring>
+        <name>RingMass</name>
+        <param>
+          <type>double</type>
+          <declname>GalaxyMass</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>ScaleLength</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="52" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classRing_1a25774bb524fc42f8417ec778e265d3d5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Ring::StarFormationRate</definition>
+        <argsstring>()</argsstring>
+        <name>StarFormationRate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="54" column="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>Galaxy</label>
+        <link refid="classGalaxy"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Demosthenes</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>IGM</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Mass</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>YieldGrid</label>
+        <link refid="classYieldGrid"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>RelicType</edgelabel>
+          <edgelabel>RelicMass</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Ring</label>
+        <link refid="classRing"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Stars</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Gas</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Parent</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>StellarYield</label>
+        <link refid="classStellarYield"/>
+      </node>
+      <node id="3">
+        <label>GasReservoir</label>
+        <link refid="classGasReservoir"/>
+      </node>
+      <node id="7">
+        <label>MassKeeper</label>
+        <link refid="structMassKeeper"/>
+      </node>
+      <node id="2">
+        <label>StellarPopulation</label>
+        <link refid="classStellarPopulation"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="20" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="19" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classRing_1a3603a35a11069c3a09a325f592485888" prot="public" virt="non-virtual"><scope>Ring</scope><name>AccretionRequest</name></member>
+      <member refid="classRing_1a646e6b4dc69c04926fecd53f2a60a001" prot="private" virt="non-virtual"><scope>Ring</scope><name>Area</name></member>
+      <member refid="classRing_1ac0e89b2ff4f16eb212df406612957324" prot="public" virt="non-virtual"><scope>Ring</scope><name>FormStars</name></member>
+      <member refid="classRing_1a07a56d858310883fcd0884168f672aa5" prot="public" virt="non-virtual"><scope>Ring</scope><name>Gas</name></member>
+      <member refid="classRing_1aaee9522e870bddc5fda5bd9d8c45dc82" prot="private" virt="non-virtual"><scope>Ring</scope><name>ID</name></member>
+      <member refid="classRing_1ae504175835d37e56cee8fb0042ba49de" prot="private" virt="non-virtual"><scope>Ring</scope><name>InnerRadius</name></member>
+      <member refid="classRing_1aaf04a946616f5ec362541acb5d8f64a7" prot="public" virt="non-virtual"><scope>Ring</scope><name>Mass</name></member>
+      <member refid="classRing_1aa4f60bfc8f60790513824b130569d78f" prot="private" virt="non-virtual"><scope>Ring</scope><name>Opts</name></member>
+      <member refid="classRing_1a8f8fe4995320dcc963d9e966b770fa22" prot="private" virt="non-virtual"><scope>Ring</scope><name>OuterRadius</name></member>
+      <member refid="classRing_1af2ad94d6e3c930a6a52cddb6bc61cf9b" prot="private" virt="non-virtual"><scope>Ring</scope><name>Parent</name></member>
+      <member refid="classRing_1a571ecead833a1919a4d9791f3ac5ee00" prot="public" virt="non-virtual"><scope>Ring</scope><name>PropertyHeaders</name></member>
+      <member refid="classRing_1a85ca5dfb0e8dda469a877943bb1a91d4" prot="public" virt="non-virtual"><scope>Ring</scope><name>Radius</name></member>
+      <member refid="classRing_1a971ecf443202c92aab533855a57da564" prot="public" virt="non-virtual"><scope>Ring</scope><name>ReportProperties</name></member>
+      <member refid="classRing_1ac171f1f73adeadb4cfbe90cc39664b3c" prot="public" virt="non-virtual"><scope>Ring</scope><name>Ring</name></member>
+      <member refid="classRing_1a94ee90a62a38d0d5fcb80ecd8dde98f2" prot="public" virt="non-virtual"><scope>Ring</scope><name>Ring</name></member>
+      <member refid="classRing_1a453e3dbe47906636b64305598d124d2e" prot="private" virt="non-virtual"><scope>Ring</scope><name>RingMass</name></member>
+      <member refid="classRing_1a25774bb524fc42f8417ec778e265d3d5" prot="private" virt="non-virtual"><scope>Ring</scope><name>StarFormationRate</name></member>
+      <member refid="classRing_1a854edeaee31fc2579f86d9dc4b8a77b7" prot="public" virt="non-virtual"><scope>Ring</scope><name>Stars</name></member>
+      <member refid="classRing_1a499c0d45f534f04a115573aa4f39743b" prot="public" virt="non-virtual"><scope>Ring</scope><name>SurfaceDensity</name></member>
+      <member refid="classRing_1a02f9116714dc4f501caa8a2d3560357d" prot="public" virt="non-virtual"><scope>Ring</scope><name>UpdateInternalProperties</name></member>
+      <member refid="classRing_1a974990af6b5e342f8397acded3bc036d" prot="private" virt="non-virtual"><scope>Ring</scope><name>Width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

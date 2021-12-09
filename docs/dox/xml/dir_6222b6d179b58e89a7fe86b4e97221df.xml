@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_6222b6d179b58e89a7fe86b4e97221df" kind="dir">
+    <compoundname>/home/jack/Documents/Work/RAMICES_II/old_src/Stars</compoundname>
+    <innerfile refid="Star_8h">Star.h</innerfile>
+    <innerfile refid="StellarPopulation_8h">StellarPopulation.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/"/>
+  </compounddef>
+</doxygen>

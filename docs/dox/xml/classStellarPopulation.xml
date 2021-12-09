@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classStellarPopulation" kind="class" language="C++" prot="public">
+    <compoundname>StellarPopulation</compoundname>
+    <includes refid="StellarPopulation_8h" local="no">StellarPopulation.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classStellarPopulation_1a4f36818fc6ecfdd558ad003ce7e10019" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classStarSet" kindref="compound">StarSet</ref> &gt;</type>
+        <definition>std::vector&lt;StarSet&gt; StellarPopulation::Stars</definition>
+        <argsstring></argsstring>
+        <name>Stars</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h" line="10" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classStellarPopulation_1a4b4ed197645138392c812a2aabc4d480" prot="private" static="no" mutable="no">
+        <type>Options *</type>
+        <definition>Options* StellarPopulation::Opts</definition>
+        <argsstring></argsstring>
+        <name>Opts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h" line="18" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classStellarPopulation_1a77981d08b1f3e08d40cb0f037521ea78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StellarPopulation::StellarPopulation</definition>
+        <argsstring>()</argsstring>
+        <name>StellarPopulation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h" line="13" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarPopulation_1aebb8c7f64f5f745ba026641d144dfc51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StellarPopulation::StellarPopulation</definition>
+        <argsstring>(Options *opts)</argsstring>
+        <name>StellarPopulation</name>
+        <param>
+          <type>Options *</type>
+          <declname>opts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarPopulation_1aa39d2fd1bcfca874ba1a935b7d9a81d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double StellarPopulation::Mass</definition>
+        <argsstring>()</argsstring>
+        <name>Mass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h" line="16" column="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h" line="8" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h" bodystart="7" bodyend="20"/>
+    <listofallmembers>
+      <member refid="classStellarPopulation_1aa39d2fd1bcfca874ba1a935b7d9a81d0" prot="public" virt="non-virtual"><scope>StellarPopulation</scope><name>Mass</name></member>
+      <member refid="classStellarPopulation_1a4b4ed197645138392c812a2aabc4d480" prot="private" virt="non-virtual"><scope>StellarPopulation</scope><name>Opts</name></member>
+      <member refid="classStellarPopulation_1a4f36818fc6ecfdd558ad003ce7e10019" prot="public" virt="non-virtual"><scope>StellarPopulation</scope><name>Stars</name></member>
+      <member refid="classStellarPopulation_1a77981d08b1f3e08d40cb0f037521ea78" prot="public" virt="non-virtual"><scope>StellarPopulation</scope><name>StellarPopulation</name></member>
+      <member refid="classStellarPopulation_1aebb8c7f64f5f745ba026641d144dfc51" prot="public" virt="non-virtual"><scope>StellarPopulation</scope><name>StellarPopulation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

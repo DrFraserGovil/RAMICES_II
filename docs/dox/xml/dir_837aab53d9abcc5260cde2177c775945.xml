@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_837aab53d9abcc5260cde2177c775945" kind="dir">
+    <compoundname>/home/jack/Documents/Work/RAMICES_II/libs/JSL/Strings</compoundname>
+    <innerfile refid="split_8h">split.h</innerfile>
+    <innerfile refid="Strings_8h">Strings.h</innerfile>
+    <innerfile refid="Time_8h">Time.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/libs/JSL/Strings/"/>
+  </compounddef>
+</doxygen>

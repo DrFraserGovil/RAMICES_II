@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classLogStream" kind="class" language="C++" prot="public">
+    <compoundname>LogStream</compoundname>
+    <includes refid="Logger_8h" local="no">Logger.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classLogStream_1ad686b15a214aaff84bb4658bfe7f6823" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int LogStream::Level</definition>
+        <argsstring></argsstring>
+        <name>Level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/Logger.h" line="20" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/Logger.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classLogStream_1a56670710a5bca953cc30c7a623d05291" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LogStream::LogStream</definition>
+        <argsstring>(int level)</argsstring>
+        <name>LogStream</name>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/Logger.h" line="22" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/Logger.h" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classLogStream_1aa7d8127ced878dbea382025250170e8e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classLogStream" kindref="compound">LogStream</ref> &amp;</type>
+        <definition>LogStream&amp; LogStream::operator&lt;&lt;</definition>
+        <argsstring>(const T &amp;mValue)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>mValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/Logger.h" line="28" column="16" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/Logger.h" bodystart="28" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/Logger.h" line="18" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/GenericFunctions/Logger.h" bodystart="17" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classLogStream_1ad686b15a214aaff84bb4658bfe7f6823" prot="public" virt="non-virtual"><scope>LogStream</scope><name>Level</name></member>
+      <member refid="classLogStream_1a56670710a5bca953cc30c7a623d05291" prot="public" virt="non-virtual"><scope>LogStream</scope><name>LogStream</name></member>
+      <member refid="classLogStream_1aa7d8127ced878dbea382025250170e8e" prot="public" virt="non-virtual"><scope>LogStream</scope><name>operator&lt;&lt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

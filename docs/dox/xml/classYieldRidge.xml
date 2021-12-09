@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classYieldRidge" kind="class" language="C++" prot="public">
+    <compoundname>YieldRidge</compoundname>
+    <includes refid="YieldRidge_8h" local="no">YieldRidge.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classYieldRidge_1a6b9d1768e3ec318844eb35fb7ccc60db" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double YieldRidge::SourceID</definition>
+        <argsstring></argsstring>
+        <name>SourceID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="23" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classYieldRidge_1adbdf07b5253ca532487d425aecd18a21" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double YieldRidge::Z</definition>
+        <argsstring></argsstring>
+        <name>Z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="24" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classYieldRidge_1ae51cb55ca48605ef243d1bb90619de0c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structYieldPoint" kindref="compound">YieldPoint</ref> &gt;</type>
+        <definition>std::vector&lt;YieldPoint&gt; YieldRidge::Points</definition>
+        <argsstring></argsstring>
+        <name>Points</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="25" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classYieldRidge_1a505cdb763c0924e273bca1ac47826593" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool YieldRidge::Merged</definition>
+        <argsstring></argsstring>
+        <name>Merged</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="28" column="6" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classYieldRidge_1ac569016e1ac93e704a9dd65d4d28b67d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>YieldRidge::YieldRidge</definition>
+        <argsstring>()</argsstring>
+        <name>YieldRidge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="30" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classYieldRidge_1a970e62626d1624dbdf2cd0c1b8993415" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>YieldRidge::YieldRidge</definition>
+        <argsstring>(int id, double Z, int nPoints)</argsstring>
+        <name>YieldRidge</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>Z</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nPoints</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classYieldRidge_1a07557fb74cf0db94f4660a31abe0bf5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double YieldRidge::MassInterp</definition>
+        <argsstring>(double mass, Options *opts)</argsstring>
+        <name>MassInterp</name>
+        <param>
+          <type>double</type>
+          <declname>mass</declname>
+        </param>
+        <param>
+          <type>Options *</type>
+          <declname>opts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="33" column="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="21" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="20" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classYieldRidge_1a07557fb74cf0db94f4660a31abe0bf5e" prot="public" virt="non-virtual"><scope>YieldRidge</scope><name>MassInterp</name></member>
+      <member refid="classYieldRidge_1a505cdb763c0924e273bca1ac47826593" prot="public" virt="non-virtual"><scope>YieldRidge</scope><name>Merged</name></member>
+      <member refid="classYieldRidge_1ae51cb55ca48605ef243d1bb90619de0c" prot="public" virt="non-virtual"><scope>YieldRidge</scope><name>Points</name></member>
+      <member refid="classYieldRidge_1a6b9d1768e3ec318844eb35fb7ccc60db" prot="public" virt="non-virtual"><scope>YieldRidge</scope><name>SourceID</name></member>
+      <member refid="classYieldRidge_1ac569016e1ac93e704a9dd65d4d28b67d" prot="public" virt="non-virtual"><scope>YieldRidge</scope><name>YieldRidge</name></member>
+      <member refid="classYieldRidge_1a970e62626d1624dbdf2cd0c1b8993415" prot="public" virt="non-virtual"><scope>YieldRidge</scope><name>YieldRidge</name></member>
+      <member refid="classYieldRidge_1adbdf07b5253ca532487d425aecd18a21" prot="public" virt="non-virtual"><scope>YieldRidge</scope><name>Z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

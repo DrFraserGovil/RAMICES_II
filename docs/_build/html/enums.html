@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Global Enumerators &#8212; RAMICES_II 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Gas &amp; Containers" href="gas_master.html" />
+    <link rel="prev" title="Parameter Lists" href="params_list.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gas_master.html" title="Gas &amp; Containers"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="params_list.html" title="Parameter Lists"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RAMICES_II 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="params_master.html" accesskey="U">Global &amp; Runtime Parameters</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Global Enumerators</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="global-enumerators">
+<h1>Global Enumerators<a class="headerlink" href="#global-enumerators" title="Permalink to this headline">¶</a></h1>
+<p>Perhaps the only truly global parameters that we will be using - these define integer aliases for a number of finite lists.</p>
+<p>Because of the way that default-labelled enums work, we also take this opportunity to <a href="#id1"><span class="problematic" id="id2">`</span></a>count’ the number of elements in the arrays, using the final entry as a counting marker.</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv49ElementID">
+<span id="_CPPv39ElementID"></span><span id="_CPPv29ElementID"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ElementID</span></span></span><a class="headerlink" href="#_CPPv49ElementID" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines a globally recognised ordering of the elements + provides them with a nice readable name. The final entry should always be “ElementCount”, as the numbering system inherent in enums makes this true only if it is the last entry! </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID8HydrogenE">
+<span id="_CPPv3N9ElementID8HydrogenE"></span><span id="_CPPv2N9ElementID8HydrogenE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a20fa2720571344499f799d2839b23c7e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Hydrogen</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID8HydrogenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID6HeliumE">
+<span id="_CPPv3N9ElementID6HeliumE"></span><span id="_CPPv2N9ElementID6HeliumE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aa34644900f0e5c1f8961367a789bcd86"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Helium</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID6HeliumE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID6MetalsE">
+<span id="_CPPv3N9ElementID6MetalsE"></span><span id="_CPPv2N9ElementID6MetalsE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a9da6d40a92c5df1a279634c5290edc4c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Metals</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID6MetalsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID4IronE">
+<span id="_CPPv3N9ElementID4IronE"></span><span id="_CPPv2N9ElementID4IronE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a8750950e70ba4037061ecd568a56b944"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Iron</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID4IronE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID6OxygenE">
+<span id="_CPPv3N9ElementID6OxygenE"></span><span id="_CPPv2N9ElementID6OxygenE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15ae54b22e3be885eb43db3925118a89f02"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Oxygen</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID6OxygenE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID9MagnesiumE">
+<span id="_CPPv3N9ElementID9MagnesiumE"></span><span id="_CPPv2N9ElementID9MagnesiumE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aff5ab7e500a1c16d48b11aa93bb60439"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Magnesium</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID9MagnesiumE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID6CarbonE">
+<span id="_CPPv3N9ElementID6CarbonE"></span><span id="_CPPv2N9ElementID6CarbonE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a29aed61cddc081ff18d77c441b9fedb2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Carbon</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID6CarbonE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID7SiliconE">
+<span id="_CPPv3N9ElementID7SiliconE"></span><span id="_CPPv2N9ElementID7SiliconE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af260a42c612c683947aba40e8e49142a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Silicon</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID7SiliconE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID7CalciumE">
+<span id="_CPPv3N9ElementID7CalciumE"></span><span id="_CPPv2N9ElementID7CalciumE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a40f67c18f45fbcb3396df8fb55e41145"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Calcium</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID7CalciumE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID9ManganeseE">
+<span id="_CPPv3N9ElementID9ManganeseE"></span><span id="_CPPv2N9ElementID9ManganeseE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a2481971aeae9ed91247d0e6c69447bcf"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Manganese</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID9ManganeseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID8ChromiumE">
+<span id="_CPPv3N9ElementID8ChromiumE"></span><span id="_CPPv2N9ElementID8ChromiumE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a306622f80fd1cfd979de999e20c08a91"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Chromium</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID8ChromiumE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID6CobaltE">
+<span id="_CPPv3N9ElementID6CobaltE"></span><span id="_CPPv2N9ElementID6CobaltE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a075486eef49beec48c269d23371d4ba7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Cobalt</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID6CobaltE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID8EuropiumE">
+<span id="_CPPv3N9ElementID8EuropiumE"></span><span id="_CPPv2N9ElementID8EuropiumE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15acb3c47b24392c8c6560eb7a7060a3dd9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Europium</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID8EuropiumE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N9ElementID12ElementCountE">
+<span id="_CPPv3N9ElementID12ElementCountE"></span><span id="_CPPv2N9ElementID12ElementCountE"></span><span class="target" id="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ElementCount</span></span></span><a class="headerlink" href="#_CPPv4N9ElementID12ElementCountE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv413SourceProcess">
+<span id="_CPPv313SourceProcess"></span><span id="_CPPv213SourceProcess"></span><span class="target" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SourceProcess</span></span></span><a class="headerlink" href="#_CPPv413SourceProcess" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Defines a globally recognised set of aliases for sources of gas, used to label GasStream objects. As with ElementID, final entry is used to count the number of elements. This must always be the final entry! </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SourceProcess10PrimordialE">
+<span id="_CPPv3N13SourceProcess10PrimordialE"></span><span id="_CPPv2N13SourceProcess10PrimordialE"></span><span class="target" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Primordial</span></span></span><a class="headerlink" href="#_CPPv4N13SourceProcess10PrimordialE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SourceProcess8AccretedE">
+<span id="_CPPv3N13SourceProcess8AccretedE"></span><span id="_CPPv2N13SourceProcess8AccretedE"></span><span class="target" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba5eded54a4939154f3a8794b2e3702935"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Accreted</span></span></span><a class="headerlink" href="#_CPPv4N13SourceProcess8AccretedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SourceProcess4CCSNE">
+<span id="_CPPv3N13SourceProcess4CCSNE"></span><span id="_CPPv2N13SourceProcess4CCSNE"></span><span class="target" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba6b931856a2c41dafbac513228fead00d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CCSN</span></span></span><a class="headerlink" href="#_CPPv4N13SourceProcess4CCSNE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SourceProcess4SNIaE">
+<span id="_CPPv3N13SourceProcess4SNIaE"></span><span id="_CPPv2N13SourceProcess4SNIaE"></span><span class="target" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238baf91104016e7ac32d698e35719246e224"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SNIa</span></span></span><a class="headerlink" href="#_CPPv4N13SourceProcess4SNIaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SourceProcess3NSME">
+<span id="_CPPv3N13SourceProcess3NSME"></span><span id="_CPPv2N13SourceProcess3NSME"></span><span class="target" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238badb82d907ddf6c04771cbaefe83152476"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NSM</span></span></span><a class="headerlink" href="#_CPPv4N13SourceProcess3NSME" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SourceProcess10CollapsarsE">
+<span id="_CPPv3N13SourceProcess10CollapsarsE"></span><span id="_CPPv2N13SourceProcess10CollapsarsE"></span><span class="target" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba708c0e4c443c8d8788ac87e0921883eb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Collapsars</span></span></span><a class="headerlink" href="#_CPPv4N13SourceProcess10CollapsarsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SourceProcess7UnknownE">
+<span id="_CPPv3N13SourceProcess7UnknownE"></span><span id="_CPPv2N13SourceProcess7UnknownE"></span><span class="target" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Unknown</span></span></span><a class="headerlink" href="#_CPPv4N13SourceProcess7UnknownE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SourceProcess12ProcessCountE">
+<span id="_CPPv3N13SourceProcess12ProcessCountE"></span><span id="_CPPv2N13SourceProcess12ProcessCountE"></span><span class="target" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ProcessCount</span></span></span><a class="headerlink" href="#_CPPv4N13SourceProcess12ProcessCountE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="params_list.html"
+                        title="previous chapter">Parameter Lists</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gas_master.html"
+                        title="next chapter">Gas &amp; Containers</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/enums.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gas_master.html" title="Gas &amp; Containers"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="params_list.html" title="Parameter Lists"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">RAMICES_II 0.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="params_master.html" >Global &amp; Runtime Parameters</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Global Enumerators</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, J. Fraser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
+    </div>
+  </body>
+</html>

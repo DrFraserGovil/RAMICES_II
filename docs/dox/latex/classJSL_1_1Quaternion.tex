@@ -1,0 +1,158 @@
+\hypertarget{classJSL_1_1Quaternion}{}\doxysection{J\+SL\+::Quaternion Class Reference}
+\label{classJSL_1_1Quaternion}\index{JSL::Quaternion@{JSL::Quaternion}}
+
+
+{\ttfamily \#include $<$Q\+\_\+temp.\+h$>$}
+
+Inheritance diagram for J\+SL\+::Quaternion\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classJSL_1_1Quaternion}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classJSL_1_1Quaternion_a3bfe577832b38cdf2dbbb143c9487add}{Quaternion}} ()
+\item 
+\mbox{\hyperlink{classJSL_1_1Quaternion_ae31be96e94176f1e5278cfaeba39dedc}{Quaternion}} (const double \&scalar, const \mbox{\hyperlink{classJSL_1_1Vector}{J\+S\+L\+::\+Vector}} \&vec)
+\item 
+\mbox{\hyperlink{classJSL_1_1Quaternion_ac0fa428adfcbc3db2eff9b5c86e7a075}{Quaternion}} (const double \&a, const double \&b, const double \&c, const double \&d)
+\item 
+\mbox{\hyperlink{classJSL_1_1Quaternion_a6b71605f5fafada8e94bab1bf9af55bd}{Quaternion}} (const \mbox{\hyperlink{classJSL_1_1Vector}{J\+S\+L\+::\+Vector}} \&vec4)
+\item 
+\mbox{\hyperlink{classJSL_1_1Quaternion_a738b4fb82caf2a0334818ac4e6c494de}{Quaternion}} (const std\+::vector$<$ double $>$ \&vec4)
+\item 
+double \& \mbox{\hyperlink{classJSL_1_1Quaternion_a67d6b60a4863985f94d23c68953dcd91}{Scalar}} ()
+\item 
+double \& \mbox{\hyperlink{classJSL_1_1Quaternion_a92b7311aecae986edb373e0b40d5bfdd}{Vector}} (int id)
+\item 
+const double \& \mbox{\hyperlink{classJSL_1_1Quaternion_aba8a8ac1d2101f8b374387349412035b}{Scalar}} () const
+\item 
+const double \& \mbox{\hyperlink{classJSL_1_1Quaternion_a5243fa5db9d466bf1485a83325a682b0}{Vector}} (int id) const
+\item 
+\mbox{\hyperlink{classJSL_1_1Vector}{J\+S\+L\+::\+Vector}} \mbox{\hyperlink{classJSL_1_1Quaternion_a0255f2026ec4af9cff42d09d2309af01}{Vector}} () const
+\item 
+\mbox{\hyperlink{classJSL_1_1Quaternion}{Quaternion}} \mbox{\hyperlink{classJSL_1_1Quaternion_a9bea717f4cd1b5d4e3bdb8eedfbaed2c}{Conjugate}} () const
+\item 
+\mbox{\hyperlink{classJSL_1_1Matrix}{J\+S\+L\+::\+Matrix}} \mbox{\hyperlink{classJSL_1_1Quaternion_ada6a7067e13b60a65a6103f7508f62f3}{Left\+Multiplication\+Matrix}} () const
+\item 
+\mbox{\hyperlink{classJSL_1_1Matrix}{J\+S\+L\+::\+Matrix}} \mbox{\hyperlink{classJSL_1_1Quaternion_a081b38fc741f2dc9d4f2b955acbed833}{Right\+Multiplication\+Matrix}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classJSL_1_1Quaternion}{Quaternion}} \mbox{\hyperlink{classJSL_1_1Quaternion_adf0c22bf67a2ab873b998b34583de2e0}{One}} ()
+\item 
+static \mbox{\hyperlink{classJSL_1_1Quaternion}{Quaternion}} \mbox{\hyperlink{classJSL_1_1Quaternion_a63e84edb5230efc8378d86b5d182221d}{Zero}} ()
+\item 
+static \mbox{\hyperlink{classJSL_1_1Quaternion}{Quaternion}} \mbox{\hyperlink{classJSL_1_1Quaternion_a8d47df19d5d74b82a8e348391e8ef8c4}{Random}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a3bfe577832b38cdf2dbbb143c9487add}\label{classJSL_1_1Quaternion_a3bfe577832b38cdf2dbbb143c9487add}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily J\+S\+L\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_ae31be96e94176f1e5278cfaeba39dedc}\label{classJSL_1_1Quaternion_ae31be96e94176f1e5278cfaeba39dedc}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily J\+S\+L\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{const double \&}]{scalar,  }\item[{const \mbox{\hyperlink{classJSL_1_1Vector}{J\+S\+L\+::\+Vector}} \&}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_ac0fa428adfcbc3db2eff9b5c86e7a075}\label{classJSL_1_1Quaternion_ac0fa428adfcbc3db2eff9b5c86e7a075}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily J\+S\+L\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{const double \&}]{a,  }\item[{const double \&}]{b,  }\item[{const double \&}]{c,  }\item[{const double \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a6b71605f5fafada8e94bab1bf9af55bd}\label{classJSL_1_1Quaternion_a6b71605f5fafada8e94bab1bf9af55bd}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily J\+S\+L\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classJSL_1_1Vector}{J\+S\+L\+::\+Vector}} \&}]{vec4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a738b4fb82caf2a0334818ac4e6c494de}\label{classJSL_1_1Quaternion_a738b4fb82caf2a0334818ac4e6c494de}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Quaternion()}{Quaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily J\+S\+L\+::\+Quaternion\+::\+Quaternion (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{vec4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a9bea717f4cd1b5d4e3bdb8eedfbaed2c}\label{classJSL_1_1Quaternion_a9bea717f4cd1b5d4e3bdb8eedfbaed2c}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Conjugate@{Conjugate}}
+\index{Conjugate@{Conjugate}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Conjugate()}{Conjugate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Quaternion}{Quaternion}} J\+S\+L\+::\+Quaternion\+::\+Conjugate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_ada6a7067e13b60a65a6103f7508f62f3}\label{classJSL_1_1Quaternion_ada6a7067e13b60a65a6103f7508f62f3}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!LeftMultiplicationMatrix@{LeftMultiplicationMatrix}}
+\index{LeftMultiplicationMatrix@{LeftMultiplicationMatrix}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{LeftMultiplicationMatrix()}{LeftMultiplicationMatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Matrix}{J\+S\+L\+::\+Matrix}} J\+S\+L\+::\+Quaternion\+::\+Left\+Multiplication\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_adf0c22bf67a2ab873b998b34583de2e0}\label{classJSL_1_1Quaternion_adf0c22bf67a2ab873b998b34583de2e0}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!One@{One}}
+\index{One@{One}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{One()}{One()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classJSL_1_1Quaternion}{Quaternion}} J\+S\+L\+::\+Quaternion\+::\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a8d47df19d5d74b82a8e348391e8ef8c4}\label{classJSL_1_1Quaternion_a8d47df19d5d74b82a8e348391e8ef8c4}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Random@{Random}}
+\index{Random@{Random}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Random()}{Random()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classJSL_1_1Quaternion}{Quaternion}} J\+S\+L\+::\+Quaternion\+::\+Random (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a081b38fc741f2dc9d4f2b955acbed833}\label{classJSL_1_1Quaternion_a081b38fc741f2dc9d4f2b955acbed833}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!RightMultiplicationMatrix@{RightMultiplicationMatrix}}
+\index{RightMultiplicationMatrix@{RightMultiplicationMatrix}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{RightMultiplicationMatrix()}{RightMultiplicationMatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Matrix}{J\+S\+L\+::\+Matrix}} J\+S\+L\+::\+Quaternion\+::\+Right\+Multiplication\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a67d6b60a4863985f94d23c68953dcd91}\label{classJSL_1_1Quaternion_a67d6b60a4863985f94d23c68953dcd91}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Scalar()}{Scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double\& J\+S\+L\+::\+Quaternion\+::\+Scalar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_aba8a8ac1d2101f8b374387349412035b}\label{classJSL_1_1Quaternion_aba8a8ac1d2101f8b374387349412035b}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Scalar@{Scalar}}
+\index{Scalar@{Scalar}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Scalar()}{Scalar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const double\& J\+S\+L\+::\+Quaternion\+::\+Scalar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a0255f2026ec4af9cff42d09d2309af01}\label{classJSL_1_1Quaternion_a0255f2026ec4af9cff42d09d2309af01}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Vector@{Vector}}
+\index{Vector@{Vector}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Vector}{J\+S\+L\+::\+Vector}} J\+S\+L\+::\+Quaternion\+::\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a92b7311aecae986edb373e0b40d5bfdd}\label{classJSL_1_1Quaternion_a92b7311aecae986edb373e0b40d5bfdd}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Vector@{Vector}}
+\index{Vector@{Vector}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily double\& J\+S\+L\+::\+Quaternion\+::\+Vector (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a5243fa5db9d466bf1485a83325a682b0}\label{classJSL_1_1Quaternion_a5243fa5db9d466bf1485a83325a682b0}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Vector@{Vector}}
+\index{Vector@{Vector}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily const double\& J\+S\+L\+::\+Quaternion\+::\+Vector (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classJSL_1_1Quaternion_a63e84edb5230efc8378d86b5d182221d}\label{classJSL_1_1Quaternion_a63e84edb5230efc8378d86b5d182221d}} 
+\index{JSL::Quaternion@{JSL::Quaternion}!Zero@{Zero}}
+\index{Zero@{Zero}!JSL::Quaternion@{JSL::Quaternion}}
+\doxysubsubsection{\texorpdfstring{Zero()}{Zero()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classJSL_1_1Quaternion}{Quaternion}} J\+S\+L\+::\+Quaternion\+::\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/libs/\+J\+S\+L/\+Maths/\mbox{\hyperlink{Q__temp_8h}{Q\+\_\+temp.\+h}}\end{DoxyCompactItemize}

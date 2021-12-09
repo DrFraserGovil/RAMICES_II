@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structYieldBracket" kind="struct" language="C++" prot="public">
+    <compoundname>YieldBracket</compoundname>
+    <includes refid="YieldRidge_8h" local="no">YieldRidge.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structYieldBracket_1a9f834c019d58825c87c3d0d3d252dc80" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool YieldBracket::isEnclosed</definition>
+        <argsstring></argsstring>
+        <name>isEnclosed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="38" column="6" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structYieldBracket_1acdf5f0eecea0363668780a8de710b332" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool YieldBracket::hasSingle</definition>
+        <argsstring></argsstring>
+        <name>hasSingle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="39" column="6" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structYieldBracket_1a85eabbd462db24334a50830c142d664d" prot="public" static="no" mutable="no">
+        <type><ref refid="classYieldRidge" kindref="compound">YieldRidge</ref></type>
+        <definition>YieldRidge YieldBracket::UpperRidge</definition>
+        <argsstring></argsstring>
+        <name>UpperRidge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="40" column="12" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structYieldBracket_1ab1e158ccdbb0973c42c5d0c9820537c0" prot="public" static="no" mutable="no">
+        <type><ref refid="classYieldRidge" kindref="compound">YieldRidge</ref></type>
+        <definition>YieldRidge YieldBracket::LowerRidge</definition>
+        <argsstring></argsstring>
+        <name>LowerRidge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="41" column="12" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structYieldBracket_1afda57a4e243a20ffbc44c36fe22501d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>YieldBracket::YieldBracket</definition>
+        <argsstring>()</argsstring>
+        <name>YieldBracket</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="43" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structYieldBracket_1a53658400d9935aadccc5b318f69e23f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>YieldBracket::YieldBracket</definition>
+        <argsstring>(YieldRidge r1, YieldRidge r2)</argsstring>
+        <name>YieldBracket</name>
+        <param>
+          <type><ref refid="classYieldRidge" kindref="compound">YieldRidge</ref></type>
+          <declname>r1</declname>
+        </param>
+        <param>
+          <type><ref refid="classYieldRidge" kindref="compound">YieldRidge</ref></type>
+          <declname>r2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="48" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="48" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="structYieldBracket_1a860a73d7db3c90e805c56a0eec682b0e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>YieldBracket::YieldBracket</definition>
+        <argsstring>(YieldRidge r1)</argsstring>
+        <name>YieldBracket</name>
+        <param>
+          <type><ref refid="classYieldRidge" kindref="compound">YieldRidge</ref></type>
+          <declname>r1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="54" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="54" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>YieldBracket</label>
+        <link refid="structYieldBracket"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>UpperRidge</edgelabel>
+          <edgelabel>LowerRidge</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>YieldRidge</label>
+        <link refid="classYieldRidge"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" line="37" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h" bodystart="36" bodyend="62"/>
+    <listofallmembers>
+      <member refid="structYieldBracket_1acdf5f0eecea0363668780a8de710b332" prot="public" virt="non-virtual"><scope>YieldBracket</scope><name>hasSingle</name></member>
+      <member refid="structYieldBracket_1a9f834c019d58825c87c3d0d3d252dc80" prot="public" virt="non-virtual"><scope>YieldBracket</scope><name>isEnclosed</name></member>
+      <member refid="structYieldBracket_1ab1e158ccdbb0973c42c5d0c9820537c0" prot="public" virt="non-virtual"><scope>YieldBracket</scope><name>LowerRidge</name></member>
+      <member refid="structYieldBracket_1a85eabbd462db24334a50830c142d664d" prot="public" virt="non-virtual"><scope>YieldBracket</scope><name>UpperRidge</name></member>
+      <member refid="structYieldBracket_1afda57a4e243a20ffbc44c36fe22501d8" prot="public" virt="non-virtual"><scope>YieldBracket</scope><name>YieldBracket</name></member>
+      <member refid="structYieldBracket_1a53658400d9935aadccc5b318f69e23f9" prot="public" virt="non-virtual"><scope>YieldBracket</scope><name>YieldBracket</name></member>
+      <member refid="structYieldBracket_1a860a73d7db3c90e805c56a0eec682b0e" prot="public" virt="non-virtual"><scope>YieldBracket</scope><name>YieldBracket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
