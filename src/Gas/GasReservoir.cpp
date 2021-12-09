@@ -28,7 +28,7 @@ const GasStream & GasReservoir::operator[](SourceProcess source) const
 }
 GasStream & GasReservoir::operator[](SourceProcess source)
 {
-	Components[source].Dirty();
+	Components[source].Dirty(); //non-constant reference so have to alert the Stream that somebody has been touching its stuff
 	return Components[source];
 }
 

@@ -10,12 +10,13 @@ class GasStream
 		//!A label identifying where and how this gas stream was created
 		SourceProcess Source;
 		
-		//!The container for the hot component
-		Gas Hot;
+		double & Hot(ElementID el);
 		
-		//!The container for the cold component
-		Gas Cold;
-	
+		double & Cold(ElementID el);
+		
+		const double & Hot(ElementID el) const;
+		const double & Cold(ElementID el) const;
+		
 		//! Default constructor -- assigns itself as ::Unknown, with zero mass
 		GasStream();
 		
@@ -39,6 +40,11 @@ class GasStream
 		
 		//! Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental abundances the same \param amountToRemove The amount of mass to lose from the stream
 		void Deplete(double amountToRemove);
+		
+		//~ void DepleteFraction(double fraction)
+		//~ {
+				//~ Deplete(fraction* Mass());
+		//~ }
 		
 		//! Removes (i.e. throws away) the mass from the hot and cold components, keeping the individual elemental abundances the same \param amountToRemove_Cold, the amount of cold gas to lose \param amountToRemove_Hot, the amount of hot gas to lose
 		void Deplete(double amountToRemove_Cold, double amountToRemove_Hot);
@@ -68,5 +74,11 @@ class GasStream
 		
 		//! If #NeedsRecomputing is true, this recalculates #internal_HotMass and #internal_ColdMass 
 		void ComputeMasses();
+		
+		//!The container for the hot component
+		Gas internal_Hot;
+		
+		//!The container for the cold component
+		Gas internal_Cold;
 };
 
