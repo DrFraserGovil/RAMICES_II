@@ -6,7 +6,7 @@ GasReservoir::GasReservoir()
 	//make sure each stream has its own label correctly
 	for (int i = 0; i < ProcessCount; ++i)
 	{
-		Components[i].Source = (ProcessSource)i;
+		Components[i].Source = (SourceProcess)i;
 	}
 }
 

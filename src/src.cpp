@@ -18,7 +18,8 @@ void printRes(GasReservoir r)
 		std::cout << "From process " << c << ": \n";
 		for (int i = 0; i < ElementCount; ++i)
 		{
-			std::cout << "\tElement " << i << " Cold = " << stream.Cold.Species[i] << "  Hot = " << stream.Hot.Species[i] << std::endl;
+			ElementID elem = (ElementID)i;
+			std::cout << "\tElement " << i << " Cold = " << stream.Cold[elem] << "  Hot = " << stream.Hot[elem] << std::endl;
 		}
 	}
 }

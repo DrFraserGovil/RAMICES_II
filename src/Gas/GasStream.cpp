@@ -19,15 +19,16 @@ GasStream::GasStream(SourceProcess source, const Gas & input, double hotFrac)
 {
 	Source = source;
 	NeedsRecomputing = true;
-	StreamIn(input, hotFrac);
+	Absorb(input, hotFrac);
 }
 
 void GasStream::Absorb(const GasStream & input)
 {
 	for (int i = 0; i < ElementCount; ++i)
 	{
-		Cold.Species[i] += input.Cold.Species[i];
-		Hot.Species[i] += input.Hot.Species[i];
+		ElementID e = (ElementID)i;
+		Cold[e] += input.Cold[e];
+		Hot[e] += input.Hot[e];
 	}
 	NeedsRecomputing = true;
 }
@@ -40,13 +41,14 @@ void GasStream::Deplete(double amountToLose)
 	//~ std::cout << lossFraction << std::endl;
 	for (int i = 0; i < ElementCount; ++i)
 	{
-		if (Cold.Species[i] > 0)
+		ElementID e = (ElementID)i;
+		if (Cold[e] > 0)
 		{
-			Cold.Species[i] *= (1.0 - coldLossFraction);
+			Cold[e] *= (1.0 - coldLossFraction);
 		}
-		if (Hot.Species[i] > 0)
+		if (Hot[e] > 0)
 		{
-			Hot.Species[i] *= (1.0 - hotLossFraction);	
+			Hot[e] *= (1.0 - hotLossFraction);	
 		}	
 	}
 	NeedsRecomputing = true;
@@ -56,8 +58,9 @@ void GasStream::Absorb(const Gas & input, double hotFrac)
 	double coldFrac = (1.0 - hotFrac);
 	for (int i = 0; i < ElementCount; ++i)
 	{
-		Cold.Species[i] += coldFrac * input.Species[i];
-		Hot.Species[i] += hotFrac * input.Species[i];
+		
+		Cold[(ElementID)i] += coldFrac * input[(ElementID)i];
+		Hot[(ElementID)i] += hotFrac * input[(ElementID)i];
 	}
 	NeedsRecomputing = true;
 }

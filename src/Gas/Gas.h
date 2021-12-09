@@ -24,14 +24,18 @@ class Gas
 		//! An annoyingly necessary redeclaration for when the object is const and normal references don't behave nicely
 		const double & operator[](ElementID id) const;
 		
+		//! \return A gas object of the specified mass but with a primordial elemental abundance distribution (X = 0.75, Y = 0.25 etc)
+		static Gas Primordial(double mass);
+		
+		//! \return A default-constructed object, but name is clear that the object is empty
+		static Gas Empty();
+		
 	private:
 		//! The central mass array. Has ::ElementCount elements, indexed by ElementID
 		std::vector<double> Species;
 	
-		//! \return A default-constructed object, but name is clear that the object is empty
-		static Gas Empty();
 		
-		//! \return A gas object of the specified mass but with a primordial elemental abundance distribution (X = 0.75, Y = 0.25 etc)
-		static Gas Primordial(double mass);
+		
+	
 };
 
