@@ -16,8 +16,11 @@ class GlobalParameters
 {
 
 	public:
-		//! Simulation values - timescales, output directories etc
+		//! Simulation values - timescales, number of threads etc
 		MetaValues Meta;
+		
+		//!Output directory values -- directory information etc.
+		OutputValues Output;
 		
 		//! Abundance data + resource location data
 		ElementValues Element;
@@ -32,7 +35,7 @@ class GlobalParameters
 		GalaxyValues Galaxy;
 
 		//! A heterogeneous pointer array, which allows for a nice loop over the members. Any new parameter pack needs to be inserted here so that the member values can be initialised.
-		std::vector<ParamList *> ParamMembers = {&Meta,&Element,&Stellar,&Thermal,&Galaxy};
+		std::vector<ParamList *> ParamMembers = {&Meta,&Output,&Element,&Stellar,&Thermal,&Galaxy};
 		
 		//! Does absolutely nothing!
 		GlobalParameters();

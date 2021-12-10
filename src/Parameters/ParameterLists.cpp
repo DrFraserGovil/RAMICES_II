@@ -1,7 +1,24 @@
 #include "ParameterLists.h"
 
+void MetaValues::Initialise(std::string resourceRoot)
+{
+	SimulationSteps = ceil(SimulationDuration / TimeStep);
+}
+
+void OutputValues::Initialise(std::string resourceRoot)
+{
+	JSL::mkdir(Root.Value);
+	GalacticDirectory.Value = Root.Value + "/" + GalacticDirectory.Value;
+	JSL::mkdir(GalacticDirectory.Value);
+	
+	GalaxyMassFile.Value = GalacticDirectory.Value + "/" + GalaxyMassFile.Value;
+	JSL::initialiseFile(GalaxyMassFile.Value);
+}
+
+
 void ElementValues::GiveElementsNames()
 {
+	//pretty sure there must be a more intelligent way to do this....but I can guarantee that this preserves the ordering of the enum!
 	ElementNames.resize(ElementCount);
 	ElementNames[Hydrogen] = "H";
 	ElementNames[Helium] = "He";

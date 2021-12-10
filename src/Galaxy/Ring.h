@@ -7,17 +7,21 @@
 class Ring
 {
 	public:
-		//~ Ring();
+		//! Initialises itself into a primordial state
 		Ring(int radiusIndex, double mass, const GlobalParameters & param);
 	
 		double Mass();
-	private:
+		const double Radius;
+		const double Width;
 		//Relic Reservoir
 		//Star Reservoir
 		GasReservoir Gas;
-		double Radius;
+		
+	private:
+		
+		
 		int RadiusIndex;
-		double Width;
+		
 		double Area;
 	
 		const GlobalParameters & Param;

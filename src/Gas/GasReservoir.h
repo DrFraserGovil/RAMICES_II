@@ -15,6 +15,9 @@ class GasReservoir
 		//! Default constructor. Initialises the #Components and gives them their #SourceProcess ID.
 		GasReservoir();
 		
+		//! useful constructor
+		GasReservoir(const GlobalParameters & param);
+		
 		//! A vector-like access overload, allowing indexing into the #Components vector using appropriate #SourceProcesses
 		GasStream & operator[](SourceProcess source);
 		
@@ -44,15 +47,24 @@ class GasReservoir
 		void Deplete(double amountToLose_Cold, double amountToLose_Hot);
 		
 		
+		
+		//! Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object
+		void TransferFrom(GasReservoir & givingGas, double massToMove);
+		
+		//! Extracts the chosen amount of cold gas from the reservoir, and puts it into an accretion stream
+		GasStream AccretionStream(double amountToLose);
+		
 		//! Generates a primordial gas reservoir of the specified mass -- only the ::Primordial component is populated, with the nature of that component determined by several key parameters in GlobalParameters \param mass The total mass of the new reservoir \param param A reference to the global parameter set - required for primordial abundances and hot-gas fractions 
 		static GasReservoir Primordial(double mass, const GlobalParameters & param);
-		
+		void PrintSelf();
 	private:
 	
 		//! A representation of the total amount of gas within the reservoir, separated by the origin of the gas
 		std::vector<GasStream> Components;
 		
-	
+		const GlobalParameters & Param;
+		
+		
 		
 };
 
