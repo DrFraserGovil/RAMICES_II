@@ -10,7 +10,7 @@ GasReservoir::GasReservoir()
 	}
 }
 
-GasReservoir GasReservoir::Primordial(double mass, GlobalParameters & param)
+GasReservoir GasReservoir::Primordial(double mass, const GlobalParameters & param)
 {
 	GasReservoir prim;
 	

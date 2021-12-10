@@ -45,7 +45,7 @@ class GasReservoir
 		
 		
 		//! Generates a primordial gas reservoir of the specified mass -- only the ::Primordial component is populated, with the nature of that component determined by several key parameters in GlobalParameters \param mass The total mass of the new reservoir \param param A reference to the global parameter set - required for primordial abundances and hot-gas fractions 
-		static GasReservoir Primordial(double mass, GlobalParameters & param);
+		static GasReservoir Primordial(double mass, const GlobalParameters & param);
 		
 	private:
 	
