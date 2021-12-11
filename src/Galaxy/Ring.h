@@ -3,7 +3,7 @@
 
 #include "../Parameters/GlobalParameters.h"
 #include "../Gas/GasReservoir.h"
-
+#include "../Stars/StarReservoir.h"
 class Ring
 {
 	public:
@@ -14,9 +14,10 @@ class Ring
 		const double Radius;
 		const double Width;
 		//Relic Reservoir
-		//Star Reservoir
+		StarReservoir Stars;
 		GasReservoir Gas;
 		
+		void MakeStars();
 	private:
 		
 		

@@ -16,10 +16,15 @@ class Galaxy
 		GasReservoir IGM;
 		const GlobalParameters & Param;
 		
+		//Infall Stuff
 		double GasScaleLength(double t);
 		double InfallMass(double t);
 		void InsertInfallingGas(int ring, double amount);
 		void Infall(double t);
+		
+		//Star Formation
+		void FormStars();
+		
 		double PredictSurfaceDensity(double radius,double width, double totalGasMass, double scalelength);
 		double GasMass();
 		double StarMass();

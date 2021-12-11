@@ -54,7 +54,7 @@ void GasStream::Absorb(const GasStream & input)
 }
 void GasStream::Deplete(double amountToLose)
 {
-	NeedsRecomputing = true;
+	//~ NeedsRecomputing = true;
 	double lossFraction = amountToLose/Mass();
 	//~ std::cout << lossFraction << std::endl;
 	for (int i = 0; i < ElementCount; ++i)
@@ -68,17 +68,29 @@ void GasStream::Deplete(double amountToLose)
 		{
 			internal_Hot[e] *= (1.0 - lossFraction);	
 		}	
-		if (internal_Cold[e] < 0)
-		{
-			std::cout << "ALERT: SOMEHOW " << e << " has " << internal_Cold[e] << std::endl;
-		}
-		if (internal_Hot[e] < 0)
-		{
-			std::cout << "ALERT: SOMEHOW " << e << " has " << internal_Hot[e] << std::endl;
-		}
 	}
 	NeedsRecomputing = true;
 }
+void GasStream::Deplete(double amountToLose_Cold, double amountToLose_Hot)
+{
+	double coldLoss = amountToLose_Cold/ColdMass();
+	double hotLoss = amountToLose_Hot/HotMass();
+	for (int i = 0; i < ElementCount; ++i)
+	{
+		ElementID e = (ElementID)i;
+		if (internal_Cold[e] > 0)
+		{
+			internal_Cold[e] *= (1.0 - coldLoss);
+		}
+		if (internal_Hot[e] > 0)
+		{
+			internal_Hot[e] *= (1.0 - hotLoss);	
+		}	
+	}
+	NeedsRecomputing = true;
+}
+
+
 void GasStream::Absorb(const Gas & input, double hotFrac)
 {
 	double coldFrac = (1.0 - hotFrac);
@@ -126,4 +138,25 @@ double GasStream::ColdMass()
 void GasStream::Dirty()
 {
 	NeedsRecomputing = true;
+}
+
+void GasStream::Heat(double amountToHeat)
+{
+	
+	//skip if empty!
+	if (ColdMass() == 0)
+	{
+		return;
+	}
+	double moveFraction = amountToHeat/ColdMass();
+	for (int i = 0; i < ElementCount; ++i)
+	{
+		ElementID elem = (ElementID)elem;
+		double mass = Cold(elem) * moveFraction;
+		Cold(elem) -= mass;
+		Hot(elem) += mass;
+	}
+	Dirty();
+	
+	
 }

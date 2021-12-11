@@ -124,7 +124,7 @@ class StellarValues : public ParamList
 		Argument<double> EjectionFraction = Argument<double>(0.45,"eject");
 		
 		//!For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase
-		Argument<double> FeedbackFactor = Argument<double>(0.4,"mass-load");
+		Argument<double> FeedbackFactor = Argument<double>(0,"mass-load");
 		
 		//! The fraction of white dwarfs which go SNIa
 		Argument<double> SNIaFraction = Argument<double>(0.05,"sn1a-frac");
@@ -132,10 +132,22 @@ class StellarValues : public ParamList
 		//! The fraction of neutron stars which go NSM
 		Argument<double> NSMFraction = Argument<double>(0.0001,"nsm-frac");
 		
+		//! The normal Kennicutt-Schmidt power law index
+		Argument<double> SchmidtMainPower = Argument<double>(1.4,"schmidt-main");
+		
+		//! The low-density Kennicutt-Schmidt power law index
+		Argument<double> SchmidtLowPower = Argument<double>(4.0,"schmidt-low");
+		
+		//! The density cut for the low/high density switchover in Schmidt power law
+		Argument<double> SchmidtDensityCut = Argument<double>(4e-3,"schmidt-cut");
+		
+		//! The Schmidt prefactor
+		Argument<double> SchmidtPrefactor = Argument<double>(1e-8,"schmidt-factor");
+		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		StellarValues()
 		{
-			argPointers = {&MaxStellarMass, &MinStellarMass, &MinZ, &MaxZ, &EjectionFraction, &SNIaFraction, &NSMFraction};
+			argPointers = {&MaxStellarMass, &MinStellarMass, &MinZ, &MaxZ, &EjectionFraction, &SNIaFraction, &NSMFraction,&SchmidtMainPower, &SchmidtLowPower, &SchmidtDensityCut, &SchmidtPrefactor};
 		}
 };
 

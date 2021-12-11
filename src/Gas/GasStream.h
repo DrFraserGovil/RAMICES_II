@@ -41,6 +41,9 @@ class GasStream
 		//! Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental abundances the same \param amountToRemove The amount of mass to lose from the stream
 		void Deplete(double amountToRemove);
 		
+		//!Moves the specified mass from the cold reservoir into the hot reservoir, keeping the cold elemental abundances constant
+		void Heat(double amountToHeat);
+		
 		//~ void DepleteFraction(double fraction)
 		//~ {
 				//~ Deplete(fraction* Mass());

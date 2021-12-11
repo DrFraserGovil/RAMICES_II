@@ -96,11 +96,46 @@ void GasReservoir::Deplete(double amountToLose)
 	}
 	
 }
+void GasReservoir::Deplete(double amountToLose_Cold, double amountToLose_Hot)
+{
+	double Mc = ColdMass();
+	double Mh = HotMass();
+	
+	amountToLose_Cold = std::min(amountToLose_Cold,Mc);
+	amountToLose_Hot = std::min(amountToLose_Hot,Mh);
+	
+	double coldLoss = amountToLose_Cold/Mc;
+	double hotLoss = amountToLose_Hot/Mh;
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		if (Components[i].Mass() > 0)
+		{
+			
+			double coldMass =  Components[i].Mass() * coldLoss;
+			double hotMass = Components[i].Mass() * hotLoss;
+			Components[i].Deplete(coldMass,hotMass);
+		}
+	}
+	
+}
+
+
 void GasReservoir::Absorb(const GasStream & givingGas)
 {
 	SourceProcess source = givingGas.Source;
 	Components[source].Absorb(givingGas);
 }
+
+void GasReservoir::Heat(double amountToHeat)
+{
+	double heatingFraction = amountToHeat / ColdMass();
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		double componentHeat = heatingFraction * Components[i].ColdMass();
+		Components[i].Heat(componentHeat);
+	}
+}
+
 
 GasStream GasReservoir::AccretionStream(double amountToLose)
 {

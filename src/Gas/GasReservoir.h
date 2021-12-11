@@ -46,7 +46,8 @@ class GasReservoir
 		//! Calls #GasStream::Deplete(double, double) on each element of #Components, keeping the relative hot mass and cold mass contribution of each component equal \param amountToLose_Cold The total amount of cold gas mass to be lost from the reservoir (shared amongst components) \param amountToLose_Hot The total amount of hot gas mass to be lost from the reservoir (shared amongst components)
 		void Deplete(double amountToLose_Cold, double amountToLose_Hot);
 		
-		
+		//! Heats up the specified amount of gas into the hot reservoir, keeping the elemental abundances of the cold gas reservoir constant
+		void Heat(double amoutToHeat);
 		
 		//! Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object
 		void TransferFrom(GasReservoir & givingGas, double massToMove);

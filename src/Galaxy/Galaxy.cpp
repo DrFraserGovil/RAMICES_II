@@ -25,6 +25,7 @@ void Galaxy::Evolve()
 	for (int timestep = 0; timestep < Param.Meta.SimulationSteps; ++timestep)
 	{
 		Infall(t);
+		FormStars();
 		t += Param.Meta.TimeStep;
 		SaveState(t);
 	}
@@ -160,6 +161,15 @@ double Galaxy::PredictSurfaceDensity(double radius, double width, double totalGa
 }
 
 
+
+void Galaxy::FormStars()
+{
+	for (int i = 0; i < Rings.size(); ++i)
+	{
+		Rings[i].MakeStars();
+	}
+}
+
 void Galaxy::SaveState(double t)
 {
 	SaveState_Mass(t);
@@ -174,11 +184,11 @@ void Galaxy::SaveState_Mass(double t)
 	
 	for (int i = 0; i < Rings.size(); ++i)
 	{
-		double Ms = 0;
+		double Ms = Rings[i].Stars.Mass();
 		double Mc = Rings[i].Gas.ColdMass();
 		double Mh = Rings[i].Gas.HotMass();
 		double Mr = 0;
-		double Mt = Ms + Mc + Ms + Mr;
+		double Mt = Ms + Mc + Mh + Mr;
 		double Migm = IGM.Mass();
 		std::vector<double> vals = {Rings[i].Radius, Mt,Ms,Mc,Mh,Mr,Migm};
 		output << t;

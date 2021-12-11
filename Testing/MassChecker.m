@@ -2,20 +2,20 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-f = readtable("../Output/Galactic/Mass.dat");
+f = readtable("../Output/Tester/Galactic/Mass.dat");
 
 time = unique(f.Time);
 radius = unique(f.Radius);
 
 clf;
-nSample = 30;
+nSample = 100;
 ts = string.empty;
 timeset = time(ceil(linspace(1,length(time),nSample)))';
 mset = zeros(size(timeset));
 accActual = mset;
 accPred = mset;
 igm = mset;
-T = tiledlayout(2,1,"TileSpacing","Compact","Padding","Compact");
+T = tiledlayout(2,2,"TileSpacing","Compact","Padding","Compact");
 
 for i = 1:nSample
     t = timeset(i);
@@ -24,6 +24,7 @@ for i = 1:nSample
     selector = (f.Time == t);
     rs = f.Radius(selector);
     cgm = f.ColdGasMass(selector);
+    sgm = f.StellarMass(selector);
     igm(i) = mean(f.IGMMass(selector));
     mset(i) = sum(f.TotalMass(selector));
   
@@ -32,9 +33,10 @@ for i = 1:nSample
     hold on;
     plot(rs,cgm);
     hold off;
-    nexttile(2);
-    
-    
+    nexttile(3);
+    hold on;
+    plot(rs,sgm);
+    hold off;
     
 end
 nexttile(1);
