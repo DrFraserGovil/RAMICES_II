@@ -12,7 +12,7 @@
     <includedby refid="YieldRidge_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldRidge.h</includedby>
     <includedby refid="StellarYield_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/StellarYield.h</includedby>
     <includedby refid="YieldGrid_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers/YieldGrid.h</includedby>
-    <includedby refid="Galaxy_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</includedby>
+    <includedby refid="old__src_2Galaxy_2Galaxy_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</includedby>
     <incdepgraph>
       <node id="8">
         <label>iomanip</label>
@@ -99,7 +99,7 @@
       </node>
       <node id="6">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
-        <link refid="Ring_8h"/>
+        <link refid="old__src_2Galaxy_2Ring_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
       </node>
@@ -131,7 +131,7 @@
       </node>
       <node id="5">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
-        <link refid="Galaxy_8h"/>
+        <link refid="old__src_2Galaxy_2Galaxy_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
       </node>

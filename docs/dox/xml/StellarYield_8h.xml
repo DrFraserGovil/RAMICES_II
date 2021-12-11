@@ -132,7 +132,7 @@
       </node>
       <node id="4">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
-        <link refid="Ring_8h"/>
+        <link refid="old__src_2Galaxy_2Ring_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
@@ -144,7 +144,7 @@
       </node>
       <node id="3">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
-        <link refid="Galaxy_8h"/>
+        <link refid="old__src_2Galaxy_2Galaxy_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>

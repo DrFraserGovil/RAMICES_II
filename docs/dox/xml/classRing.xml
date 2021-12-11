@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="classRing" kind="class" language="C++" prot="public">
     <compoundname>Ring</compoundname>
-    <includes refid="Ring_8h" local="no">Ring.h</includes>
+    <includes refid="old__src_2Galaxy_2Ring_8h" local="no">Ring.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="classRing_1a07a56d858310883fcd0884168f672aa5" prot="public" static="no" mutable="no">
         <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref></type>
@@ -55,6 +55,32 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="39" column="19" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1a8cc1ffb45fd3ad01e7aeba2155fbc96f" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double Ring::Radius</definition>
+        <argsstring></argsstring>
+        <name>Radius</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h" line="14" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1a4f8c8947f8031c8c7b37f084ca6a740f" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double Ring::Width</definition>
+        <argsstring></argsstring>
+        <name>Width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h" line="15" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -148,6 +174,32 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="50" column="9" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1a7e78ffa118882a0d0be0d4198b336ed9" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Ring::RadiusIndex</definition>
+        <argsstring></argsstring>
+        <name>RadiusIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h" line="23" column="5" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRing_1abd93716c681cac8d63d1334aa2fbf722" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref> &amp;</type>
+        <definition>const GlobalParameters&amp; Ring::Param</definition>
+        <argsstring></argsstring>
+        <name>Param</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h" line="27" column="25" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -295,6 +347,45 @@
         </inbodydescription>
         <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="37" column="1"/>
       </memberdef>
+      <memberdef kind="function" id="classRing_1a4377a033aba9f264993f203481196b64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Ring::Ring</definition>
+        <argsstring>(int radiusIndex, double mass, const GlobalParameters &amp;param)</argsstring>
+        <name>Ring</name>
+        <param>
+          <type>int</type>
+          <declname>radiusIndex</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>mass</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref> &amp;</type>
+          <declname>param</declname>
+        </param>
+        <briefdescription>
+<para>Initialises itself into a primordial state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h" line="11" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classRing_1aaf04a946616f5ec362541acb5d8f64a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Ring::Mass</definition>
+        <argsstring>()</argsstring>
+        <name>Mass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h" line="13" column="8"/>
+      </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
       <memberdef kind="function" id="classRing_1a453e3dbe47906636b64305598d124d2e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -338,22 +429,51 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="4">
+        <label>GlobalParameters</label>
+        <link refid="classGlobalParameters"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Element</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Meta</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Output</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Thermal</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>Galaxy</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Stellar</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
         <label>Galaxy</label>
         <link refid="classGalaxy"/>
-        <childnode refid="5" relation="usage">
+        <childnode refid="17" relation="usage">
           <edgelabel>Demosthenes</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
           <edgelabel>IGM</edgelabel>
         </childnode>
-        <childnode refid="7" relation="usage">
+        <childnode refid="4" relation="usage">
+          <edgelabel>Param</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
           <edgelabel>Mass</edgelabel>
         </childnode>
       </node>
-      <node id="5">
+      <node id="6">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="17">
         <label>YieldGrid</label>
         <link refid="classYieldGrid"/>
-        <childnode refid="6" relation="usage">
+        <childnode refid="18" relation="usage">
           <edgelabel>RelicType</edgelabel>
           <edgelabel>RelicMass</edgelabel>
         </childnode>
@@ -368,24 +488,142 @@
           <edgelabel>Gas</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
+          <edgelabel>Param</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
           <edgelabel>Parent</edgelabel>
         </childnode>
       </node>
-      <node id="6">
+      <node id="5">
+        <label>ElementValues</label>
+        <link refid="classElementValues"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>SolarAbundanceFile</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>SolarAbundanceFileNameColumn</edgelabel>
+          <edgelabel>SolarAbundanceFileDataColumn</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>JSL::Argument&lt; double &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>StellarValues</label>
+        <link refid="classStellarValues"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>NSMFraction</edgelabel>
+          <edgelabel>FeedbackFactor</edgelabel>
+          <edgelabel>SNIaFraction</edgelabel>
+          <edgelabel>EjectionFraction</edgelabel>
+          <edgelabel>MaxZ</edgelabel>
+          <edgelabel>MinZ</edgelabel>
+          <edgelabel>MinStellarMass</edgelabel>
+          <edgelabel>MaxStellarMass</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
         <label>StellarYield</label>
         <link refid="classStellarYield"/>
+      </node>
+      <node id="9">
+        <label>JSL::Argument&lt; int &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
       </node>
       <node id="3">
         <label>GasReservoir</label>
         <link refid="classGasReservoir"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Param</edgelabel>
+        </childnode>
       </node>
-      <node id="7">
+      <node id="19">
         <label>MassKeeper</label>
         <link refid="structMassKeeper"/>
       </node>
       <node id="2">
         <label>StellarPopulation</label>
         <link refid="classStellarPopulation"/>
+      </node>
+      <node id="8">
+        <label>JSL::ArgumentInterface</label>
+        <link refid="classJSL_1_1ArgumentInterface"/>
+      </node>
+      <node id="10">
+        <label>MetaValues</label>
+        <link refid="classMetaValues"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>TimeStep</edgelabel>
+          <edgelabel>SimulationDuration</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>ResourceRoot</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>ParallelThreads</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>JSL::Argument&lt; std::string &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>ThermalValues</label>
+        <link refid="classThermalValues"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>HotInjection_SNIa</edgelabel>
+          <edgelabel>HotInjection_NSM</edgelabel>
+          <edgelabel>HotInjection_CCSN</edgelabel>
+          <edgelabel>GasCoolingTimeScale</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>OutputValues</label>
+        <link refid="classOutputValues"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Root</edgelabel>
+          <edgelabel>GalaxyMassFile</edgelabel>
+          <edgelabel>GalacticDirectory</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>GalaxyValues</label>
+        <link refid="classGalaxyValues"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>ScaleLengthFinalTime</edgelabel>
+          <edgelabel>MaxSFRFraction</edgelabel>
+          <edgelabel>IGM_Mass</edgelabel>
+          <edgelabel>Radius</edgelabel>
+          <edgelabel>MaxScaleLength</edgelabel>
+          <edgelabel>ScaleLengthTimeScale</edgelabel>
+          <edgelabel>InflowParameterA</edgelabel>
+          <edgelabel>MinScaleLength</edgelabel>
+          <edgelabel>InflowParameterB</edgelabel>
+          <edgelabel>PrimordialHotFraction</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>RingCount</edgelabel>
+        </childnode>
       </node>
     </collaborationgraph>
     <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="20" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="19" bodyend="55"/>
@@ -397,20 +635,26 @@
       <member refid="classRing_1aaee9522e870bddc5fda5bd9d8c45dc82" prot="private" virt="non-virtual"><scope>Ring</scope><name>ID</name></member>
       <member refid="classRing_1ae504175835d37e56cee8fb0042ba49de" prot="private" virt="non-virtual"><scope>Ring</scope><name>InnerRadius</name></member>
       <member refid="classRing_1aaf04a946616f5ec362541acb5d8f64a7" prot="public" virt="non-virtual"><scope>Ring</scope><name>Mass</name></member>
+      <member refid="classRing_1aaf04a946616f5ec362541acb5d8f64a7" prot="public" virt="non-virtual"><scope>Ring</scope><name>Mass</name></member>
       <member refid="classRing_1aa4f60bfc8f60790513824b130569d78f" prot="private" virt="non-virtual"><scope>Ring</scope><name>Opts</name></member>
       <member refid="classRing_1a8f8fe4995320dcc963d9e966b770fa22" prot="private" virt="non-virtual"><scope>Ring</scope><name>OuterRadius</name></member>
+      <member refid="classRing_1abd93716c681cac8d63d1334aa2fbf722" prot="private" virt="non-virtual"><scope>Ring</scope><name>Param</name></member>
       <member refid="classRing_1af2ad94d6e3c930a6a52cddb6bc61cf9b" prot="private" virt="non-virtual"><scope>Ring</scope><name>Parent</name></member>
       <member refid="classRing_1a571ecead833a1919a4d9791f3ac5ee00" prot="public" virt="non-virtual"><scope>Ring</scope><name>PropertyHeaders</name></member>
       <member refid="classRing_1a85ca5dfb0e8dda469a877943bb1a91d4" prot="public" virt="non-virtual"><scope>Ring</scope><name>Radius</name></member>
+      <member refid="classRing_1a8cc1ffb45fd3ad01e7aeba2155fbc96f" prot="public" virt="non-virtual"><scope>Ring</scope><name>Radius</name></member>
+      <member refid="classRing_1a7e78ffa118882a0d0be0d4198b336ed9" prot="private" virt="non-virtual"><scope>Ring</scope><name>RadiusIndex</name></member>
       <member refid="classRing_1a971ecf443202c92aab533855a57da564" prot="public" virt="non-virtual"><scope>Ring</scope><name>ReportProperties</name></member>
       <member refid="classRing_1ac171f1f73adeadb4cfbe90cc39664b3c" prot="public" virt="non-virtual"><scope>Ring</scope><name>Ring</name></member>
       <member refid="classRing_1a94ee90a62a38d0d5fcb80ecd8dde98f2" prot="public" virt="non-virtual"><scope>Ring</scope><name>Ring</name></member>
+      <member refid="classRing_1a4377a033aba9f264993f203481196b64" prot="public" virt="non-virtual"><scope>Ring</scope><name>Ring</name></member>
       <member refid="classRing_1a453e3dbe47906636b64305598d124d2e" prot="private" virt="non-virtual"><scope>Ring</scope><name>RingMass</name></member>
       <member refid="classRing_1a25774bb524fc42f8417ec778e265d3d5" prot="private" virt="non-virtual"><scope>Ring</scope><name>StarFormationRate</name></member>
       <member refid="classRing_1a854edeaee31fc2579f86d9dc4b8a77b7" prot="public" virt="non-virtual"><scope>Ring</scope><name>Stars</name></member>
       <member refid="classRing_1a499c0d45f534f04a115573aa4f39743b" prot="public" virt="non-virtual"><scope>Ring</scope><name>SurfaceDensity</name></member>
       <member refid="classRing_1a02f9116714dc4f501caa8a2d3560357d" prot="public" virt="non-virtual"><scope>Ring</scope><name>UpdateInternalProperties</name></member>
       <member refid="classRing_1a974990af6b5e342f8397acded3bc036d" prot="private" virt="non-virtual"><scope>Ring</scope><name>Width</name></member>
+      <member refid="classRing_1a4f8c8947f8031c8c7b37f084ca6a740f" prot="public" virt="non-virtual"><scope>Ring</scope><name>Width</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classStarReservoir" kind="class" language="C++" prot="public">
+    <compoundname>StarReservoir</compoundname>
+    <includes refid="StarReservoir_8h" local="no">StarReservoir.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classStarReservoir_1a14d18cd77706e1159b5aceb92c45e911" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; StarReservoir::StarPopulations</definition>
+        <argsstring></argsstring>
+        <name>StarPopulations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h" line="16" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStarReservoir_1a50c92bbb8e133593baca28ccb54bba0f" prot="private" static="no" mutable="no">
+        <type>const <ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref> &amp;</type>
+        <definition>const GlobalParameters&amp; StarReservoir::Param</definition>
+        <argsstring></argsstring>
+        <name>Param</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h" line="17" column="25" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classStarReservoir_1a3f60b3f4c8af1509dcc9332cd2f7d9da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StarReservoir::StarReservoir</definition>
+        <argsstring>(const GlobalParameters &amp;Param)</argsstring>
+        <name>StarReservoir</name>
+        <param>
+          <type>const <ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref> &amp;</type>
+          <declname>Param</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h" line="9" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStarReservoir_1a4db0a7a429c235d914d6b021e1735d1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StarReservoir::Mass</definition>
+        <argsstring>()</argsstring>
+        <name>Mass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h" line="10" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classStarReservoir_1adbec993089ffb848b611cc57091586bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void StarReservoir::Birth</definition>
+        <argsstring>(GasReservoir &amp;gas)</argsstring>
+        <name>Birth</name>
+        <param>
+          <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> &amp;</type>
+          <declname>gas</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h" line="12" column="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>GlobalParameters</label>
+        <link refid="classGlobalParameters"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Element</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>Meta</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Output</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Thermal</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Galaxy</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Stellar</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="3">
+        <label>ElementValues</label>
+        <link refid="classElementValues"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>SolarAbundanceFile</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>SolarAbundanceFileNameColumn</edgelabel>
+          <edgelabel>SolarAbundanceFileDataColumn</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>StarReservoir</label>
+        <link refid="classStarReservoir"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Param</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>JSL::Argument&lt; double &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>StellarValues</label>
+        <link refid="classStellarValues"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>NSMFraction</edgelabel>
+          <edgelabel>FeedbackFactor</edgelabel>
+          <edgelabel>SNIaFraction</edgelabel>
+          <edgelabel>EjectionFraction</edgelabel>
+          <edgelabel>MaxZ</edgelabel>
+          <edgelabel>MinZ</edgelabel>
+          <edgelabel>MinStellarMass</edgelabel>
+          <edgelabel>MaxStellarMass</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>JSL::Argument&lt; int &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>JSL::ArgumentInterface</label>
+        <link refid="classJSL_1_1ArgumentInterface"/>
+      </node>
+      <node id="8">
+        <label>MetaValues</label>
+        <link refid="classMetaValues"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>TimeStep</edgelabel>
+          <edgelabel>SimulationDuration</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>ResourceRoot</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>ParallelThreads</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>JSL::Argument&lt; std::string &gt;</label>
+        <link refid="classJSL_1_1Argument"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>ThermalValues</label>
+        <link refid="classThermalValues"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>HotInjection_SNIa</edgelabel>
+          <edgelabel>HotInjection_NSM</edgelabel>
+          <edgelabel>HotInjection_CCSN</edgelabel>
+          <edgelabel>GasCoolingTimeScale</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>OutputValues</label>
+        <link refid="classOutputValues"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Root</edgelabel>
+          <edgelabel>GalaxyMassFile</edgelabel>
+          <edgelabel>GalacticDirectory</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>GalaxyValues</label>
+        <link refid="classGalaxyValues"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>ScaleLengthFinalTime</edgelabel>
+          <edgelabel>MaxSFRFraction</edgelabel>
+          <edgelabel>IGM_Mass</edgelabel>
+          <edgelabel>Radius</edgelabel>
+          <edgelabel>MaxScaleLength</edgelabel>
+          <edgelabel>ScaleLengthTimeScale</edgelabel>
+          <edgelabel>InflowParameterA</edgelabel>
+          <edgelabel>MinScaleLength</edgelabel>
+          <edgelabel>InflowParameterB</edgelabel>
+          <edgelabel>PrimordialHotFraction</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>RingCount</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h" line="7" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h" bodystart="6" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classStarReservoir_1adbec993089ffb848b611cc57091586bd" prot="public" virt="non-virtual"><scope>StarReservoir</scope><name>Birth</name></member>
+      <member refid="classStarReservoir_1a4db0a7a429c235d914d6b021e1735d1b" prot="public" virt="non-virtual"><scope>StarReservoir</scope><name>Mass</name></member>
+      <member refid="classStarReservoir_1a50c92bbb8e133593baca28ccb54bba0f" prot="private" virt="non-virtual"><scope>StarReservoir</scope><name>Param</name></member>
+      <member refid="classStarReservoir_1a14d18cd77706e1159b5aceb92c45e911" prot="private" virt="non-virtual"><scope>StarReservoir</scope><name>StarPopulations</name></member>
+      <member refid="classStarReservoir_1a3f60b3f4c8af1509dcc9332cd2f7d9da" prot="public" virt="non-virtual"><scope>StarReservoir</scope><name>StarReservoir</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

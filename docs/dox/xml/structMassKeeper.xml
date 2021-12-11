@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="structMassKeeper" kind="struct" language="C++" prot="public">
     <compoundname>MassKeeper</compoundname>
-    <includes refid="Galaxy_8h" local="no">Galaxy.h</includes>
+    <includes refid="old__src_2Galaxy_2Galaxy_8h" local="no">Galaxy.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structMassKeeper_1a1205002bb454490e99fc102a35d3b457" prot="public" static="no" mutable="no">
         <type>double</type>

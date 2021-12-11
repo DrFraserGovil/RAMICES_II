@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ring_375',['Ring',['../classRing.html',1,'']]]
+  ['quaternion_399',['Quaternion',['../classJSL_1_1Quaternion.html',1,'JSL']]]
 ];

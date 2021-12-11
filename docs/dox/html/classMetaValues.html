@@ -89,19 +89,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8766aac9dd6865deee6647ab0a6d7ef4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetaValues.html#a8766aac9dd6865deee6647ab0a6d7ef4">MetaValues</a> ()</td></tr>
 <tr class="memdesc:a8766aac9dd6865deee6647ab0a6d7ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boring constructor &ndash; slots in the relevant arguments into the ParamList::argPointer array.  <a href="classMetaValues.html#a8766aac9dd6865deee6647ab0a6d7ef4">More...</a><br /></td></tr>
 <tr class="separator:a8766aac9dd6865deee6647ab0a6d7ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab692a7cd1b675b2655e077863f67952e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetaValues.html#ab692a7cd1b675b2655e077863f67952e">Initialise</a> (std::string resourceRoot)</td></tr>
+<tr class="memdesc:ab692a7cd1b675b2655e077863f67952e"><td class="mdescLeft">&#160;</td><td class="mdescRight">An overload of a normally empty function. Computes the value of <a class="el" href="classMetaValues.html#a821c714405e01102e4311b31b175d49d" title="The number of timesteps in the simulation, computed from SimulationDuration and TimeStep.">SimulationSteps</a>.  <a href="classMetaValues.html#ab692a7cd1b675b2655e077863f67952e">More...</a><br /></td></tr>
+<tr class="separator:ab692a7cd1b675b2655e077863f67952e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classParamList"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classParamList')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classParamList.html">ParamList</a></td></tr>
 <tr class="memitem:a7ea5ff6efbbfd83e5c5c9a638bcd38d8 inherit pub_methods_classParamList"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamList.html#a7ea5ff6efbbfd83e5c5c9a638bcd38d8">Configure</a> (int argc, char *argv[])</td></tr>
 <tr class="memdesc:a7ea5ff6efbbfd83e5c5c9a638bcd38d8 inherit pub_methods_classParamList"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loops over all members of the argPointers array and calls the configuration/command line API on them to initialise the members of the child classes.  <a href="classParamList.html#a7ea5ff6efbbfd83e5c5c9a638bcd38d8">More...</a><br /></td></tr>
 <tr class="separator:a7ea5ff6efbbfd83e5c5c9a638bcd38d8 inherit pub_methods_classParamList"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bc1e8cffb0062a056193e34b80f3475 inherit pub_methods_classParamList"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParamList.html#a7bc1e8cffb0062a056193e34b80f3475">Initialise</a> (std::string resourceRoot)</td></tr>
-<tr class="memdesc:a7bc1e8cffb0062a056193e34b80f3475 inherit pub_methods_classParamList"><td class="mdescLeft">&#160;</td><td class="mdescRight">A (hopefully) rarely used function which calls any additional functions which can only be called <em>after</em> the configuration has been run. For most members, this is an empty function.  <a href="classParamList.html#a7bc1e8cffb0062a056193e34b80f3475">More...</a><br /></td></tr>
-<tr class="separator:a7bc1e8cffb0062a056193e34b80f3475 inherit pub_methods_classParamList"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a6473d91b7e971e2e44e87e3f38e14502"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetaValues.html#a6473d91b7e971e2e44e87e3f38e14502">SaveRoot</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;std::string&gt;(&quot;Output/&quot;,&quot;output&quot;)</td></tr>
-<tr class="memdesc:a6473d91b7e971e2e44e87e3f38e14502"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the output directory into which the output will be saved.  <a href="classMetaValues.html#a6473d91b7e971e2e44e87e3f38e14502">More...</a><br /></td></tr>
-<tr class="separator:a6473d91b7e971e2e44e87e3f38e14502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b73fd409e1e258b7d638b8aebef72e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetaValues.html#a8b73fd409e1e258b7d638b8aebef72e2">ResourceRoot</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;std::string&gt;(&quot;Resources/&quot;,&quot;resource&quot;)</td></tr>
 <tr class="memdesc:a8b73fd409e1e258b7d638b8aebef72e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The location of the directory which the code looks for its expected resource file structure.  <a href="classMetaValues.html#a8b73fd409e1e258b7d638b8aebef72e2">More...</a><br /></td></tr>
 <tr class="separator:a8b73fd409e1e258b7d638b8aebef72e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,6 +111,9 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a99960686637e59874cc6cd5e1b7b71b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetaValues.html#a99960686637e59874cc6cd5e1b7b71b8">SimulationDuration</a> = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;double&gt;(14.0,&quot;duration&quot;)</td></tr>
 <tr class="memdesc:a99960686637e59874cc6cd5e1b7b71b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The total duration of the chemical simulation.  <a href="classMetaValues.html#a99960686637e59874cc6cd5e1b7b71b8">More...</a><br /></td></tr>
 <tr class="separator:a99960686637e59874cc6cd5e1b7b71b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821c714405e01102e4311b31b175d49d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetaValues.html#a821c714405e01102e4311b31b175d49d">SimulationSteps</a></td></tr>
+<tr class="memdesc:a821c714405e01102e4311b31b175d49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of timesteps in the simulation, computed from <a class="el" href="classMetaValues.html#a99960686637e59874cc6cd5e1b7b71b8" title="The total duration of the chemical simulation.">SimulationDuration</a> and <a class="el" href="classMetaValues.html#a91fd337f6d6ad536e6174b3e769b3bcf" title="The top level timestep used in the main chemical loop.">TimeStep</a>.  <a href="classMetaValues.html#a821c714405e01102e4311b31b175d49d">More...</a><br /></td></tr>
+<tr class="separator:a821c714405e01102e4311b31b175d49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -152,6 +152,37 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab692a7cd1b675b2655e077863f67952e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab692a7cd1b675b2655e077863f67952e">&#9670;&nbsp;</a></span>Initialise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void MetaValues::Initialise </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>resourceRoot</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>An overload of a normally empty function. Computes the value of <a class="el" href="classMetaValues.html#a821c714405e01102e4311b31b175d49d" title="The number of timesteps in the simulation, computed from SimulationDuration and TimeStep.">SimulationSteps</a>. </p>
+
+<p>Reimplemented from <a class="el" href="classParamList.html#a7bc1e8cffb0062a056193e34b80f3475">ParamList</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Field Documentation</h2>
 <a id="ac8e1adbfb77ba566a39caf86dfb46a11"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8e1adbfb77ba566a39caf86dfb46a11">&#9670;&nbsp;</a></span>ParallelThreads</h2>
@@ -185,22 +216,6 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a6473d91b7e971e2e44e87e3f38e14502"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6473d91b7e971e2e44e87e3f38e14502">&#9670;&nbsp;</a></span>SaveRoot</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;std::string&gt; MetaValues::SaveRoot = <a class="el" href="classJSL_1_1Argument.html">Argument</a>&lt;std::string&gt;(&quot;Output/&quot;,&quot;output&quot;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The name of the output directory into which the output will be saved. </p>
-
-</div>
-</div>
 <a id="a99960686637e59874cc6cd5e1b7b71b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a99960686637e59874cc6cd5e1b7b71b8">&#9670;&nbsp;</a></span>SimulationDuration</h2>
 
@@ -214,6 +229,22 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The total duration of the chemical simulation. </p>
+
+</div>
+</div>
+<a id="a821c714405e01102e4311b31b175d49d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a821c714405e01102e4311b31b175d49d">&#9670;&nbsp;</a></span>SimulationSteps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MetaValues::SimulationSteps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The number of timesteps in the simulation, computed from <a class="el" href="classMetaValues.html#a99960686637e59874cc6cd5e1b7b71b8" title="The total duration of the chemical simulation.">SimulationDuration</a> and <a class="el" href="classMetaValues.html#a91fd337f6d6ad536e6174b3e769b3bcf" title="The top level timestep used in the main chemical loop.">TimeStep</a>. </p>
 
 </div>
 </div>

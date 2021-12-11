@@ -10,7 +10,7 @@
         <definition>Argument&lt;double&gt; StellarValues::MaxStellarMass</definition>
         <argsstring></argsstring>
         <name>MaxStellarMass</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(100,&quot;-max-mass&quot;)</initializer>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(100,&quot;max-mass&quot;)</initializer>
         <briefdescription>
 <para>Minimum stellar mass that IMF can generate. </para>
         </briefdescription>
@@ -18,14 +18,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="81" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="81" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="107" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classStellarValues_1aebf3fb39167a9719618d7bf381543171" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; StellarValues::MinStellarMass</definition>
         <argsstring></argsstring>
         <name>MinStellarMass</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.5,&quot;-min-mass&quot;)</initializer>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.5,&quot;min-mass&quot;)</initializer>
         <briefdescription>
 <para>Maxmimum stellar mass that IMF can generate. </para>
         </briefdescription>
@@ -33,14 +33,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="84" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="84" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="110" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="110" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classStellarValues_1ab575d1540bc306e4d295806b86712502" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; StellarValues::MinZ</definition>
         <argsstring></argsstring>
         <name>MinZ</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(1e-7,&quot;-min-z&quot;)</initializer>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(1e-7,&quot;min-z&quot;)</initializer>
         <briefdescription>
 <para>Minimum Z that the ILM(??) can consider. </para>
         </briefdescription>
@@ -48,14 +48,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="87" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="87" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="113" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="113" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classStellarValues_1ae337595f7ddf523dd01e07fc95ed719b" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; StellarValues::MaxZ</definition>
         <argsstring></argsstring>
         <name>MaxZ</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.052,&quot;-max-z&quot;)</initializer>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.052,&quot;max-z&quot;)</initializer>
         <briefdescription>
 <para>Maximum Z that the ILM(??) can consider. </para>
         </briefdescription>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="90" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="90" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="116" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="116" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classStellarValues_1aadc9b602660ad5cea7a6266bfcdc2a62" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
@@ -78,14 +78,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="93" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="93" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="119" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="119" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classStellarValues_1a69d9a1255ae9b0895009d14879567957" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; StellarValues::FeedbackFactor</definition>
         <argsstring></argsstring>
         <name>FeedbackFactor</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.4,&quot;-mass-load&quot;)</initializer>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.4,&quot;mass-load&quot;)</initializer>
         <briefdescription>
 <para>For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase. </para>
         </briefdescription>
@@ -93,14 +93,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="96" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="96" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="122" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="122" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classStellarValues_1a6f4290b1dbd5032297414ada54703379" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; StellarValues::SNIaFraction</definition>
         <argsstring></argsstring>
         <name>SNIaFraction</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.05,&quot;-sn1a-frac&quot;)</initializer>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.05,&quot;sn1a-frac&quot;)</initializer>
         <briefdescription>
 <para>The fraction of white dwarfs which go SNIa. </para>
         </briefdescription>
@@ -108,14 +108,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="99" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="99" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="125" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="125" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classStellarValues_1ad49ac36512a6b86cd4a61647baf315f4" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; StellarValues::NSMFraction</definition>
         <argsstring></argsstring>
         <name>NSMFraction</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.0001,&quot;-nsm-frac&quot;)</initializer>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.0001,&quot;nsm-frac&quot;)</initializer>
         <briefdescription>
 <para>The fraction of neutron stars which go NSM. </para>
         </briefdescription>
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="102" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="102" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="128" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="128" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -139,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="105" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="105" bodyend="108"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="131" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="131" bodyend="134"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -191,7 +191,7 @@
         <link refid="classJSL_1_1ArgumentInterface"/>
       </node>
     </collaborationgraph>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="77" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="76" bodyend="109"/>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="103" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="102" bodyend="135"/>
     <listofallmembers>
       <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>StellarValues</scope><name>argPointers</name></member>
       <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>Configure</name></member>

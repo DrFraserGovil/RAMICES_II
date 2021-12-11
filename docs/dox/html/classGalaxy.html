@@ -66,13 +66,14 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Data Fields</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Galaxy Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="Galaxy_8h_source.html">Galaxy.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="old__src_2Galaxy_2Galaxy_8h_source.html">Galaxy.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -88,11 +89,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2f9013e3430b28ebb7a73ac1feae22f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a285372d26bf2fca5f9cd78dbb0bb3fec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a285372d26bf2fca5f9cd78dbb0bb3fec">PushIGM</a> (int donorID, double hotmass, double coldmass)</td></tr>
 <tr class="separator:a285372d26bf2fca5f9cd78dbb0bb3fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27e8a92d789f6a5731190e2ac829eb66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a27e8a92d789f6a5731190e2ac829eb66">Galaxy</a> (const <a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;param)</td></tr>
+<tr class="separator:a27e8a92d789f6a5731190e2ac829eb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5898095189818af6050d11aee8f23e81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a5898095189818af6050d11aee8f23e81">Evolve</a> ()</td></tr>
+<tr class="separator:a5898095189818af6050d11aee8f23e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:acebf3c89d2dd1c75148f82aca4279c21"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classRing.html">Ring</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#acebf3c89d2dd1c75148f82aca4279c21">Rings</a></td></tr>
-<tr class="separator:acebf3c89d2dd1c75148f82aca4279c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79e9887f8c80ead95220e010a0684240"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classRing.html">Ring</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a79e9887f8c80ead95220e010a0684240">Rings</a></td></tr>
+<tr class="separator:a79e9887f8c80ead95220e010a0684240"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a337b7f34ddf0d2eae54e16929b04a698"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structMassKeeper.html">MassKeeper</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a337b7f34ddf0d2eae54e16929b04a698">Mass</a></td></tr>
 <tr class="separator:a337b7f34ddf0d2eae54e16929b04a698"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -116,6 +121,33 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:afdb07ef56f8c439a4ee9975d7d753382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4429308d9426e2dd167de7f8618b8bcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a4429308d9426e2dd167de7f8618b8bcb">SaveState</a> (double t)</td></tr>
 <tr class="separator:a4429308d9426e2dd167de7f8618b8bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaad94ff4ab36cd98744c773e4b34923"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#afaad94ff4ab36cd98744c773e4b34923">GasScaleLength</a> (double t)</td></tr>
+<tr class="separator:afaad94ff4ab36cd98744c773e4b34923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a011bc80de73d4f673c7010dce77265c3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a011bc80de73d4f673c7010dce77265c3">InfallMass</a> (double t)</td></tr>
+<tr class="separator:a011bc80de73d4f673c7010dce77265c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13564f4607192445efba53ad895a3672"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a13564f4607192445efba53ad895a3672">InsertInfallingGas</a> (int ring, double amount)</td></tr>
+<tr class="separator:a13564f4607192445efba53ad895a3672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a875b0032811f506d3fd32264edb88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a80a875b0032811f506d3fd32264edb88">Infall</a> (double t)</td></tr>
+<tr class="separator:a80a875b0032811f506d3fd32264edb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef74811eea0fe7be983f71f56354d265"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#aef74811eea0fe7be983f71f56354d265">PredictSurfaceDensity</a> (double radius, double width, double totalGasMass, double scalelength)</td></tr>
+<tr class="separator:aef74811eea0fe7be983f71f56354d265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5745f8f154464d0d53af6cb2a625ace"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#ac5745f8f154464d0d53af6cb2a625ace">GasMass</a> ()</td></tr>
+<tr class="separator:ac5745f8f154464d0d53af6cb2a625ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7dc1d5cae8df3052cf1fdfb3243af8f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#af7dc1d5cae8df3052cf1fdfb3243af8f">StarMass</a> ()</td></tr>
+<tr class="separator:af7dc1d5cae8df3052cf1fdfb3243af8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f4ea22ac9923c8f86336002cc505ce5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a0f4ea22ac9923c8f86336002cc505ce5">RelicMass</a> ()</td></tr>
+<tr class="separator:a0f4ea22ac9923c8f86336002cc505ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f660f4324741739e2fe746f8057f743"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a1f660f4324741739e2fe746f8057f743">Mass</a> ()</td></tr>
+<tr class="separator:a1f660f4324741739e2fe746f8057f743"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4429308d9426e2dd167de7f8618b8bcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a4429308d9426e2dd167de7f8618b8bcb">SaveState</a> (double t)</td></tr>
+<tr class="separator:a4429308d9426e2dd167de7f8618b8bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae60a8983091a4393c71b1f724a5af5fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#ae60a8983091a4393c71b1f724a5af5fb">SaveState_Mass</a> (double t)</td></tr>
+<tr class="separator:ae60a8983091a4393c71b1f724a5af5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a201827440faacb0346dd1c13b297ac81"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#a201827440faacb0346dd1c13b297ac81">MassHeaders</a> ()</td></tr>
+<tr class="separator:a201827440faacb0346dd1c13b297ac81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -131,10 +163,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:aa63ef779b97034043b9c0e5bb8970cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac901256296640efbb40beb83b2d0ecfc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#ac901256296640efbb40beb83b2d0ecfc">GasExcess</a></td></tr>
 <tr class="separator:ac901256296640efbb40beb83b2d0ecfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af634c5a3bb615e5fc86cdc06c47163ca"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGalaxy.html#af634c5a3bb615e5fc86cdc06c47163ca">Param</a></td></tr>
+<tr class="separator:af634c5a3bb615e5fc86cdc06c47163ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a63119c07647ce95af35b9f860e8b088f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63119c07647ce95af35b9f860e8b088f">&#9670;&nbsp;</a></span>Galaxy()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a63119c07647ce95af35b9f860e8b088f">&#9670;&nbsp;</a></span>Galaxy() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,6 +178,24 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">Options *&#160;</td>
           <td class="paramname"><em>opts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27e8a92d789f6a5731190e2ac829eb66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27e8a92d789f6a5731190e2ac829eb66">&#9670;&nbsp;</a></span>Galaxy() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Galaxy::Galaxy </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -229,7 +281,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a5898095189818af6050d11aee8f23e81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5898095189818af6050d11aee8f23e81">&#9670;&nbsp;</a></span>Evolve()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5898095189818af6050d11aee8f23e81">&#9670;&nbsp;</a></span>Evolve() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -245,8 +297,76 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a5898095189818af6050d11aee8f23e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5898095189818af6050d11aee8f23e81">&#9670;&nbsp;</a></span>Evolve() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Galaxy::Evolve </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5745f8f154464d0d53af6cb2a625ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5745f8f154464d0d53af6cb2a625ace">&#9670;&nbsp;</a></span>GasMass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Galaxy::GasMass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afaad94ff4ab36cd98744c773e4b34923"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaad94ff4ab36cd98744c773e4b34923">&#9670;&nbsp;</a></span>GasScaleLength()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afaad94ff4ab36cd98744c773e4b34923">&#9670;&nbsp;</a></span>GasScaleLength() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Galaxy::GasScaleLength </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afaad94ff4ab36cd98744c773e4b34923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaad94ff4ab36cd98744c773e4b34923">&#9670;&nbsp;</a></span>GasScaleLength() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,6 +408,58 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a80a875b0032811f506d3fd32264edb88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80a875b0032811f506d3fd32264edb88">&#9670;&nbsp;</a></span>Infall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Galaxy::Infall </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a011bc80de73d4f673c7010dce77265c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a011bc80de73d4f673c7010dce77265c3">&#9670;&nbsp;</a></span>InfallMass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Galaxy::InfallMass </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a67e32cd9cfbef78fdb19989e5f0f0d30"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67e32cd9cfbef78fdb19989e5f0f0d30">&#9670;&nbsp;</a></span>InfallRate()</h2>
 
@@ -306,6 +478,92 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a13564f4607192445efba53ad895a3672"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13564f4607192445efba53ad895a3672">&#9670;&nbsp;</a></span>InsertInfallingGas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Galaxy::InsertInfallingGas </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ring</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f660f4324741739e2fe746f8057f743"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f660f4324741739e2fe746f8057f743">&#9670;&nbsp;</a></span>Mass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Galaxy::Mass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a201827440faacb0346dd1c13b297ac81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a201827440faacb0346dd1c13b297ac81">&#9670;&nbsp;</a></span>MassHeaders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string Galaxy::MassHeaders </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a32892b81e1db6c78adf3e85a52483c06"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a32892b81e1db6c78adf3e85a52483c06">&#9670;&nbsp;</a></span>OpenLogs()</h2>
 
@@ -320,6 +578,54 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef74811eea0fe7be983f71f56354d265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef74811eea0fe7be983f71f56354d265">&#9670;&nbsp;</a></span>PredictSurfaceDensity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Galaxy::PredictSurfaceDensity </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>radius</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>totalGasMass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scalelength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -408,6 +714,31 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0f4ea22ac9923c8f86336002cc505ce5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f4ea22ac9923c8f86336002cc505ce5">&#9670;&nbsp;</a></span>RelicMass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Galaxy::RelicMass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="afdb07ef56f8c439a4ee9975d7d753382"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afdb07ef56f8c439a4ee9975d7d753382">&#9670;&nbsp;</a></span>ReportProperties()</h2>
 
@@ -435,7 +766,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a4429308d9426e2dd167de7f8618b8bcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4429308d9426e2dd167de7f8618b8bcb">&#9670;&nbsp;</a></span>SaveState()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4429308d9426e2dd167de7f8618b8bcb">&#9670;&nbsp;</a></span>SaveState() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -448,6 +779,83 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4429308d9426e2dd167de7f8618b8bcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4429308d9426e2dd167de7f8618b8bcb">&#9670;&nbsp;</a></span>SaveState() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Galaxy::SaveState </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae60a8983091a4393c71b1f724a5af5fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae60a8983091a4393c71b1f724a5af5fb">&#9670;&nbsp;</a></span>SaveState_Mass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Galaxy::SaveState_Mass </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7dc1d5cae8df3052cf1fdfb3243af8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7dc1d5cae8df3052cf1fdfb3243af8f">&#9670;&nbsp;</a></span>StarMass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Galaxy::StarMass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -611,14 +1019,36 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="acebf3c89d2dd1c75148f82aca4279c21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acebf3c89d2dd1c75148f82aca4279c21">&#9670;&nbsp;</a></span>Rings</h2>
+<a id="af634c5a3bb615e5fc86cdc06c47163ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af634c5a3bb615e5fc86cdc06c47163ca">&#9670;&nbsp;</a></span>Param</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classGlobalParameters.html">GlobalParameters</a>&amp; Galaxy::Param</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79e9887f8c80ead95220e010a0684240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79e9887f8c80ead95220e010a0684240">&#9670;&nbsp;</a></span>Rings</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="classRing.html">Ring</a>&gt; Galaxy::Rings</td>
+          <td class="memname">std::vector&lt; <a class="el" href="classRing.html">Ring</a> &gt; Galaxy::Rings</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -648,7 +1078,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/<a class="el" href="Galaxy_8h_source.html">Galaxy.h</a></li>
+<li>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/<a class="el" href="old__src_2Galaxy_2Galaxy_8h_source.html">Galaxy.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

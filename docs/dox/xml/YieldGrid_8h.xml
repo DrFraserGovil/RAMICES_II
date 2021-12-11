@@ -11,7 +11,7 @@
     <includes refid="Logger_8h" local="yes">../GenericFunctions/Logger.h</includes>
     <includes refid="YieldRidge_8h" local="yes">YieldRidge.h</includes>
     <includes refid="StellarYield_8h" local="yes">StellarYield.h</includes>
-    <includedby refid="Galaxy_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</includedby>
+    <includedby refid="old__src_2Galaxy_2Galaxy_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</includedby>
     <incdepgraph>
       <node id="7">
         <label>iomanip</label>
@@ -156,13 +156,13 @@
       </node>
       <node id="3">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
-        <link refid="Ring_8h"/>
+        <link refid="old__src_2Galaxy_2Ring_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
       <node id="2">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
-        <link refid="Galaxy_8h"/>
+        <link refid="old__src_2Galaxy_2Galaxy_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>

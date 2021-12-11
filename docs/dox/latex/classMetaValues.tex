@@ -19,12 +19,12 @@ Inheritance diagram for Meta\+Values\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classMetaValues_a8766aac9dd6865deee6647ab0a6d7ef4}{Meta\+Values}} ()
-\begin{DoxyCompactList}\small\item\em Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMetaValues_ab692a7cd1b675b2655e077863f67952e}{Initialise}} (std\+::string resource\+Root)
+\begin{DoxyCompactList}\small\item\em An overload of a normally empty function. Computes the value of \mbox{\hyperlink{classMetaValues_a821c714405e01102e4311b31b175d49d}{Simulation\+Steps}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classMetaValues_a6473d91b7e971e2e44e87e3f38e14502}{Save\+Root}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Output/\char`\"{},\char`\"{}output\char`\"{})
-\begin{DoxyCompactList}\small\item\em The name of the output directory into which the output will be saved. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classMetaValues_a8b73fd409e1e258b7d638b8aebef72e2}{Resource\+Root}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Resources/\char`\"{},\char`\"{}resource\char`\"{})
 \begin{DoxyCompactList}\small\item\em The location of the directory which the code looks for its expected resource file structure. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ int $>$ \mbox{\hyperlink{classMetaValues_ac8e1adbfb77ba566a39caf86dfb46a11}{Parallel\+Threads}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(1,\char`\"{}thread\char`\"{})
@@ -32,7 +32,9 @@ Inheritance diagram for Meta\+Values\+:\begin{figure}[H]
 \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}{Time\+Step}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+1,\char`\"{}timestep\char`\"{})
 \begin{DoxyCompactList}\small\item\em The top level timestep used in the main chemical loop. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}{Simulation\+Duration}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(14.\+0,\char`\"{}duration\char`\"{})
-\begin{DoxyCompactList}\small\item\em The total duration of the chemical simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The total duration of the chemical simulation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMetaValues_a821c714405e01102e4311b31b175d49d}{Simulation\+Steps}}
+\begin{DoxyCompactList}\small\item\em The number of timesteps in the simulation, computed from \mbox{\hyperlink{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}{Simulation\+Duration}} and \mbox{\hyperlink{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}{Time\+Step}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
@@ -49,6 +51,23 @@ The \mbox{\hyperlink{classMetaValues}{Meta\+Values}} contains variables associat
 
 
 Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMetaValues_ab692a7cd1b675b2655e077863f67952e}\label{classMetaValues_ab692a7cd1b675b2655e077863f67952e}} 
+\index{MetaValues@{MetaValues}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!MetaValues@{MetaValues}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily virtual void Meta\+Values\+::\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{resource\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+An overload of a normally empty function. Computes the value of \mbox{\hyperlink{classMetaValues_a821c714405e01102e4311b31b175d49d}{Simulation\+Steps}}. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classParamList_a7bc1e8cffb0062a056193e34b80f3475}{Param\+List}}.
 
 
 
@@ -73,16 +92,6 @@ The maximum number of parallel threads which can be active at any given time.
 
 The location of the directory which the code looks for its expected resource file structure. 
 
-\mbox{\Hypertarget{classMetaValues_a6473d91b7e971e2e44e87e3f38e14502}\label{classMetaValues_a6473d91b7e971e2e44e87e3f38e14502}} 
-\index{MetaValues@{MetaValues}!SaveRoot@{SaveRoot}}
-\index{SaveRoot@{SaveRoot}!MetaValues@{MetaValues}}
-\doxysubsubsection{\texorpdfstring{SaveRoot}{SaveRoot}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Meta\+Values\+::\+Save\+Root = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Output/\char`\"{},\char`\"{}output\char`\"{})}
-
-
-
-The name of the output directory into which the output will be saved. 
-
 \mbox{\Hypertarget{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}\label{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}} 
 \index{MetaValues@{MetaValues}!SimulationDuration@{SimulationDuration}}
 \index{SimulationDuration@{SimulationDuration}!MetaValues@{MetaValues}}
@@ -92,6 +101,16 @@ The name of the output directory into which the output will be saved.
 
 
 The total duration of the chemical simulation. 
+
+\mbox{\Hypertarget{classMetaValues_a821c714405e01102e4311b31b175d49d}\label{classMetaValues_a821c714405e01102e4311b31b175d49d}} 
+\index{MetaValues@{MetaValues}!SimulationSteps@{SimulationSteps}}
+\index{SimulationSteps@{SimulationSteps}!MetaValues@{MetaValues}}
+\doxysubsubsection{\texorpdfstring{SimulationSteps}{SimulationSteps}}
+{\footnotesize\ttfamily int Meta\+Values\+::\+Simulation\+Steps}
+
+
+
+The number of timesteps in the simulation, computed from \mbox{\hyperlink{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}{Simulation\+Duration}} and \mbox{\hyperlink{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}{Time\+Step}}. 
 
 \mbox{\Hypertarget{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}\label{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}} 
 \index{MetaValues@{MetaValues}!TimeStep@{TimeStep}}

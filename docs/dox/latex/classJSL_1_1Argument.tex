@@ -30,7 +30,9 @@ void \mbox{\hyperlink{classJSL_1_1Argument_aa2b18bb35e90f91e224a06d60835053a}{Li
 void \mbox{\hyperlink{classJSL_1_1Argument_a8984e7ce23155259d90a3e98170f36e0}{Parse}} (char $\ast$name, char $\ast$value)
 \begin{DoxyCompactList}\small\item\em Checks if the Name matches the Trigger\+String. For a successful match, Name must be prefaced by one more dash than found in Trigger\+String. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classJSL_1_1Argument_a965bc0dfdce6e03380605af313f8c880}{operator T}} ()
-\begin{DoxyCompactList}\small\item\em Allow the \mbox{\hyperlink{classJSL_1_1Argument}{Argument}} object to be implicitly casted into the value of \mbox{\hyperlink{classJSL_1_1Argument_a83ada5bfa412192f76dd4290f679defd}{Value}}, and hence treated as an object of the templated type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Allow the \mbox{\hyperlink{classJSL_1_1Argument}{Argument}} object to be implicitly casted into the value of \mbox{\hyperlink{classJSL_1_1Argument_a83ada5bfa412192f76dd4290f679defd}{Value}}, and hence treated as an object of the templated type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classJSL_1_1Argument_a088b37401f3183f6f3b081bfd370c991}{operator T}} () const
+\begin{DoxyCompactList}\small\item\em Annoying const version. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
@@ -262,13 +264,24 @@ Reimplemented from \mbox{\hyperlink{classJSL_1_1ArgumentInterface_a256b5bd88b5f6
 \mbox{\Hypertarget{classJSL_1_1Argument_a965bc0dfdce6e03380605af313f8c880}\label{classJSL_1_1Argument_a965bc0dfdce6e03380605af313f8c880}} 
 \index{JSL::Argument$<$ T $>$@{JSL::Argument$<$ T $>$}!operator T@{operator T}}
 \index{operator T@{operator T}!JSL::Argument$<$ T $>$@{JSL::Argument$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator T()}{operator T()}}
+\doxysubsubsection{\texorpdfstring{operator T()}{operator T()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{classJSL_1_1Argument}{J\+S\+L\+::\+Argument}}$<$ T $>$\+::operator T (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Allow the \mbox{\hyperlink{classJSL_1_1Argument}{Argument}} object to be implicitly casted into the value of \mbox{\hyperlink{classJSL_1_1Argument_a83ada5bfa412192f76dd4290f679defd}{Value}}, and hence treated as an object of the templated type. 
+
+\mbox{\Hypertarget{classJSL_1_1Argument_a088b37401f3183f6f3b081bfd370c991}\label{classJSL_1_1Argument_a088b37401f3183f6f3b081bfd370c991}} 
+\index{JSL::Argument$<$ T $>$@{JSL::Argument$<$ T $>$}!operator T@{operator T}}
+\index{operator T@{operator T}!JSL::Argument$<$ T $>$@{JSL::Argument$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator T()}{operator T()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classJSL_1_1Argument}{J\+S\+L\+::\+Argument}}$<$ T $>$\+::operator T (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Annoying const version. 
 
 \mbox{\Hypertarget{classJSL_1_1Argument_a8984e7ce23155259d90a3e98170f36e0}\label{classJSL_1_1Argument_a8984e7ce23155259d90a3e98170f36e0}} 
 \index{JSL::Argument$<$ T $>$@{JSL::Argument$<$ T $>$}!Parse@{Parse}}

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="29" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" bodystart="29" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="35" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -107,24 +107,8 @@
         <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="25" column="15"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="private-static-func">
-      <memberdef kind="function" id="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classGas" kindref="compound">Gas</ref></type>
-        <definition>static Gas Gas::Empty</definition>
-        <argsstring>()</argsstring>
-        <name>Empty</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para><simplesect kind="return"><para>A default-constructed object, but name is clear that the object is empty </para>
-</simplesect>
-</para>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="32" column="12"/>
-      </memberdef>
-      <memberdef kind="function" id="classGas_1a2b2398801ceb8fc5b08b00beab3b4eea" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classGas_1a2b2398801ceb8fc5b08b00beab3b4eea" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classGas" kindref="compound">Gas</ref></type>
         <definition>static Gas Gas::Primordial</definition>
         <argsstring>(double mass)</argsstring>
@@ -142,7 +126,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="35" column="12"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="28" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classGas" kindref="compound">Gas</ref></type>
+        <definition>static Gas Gas::Empty</definition>
+        <argsstring>()</argsstring>
+        <name>Empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A default-constructed object, but name is clear that the object is empty </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="31" column="12"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -150,15 +150,15 @@
     <detaileddescription>
 <para>The most basic gas object there is <ndash/> an array of element-masses and some rules for interacting with it. </para>
     </detaileddescription>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="8" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" bodystart="7" bodyend="36"/>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="8" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" bodystart="7" bodyend="40"/>
     <listofallmembers>
-      <member refid="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" prot="private" virt="non-virtual"><scope>Gas</scope><name>Empty</name></member>
+      <member refid="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" prot="public" virt="non-virtual"><scope>Gas</scope><name>Empty</name></member>
       <member refid="classGas_1a6506127f6d3c2f0e15e9592c1e0134ea" prot="public" virt="non-virtual"><scope>Gas</scope><name>Gas</name></member>
       <member refid="classGas_1a72c22f9017710f7c97af4f727e481bd4" prot="public" virt="non-virtual"><scope>Gas</scope><name>Gas</name></member>
       <member refid="classGas_1a292ef4704a70acb9aacf7bd10d04f7f3" prot="public" virt="non-virtual"><scope>Gas</scope><name>Mass</name></member>
       <member refid="classGas_1ae68d91b5ab415a0478e7dcf14cfdc7ca" prot="public" virt="non-virtual"><scope>Gas</scope><name>operator[]</name></member>
       <member refid="classGas_1a585dae425060668c22526512e5d7e2b5" prot="public" virt="non-virtual"><scope>Gas</scope><name>operator[]</name></member>
-      <member refid="classGas_1a2b2398801ceb8fc5b08b00beab3b4eea" prot="private" virt="non-virtual"><scope>Gas</scope><name>Primordial</name></member>
+      <member refid="classGas_1a2b2398801ceb8fc5b08b00beab3b4eea" prot="public" virt="non-virtual"><scope>Gas</scope><name>Primordial</name></member>
       <member refid="classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c" prot="private" virt="non-virtual"><scope>Gas</scope><name>Species</name></member>
     </listofallmembers>
   </compounddef>

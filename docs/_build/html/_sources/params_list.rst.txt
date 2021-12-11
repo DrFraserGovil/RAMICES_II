@@ -8,6 +8,8 @@ The GlobalParameters object contains a bunch of subclasses of the ParamList obje
 
 .. doxygenclass:: MetaValues
 
+.. doxygenclass:: OutputValues
+
 .. doxygenclass:: ElementValues
 
 .. doxygenclass:: StellarValues

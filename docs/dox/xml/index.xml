@@ -11,6 +11,7 @@
     <member refid="classJSL_1_1Argument_1aa2b18bb35e90f91e224a06d60835053a" kind="function"><name>ListParse</name></member>
     <member refid="classJSL_1_1Argument_1a8984e7ce23155259d90a3e98170f36e0" kind="function"><name>Parse</name></member>
     <member refid="classJSL_1_1Argument_1a965bc0dfdce6e03380605af313f8c880" kind="function"><name>operator T</name></member>
+    <member refid="classJSL_1_1Argument_1a088b37401f3183f6f3b081bfd370c991" kind="function"><name>operator T</name></member>
     <member refid="classJSL_1_1Argument_1a8614eb66f807132c4323847e05e666c4" kind="function"><name>CheckForInvalidTriggers</name></member>
     <member refid="classJSL_1_1Argument_1ac77530598054943c996dbb5fb677b844" kind="function"><name>AssignValue</name></member>
     <member refid="classJSL_1_1Argument_1ab62b81b196fdc434ab03cd3257ab4aef" kind="function"><name>AssignValue</name></member>
@@ -45,7 +46,7 @@
     <member refid="classElementValues_1a7ffa1bc21d1b35c4dae9959a12d5e221" kind="function"><name>GiveElementsNames</name></member>
   </compound>
   <compound refid="classGalaxy" kind="class"><name>Galaxy</name>
-    <member refid="classGalaxy_1acebf3c89d2dd1c75148f82aca4279c21" kind="variable"><name>Rings</name></member>
+    <member refid="classGalaxy_1a79e9887f8c80ead95220e010a0684240" kind="variable"><name>Rings</name></member>
     <member refid="classGalaxy_1a337b7f34ddf0d2eae54e16929b04a698" kind="variable"><name>Mass</name></member>
     <member refid="classGalaxy_1a6b6f0928caabc47b067d4fae75655eac" kind="variable"><name>Opts</name></member>
     <member refid="classGalaxy_1a2871f848eb9784ccd08da4feff040c19" kind="variable"><name>Demosthenes</name></member>
@@ -53,12 +54,15 @@
     <member refid="classGalaxy_1abd8592aefb87239ebcd305011c8f7ae4" kind="variable"><name>RingState</name></member>
     <member refid="classGalaxy_1aa63ef779b97034043b9c0e5bb8970cbf" kind="variable"><name>GalaxyState</name></member>
     <member refid="classGalaxy_1ac901256296640efbb40beb83b2d0ecfc" kind="variable"><name>GasExcess</name></member>
+    <member refid="classGalaxy_1af634c5a3bb615e5fc86cdc06c47163ca" kind="variable"><name>Param</name></member>
     <member refid="classGalaxy_1afaad94ff4ab36cd98744c773e4b34923" kind="function"><name>GasScaleLength</name></member>
     <member refid="classGalaxy_1a67e32cd9cfbef78fdb19989e5f0f0d30" kind="function"><name>InfallRate</name></member>
     <member refid="classGalaxy_1a63119c07647ce95af35b9f860e8b088f" kind="function"><name>Galaxy</name></member>
     <member refid="classGalaxy_1a5898095189818af6050d11aee8f23e81" kind="function"><name>Evolve</name></member>
     <member refid="classGalaxy_1a2f9013e3430b28ebb7a73ac1feae22f4" kind="function"><name>PullIGM</name></member>
     <member refid="classGalaxy_1a285372d26bf2fca5f9cd78dbb0bb3fec" kind="function"><name>PushIGM</name></member>
+    <member refid="classGalaxy_1a27e8a92d789f6a5731190e2ac829eb66" kind="function"><name>Galaxy</name></member>
+    <member refid="classGalaxy_1a5898095189818af6050d11aee8f23e81" kind="function"><name>Evolve</name></member>
     <member refid="classGalaxy_1ae9ca23e689a849dbc16850139dfbae69" kind="function"><name>UpdateGasMass</name></member>
     <member refid="classGalaxy_1a0fcd1201164fd7cc6649db93e6640e06" kind="function"><name>ColdGasMass</name></member>
     <member refid="classGalaxy_1aac58bab6b1a9ed7d2c725e9691af630c" kind="function"><name>HotGasMass</name></member>
@@ -68,12 +72,25 @@
     <member refid="classGalaxy_1ab4aaea6ebfe1d72381f671d74c8e3e8a" kind="function"><name>PropertyHeaders</name></member>
     <member refid="classGalaxy_1afdb07ef56f8c439a4ee9975d7d753382" kind="function"><name>ReportProperties</name></member>
     <member refid="classGalaxy_1a4429308d9426e2dd167de7f8618b8bcb" kind="function"><name>SaveState</name></member>
+    <member refid="classGalaxy_1afaad94ff4ab36cd98744c773e4b34923" kind="function"><name>GasScaleLength</name></member>
+    <member refid="classGalaxy_1a011bc80de73d4f673c7010dce77265c3" kind="function"><name>InfallMass</name></member>
+    <member refid="classGalaxy_1a13564f4607192445efba53ad895a3672" kind="function"><name>InsertInfallingGas</name></member>
+    <member refid="classGalaxy_1a80a875b0032811f506d3fd32264edb88" kind="function"><name>Infall</name></member>
+    <member refid="classGalaxy_1aef74811eea0fe7be983f71f56354d265" kind="function"><name>PredictSurfaceDensity</name></member>
+    <member refid="classGalaxy_1ac5745f8f154464d0d53af6cb2a625ace" kind="function"><name>GasMass</name></member>
+    <member refid="classGalaxy_1af7dc1d5cae8df3052cf1fdfb3243af8f" kind="function"><name>StarMass</name></member>
+    <member refid="classGalaxy_1a0f4ea22ac9923c8f86336002cc505ce5" kind="function"><name>RelicMass</name></member>
+    <member refid="classGalaxy_1a1f660f4324741739e2fe746f8057f743" kind="function"><name>Mass</name></member>
+    <member refid="classGalaxy_1a4429308d9426e2dd167de7f8618b8bcb" kind="function"><name>SaveState</name></member>
+    <member refid="classGalaxy_1ae60a8983091a4393c71b1f724a5af5fb" kind="function"><name>SaveState_Mass</name></member>
+    <member refid="classGalaxy_1a201827440faacb0346dd1c13b297ac81" kind="function"><name>MassHeaders</name></member>
   </compound>
   <compound refid="classGalaxyValues" kind="class"><name>GalaxyValues</name>
-    <member refid="classGalaxyValues_1a5a0435dd3b41af00845239640082ad53" kind="variable"><name>NRings</name></member>
-    <member refid="classGalaxyValues_1aa4a085809db57a041180774df21e4938" kind="variable"><name>MaxRadius</name></member>
+    <member refid="classGalaxyValues_1a611bcb1e5ae6b88481a68fc75537dd47" kind="variable"><name>RingCount</name></member>
+    <member refid="classGalaxyValues_1a9d89e9b288bf1874d5895d0aba9ca6ed" kind="variable"><name>Radius</name></member>
     <member refid="classGalaxyValues_1a0b8bb4de49945b5bf21c44c46750482b" kind="variable"><name>PrimordialMass</name></member>
     <member refid="classGalaxyValues_1ae72dee5f4f6eb8c1c4573b5caa6d82af" kind="variable"><name>PrimordialHotFraction</name></member>
+    <member refid="classGalaxyValues_1a61a7e9021fb7dbf1f3b6cfbb1c9888ef" kind="variable"><name>IGM_Mass</name></member>
     <member refid="classGalaxyValues_1a239f649cbcecf52fbe441aabe2575d5b" kind="variable"><name>MinScaleLength</name></member>
     <member refid="classGalaxyValues_1a1eadee2260b53785ed45e4fc1adefa1b" kind="variable"><name>MaxScaleLength</name></member>
     <member refid="classGalaxyValues_1af6825df7eafbc2a2394beeb674f63c14" kind="variable"><name>ScaleLengthDelay</name></member>
@@ -95,8 +112,8 @@
     <member refid="classGas_1a292ef4704a70acb9aacf7bd10d04f7f3" kind="function"><name>Mass</name></member>
     <member refid="classGas_1ae68d91b5ab415a0478e7dcf14cfdc7ca" kind="function"><name>operator[]</name></member>
     <member refid="classGas_1a585dae425060668c22526512e5d7e2b5" kind="function"><name>operator[]</name></member>
-    <member refid="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" kind="function"><name>Empty</name></member>
     <member refid="classGas_1a2b2398801ceb8fc5b08b00beab3b4eea" kind="function"><name>Primordial</name></member>
+    <member refid="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" kind="function"><name>Empty</name></member>
   </compound>
   <compound refid="structGasRequest" kind="struct"><name>GasRequest</name>
     <member refid="structGasRequest_1ad266fd3876b284d317b5b37ce13bac0f" kind="variable"><name>IGM</name></member>
@@ -104,7 +121,9 @@
   </compound>
   <compound refid="classGasReservoir" kind="class"><name>GasReservoir</name>
     <member refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kind="variable"><name>Components</name></member>
+    <member refid="classGasReservoir_1a48858dc4bc562bfab187e76a0d45c8c4" kind="variable"><name>Param</name></member>
     <member refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" kind="function"><name>GasReservoir</name></member>
+    <member refid="classGasReservoir_1a15fab3e87fac3f22e9d221a33269da70" kind="function"><name>GasReservoir</name></member>
     <member refid="classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645" kind="function"><name>operator[]</name></member>
     <member refid="classGasReservoir_1a438c98990290d468fd5de4caa476b632" kind="function"><name>operator[]</name></member>
     <member refid="classGasReservoir_1a841a10da610c205d4eb8de4e9ab9ce8c" kind="function"><name>Mass</name></member>
@@ -114,16 +133,23 @@
     <member refid="classGasReservoir_1a2f358644898f78a0e1594de154e53047" kind="function"><name>Absorb</name></member>
     <member refid="classGasReservoir_1ae2e4fdaa1f6b3f7a335b0948e1af1a9e" kind="function"><name>Deplete</name></member>
     <member refid="classGasReservoir_1a81bf7608a5ca448d267ce0a563786361" kind="function"><name>Deplete</name></member>
-    <member refid="classGasReservoir_1aa202265472304d22898beb78a4882b8b" kind="function"><name>Primordial</name></member>
+    <member refid="classGasReservoir_1aa65b29009b11d92cec10d328783df1c4" kind="function"><name>TransferFrom</name></member>
+    <member refid="classGasReservoir_1aae92dfb5664e694526db78d5a47c48cf" kind="function"><name>AccretionStream</name></member>
+    <member refid="classGasReservoir_1a630611da13a36426ade46dcdf3528d24" kind="function"><name>PrintSelf</name></member>
+    <member refid="classGasReservoir_1aea21701bb5b49713afe907026ea4046e" kind="function"><name>Primordial</name></member>
   </compound>
   <compound refid="classGasStream" kind="class"><name>GasStream</name>
     <member refid="classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5" kind="variable"><name>Source</name></member>
-    <member refid="classGasStream_1a48c6a6e0bed770b63231f2c7364b3db0" kind="variable"><name>Hot</name></member>
-    <member refid="classGasStream_1a7d9cb8da4073a28aa8fe38921c048a7a" kind="variable"><name>Cold</name></member>
     <member refid="classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a" kind="variable"><name>NeedsRecomputing</name></member>
     <member refid="classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca" kind="variable"><name>internal_HotMass</name></member>
     <member refid="classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63" kind="variable"><name>internal_ColdMass</name></member>
     <member refid="classGasStream_1a14fe3a90aa022cedea487e27ddcb57ac" kind="variable"><name>internal_TotalMass</name></member>
+    <member refid="classGasStream_1a4eeb871be8663aa1671d778d2be58d33" kind="variable"><name>internal_Hot</name></member>
+    <member refid="classGasStream_1afaec9b6fec0d6a21b5263cf415f0c9fb" kind="variable"><name>internal_Cold</name></member>
+    <member refid="classGasStream_1a25b46b6eb7e54986398990d9c47f84ac" kind="function"><name>Hot</name></member>
+    <member refid="classGasStream_1a0b2a1a3961e0d5a1701b51851f105868" kind="function"><name>Cold</name></member>
+    <member refid="classGasStream_1a7667f4eb26810ad56aec686cf289379c" kind="function"><name>Hot</name></member>
+    <member refid="classGasStream_1ac2b70a62064c59f880f60b93c906ec6d" kind="function"><name>Cold</name></member>
     <member refid="classGasStream_1af53972311a6821deda7f211a828f65e7" kind="function"><name>GasStream</name></member>
     <member refid="classGasStream_1a9c4c6fe0b3df01b5586cca667eaf11ca" kind="function"><name>GasStream</name></member>
     <member refid="classGasStream_1a83de215a9348757ca94bdf5b9d491328" kind="function"><name>GasStream</name></member>
@@ -140,6 +166,7 @@
   </compound>
   <compound refid="classGlobalParameters" kind="class"><name>GlobalParameters</name>
     <member refid="classGlobalParameters_1acadf3dc072a866179ff6cbb659bfe9f9" kind="variable"><name>Meta</name></member>
+    <member refid="classGlobalParameters_1af049296ba286c001a8264e134bf1e114" kind="variable"><name>Output</name></member>
     <member refid="classGlobalParameters_1a6c19b1581da94aa75d4007b045ca3668" kind="variable"><name>Element</name></member>
     <member refid="classGlobalParameters_1a0fecec8fd7a856462e6d2a156bced778" kind="variable"><name>Stellar</name></member>
     <member refid="classGlobalParameters_1a4286ecf9679555c20b9176178e3cafef" kind="variable"><name>Thermal</name></member>
@@ -198,12 +225,13 @@
     <member refid="classJSL__Testing_1_1MetaTest_1a176352dcd54f9ec7df8f1548882e6820" kind="function"><name>Run_Test</name></member>
   </compound>
   <compound refid="classMetaValues" kind="class"><name>MetaValues</name>
-    <member refid="classMetaValues_1a6473d91b7e971e2e44e87e3f38e14502" kind="variable"><name>SaveRoot</name></member>
     <member refid="classMetaValues_1a8b73fd409e1e258b7d638b8aebef72e2" kind="variable"><name>ResourceRoot</name></member>
     <member refid="classMetaValues_1ac8e1adbfb77ba566a39caf86dfb46a11" kind="variable"><name>ParallelThreads</name></member>
     <member refid="classMetaValues_1a91fd337f6d6ad536e6174b3e769b3bcf" kind="variable"><name>TimeStep</name></member>
     <member refid="classMetaValues_1a99960686637e59874cc6cd5e1b7b71b8" kind="variable"><name>SimulationDuration</name></member>
+    <member refid="classMetaValues_1a821c714405e01102e4311b31b175d49d" kind="variable"><name>SimulationSteps</name></member>
     <member refid="classMetaValues_1a8766aac9dd6865deee6647ab0a6d7ef4" kind="function"><name>MetaValues</name></member>
+    <member refid="classMetaValues_1ab692a7cd1b675b2655e077863f67952e" kind="function"><name>Initialise</name></member>
   </compound>
   <compound refid="structmkdirReturn" kind="struct"><name>mkdirReturn</name>
     <member refid="structmkdirReturn_1af4dfc985a8a93ea6ff6ba42108c218dd" kind="variable"><name>Successful</name></member>
@@ -212,6 +240,13 @@
   <compound refid="structJSL_1_1mkdirReturn" kind="struct"><name>JSL::mkdirReturn</name>
     <member refid="structJSL_1_1mkdirReturn_1a76abe5af61a20e13756f833b79782b7f" kind="variable"><name>Successful</name></member>
     <member refid="structJSL_1_1mkdirReturn_1a64650d2f4b3d2ca29de3a4dcfdadbd0e" kind="variable"><name>Message</name></member>
+  </compound>
+  <compound refid="classOutputValues" kind="class"><name>OutputValues</name>
+    <member refid="classOutputValues_1a13836f99ceda7a78fa13a252c58d3449" kind="variable"><name>Root</name></member>
+    <member refid="classOutputValues_1a0fbdd1d6de541ea47150ab19b8de6434" kind="variable"><name>GalacticDirectory</name></member>
+    <member refid="classOutputValues_1ab16e6fc8205241d387ad427556581dcc" kind="variable"><name>GalaxyMassFile</name></member>
+    <member refid="classOutputValues_1a2ded6e5697ca60c9e8b09473ac534c90" kind="function"><name>OutputValues</name></member>
+    <member refid="classOutputValues_1ae0eb3295f290bfc2e78f151ae9dda1b7" kind="function"><name>Initialise</name></member>
   </compound>
   <compound refid="classParamList" kind="class"><name>ParamList</name>
     <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" kind="variable"><name>argPointers</name></member>
@@ -246,6 +281,8 @@
     <member refid="classRing_1a85ca5dfb0e8dda469a877943bb1a91d4" kind="variable"><name>Radius</name></member>
     <member refid="classRing_1a499c0d45f534f04a115573aa4f39743b" kind="variable"><name>SurfaceDensity</name></member>
     <member refid="classRing_1a854edeaee31fc2579f86d9dc4b8a77b7" kind="variable"><name>Stars</name></member>
+    <member refid="classRing_1a8cc1ffb45fd3ad01e7aeba2155fbc96f" kind="variable"><name>Radius</name></member>
+    <member refid="classRing_1a4f8c8947f8031c8c7b37f084ca6a740f" kind="variable"><name>Width</name></member>
     <member refid="classRing_1aa4f60bfc8f60790513824b130569d78f" kind="variable"><name>Opts</name></member>
     <member refid="classRing_1a974990af6b5e342f8397acded3bc036d" kind="variable"><name>Width</name></member>
     <member refid="classRing_1ae504175835d37e56cee8fb0042ba49de" kind="variable"><name>InnerRadius</name></member>
@@ -253,6 +290,8 @@
     <member refid="classRing_1a646e6b4dc69c04926fecd53f2a60a001" kind="variable"><name>Area</name></member>
     <member refid="classRing_1aaee9522e870bddc5fda5bd9d8c45dc82" kind="variable"><name>ID</name></member>
     <member refid="classRing_1af2ad94d6e3c930a6a52cddb6bc61cf9b" kind="variable"><name>Parent</name></member>
+    <member refid="classRing_1a7e78ffa118882a0d0be0d4198b336ed9" kind="variable"><name>RadiusIndex</name></member>
+    <member refid="classRing_1abd93716c681cac8d63d1334aa2fbf722" kind="variable"><name>Param</name></member>
     <member refid="classRing_1aaf04a946616f5ec362541acb5d8f64a7" kind="function"><name>Mass</name></member>
     <member refid="classRing_1a3603a35a11069c3a09a325f592485888" kind="function"><name>AccretionRequest</name></member>
     <member refid="classRing_1ac0e89b2ff4f16eb212df406612957324" kind="function"><name>FormStars</name></member>
@@ -261,8 +300,17 @@
     <member refid="classRing_1a971ecf443202c92aab533855a57da564" kind="function"><name>ReportProperties</name></member>
     <member refid="classRing_1ac171f1f73adeadb4cfbe90cc39664b3c" kind="function"><name>Ring</name></member>
     <member refid="classRing_1a94ee90a62a38d0d5fcb80ecd8dde98f2" kind="function"><name>Ring</name></member>
+    <member refid="classRing_1a4377a033aba9f264993f203481196b64" kind="function"><name>Ring</name></member>
+    <member refid="classRing_1aaf04a946616f5ec362541acb5d8f64a7" kind="function"><name>Mass</name></member>
     <member refid="classRing_1a453e3dbe47906636b64305598d124d2e" kind="function"><name>RingMass</name></member>
     <member refid="classRing_1a25774bb524fc42f8417ec778e265d3d5" kind="function"><name>StarFormationRate</name></member>
+  </compound>
+  <compound refid="classStarReservoir" kind="class"><name>StarReservoir</name>
+    <member refid="classStarReservoir_1a14d18cd77706e1159b5aceb92c45e911" kind="variable"><name>StarPopulations</name></member>
+    <member refid="classStarReservoir_1a50c92bbb8e133593baca28ccb54bba0f" kind="variable"><name>Param</name></member>
+    <member refid="classStarReservoir_1a3f60b3f4c8af1509dcc9332cd2f7d9da" kind="function"><name>StarReservoir</name></member>
+    <member refid="classStarReservoir_1a4db0a7a429c235d914d6b021e1735d1b" kind="function"><name>Mass</name></member>
+    <member refid="classStarReservoir_1adbec993089ffb848b611cc57091586bd" kind="function"><name>Birth</name></member>
   </compound>
   <compound refid="classStarSet" kind="class"><name>StarSet</name>
     <member refid="classStarSet_1ae54053ddcbb74698dd6a6aaa0044819f" kind="variable"><name>Mass</name></member>
@@ -507,9 +555,13 @@
   <compound refid="YieldRidge_8h" kind="file"><name>YieldRidge.h</name>
     <member refid="YieldRidge_8h_1acef28b17c1d55e929da66d41a6a2ea0b" kind="function"><name>MergeRidges</name></member>
   </compound>
-  <compound refid="Galaxy_8h" kind="file"><name>Galaxy.h</name>
+  <compound refid="old__src_2Galaxy_2Galaxy_8h" kind="file"><name>Galaxy.h</name>
   </compound>
-  <compound refid="Ring_8h" kind="file"><name>Ring.h</name>
+  <compound refid="src_2Galaxy_2Galaxy_8h" kind="file"><name>Galaxy.h</name>
+  </compound>
+  <compound refid="old__src_2Galaxy_2Ring_8h" kind="file"><name>Ring.h</name>
+  </compound>
+  <compound refid="src_2Galaxy_2Ring_8h" kind="file"><name>Ring.h</name>
   </compound>
   <compound refid="CommandParser_8h" kind="file"><name>CommandParser.h</name>
     <member refid="CommandParser_8h_1a4f07b9683808c0c57e3388d8570ec60f" kind="typedef"><name>parseFunctions</name></member>
@@ -578,6 +630,8 @@
   </compound>
   <compound refid="ParameterLists_8h" kind="file"><name>ParameterLists.h</name>
   </compound>
+  <compound refid="StarReservoir_8h" kind="file"><name>StarReservoir.h</name>
+  </compound>
   <compound refid="dir_b0f48f036a3b175296b10e5223011ebf" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/old_src/ChemicalAssemblers</name>
   </compound>
   <compound refid="dir_2874dae9605f0224ac5788d19c7dfbcd" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs</name>
@@ -585,6 +639,8 @@
   <compound refid="dir_4bf86a16ce68e3976ed369fde08f14b6" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/libs/JSL/FileIO</name>
   </compound>
   <compound refid="dir_e0861e9414ed5a230750454d2ebdb81f" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy</name>
+  </compound>
+  <compound refid="dir_b853037adca8bec56a77fb0040d47c25" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/src/Galaxy</name>
   </compound>
   <compound refid="dir_c4e644ac4f9f66a5bce91cefc52e7457" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/src/Gas</name>
   </compound>
@@ -603,6 +659,8 @@
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/src</name>
   </compound>
   <compound refid="dir_6222b6d179b58e89a7fe86b4e97221df" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/old_src/Stars</name>
+  </compound>
+  <compound refid="dir_bcf4785f6c26888da3480939ada5dd61" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/src/Stars</name>
   </compound>
   <compound refid="dir_837aab53d9abcc5260cde2177c775945" kind="dir"><name>/home/jack/Documents/Work/RAMICES_II/libs/JSL/Strings</name>
   </compound>

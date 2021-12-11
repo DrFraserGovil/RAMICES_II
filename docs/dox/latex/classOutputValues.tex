@@ -1,0 +1,97 @@
+\hypertarget{classOutputValues}{}\doxysection{Output\+Values Class Reference}
+\label{classOutputValues}\index{OutputValues@{OutputValues}}
+
+
+{\ttfamily \#include $<$Parameter\+Lists.\+h$>$}
+
+Inheritance diagram for Output\+Values\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classOutputValues}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classOutputValues_a2ded6e5697ca60c9e8b09473ac534c90}{Output\+Values}} ()
+\begin{DoxyCompactList}\small\item\em Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classOutputValues_ae0eb3295f290bfc2e78f151ae9dda1b7}{Initialise}} (std\+::string resource\+Root)
+\begin{DoxyCompactList}\small\item\em An overload of a normally empty function. Goes through and creates the necessary directory structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_a13836f99ceda7a78fa13a252c58d3449}{Root}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Output/\char`\"{},\char`\"{}output\char`\"{})
+\begin{DoxyCompactList}\small\item\em The name of the output directory into which the output will be saved. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_a0fbdd1d6de541ea47150ab19b8de6434}{Galactic\+Directory}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Galactic/\char`\"{},\char`\"{}galaxy-\/data\char`\"{})
+\begin{DoxyCompactList}\small\item\em The directory containing mass-\/type information. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_ab16e6fc8205241d387ad427556581dcc}{Galaxy\+Mass\+File}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Mass.\+dat\char`\"{},\char`\"{}galaxy-\/mass-\/file\char`\"{})
+\begin{DoxyCompactList}\small\item\em The name of the file containing galactic-\/scale mass information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOutputValues_a2ded6e5697ca60c9e8b09473ac534c90}\label{classOutputValues_a2ded6e5697ca60c9e8b09473ac534c90}} 
+\index{OutputValues@{OutputValues}!OutputValues@{OutputValues}}
+\index{OutputValues@{OutputValues}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{OutputValues()}{OutputValues()}}
+{\footnotesize\ttfamily Output\+Values\+::\+Output\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOutputValues_ae0eb3295f290bfc2e78f151ae9dda1b7}\label{classOutputValues_ae0eb3295f290bfc2e78f151ae9dda1b7}} 
+\index{OutputValues@{OutputValues}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily virtual void Output\+Values\+::\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{resource\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+An overload of a normally empty function. Goes through and creates the necessary directory structure. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classParamList_a7bc1e8cffb0062a056193e34b80f3475}{Param\+List}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classOutputValues_a0fbdd1d6de541ea47150ab19b8de6434}\label{classOutputValues_a0fbdd1d6de541ea47150ab19b8de6434}} 
+\index{OutputValues@{OutputValues}!GalacticDirectory@{GalacticDirectory}}
+\index{GalacticDirectory@{GalacticDirectory}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{GalacticDirectory}{GalacticDirectory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Output\+Values\+::\+Galactic\+Directory = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Galactic/\char`\"{},\char`\"{}galaxy-\/data\char`\"{})}
+
+
+
+The directory containing mass-\/type information. 
+
+\mbox{\Hypertarget{classOutputValues_ab16e6fc8205241d387ad427556581dcc}\label{classOutputValues_ab16e6fc8205241d387ad427556581dcc}} 
+\index{OutputValues@{OutputValues}!GalaxyMassFile@{GalaxyMassFile}}
+\index{GalaxyMassFile@{GalaxyMassFile}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{GalaxyMassFile}{GalaxyMassFile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Output\+Values\+::\+Galaxy\+Mass\+File = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Mass.\+dat\char`\"{},\char`\"{}galaxy-\/mass-\/file\char`\"{})}
+
+
+
+The name of the file containing galactic-\/scale mass information. 
+
+\mbox{\Hypertarget{classOutputValues_a13836f99ceda7a78fa13a252c58d3449}\label{classOutputValues_a13836f99ceda7a78fa13a252c58d3449}} 
+\index{OutputValues@{OutputValues}!Root@{Root}}
+\index{Root@{Root}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{Root}{Root}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Output\+Values\+::\+Root = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Output/\char`\"{},\char`\"{}output\char`\"{})}
+
+
+
+The name of the output directory into which the output will be saved. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}

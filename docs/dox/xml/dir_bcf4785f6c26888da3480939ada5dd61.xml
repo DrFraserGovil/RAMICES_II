@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_bcf4785f6c26888da3480939ada5dd61" kind="dir">
+    <compoundname>/home/jack/Documents/Work/RAMICES_II/src/Stars</compoundname>
+    <innerfile refid="StarReservoir_8h">StarReservoir.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Stars/"/>
+  </compounddef>
+</doxygen>

@@ -20,7 +20,9 @@ void \mbox{\hyperlink{classGlobalParameters_a49a012a4c9a2972a33ae78ef2d500d32}{I
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classMetaValues}{Meta\+Values}} \mbox{\hyperlink{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}{Meta}}
-\begin{DoxyCompactList}\small\item\em Simulation values -\/ timescales, output directories etc. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Simulation values -\/ timescales, number of threads etc. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classOutputValues}{Output\+Values}} \mbox{\hyperlink{classGlobalParameters_af049296ba286c001a8264e134bf1e114}{Output}}
+\begin{DoxyCompactList}\small\item\em Output directory values -- directory information etc. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classElementValues}{Element\+Values}} \mbox{\hyperlink{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}{Element}}
 \begin{DoxyCompactList}\small\item\em Abundance data + resource location data. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classStellarValues}{Stellar\+Values}} \mbox{\hyperlink{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}{Stellar}}
@@ -29,7 +31,7 @@ void \mbox{\hyperlink{classGlobalParameters_a49a012a4c9a2972a33ae78ef2d500d32}{I
 \begin{DoxyCompactList}\small\item\em Hot gas cooling/injection parameters. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGalaxyValues}{Galaxy\+Values}} \mbox{\hyperlink{classGlobalParameters_abe614bae6bfab6d1fbe2b5e9db5adaa3}{Galaxy}}
 \begin{DoxyCompactList}\small\item\em Galactic size/ evolution parameters. \end{DoxyCompactList}\item 
-std\+::vector$<$ \mbox{\hyperlink{classParamList}{Param\+List}} $\ast$ $>$ \mbox{\hyperlink{classGlobalParameters_ad5ed3bfeb016b8c1aeb2570b5bdc8385}{Param\+Members}} = \{\&\mbox{\hyperlink{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}{Meta}},\&\mbox{\hyperlink{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}{Element}},\&\mbox{\hyperlink{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}{Stellar}},\&\mbox{\hyperlink{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}{Thermal}},\&\mbox{\hyperlink{classGalaxy}{Galaxy}}\}
+std\+::vector$<$ \mbox{\hyperlink{classParamList}{Param\+List}} $\ast$ $>$ \mbox{\hyperlink{classGlobalParameters_ad5ed3bfeb016b8c1aeb2570b5bdc8385}{Param\+Members}} = \{\&\mbox{\hyperlink{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}{Meta}},\&\mbox{\hyperlink{classGlobalParameters_af049296ba286c001a8264e134bf1e114}{Output}},\&\mbox{\hyperlink{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}{Element}},\&\mbox{\hyperlink{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}{Stellar}},\&\mbox{\hyperlink{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}{Thermal}},\&\mbox{\hyperlink{classGalaxy}{Galaxy}}\}
 \begin{DoxyCompactList}\small\item\em A heterogeneous pointer array, which allows for a nice loop over the members. Any new parameter pack needs to be inserted here so that the member values can be initialised. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -91,13 +93,23 @@ Galactic size/ evolution parameters.
 
 
 
-Simulation values -\/ timescales, output directories etc. 
+Simulation values -\/ timescales, number of threads etc. 
+
+\mbox{\Hypertarget{classGlobalParameters_af049296ba286c001a8264e134bf1e114}\label{classGlobalParameters_af049296ba286c001a8264e134bf1e114}} 
+\index{GlobalParameters@{GlobalParameters}!Output@{Output}}
+\index{Output@{Output}!GlobalParameters@{GlobalParameters}}
+\doxysubsubsection{\texorpdfstring{Output}{Output}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classOutputValues}{Output\+Values}} Global\+Parameters\+::\+Output}
+
+
+
+Output directory values -- directory information etc. 
 
 \mbox{\Hypertarget{classGlobalParameters_ad5ed3bfeb016b8c1aeb2570b5bdc8385}\label{classGlobalParameters_ad5ed3bfeb016b8c1aeb2570b5bdc8385}} 
 \index{GlobalParameters@{GlobalParameters}!ParamMembers@{ParamMembers}}
 \index{ParamMembers@{ParamMembers}!GlobalParameters@{GlobalParameters}}
 \doxysubsubsection{\texorpdfstring{ParamMembers}{ParamMembers}}
-{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classParamList}{Param\+List}} $\ast$$>$ Global\+Parameters\+::\+Param\+Members = \{\&\mbox{\hyperlink{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}{Meta}},\&\mbox{\hyperlink{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}{Element}},\&\mbox{\hyperlink{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}{Stellar}},\&\mbox{\hyperlink{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}{Thermal}},\&\mbox{\hyperlink{classGalaxy}{Galaxy}}\}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classParamList}{Param\+List}} $\ast$$>$ Global\+Parameters\+::\+Param\+Members = \{\&\mbox{\hyperlink{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}{Meta}},\&\mbox{\hyperlink{classGlobalParameters_af049296ba286c001a8264e134bf1e114}{Output}},\&\mbox{\hyperlink{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}{Element}},\&\mbox{\hyperlink{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}{Stellar}},\&\mbox{\hyperlink{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}{Thermal}},\&\mbox{\hyperlink{classGalaxy}{Galaxy}}\}}
 
 
 

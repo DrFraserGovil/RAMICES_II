@@ -9,6 +9,8 @@
 \item 
 \mbox{\hyperlink{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}{Gas\+Reservoir}} ()
 \begin{DoxyCompactList}\small\item\em Default constructor. Initialises the \mbox{\hyperlink{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}{Components}} and gives them their \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} ID. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGasReservoir_a15fab3e87fac3f22e9d221a33269da70}{Gas\+Reservoir}} (const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&param)
+\begin{DoxyCompactList}\small\item\em useful constructor \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \& \mbox{\hyperlink{classGasReservoir_ae082c5254cca8d39c72e90ffa6784645}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} source)
 \begin{DoxyCompactList}\small\item\em A vector-\/like access overload, allowing indexing into the \mbox{\hyperlink{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}{Components}} vector using appropriate \#\+Source\+Processes. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \& \mbox{\hyperlink{classGasReservoir_a438c98990290d468fd5de4caa476b632}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} source) const
@@ -26,17 +28,25 @@ void \mbox{\hyperlink{classGasReservoir_a2f358644898f78a0e1594de154e53047}{Absor
 void \mbox{\hyperlink{classGasReservoir_ae2e4fdaa1f6b3f7a335b0948e1af1a9e}{Deplete}} (double amount\+To\+Lose)
 \begin{DoxyCompactList}\small\item\em Calls \mbox{\hyperlink{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}{Gas\+Stream\+::\+Deplete(double)}} on each element of \mbox{\hyperlink{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}{Components}}, keeping the relative mass contribution of each component equal. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGasReservoir_a81bf7608a5ca448d267ce0a563786361}{Deplete}} (double amount\+To\+Lose\+\_\+\+Cold, double amount\+To\+Lose\+\_\+\+Hot)
-\begin{DoxyCompactList}\small\item\em Calls \mbox{\hyperlink{classGasStream_a44ab71ee97b6bf6cb7fba7ce0c861a32}{Gas\+Stream\+::\+Deplete(double, double)}} on each element of \mbox{\hyperlink{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}{Components}}, keeping the relative hot mass and cold mass contribution of each component equal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calls \mbox{\hyperlink{classGasStream_a44ab71ee97b6bf6cb7fba7ce0c861a32}{Gas\+Stream\+::\+Deplete(double, double)}} on each element of \mbox{\hyperlink{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}{Components}}, keeping the relative hot mass and cold mass contribution of each component equal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGasReservoir_aa65b29009b11d92cec10d328783df1c4}{Transfer\+From}} (\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&giving\+Gas, double mass\+To\+Move)
+\begin{DoxyCompactList}\small\item\em Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGasStream}{Gas\+Stream}} \mbox{\hyperlink{classGasReservoir_aae92dfb5664e694526db78d5a47c48cf}{Accretion\+Stream}} (double amount\+To\+Lose)
+\begin{DoxyCompactList}\small\item\em Extracts the chosen amount of cold gas from the reservoir, and puts it into an accretion stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGasReservoir_a630611da13a36426ade46dcdf3528d24}{Print\+Self}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classGasReservoir_aa202265472304d22898beb78a4882b8b}{Primordial}} (double mass, \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&param)
+static \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classGasReservoir_aea21701bb5b49713afe907026ea4046e}{Primordial}} (double mass, const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&param)
 \begin{DoxyCompactList}\small\item\em Generates a primordial gas reservoir of the specified mass -- only the \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2}{Primordial}} component is populated, with the nature of that component determined by several key parameters in \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::vector$<$ \mbox{\hyperlink{classGasStream}{Gas\+Stream}} $>$ \mbox{\hyperlink{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}{Components}}
-\begin{DoxyCompactList}\small\item\em A representation of the total amount of gas within the reservoir, separated by the origin of the gas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A representation of the total amount of gas within the reservoir, separated by the origin of the gas. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \& \mbox{\hyperlink{classGasReservoir_a48858dc4bc562bfab187e76a0d45c8c4}{Param}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -46,12 +56,22 @@ A \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} is a heterogenously sourc
 \mbox{\Hypertarget{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}\label{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}} 
 \index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
 \index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
-\doxysubsubsection{\texorpdfstring{GasReservoir()}{GasReservoir()}}
+\doxysubsubsection{\texorpdfstring{GasReservoir()}{GasReservoir()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Gas\+Reservoir\+::\+Gas\+Reservoir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Default constructor. Initialises the \mbox{\hyperlink{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}{Components}} and gives them their \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} ID. 
+
+\mbox{\Hypertarget{classGasReservoir_a15fab3e87fac3f22e9d221a33269da70}\label{classGasReservoir_a15fab3e87fac3f22e9d221a33269da70}} 
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\index{GasReservoir@{GasReservoir}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{GasReservoir()}{GasReservoir()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Gas\+Reservoir\+::\+Gas\+Reservoir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&}]{param }\end{DoxyParamCaption})}
+
+
+
+useful constructor 
 
 
 
@@ -86,6 +106,16 @@ Transfer the contents of the input stream into the element of \mbox{\hyperlink{c
 {\em giving\+Gas} & the stream which is absorbed into the reservoir (unaltered) \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classGasReservoir_aae92dfb5664e694526db78d5a47c48cf}\label{classGasReservoir_aae92dfb5664e694526db78d5a47c48cf}} 
+\index{GasReservoir@{GasReservoir}!AccretionStream@{AccretionStream}}
+\index{AccretionStream@{AccretionStream}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{AccretionStream()}{AccretionStream()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGasStream}{Gas\+Stream}} Gas\+Reservoir\+::\+Accretion\+Stream (\begin{DoxyParamCaption}\item[{double}]{amount\+To\+Lose }\end{DoxyParamCaption})}
+
+
+
+Extracts the chosen amount of cold gas from the reservoir, and puts it into an accretion stream. 
+
 \mbox{\Hypertarget{classGasReservoir_a57f681a7cedc98b43dc9aeca96e8f3cd}\label{classGasReservoir_a57f681a7cedc98b43dc9aeca96e8f3cd}} 
 \index{GasReservoir@{GasReservoir}!ColdMass@{ColdMass}}
 \index{ColdMass@{ColdMass}!GasReservoir@{GasReservoir}}
@@ -165,11 +195,11 @@ A vector-\/like access overload, allowing indexing into the \mbox{\hyperlink{cla
 
 An annoyingly necessary redeclaration for when constant references don\textquotesingle{}t want to play ball. 
 
-\mbox{\Hypertarget{classGasReservoir_aa202265472304d22898beb78a4882b8b}\label{classGasReservoir_aa202265472304d22898beb78a4882b8b}} 
+\mbox{\Hypertarget{classGasReservoir_aea21701bb5b49713afe907026ea4046e}\label{classGasReservoir_aea21701bb5b49713afe907026ea4046e}} 
 \index{GasReservoir@{GasReservoir}!Primordial@{Primordial}}
 \index{Primordial@{Primordial}!GasReservoir@{GasReservoir}}
 \doxysubsubsection{\texorpdfstring{Primordial()}{Primordial()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} Gas\+Reservoir\+::\+Primordial (\begin{DoxyParamCaption}\item[{double}]{mass,  }\item[{\mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} Gas\+Reservoir\+::\+Primordial (\begin{DoxyParamCaption}\item[{double}]{mass,  }\item[{const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&}]{param }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -182,6 +212,22 @@ Generates a primordial gas reservoir of the specified mass -- only the \mbox{\hy
 {\em param} & A reference to the global parameter set -\/ required for primordial abundances and hot-\/gas fractions \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classGasReservoir_a630611da13a36426ade46dcdf3528d24}\label{classGasReservoir_a630611da13a36426ade46dcdf3528d24}} 
+\index{GasReservoir@{GasReservoir}!PrintSelf@{PrintSelf}}
+\index{PrintSelf@{PrintSelf}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{PrintSelf()}{PrintSelf()}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Print\+Self (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasReservoir_aa65b29009b11d92cec10d328783df1c4}\label{classGasReservoir_aa65b29009b11d92cec10d328783df1c4}} 
+\index{GasReservoir@{GasReservoir}!TransferFrom@{TransferFrom}}
+\index{TransferFrom@{TransferFrom}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{TransferFrom()}{TransferFrom()}}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Transfer\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&}]{giving\+Gas,  }\item[{double}]{mass\+To\+Move }\end{DoxyParamCaption})}
+
+
+
+Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object. 
+
 
 
 \doxysubsection{Field Documentation}
@@ -194,6 +240,12 @@ Generates a primordial gas reservoir of the specified mass -- only the \mbox{\hy
 
 
 A representation of the total amount of gas within the reservoir, separated by the origin of the gas. 
+
+\mbox{\Hypertarget{classGasReservoir_a48858dc4bc562bfab187e76a0d45c8c4}\label{classGasReservoir_a48858dc4bc562bfab187e76a0d45c8c4}} 
+\index{GasReservoir@{GasReservoir}!Param@{Param}}
+\index{Param@{Param}!GasReservoir@{GasReservoir}}
+\doxysubsubsection{\texorpdfstring{Param}{Param}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}}\& Gas\+Reservoir\+::\+Param\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

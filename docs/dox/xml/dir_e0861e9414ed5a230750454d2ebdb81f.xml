@@ -2,8 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="dir_e0861e9414ed5a230750454d2ebdb81f" kind="dir">
     <compoundname>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy</compoundname>
-    <innerfile refid="Galaxy_8h">Galaxy.h</innerfile>
-    <innerfile refid="Ring_8h">Ring.h</innerfile>
+    <innerfile refid="old__src_2Galaxy_2Galaxy_8h">Galaxy.h</innerfile>
+    <innerfile refid="old__src_2Galaxy_2Ring_8h">Ring.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -24,21 +24,29 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="10">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="src_2Galaxy_2Galaxy_8h"/>
+      </node>
       <node id="4">
         <label>/home/jack/Documents/Work/RAMICES_II/libs/JSL/CommandArgs/Argument.h</label>
         <link refid="Argument_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="16">
+      <node id="19">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h</label>
         <link refid="List_8h"/>
-        <childnode refid="15" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="11">
+      <node id="17">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
+      </node>
+      <node id="15">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h</label>
         <link refid="GasStream_8h"/>
         <childnode refid="12" relation="include">
@@ -46,7 +54,7 @@
       </node>
       <node id="13">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
-        <link refid="Ring_8h"/>
+        <link refid="old__src_2Galaxy_2Ring_8h"/>
         <childnode refid="14" relation="include">
         </childnode>
       </node>
@@ -56,13 +64,19 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="10">
+      <node id="16">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h</label>
         <link refid="Gas_8h"/>
-        <childnode refid="11" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="17">
+      <node id="11">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h</label>
+        <link refid="src_2Galaxy_2Ring_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
         <label>/home/jack/Documents/Work/RAMICES_II/libs/JSL/FileIO/rm.h</label>
         <link refid="rm_8h"/>
         <childnode refid="3" relation="include">
@@ -81,18 +95,18 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
       <node id="14">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
-        <link refid="Galaxy_8h"/>
+        <link refid="old__src_2Galaxy_2Galaxy_8h"/>
         <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="18">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h</label>
         <link refid="ParameterLists_8h"/>
         <childnode refid="9" relation="include">
@@ -109,13 +123,17 @@
         <link refid="GasReservoir_8h"/>
         <childnode refid="13" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>/home/jack/Documents/Work/RAMICES_II/libs/JSL/FileIO/locationExists.h</label>
         <link refid="locationExists_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
@@ -133,9 +151,15 @@
         <link refid="GlobalParameters_8h"/>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
       <node id="5">

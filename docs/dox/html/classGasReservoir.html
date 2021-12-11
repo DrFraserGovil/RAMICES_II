@@ -78,6 +78,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af461f3f039a67daecb68c26f2fd6149f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#af461f3f039a67daecb68c26f2fd6149f">GasReservoir</a> ()</td></tr>
 <tr class="memdesc:af461f3f039a67daecb68c26f2fd6149f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. Initialises the <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> and gives them their <a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b" title="Defines a globally recognised set of aliases for sources of gas, used to label GasStream objects.">SourceProcess</a> ID.  <a href="classGasReservoir.html#af461f3f039a67daecb68c26f2fd6149f">More...</a><br /></td></tr>
 <tr class="separator:af461f3f039a67daecb68c26f2fd6149f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15fab3e87fac3f22e9d221a33269da70"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a15fab3e87fac3f22e9d221a33269da70">GasReservoir</a> (const <a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;param)</td></tr>
+<tr class="memdesc:a15fab3e87fac3f22e9d221a33269da70"><td class="mdescLeft">&#160;</td><td class="mdescRight">useful constructor  <a href="classGasReservoir.html#a15fab3e87fac3f22e9d221a33269da70">More...</a><br /></td></tr>
+<tr class="separator:a15fab3e87fac3f22e9d221a33269da70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae082c5254cca8d39c72e90ffa6784645"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGasStream.html">GasStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#ae082c5254cca8d39c72e90ffa6784645">operator[]</a> (<a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b">SourceProcess</a> source)</td></tr>
 <tr class="memdesc:ae082c5254cca8d39c72e90ffa6784645"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector-like access overload, allowing indexing into the <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> vector using appropriate #SourceProcesses.  <a href="classGasReservoir.html#ae082c5254cca8d39c72e90ffa6784645">More...</a><br /></td></tr>
 <tr class="separator:ae082c5254cca8d39c72e90ffa6784645"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,24 +105,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a81bf7608a5ca448d267ce0a563786361"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a81bf7608a5ca448d267ce0a563786361">Deplete</a> (double amountToLose_Cold, double amountToLose_Hot)</td></tr>
 <tr class="memdesc:a81bf7608a5ca448d267ce0a563786361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="classGasStream.html#a44ab71ee97b6bf6cb7fba7ce0c861a32" title="Removes (i.e. throws away) the mass from the hot and cold components, keeping the individual elementa...">GasStream::Deplete(double, double)</a> on each element of <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a>, keeping the relative hot mass and cold mass contribution of each component equal.  <a href="classGasReservoir.html#a81bf7608a5ca448d267ce0a563786361">More...</a><br /></td></tr>
 <tr class="separator:a81bf7608a5ca448d267ce0a563786361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa65b29009b11d92cec10d328783df1c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#aa65b29009b11d92cec10d328783df1c4">TransferFrom</a> (<a class="el" href="classGasReservoir.html">GasReservoir</a> &amp;givingGas, double massToMove)</td></tr>
+<tr class="memdesc:aa65b29009b11d92cec10d328783df1c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object.  <a href="classGasReservoir.html#aa65b29009b11d92cec10d328783df1c4">More...</a><br /></td></tr>
+<tr class="separator:aa65b29009b11d92cec10d328783df1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae92dfb5664e694526db78d5a47c48cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGasStream.html">GasStream</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#aae92dfb5664e694526db78d5a47c48cf">AccretionStream</a> (double amountToLose)</td></tr>
+<tr class="memdesc:aae92dfb5664e694526db78d5a47c48cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the chosen amount of cold gas from the reservoir, and puts it into an accretion stream.  <a href="classGasReservoir.html#aae92dfb5664e694526db78d5a47c48cf">More...</a><br /></td></tr>
+<tr class="separator:aae92dfb5664e694526db78d5a47c48cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a630611da13a36426ade46dcdf3528d24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a630611da13a36426ade46dcdf3528d24">PrintSelf</a> ()</td></tr>
+<tr class="separator:a630611da13a36426ade46dcdf3528d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa202265472304d22898beb78a4882b8b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classGasReservoir.html">GasReservoir</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#aa202265472304d22898beb78a4882b8b">Primordial</a> (double mass, <a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;param)</td></tr>
-<tr class="memdesc:aa202265472304d22898beb78a4882b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a primordial gas reservoir of the specified mass &ndash; only the <a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2">Primordial</a> component is populated, with the nature of that component determined by several key parameters in <a class="el" href="classGlobalParameters.html" title="A package of global parameter objects which can be passed around by reference. Most of the internal v...">GlobalParameters</a>.  <a href="classGasReservoir.html#aa202265472304d22898beb78a4882b8b">More...</a><br /></td></tr>
-<tr class="separator:aa202265472304d22898beb78a4882b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea21701bb5b49713afe907026ea4046e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classGasReservoir.html">GasReservoir</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#aea21701bb5b49713afe907026ea4046e">Primordial</a> (double mass, const <a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;param)</td></tr>
+<tr class="memdesc:aea21701bb5b49713afe907026ea4046e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a primordial gas reservoir of the specified mass &ndash; only the <a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2">Primordial</a> component is populated, with the nature of that component determined by several key parameters in <a class="el" href="classGlobalParameters.html" title="A package of global parameter objects which can be passed around by reference. Most of the internal v...">GlobalParameters</a>.  <a href="classGasReservoir.html#aea21701bb5b49713afe907026ea4046e">More...</a><br /></td></tr>
+<tr class="separator:aea21701bb5b49713afe907026ea4046e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a605b8cee25a348cc3f2899b5108ba674"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classGasStream.html">GasStream</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674">Components</a></td></tr>
 <tr class="memdesc:a605b8cee25a348cc3f2899b5108ba674"><td class="mdescLeft">&#160;</td><td class="mdescRight">A representation of the total amount of gas within the reservoir, separated by the origin of the gas.  <a href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674">More...</a><br /></td></tr>
 <tr class="separator:a605b8cee25a348cc3f2899b5108ba674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48858dc4bc562bfab187e76a0d45c8c4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a48858dc4bc562bfab187e76a0d45c8c4">Param</a></td></tr>
+<tr class="separator:a48858dc4bc562bfab187e76a0d45c8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="classGasReservoir.html">GasReservoir</a> is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM. In practicality, they are a container for a vector of <a class="el" href="classGasStream.html">GasStream</a> objects + assorted ways for these objects to interact with one another </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af461f3f039a67daecb68c26f2fd6149f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af461f3f039a67daecb68c26f2fd6149f">&#9670;&nbsp;</a></span>GasReservoir()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af461f3f039a67daecb68c26f2fd6149f">&#9670;&nbsp;</a></span>GasReservoir() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,6 +147,26 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Default constructor. Initialises the <a class="el" href="classGasReservoir.html#a605b8cee25a348cc3f2899b5108ba674" title="A representation of the total amount of gas within the reservoir, separated by the origin of the gas.">Components</a> and gives them their <a class="el" href="EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238b" title="Defines a globally recognised set of aliases for sources of gas, used to label GasStream objects.">SourceProcess</a> ID. </p>
+
+</div>
+</div>
+<a id="a15fab3e87fac3f22e9d221a33269da70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15fab3e87fac3f22e9d221a33269da70">&#9670;&nbsp;</a></span>GasReservoir() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GasReservoir::GasReservoir </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>useful constructor </p>
 
 </div>
 </div>
@@ -187,6 +220,26 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aae92dfb5664e694526db78d5a47c48cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae92dfb5664e694526db78d5a47c48cf">&#9670;&nbsp;</a></span>AccretionStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGasStream.html">GasStream</a> GasReservoir::AccretionStream </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>amountToLose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extracts the chosen amount of cold gas from the reservoir, and puts it into an accretion stream. </p>
 
 </div>
 </div>
@@ -347,8 +400,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa202265472304d22898beb78a4882b8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa202265472304d22898beb78a4882b8b">&#9670;&nbsp;</a></span>Primordial()</h2>
+<a id="aea21701bb5b49713afe907026ea4046e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea21701bb5b49713afe907026ea4046e">&#9670;&nbsp;</a></span>Primordial()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -365,7 +418,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classGlobalParameters.html">GlobalParameters</a> &amp;&#160;</td>
           <td class="paramname"><em>param</em>&#160;</td>
         </tr>
         <tr>
@@ -392,6 +445,53 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a630611da13a36426ade46dcdf3528d24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630611da13a36426ade46dcdf3528d24">&#9670;&nbsp;</a></span>PrintSelf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GasReservoir::PrintSelf </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa65b29009b11d92cec10d328783df1c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa65b29009b11d92cec10d328783df1c4">&#9670;&nbsp;</a></span>TransferFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GasReservoir::TransferFrom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGasReservoir.html">GasReservoir</a> &amp;&#160;</td>
+          <td class="paramname"><em>givingGas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>massToMove</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Field Documentation</h2>
 <a id="a605b8cee25a348cc3f2899b5108ba674"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a605b8cee25a348cc3f2899b5108ba674">&#9670;&nbsp;</a></span>Components</h2>
@@ -414,6 +514,28 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>A representation of the total amount of gas within the reservoir, separated by the origin of the gas. </p>
+
+</div>
+</div>
+<a id="a48858dc4bc562bfab187e76a0d45c8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48858dc4bc562bfab187e76a0d45c8c4">&#9670;&nbsp;</a></span>Param</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classGlobalParameters.html">GlobalParameters</a>&amp; GasReservoir::Param</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

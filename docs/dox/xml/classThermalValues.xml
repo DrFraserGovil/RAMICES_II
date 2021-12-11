@@ -10,7 +10,7 @@
         <definition>Argument&lt;double&gt; ThermalValues::HotInjection_CCSN</definition>
         <argsstring></argsstring>
         <name>HotInjection_CCSN</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.7,&quot;-fh-ccsn&quot;)</initializer>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.7,&quot;fh-ccsn&quot;)</initializer>
         <briefdescription>
 <para>Fraction of CCSN ejecta which is put into the hot phase. </para>
         </briefdescription>
@@ -18,14 +18,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="118" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="118" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="144" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="144" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classThermalValues_1a0faba77dff54e82e0f3743295a45cdee" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; ThermalValues::HotInjection_NSM</definition>
         <argsstring></argsstring>
         <name>HotInjection_NSM</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.4,&quot;-fh-nsm&quot;)</initializer>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.4,&quot;fh-nsm&quot;)</initializer>
         <briefdescription>
 <para>Fraction of NSM ejecta which is put into the hot phase. </para>
         </briefdescription>
@@ -33,14 +33,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="121" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="121" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="147" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="147" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classThermalValues_1ab6d948b7790af5931b26440ca3ad7423" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; ThermalValues::HotInjection_SNIa</definition>
         <argsstring></argsstring>
         <name>HotInjection_SNIa</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.99,&quot;-fh-sn1a&quot;)</initializer>
+        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.99,&quot;fh-sn1a&quot;)</initializer>
         <briefdescription>
 <para>Fraction of SNIa ejecta which is put into the hot phase. </para>
         </briefdescription>
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="124" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="124" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="150" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="150" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classThermalValues_1a2227511e41c87c5e71dec0ee9d13aec7" prot="public" static="no" mutable="no">
         <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="127" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="127" bodyend="-1"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="153" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="153" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="131" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="131" bodyend="134"/>
+        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="157" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="157" bodyend="160"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -127,7 +127,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="113" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="112" bodyend="135"/>
+    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="139" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="138" bodyend="161"/>
     <listofallmembers>
       <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>ThermalValues</scope><name>argPointers</name></member>
       <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>Configure</name></member>

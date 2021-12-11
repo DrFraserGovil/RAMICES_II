@@ -18,11 +18,15 @@ void \mbox{\hyperlink{classGalaxy_a5898095189818af6050d11aee8f23e81}{Evolve}} ()
 \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classGalaxy_a2f9013e3430b28ebb7a73ac1feae22f4}{Pull\+I\+GM}} (double mass)
 \item 
 void \mbox{\hyperlink{classGalaxy_a285372d26bf2fca5f9cd78dbb0bb3fec}{Push\+I\+GM}} (int donor\+ID, double hotmass, double coldmass)
+\item 
+\mbox{\hyperlink{classGalaxy_a27e8a92d789f6a5731190e2ac829eb66}{Galaxy}} (const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&param)
+\item 
+void \mbox{\hyperlink{classGalaxy_a5898095189818af6050d11aee8f23e81}{Evolve}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ \mbox{\hyperlink{classRing}{Ring}} $>$ \mbox{\hyperlink{classGalaxy_acebf3c89d2dd1c75148f82aca4279c21}{Rings}}
+std\+::vector$<$ \mbox{\hyperlink{classRing}{Ring}} $>$ \mbox{\hyperlink{classGalaxy_a79e9887f8c80ead95220e010a0684240}{Rings}}
 \item 
 \mbox{\hyperlink{structMassKeeper}{Mass\+Keeper}} \mbox{\hyperlink{classGalaxy_a337b7f34ddf0d2eae54e16929b04a698}{Mass}}
 \end{DoxyCompactItemize}
@@ -46,6 +50,33 @@ std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classGalaxy_ab4aaea6ebfe1d72
 std\+::vector$<$ double $>$ \mbox{\hyperlink{classGalaxy_afdb07ef56f8c439a4ee9975d7d753382}{Report\+Properties}} (double t)
 \item 
 void \mbox{\hyperlink{classGalaxy_a4429308d9426e2dd167de7f8618b8bcb}{Save\+State}} (double t)
+\item 
+double \mbox{\hyperlink{classGalaxy_afaad94ff4ab36cd98744c773e4b34923}{Gas\+Scale\+Length}} (double t)
+\item 
+double \mbox{\hyperlink{classGalaxy_a011bc80de73d4f673c7010dce77265c3}{Infall\+Mass}} (double t)
+\item 
+void \mbox{\hyperlink{classGalaxy_a13564f4607192445efba53ad895a3672}{Insert\+Infalling\+Gas}} (int ring, double amount)
+\item 
+void \mbox{\hyperlink{classGalaxy_a80a875b0032811f506d3fd32264edb88}{Infall}} (double t)
+\item 
+double \mbox{\hyperlink{classGalaxy_aef74811eea0fe7be983f71f56354d265}{Predict\+Surface\+Density}} (double radius, double width, double total\+Gas\+Mass, double scalelength)
+\item 
+double \mbox{\hyperlink{classGalaxy_ac5745f8f154464d0d53af6cb2a625ace}{Gas\+Mass}} ()
+\item 
+double \mbox{\hyperlink{classGalaxy_af7dc1d5cae8df3052cf1fdfb3243af8f}{Star\+Mass}} ()
+\item 
+double \mbox{\hyperlink{classGalaxy_a0f4ea22ac9923c8f86336002cc505ce5}{Relic\+Mass}} ()
+\item 
+double \mbox{\hyperlink{classGalaxy_a1f660f4324741739e2fe746f8057f743}{Mass}} ()
+\item 
+void \mbox{\hyperlink{classGalaxy_a4429308d9426e2dd167de7f8618b8bcb}{Save\+State}} (double t)
+\item 
+void \mbox{\hyperlink{classGalaxy_ae60a8983091a4393c71b1f724a5af5fb}{Save\+State\+\_\+\+Mass}} (double t)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classGalaxy_a201827440faacb0346dd1c13b297ac81}{Mass\+Headers}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -61,6 +92,8 @@ std\+::fstream \mbox{\hyperlink{classGalaxy_abd8592aefb87239ebcd305011c8f7ae4}{R
 std\+::fstream \mbox{\hyperlink{classGalaxy_aa63ef779b97034043b9c0e5bb8970cbf}{Galaxy\+State}}
 \item 
 double \mbox{\hyperlink{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}{Gas\+Excess}}
+\item 
+const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \& \mbox{\hyperlink{classGalaxy_af634c5a3bb615e5fc86cdc06c47163ca}{Param}}
 \end{DoxyCompactItemize}
 
 
@@ -68,8 +101,14 @@ double \mbox{\hyperlink{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}{Gas\+Exce
 \mbox{\Hypertarget{classGalaxy_a63119c07647ce95af35b9f860e8b088f}\label{classGalaxy_a63119c07647ce95af35b9f860e8b088f}} 
 \index{Galaxy@{Galaxy}!Galaxy@{Galaxy}}
 \index{Galaxy@{Galaxy}!Galaxy@{Galaxy}}
-\doxysubsubsection{\texorpdfstring{Galaxy()}{Galaxy()}}
+\doxysubsubsection{\texorpdfstring{Galaxy()}{Galaxy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Galaxy\+::\+Galaxy (\begin{DoxyParamCaption}\item[{Options $\ast$}]{opts }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGalaxy_a27e8a92d789f6a5731190e2ac829eb66}\label{classGalaxy_a27e8a92d789f6a5731190e2ac829eb66}} 
+\index{Galaxy@{Galaxy}!Galaxy@{Galaxy}}
+\index{Galaxy@{Galaxy}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Galaxy()}{Galaxy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Galaxy\+::\+Galaxy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&}]{param }\end{DoxyParamCaption})}
 
 
 
@@ -95,13 +134,31 @@ double \mbox{\hyperlink{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}{Gas\+Exce
 \mbox{\Hypertarget{classGalaxy_a5898095189818af6050d11aee8f23e81}\label{classGalaxy_a5898095189818af6050d11aee8f23e81}} 
 \index{Galaxy@{Galaxy}!Evolve@{Evolve}}
 \index{Evolve@{Evolve}!Galaxy@{Galaxy}}
-\doxysubsubsection{\texorpdfstring{Evolve()}{Evolve()}}
+\doxysubsubsection{\texorpdfstring{Evolve()}{Evolve()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Galaxy\+::\+Evolve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGalaxy_a5898095189818af6050d11aee8f23e81}\label{classGalaxy_a5898095189818af6050d11aee8f23e81}} 
+\index{Galaxy@{Galaxy}!Evolve@{Evolve}}
+\index{Evolve@{Evolve}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Evolve()}{Evolve()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Galaxy\+::\+Evolve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGalaxy_ac5745f8f154464d0d53af6cb2a625ace}\label{classGalaxy_ac5745f8f154464d0d53af6cb2a625ace}} 
+\index{Galaxy@{Galaxy}!GasMass@{GasMass}}
+\index{GasMass@{GasMass}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{GasMass()}{GasMass()}}
+{\footnotesize\ttfamily double Galaxy\+::\+Gas\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{classGalaxy_afaad94ff4ab36cd98744c773e4b34923}\label{classGalaxy_afaad94ff4ab36cd98744c773e4b34923}} 
 \index{Galaxy@{Galaxy}!GasScaleLength@{GasScaleLength}}
 \index{GasScaleLength@{GasScaleLength}!Galaxy@{Galaxy}}
-\doxysubsubsection{\texorpdfstring{GasScaleLength()}{GasScaleLength()}}
+\doxysubsubsection{\texorpdfstring{GasScaleLength()}{GasScaleLength()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Galaxy\+::\+Gas\+Scale\+Length (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_afaad94ff4ab36cd98744c773e4b34923}\label{classGalaxy_afaad94ff4ab36cd98744c773e4b34923}} 
+\index{Galaxy@{Galaxy}!GasScaleLength@{GasScaleLength}}
+\index{GasScaleLength@{GasScaleLength}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{GasScaleLength()}{GasScaleLength()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily double Galaxy\+::\+Gas\+Scale\+Length (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{classGalaxy_aac58bab6b1a9ed7d2c725e9691af630c}\label{classGalaxy_aac58bab6b1a9ed7d2c725e9691af630c}} 
@@ -110,17 +167,53 @@ double \mbox{\hyperlink{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}{Gas\+Exce
 \doxysubsubsection{\texorpdfstring{HotGasMass()}{HotGasMass()}}
 {\footnotesize\ttfamily double Galaxy\+::\+Hot\+Gas\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+\mbox{\Hypertarget{classGalaxy_a80a875b0032811f506d3fd32264edb88}\label{classGalaxy_a80a875b0032811f506d3fd32264edb88}} 
+\index{Galaxy@{Galaxy}!Infall@{Infall}}
+\index{Infall@{Infall}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Infall()}{Infall()}}
+{\footnotesize\ttfamily void Galaxy\+::\+Infall (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a011bc80de73d4f673c7010dce77265c3}\label{classGalaxy_a011bc80de73d4f673c7010dce77265c3}} 
+\index{Galaxy@{Galaxy}!InfallMass@{InfallMass}}
+\index{InfallMass@{InfallMass}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{InfallMass()}{InfallMass()}}
+{\footnotesize\ttfamily double Galaxy\+::\+Infall\+Mass (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
 \mbox{\Hypertarget{classGalaxy_a67e32cd9cfbef78fdb19989e5f0f0d30}\label{classGalaxy_a67e32cd9cfbef78fdb19989e5f0f0d30}} 
 \index{Galaxy@{Galaxy}!InfallRate@{InfallRate}}
 \index{InfallRate@{InfallRate}!Galaxy@{Galaxy}}
 \doxysubsubsection{\texorpdfstring{InfallRate()}{InfallRate()}}
 {\footnotesize\ttfamily double Galaxy\+::\+Infall\+Rate (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{classGalaxy_a13564f4607192445efba53ad895a3672}\label{classGalaxy_a13564f4607192445efba53ad895a3672}} 
+\index{Galaxy@{Galaxy}!InsertInfallingGas@{InsertInfallingGas}}
+\index{InsertInfallingGas@{InsertInfallingGas}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{InsertInfallingGas()}{InsertInfallingGas()}}
+{\footnotesize\ttfamily void Galaxy\+::\+Insert\+Infalling\+Gas (\begin{DoxyParamCaption}\item[{int}]{ring,  }\item[{double}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a1f660f4324741739e2fe746f8057f743}\label{classGalaxy_a1f660f4324741739e2fe746f8057f743}} 
+\index{Galaxy@{Galaxy}!Mass@{Mass}}
+\index{Mass@{Mass}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}}
+{\footnotesize\ttfamily double Galaxy\+::\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a201827440faacb0346dd1c13b297ac81}\label{classGalaxy_a201827440faacb0346dd1c13b297ac81}} 
+\index{Galaxy@{Galaxy}!MassHeaders@{MassHeaders}}
+\index{MassHeaders@{MassHeaders}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{MassHeaders()}{MassHeaders()}}
+{\footnotesize\ttfamily static std\+::string Galaxy\+::\+Mass\+Headers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
 \mbox{\Hypertarget{classGalaxy_a32892b81e1db6c78adf3e85a52483c06}\label{classGalaxy_a32892b81e1db6c78adf3e85a52483c06}} 
 \index{Galaxy@{Galaxy}!OpenLogs@{OpenLogs}}
 \index{OpenLogs@{OpenLogs}!Galaxy@{Galaxy}}
 \doxysubsubsection{\texorpdfstring{OpenLogs()}{OpenLogs()}}
 {\footnotesize\ttfamily void Galaxy\+::\+Open\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_aef74811eea0fe7be983f71f56354d265}\label{classGalaxy_aef74811eea0fe7be983f71f56354d265}} 
+\index{Galaxy@{Galaxy}!PredictSurfaceDensity@{PredictSurfaceDensity}}
+\index{PredictSurfaceDensity@{PredictSurfaceDensity}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{PredictSurfaceDensity()}{PredictSurfaceDensity()}}
+{\footnotesize\ttfamily double Galaxy\+::\+Predict\+Surface\+Density (\begin{DoxyParamCaption}\item[{double}]{radius,  }\item[{double}]{width,  }\item[{double}]{total\+Gas\+Mass,  }\item[{double}]{scalelength }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{classGalaxy_ab4aaea6ebfe1d72381f671d74c8e3e8a}\label{classGalaxy_ab4aaea6ebfe1d72381f671d74c8e3e8a}} 
 \index{Galaxy@{Galaxy}!PropertyHeaders@{PropertyHeaders}}
@@ -140,6 +233,12 @@ double \mbox{\hyperlink{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}{Gas\+Exce
 \doxysubsubsection{\texorpdfstring{PushIGM()}{PushIGM()}}
 {\footnotesize\ttfamily void Galaxy\+::\+Push\+I\+GM (\begin{DoxyParamCaption}\item[{int}]{donor\+ID,  }\item[{double}]{hotmass,  }\item[{double}]{coldmass }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{classGalaxy_a0f4ea22ac9923c8f86336002cc505ce5}\label{classGalaxy_a0f4ea22ac9923c8f86336002cc505ce5}} 
+\index{Galaxy@{Galaxy}!RelicMass@{RelicMass}}
+\index{RelicMass@{RelicMass}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{RelicMass()}{RelicMass()}}
+{\footnotesize\ttfamily double Galaxy\+::\+Relic\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
 \mbox{\Hypertarget{classGalaxy_afdb07ef56f8c439a4ee9975d7d753382}\label{classGalaxy_afdb07ef56f8c439a4ee9975d7d753382}} 
 \index{Galaxy@{Galaxy}!ReportProperties@{ReportProperties}}
 \index{ReportProperties@{ReportProperties}!Galaxy@{Galaxy}}
@@ -149,8 +248,26 @@ double \mbox{\hyperlink{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}{Gas\+Exce
 \mbox{\Hypertarget{classGalaxy_a4429308d9426e2dd167de7f8618b8bcb}\label{classGalaxy_a4429308d9426e2dd167de7f8618b8bcb}} 
 \index{Galaxy@{Galaxy}!SaveState@{SaveState}}
 \index{SaveState@{SaveState}!Galaxy@{Galaxy}}
-\doxysubsubsection{\texorpdfstring{SaveState()}{SaveState()}}
+\doxysubsubsection{\texorpdfstring{SaveState()}{SaveState()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Galaxy\+::\+Save\+State (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a4429308d9426e2dd167de7f8618b8bcb}\label{classGalaxy_a4429308d9426e2dd167de7f8618b8bcb}} 
+\index{Galaxy@{Galaxy}!SaveState@{SaveState}}
+\index{SaveState@{SaveState}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{SaveState()}{SaveState()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Galaxy\+::\+Save\+State (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_ae60a8983091a4393c71b1f724a5af5fb}\label{classGalaxy_ae60a8983091a4393c71b1f724a5af5fb}} 
+\index{Galaxy@{Galaxy}!SaveState\_Mass@{SaveState\_Mass}}
+\index{SaveState\_Mass@{SaveState\_Mass}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{SaveState\_Mass()}{SaveState\_Mass()}}
+{\footnotesize\ttfamily void Galaxy\+::\+Save\+State\+\_\+\+Mass (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_af7dc1d5cae8df3052cf1fdfb3243af8f}\label{classGalaxy_af7dc1d5cae8df3052cf1fdfb3243af8f}} 
+\index{Galaxy@{Galaxy}!StarMass@{StarMass}}
+\index{StarMass@{StarMass}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{StarMass()}{StarMass()}}
+{\footnotesize\ttfamily double Galaxy\+::\+Star\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{classGalaxy_ae9ca23e689a849dbc16850139dfbae69}\label{classGalaxy_ae9ca23e689a849dbc16850139dfbae69}} 
 \index{Galaxy@{Galaxy}!UpdateGasMass@{UpdateGasMass}}
@@ -197,11 +314,17 @@ double \mbox{\hyperlink{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}{Gas\+Exce
 \doxysubsubsection{\texorpdfstring{Opts}{Opts}}
 {\footnotesize\ttfamily Options$\ast$ Galaxy\+::\+Opts\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classGalaxy_acebf3c89d2dd1c75148f82aca4279c21}\label{classGalaxy_acebf3c89d2dd1c75148f82aca4279c21}} 
+\mbox{\Hypertarget{classGalaxy_af634c5a3bb615e5fc86cdc06c47163ca}\label{classGalaxy_af634c5a3bb615e5fc86cdc06c47163ca}} 
+\index{Galaxy@{Galaxy}!Param@{Param}}
+\index{Param@{Param}!Galaxy@{Galaxy}}
+\doxysubsubsection{\texorpdfstring{Param}{Param}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}}\& Galaxy\+::\+Param\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classGalaxy_a79e9887f8c80ead95220e010a0684240}\label{classGalaxy_a79e9887f8c80ead95220e010a0684240}} 
 \index{Galaxy@{Galaxy}!Rings@{Rings}}
 \index{Rings@{Rings}!Galaxy@{Galaxy}}
 \doxysubsubsection{\texorpdfstring{Rings}{Rings}}
-{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classRing}{Ring}}$>$ Galaxy\+::\+Rings}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classRing}{Ring}} $>$ Galaxy\+::\+Rings}
 
 \mbox{\Hypertarget{classGalaxy_abd8592aefb87239ebcd305011c8f7ae4}\label{classGalaxy_abd8592aefb87239ebcd305011c8f7ae4}} 
 \index{Galaxy@{Galaxy}!RingState@{RingState}}
@@ -213,4 +336,4 @@ double \mbox{\hyperlink{classGalaxy_ac901256296640efbb40beb83b2d0ecfc}{Gas\+Exce
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/old\+\_\+src/\+Galaxy/\mbox{\hyperlink{Galaxy_8h}{Galaxy.\+h}}\end{DoxyCompactItemize}
+/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/old\+\_\+src/\+Galaxy/\mbox{\hyperlink{old__src_2Galaxy_2Galaxy_8h}{Galaxy.\+h}}\end{DoxyCompactItemize}

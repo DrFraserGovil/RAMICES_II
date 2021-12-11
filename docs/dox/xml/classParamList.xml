@@ -5,6 +5,7 @@
     <derivedcompoundref refid="classElementValues" prot="public" virt="non-virtual">ElementValues</derivedcompoundref>
     <derivedcompoundref refid="classGalaxyValues" prot="public" virt="non-virtual">GalaxyValues</derivedcompoundref>
     <derivedcompoundref refid="classMetaValues" prot="public" virt="non-virtual">MetaValues</derivedcompoundref>
+    <derivedcompoundref refid="classOutputValues" prot="public" virt="non-virtual">OutputValues</derivedcompoundref>
     <derivedcompoundref refid="classStellarValues" prot="public" virt="non-virtual">StellarValues</derivedcompoundref>
     <derivedcompoundref refid="classThermalValues" prot="public" virt="non-virtual">ThermalValues</derivedcompoundref>
     <includes refid="List_8h" local="no">List.h</includes>
@@ -53,6 +54,8 @@
         <definition>virtual void ParamList::Initialise</definition>
         <argsstring>(std::string resourceRoot)</argsstring>
         <name>Initialise</name>
+        <reimplementedby refid="classMetaValues_1ab692a7cd1b675b2655e077863f67952e">Initialise</reimplementedby>
+        <reimplementedby refid="classOutputValues_1ae0eb3295f290bfc2e78f151ae9dda1b7">Initialise</reimplementedby>
         <reimplementedby refid="classElementValues_1a76dc3cddb13b0673840cabf96b3bbe87">Initialise</reimplementedby>
         <param>
           <type>std::string</type>
@@ -84,7 +87,7 @@
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="5">
+      <node id="6">
         <label>StellarValues</label>
         <link refid="classStellarValues"/>
         <childnode refid="1" relation="public-inheritance">
@@ -96,9 +99,15 @@
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="6">
+      <node id="7">
         <label>ThermalValues</label>
         <link refid="classThermalValues"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>OutputValues</label>
+        <link refid="classOutputValues"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>

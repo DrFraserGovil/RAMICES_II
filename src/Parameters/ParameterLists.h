@@ -10,7 +10,12 @@ class MetaValues : public ParamList
 {
 	
 	public:
+		//! Controls whether the funky ASCII welcome message is played at the beginning of the code
+		Argument<bool> WelcomeMessage = Argument<bool>(false, "welcome");
 
+		//! The location of the funky ASCII welcome messgae
+		Argument<std::string> WelcomeFile = Argument<std::string>("welcome.dat","welcome-file");
+		
 		//!The location of the directory which the code looks for its expected resource file structure
 		Argument<std::string> ResourceRoot  = Argument<std::string>("Resources/","resource");
 		
@@ -29,7 +34,7 @@ class MetaValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		MetaValues()
 		{
-			argPointers = {&ResourceRoot,&ParallelThreads,&TimeStep,&SimulationDuration};
+			argPointers = {&WelcomeMessage, &WelcomeFile,&ResourceRoot,&ParallelThreads,&TimeStep,&SimulationDuration};
 		};
 		
 		//! An overload of a normally empty function. Computes the value of #SimulationSteps

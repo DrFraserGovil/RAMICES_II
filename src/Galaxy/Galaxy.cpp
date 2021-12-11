@@ -97,10 +97,12 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		double ratio = bilitewskiRatio(a_factor,b_factor,ring,Rings.size());
 		double inflowMass = ratio/(1 + ratio) * amount;
 		
-		
+		//check that we do not remove more gas than is actually present
 		inflowMass = std::min(inflowMass, Rings[ring+1].Gas.Mass());
 				
 		Rings[ring].Gas.TransferFrom(Rings[ring+1].Gas,inflowMass);
+		
+		//if some part of the budget was missed because of the std::min above, then make up the deficit from the IGM
 		remainingMass = amount -inflowMass;
 	}
 	else
@@ -134,7 +136,8 @@ void Galaxy::Infall(double t)
 		}
 		else
 		{
-			Rings[i].Gas.Deplete(abs(delta));
+			IGM.TransferFrom(Rings[i].Gas,abs(delta));
+			//~ Rings[i].Gas.Deplete(abs(delta));
 		}
 		
 	}	
@@ -144,6 +147,7 @@ double mass_integrand(double x)
 {
 	return -exp(-x) * (x + 1);
 }
+
 double Galaxy::PredictSurfaceDensity(double radius, double width, double totalGasMass, double scaleLength)
 {
 	double r = radius;

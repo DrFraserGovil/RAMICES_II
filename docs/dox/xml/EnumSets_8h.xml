@@ -5,7 +5,15 @@
     <includedby refid="ParameterLists_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h</includedby>
     <includedby refid="GlobalParameters_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h</includedby>
     <invincdepgraph>
-      <node id="5">
+      <node id="4">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="src_2Galaxy_2Galaxy_8h"/>
+      </node>
+      <node id="11">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
+      </node>
+      <node id="9">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h</label>
         <link refid="GasStream_8h"/>
         <childnode refid="6" relation="include">
@@ -13,19 +21,25 @@
       </node>
       <node id="7">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
-        <link refid="Ring_8h"/>
+        <link refid="old__src_2Galaxy_2Ring_8h"/>
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="10">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h</label>
         <link refid="Gas_8h"/>
-        <childnode refid="5" relation="include">
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h</label>
+        <link refid="src_2Galaxy_2Ring_8h"/>
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="8">
         <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
-        <link refid="Galaxy_8h"/>
+        <link refid="old__src_2Galaxy_2Galaxy_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
       </node>
@@ -48,15 +62,25 @@
         <link refid="GasReservoir_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
       <node id="3">
         <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h</label>
         <link refid="GlobalParameters_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -260,6 +284,8 @@
 <codeline lineno="16" refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8" kindref="member">ProcessCount</ref></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h"/>
   </compounddef>
