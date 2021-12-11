@@ -2,6 +2,7 @@
 *.d
 Output/
 RAMICES_II
+*.asv
 # Compiled Object files
 *.slo
 *.lo
