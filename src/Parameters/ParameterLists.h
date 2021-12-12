@@ -109,10 +109,22 @@ class StellarValues : public ParamList
 	
 	public:
 		//!Minimum stellar mass that IMF can generate
-		Argument<double> MaxStellarMass = Argument<double>(100,"max-mass");
+		Argument<double> MaxStellarMass = Argument<double>(100,"mass-max");
 		
 		//!Maxmimum stellar mass that IMF can generate
-		Argument<double> MinStellarMass = Argument<double>(0.5,"min-mass");
+		Argument<double> MinStellarMass = Argument<double>(0.1,"mass-min");
+		
+		//!Mass of stars which we consider immortal without checking their isochrones
+		Argument<double> ImmortalMass = Argument<double>(0.5,"mass-immortal");
+		
+		//!Number of points along the stellar mass grid
+		Argument<int> MassResolution = Argument<int>(199,"mass-resolution");
+		
+		//! A grid which holds the masses onto which all interpolation will take place. Allows for the possibility of non-uniform steps. The values are the centre of each mass divide
+		std::vector<double> MassGrid;
+		
+		//! The corresponding widths of each interval on the mass line.
+		std::vector<double> MassDeltas;
 		
 		//!Minimum Z that the ILM(??) can consider
 		Argument<double> MinZ = Argument<double>(1e-7,"min-z");
@@ -144,11 +156,17 @@ class StellarValues : public ParamList
 		//! The Schmidt prefactor
 		Argument<double> SchmidtPrefactor = Argument<double>(1e-8,"schmidt-factor");
 		
+		//! The slope of the high-mass tail fo the IMF
+		Argument<double> IMF_Slope = Argument<double>(2.3,"imf-slope");
+		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		StellarValues()
 		{
-			argPointers = {&MaxStellarMass, &MinStellarMass, &MinZ, &MaxZ, &EjectionFraction, &SNIaFraction, &NSMFraction,&SchmidtMainPower, &SchmidtLowPower, &SchmidtDensityCut, &SchmidtPrefactor};
+			argPointers = {&MaxStellarMass, &MinStellarMass, &ImmortalMass, &MassResolution, &MinZ, &MaxZ, &EjectionFraction, &SNIaFraction, &NSMFraction,&SchmidtMainPower, &SchmidtLowPower, &SchmidtDensityCut, &SchmidtPrefactor};
 		}
+		
+		//! Initialises the mass grid etc.
+		void Initialise(std::string resourceRoot);
 };
 
 //!Thermal suboptions contain variables which deal with the thermal subroutines - cooling timescales injection fractions etc. 

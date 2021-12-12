@@ -2,6 +2,7 @@
 #include "../Parameters/GlobalParameters.h"
 #include "Ring.h"
 #include "../Gas/GasReservoir.h"
+#include "../Stars/IMF.h"
 #include <sstream>
 
 class Galaxy
@@ -35,4 +36,6 @@ class Galaxy
 		void SaveState_Mass(double t);
 		
 		static std::string MassHeaders(); 
+		
+		IMF_Functor IMF;
 };

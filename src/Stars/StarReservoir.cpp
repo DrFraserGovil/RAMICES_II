@@ -1,8 +1,13 @@
 #include "StarReservoir.h"
 
-StarReservoir::StarReservoir(const GlobalParameters & param, int parentRing) : Param(param), ParentRing(parentRing)
+StarReservoir::StarReservoir(const GlobalParameters & param, int parentRing, const IMF_Functor & imf) : Param(param), ParentRing(parentRing), IMF(imf)
 {
-	StellarPopulation empty(Param);
+	StellarPopulation empty(IMF,Param);
+		
+	if (parentRing == 0)
+	{
+		empty.FormStars(10,0);
+	}
 	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
 	{
 		Population.push_back(empty);
@@ -14,6 +19,7 @@ StarReservoir::StarReservoir(const GlobalParameters & param, int parentRing) : P
 	double r = (parentRing + 0.5)*width;
 	ParentArea = 2 * pi * r * width;
 	Temp_Mass = 0;
+	
 }
 
 double integratedSchmidt(double s0, double cutDensity, double prefactor,double power, double t)

@@ -61,3 +61,16 @@ void ElementValues::Initialise(std::string resourceRoot)
 		++i;
 	);
 }
+
+void StellarValues::Initialise(std::string resourceRoot)
+{
+	//Allows for arbitrary mass steps without altering the rest of the code (hopefully!)
+	MassGrid = std::vector<double>(MassResolution.Value);
+	MassDeltas = std::vector<double>(MassResolution.Value);
+	double gridWidth = (MaxStellarMass - ImmortalMass)/MassResolution;
+	for (int i = 0; i < MassResolution; ++i)
+	{
+		MassGrid[i] = ImmortalMass + (i + 0.5)*gridWidth;
+		MassDeltas[i] = gridWidth;
+	}
+}

@@ -4,11 +4,12 @@
 #include "../Parameters/GlobalParameters.h"
 #include "../Gas/GasReservoir.h"
 #include "../Stars/StarReservoir.h"
+#include "../Stars/IMF.h"
 class Ring
 {
 	public:
 		//! Initialises itself into a primordial state
-		Ring(int radiusIndex, double mass, const GlobalParameters & param);
+		Ring(int radiusIndex, double mass, const IMF_Functor & imf, const GlobalParameters & param);
 	
 		double Mass();
 		const double Radius;
@@ -26,4 +27,5 @@ class Ring
 		double Area;
 	
 		const GlobalParameters & Param;
+		const IMF_Functor & IMF;
 };

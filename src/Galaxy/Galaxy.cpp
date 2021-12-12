@@ -1,6 +1,6 @@
 #include "Galaxy.h"
 double pi = 3.141592654;
-Galaxy::Galaxy(const GlobalParameters & param): Param(param), IGM(GasReservoir::Primordial(param.Galaxy.IGM_Mass,param))
+Galaxy::Galaxy(const GlobalParameters & param): Param(param), IGM(GasReservoir::Primordial(param.Galaxy.IGM_Mass,param)), IMF(param)
 {
 	double ringWidth = Param.Galaxy.Radius / Param.Galaxy.RingCount;
 	double initialScaleLength = GasScaleLength(0);
@@ -9,7 +9,7 @@ Galaxy::Galaxy(const GlobalParameters & param): Param(param), IGM(GasReservoir::
 		double ri = (i + 0.5)*ringWidth;
 		double predictedDensity = PredictSurfaceDensity(ri,ringWidth,Param.Galaxy.PrimordialMass,initialScaleLength);
 		double predictedMass = 2*pi * ri * ringWidth * predictedDensity;
-		Rings.push_back(Ring(i,predictedMass,Param));
+		Rings.push_back(Ring(i,predictedMass,IMF,Param));
 	}
 	
 	
