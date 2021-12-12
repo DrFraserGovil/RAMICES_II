@@ -1,0 +1,553 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00 13283280     0.00     0.00  Gas::operator[](ElementID)
+  0.00      0.00     0.00  7501494     0.00     0.00  GasStream::Cold(ElementID)
+  0.00      0.00     0.00  5045040     0.00     0.00  GasStream::Dirty()
+  0.00      0.00     0.00  3783780     0.00     0.00  GasStream::Hot(ElementID)
+  0.00      0.00     0.00   730982     0.00     0.00  GasStream::Mass()
+  0.00      0.00     0.00   673414     0.00     0.00  Gas::Mass()
+  0.00      0.00     0.00   586026     0.00     0.00  GasStream::ColdMass()
+  0.00      0.00     0.00   359320     0.00     0.00  Gas::operator[](ElementID) const
+  0.00      0.00     0.00   196700     0.00     0.00  GasStream::HotMass()
+  0.00      0.00     0.00    98000     0.00     0.00  GasStream::Heat(double)
+  0.00      0.00     0.00    69578     0.00     0.00  GasReservoir::Mass()
+  0.00      0.00     0.00    28852     0.00     0.00  Gas::Gas()
+  0.00      0.00     0.00    28100     0.00     0.00  GasReservoir::ColdMass()
+  0.00      0.00     0.00    24458     0.00     0.00  GasStream::Deplete(double, double)
+  0.00      0.00     0.00    14100     0.00     0.00  GasReservoir::HotMass()
+  0.00      0.00     0.00    14100     0.00     0.00  StarReservoir::Mass()
+  0.00      0.00     0.00    14100     0.00     0.00  Galaxy::PredictSurfaceDensity(double, double, double, double)
+  0.00      0.00     0.00    14000     0.00     0.00  GasReservoir::Heat(double)
+  0.00      0.00     0.00    14000     0.00     0.00  GasReservoir::Deplete(double, double)
+  0.00      0.00     0.00    14000     0.00     0.00  StarReservoir::Birth(GasReservoir&)
+  0.00      0.00     0.00    14000     0.00     0.00  Ring::MakeStars()
+  0.00      0.00     0.00    13860     0.00     0.00  GasReservoir::TransferFrom(GasReservoir&, double)
+  0.00      0.00     0.00    13719     0.00     0.00  GasStream::Absorb(GasStream const&)
+  0.00      0.00     0.00    13618     0.00     0.00  GasReservoir::AccretionStream(double)
+  0.00      0.00     0.00    13618     0.00     0.00  GasReservoir::Absorb(GasStream const&)
+  0.00      0.00     0.00    13618     0.00     0.00  Galaxy::InsertInfallingGas(int, double)
+  0.00      0.00     0.00    13618     0.00     0.00  GasStream::GasStream(SourceProcess)
+  0.00      0.00     0.00      900     0.00     0.00  void std::vector<StellarPopulation, std::allocator<StellarPopulation> >::_M_realloc_insert<StellarPopulation const&>(__gnu_cxx::__normal_iterator<StellarPopulation*, std::vector<StellarPopulation, std::allocator<StellarPopulation> > >, StellarPopulation const&)
+  0.00      0.00     0.00      707     0.00     0.00  GasStream::GasStream()
+  0.00      0.00     0.00      141     0.00     0.00  Galaxy::SaveState_Mass(double)
+  0.00      0.00     0.00      140     0.00     0.00  Galaxy::Infall(double)
+  0.00      0.00     0.00      101     0.00     0.00  GasReservoir::Primordial(double, GlobalParameters const&)
+  0.00      0.00     0.00      101     0.00     0.00  GasReservoir::GasReservoir(GlobalParameters const&)
+  0.00      0.00     0.00      101     0.00     0.00  Gas::Primordial(double)
+  0.00      0.00     0.00      101     0.00     0.00  GasStream::GasStream(SourceProcess, Gas const&, double)
+  0.00      0.00     0.00      101     0.00     0.00  std::vector<GasStream, std::allocator<GasStream> >::_M_default_append(unsigned long)
+  0.00      0.00     0.00      100     0.00     0.00  StarReservoir::StarReservoir(GlobalParameters const&, int)
+  0.00      0.00     0.00      100     0.00     0.00  StellarPopulation::StellarPopulation(GlobalParameters const&)
+  0.00      0.00     0.00      100     0.00     0.00  Ring::Ring(int, double, GlobalParameters const&)
+  0.00      0.00     0.00      100     0.00     0.00  std::vector<IsoMass, std::allocator<IsoMass> >::_M_default_append(unsigned long)
+  0.00      0.00     0.00       42     0.00     0.00  void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.00     0.00       34     0.00     0.00  JSL::Argument<double>::Argument(double, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  0.00      0.00     0.00       33     0.00     0.00  JSL::Argument<double>::ListParse(int, char**)
+  0.00      0.00     0.00        8     0.00     0.00  void std::vector<Ring, std::allocator<Ring> >::_M_realloc_insert<Ring>(__gnu_cxx::__normal_iterator<Ring*, std::vector<Ring, std::allocator<Ring> > >, Ring&&)
+  0.00      0.00     0.00        6     0.00     0.00  JSL::Argument<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::ListParse(int, char**)
+  0.00      0.00     0.00        6     0.00     0.00  JSL::Argument<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Argument(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  0.00      0.00     0.00        6     0.00     0.00  ParamList::Configure(int, char**)
+  0.00      0.00     0.00        6     0.00     0.00  void std::vector<JSL::ArgumentInterface*, std::allocator<JSL::ArgumentInterface*> >::_M_assign_aux<JSL::ArgumentInterface* const*>(JSL::ArgumentInterface* const*, JSL::ArgumentInterface* const*, std::forward_iterator_tag)
+  0.00      0.00     0.00        4     0.00     0.00  JSL::Argument<int>::ListParse(int, char**)
+  0.00      0.00     0.00        3     0.00     0.00  ParamList::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  0.00      0.00     0.00        2     0.00     0.00  JSL::mkdir(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I_Params
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN10MetaValues10InitialiseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN12GasReservoirC2Ev
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN13StarReservoirC2ERK16GlobalParametersi
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN16GlobalParametersC2Ev
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN3GasC2Ev
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN4RingC2EidRK16GlobalParameters
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN7IsoMassC2Ev
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN9GasStreamC2Ev
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN9ParamList9ConfigureEiPPc
+  0.00      0.00     0.00        1     0.00     0.00  _GLOBAL__sub_I_pi
+  0.00      0.00     0.00        1     0.00     0.00  MetaValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  0.00      0.00     0.00        1     0.00     0.00  MetaValues::MetaValues()
+  0.00      0.00     0.00        1     0.00     0.00  GalaxyValues::GalaxyValues()
+  0.00      0.00     0.00        1     0.00     0.00  OutputValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  0.00      0.00     0.00        1     0.00     0.00  ElementValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  0.00      0.00     0.00        1     0.00     0.00  ElementValues::GiveElementsNames()
+  0.00      0.00     0.00        1     0.00     0.00  StellarValues::StellarValues()
+  0.00      0.00     0.00        1     0.00     0.00  JSL::FormatDuration[abi:cxx11](int)
+  0.00      0.00     0.00        1     0.00     0.00  JSL::Argument<bool>::ListParse(int, char**)
+  0.00      0.00     0.00        1     0.00     0.00  std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append(unsigned long)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00    2626/13283280     GasStream::GasStream(SourceProcess, Gas const&, double) [42]
+                0.00    0.00  356694/13283280     GasStream::Absorb(GasStream const&) [30]
+                0.00    0.00  684824/13283280     GasStream::Deplete(double, double) [21]
+                0.00    0.00  953862/13283280     GasStream::Heat(double) [17]
+                0.00    0.00 3717714/13283280     GasReservoir::AccretionStream(double) [31]
+                0.00    0.00 7567560/13283280     GasReservoir::TransferFrom(GasReservoir&, double) [29]
+[8]      0.0    0.00    0.00 13283280         Gas::operator[](ElementID) [8]
+-----------------------------------------------
+                0.00    0.00 3717714/7501494     GasReservoir::AccretionStream(double) [31]
+                0.00    0.00 3783780/7501494     GasReservoir::TransferFrom(GasReservoir&, double) [29]
+[9]      0.0    0.00    0.00 7501494         GasStream::Cold(ElementID) [9]
+-----------------------------------------------
+                0.00    0.00 5045040/5045040     GasReservoir::TransferFrom(GasReservoir&, double) [29]
+[10]     0.0    0.00    0.00 5045040         GasStream::Dirty() [10]
+-----------------------------------------------
+                0.00    0.00 3783780/3783780     GasReservoir::TransferFrom(GasReservoir&, double) [29]
+[11]     0.0    0.00    0.00 3783780         GasStream::Hot(ElementID) [11]
+-----------------------------------------------
+                0.00    0.00   97020/730982      GasReservoir::TransferFrom(GasReservoir&, double) [29]
+                0.00    0.00  146916/730982      GasReservoir::Deplete(double, double) [26]
+                0.00    0.00  487046/730982      GasReservoir::Mass() [18]
+[12]     0.0    0.00    0.00  730982         GasStream::Mass() [12]
+                0.00    0.00  384986/673414      Gas::Mass() [13]
+-----------------------------------------------
+                0.00    0.00  288428/673414      GasStream::ColdMass() [14]
+                0.00    0.00  384986/673414      GasStream::Mass() [12]
+[13]     0.0    0.00    0.00  673414         Gas::Mass() [13]
+-----------------------------------------------
+                0.00    0.00   95326/586026      GasReservoir::AccretionStream(double) [31]
+                0.00    0.00   98000/586026      GasReservoir::Deplete(double, double) [26]
+                0.00    0.00  196000/586026      GasReservoir::Heat(double) [25]
+                0.00    0.00  196700/586026      GasReservoir::ColdMass() [20]
+[14]     0.0    0.00    0.00  586026         GasStream::ColdMass() [14]
+                0.00    0.00  288428/673414      Gas::Mass() [13]
+-----------------------------------------------
+                0.00    0.00    2626/359320      GasStream::GasStream(SourceProcess, Gas const&, double) [42]
+                0.00    0.00  356694/359320      GasStream::Absorb(GasStream const&) [30]
+[15]     0.0    0.00    0.00  359320         Gas::operator[](ElementID) const [15]
+-----------------------------------------------
+                0.00    0.00   98000/196700      GasReservoir::Deplete(double, double) [26]
+                0.00    0.00   98700/196700      GasReservoir::HotMass() [22]
+[16]     0.0    0.00    0.00  196700         GasStream::HotMass() [16]
+-----------------------------------------------
+                0.00    0.00   98000/98000       GasReservoir::Heat(double) [25]
+[17]     0.0    0.00    0.00   98000         GasStream::Heat(double) [17]
+                0.00    0.00  953862/13283280     Gas::operator[](ElementID) [8]
+-----------------------------------------------
+                0.00    0.00   13478/69578       Galaxy::InsertInfallingGas(int, double) [33]
+                0.00    0.00   14000/69578       StarReservoir::Birth(GasReservoir&) [27]
+                0.00    0.00   14100/69578       Galaxy::SaveState_Mass(double) [37]
+                0.00    0.00   28000/69578       Galaxy::Infall(double) [38]
+[18]     0.0    0.00    0.00   69578         GasReservoir::Mass() [18]
+                0.00    0.00  487046/730982      GasStream::Mass() [12]
+-----------------------------------------------
+                0.00    0.00     202/28852       GasStream::GasStream(SourceProcess, Gas const&, double) [42]
+                0.00    0.00    1414/28852       GasStream::GasStream() [36]
+                0.00    0.00   27236/28852       GasStream::GasStream(SourceProcess) [34]
+[19]     0.0    0.00    0.00   28852         Gas::Gas() [19]
+-----------------------------------------------
+                0.00    0.00   14000/28100       StarReservoir::Birth(GasReservoir&) [27]
+                0.00    0.00   14100/28100       Galaxy::SaveState_Mass(double) [37]
+[20]     0.0    0.00    0.00   28100         GasReservoir::ColdMass() [20]
+                0.00    0.00  196700/586026      GasStream::ColdMass() [14]
+-----------------------------------------------
+                0.00    0.00   24458/24458       GasReservoir::Deplete(double, double) [26]
+[21]     0.0    0.00    0.00   24458         GasStream::Deplete(double, double) [21]
+                0.00    0.00  684824/13283280     Gas::operator[](ElementID) [8]
+-----------------------------------------------
+                0.00    0.00   14100/14100       Galaxy::SaveState_Mass(double) [37]
+[22]     0.0    0.00    0.00   14100         GasReservoir::HotMass() [22]
+                0.00    0.00   98700/196700      GasStream::HotMass() [16]
+-----------------------------------------------
+                0.00    0.00   14100/14100       Galaxy::SaveState_Mass(double) [37]
+[23]     0.0    0.00    0.00   14100         StarReservoir::Mass() [23]
+-----------------------------------------------
+                0.00    0.00     100/14100       Galaxy::Galaxy(GlobalParameters const&) [127]
+                0.00    0.00   14000/14100       Galaxy::Infall(double) [38]
+[24]     0.0    0.00    0.00   14100         Galaxy::PredictSurfaceDensity(double, double, double, double) [24]
+-----------------------------------------------
+                0.00    0.00   14000/14000       StarReservoir::Birth(GasReservoir&) [27]
+[25]     0.0    0.00    0.00   14000         GasReservoir::Heat(double) [25]
+                0.00    0.00  196000/586026      GasStream::ColdMass() [14]
+                0.00    0.00   98000/98000       GasStream::Heat(double) [17]
+-----------------------------------------------
+                0.00    0.00   14000/14000       StarReservoir::Birth(GasReservoir&) [27]
+[26]     0.0    0.00    0.00   14000         GasReservoir::Deplete(double, double) [26]
+                0.00    0.00  146916/730982      GasStream::Mass() [12]
+                0.00    0.00   98000/586026      GasStream::ColdMass() [14]
+                0.00    0.00   98000/196700      GasStream::HotMass() [16]
+                0.00    0.00   24458/24458       GasStream::Deplete(double, double) [21]
+-----------------------------------------------
+                0.00    0.00   14000/14000       Galaxy::Evolve() [121]
+[27]     0.0    0.00    0.00   14000         StarReservoir::Birth(GasReservoir&) [27]
+                0.00    0.00   14000/28100       GasReservoir::ColdMass() [20]
+                0.00    0.00   14000/69578       GasReservoir::Mass() [18]
+                0.00    0.00   14000/14000       GasReservoir::Deplete(double, double) [26]
+                0.00    0.00   14000/14000       GasReservoir::Heat(double) [25]
+-----------------------------------------------
+                0.00    0.00   14000/14000       Galaxy::Evolve() [121]
+[28]     0.0    0.00    0.00   14000         Ring::MakeStars() [28]
+-----------------------------------------------
+                0.00    0.00     382/13860       Galaxy::Infall(double) [38]
+                0.00    0.00   13478/13860       Galaxy::InsertInfallingGas(int, double) [33]
+[29]     0.0    0.00    0.00   13860         GasReservoir::TransferFrom(GasReservoir&, double) [29]
+                0.00    0.00 7567560/13283280     Gas::operator[](ElementID) [8]
+                0.00    0.00 5045040/5045040     GasStream::Dirty() [10]
+                0.00    0.00 3783780/7501494     GasStream::Cold(ElementID) [9]
+                0.00    0.00 3783780/3783780     GasStream::Hot(ElementID) [11]
+                0.00    0.00   97020/730982      GasStream::Mass() [12]
+-----------------------------------------------
+                0.00    0.00     101/13719       GasReservoir::Primordial(double, GlobalParameters const&) [39]
+                0.00    0.00   13618/13719       Galaxy::InsertInfallingGas(int, double) [33]
+[30]     0.0    0.00    0.00   13719         GasStream::Absorb(GasStream const&) [30]
+                0.00    0.00  356694/359320      Gas::operator[](ElementID) const [15]
+                0.00    0.00  356694/13283280     Gas::operator[](ElementID) [8]
+-----------------------------------------------
+                0.00    0.00   13618/13618       Galaxy::InsertInfallingGas(int, double) [33]
+[31]     0.0    0.00    0.00   13618         GasReservoir::AccretionStream(double) [31]
+                0.00    0.00 3717714/13283280     Gas::operator[](ElementID) [8]
+                0.00    0.00 3717714/7501494     GasStream::Cold(ElementID) [9]
+                0.00    0.00   95326/586026      GasStream::ColdMass() [14]
+                0.00    0.00   13618/13618       GasStream::GasStream(SourceProcess) [34]
+-----------------------------------------------
+                0.00    0.00   13618/13618       Galaxy::InsertInfallingGas(int, double) [33]
+[32]     0.0    0.00    0.00   13618         GasReservoir::Absorb(GasStream const&) [32]
+-----------------------------------------------
+                0.00    0.00   13618/13618       Galaxy::Infall(double) [38]
+[33]     0.0    0.00    0.00   13618         Galaxy::InsertInfallingGas(int, double) [33]
+                0.00    0.00   13618/13618       GasReservoir::AccretionStream(double) [31]
+                0.00    0.00   13618/13719       GasStream::Absorb(GasStream const&) [30]
+                0.00    0.00   13618/13618       GasReservoir::Absorb(GasStream const&) [32]
+                0.00    0.00   13478/69578       GasReservoir::Mass() [18]
+                0.00    0.00   13478/13860       GasReservoir::TransferFrom(GasReservoir&, double) [29]
+-----------------------------------------------
+                0.00    0.00   13618/13618       GasReservoir::AccretionStream(double) [31]
+[34]     0.0    0.00    0.00   13618         GasStream::GasStream(SourceProcess) [34]
+                0.00    0.00   27236/28852       Gas::Gas() [19]
+-----------------------------------------------
+                0.00    0.00     900/900         StarReservoir::StarReservoir(GlobalParameters const&, int) [44]
+[35]     0.0    0.00    0.00     900         void std::vector<StellarPopulation, std::allocator<StellarPopulation> >::_M_realloc_insert<StellarPopulation const&>(__gnu_cxx::__normal_iterator<StellarPopulation*, std::vector<StellarPopulation, std::allocator<StellarPopulation> > >, StellarPopulation const&) [35]
+-----------------------------------------------
+                0.00    0.00     707/707         std::vector<GasStream, std::allocator<GasStream> >::_M_default_append(unsigned long) [43]
+[36]     0.0    0.00    0.00     707         GasStream::GasStream() [36]
+                0.00    0.00    1414/28852       Gas::Gas() [19]
+-----------------------------------------------
+                0.00    0.00     141/141         Galaxy::Evolve() [121]
+[37]     0.0    0.00    0.00     141         Galaxy::SaveState_Mass(double) [37]
+                0.00    0.00   14100/14100       StarReservoir::Mass() [23]
+                0.00    0.00   14100/28100       GasReservoir::ColdMass() [20]
+                0.00    0.00   14100/14100       GasReservoir::HotMass() [22]
+                0.00    0.00   14100/69578       GasReservoir::Mass() [18]
+-----------------------------------------------
+                0.00    0.00     140/140         Galaxy::Evolve() [121]
+[38]     0.0    0.00    0.00     140         Galaxy::Infall(double) [38]
+                0.00    0.00   28000/69578       GasReservoir::Mass() [18]
+                0.00    0.00   14000/14100       Galaxy::PredictSurfaceDensity(double, double, double, double) [24]
+                0.00    0.00   13618/13618       Galaxy::InsertInfallingGas(int, double) [33]
+                0.00    0.00     382/13860       GasReservoir::TransferFrom(GasReservoir&, double) [29]
+-----------------------------------------------
+                0.00    0.00       1/101         Galaxy::Galaxy(GlobalParameters const&) [127]
+                0.00    0.00     100/101         Ring::Ring(int, double, GlobalParameters const&) [46]
+[39]     0.0    0.00    0.00     101         GasReservoir::Primordial(double, GlobalParameters const&) [39]
+                0.00    0.00     101/101         GasReservoir::GasReservoir(GlobalParameters const&) [40]
+                0.00    0.00     101/101         Gas::Primordial(double) [41]
+                0.00    0.00     101/101         GasStream::GasStream(SourceProcess, Gas const&, double) [42]
+                0.00    0.00     101/13719       GasStream::Absorb(GasStream const&) [30]
+-----------------------------------------------
+                0.00    0.00     101/101         GasReservoir::Primordial(double, GlobalParameters const&) [39]
+[40]     0.0    0.00    0.00     101         GasReservoir::GasReservoir(GlobalParameters const&) [40]
+                0.00    0.00     101/101         std::vector<GasStream, std::allocator<GasStream> >::_M_default_append(unsigned long) [43]
+-----------------------------------------------
+                0.00    0.00     101/101         GasReservoir::Primordial(double, GlobalParameters const&) [39]
+[41]     0.0    0.00    0.00     101         Gas::Primordial(double) [41]
+-----------------------------------------------
+                0.00    0.00     101/101         GasReservoir::Primordial(double, GlobalParameters const&) [39]
+[42]     0.0    0.00    0.00     101         GasStream::GasStream(SourceProcess, Gas const&, double) [42]
+                0.00    0.00    2626/359320      Gas::operator[](ElementID) const [15]
+                0.00    0.00    2626/13283280     Gas::operator[](ElementID) [8]
+                0.00    0.00     202/28852       Gas::Gas() [19]
+-----------------------------------------------
+                0.00    0.00     101/101         GasReservoir::GasReservoir(GlobalParameters const&) [40]
+[43]     0.0    0.00    0.00     101         std::vector<GasStream, std::allocator<GasStream> >::_M_default_append(unsigned long) [43]
+                0.00    0.00     707/707         GasStream::GasStream() [36]
+-----------------------------------------------
+                0.00    0.00     100/100         Ring::Ring(int, double, GlobalParameters const&) [46]
+[44]     0.0    0.00    0.00     100         StarReservoir::StarReservoir(GlobalParameters const&, int) [44]
+                0.00    0.00     900/900         void std::vector<StellarPopulation, std::allocator<StellarPopulation> >::_M_realloc_insert<StellarPopulation const&>(__gnu_cxx::__normal_iterator<StellarPopulation*, std::vector<StellarPopulation, std::allocator<StellarPopulation> > >, StellarPopulation const&) [35]
+                0.00    0.00     100/100         StellarPopulation::StellarPopulation(GlobalParameters const&) [45]
+-----------------------------------------------
+                0.00    0.00     100/100         StarReservoir::StarReservoir(GlobalParameters const&, int) [44]
+[45]     0.0    0.00    0.00     100         StellarPopulation::StellarPopulation(GlobalParameters const&) [45]
+                0.00    0.00     100/100         std::vector<IsoMass, std::allocator<IsoMass> >::_M_default_append(unsigned long) [47]
+-----------------------------------------------
+                0.00    0.00     100/100         Galaxy::Galaxy(GlobalParameters const&) [127]
+[46]     0.0    0.00    0.00     100         Ring::Ring(int, double, GlobalParameters const&) [46]
+                0.00    0.00     100/100         StarReservoir::StarReservoir(GlobalParameters const&, int) [44]
+                0.00    0.00     100/101         GasReservoir::Primordial(double, GlobalParameters const&) [39]
+-----------------------------------------------
+                0.00    0.00     100/100         StellarPopulation::StellarPopulation(GlobalParameters const&) [45]
+[47]     0.0    0.00    0.00     100         std::vector<IsoMass, std::allocator<IsoMass> >::_M_default_append(unsigned long) [47]
+-----------------------------------------------
+                0.00    0.00      42/42          ElementValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [74]
+[48]     0.0    0.00    0.00      42         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [48]
+-----------------------------------------------
+                0.00    0.00       2/34          MetaValues::MetaValues() [71]
+                0.00    0.00       4/34          GlobalParameters::GlobalParameters() [92]
+                0.00    0.00      12/34          StellarValues::StellarValues() [76]
+                0.00    0.00      16/34          GalaxyValues::GalaxyValues() [72]
+[49]     0.0    0.00    0.00      34         JSL::Argument<double>::Argument(double, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [49]
+-----------------------------------------------
+                0.00    0.00      33/33          ParamList::Configure(int, char**) [54]
+[50]     0.0    0.00    0.00      33         JSL::Argument<double>::ListParse(int, char**) [50]
+-----------------------------------------------
+                0.00    0.00       8/8           Galaxy::Galaxy(GlobalParameters const&) [127]
+[51]     0.0    0.00    0.00       8         void std::vector<Ring, std::allocator<Ring> >::_M_realloc_insert<Ring>(__gnu_cxx::__normal_iterator<Ring*, std::vector<Ring, std::allocator<Ring> > >, Ring&&) [51]
+-----------------------------------------------
+                0.00    0.00       6/6           ParamList::Configure(int, char**) [54]
+[52]     0.0    0.00    0.00       6         JSL::Argument<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::ListParse(int, char**) [52]
+-----------------------------------------------
+                0.00    0.00       2/6           MetaValues::MetaValues() [71]
+                0.00    0.00       4/6           GlobalParameters::GlobalParameters() [92]
+[53]     0.0    0.00    0.00       6         JSL::Argument<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Argument(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [53]
+-----------------------------------------------
+                0.00    0.00       6/6           GlobalParameters::Initialise(int, char**) [91]
+[54]     0.0    0.00    0.00       6         ParamList::Configure(int, char**) [54]
+                0.00    0.00      33/33          JSL::Argument<double>::ListParse(int, char**) [50]
+                0.00    0.00       6/6           JSL::Argument<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::ListParse(int, char**) [52]
+                0.00    0.00       4/4           JSL::Argument<int>::ListParse(int, char**) [56]
+                0.00    0.00       1/1           JSL::Argument<bool>::ListParse(int, char**) [78]
+-----------------------------------------------
+                0.00    0.00       1/6           MetaValues::MetaValues() [71]
+                0.00    0.00       1/6           StellarValues::StellarValues() [76]
+                0.00    0.00       1/6           GalaxyValues::GalaxyValues() [72]
+                0.00    0.00       3/6           GlobalParameters::GlobalParameters() [92]
+[55]     0.0    0.00    0.00       6         void std::vector<JSL::ArgumentInterface*, std::allocator<JSL::ArgumentInterface*> >::_M_assign_aux<JSL::ArgumentInterface* const*>(JSL::ArgumentInterface* const*, JSL::ArgumentInterface* const*, std::forward_iterator_tag) [55]
+-----------------------------------------------
+                0.00    0.00       4/4           ParamList::Configure(int, char**) [54]
+[56]     0.0    0.00    0.00       4         JSL::Argument<int>::ListParse(int, char**) [56]
+-----------------------------------------------
+                0.00    0.00       3/3           GlobalParameters::Initialise(int, char**) [91]
+[57]     0.0    0.00    0.00       3         ParamList::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [57]
+-----------------------------------------------
+                0.00    0.00       2/2           OutputValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [73]
+[58]     0.0    0.00    0.00       2         JSL::mkdir(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [58]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[59]     0.0    0.00    0.00       1         _GLOBAL__sub_I_Params [59]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[60]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN10MetaValues10InitialiseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE [60]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[61]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN12GasReservoirC2Ev [61]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[62]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN13StarReservoirC2ERK16GlobalParametersi [62]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[63]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN16GlobalParametersC2Ev [63]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[64]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN3GasC2Ev [64]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[65]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN4RingC2EidRK16GlobalParameters [65]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[66]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN7IsoMassC2Ev [66]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[67]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN9GasStreamC2Ev [67]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[68]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN9ParamList9ConfigureEiPPc [68]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [151]
+[69]     0.0    0.00    0.00       1         _GLOBAL__sub_I_pi [69]
+-----------------------------------------------
+                0.00    0.00       1/1           GlobalParameters::Initialise(int, char**) [91]
+[70]     0.0    0.00    0.00       1         MetaValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [70]
+-----------------------------------------------
+                0.00    0.00       1/1           GlobalParameters::GlobalParameters() [92]
+[71]     0.0    0.00    0.00       1         MetaValues::MetaValues() [71]
+                0.00    0.00       2/6           JSL::Argument<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Argument(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [53]
+                0.00    0.00       2/34          JSL::Argument<double>::Argument(double, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [49]
+                0.00    0.00       1/6           void std::vector<JSL::ArgumentInterface*, std::allocator<JSL::ArgumentInterface*> >::_M_assign_aux<JSL::ArgumentInterface* const*>(JSL::ArgumentInterface* const*, JSL::ArgumentInterface* const*, std::forward_iterator_tag) [55]
+-----------------------------------------------
+                0.00    0.00       1/1           GlobalParameters::GlobalParameters() [92]
+[72]     0.0    0.00    0.00       1         GalaxyValues::GalaxyValues() [72]
+                0.00    0.00      16/34          JSL::Argument<double>::Argument(double, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [49]
+                0.00    0.00       1/6           void std::vector<JSL::ArgumentInterface*, std::allocator<JSL::ArgumentInterface*> >::_M_assign_aux<JSL::ArgumentInterface* const*>(JSL::ArgumentInterface* const*, JSL::ArgumentInterface* const*, std::forward_iterator_tag) [55]
+-----------------------------------------------
+                0.00    0.00       1/1           GlobalParameters::Initialise(int, char**) [91]
+[73]     0.0    0.00    0.00       1         OutputValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [73]
+                0.00    0.00       2/2           JSL::mkdir(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [58]
+-----------------------------------------------
+                0.00    0.00       1/1           GlobalParameters::Initialise(int, char**) [91]
+[74]     0.0    0.00    0.00       1         ElementValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [74]
+                0.00    0.00      42/42          void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [48]
+                0.00    0.00       1/1           ElementValues::GiveElementsNames() [75]
+-----------------------------------------------
+                0.00    0.00       1/1           ElementValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [74]
+[75]     0.0    0.00    0.00       1         ElementValues::GiveElementsNames() [75]
+                0.00    0.00       1/1           std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append(unsigned long) [79]
+-----------------------------------------------
+                0.00    0.00       1/1           GlobalParameters::GlobalParameters() [92]
+[76]     0.0    0.00    0.00       1         StellarValues::StellarValues() [76]
+                0.00    0.00      12/34          JSL::Argument<double>::Argument(double, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [49]
+                0.00    0.00       1/6           void std::vector<JSL::ArgumentInterface*, std::allocator<JSL::ArgumentInterface*> >::_M_assign_aux<JSL::ArgumentInterface* const*>(JSL::ArgumentInterface* const*, JSL::ArgumentInterface* const*, std::forward_iterator_tag) [55]
+-----------------------------------------------
+                0.00    0.00       1/1           Exit() [83]
+[77]     0.0    0.00    0.00       1         JSL::FormatDuration[abi:cxx11](int) [77]
+-----------------------------------------------
+                0.00    0.00       1/1           ParamList::Configure(int, char**) [54]
+[78]     0.0    0.00    0.00       1         JSL::Argument<bool>::ListParse(int, char**) [78]
+-----------------------------------------------
+                0.00    0.00       1/1           ElementValues::GiveElementsNames() [75]
+[79]     0.0    0.00    0.00       1         std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append(unsigned long) [79]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [59] _GLOBAL__sub_I_Params  [73] OutputValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [24] Galaxy::PredictSurfaceDensity(double, double, double, double)
+  [60] _GLOBAL__sub_I__ZN10MetaValues10InitialiseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE [74] ElementValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [38] Galaxy::Infall(double)
+  [61] _GLOBAL__sub_I__ZN12GasReservoirC2Ev [75] ElementValues::GiveElementsNames() [11] GasStream::Hot(ElementID)
+  [62] _GLOBAL__sub_I__ZN13StarReservoirC2ERK16GlobalParametersi [23] StarReservoir::Mass() [9] GasStream::Cold(ElementID)
+  [63] _GLOBAL__sub_I__ZN16GlobalParametersC2Ev [27] StarReservoir::Birth(GasReservoir&) [17] GasStream::Heat(double)
+  [64] _GLOBAL__sub_I__ZN3GasC2Ev [44] StarReservoir::StarReservoir(GlobalParameters const&, int) [12] GasStream::Mass()
+  [65] _GLOBAL__sub_I__ZN4RingC2EidRK16GlobalParameters [76] StellarValues::StellarValues() [10] GasStream::Dirty()
+  [66] _GLOBAL__sub_I__ZN7IsoMassC2Ev [45] StellarPopulation::StellarPopulation(GlobalParameters const&) [30] GasStream::Absorb(GasStream const&)
+  [67] _GLOBAL__sub_I__ZN9GasStreamC2Ev [41] Gas::Primordial(double) [21] GasStream::Deplete(double, double)
+  [68] _GLOBAL__sub_I__ZN9ParamList9ConfigureEiPPc [13] Gas::Mass() [16] GasStream::HotMass()
+  [69] _GLOBAL__sub_I_pi      [19] Gas::Gas()             [14] GasStream::ColdMass()
+  [70] MetaValues::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [8] Gas::operator[](ElementID) [34] GasStream::GasStream(SourceProcess)
+  [71] MetaValues::MetaValues() [77] JSL::FormatDuration[abi:cxx11](int) [42] GasStream::GasStream(SourceProcess, Gas const&, double)
+  [72] GalaxyValues::GalaxyValues() [58] JSL::mkdir(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [36] GasStream::GasStream()
+  [39] GasReservoir::Primordial(double, GlobalParameters const&) [52] JSL::Argument<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::ListParse(int, char**) [57] ParamList::Initialise(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  [29] GasReservoir::TransferFrom(GasReservoir&, double) [53] JSL::Argument<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Argument(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [54] ParamList::Configure(int, char**)
+  [31] GasReservoir::AccretionStream(double) [78] JSL::Argument<bool>::ListParse(int, char**) [15] Gas::operator[](ElementID) const
+  [25] GasReservoir::Heat(double) [50] JSL::Argument<double>::ListParse(int, char**) [35] void std::vector<StellarPopulation, std::allocator<StellarPopulation> >::_M_realloc_insert<StellarPopulation const&>(__gnu_cxx::__normal_iterator<StellarPopulation*, std::vector<StellarPopulation, std::allocator<StellarPopulation> > >, StellarPopulation const&)
+  [18] GasReservoir::Mass()   [49] JSL::Argument<double>::Argument(double, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) [51] void std::vector<Ring, std::allocator<Ring> >::_M_realloc_insert<Ring>(__gnu_cxx::__normal_iterator<Ring*, std::vector<Ring, std::allocator<Ring> > >, Ring&&)
+  [32] GasReservoir::Absorb(GasStream const&) [56] JSL::Argument<int>::ListParse(int, char**) [47] std::vector<IsoMass, std::allocator<IsoMass> >::_M_default_append(unsigned long)
+  [26] GasReservoir::Deplete(double, double) [28] Ring::MakeStars() [43] std::vector<GasStream, std::allocator<GasStream> >::_M_default_append(unsigned long)
+  [22] GasReservoir::HotMass() [46] Ring::Ring(int, double, GlobalParameters const&) [79] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_default_append(unsigned long)
+  [20] GasReservoir::ColdMass() [37] Galaxy::SaveState_Mass(double) [48] void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_insert<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  [40] GasReservoir::GasReservoir(GlobalParameters const&) [33] Galaxy::InsertInfallingGas(int, double) [55] void std::vector<JSL::ArgumentInterface*, std::allocator<JSL::ArgumentInterface*> >::_M_assign_aux<JSL::ArgumentInterface* const*>(JSL::ArgumentInterface* const*, JSL::ArgumentInterface* const*, std::forward_iterator_tag)

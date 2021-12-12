@@ -9,8 +9,7 @@ Galaxy::Galaxy(const GlobalParameters & param): Param(param), IGM(GasReservoir::
 		double ri = (i + 0.5)*ringWidth;
 		double predictedDensity = PredictSurfaceDensity(ri,ringWidth,Param.Galaxy.PrimordialMass,initialScaleLength);
 		double predictedMass = 2*pi * ri * ringWidth * predictedDensity;
-		Ring r(i,predictedMass,Param);
-		Rings.push_back(r);
+		Rings.push_back(Ring(i,predictedMass,Param));
 	}
 	
 	
