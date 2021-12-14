@@ -17,6 +17,8 @@ class Gas
 		
 		//! \return The current total mass within the #Species array
 		double Mass();
+		
+		double Mass() const;
 	
 		//! \return A reference to the indexed member of #Species, allowing for vector like access
 		double & operator[](ElementID id);
@@ -34,8 +36,10 @@ class Gas
 		//! The central mass array. Has ::ElementCount elements, indexed by ElementID
 		std::vector<double> Species;
 	
+		void CheckMass();
 		
-		
+		bool NeedsRecomputing;
+		double internal_Mass;
 	
 };
 

@@ -5,6 +5,7 @@
 #include "ParameterLists.h"
 #include "List.h"
 #include "EnumSets.h"
+
 #define PI 3.14159265358979323846
 
 //Options classes are sets of initialisations of Argument objetcs, such that they can be seprated & categorised
@@ -42,4 +43,9 @@ class GlobalParameters
 		
 		//! Loops over the ParamMembers and initialises their values according to the ParamList object.
 		void Initialise(int argc, char* argv[]);
+		
+		void Log(const std::string & input) const;
+		void Log(const std::string & input, int importance) const;
+		void LogFlush() const;
+		void UrgentLog(const std::string & input) const;
 };

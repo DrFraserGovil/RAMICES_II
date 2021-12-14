@@ -1,22 +1,30 @@
 #include "Gas.h"
 
-Gas::Gas()
+Gas::Gas() : Species(ElementCount,0.0)
 {
-	Species = std::vector<double>(ElementCount,0.0);
+	//~ Species = std::vector<double>(ElementCount,0.0);
+	//~ internal_Mass = 0;
+	NeedsRecomputing = true;
 }
 Gas::Gas(const std::vector<double> & input) : Species(input)
 {
-	//nope
+	CheckMass();
 }
 
 double Gas::Mass()
 {
-	double sum = 0;
-	for (int i = 0; i < ElementCount; ++i)
+	//~ std::cout << "called"<<std::endl;
+	if (NeedsRecomputing)
 	{
-		sum += Species[i];	
+		CheckMass();
 	}
-	return sum;
+	//~ std::cout << "returned " << std::endl;
+	return internal_Mass;
+
+}
+double Gas::Mass() const
+{
+	return internal_Mass;
 }
 
 Gas Gas::Empty()
@@ -35,9 +43,27 @@ Gas Gas::Primordial(double mass)
 
 double & Gas::operator[](ElementID id)
 {
+	NeedsRecomputing = true;
 	return Species[id];
 }
 const double & Gas::operator[](ElementID id) const
 {
 	return Species[id];
+}
+void Gas::CheckMass()
+{
+	double basicMass = Species[Hydrogen] + Species[Helium] + Species[Metals];
+	double elementWiseMass = 0; //avoid double counting
+	for (int i = 0; i < ElementCount; ++i)
+	{
+		//~ std::cout << basicMass << "  " << elementWiseMass << std::endl;
+		elementWiseMass += Species[i];
+	}
+	if (elementWiseMass > basicMass)
+	{
+		Species[Metals] += elementWiseMass - basicMass;
+		basicMass= elementWiseMass;
+	}
+	internal_Mass = basicMass;
+	NeedsRecomputing = false;
 }

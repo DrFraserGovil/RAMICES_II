@@ -11,7 +11,7 @@ class MetaValues : public ParamList
 	
 	public:
 		//! Controls whether the funky ASCII welcome message is played at the beginning of the code
-		Argument<bool> WelcomeMessage = Argument<bool>(false, "welcome");
+		Argument<int> Verbosity = Argument<int>(1, "verbose");
 
 		//! The location of the funky ASCII welcome messgae
 		Argument<std::string> WelcomeFile = Argument<std::string>("welcome.dat","welcome-file");
@@ -34,7 +34,7 @@ class MetaValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		MetaValues()
 		{
-			argPointers = {&WelcomeMessage, &WelcomeFile,&ResourceRoot,&ParallelThreads,&TimeStep,&SimulationDuration};
+			argPointers = {&Verbosity, &WelcomeFile,&ResourceRoot,&ParallelThreads,&TimeStep,&SimulationDuration};
 		};
 		
 		//! An overload of a normally empty function. Computes the value of #SimulationSteps
@@ -53,6 +53,12 @@ class OutputValues : public ParamList
 		
 		//!The name of the file containing galactic-scale mass information
 		Argument<std::string> GalaxyMassFile = Argument<std::string>("Mass.dat","galaxy-mass-file");
+		
+		//!The directory where individual ring data can be found
+		Argument<std::string> RingDirectory = Argument<std::string>("Ring/","ring-data");
+		
+		//!The ring-star data identifier
+		Argument<std::string> StarFile = Argument<std::string>("StarPop.dat","ring-data-stars");
 		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		OutputValues()
@@ -126,17 +132,26 @@ class StellarValues : public ParamList
 		//! The corresponding widths of each interval on the mass line.
 		std::vector<double> MassDeltas;
 		
+			
+		
 		//!Minimum Z that the ILM(??) can consider
-		Argument<double> MinZ = Argument<double>(1e-7,"min-z");
+		Argument<double> MinLogZ = Argument<double>(-7,"logz-min");
 		
 		//!Maximum Z that the ILM(??) can consider
-		Argument<double> MaxZ = Argument<double>(0.052,"max-z");
+		Argument<double> MaxLogZ = Argument<double>(-1,"logz-max");
+
+		//!Z Resolution
+		Argument<int> LogZResolution = Argument<int>(25,"logz-resolution");
+
+		//! As with MassGrid, but for metallicity (assumed to be always uniform in log-space)
+		std::vector<double> LogZGrid;
+		double LogZDelta;
 
 		//!The fraction of supernovae ejecta which is thrown into the IGM
 		Argument<double> EjectionFraction = Argument<double>(0.45,"eject");
 		
 		//!For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase
-		Argument<double> FeedbackFactor = Argument<double>(0,"mass-load");
+		Argument<double> FeedbackFactor = Argument<double>(0.0001,"mass-load");
 		
 		//! The fraction of white dwarfs which go SNIa
 		Argument<double> SNIaFraction = Argument<double>(0.05,"sn1a-frac");
@@ -151,10 +166,10 @@ class StellarValues : public ParamList
 		Argument<double> SchmidtLowPower = Argument<double>(4.0,"schmidt-low");
 		
 		//! The density cut for the low/high density switchover in Schmidt power law
-		Argument<double> SchmidtDensityCut = Argument<double>(4e-3,"schmidt-cut");
+		Argument<double> SchmidtDensityCut = Argument<double>(4e-13,"schmidt-cut");
 		
 		//! The Schmidt prefactor
-		Argument<double> SchmidtPrefactor = Argument<double>(1e-8,"schmidt-factor");
+		Argument<double> SchmidtPrefactor = Argument<double>(1,"schmidt-factor");
 		
 		//! The slope of the high-mass tail fo the IMF
 		Argument<double> IMF_Slope = Argument<double>(2.3,"imf-slope");
@@ -162,7 +177,7 @@ class StellarValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		StellarValues()
 		{
-			argPointers = {&MaxStellarMass, &MinStellarMass, &ImmortalMass, &MassResolution, &MinZ, &MaxZ, &EjectionFraction, &SNIaFraction, &NSMFraction,&SchmidtMainPower, &SchmidtLowPower, &SchmidtDensityCut, &SchmidtPrefactor};
+			argPointers = {&MaxStellarMass, &MinStellarMass, &ImmortalMass, &MassResolution, &MinLogZ, &MaxLogZ, &LogZResolution, &EjectionFraction, &SNIaFraction, &NSMFraction,&SchmidtMainPower, &SchmidtLowPower, &SchmidtDensityCut, &SchmidtPrefactor, &FeedbackFactor};
 		}
 		
 		//! Initialises the mass grid etc.

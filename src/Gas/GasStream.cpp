@@ -33,6 +33,18 @@ double & GasStream::Cold(ElementID el)
 	Dirty();
 	return internal_Cold[el];
 }
+
+const Gas & GasStream::Hot() const
+{
+	internal_Hot.Mass();
+	return internal_Hot;
+}
+const Gas & GasStream::Cold() const
+{
+	internal_Cold.Mass();
+	return internal_Cold;
+}
+
 const double & GasStream::Hot(ElementID el) const
 {
 	return internal_Hot[el];
@@ -157,6 +169,23 @@ void GasStream::Heat(double amountToHeat)
 		Hot(elem) += mass;
 	}
 	Dirty();
+}
+
+void GasStream::Cool(double amountToCool)
+{
 	
-	
+	//skip if empty!
+	if (HotMass() == 0)
+	{
+		return;
+	}
+	double moveFraction = amountToCool/HotMass();
+	for (int i = 0; i < ElementCount; ++i)
+	{
+		ElementID elem = (ElementID)elem;
+		double mass = Hot(elem) * moveFraction;
+		Cold(elem) += mass;
+		Hot(elem) -= mass;
+	}
+	Dirty();
 }

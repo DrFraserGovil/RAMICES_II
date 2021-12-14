@@ -11,7 +11,7 @@ std::chrono::time_point<std::chrono::system_clock> startTime;
 
 void Welcome()
 {
-	if (Params.Meta.WelcomeMessage)
+	if (Params.Meta.Verbosity > 0)
 	{
 		std::string welcomeFile = Params.Meta.ResourceRoot.Value + Params.Meta.WelcomeFile.Value;
 		forLineIn(welcomeFile,
@@ -24,7 +24,7 @@ void Welcome()
 
 void Exit()
 {
-	if (Params.Meta.WelcomeMessage)
+	if (Params.Meta.Verbosity > 0)
 	{
 		auto endTime = std::chrono::system_clock::now();
 		std::cout << "\n\nSimulation complete. Computation duration was " << JSL::FormatClock(startTime,endTime);

@@ -10,6 +10,9 @@ class GasStream
 		//!A label identifying where and how this gas stream was created
 		SourceProcess Source;
 		
+		const Gas & Hot() const;
+		const Gas & Cold() const;
+		
 		double & Hot(ElementID el);
 		
 		double & Cold(ElementID el);
@@ -44,6 +47,8 @@ class GasStream
 		//!Moves the specified mass from the cold reservoir into the hot reservoir, keeping the cold elemental abundances constant
 		void Heat(double amountToHeat);
 		
+		//!Moves the specified mass from the hot reservoir to the cold reservoir, keeping the hot elemental abundances constant
+		void Cool(double amountToCool);
 		//~ void DepleteFraction(double fraction)
 		//~ {
 				//~ Deplete(fraction* Mass());

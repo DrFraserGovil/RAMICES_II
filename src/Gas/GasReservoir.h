@@ -49,6 +49,9 @@ class GasReservoir
 		//! Heats up the specified amount of gas into the hot reservoir, keeping the elemental abundances of the cold gas reservoir constant
 		void Heat(double amoutToHeat);
 		
+		//!Executes the usual cooling mechanism
+		void PassiveCool(double dt);
+		
 		//! Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object
 		void TransferFrom(GasReservoir & givingGas, double massToMove);
 		
@@ -58,6 +61,8 @@ class GasReservoir
 		//! Generates a primordial gas reservoir of the specified mass -- only the ::Primordial component is populated, with the nature of that component determined by several key parameters in GlobalParameters \param mass The total mass of the new reservoir \param param A reference to the global parameter set - required for primordial abundances and hot-gas fractions 
 		static GasReservoir Primordial(double mass, const GlobalParameters & param);
 		void PrintSelf();
+		
+		double Metallicity();
 	private:
 	
 		//! A representation of the total amount of gas within the reservoir, separated by the origin of the gas

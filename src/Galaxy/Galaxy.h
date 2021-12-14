@@ -3,6 +3,7 @@
 #include "Ring.h"
 #include "../Gas/GasReservoir.h"
 #include "../Stars/IMF.h"
+#include "../Stars/SLF.h"
 #include <sstream>
 
 class Galaxy
@@ -25,6 +26,8 @@ class Galaxy
 		
 		//Star Formation
 		void FormStars();
+		void Cool();
+		void KillStars(int time);
 		
 		double PredictSurfaceDensity(double radius,double width, double totalGasMass, double scalelength);
 		double GasMass();
@@ -38,4 +41,7 @@ class Galaxy
 		static std::string MassHeaders(); 
 		
 		IMF_Functor IMF;
+		SLF_Functor SLF;
+		
+
 };

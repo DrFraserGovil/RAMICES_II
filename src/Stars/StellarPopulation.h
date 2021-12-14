@@ -2,6 +2,9 @@
 #include <vector>
 #include "../Parameters/GlobalParameters.h"
 #include "IMF.h"
+#include "../Gas/GasStream.h"
+#include "../Gas/Gas.h"
+#include "SLF.h"
 //! A simple struct for tracking the number of stars of a given mass
 class IsoMass
 {
@@ -18,19 +21,33 @@ class IsoMass
 class StellarPopulation
 {
 	public:
-		StellarPopulation(const IMF_Functor & imf, const GlobalParameters & param);
+		StellarPopulation(const IMF_Functor & imf, SLF_Functor & SLF, const GlobalParameters & param);
 	
 		void PrepareIMF();
-		void FormStars(double formingMass, int timeIndex);
+		void FormStars(double formingMass, int timeIndex, double formingMetallicity);
+		double Mass();
+		IsoMass & Relic();
+		const IsoMass & Relic() const;
+		IsoMass & operator[](int i);
+		const IsoMass & operator[](int i) const;
+		bool Active();
+		void Death(int time);
 	private:
 		const GlobalParameters & Param;
 		IsoMass ImmortalStars;
 		std::vector<IsoMass> Distribution;
-		//~ std::vector<double> IMFWeighting;
-		//~ double IMF(double totalMass);
-		//~ Integral IMF_Integrand(double start, double stop, int resolution);
-		
-		//~ double IMF_Normalisation;
-		//~ double IMF_MeanValue;
+
 		const IMF_Functor & IMF; 
+		SLF_Functor & SLF;
+		
+		bool IsLifetimeMonotonic;
+		bool IsDepleted;
+		int DepletionIndex;
+		
+		double internal_MassCounter;
+		
+		void MonotonicDeathScan(int time);
+		void FullDeathScan(int time);
+		
+		Gas TempGas;
 };

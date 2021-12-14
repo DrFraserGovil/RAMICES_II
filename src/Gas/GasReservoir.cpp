@@ -111,8 +111,8 @@ void GasReservoir::Deplete(double amountToLose_Cold, double amountToLose_Hot)
 		if (Components[i].Mass() > 0)
 		{
 			
-			double coldMass =  Components[i].Mass() * coldLoss;
-			double hotMass = Components[i].Mass() * hotLoss;
+			double coldMass =  Components[i].ColdMass() * coldLoss;
+			double hotMass = Components[i].HotMass() * hotLoss;
 			Components[i].Deplete(coldMass,hotMass);
 		}
 	}
@@ -135,7 +135,16 @@ void GasReservoir::Heat(double amountToHeat)
 		Components[i].Heat(componentHeat);
 	}
 }
-
+void GasReservoir::PassiveCool(double dt)
+{
+	double tau = Param.Thermal.GasCoolingTimeScale;
+	double coolingFraction = (1.0 - exp(-dt/tau)); //basic exponential cooling law
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		double componentCool = coolingFraction * Components[i].HotMass();
+		Components[i].Cool(componentCool);
+	}
+}
 
 GasStream GasReservoir::AccretionStream(double amountToLose)
 {
@@ -208,3 +217,17 @@ void GasReservoir::PrintSelf()
 	}
 }
 	
+double GasReservoir::Metallicity()
+{
+	//~ std::cout << "I am requesting a metallicity call" << std::endl;
+	double Mz = 0;
+	double M = 0;
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		Components[i].Mass();
+		const GasStream & stream = Components[i];
+		M += stream.Cold().Mass();
+		Mz += stream.Cold(Metals);
+	}
+	return Mz/M;
+}

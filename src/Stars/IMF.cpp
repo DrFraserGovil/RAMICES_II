@@ -2,6 +2,7 @@
 
 double IMF_Functor::IMF(double mass)
 {
+	//~ std::cout << "IMF " << mass << std::endl;
 	//! implementation of Chabrier (2003)
 	if (mass == 0)
 	{
@@ -32,6 +33,8 @@ double IMF_Functor::operator ()(double mass)
 IMF_Functor::IMF_Functor(const GlobalParameters & param): Param(param)
 {
 	Normalise();
+	Param.UrgentLog("\tIMF Initialised\n");
+	
 }
 double IMF_Functor::FormationCount(double formingMass) const
 {
@@ -87,7 +90,5 @@ void IMF_Functor::Normalise()
 	{
 		IMF_Weighting[i] *= IMF_Normalisation;
 	}
-	
-	std::cout << "The IMF has been normalised. The mean value is " << IMF_MeanMass << std::endl;
 }
 

@@ -13,6 +13,9 @@ void OutputValues::Initialise(std::string resourceRoot)
 	
 	GalaxyMassFile.Value = GalacticDirectory.Value + "/" + GalaxyMassFile.Value;
 	JSL::initialiseFile(GalaxyMassFile.Value);
+	
+	RingDirectory.Value = Root.Value + "/" + RingDirectory.Value;
+	JSL::mkdir(RingDirectory.Value);
 }
 
 
@@ -67,10 +70,35 @@ void StellarValues::Initialise(std::string resourceRoot)
 	//Allows for arbitrary mass steps without altering the rest of the code (hopefully!)
 	MassGrid = std::vector<double>(MassResolution.Value);
 	MassDeltas = std::vector<double>(MassResolution.Value);
-	double gridWidth = (MaxStellarMass - ImmortalMass)/MassResolution;
+	//~ double gridWidth = (MaxStellarMass - ImmortalMass)/MassResolution
+	
+	double alpha = 1.05;
+	double sumFactor;
+	if (alpha == 1)
+	{
+		sumFactor = MassResolution.Value;
+	}
+	else
+	{
+		sumFactor = (pow(alpha,MassResolution.Value) - 1.0)/(alpha - 1);
+	}
+	double w = (MaxStellarMass - ImmortalMass)/sumFactor;
+	double x = ImmortalMass;
+	
 	for (int i = 0; i < MassResolution; ++i)
 	{
-		MassGrid[i] = ImmortalMass + (i + 0.5)*gridWidth;
-		MassDeltas[i] = gridWidth;
+		x += w/2;
+		MassGrid[i] = x;
+		MassDeltas[i] = w;
+		x += w/2;
+		w = w * alpha;
 	}
+	
+	LogZGrid = std::vector<double>(LogZResolution);
+	double zwidth = (MaxLogZ - MinLogZ)/(LogZResolution-1);
+	for (int i =0; i < LogZResolution; ++i)
+	{
+		LogZGrid[i] = MinLogZ + (i)*zwidth;
+	}
+	LogZDelta = zwidth;
 }

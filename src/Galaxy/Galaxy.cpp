@@ -1,6 +1,6 @@
 #include "Galaxy.h"
 double pi = 3.141592654;
-Galaxy::Galaxy(const GlobalParameters & param): Param(param), IGM(GasReservoir::Primordial(param.Galaxy.IGM_Mass,param)), IMF(param)
+Galaxy::Galaxy(const GlobalParameters & param): Param(param), IGM(GasReservoir::Primordial(param.Galaxy.IGM_Mass,param)), IMF(param), SLF(param)
 {
 	double ringWidth = Param.Galaxy.Radius / Param.Galaxy.RingCount;
 	double initialScaleLength = GasScaleLength(0);
@@ -9,25 +9,52 @@ Galaxy::Galaxy(const GlobalParameters & param): Param(param), IGM(GasReservoir::
 		double ri = (i + 0.5)*ringWidth;
 		double predictedDensity = PredictSurfaceDensity(ri,ringWidth,Param.Galaxy.PrimordialMass,initialScaleLength);
 		double predictedMass = 2*pi * ri * ringWidth * predictedDensity;
-		Rings.push_back(Ring(i,predictedMass,IMF,Param));
+		Rings.push_back(Ring(i,predictedMass,IMF,SLF,Param));
 	}
 	
-	
+	Param.Log("\tMain Galaxy Initialised\n");
+	Param.LogFlush();
 }
 
-
+std::string ProgressBar(int i,int N, int & currentBars, int fullBar)
+{
+	double progress = (double)i/N;
+	int predictedBars = floor(fullBar * progress);
+	int neededBars = predictedBars - currentBars;
+	std::string s = "";
+	while (neededBars > 0)
+	{
+		s += "#";
+		--neededBars;
+		++currentBars;
+	}
+	return s;
+}
 void Galaxy::Evolve()
 {
 	double t = 0;
 	SaveState(t);
 
+	int fullBar = 32;
+	int currentBars = 0;
+
+	Param.Log("Beginning main computation loop: [");
 	for (int timestep = 0; timestep < Param.Meta.SimulationSteps; ++timestep)
 	{
 		Infall(t);
 		FormStars();
+		KillStars(timestep);
+		Cool();
 		t += Param.Meta.TimeStep;
 		SaveState(t);
+		Param.Log(ProgressBar(timestep,Param.Meta.SimulationSteps,currentBars, fullBar));
+		Param.LogFlush();
+		
+		
 	}
+	
+	Param.Log("]\n");
+	
 	
 }
 double Galaxy::InfallMass(double t)
@@ -38,6 +65,7 @@ double Galaxy::InfallMass(double t)
 	double bSlow = Param.Galaxy.InfallTime2;
 	double fastInfall = Param.Galaxy.InfallMass1 * exp(-t/bFast) * (exp(delta / bFast) - 1.0);
 	double slowInfall = Param.Galaxy.InfallMass2 * exp(-t/bSlow) * ( exp(delta/bSlow) - 1.0);
+	
 	
 	return fastInfall + slowInfall;
 }
@@ -168,10 +196,25 @@ void Galaxy::FormStars()
 		Rings[i].MakeStars();
 	}
 }
+void Galaxy::KillStars(int time)
+{
+	for (int i = 0; i < Rings.size(); ++i)
+	{
+		Rings[i].KillStars(time);
+	}
+}
+void Galaxy::Cool()
+{
+	for (int i = 0; i < Rings.size(); ++i)
+	{
+		Rings[i].Cool();
+	}
+}
 
 void Galaxy::SaveState(double t)
 {
 	SaveState_Mass(t);
+	Param.Log("\tSaved state at " + std::to_string(t) + "\n",3);
 }
 void Galaxy::SaveState_Mass(double t)
 {
