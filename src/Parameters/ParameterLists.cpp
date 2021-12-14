@@ -65,6 +65,30 @@ void ElementValues::Initialise(std::string resourceRoot)
 	);
 }
 
+double stepFraction(double targetMinStep, double width, int N)
+{
+	int nRaphson = 10;
+	double x= 1;
+	
+	for (int i = 0; i < nRaphson; ++i)
+	{
+		double f;
+		double fPrime;
+		if (x == 1)
+		{
+			f= N - width;
+			fPrime = N*(N-1)/2;
+		}
+		else
+		{
+			f= targetMinStep * (pow(x,N) - 1)/(x - 1) - width;
+			fPrime = targetMinStep * ( (N-1)*pow(x,N) - N * pow(x,N-1) + 1)/pow(x -1,2);
+		}
+		x = x - f/fPrime;
+	}
+	return x;
+}
+
 void StellarValues::Initialise(std::string resourceRoot)
 {
 	//Allows for arbitrary mass steps without altering the rest of the code (hopefully!)
@@ -72,7 +96,9 @@ void StellarValues::Initialise(std::string resourceRoot)
 	MassDeltas = std::vector<double>(MassResolution.Value);
 	//~ double gridWidth = (MaxStellarMass - ImmortalMass)/MassResolution
 	
-	double alpha = 1.05;
+	double minStepSize = 0.1;
+	double alpha = stepFraction(minStepSize, MaxStellarMass - ImmortalMass,MassResolution.Value);
+	std::cout << "Predicted alpha = " << alpha << std::endl;
 	double sumFactor;
 	if (alpha == 1)
 	{
@@ -92,6 +118,7 @@ void StellarValues::Initialise(std::string resourceRoot)
 		MassDeltas[i] = w;
 		x += w/2;
 		w = w * alpha;
+		std::cout << MassGrid[i] - MassDeltas[i]/2 << "->" << MassGrid[i] + MassDeltas[i]/2 << std::endl;
 	}
 	
 	LogZGrid = std::vector<double>(LogZResolution);
