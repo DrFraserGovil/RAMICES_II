@@ -190,6 +190,8 @@ class StellarValues : public ParamList
 		//! The slope of the high-mass tail fo the IMF
 		Argument<double> IMF_Slope = Argument<double>(2.3,"imf-slope");
 		
+		
+		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		StellarValues()
 		{
@@ -198,6 +200,35 @@ class StellarValues : public ParamList
 		
 		//! Initialises the mass grid etc.
 		void Initialise(std::string resourceRoot);
+};
+
+
+class YieldValues : public ParamList
+{
+	public:
+		//!Time before SNIa can turn on, in Gyr
+		Argument<double> SNIa_DelayTime = Argument<double>(0.2,"sn1a-delay");
+		
+		Argument<double> SNIa_ActiveFraction = Argument<double>(0.1,"sn1a-fraction");
+		
+		Argument<double> SNIa_LongFraction = Argument<double>(0.5,"sn1a-fraction-long");
+		
+		Argument<double> SNIa_ShortScale = Argument<double>(20,"sn1a-short-decay");
+		
+		Argument<double> SNIa_LongScale = Argument<double>(100,"sn1a-long-decay");
+		
+		
+		
+		Argument<double> NSM_DelayTime = Argument<double>(0.02,"nsm-delay");
+		Argument<double> NSM_ActiveFraction = Argument<double>(0.1,"nsm-fraction");
+		Argument<double> NSM_Scale = Argument<double>(100,"nsm-decay");
+		
+	YieldValues()
+	{
+		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime};
+	}
+	
+	
 };
 
 //!Thermal suboptions contain variables which deal with the thermal subroutines - cooling timescales injection fractions etc. 

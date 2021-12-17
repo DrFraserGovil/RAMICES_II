@@ -32,32 +32,50 @@ void Ring::UpdateMemory(int t)
 	Gas.UpdateMemory(t);
 }
 
+void neatLog(double value, std::stringstream & stream)
+{
+	if (isinf(value) || isnan(value))
+	{
+		stream << ",-";
+	}
+	else
+	{
+		stream << ", " << value;
+	}
+}
+
 void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, std::stringstream & logarithmicStreamCold, std::stringstream & absoluteStreamHot, std::stringstream & logarithmicStreamHot)
 {
 	std::string basic = "";
-	if (t == 0 && RadiusIndex == 0)
+	if (t == 0)
 	{
-		std::string headers = "TimeIndex, RingIndex";
-		for (int p = -1; p < ProcessCount; ++p)
+		HotBuffer = std::vector<std::vector<double>>(ProcessCount + 1, std::vector<double>(ElementCount,0.0));
+		ColdBuffer = std::vector<std::vector<double>>(ProcessCount + 1, std::vector<double>(ElementCount,0.0));
+		
+		if (RadiusIndex == 0)
 		{
-			std::string processName;
-			if (p > -1)
+			std::string headers = "TimeIndex, RingIndex";
+			for (int p = -1; p < ProcessCount; ++p)
 			{
-				 processName = Param.Element.ProcessNames[p];
+				std::string processName;
+				if (p > -1)
+				{
+					 processName = Param.Element.ProcessNames[p];
+				}
+				else
+				{
+					processName = "Total";
+				}
+				for (int e = 0; e < ElementCount; ++e)
+				{
+					std::string elementName = Param.Element.ElementNames[e];
+				
+				
+					headers += ", " + processName+ "_" + elementName;
+				}
 			}
-			else
-			{
-				processName = "Total";
-			}
-			for (int e = 0; e < ElementCount; ++e)
-			{
-				std::string elementName = Param.Element.ElementNames[e];
-			
-			
-				headers += ", " + processName+ "_" + elementName;
-			}
+			basic = headers + "\n";
 		}
-		basic = headers + "\n";
 	}
 	basic += std::to_string(t) + ", " + std::to_string(RadiusIndex);
 	
@@ -68,8 +86,7 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 	
 	const std::vector<GasStream> & target = Gas.GetHistory(t);
 	
-	std::vector<std::vector<double>> coldAbundances(ProcessCount + 1, std::vector<double>(ElementCount,0.0));
-	std::vector<std::vector<double>> hotAbundances(ProcessCount + 1, std::vector<double>(ElementCount,0.0));
+	
 
 	double coldMass = 0;
 	double hotMass = 0;
@@ -77,6 +94,7 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 	{
 		double processCold = target[p].ColdMass();
 		double processHot = target[p].HotMass();
+		
 		coldMass += processCold;
 		hotMass += processHot;
 		for (int e = 0; e < ElementCount; ++e)
@@ -85,16 +103,21 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 			double cold = target[p].Cold(elem);
 			double hot = target[p].Hot(elem);
 
-			coldAbundances[0][e] += cold;
-			hotAbundances[0][e] += hot;
-			coldAbundances[p+1][e] = cold/processCold;
-			hotAbundances[p+1][e] = hot/processHot;
+			if (p == 0)
+			{
+				ColdBuffer[p][e] = 0;
+				HotBuffer[p][e] = 0;
+			}
+			ColdBuffer[0][e] += cold;
+			HotBuffer[0][e] += hot;
+			ColdBuffer[p+1][e] = cold/processCold;
+			HotBuffer[p+1][e] = hot/processHot;
 		}
 	} 
 	for (int e = 0; e < ElementCount; ++e)
 	{
-		coldAbundances[0][e] /= coldMass;
-		hotAbundances[0][e] /= hotMass;
+		ColdBuffer[0][e] /= coldMass;
+		HotBuffer[0][e] /= hotMass;
 	}
 	
 	for (int p = 0; p < ProcessCount + 1; ++p)
@@ -102,29 +125,15 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 		for (int e = 0; e < ElementCount; ++e)
 		{
 			
-			absoluteStreamCold << ", " << coldAbundances[p][e];
-			absoluteStreamHot << ", " << hotAbundances[p][e];
+			neatLog(ColdBuffer[p][e], absoluteStreamCold);
+			neatLog(HotBuffer[p][e], absoluteStreamHot);
+					
+			double logValueCold = log10(ColdBuffer[p][e] / Param.Element.SolarAbundances[e]);
+			double logValueHot = log10(HotBuffer[p][e]/Param.Element.SolarAbundances[e]);
 			
-			
-			double logValueCold = log10(coldAbundances[p][e] / Param.Element.SolarAbundances[e]);
-			double logValueHot = log10(hotAbundances[p][e]/Param.Element.SolarAbundances[e]);
-			
-			if (std::isnan(logValueCold) || std::isinf(logValueCold))
-			{
-				logarithmicStreamCold << ", - ";
-			}
-			else
-			{
-				logarithmicStreamCold << ", " << logValueCold;
-			}
-			if (std::isnan(logValueHot) || std::isinf(logValueHot))
-			{
-				logarithmicStreamHot << ", - ";
-			}
-			else
-			{
-				logarithmicStreamHot << ", " << logValueHot;
-			}
+			neatLog(logValueCold,logarithmicStreamCold);
+			neatLog(logValueHot,logarithmicStreamHot);
+	
 		}
 	}
 	absoluteStreamCold << "\n";

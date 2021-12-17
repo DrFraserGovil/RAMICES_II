@@ -137,6 +137,7 @@ void GasReservoir::Heat(double amountToHeat)
 		Components[i].Heat(componentHeat);
 	}
 }
+
 void GasReservoir::PassiveCool(double dt)
 {
 	double tau = Param.Thermal.GasCoolingTimeScale;

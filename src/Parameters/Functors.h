@@ -2,6 +2,7 @@
 #include "../Stars/IMF.h"
 #include "../Stars/SLF.h"
 #include "GlobalParameters.h"
+
 //! These will act like globally-defined functions, but have the scope for modifying themselves as they go along
 class Functors
 {

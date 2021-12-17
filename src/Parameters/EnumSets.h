@@ -17,4 +17,5 @@ enum SourceProcess {Primordial,Accreted,CCSN,SNIa, NSM,
 	
 	};
 
+enum RemnantType {WhiteDwarf, DormantDwarf, SNIaDwarf, NeutronStar, DormantNS, MergerNS, BlackHole};
 

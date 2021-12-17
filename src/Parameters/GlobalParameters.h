@@ -29,6 +29,9 @@ class GlobalParameters
 		//! Stellar limits (mass, metallicity)
 		StellarValues Stellar;
 
+		//!Yield stuff
+		YieldValues Yield;
+
 		//! Hot gas cooling/injection parameters
 		ThermalValues Thermal;
 		

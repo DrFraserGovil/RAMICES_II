@@ -33,4 +33,6 @@ class Ring
 	
 		const GlobalParameters & Param;
 		const IMF_Functor & IMF;
+		std::vector<std::vector<double>> ColdBuffer;
+		std::vector<std::vector<double>> HotBuffer;
 };
