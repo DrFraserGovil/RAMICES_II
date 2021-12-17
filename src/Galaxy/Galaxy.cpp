@@ -11,22 +11,31 @@ Galaxy::Galaxy(const GlobalParameters & param): Param(param), IGM(GasReservoir::
 		double predictedMass = 2*pi * ri * ringWidth * predictedDensity;
 		Rings.push_back(Ring(i,predictedMass,IMF,SLF,Param));
 	}
-	
 	Param.Log("\tMain Galaxy Initialised\n");
 	Param.LogFlush();
 }
 
 std::string ProgressBar(int i,int N, int & currentBars, int fullBar)
 {
-	double progress = (double)i/N;
+	double progress = (double)i/(N-2);
 	int predictedBars = floor(fullBar * progress);
 	int neededBars = predictedBars - currentBars;
 	std::string s = "";
+	if (i == 0)
+	{
+		s = "[";
+	}
 	while (neededBars > 0)
 	{
 		s += "#";
 		--neededBars;
 		++currentBars;
+		
+	}
+	if (currentBars == fullBar)
+	{
+		s+="]\n";
+		currentBars = fullBar + 2;
 	}
 	return s;
 }
@@ -38,22 +47,22 @@ void Galaxy::Evolve()
 	int fullBar = 32;
 	int currentBars = 0;
 
-	Param.Log("Beginning main computation loop: [");
-	for (int timestep = 0; timestep < Param.Meta.SimulationSteps; ++timestep)
+	Param.Log("Beginning main computation loop: ");
+	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
 	{
+		
 		Infall(t);
 		FormStars();
 		KillStars(timestep);
 		Cool();
 		t += Param.Meta.TimeStep;
-		SaveState(t);
-		Param.Log(ProgressBar(timestep,Param.Meta.SimulationSteps,currentBars, fullBar));
-		Param.LogFlush();
 		
 		
+		
+		Param.UrgentLog(ProgressBar(timestep,Param.Meta.SimulationSteps,currentBars, fullBar));	
+		SaveState(t);	
 	}
 	
-	Param.Log("]\n");
 	
 	
 }
@@ -138,6 +147,9 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		remainingMass = amount;
 	}
 	GasStream igm = IGM.AccretionStream(remainingMass);
+	
+	
+	//~ std::cout << "I am sending " << remainingMass <<"  " << igm.ColdMass() << std::endl;
 	Rings[ring].Gas.Absorb(igm);
 	
 }
@@ -214,6 +226,7 @@ void Galaxy::Cool()
 void Galaxy::SaveState(double t)
 {
 	SaveState_Mass(t);
+	SaveState_Enrichment(t);
 	Param.Log("\tSaved state at " + std::to_string(t) + "\n",3);
 }
 void Galaxy::SaveState_Mass(double t)
@@ -246,4 +259,39 @@ void Galaxy::SaveState_Mass(double t)
 std::string Galaxy::MassHeaders()
 {
 	return "Time, Radius, TotalMass, StellarMass, ColdGasMass, HotGasMass, RelicMass,IGMMass";
+}
+
+void Galaxy::SaveState_Enrichment(double t)
+{
+	
+	int tt = round(t / Param.Meta.TimeStep);
+	for (int i = 0; i < Rings.size(); ++i)
+	{
+		Rings[i].UpdateMemory(tt);
+	}
+	
+	//only save to file at simiulation end!
+	if (tt == Param.Meta.SimulationSteps-1)
+	{
+		Param.UrgentLog("Saving Chemical State to Memory: ");
+		int bars = 0;
+		std::stringstream outputAbsoluteCold;
+		std::stringstream outputLogarithmicCold;
+		std::stringstream outputAbsoluteHot;
+		std::stringstream outputLogarithmicHot;
+		for (int time = 0; time < Param.Meta.SimulationSteps; ++time)
+		{
+			Param.UrgentLog(ProgressBar(time,Param.Meta.SimulationSteps,bars,32));
+			for (int i  = 0; i < Rings.size(); ++i)
+			{
+				Rings[i].SaveChemicalHistory(time,outputAbsoluteCold,outputLogarithmicCold,outputAbsoluteHot,outputLogarithmicHot);
+			}
+		}
+		
+		
+		JSL::writeStringToFile(Param.Output.AbsoluteColdGasFile,outputAbsoluteCold.str());
+		JSL::writeStringToFile(Param.Output.LogarithmicColdGasFile,outputLogarithmicCold.str());
+		JSL::writeStringToFile(Param.Output.AbsoluteHotGasFile,outputAbsoluteHot.str());
+		JSL::writeStringToFile(Param.Output.LogarithmicHotGasFile,outputLogarithmicHot.str());
+	}
 }

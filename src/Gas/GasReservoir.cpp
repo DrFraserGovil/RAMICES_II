@@ -8,6 +8,7 @@ GasReservoir::GasReservoir() : Param(GlobalParameters())
 	{
 		Components[i].Source = (SourceProcess)i;
 	}
+	ComponentHistory.resize(Param.Meta.SimulationSteps);
 }
 GasReservoir::GasReservoir(const GlobalParameters & param): Param(param)
 {
@@ -17,6 +18,7 @@ GasReservoir::GasReservoir(const GlobalParameters & param): Param(param)
 	{
 		Components[i].Source = (SourceProcess)i;
 	}
+	ComponentHistory.resize(Param.Meta.SimulationSteps);
 }
 
 GasReservoir GasReservoir::Primordial(double mass, const GlobalParameters & param)
@@ -121,7 +123,7 @@ void GasReservoir::Deplete(double amountToLose_Cold, double amountToLose_Hot)
 
 
 void GasReservoir::Absorb(const GasStream & givingGas)
-{
+{	
 	SourceProcess source = givingGas.Source;
 	Components[source].Absorb(givingGas);
 }
@@ -144,6 +146,8 @@ void GasReservoir::PassiveCool(double dt)
 		double componentCool = coolingFraction * Components[i].HotMass();
 		Components[i].Cool(componentCool);
 	}
+	
+
 }
 
 GasStream GasReservoir::AccretionStream(double amountToLose)
@@ -163,6 +167,7 @@ GasStream GasReservoir::AccretionStream(double amountToLose)
 			output.Cold(elem) += extract; 
 		}	
 	}
+	output.ColdMass(); //force computation of masses
 	return output;
 }
 
@@ -230,4 +235,17 @@ double GasReservoir::Metallicity()
 		Mz += stream.Cold(Metals);
 	}
 	return Mz/M;
+}
+void GasReservoir::UpdateMemory(int t)
+{
+	ComponentHistory[t] = Components;
+}
+const std::vector<GasStream> & GasReservoir::GetHistory(int t)
+{
+	//force update to mass calculation, as cannot be done with consts!
+	for (int  p =0; p < ProcessCount; ++p)
+	{
+		ComponentHistory[t][p].ColdMass();
+	}
+	return ComponentHistory[t];
 }

@@ -41,6 +41,12 @@ class GasStream
 		//! See Mass() for details \returns The current mass of the #Cold component
 		double ColdMass();
 		
+		//! As with HotMass(), but returns only the last computed value...assumes proper normalisation before casting to const!
+		double HotMass() const;
+		
+		//! As with ColdMass(), but returns only the last computed value...assumes proper normalisation before casting to const!
+		double ColdMass() const;
+		
 		//! Removes (i.e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental abundances the same \param amountToRemove The amount of mass to lose from the stream
 		void Deplete(double amountToRemove);
 		

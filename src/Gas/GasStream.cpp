@@ -2,7 +2,7 @@
 
 GasStream::GasStream()
 {
-	Source = Unknown;
+	Source = Primordial;
 	NeedsRecomputing = true;
 }
 GasStream::GasStream(SourceProcess source)
@@ -147,6 +147,16 @@ double GasStream::ColdMass()
 	}
 	return internal_ColdMass;
 }
+
+double GasStream::ColdMass() const
+{
+	return internal_ColdMass;
+}
+double GasStream::HotMass() const
+{
+	return internal_HotMass;
+}
+
 void GasStream::Dirty()
 {
 	NeedsRecomputing = true;
@@ -160,15 +170,17 @@ void GasStream::Heat(double amountToHeat)
 	{
 		return;
 	}
+	
 	double moveFraction = amountToHeat/ColdMass();
 	for (int i = 0; i < ElementCount; ++i)
 	{
-		ElementID elem = (ElementID)elem;
+		ElementID elem = (ElementID)i;
 		double mass = Cold(elem) * moveFraction;
 		Cold(elem) -= mass;
 		Hot(elem) += mass;
 	}
 	Dirty();
+
 }
 
 void GasStream::Cool(double amountToCool)
@@ -182,7 +194,7 @@ void GasStream::Cool(double amountToCool)
 	double moveFraction = amountToCool/HotMass();
 	for (int i = 0; i < ElementCount; ++i)
 	{
-		ElementID elem = (ElementID)elem;
+		ElementID elem = (ElementID)i;
 		double mass = Hot(elem) * moveFraction;
 		Cold(elem) += mass;
 		Hot(elem) -= mass;

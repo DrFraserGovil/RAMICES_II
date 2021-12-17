@@ -63,6 +63,7 @@ void Gas::CheckMass()
 	{
 		Species[Metals] += elementWiseMass - basicMass;
 		basicMass= elementWiseMass;
+		std::cout << "I have performed a correction! " <<std::endl;
 	}
 	internal_Mass = basicMass;
 	NeedsRecomputing = false;

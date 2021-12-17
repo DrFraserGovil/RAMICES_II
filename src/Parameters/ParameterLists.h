@@ -48,8 +48,8 @@ class OutputValues : public ParamList
 		//!The name of the output directory into which the output will be saved
 		Argument<std::string> Root =  Argument<std::string>("Output/","output");
 			
-		//!The directory containing mass-type information
-		Argument<std::string> GalacticDirectory = Argument<std::string>("Galactic/","galaxy-data");
+		//!The directory containing mass-type information (set to empty by default, so saved in the main Output root directory)
+		Argument<std::string> GalacticDirectory = Argument<std::string>("","galaxy-data");
 		
 		//!The name of the file containing galactic-scale mass information
 		Argument<std::string> GalaxyMassFile = Argument<std::string>("Mass.dat","galaxy-mass-file");
@@ -60,10 +60,24 @@ class OutputValues : public ParamList
 		//!The ring-star data identifier
 		Argument<std::string> StarFile = Argument<std::string>("StarPop.dat","ring-data-stars");
 		
+		//!The enrichment file identifier
+		Argument<std::string> ChemicalPrefactor  = Argument<std::string>("Enrichment_","enrichment-base");
+		
+		//!The cold gas filename
+		Argument<std::string> ColdGasDataFile= Argument<std::string>("ColdGas.dat","enrichment-cold");
+		
+		//!The hot gas filename
+		Argument<std::string> HotGasDataFile= Argument<std::string>("HotGas.dat","enrichment-hot");
+		
+		std::string LogarithmicColdGasFile;
+		std::string AbsoluteColdGasFile;
+		std::string LogarithmicHotGasFile;
+		std::string AbsoluteHotGasFile;
+		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		OutputValues()
 		{
-			argPointers = {&Root, &GalacticDirectory,&GalaxyMassFile};
+			argPointers = {&Root, &GalacticDirectory,&GalaxyMassFile,&RingDirectory,&StarFile, &ChemicalPrefactor,&ColdGasDataFile,&HotGasDataFile};
 		};
 		
 		//! An overload of a normally empty function. Goes through and creates the necessary directory structure 
@@ -79,6 +93,8 @@ class ElementValues : public ParamList
 		
 		//! Human readable names for the elements, in the order associated with the ElementIDs. These names are primarily elemental symbols, except Metals, which uses "Z"
 		std::vector<std::string> ElementNames;
+
+		std::vector<std::string> ProcessNames;
 
 		//! Solar abundances (in mass units) of the elements, in the order associated with the ElementIDs
 		std::vector<double> SolarAbundances;

@@ -2,6 +2,7 @@
 #include <vector>
 #include "../Parameters/GlobalParameters.h"
 #include "GasStream.h"
+#include <sstream>
 /*!
  *  A GasReservoir is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM.
  * In practicality, they are a container for a vector of GasStream objects + assorted ways for these objects to interact with one another
@@ -63,10 +64,16 @@ class GasReservoir
 		void PrintSelf();
 		
 		double Metallicity();
+		
+		void UpdateMemory(int t);
+		
+		const std::vector<GasStream> & GetHistory(int t);
 	private:
 	
 		//! A representation of the total amount of gas within the reservoir, separated by the origin of the gas
 		std::vector<GasStream> Components;
+		
+		std::vector<std::vector<GasStream>> ComponentHistory;
 		
 		const GlobalParameters & Param;
 		

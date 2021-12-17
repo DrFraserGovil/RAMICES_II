@@ -16,6 +16,15 @@ void OutputValues::Initialise(std::string resourceRoot)
 	
 	RingDirectory.Value = Root.Value + "/" + RingDirectory.Value;
 	JSL::mkdir(RingDirectory.Value);
+	
+	AbsoluteColdGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Absolute_" + ColdGasDataFile.Value;
+	JSL::initialiseFile(AbsoluteColdGasFile);
+	AbsoluteHotGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Absolute_" + HotGasDataFile.Value;
+	JSL::initialiseFile(AbsoluteHotGasFile);
+	LogarithmicColdGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Log_" + ColdGasDataFile.Value;
+	JSL::initialiseFile(LogarithmicColdGasFile);
+	LogarithmicHotGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Log_" + HotGasDataFile.Value;
+	JSL::initialiseFile(LogarithmicHotGasFile);
 }
 
 
@@ -36,6 +45,13 @@ void ElementValues::GiveElementsNames()
 	ElementNames[Chromium]= "Cr";
 	ElementNames[Cobalt] = "Co";
 	ElementNames[Europium] = "Eu";
+	
+	ProcessNames.resize(ProcessCount);
+	ProcessNames[Primordial] = "Primordial";
+	ProcessNames[Accreted] = "Accreted";
+	ProcessNames[CCSN] = "CCSN";
+	ProcessNames[SNIa] = "SNIa";
+	ProcessNames[NSM] = "NSM";
 }
 
 void ElementValues::Initialise(std::string resourceRoot)

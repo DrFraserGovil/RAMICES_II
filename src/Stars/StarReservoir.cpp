@@ -51,10 +51,6 @@ void StarReservoir::Form(GasReservoir & gas)
 	double gasLossMass = std::max(0.0,ParentArea * SFR_GasLoss(gasSurfaceDensity));
 	double heatFrac = Param.Stellar.FeedbackFactor;
 	
-	if (PopulationIndex > 100)
-	{
-		gasLossMass = 0;
-	}
 	
 	double starMassFormed = 1.0/(1 + heatFrac) * gasLossMass;
 	double feedbackMass = gasLossMass - starMassFormed;

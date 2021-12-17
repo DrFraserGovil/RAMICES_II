@@ -22,9 +22,11 @@ class Ring
 		void MakeStars();
 		void KillStars(int time);
 		void Cool();
+		void UpdateMemory(int t);
+		void SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, std::stringstream & logarithmicStreamCold, std::stringstream & absoluteStreamHot, std::stringstream & logarithmicStreamHot);
 	private:
 		
-		
+		//~ std::vector<GasReservoir> PreviousEnrichment;
 		int RadiusIndex;
 		
 		double Area;
