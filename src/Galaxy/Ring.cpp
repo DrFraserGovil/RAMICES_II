@@ -99,16 +99,14 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 	
 	for (int p = 0; p < ProcessCount + 1; ++p)
 	{
-		double logHydrogen_cold = log10(coldAbundances[p][Hydrogen] / Param.Element.SolarAbundances[Hydrogen]);
-		double logHydrogen_hot = log10(hotAbundances[p][Hydrogen] / Param.Element.SolarAbundances[Hydrogen]);
 		for (int e = 0; e < ElementCount; ++e)
 		{
 			absoluteStreamCold << ", " << coldAbundances[p][e];
 			absoluteStreamHot << ", " << hotAbundances[p][e];
 			
 			
-			double logValueCold = log10(coldAbundances[p][e] / Param.Element.SolarAbundances[e]) - logHydrogen_cold;
-			double logValueHot = log10(hotAbundances[p][e]/Param.Element.SolarAbundances[e]) - logHydrogen_hot;
+			double logValueCold = log10(coldAbundances[p][e] / Param.Element.SolarAbundances[e]);
+			double logValueHot = log10(hotAbundances[p][e]/Param.Element.SolarAbundances[e]);
 			
 			if (std::isnan(logValueCold) || std::isinf(logValueCold))
 			{
