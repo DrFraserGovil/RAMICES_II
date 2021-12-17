@@ -101,6 +101,7 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 	{
 		for (int e = 0; e < ElementCount; ++e)
 		{
+			
 			absoluteStreamCold << ", " << coldAbundances[p][e];
 			absoluteStreamHot << ", " << hotAbundances[p][e];
 			
