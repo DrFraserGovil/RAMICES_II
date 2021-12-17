@@ -9,7 +9,10 @@ double SLF_Functor::PredictLifetime(double mass, double logz)
 SLF_Functor::SLF_Functor(const GlobalParameters & param) : Param(param)
 {
 	PrecomputedGrid = std::vector<std::vector<double>>(Param.Stellar.MassResolution, std::vector<double>(Param.Stellar.LogZResolution,NotComputed));
-	Param.UrgentLog("\tSLF Initialised\n");
+	if (Param.Meta.Verbosity > 0)
+	{
+		std::cout << "\tSLF Functor Initialised" << std::endl;
+	}
 }
 
 int SLF_Functor::operator()(int mass, double metallicity)

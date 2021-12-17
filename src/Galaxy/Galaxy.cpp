@@ -1,7 +1,9 @@
 #include "Galaxy.h"
 double pi = 3.141592654;
-Galaxy::Galaxy(const GlobalParameters & param): Param(param), IGM(GasReservoir::Primordial(param.Galaxy.IGM_Mass,param)), IMF(param), SLF(param)
+Galaxy::Galaxy(InitialisedData & data): Data(data), Param(data.Param), IGM(GasReservoir::Primordial(data.Param.Galaxy.IGM_Mass,data.Param))
 {
+	int currentRings = 0;
+	Data.UrgentLog("\tMain Galaxy Initialised.\n\tStarting ring population:  ");
 	double ringWidth = Param.Galaxy.Radius / Param.Galaxy.RingCount;
 	double initialScaleLength = GasScaleLength(0);
 	for (int i = 0; i < Param.Galaxy.RingCount; ++i)
@@ -9,45 +11,23 @@ Galaxy::Galaxy(const GlobalParameters & param): Param(param), IGM(GasReservoir::
 		double ri = (i + 0.5)*ringWidth;
 		double predictedDensity = PredictSurfaceDensity(ri,ringWidth,Param.Galaxy.PrimordialMass,initialScaleLength);
 		double predictedMass = 2*pi * ri * ringWidth * predictedDensity;
-		Rings.push_back(Ring(i,predictedMass,IMF,SLF,Param));
+		Rings.push_back(Ring(i,predictedMass,Data));
+		Data.ProgressBar(currentRings, i,Param.Galaxy.RingCount);
 	}
-	Param.Log("\tMain Galaxy Initialised\n");
-	Param.LogFlush();
+	
+	Data.UrgentLog("\tGalaxy Rings initialised.\n");
 }
 
-std::string ProgressBar(int i,int N, int & currentBars, int fullBar)
-{
-	double progress = (double)i/(N-2);
-	int predictedBars = floor(fullBar * progress);
-	int neededBars = predictedBars - currentBars;
-	std::string s = "";
-	if (i == 0)
-	{
-		s = "[";
-	}
-	while (neededBars > 0)
-	{
-		s += "#";
-		--neededBars;
-		++currentBars;
-		
-	}
-	if (currentBars == fullBar)
-	{
-		s+="]\n";
-		currentBars = fullBar + 2;
-	}
-	return s;
-}
+
 void Galaxy::Evolve()
 {
 	double t = 0;
 	SaveState(t);
 
-	int fullBar = 32;
+	int fullBar = Param.Meta.ProgressHashes;
 	int currentBars = 0;
 
-	Param.Log("Beginning main computation loop: ");
+	Data.UrgentLog("\tStarting Galaxy evolution: ");
 	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
 	{
 		
@@ -59,7 +39,7 @@ void Galaxy::Evolve()
 		
 		
 		
-		Param.UrgentLog(ProgressBar(timestep,Param.Meta.SimulationSteps,currentBars, fullBar));	
+		Data.ProgressBar(currentBars, timestep,Param.Meta.SimulationSteps);	
 		SaveState(t);	
 	}
 	
@@ -227,7 +207,7 @@ void Galaxy::SaveState(double t)
 {
 	SaveState_Mass(t);
 	SaveState_Enrichment(t);
-	Param.Log("\tSaved state at " + std::to_string(t) + "\n",3);
+	Data.Log("\tSaved state at " + std::to_string(t) + "\n",3);
 }
 void Galaxy::SaveState_Mass(double t)
 {
@@ -273,7 +253,7 @@ void Galaxy::SaveState_Enrichment(double t)
 	//only save to file at simiulation end!
 	if (tt == Param.Meta.SimulationSteps-1)
 	{
-		Param.UrgentLog("Saving Chemical State to Memory: ");
+		Data.UrgentLog("\tSaving Chemical makeup:    ");
 		int bars = 0;
 		std::stringstream outputAbsoluteCold;
 		std::stringstream outputLogarithmicCold;
@@ -281,7 +261,7 @@ void Galaxy::SaveState_Enrichment(double t)
 		std::stringstream outputLogarithmicHot;
 		for (int time = 0; time < Param.Meta.SimulationSteps; ++time)
 		{
-			Param.UrgentLog(ProgressBar(time,Param.Meta.SimulationSteps,bars,32));
+			Data.ProgressBar(bars,time,Param.Meta.SimulationSteps);
 			for (int i  = 0; i < Rings.size(); ++i)
 			{
 				Rings[i].SaveChemicalHistory(time,outputAbsoluteCold,outputLogarithmicCold,outputAbsoluteHot,outputLogarithmicHot);

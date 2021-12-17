@@ -3,6 +3,7 @@
 
 
 #include "Parameters/GlobalParameters.h"
+#include "Parameters/InitialisedData.h"
 #include "Galaxy/Galaxy.h"
 
 GlobalParameters Params;
@@ -19,6 +20,7 @@ void Welcome()
 		);
 		std::cout << "\nNew Simulation initiated on " << JSL::CurrentTime();
 		std::cout <<"\nFile output is being sent to " << Params.Output.Root.Value << "\n";
+		std::cout << "\nBeginning initialisation of data structures...." << std::endl;
 	}
 }
 
@@ -39,9 +41,14 @@ int main(int argc, char** argv)
 	
 	Welcome();
 
+	//initialise the precomputed portions of the data which will be available (nearly) globally
+	
+	InitialisedData Data(Params);
+	
 	//~ initialise main galaxy object
-	Galaxy g = Galaxy(Params);
+	Galaxy g = Galaxy(Data);
 
+	Data.UrgentLog("Beginning main computation loop...\n");
 	g.Evolve();
 	
 	Exit();

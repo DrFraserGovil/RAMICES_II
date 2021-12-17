@@ -17,9 +17,10 @@ class IMF_Functor
 		
 		double FormationCount(double formationMass) const;
 		double Weighting(int i) const;
+		
 	private:
 		const GlobalParameters & Param;
-	
+		
 		double IMF_Normalisation;
 		double IMF_MeanMass;
 		Integral MomentCompute(double start,double stop, int resolution);

@@ -1,6 +1,6 @@
 #include "StarReservoir.h"
 
-StarReservoir::StarReservoir(const GlobalParameters & param, int parentRing, const IMF_Functor & imf, SLF_Functor & slf) : Param(param), ParentRing(parentRing), IMF(imf), SLF(slf), Remnants(param)
+StarReservoir::StarReservoir(int parentRing, InitialisedData & data) : Data(data),Param(data.Param), ParentRing(parentRing), IMF(data.IMF), SLF(data.SLF), Remnants(data.Param)
 {
 	StellarPopulation empty(IMF,SLF,Param);
 		

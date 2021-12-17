@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "../Parameters/GlobalParameters.h"
+#include "../Parameters/InitialisedData.h"
 #include "../Gas/GasReservoir.h"
 #include "RemnantPopulation.h"
 #include "StellarPopulation.h"
@@ -11,7 +11,7 @@
 class StarReservoir
 {
 	public:
-		StarReservoir(const GlobalParameters & Param, int parentRing, const IMF_Functor & imf, SLF_Functor & slf);
+		StarReservoir(int parentRing, InitialisedData & data);
 		
 		double Mass();
 		
@@ -22,6 +22,8 @@ class StarReservoir
 	private:
 		std::vector<StellarPopulation> Population;
 		RemnantPopulation Remnants;
+		
+		InitialisedData & Data;
 		const GlobalParameters & Param;
 		double SFR_GasLoss(double surfaceArea);
 		const int ParentRing;

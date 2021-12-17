@@ -47,8 +47,5 @@ class GlobalParameters
 		//! Loops over the ParamMembers and initialises their values according to the ParamList object.
 		void Initialise(int argc, char* argv[]);
 		
-		void Log(const std::string & input) const;
-		void Log(const std::string & input, int importance) const;
-		void LogFlush() const;
-		void UrgentLog(const std::string & input) const;
+		
 };

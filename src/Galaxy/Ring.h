@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-#include "../Parameters/GlobalParameters.h"
+#include "../Parameters/InitialisedData.h"
 #include "../Gas/GasReservoir.h"
 #include "../Stars/StarReservoir.h"
 #include "../Stars/IMF.h"
@@ -10,7 +10,7 @@ class Ring
 {
 	public:
 		//! Initialises itself into a primordial state
-		Ring(int radiusIndex, double mass, const IMF_Functor & imf, SLF_Functor & slf, const GlobalParameters & param);
+		Ring(int radiusIndex, double mass, InitialisedData & data);
 	
 		double Mass();
 		const double Radius;
@@ -31,8 +31,9 @@ class Ring
 		
 		double Area;
 	
+		InitialisedData & Data;
 		const GlobalParameters & Param;
-		const IMF_Functor & IMF;
+
 		std::vector<std::vector<double>> ColdBuffer;
 		std::vector<std::vector<double>> HotBuffer;
 };

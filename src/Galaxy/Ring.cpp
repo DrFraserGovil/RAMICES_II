@@ -2,11 +2,12 @@
 
 
 //! Initialises itself into a primordial state
-Ring::Ring(int index, double mass,const IMF_Functor & imf, SLF_Functor & slf, const GlobalParameters & param): Param(param), Width(param.Galaxy.Radius / param.Galaxy.RingCount), Radius((index + 0.5)*param.Galaxy.Radius / param.Galaxy.RingCount), Gas(GasReservoir::Primordial(mass,param)), Stars(param,index,imf,slf), IMF(imf)
+Ring::Ring(int index, double mass,InitialisedData & data): Data(data), Param(data.Param), Width(data.Param.Galaxy.Radius / data.Param.Galaxy.RingCount), Radius((index + 0.5)*data.Param.Galaxy.Radius / data.Param.Galaxy.RingCount), Gas(GasReservoir::Primordial(mass,data.Param)), Stars(index,data)
 {
 	RadiusIndex = index;
 	//~ PreviousEnrichment.resize(Param.Meta.SimulationSteps);
 	//~ PreviousEnrichment[0] = Gas;
+	Data.Log("\tRing " + std::to_string(index) + " initialised\n",3);
 }
 
 double Ring::Mass()

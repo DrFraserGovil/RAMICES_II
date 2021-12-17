@@ -28,6 +28,9 @@ class MetaValues : public ParamList
 		//!The total duration of the chemical simulation
 		Argument<double> SimulationDuration = Argument<double>(14.0,"duration");
 		
+		//!The number of hashes used to display progress bars
+		Argument<int> ProgressHashes = Argument<int>(32,"progress-hashes");
+		
 		//!The number of timesteps in the simulation, computed from #SimulationDuration and #TimeStep
 		int SimulationSteps;
 		

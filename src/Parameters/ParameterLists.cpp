@@ -114,7 +114,6 @@ void StellarValues::Initialise(std::string resourceRoot)
 	
 	double minStepSize = 0.1;
 	double alpha = stepFraction(minStepSize, MaxStellarMass - ImmortalMass,MassResolution.Value);
-	std::cout << "Predicted alpha = " << alpha << std::endl;
 	double sumFactor;
 	if (alpha == 1)
 	{
@@ -134,7 +133,6 @@ void StellarValues::Initialise(std::string resourceRoot)
 		MassDeltas[i] = w;
 		x += w/2;
 		w = w * alpha;
-		std::cout << MassGrid[i] - MassDeltas[i]/2 << "->" << MassGrid[i] + MassDeltas[i]/2 << std::endl;
 	}
 	
 	LogZGrid = std::vector<double>(LogZResolution);

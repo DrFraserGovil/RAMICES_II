@@ -1,5 +1,5 @@
 #pragma once
-#include "../Parameters/GlobalParameters.h"
+#include "../Parameters/InitialisedData.h"
 #include "Ring.h"
 #include "../Gas/GasReservoir.h"
 #include "../Stars/IMF.h"
@@ -9,7 +9,7 @@
 class Galaxy
 {
 	public:
-		Galaxy(const GlobalParameters & param);
+		Galaxy(InitialisedData & Data);
 		void Evolve();
 	
 	
@@ -41,8 +41,7 @@ class Galaxy
 		
 		static std::string MassHeaders(); 
 		
-		IMF_Functor IMF;
-		SLF_Functor SLF;
+		InitialisedData & Data;
 		
 
 };

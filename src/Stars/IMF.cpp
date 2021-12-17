@@ -32,9 +32,11 @@ double IMF_Functor::operator ()(double mass)
 
 IMF_Functor::IMF_Functor(const GlobalParameters & param): Param(param)
 {
-	Normalise();
-	Param.UrgentLog("\tIMF Initialised\n");
-	
+	Normalise();	
+	if (Param.Meta.Verbosity > 0)
+	{
+		std::cout << "\tIMF Functor Initialised" << std::endl;
+	}
 }
 double IMF_Functor::FormationCount(double formingMass) const
 {
