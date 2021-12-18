@@ -46,12 +46,7 @@ void ElementValues::GiveElementsNames()
 	ElementNames[Cobalt] = "Co";
 	ElementNames[Europium] = "Eu";
 	
-	ProcessNames.resize(ProcessCount);
-	ProcessNames[Primordial] = "Primordial";
-	ProcessNames[Accreted] = "Accreted";
-	ProcessNames[CCSN] = "CCSN";
-	ProcessNames[SNIa] = "SNIa";
-	ProcessNames[NSM] = "NSM";
+	
 }
 
 void ElementValues::Initialise(std::string resourceRoot)
@@ -83,7 +78,7 @@ void ElementValues::Initialise(std::string resourceRoot)
 
 double stepFraction(double targetMinStep, double width, int N)
 {
-	int nRaphson = 10;
+	int nRaphson = 100;
 	double x= 1;
 	
 	for (int i = 0; i < nRaphson; ++i)
@@ -112,7 +107,7 @@ void StellarValues::Initialise(std::string resourceRoot)
 	MassDeltas = std::vector<double>(MassResolution.Value);
 	//~ double gridWidth = (MaxStellarMass - ImmortalMass)/MassResolution
 	
-	double minStepSize = 0.1;
+	double minStepSize = 0.05;
 	double alpha = stepFraction(minStepSize, MaxStellarMass - ImmortalMass,MassResolution.Value);
 	double sumFactor;
 	if (alpha == 1)
@@ -142,4 +137,15 @@ void StellarValues::Initialise(std::string resourceRoot)
 		LogZGrid[i] = MinLogZ + (i)*zwidth;
 	}
 	LogZDelta = zwidth;
+}
+
+void YieldValues::Initialise(std::string resourceRoot)
+{
+	ProcessNames.resize(ProcessCount);
+	ProcessNames[Primordial] = "Primordial";
+	ProcessNames[Accreted] = "Accreted";
+	ProcessNames[CCSN] = "CCSN";
+	ProcessNames[SNIa] = "SNIa";
+	ProcessNames[NSM] = "NSM";
+	ProcessNames[AGB] = "AGB";
 }

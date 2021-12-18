@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "JSL.h"
+#include <sstream>
 #include "ParameterLists.h"
 #include "List.h"
 #include "EnumSets.h"
@@ -39,7 +40,7 @@ class GlobalParameters
 		GalaxyValues Galaxy;
 
 		//! A heterogeneous pointer array, which allows for a nice loop over the members. Any new parameter pack needs to be inserted here so that the member values can be initialised.
-		std::vector<ParamList *> ParamMembers = {&Meta,&Output,&Element,&Stellar,&Thermal,&Galaxy};
+		std::vector<ParamList *> ParamMembers = {&Meta,&Output,&Element,&Stellar,&Thermal,&Galaxy,&Yield};
 		
 		//! Does absolutely nothing!
 		GlobalParameters();
@@ -47,5 +48,7 @@ class GlobalParameters
 		//! Loops over the ParamMembers and initialises their values according to the ParamList object.
 		void Initialise(int argc, char* argv[]);
 		
+		//! Writes the inputs to file as a mock-config file so that this exact simulation can be rerun
+		void SaveInputs();
 		
 };

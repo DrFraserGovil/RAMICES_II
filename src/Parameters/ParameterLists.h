@@ -51,6 +51,9 @@ class OutputValues : public ParamList
 		//!The name of the output directory into which the output will be saved
 		Argument<std::string> Root =  Argument<std::string>("Output/","output");
 			
+		//!The name for the output config file which would replicate this simulation
+		Argument<std::string> Config = Argument<std::string>("rerun.config","config-out");
+			
 		//!The directory containing mass-type information (set to empty by default, so saved in the main Output root directory)
 		Argument<std::string> GalacticDirectory = Argument<std::string>("","galaxy-data");
 		
@@ -97,7 +100,7 @@ class ElementValues : public ParamList
 		//! Human readable names for the elements, in the order associated with the ElementIDs. These names are primarily elemental symbols, except Metals, which uses "Z"
 		std::vector<std::string> ElementNames;
 
-		std::vector<std::string> ProcessNames;
+		
 
 		//! Solar abundances (in mass units) of the elements, in the order associated with the ElementIDs
 		std::vector<double> SolarAbundances;
@@ -209,6 +212,9 @@ class StellarValues : public ParamList
 class YieldValues : public ParamList
 {
 	public:
+	
+		std::vector<std::string> ProcessNames;
+	
 		//!Time before SNIa can turn on, in Gyr
 		Argument<double> SNIa_DelayTime = Argument<double>(0.2,"sn1a-delay");
 		
@@ -220,7 +226,7 @@ class YieldValues : public ParamList
 		
 		Argument<double> SNIa_LongScale = Argument<double>(100,"sn1a-long-decay");
 		
-		
+		Argument<double> CCSN_MassCut = Argument<double>(9,"ccsn-mass");
 		
 		Argument<double> NSM_DelayTime = Argument<double>(0.02,"nsm-delay");
 		Argument<double> NSM_ActiveFraction = Argument<double>(0.1,"nsm-fraction");
@@ -228,9 +234,10 @@ class YieldValues : public ParamList
 		
 	YieldValues()
 	{
-		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime};
+		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime, & SNIa_ActiveFraction, &SNIa_LongFraction, &CCSN_MassCut,&NSM_ActiveFraction, &NSM_Scale};
 	}
-	
+	//! Initialises the mass grid etc.
+		void Initialise(std::string resourceRoot);
 	
 };
 
@@ -246,6 +253,9 @@ class ThermalValues : public ParamList
 		//!Fraction of NSM ejecta which is put into the hot phase
 		Argument<double> HotInjection_NSM = Argument<double>(0.4,"fh-nsm");
 		
+		//!Fraction of AGB ejecta which is put into the hot phase
+		Argument<double> HotInjection_AGB = Argument<double>(0.8,"fh-nsm");
+		
 		//!Fraction of SNIa ejecta which is put into the hot phase
 		Argument<double> HotInjection_SNIa = Argument<double>(0.99,"fh-sn1a");
 		
@@ -256,7 +266,7 @@ class ThermalValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		ThermalValues()
 		{
-			argPointers = {&HotInjection_CCSN, &HotInjection_NSM, &HotInjection_SNIa, &GasCoolingTimeScale};
+			argPointers = {&HotInjection_CCSN, &HotInjection_NSM, &HotInjection_SNIa, &GasCoolingTimeScale, &HotInjection_SNIa};
 		}
 };
 

@@ -61,7 +61,7 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 				std::string processName;
 				if (p > -1)
 				{
-					 processName = Param.Element.ProcessNames[p];
+					 processName = Param.Yield.ProcessNames[p];
 				}
 				else
 				{
