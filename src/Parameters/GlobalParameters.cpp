@@ -10,21 +10,27 @@ void GlobalParameters::Initialise(int argc, char * argv[])
 	for (int i = 0; i < ParamMembers.size(); ++i)
 	{
 		ParamMembers[i]->Configure(argc,argv);
-		ParamMembers[i]->Initialise(Meta.ResourceRoot);
+		
 	}
 	
 	SaveInputs();
+	
+	for (int i = 0; i < ParamMembers.size(); ++i)
+	{
+		ParamMembers[i]->Initialise(Meta.ResourceRoot);
+	}
 }
 
-void SaveInputs()
+void GlobalParameters::SaveInputs()
 {
 	std::string configOut = Output.Root.Value + "/" + Output.Config.Value;
 	JSL::initialiseFile(configOut);
 	
-	stringstream output;
+	std::stringstream output;
 	for (int i = 0; i < ParamMembers.size(); ++i)
 	{
 		ParamMembers[i]->StreamContentsTo(output);
 	}
 	
+	JSL::writeStringToFile(configOut,output.str());
 }

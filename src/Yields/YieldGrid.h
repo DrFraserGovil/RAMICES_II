@@ -9,7 +9,7 @@ class YieldGrid
 		YieldGrid(const GlobalParameters & param, SourceProcess Process);
 		
 		void operator()(int mass, double z);
-		void In
+		
 	private:
 		bool IsNet;
 		const GlobalParameters & Param;

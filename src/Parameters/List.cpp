@@ -26,10 +26,11 @@ void ParamList::Configure(int argc, char * argv[])
 //~ {
 	
 //~ };
-void StreamContentsTo(stringstream & stream)
+void ParamList::StreamContentsTo(std::stringstream & stream)
 {
 	for (int i =0; i < argPointers.size(); ++i)
 	{
-		
+		argPointers[i]->StreamTo(stream, ", ");
+		stream << "\n";
 	}
 }

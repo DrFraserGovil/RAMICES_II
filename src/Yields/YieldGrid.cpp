@@ -43,7 +43,7 @@ YieldGrid::YieldGrid(const GlobalParameters & param, SourceProcess process): Par
 	}
 }
 
-void YieldGrid::NetInject( std::vector<Gas> & GrossOutputStream, int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir)
+void YieldGrid::NetInject( std::vector<std::vector<Gas>> & GrossOutputStream, int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir)
 {
 	if (mass - MassOffset < 0)
 	{
