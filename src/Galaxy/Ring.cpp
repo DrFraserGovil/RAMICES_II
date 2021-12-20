@@ -22,6 +22,7 @@ void Ring::MakeStars()
 void Ring::KillStars(int time)
 {
 	Stars.Death(time,Gas);
+
 }
 
 void Ring::Cool()

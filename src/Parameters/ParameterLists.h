@@ -23,10 +23,10 @@ class MetaValues : public ParamList
 		Argument<int> ParallelThreads = Argument<int>(1,"thread");
 		
 		//!The top level timestep used in the main chemical loop
-		Argument<double> TimeStep  = Argument<double>(0.1,"timestep");
+		Argument<double> TimeStep  = Argument<double>(0.01,"timestep");
 		
 		//!The total duration of the chemical simulation
-		Argument<double> SimulationDuration = Argument<double>(14.0,"duration");
+		Argument<double> SimulationDuration = Argument<double>(10.0,"duration");
 		
 		//!The number of hashes used to display progress bars
 		Argument<int> ProgressHashes = Argument<int>(32,"progress-hashes");
@@ -173,7 +173,7 @@ class StellarValues : public ParamList
 		Argument<double> EjectionFraction = Argument<double>(0.45,"eject");
 		
 		//!For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase
-		Argument<double> FeedbackFactor = Argument<double>(0.0001,"mass-load");
+		Argument<double> FeedbackFactor = Argument<double>(0.5,"mass-load");
 		
 		//! The fraction of white dwarfs which go SNIa
 		Argument<double> SNIaFraction = Argument<double>(0.05,"sn1a-frac");
@@ -216,17 +216,21 @@ class YieldValues : public ParamList
 		std::vector<std::string> ProcessNames;
 	
 		//!Time before SNIa can turn on, in Gyr
-		Argument<double> SNIa_DelayTime = Argument<double>(0.2,"sn1a-delay");
+		Argument<double> SNIa_DelayTime = Argument<double>(0.15,"sn1a-delay");
 		
-		Argument<double> SNIa_ActiveFraction = Argument<double>(0.1,"sn1a-fraction");
+		Argument<double> SNIa_ActiveFraction = Argument<double>(0.07,"sn1a-fraction");
 		
-		Argument<double> SNIa_LongFraction = Argument<double>(0.5,"sn1a-fraction-long");
+		Argument<double> SNIa_LongFraction = Argument<double>(0,"sn1a-fraction-long");
 		
-		Argument<double> SNIa_ShortScale = Argument<double>(20,"sn1a-short-decay");
+		Argument<double> SNIa_ShortScale = Argument<double>(0.5,"sn1a-short-decay");
+		
+		Argument<double> SNIa_TypicalMass = Argument<double>(1.2,"sn1a-progenitor-mass");
+		
+		Argument<double> NSM_TypicalMass = Argument<double>(1.4,"nsm-progenitor-mass");
 		
 		Argument<double> SNIa_LongScale = Argument<double>(100,"sn1a-long-decay");
 		
-		Argument<double> CCSN_MassCut = Argument<double>(9,"ccsn-mass");
+		Argument<double> CCSN_MassCut = Argument<double>(8,"ccsn-mass");
 		
 		Argument<double> NSM_DelayTime = Argument<double>(0.02,"nsm-delay");
 		Argument<double> NSM_ActiveFraction = Argument<double>(0.1,"nsm-fraction");
@@ -234,7 +238,7 @@ class YieldValues : public ParamList
 		
 	YieldValues()
 	{
-		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime, & SNIa_ActiveFraction, &SNIa_LongFraction, &CCSN_MassCut,&NSM_ActiveFraction, &NSM_Scale};
+		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime, & SNIa_ActiveFraction, &SNIa_LongFraction, &CCSN_MassCut,&NSM_ActiveFraction, &NSM_Scale,&SNIa_TypicalMass,&NSM_TypicalMass};
 	}
 	//! Initialises the mass grid etc.
 		void Initialise(std::string resourceRoot);
@@ -292,7 +296,7 @@ class GalaxyValues : public ParamList
 		Argument<double> PrimordialHotFraction = Argument<double>(0,"primordial-hot");
 		
 		//!Initial Mass of the IGM Reservoir
-		Argument<double> IGM_Mass = Argument<double>(1e6,"igm-mass");
+		Argument<double> IGM_Mass = Argument<double>(1000,"igm-mass");
 		
 		//! The initial exponential scale length of the galaxy
 		Argument<double> MinScaleLength = Argument<double>(1.75,"scale-length-min");

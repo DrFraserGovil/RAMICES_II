@@ -116,7 +116,7 @@ void StellarPopulation::Death(int time, GasReservoir & temporalYieldGrid, Remnan
 {
 	if (IsLifetimeMonotonic)
 	{
-		MonotonicDeathScan(time, temporalYieldGrid, remnants,birthGas);
+		MonotonicDeathScan(time,temporalYieldGrid, remnants,birthGas);
 	}
 	else
 	{
@@ -125,7 +125,6 @@ void StellarPopulation::Death(int time, GasReservoir & temporalYieldGrid, Remnan
 }
 void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas)
 {
-
 	while ( (Distribution[DepletionIndex].DeathIndex <= time || Distribution[DepletionIndex].Count == 0) && DepletionIndex >= 0)
 	{
 		//recover population information
@@ -143,10 +142,17 @@ void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYiel
 			double gasMassReclaimed = stellarMassReleased / 1e9;
 			internal_MassCounter -= gasMassReclaimed;
 	
+			RemnantOutput newRem;
 			if (starMass > Param.Yield.CCSN_MassCut)
 			{
-				CCSNYield(temporalYieldGrid,remnants,nStars,massID,z,birthID,birthGas);
+				newRem = CCSNYield(temporalYieldGrid,nStars,massID,z,birthID,birthGas);
 			}
+			else
+			{
+				newRem.Type = WhiteDwarf;
+				newRem.Mass = stellarMassReleased;
+			}
+			remnants.Feed(birthID,newRem);
 		}
 		
 		--DepletionIndex;

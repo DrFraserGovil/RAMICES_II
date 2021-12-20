@@ -97,6 +97,16 @@ void GasReservoir::Absorb(const std::vector<GasStream> & givingGas)
 		Absorb(givingGas[source]);
 	}
 }
+
+void GasReservoir::Absorb(const std::vector<GasStream> & givingGas, double fraction)
+{
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		SourceProcess source = (SourceProcess)i;
+		Absorb(givingGas[source],fraction);
+	}
+}
+
 void GasReservoir::AbsorbMemory(int t, const GasStream & input)
 {
 	ComponentHistory[t][input.Source].Absorb(input);
@@ -148,6 +158,13 @@ void GasReservoir::Absorb(const GasStream & givingGas)
 	SourceProcess source = givingGas.Source;
 	Components[source].Absorb(givingGas);
 }
+
+void GasReservoir::Absorb(const GasStream & givingGas, double fraction)
+{	
+	SourceProcess source = givingGas.Source;
+	Components[source].Absorb(givingGas,fraction);
+}
+
 
 void GasReservoir::Heat(double amountToHeat)
 {

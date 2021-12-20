@@ -13,8 +13,8 @@ class StarReservoir
 	public:
 		StarReservoir(int parentRing, InitialisedData & data);
 		
-		double Mass();
-		
+		double AliveMass();
+		MassReport DeadMass();
 		
 		
 		

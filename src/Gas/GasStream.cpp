@@ -64,6 +64,18 @@ void GasStream::Absorb(const GasStream & input)
 	}
 	NeedsRecomputing = true;
 }
+
+void GasStream::Absorb(const GasStream & input,double fraction)
+{
+	for (int i = 0; i < ElementCount; ++i)
+	{
+		ElementID e = (ElementID)i;
+		internal_Cold[e] += input.Cold(e) * fraction;
+		internal_Hot[e] += input.Hot(e) * fraction;
+	}
+	NeedsRecomputing = true;
+}
+
 void GasStream::Deplete(double amountToLose)
 {
 	//~ NeedsRecomputing = true;

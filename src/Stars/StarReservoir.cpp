@@ -1,6 +1,6 @@
 #include "StarReservoir.h"
 
-StarReservoir::StarReservoir(int parentRing, InitialisedData & data) : Data(data),Param(data.Param), ParentRing(parentRing), IMF(data.IMF), SLF(data.SLF), Remnants(data.Param), YieldOutput(data.Param)
+StarReservoir::StarReservoir(int parentRing, InitialisedData & data) : Data(data),Param(data.Param), ParentRing(parentRing), IMF(data.IMF), SLF(data.SLF), Remnants(data), YieldOutput(data.Param)
 {
 	StellarPopulation empty(Data);
 		
@@ -67,7 +67,7 @@ void StarReservoir::Form(GasReservoir & gas)
 	++PopulationIndex;
 }
 
-double StarReservoir::Mass()
+double StarReservoir::AliveMass()
 {
 	double m = 0;
 	for (int i = 0; i < Population.size(); ++i)
@@ -116,9 +116,15 @@ void StarReservoir::Death(int currentTime, GasReservoir & birthGas)
 			Population[i].Death(currentTime, YieldOutput,Remnants, birthGas);
 		}
 	}
+	Remnants.Decay(currentTime,YieldOutput);
 }
 
 const std::vector<GasStream> & StarReservoir::YieldsFrom(int t)
 {
 	return YieldOutput.GetHistory(t);
+}
+
+MassReport StarReservoir::DeadMass()
+{
+	return Remnants.Mass();
 }

@@ -1,22 +1,34 @@
 #pragma once
+#include "../Yields/YieldGrid.h"
+#include "../Yields/SimpleYield.h"
 #include "../Parameters/InitialisedData.h"
+
+struct MassReport
+{
+	double Total;
+	double WD;
+	double NS;
+	double BH;
+};
 
 class RemnantPopulation
 {
 	public:
-		RemnantPopulation();
+		RemnantPopulation(InitialisedData & data);
 	
 		
 		void Feed(int timeIndex, double bhMass, double wdMass, double nsMass);
-		void Decay(int currentTime);
+		void Feed(int timeIndex, RemnantOutput rem);
+		void Decay(int currentTime, GasReservoir & scatteringReservoir);
+		MassReport Mass();
 	private:
 		//the MASS of remnants created at each time 
 		std::vector<double> ShortSNIaBuffer;
 		std::vector<double> LongSNIaBuffer;
 		std::vector<double> NSMBuffer;
 	
-		//~ const YieldGrid SNIaYield;
-	
+		const SimpleYield & SNIaYield;
+		const SimpleYield & NSMYield;
 		double BlackHoleMass;
 		double DormantWDMass;
 		double DormantNSMass;

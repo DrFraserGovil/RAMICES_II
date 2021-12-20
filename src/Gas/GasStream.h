@@ -66,6 +66,9 @@ class GasStream
 		//! Adds the gas contained within the input to the current stream \param input The object which donates the gas (unaltered)
 		void Absorb(const GasStream & input);
 		
+		//! Adds the specified fractiongas contained within the input to the current stream \param input The object which donates the gas (unaltered) \param fraction the fraction of the input object which is absorbed
+		void Absorb(const GasStream & input,double fraction);
+		
 		//! Adds the gas to the current stream, splitting it according to the hotFraction \param input The object which donates the gas (unaltered) \param hotFraction The amount of the input which goes into the #Hot stream
 		void Absorb(const Gas & input, double hotFraction);
 		

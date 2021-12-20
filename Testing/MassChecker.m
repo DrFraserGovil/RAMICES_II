@@ -2,7 +2,7 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-f = readtable("../Output/Galactic/Mass.dat");
+f = readtable("../Output/Mass.dat");
 
 time = unique(f.Time);
 radius = unique(f.Radius);
@@ -36,6 +36,9 @@ for i = 1:nSample
     stotal(i) = sum(sgm);
     ctotal(i) = sum(cgm);
     htotal(i) = sum(f.HotGasMass(selector));
+    wdtotal(i) = sum(f.WDMass(selector));
+    nstotal(i) = sum(f.NSMass(selector));
+    bhtotal(i) = sum(f.BHMass(selector));
     
     nexttile(1);
     hold on;
@@ -64,7 +67,7 @@ xlabel("Central Radius of Ring (kpc)");
 ylabel("Stars in Ring ($10^9M_\odot$)");
 
 nexttile(3);
-xlabel("Central Radius of Ring (kpc)");
+xlabel("Central Radius of Ring (kpc)"); 
 ylabel("Cold-Stellar Mass Ratio");
 set(gca,'yscale','log')
 
@@ -74,8 +77,11 @@ hold on;
 
 plot(timeset,htotal);
 plot(timeset,stotal);
+plot(timeset,wdtotal);
+plot(timeset,nstotal);
+plot(timeset,bhtotal);
 plot(timeset,mtotal,'LineWidth',2);
 % plot(timeset,ctotal+htotal+stotal)
 xlabel("Simulation Time (Gyr)");
 ylabel("Total Mass");
-legend("Cold Gas","Hot Gas", "Stars","Total mass");
+legend("Cold Gas","Hot Gas", "Stars","White Dwarfs", "Neutron Stars", "Black Holes","Total mass");

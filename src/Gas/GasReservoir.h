@@ -38,10 +38,16 @@ class GasReservoir
 		//! Transfer the contents of the input reservoir and sum them into the reservoir \param givingGas the reservoir which will be summed into the current object (unaltered)
 		void Absorb(const GasReservoir & givingGas);
 		
+		
+		
 		//! Transfer the contents of the input stream into the element of #Components indicated by the input's #GasStream::Source flag. \param givingGas the stream which is absorbed into the reservoir (unaltered)
 		void Absorb(const GasStream & givingGas);		
 
+		void Absorb(const GasStream & givingGas, double fraction);		
+
 		void Absorb(const std::vector<GasStream> & givingGas);
+
+		void Absorb(const std::vector<GasStream> & givingGas, double fraction);
 
 		void AbsorbMemory(int t, const GasStream & input);
 		

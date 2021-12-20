@@ -119,8 +119,9 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		double inflowMass = ratio/(1 + ratio) * amount;
 		
 		//check that we do not remove more gas than is actually present
-		inflowMass = std::min(inflowMass, Rings[ring+1].Gas.Mass());
-				
+		double maxDepletion = 0.9;
+		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());
+		
 		Rings[ring].Gas.TransferFrom(Rings[ring+1].Gas,inflowMass);
 		
 		//if some part of the budget was missed because of the std::min above, then make up the deficit from the IGM
@@ -160,7 +161,7 @@ void Galaxy::Infall(double t)
 		}
 		else
 		{
-			IGM.TransferFrom(Rings[i].Gas,abs(delta));
+			//~ IGM.TransferFrom(Rings[i].Gas,abs(delta));
 			//~ Rings[i].Gas.Deplete(abs(delta));
 		}
 		
@@ -206,7 +207,9 @@ void Galaxy::ScatterYields(int time)
 	{
 		for (int t = 0; t < time; ++t)
 		{
-			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t));
+			double absorbFrac = 1.0 - Param.Stellar.EjectionFraction;
+			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t),absorbFrac);
+			IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1 - absorbFrac);
 		}
 	}
 }
@@ -232,16 +235,20 @@ void Galaxy::SaveState_Mass(double t)
 	{
 		output << MassHeaders() << "\n";
 	}
-	
+	int tt  = round(t/Param.Meta.TimeStep);
 	for (int i = 0; i < Rings.size(); ++i)
 	{
-		double Ms = Rings[i].Stars.Mass();
+		double Ms = Rings[i].Stars.AliveMass();
 		double Mc = Rings[i].Gas.ColdMass();
 		double Mh = Rings[i].Gas.HotMass();
-		double Mr = 0;
+		MassReport Mrr = Rings[i].Stars.DeadMass();
+		double Mwd = Mrr.WD/1e9;
+		double Mns = Mrr.NS/1e9;
+		double Mbh = Mrr.BH/1e9;
+		double Mr = Mrr.Total/1e9;
 		double Mt = Ms + Mc + Mh + Mr;
 		double Migm = IGM.Mass();
-		std::vector<double> vals = {Rings[i].Radius, Mt,Ms,Mc,Mh,Mr,Migm};
+		std::vector<double> vals = {Rings[i].Radius, Mt,Ms,Mc,Mh,Mwd,Mns,Mbh,Migm};
 		output << t;
 		for (int j = 0; j < vals.size(); ++j)
 		{
@@ -254,7 +261,7 @@ void Galaxy::SaveState_Mass(double t)
 }
 std::string Galaxy::MassHeaders()
 {
-	return "Time, Radius, TotalMass, StellarMass, ColdGasMass, HotGasMass, RelicMass,IGMMass";
+	return "Time, Radius, TotalMass, StellarMass, ColdGasMass, HotGasMass, WDMass, NSMass, BHMass,IGMMass";
 }
 
 void Galaxy::SaveState_Enrichment(double t)
