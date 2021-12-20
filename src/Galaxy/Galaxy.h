@@ -28,7 +28,7 @@ class Galaxy
 		void FormStars();
 		void Cool();
 		void KillStars(int time);
-		
+		void ScatterYields(int time);
 		double PredictSurfaceDensity(double radius,double width, double totalGasMass, double scalelength);
 		double GasMass();
 		double StarMass();

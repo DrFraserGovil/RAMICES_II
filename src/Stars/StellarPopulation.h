@@ -1,27 +1,28 @@
 #pragma once
 #include <vector>
-#include "../Parameters/GlobalParameters.h"
+#include "../Parameters/InitialisedData.h"
 #include "IMF.h"
-#include "../Gas/GasStream.h"
-#include "../Gas/Gas.h"
+#include "../Gas/GasReservoir.h"
+#include "RemnantPopulation.h"
 #include "SLF.h"
 //! A simple struct for tracking the number of stars of a given mass
 class IsoMass
 {
 	public:
-		double Mass;
+		int MassIndex;
 		double Count;
+		double Metallicity;
 		int BirthIndex;
 		int DeathIndex;
 		IsoMass();
-		IsoMass(int n, double m, int birth, int death);
+		IsoMass(int n, int m, double z, int birth, int death);
 };
 
 
 class StellarPopulation
 {
 	public:
-		StellarPopulation(const IMF_Functor & imf, SLF_Functor & SLF, const GlobalParameters & param);
+		StellarPopulation(InitialisedData & data);
 	
 		void PrepareIMF();
 		void FormStars(double formingMass, int timeIndex, double formingMetallicity);
@@ -31,7 +32,7 @@ class StellarPopulation
 		IsoMass & operator[](int i);
 		const IsoMass & operator[](int i) const;
 		bool Active();
-		void Death(int time);
+		void Death(int time, GasReservoir & TemporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas);
 	private:
 		const GlobalParameters & Param;
 		IsoMass ImmortalStars;
@@ -39,6 +40,7 @@ class StellarPopulation
 
 		const IMF_Functor & IMF; 
 		SLF_Functor & SLF;
+		const YieldGrid & CCSNYield;
 		
 		bool IsLifetimeMonotonic;
 		bool IsDepleted;
@@ -46,8 +48,10 @@ class StellarPopulation
 		
 		double internal_MassCounter;
 		
-		void MonotonicDeathScan(int time);
+		void MonotonicDeathScan(int time,GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas);
 		void FullDeathScan(int time);
+		
+		void RecoverMatter(int time,int nstars, int mass, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants);
 		
 		Gas TempGas;
 };

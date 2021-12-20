@@ -23,6 +23,7 @@ class Ring
 		void KillStars(int time);
 		void Cool();
 		void UpdateMemory(int t);
+		
 		void SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, std::stringstream & logarithmicStreamCold, std::stringstream & absoluteStreamHot, std::stringstream & logarithmicStreamHot);
 	private:
 		

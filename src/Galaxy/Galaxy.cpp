@@ -3,7 +3,9 @@ double pi = 3.141592654;
 Galaxy::Galaxy(InitialisedData & data): Data(data), Param(data.Param), IGM(GasReservoir::Primordial(data.Param.Galaxy.IGM_Mass,data.Param))
 {
 	int currentRings = 0;
+	
 	Data.UrgentLog("\tMain Galaxy Initialised.\n\tStarting ring population:  ");
+	
 	double ringWidth = Param.Galaxy.Radius / Param.Galaxy.RingCount;
 	double initialScaleLength = GasScaleLength(0);
 	for (int i = 0; i < Param.Galaxy.RingCount; ++i)
@@ -30,10 +32,12 @@ void Galaxy::Evolve()
 	Data.UrgentLog("\tStarting Galaxy evolution: ");
 	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
 	{
-		
 		Infall(t);
 		FormStars();
 		KillStars(timestep);
+		
+		ScatterYields(timestep);
+		
 		Cool();
 		t += Param.Meta.TimeStep;
 		
@@ -195,6 +199,18 @@ void Galaxy::KillStars(int time)
 		Rings[i].KillStars(time);
 	}
 }
+
+void Galaxy::ScatterYields(int time)
+{
+	for (int i = 0; i < Rings.size(); ++i)
+	{
+		for (int t = 0; t < time; ++t)
+		{
+			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t));
+		}
+	}
+}
+
 void Galaxy::Cool()
 {
 	for (int i = 0; i < Rings.size(); ++i)

@@ -8,7 +8,11 @@ GasReservoir::GasReservoir() : Param(GlobalParameters())
 	{
 		Components[i].Source = (SourceProcess)i;
 	}
-	ComponentHistory.resize(Param.Meta.SimulationSteps);
+	ComponentHistory.resize(Param.Meta.SimulationSteps+1);
+	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
+	{
+		ComponentHistory[i].resize(ProcessCount);
+	}
 }
 GasReservoir::GasReservoir(const GlobalParameters & param): Param(param)
 {
@@ -18,7 +22,11 @@ GasReservoir::GasReservoir(const GlobalParameters & param): Param(param)
 	{
 		Components[i].Source = (SourceProcess)i;
 	}
-	ComponentHistory.resize(Param.Meta.SimulationSteps);
+	ComponentHistory.resize(Param.Meta.SimulationSteps+1);
+	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
+	{
+		ComponentHistory[i].resize(ProcessCount);
+	}
 }
 
 GasReservoir GasReservoir::Primordial(double mass, const GlobalParameters & param)
@@ -79,6 +87,19 @@ void GasReservoir::Absorb(const GasReservoir & givingGas)
 		SourceProcess source = (SourceProcess)i;
 		Absorb(givingGas[source]);
 	}
+}
+
+void GasReservoir::Absorb(const std::vector<GasStream> & givingGas)
+{
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		SourceProcess source = (SourceProcess)i;
+		Absorb(givingGas[source]);
+	}
+}
+void GasReservoir::AbsorbMemory(int t, const GasStream & input)
+{
+	ComponentHistory[t][input.Source].Absorb(input);
 }
 
 void GasReservoir::Deplete(double amountToLose)
@@ -249,4 +270,20 @@ const std::vector<GasStream> & GasReservoir::GetHistory(int t)
 		ComponentHistory[t][p].ColdMass();
 	}
 	return ComponentHistory[t];
+}
+
+void GasReservoir::WipeMemoryUpTo(int t)
+{
+	for (int time = 0; time < t; ++time)
+	{
+		for (int p = 0; p < ProcessCount; ++p)
+		{
+			for (int e = 0; e < ElementCount; ++e)
+			{
+				ElementID elem = (ElementID)e;
+				ComponentHistory[time][p].Cold(elem) = 0;
+				ComponentHistory[time][p].Hot(elem) = 0;
+			}
+		}
+	}
 }

@@ -53,17 +53,15 @@ const double & Gas::operator[](ElementID id) const
 void Gas::CheckMass()
 {
 	double basicMass = Species[Hydrogen] + Species[Helium] + Species[Metals];
-	double elementWiseMass = 0; //avoid double counting
+	double elementWiseMass = -Species[Metals]; //avoid double counting
 	for (int i = 0; i < ElementCount; ++i)
 	{
-		//~ std::cout << basicMass << "  " << elementWiseMass << std::endl;
 		elementWiseMass += Species[i];
 	}
-	if (elementWiseMass > basicMass)
+	if (abs(elementWiseMass - basicMass) > 1e-8)
 	{
 		Species[Metals] += elementWiseMass - basicMass;
-		basicMass= elementWiseMass;
-		std::cout << "I have performed a correction! " <<std::endl;
+		basicMass= elementWiseMass;	
 	}
 	internal_Mass = basicMass;
 	NeedsRecomputing = false;

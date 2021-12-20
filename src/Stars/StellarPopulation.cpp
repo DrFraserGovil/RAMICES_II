@@ -2,15 +2,16 @@
 #include <stdexcept>
 IsoMass::IsoMass()
 {
-	Mass = 0;
+	MassIndex = 0;
 	Count = 0;
 	BirthIndex = 0;
 	DeathIndex = 1e10;
 }
-IsoMass::IsoMass(int n, double m, int birth, int death)
+IsoMass::IsoMass(int n, int m, double z, int birth, int death)
 {
-	Mass = m;
+	MassIndex = m;
 	Count = n;
+	Metallicity = z;
 	BirthIndex = birth;
 	DeathIndex = death;
 }
@@ -18,7 +19,7 @@ IsoMass::IsoMass(int n, double m, int birth, int death)
 
 
 
-StellarPopulation::StellarPopulation(const IMF_Functor & imf, SLF_Functor & slf, const GlobalParameters & param): Param(param), IMF(imf), SLF(slf)
+StellarPopulation::StellarPopulation(InitialisedData & data): Param(data.Param), IMF(data.IMF), SLF(data.SLF), CCSNYield(data.CCSNYield)
 {
 	Distribution.resize(Param.Stellar.MassResolution);
 	internal_MassCounter = 0;
@@ -73,7 +74,7 @@ void StellarPopulation::FormStars(double formingMass, int timeIndex,double formi
 		budget +=  nStars * m/1e9;
 		
 		int deathIndex = timeIndex + SLF(i,formingMetallicity);
-		Distribution[i] = IsoMass(nStars,m,timeIndex,deathIndex);
+		Distribution[i] = IsoMass(nStars,i,formingMetallicity, timeIndex,deathIndex);
 		
 		//check for monotonicity
 		if (deathIndex < prevIndex)
@@ -85,7 +86,7 @@ void StellarPopulation::FormStars(double formingMass, int timeIndex,double formi
 	//the remaining mass gets turned into immortal stars, al of which are assumed to have the minimum mortal mass
 	double mInf = Param.Stellar.ImmortalMass;
 	double effectiveImmortalCount = std::max(0.0,formingMass - budget)*1e9 / mInf;
-	ImmortalStars = IsoMass(effectiveImmortalCount,mInf,timeIndex,1e10);
+	ImmortalStars = IsoMass(effectiveImmortalCount,mInf,formingMetallicity,timeIndex,1e10);
 	
 	internal_MassCounter += formingMass;
 	DepletionIndex = Param.Stellar.MassResolution -1;
@@ -111,41 +112,42 @@ bool StellarPopulation::Active()
 {
 	return !IsDepleted;
 }
-void StellarPopulation::Death(int time)
+void StellarPopulation::Death(int time, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas)
 {
 	if (IsLifetimeMonotonic)
 	{
-		MonotonicDeathScan(time);
+		MonotonicDeathScan(time, temporalYieldGrid, remnants,birthGas);
 	}
 	else
 	{
 		FullDeathScan(time);
 	}
 }
-void StellarPopulation::MonotonicDeathScan(int time)
+void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas)
 {
-	//~ Gas creation;
-	//~ Gas creation;
-	
-	int i = 0;
+
 	while ( (Distribution[DepletionIndex].DeathIndex <= time || Distribution[DepletionIndex].Count == 0) && DepletionIndex >= 0)
 	{
-		
-		
-		double stellarMassReleased = Distribution[DepletionIndex].Count * Distribution[DepletionIndex].Mass;
-		Distribution[DepletionIndex].Count = 0;
-		double gasMassReclaimed = stellarMassReleased / 1e9;
-		internal_MassCounter -= gasMassReclaimed;
-		//~ std::cout << gasMassReclaimed << std::endl;
-		//~ if (i == 0)
-		//~ {
-			//~ TempGas[Europium] = gasMassReclaimed;
-		//~ }
-		//~ else
-		//~ {
-			//~ TempGas[Europium] += gasMassReclaimed;
-		//~ }
-		//~ creation[Europium] += gasMassReclaimed;
+		//recover population information
+		int nStars = Distribution[DepletionIndex].Count;
+		int massID = Distribution[DepletionIndex].MassIndex;
+		double starMass = Param.Stellar.MassGrid[massID];
+		int birthID = Distribution[DepletionIndex].BirthIndex;
+		double z = Distribution[DepletionIndex].Metallicity;
+		 
+		 
+		 if (nStars > 0)
+		 {
+			double stellarMassReleased = nStars * starMass;
+			Distribution[DepletionIndex].Count = 0;
+			double gasMassReclaimed = stellarMassReleased / 1e9;
+			internal_MassCounter -= gasMassReclaimed;
+	
+			if (starMass > Param.Yield.CCSN_MassCut)
+			{
+				CCSNYield(temporalYieldGrid,remnants,nStars,massID,z,birthID,birthGas);
+			}
+		}
 		
 		--DepletionIndex;
 	}

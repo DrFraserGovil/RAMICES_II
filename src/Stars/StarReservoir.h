@@ -15,10 +15,13 @@ class StarReservoir
 		
 		double Mass();
 		
-		void Form(GasReservoir & gas);
-		void Death(int currentTime);
-		void PrintStatus(int t);
 		
+		
+		
+		void Form(GasReservoir & gas);
+		void Death(int currentTime, GasReservoir & birthGas);
+		void PrintStatus(int t);
+		const std::vector<GasStream> & YieldsFrom(int t);
 	private:
 		std::vector<StellarPopulation> Population;
 		RemnantPopulation Remnants;
@@ -33,5 +36,6 @@ class StarReservoir
 		SLF_Functor & SLF;
 		int PopulationIndex;
 		
+		GasReservoir YieldOutput;
 		
 };

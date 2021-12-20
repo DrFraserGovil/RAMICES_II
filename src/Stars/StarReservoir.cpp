@@ -1,10 +1,10 @@
 #include "StarReservoir.h"
 
-StarReservoir::StarReservoir(int parentRing, InitialisedData & data) : Data(data),Param(data.Param), ParentRing(parentRing), IMF(data.IMF), SLF(data.SLF), Remnants(data.Param)
+StarReservoir::StarReservoir(int parentRing, InitialisedData & data) : Data(data),Param(data.Param), ParentRing(parentRing), IMF(data.IMF), SLF(data.SLF), Remnants(data.Param), YieldOutput(data.Param)
 {
-	StellarPopulation empty(IMF,SLF,Param);
+	StellarPopulation empty(Data);
 		
-	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
+	for (int i = 0; i < Param.Meta.SimulationSteps+1; ++i)
 	{
 		Population.push_back(empty);
 	}
@@ -106,13 +106,19 @@ void StarReservoir::PrintStatus(int t)
 	JSL::writeStringToFile(ringName, output.str());
 }
 
-void StarReservoir::Death(int currentTime)
+void StarReservoir::Death(int currentTime, GasReservoir & birthGas)
 {
+	YieldOutput.WipeMemoryUpTo(currentTime);
 	for (int i = 0; i < currentTime; ++i)
 	{
 		if (Population[i].Active())
 		{
-			Population[i].Death(currentTime);
+			Population[i].Death(currentTime, YieldOutput,Remnants, birthGas);
 		}
 	}
+}
+
+const std::vector<GasStream> & StarReservoir::YieldsFrom(int t)
+{
+	return YieldOutput.GetHistory(t);
 }

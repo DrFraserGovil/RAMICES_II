@@ -41,6 +41,10 @@ class GasReservoir
 		//! Transfer the contents of the input stream into the element of #Components indicated by the input's #GasStream::Source flag. \param givingGas the stream which is absorbed into the reservoir (unaltered)
 		void Absorb(const GasStream & givingGas);		
 
+		void Absorb(const std::vector<GasStream> & givingGas);
+
+		void AbsorbMemory(int t, const GasStream & input);
+		
 		//! Calls #GasStream::Deplete(double) on each element of #Components, keeping the relative mass contribution of each component equal \param amountToLose The total amount of mass to be lost from the reservoir (shared amongst components)
 		void Deplete(double amountToLose);
 		
@@ -66,6 +70,8 @@ class GasReservoir
 		double Metallicity();
 		
 		void UpdateMemory(int t);
+		void WipeMemoryUpTo(int t);
+		
 		
 		const std::vector<GasStream> & GetHistory(int t);
 	private:
@@ -76,7 +82,6 @@ class GasReservoir
 		std::vector<std::vector<GasStream>> ComponentHistory;
 		
 		const GlobalParameters & Param;
-		
 		
 		
 };

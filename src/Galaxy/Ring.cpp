@@ -21,7 +21,7 @@ void Ring::MakeStars()
 }
 void Ring::KillStars(int time)
 {
-	Stars.Death(time);
+	Stars.Death(time,Gas);
 }
 
 void Ring::Cool()
@@ -117,10 +117,11 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 	} 
 	for (int e = 0; e < ElementCount; ++e)
 	{
-		ColdBuffer[0][e] /= coldMass;
-		HotBuffer[0][e] /= hotMass;
+		ColdBuffer[0][e] /= (coldMass+1e-88);
+		HotBuffer[0][e] /= (hotMass+1e-88);
 	}
 	
+
 	for (int p = 0; p < ProcessCount + 1; ++p)
 	{
 		for (int e = 0; e < ElementCount; ++e)

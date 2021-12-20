@@ -1,17 +1,20 @@
 #pragma once
 #include "../Parameters/GlobalParameters.h"
 #include "../Gas/GasReservoir.h";
+#include "../Stars/RemnantPopulation.h"
 //~ #include <ostream>
+class RemnantPopulation; // predeclaration for circular linkage
+
 class YieldGrid
 {
 	public:
 		const SourceProcess Process;
 		YieldGrid(const GlobalParameters & param, SourceProcess Process);
 		
-		void operator()(int mass, double z);
-		
+		void operator()(GasReservoir & scatteringReservoir, RemnantPopulation & remnantReservoir, int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const;
+		void operator()(GasReservoir & scatteringReservoir, int nObjects, int birthIndex)  const;
 	private:
-		bool IsNet;
+		bool IsBasic;
 		const GlobalParameters & Param;
 		std::vector<std::vector<std::vector<double>>> Grid;
 
@@ -22,9 +25,10 @@ class YieldGrid
 		void AGB_Initialise();
 		void SNIa_Initialise();
 		void InitialiseLargeGrid(int mSize, int zSize);
-		
+		//~ GasStream TempStream;
 		//allows the grid size to be truncated for CCSN etc.
 		int MassOffset;
 		
-		void NetInject( std::vector<std::vector<Gas>> & GrossOutputStream, int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir);
+		void StellarInject( GasReservoir & scatteringReservoir, RemnantPopulation & remnantReservoir, int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const;
+		void RemnantInject( GasReservoir & scatteringReservoir, int Nstars, int birthIndex) const;
 };

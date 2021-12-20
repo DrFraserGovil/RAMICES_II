@@ -1,7 +1,7 @@
 #include "RemnantPopulation.h"
 
 
-RemnantPopulation::RemnantPopulation(const GlobalParameters & param) : Param(param)
+RemnantPopulation::RemnantPopulation(const InitialisedData & data) : Param(data.Param)
 {
 	int N = param.Meta.SimulationSteps;
 	ShortSNIaBuffer = std::vector<double>(N);
@@ -29,3 +29,4 @@ void RemnantPopulation::Feed(int timeIndex, double bhMass, double wdMass, double
 	
 }
 
+void RemnantPopulation::Decay(int currentTime);
