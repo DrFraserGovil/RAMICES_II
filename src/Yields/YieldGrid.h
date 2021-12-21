@@ -16,7 +16,7 @@ class YieldGrid
 {
 	public:
 		const SourceProcess Process;
-		YieldGrid(const GlobalParameters & param, SourceProcess Process);
+		YieldGrid(const GlobalParameters & param, YieldProcess Process);
 		
 		RemnantOutput operator()(GasReservoir & scatteringReservoir, int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const;
 		

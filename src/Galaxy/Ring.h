@@ -15,6 +15,7 @@ class Ring
 		double Mass();
 		const double Radius;
 		const double Width;
+		double Area;
 		//Relic Reservoir
 		StarReservoir Stars;
 		GasReservoir Gas;
@@ -22,6 +23,7 @@ class Ring
 		void MakeStars();
 		void KillStars(int time);
 		void Cool();
+		void TimeStep(int t);
 		void UpdateMemory(int t);
 		
 		void SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, std::stringstream & logarithmicStreamCold, std::stringstream & absoluteStreamHot, std::stringstream & logarithmicStreamHot);
@@ -30,7 +32,7 @@ class Ring
 		//~ std::vector<GasReservoir> PreviousEnrichment;
 		int RadiusIndex;
 		
-		double Area;
+		
 	
 		InitialisedData & Data;
 		const GlobalParameters & Param;

@@ -20,7 +20,7 @@ class MetaValues : public ParamList
 		Argument<std::string> ResourceRoot  = Argument<std::string>("Resources/","resource");
 		
 		//!The maximum number of parallel threads which can be active at any given time
-		Argument<int> ParallelThreads = Argument<int>(1,"thread");
+		Argument<int> ParallelThreads = Argument<int>(3,"thread");
 		
 		//!The top level timestep used in the main chemical loop
 		Argument<double> TimeStep  = Argument<double>(0.01,"timestep");
@@ -214,7 +214,8 @@ class YieldValues : public ParamList
 	public:
 	
 		std::vector<std::string> ProcessNames;
-	
+		std::vector<SourceProcess> ProcessTypes;
+		
 		//!Time before SNIa can turn on, in Gyr
 		Argument<double> SNIa_DelayTime = Argument<double>(0.15,"sn1a-delay");
 		
@@ -288,6 +289,12 @@ class GalaxyValues : public ParamList
 		//! The cutoff radius of the galaxy
 		Argument<double> Radius = Argument<double>(20.0,"radius");
 		
+		//!Width of the innermost ring (kpc)
+		Argument<double> Ring0Width = Argument<double>(0.05,"inner-ring-width");
+		
+		std::vector<double> RingRadius;
+		std::vector<double> RingWidth;
+		
 		//! Initial in-situ mass of the galaxy (assumed to be 100% gas)
 		Argument<double> PrimordialMass = Argument<double>(8,"M0");
 		
@@ -296,7 +303,7 @@ class GalaxyValues : public ParamList
 		Argument<double> PrimordialHotFraction = Argument<double>(0,"primordial-hot");
 		
 		//!Initial Mass of the IGM Reservoir
-		Argument<double> IGM_Mass = Argument<double>(1000,"igm-mass");
+		Argument<double> IGM_Mass = Argument<double>(200,"igm-mass");
 		
 		//! The initial exponential scale length of the galaxy
 		Argument<double> MinScaleLength = Argument<double>(1.75,"scale-length-min");
@@ -337,7 +344,7 @@ class GalaxyValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		GalaxyValues()
 		{
-			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2, &InflowParameterA, &InflowParameterB, &MaxSFRFraction};
+			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2, &InflowParameterA, &InflowParameterB, &MaxSFRFraction, &Ring0Width};
 		}
-	
+		void Initialise(std::string resourceRoot);
 };

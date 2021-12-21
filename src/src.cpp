@@ -41,6 +41,7 @@ int main(int argc, char** argv)
 	
 	Welcome();
 
+
 	//initialise the precomputed portions of the data which will be available (nearly) globally
 	
 	InitialisedData Data(Params);

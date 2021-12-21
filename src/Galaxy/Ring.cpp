@@ -1,10 +1,11 @@
 #include "Ring.h"
 
-
+const double pi = 3.141592654;
 //! Initialises itself into a primordial state
-Ring::Ring(int index, double mass,InitialisedData & data): Data(data), Param(data.Param), Width(data.Param.Galaxy.Radius / data.Param.Galaxy.RingCount), Radius((index + 0.5)*data.Param.Galaxy.Radius / data.Param.Galaxy.RingCount), Gas(GasReservoir::Primordial(mass,data.Param)), Stars(index,data)
+Ring::Ring(int index, double mass,InitialisedData & data): Data(data), Param(data.Param), Width(data.Param.Galaxy.RingWidth[index]), Radius(data.Param.Galaxy.RingRadius[index]), Gas(GasReservoir::Primordial(mass,data.Param)), Stars(index,data)
 {
 	RadiusIndex = index;
+	Area = 2 * pi * Radius * Width;
 	//~ PreviousEnrichment.resize(Param.Meta.SimulationSteps);
 	//~ PreviousEnrichment[0] = Gas;
 	Data.Log("\tRing " + std::to_string(index) + " initialised\n",3);
@@ -13,6 +14,15 @@ Ring::Ring(int index, double mass,InitialisedData & data): Data(data), Param(dat
 double Ring::Mass()
 {
 	
+}
+
+
+void Ring::TimeStep(int t)
+{
+	Cool();
+	MakeStars();
+	KillStars(t);
+	UpdateMemory(t);
 }
 
 void Ring::MakeStars()
@@ -79,7 +89,7 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 			basic = headers + "\n";
 		}
 	}
-	basic += std::to_string(t) + ", " + std::to_string(RadiusIndex);
+	basic += std::to_string(t) + ", " + std::to_string(Radius);
 	
 	absoluteStreamCold << basic;
 	logarithmicStreamCold  << basic;

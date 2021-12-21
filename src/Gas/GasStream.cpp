@@ -2,7 +2,7 @@
 
 GasStream::GasStream()
 {
-	Source = Primordial;
+	Source = Accreted;
 	NeedsRecomputing = true;
 }
 GasStream::GasStream(SourceProcess source)

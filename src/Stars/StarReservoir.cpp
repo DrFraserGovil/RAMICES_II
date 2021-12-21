@@ -11,8 +11,8 @@ StarReservoir::StarReservoir(int parentRing, InitialisedData & data) : Data(data
 	
 	//Compute the parent ring surface area....needed for SFR so computing here is efficient!
 	const double pi = 3.141592654;
-	double width = Param.Galaxy.Radius / Param.Galaxy.RingCount;
-	double r = (parentRing + 0.5)*width;
+	double width = Param.Galaxy.RingWidth[parentRing];
+	double r = Param.Galaxy.RingRadius[parentRing];
 	ParentArea = 2 * pi * r * width;
 	Temp_Mass = 0;
 	PopulationIndex = 0;

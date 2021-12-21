@@ -142,10 +142,60 @@ void StellarValues::Initialise(std::string resourceRoot)
 void YieldValues::Initialise(std::string resourceRoot)
 {
 	ProcessNames.resize(ProcessCount);
-	ProcessNames[Primordial] = "Primordial";
+	//~ ProcessNames[Primordial] = "Primordial";
 	ProcessNames[Accreted] = "Accreted";
-	ProcessNames[CCSN] = "CCSN";
-	ProcessNames[SNIa] = "SNIa";
-	ProcessNames[NSM] = "NSM";
-	ProcessNames[AGB] = "AGB";
+	//~ ProcessNames[CCSN] = "CCSN";
+	//~ ProcessNames[SNIa] = "SNIa";
+	//~ ProcessNames[NSM] = "NSM";
+	//~ ProcessNames[AGB] = "AGB";
+	ProcessNames[Stellar] = "Stellar";
+	ProcessNames[Remnant] = "Remnant";
+	
+	ProcessTypes.resize(YieldCount);
+	ProcessTypes[CCSN] = Stellar;
+	ProcessTypes[AGB] = Stellar;
+	ProcessTypes[SNIa] = Remnant;
+	ProcessTypes[NSM] = Remnant;
+}
+
+void GalaxyValues::Initialise(std::string resourceRoot)
+{
+	RingRadius.resize(RingCount.Value);
+	RingWidth.resize(RingCount.Value);
+	double minStepSize = Ring0Width.Value;
+	
+	
+	double alpha = 1;
+	
+	
+	if ( abs(minStepSize - Radius/RingCount.Value) < 1e-7)
+	{
+	}
+	else
+	{
+		alpha = stepFraction(minStepSize,Radius.Value,RingCount.Value);
+	}
+	double sumFactor;
+	if (alpha == 1)
+	{
+		sumFactor = RingCount.Value;
+	}
+	else
+	{
+		sumFactor = (pow(alpha,RingCount.Value) - 1.0)/(alpha - 1);
+	}
+	double w = Radius.Value / sumFactor;
+	double x = 0;
+	for (int i = 0; i < RingCount.Value; ++i)
+	{
+		x += w/2;
+		std::cout << x - w/2 << "->" << x + w/2 << std::endl;
+		RingRadius[i] = x;
+		RingWidth[i] = w;
+		x += w/2;
+		w = w * alpha;
+		
+		
+	}
+	
 }

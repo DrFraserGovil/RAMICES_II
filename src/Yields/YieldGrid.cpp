@@ -1,6 +1,6 @@
 #include "YieldGrid.h"
 
-YieldGrid::YieldGrid(const GlobalParameters & param, SourceProcess process): Param(param), Process(process)
+YieldGrid::YieldGrid(const GlobalParameters & param, YieldProcess yieldsource): Param(param), Process(param.Yield.ProcessTypes[yieldsource])
 {
 	if (param.Meta.Verbosity > 0)
 	{
@@ -8,7 +8,7 @@ YieldGrid::YieldGrid(const GlobalParameters & param, SourceProcess process): Par
 	}
 	MassOffset = 0;
 	
-	switch(Process)
+	switch(yieldsource)
 	{
 		case CCSN:
 		{

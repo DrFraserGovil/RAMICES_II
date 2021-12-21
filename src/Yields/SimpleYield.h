@@ -6,7 +6,7 @@ class SimpleYield
 {
 	public:
 		const SourceProcess Process;
-		SimpleYield(const GlobalParameters & param, SourceProcess Process);
+		SimpleYield(const GlobalParameters & param, YieldProcess Process);
 		
 		void operator()(GasReservoir & scatteringReservoir, int nObjects, int birthIndex)  const;
 	

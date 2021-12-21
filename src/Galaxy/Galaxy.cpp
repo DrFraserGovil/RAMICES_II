@@ -6,21 +6,92 @@ Galaxy::Galaxy(InitialisedData & data): Data(data), Param(data.Param), IGM(GasRe
 	
 	Data.UrgentLog("\tMain Galaxy Initialised.\n\tStarting ring population:  ");
 	
-	double ringWidth = Param.Galaxy.Radius / Param.Galaxy.RingCount;
+	double initMass = 0;
 	double initialScaleLength = GasScaleLength(0);
 	for (int i = 0; i < Param.Galaxy.RingCount; ++i)
 	{
-		double ri = (i + 0.5)*ringWidth;
+		double ri = Param.Galaxy.RingRadius[i];
+		double ringWidth = Param.Galaxy.RingWidth[i];
 		double predictedDensity = PredictSurfaceDensity(ri,ringWidth,Param.Galaxy.PrimordialMass,initialScaleLength);
 		double predictedMass = 2*pi * ri * ringWidth * predictedDensity;
 		Rings.push_back(Ring(i,predictedMass,Data));
 		Data.ProgressBar(currentRings, i,Param.Galaxy.RingCount);
+		initMass += predictedMass;
 	}
 	
+	Threads.resize(Param.Meta.ParallelThreads-1);
 	Data.UrgentLog("\tGalaxy Rings initialised.\n");
 }
 
+void Galaxy::RingEvolve(int timestep,int ringStart, int ringEnd)
+{
+	for (int i = ringStart; i < ringEnd; ++i)
+	{
+		Rings[i].TimeStep(timestep);
+	}
+	
+}
 
+void Galaxy::LaunchParallelRings(int timestep, ParallelJob type)
+{
+	int N = Param.Meta.ParallelThreads;
+	int nRings = Rings.size();
+	int chunkDivisor = ceil((double)nRings / N);
+	int ringStart = 0;
+	int ringEnd = 0;
+	
+	for (int n = 0; n < N-1; ++n)
+	{
+		ringStart = n*chunkDivisor;
+		ringEnd = std::min(ringStart + chunkDivisor,nRings);
+		
+		switch (type)
+		{
+			case RingStep:
+			{
+				Threads[n] = std::thread(&Galaxy::RingEvolve,this,timestep,ringStart,ringEnd);
+				break;
+			}
+			case Scattering:
+			{
+				Threads[n] = std::thread(&Galaxy::ScatterStep,this,timestep,ringStart,ringEnd);
+				break;
+			}
+			
+		}
+	}
+	
+	ringStart = ringEnd;
+	ringEnd = nRings;
+	switch (type)
+	{
+		case RingStep:
+		{
+			RingEvolve(timestep, ringStart,ringEnd);
+			break;
+		}
+		case Scattering:
+		{
+			ScatterStep(timestep,ringStart,ringEnd);
+			break;
+		}
+		
+	}
+	
+	int joined = 0;
+	
+	while (joined < N-1)
+	{	
+		for (int n = 0; n < N-1; ++n)
+			{
+				if (Threads[n].joinable())
+				{
+					Threads[n].join();
+					++joined;
+				}
+			}
+	}
+}
 void Galaxy::Evolve()
 {
 	double t = 0;
@@ -28,17 +99,16 @@ void Galaxy::Evolve()
 
 	int fullBar = Param.Meta.ProgressHashes;
 	int currentBars = 0;
-
+	
 	Data.UrgentLog("\tStarting Galaxy evolution: ");
 	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
 	{
+		IGM.PassiveCool(Param.Meta.TimeStep);
 		Infall(t);
-		FormStars();
-		KillStars(timestep);
+		LaunchParallelRings(timestep,RingStep);
+		LaunchParallelRings(timestep,Scattering);
+		//~ ScatterYields(timestep);
 		
-		ScatterYields(timestep);
-		
-		Cool();
 		t += Param.Meta.TimeStep;
 		
 		
@@ -96,15 +166,26 @@ double Galaxy::GasScaleLength(double t)
 	return R0 + N*(Rf - R0) * (atan( (t - t0)/tg) - atan(-t0/tg));
 }
 
-
-double bilitewskiRatio(double a, double b, int n, int N)
+double bilitewskiRatio(double a, double b, double radius, double width, double nextwidth,double maxRadius)
 {
-	double denominator = 1.0/(2*n + 1);
-	double nsq = n*n;
-	double firstTerm = (-2 * a)/(4 * N) * denominator * (4*n*nsq + 6*nsq + 4*n + 1);
-	double secondTerm = 2*(1 - b)/3 * denominator * (3 *nsq + 3*n + 1);
+	//~ double denominator = 1.0/(2*n + 1);
+	//~ double nsq = n*n;
+	//~ double firstTerm = (-2 * a)/(4 * N) * denominator * (4*n*nsq + 6*nsq + 4*n + 1);
+	//~ double secondTerm = 2*(1 - b)/3 * denominator * (3 *nsq + 3*n + 1);
 	
-	return firstTerm + secondTerm;
+	//~ return firstTerm + secondTerm;
+	
+	double inflowFactor = (width + nextwidth)/2;
+	double rPlus = radius + width/2;
+	double rMinus = radius - width/2;
+	double onflowFactor = 1.0/(radius * width);
+	
+	double quarticTerm = a/(4 * maxRadius) * (pow(rPlus,4) - pow(rMinus,4));
+	double cubicTerm = (b - 1)/3 * (pow(rPlus,3) - pow(rMinus,3));
+	
+	double onflowTerm = onflowFactor * (quarticTerm + cubicTerm);
+	
+	return -onflowTerm / inflowFactor;
 	
 }
 
@@ -115,13 +196,16 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 	double remainingMass;
 	if ( ring < Rings.size() - 1)
 	{
-		double ratio = bilitewskiRatio(a_factor,b_factor,ring,Rings.size());
+		double radius = Rings[ring].Radius;
+		double width = Rings[ring].Width;
+		double nextwidth = Rings[ring+1].Width;
+		double ratio = bilitewskiRatio(a_factor,b_factor,radius,width,nextwidth,Param.Galaxy.Radius);
 		double inflowMass = ratio/(1 + ratio) * amount;
 		
 		//check that we do not remove more gas than is actually present
 		double maxDepletion = 0.9;
 		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());
-		
+		//~ std::cout << "Ring " << ring << " wants " << inflowMass / Rings[ring+1].Gas.Mass() * 100 << "% of the next ring" << std::endl;
 		Rings[ring].Gas.TransferFrom(Rings[ring+1].Gas,inflowMass);
 		
 		//if some part of the budget was missed because of the std::min above, then make up the deficit from the IGM
@@ -151,7 +235,7 @@ void Galaxy::Infall(double t)
 		double r = Rings[i].Radius;
 		double w = Rings[i].Width;
 		double sigma = PredictSurfaceDensity(r,w,newGas,Rd);
-		double newMass = sigma * 2 * pi * r*w;
+		double newMass = sigma * 2.0 * pi * r*w;
 		double oldMass = Rings[i].Gas.Mass();
 		double delta = newMass - oldMass;
 		
@@ -162,6 +246,8 @@ void Galaxy::Infall(double t)
 		else
 		{
 			//~ IGM.TransferFrom(Rings[i].Gas,abs(delta));
+			newGas += delta;
+			std::cout << "Losing gas from " << i << " at " << t << std::endl;
 			//~ Rings[i].Gas.Deplete(abs(delta));
 		}
 		
@@ -184,8 +270,6 @@ double Galaxy::PredictSurfaceDensity(double radius, double width, double totalGa
 	return prefactor * (mass_integrand(upRadius) - mass_integrand(downRadius));
 }
 
-
-
 void Galaxy::FormStars()
 {
 	for (int i = 0; i < Rings.size(); ++i)
@@ -201,15 +285,17 @@ void Galaxy::KillStars(int time)
 	}
 }
 
-void Galaxy::ScatterYields(int time)
+
+
+void Galaxy::ScatterStep(int time, int ringstart, int ringend)
 {
-	for (int i = 0; i < Rings.size(); ++i)
+	for (int i = ringstart; i < ringend; ++i)
 	{
 		for (int t = 0; t < time; ++t)
 		{
 			double absorbFrac = 1.0 - Param.Stellar.EjectionFraction;
 			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t),absorbFrac);
-			IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1 - absorbFrac);
+			IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1 - absorbFrac); //this step might be broken with the parallelisation....
 		}
 	}
 }
@@ -248,7 +334,7 @@ void Galaxy::SaveState_Mass(double t)
 		double Mr = Mrr.Total/1e9;
 		double Mt = Ms + Mc + Mh + Mr;
 		double Migm = IGM.Mass();
-		std::vector<double> vals = {Rings[i].Radius, Mt,Ms,Mc,Mh,Mwd,Mns,Mbh,Migm};
+		std::vector<double> vals = {Rings[i].Radius, Rings[i].Area,Mt,Ms,Mc,Mh,Mwd,Mns,Mbh,Migm};
 		output << t;
 		for (int j = 0; j < vals.size(); ++j)
 		{
@@ -261,17 +347,13 @@ void Galaxy::SaveState_Mass(double t)
 }
 std::string Galaxy::MassHeaders()
 {
-	return "Time, Radius, TotalMass, StellarMass, ColdGasMass, HotGasMass, WDMass, NSMass, BHMass,IGMMass";
+	return "Time, Radius, SurfaceArea, TotalMass, StellarMass, ColdGasMass, HotGasMass, WDMass, NSMass, BHMass,IGMMass";
 }
 
 void Galaxy::SaveState_Enrichment(double t)
 {
 	
 	int tt = round(t / Param.Meta.TimeStep);
-	for (int i = 0; i < Rings.size(); ++i)
-	{
-		Rings[i].UpdateMemory(tt);
-	}
 	
 	//only save to file at simiulation end!
 	if (tt == Param.Meta.SimulationSteps-1)

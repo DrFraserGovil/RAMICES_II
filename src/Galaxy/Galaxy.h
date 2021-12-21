@@ -6,6 +6,11 @@
 #include "../Stars/SLF.h"
 #include <sstream>
 
+#include <thread>
+#include <future>
+
+enum ParallelJob {RingStep, Scattering};
+
 class Galaxy
 {
 	public:
@@ -15,8 +20,11 @@ class Galaxy
 	
 	private:
 		std::vector<Ring> Rings;
+		std::vector<std::thread> Threads;
 		GasReservoir IGM;
 		const GlobalParameters & Param;
+		
+		void LaunchParallelRings(int time,ParallelJob type);
 		
 		//Infall Stuff
 		double GasScaleLength(double t);
@@ -25,9 +33,15 @@ class Galaxy
 		void Infall(double t);
 		
 		//Star Formation
+		
+		void RingEvolve(int timestep,int ringStart, int ringEnd);
+		void ScatterStep(int timestep, int ringStart, int ringEnd);
+
 		void FormStars();
 		void Cool();
 		void KillStars(int time);
+		
+
 		void ScatterYields(int time);
 		double PredictSurfaceDensity(double radius,double width, double totalGasMass, double scalelength);
 		double GasMass();

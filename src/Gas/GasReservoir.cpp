@@ -35,7 +35,7 @@ GasReservoir GasReservoir::Primordial(double mass, const GlobalParameters & para
 	
 	Gas g = Gas::Primordial(mass);
 	double fh = param.Galaxy.PrimordialHotFraction;
-	GasStream primordialStream = GasStream(SourceProcess::Primordial,g,fh);
+	GasStream primordialStream = GasStream(SourceProcess::Accreted,g,fh);
 	
 	prim.Absorb(primordialStream);
 	return prim;

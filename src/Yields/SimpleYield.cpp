@@ -1,14 +1,14 @@
 #include "SimpleYield.h"
 
 
-SimpleYield::SimpleYield(const GlobalParameters & param, SourceProcess process): Param(param), Process(process)
+SimpleYield::SimpleYield(const GlobalParameters & param, YieldProcess yieldprocess): Param(param), Process(param.Yield.ProcessTypes[yieldprocess])
 {
 	if (param.Meta.Verbosity > 0)
 	{
 		std::cout << "\t" << Param.Yield.ProcessNames[Process] << " yield grid initialising...." << std::flush;
 	}
 	
-	switch(Process)
+	switch(yieldprocess)
 	{
 		case NSM:
 		{
