@@ -60,9 +60,10 @@ IsoMass & StellarPopulation::operator [](int i)
 	}
 }
 
-void StellarPopulation::FormStars(double formingMass, int timeIndex,double formingMetallicity)
+int StellarPopulation::FormStars(double formingMass, int timeIndex,double formingMetallicity)
 {
 	double NStarsFormed = IMF.FormationCount(formingMass);
+	
 	double budget = 0;
 	
 	int prevIndex = timeIndex;
@@ -95,6 +96,7 @@ void StellarPopulation::FormStars(double formingMass, int timeIndex,double formi
 	{
 		std::cout << "Encountered critical errror " << std::endl;
 	}
+	return NStarsFormed;
 }
 
 double StellarPopulation::Mass()
@@ -112,18 +114,18 @@ bool StellarPopulation::Active()
 {
 	return !IsDepleted;
 }
-void StellarPopulation::Death(int time, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas)
+void StellarPopulation::Death(int time, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas, StarEvents & eventRate)
 {
 	if (IsLifetimeMonotonic)
 	{
-		MonotonicDeathScan(time,temporalYieldGrid, remnants,birthGas);
+		MonotonicDeathScan(time,temporalYieldGrid, remnants,birthGas, eventRate);
 	}
 	else
 	{
 		FullDeathScan(time);
 	}
 }
-void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas)
+void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas, StarEvents & eventRate)
 {
 	while ( (Distribution[DepletionIndex].DeathIndex <= time || Distribution[DepletionIndex].Count == 0) && DepletionIndex >= 0)
 	{
@@ -146,11 +148,13 @@ void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYiel
 			if (starMass > Param.Yield.CCSN_MassCut)
 			{
 				newRem = CCSNYield(temporalYieldGrid,nStars,massID,z,birthID,birthGas);
+				eventRate.CCSN += nStars;
 			}
 			else
 			{
 				newRem.Type = WhiteDwarf;
 				newRem.Mass = stellarMassReleased;
+				eventRate.AGBDeaths += nStars;
 			}
 			remnants.Feed(birthID,newRem);
 		}

@@ -13,6 +13,7 @@ void GlobalParameters::Initialise(int argc, char * argv[])
 		
 	}
 	
+	
 	SaveInputs();
 	
 	for (int i = 0; i < ParamMembers.size(); ++i)
@@ -23,6 +24,7 @@ void GlobalParameters::Initialise(int argc, char * argv[])
 
 void GlobalParameters::SaveInputs()
 {
+	
 	std::string configOut = Output.Root.Value + "/" + Output.Config.Value;
 	JSL::initialiseFile(configOut);
 	
@@ -31,6 +33,6 @@ void GlobalParameters::SaveInputs()
 	{
 		ParamMembers[i]->StreamContentsTo(output);
 	}
-	
+	JSL::initialiseFile(configOut);
 	JSL::writeStringToFile(configOut,output.str());
 }

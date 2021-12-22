@@ -245,10 +245,7 @@ void Galaxy::Infall(double t)
 		}
 		else
 		{
-			//~ IGM.TransferFrom(Rings[i].Gas,abs(delta));
-			newGas += delta;
-			std::cout << "Losing gas from " << i << " at " << t << std::endl;
-			//~ Rings[i].Gas.Deplete(abs(delta));
+			newGas -= abs(delta);
 		}
 		
 	}	
@@ -285,8 +282,6 @@ void Galaxy::KillStars(int time)
 	}
 }
 
-
-
 void Galaxy::ScatterStep(int time, int ringstart, int ringend)
 {
 	for (int i = ringstart; i < ringend; ++i)
@@ -311,6 +306,7 @@ void Galaxy::Cool()
 void Galaxy::SaveState(double t)
 {
 	SaveState_Mass(t);
+	SaveState_Events(t);
 	SaveState_Enrichment(t);
 	Data.Log("\tSaved state at " + std::to_string(t) + "\n",3);
 }
@@ -378,5 +374,30 @@ void Galaxy::SaveState_Enrichment(double t)
 		JSL::writeStringToFile(Param.Output.LogarithmicColdGasFile,outputLogarithmicCold.str());
 		JSL::writeStringToFile(Param.Output.AbsoluteHotGasFile,outputAbsoluteHot.str());
 		JSL::writeStringToFile(Param.Output.LogarithmicHotGasFile,outputLogarithmicHot.str());
+	}
+}
+
+void Galaxy::SaveState_Events(double t)
+{
+	
+	int tt = round(t / Param.Meta.TimeStep);
+	
+	//only save to file at simiulation end!
+	if (tt == Param.Meta.SimulationSteps-1)
+	{
+		Data.UrgentLog("\tSaving Stellar Event Rate: ");
+		int bars = 0;
+		std::stringstream eventOutput;
+		for (int time = 0; time < Param.Meta.SimulationSteps-1; ++time)
+		{
+			Data.ProgressBar(bars,time,Param.Meta.SimulationSteps);
+			for (int i  = 0; i < Rings.size(); ++i)
+			{
+				Rings[i].Stars.SaveEventRate(time,eventOutput);
+			}
+		}
+		
+		
+		JSL::writeStringToFile(Param.Output.EventRateFile,eventOutput.str());
 	}
 }

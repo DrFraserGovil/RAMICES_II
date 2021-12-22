@@ -131,7 +131,6 @@ void YieldGrid::CCSN_Initialise()
 	}
 	MassOffset = mID;
 	int ccsnGridSize = Param.Stellar.MassResolution - MassOffset;
-
 	InitialiseLargeGrid(ccsnGridSize, Param.Stellar.LogZResolution);
 	hotInjectionFraction = Param.Thermal.HotInjection_CCSN;
 	
@@ -142,16 +141,18 @@ void YieldGrid::CCSN_Initialise()
 	double zVal = 0.05;
 	double feVal = zVal * 0.45;
 	double mgVal = zVal  - feVal;
-	for (int m = 0; m < MassOffset; ++m)
+	for (int m = 0; m < ccsnGridSize; ++m)
 	{
 		for (int z = 0; z < Param.Stellar.LogZResolution; ++z)
 		{
+			
 			Grid[m][z][Hydrogen] = xVal;
 			Grid[m][z][Helium] = yVal;
 			Grid[m][z][Metals] = zVal;
 			Grid[m][z][Iron] = feVal;
 			Grid[m][z][Magnesium] = mgVal;
 		}
+		
 	}
 }
 void YieldGrid::AGB_Initialise()

@@ -2,7 +2,7 @@
 #include "../Yields/YieldGrid.h"
 #include "../Yields/SimpleYield.h"
 #include "../Parameters/InitialisedData.h"
-
+#include "StarEvents.h"
 struct MassReport
 {
 	double Total;
@@ -19,7 +19,7 @@ class RemnantPopulation
 		
 		void Feed(int timeIndex, double bhMass, double wdMass, double nsMass);
 		void Feed(int timeIndex, RemnantOutput rem);
-		void Decay(int currentTime, GasReservoir & scatteringReservoir);
+		void Decay(int currentTime, GasReservoir & scatteringReservoir, StarEvents & EventRate);
 		MassReport Mass();
 	private:
 		//the MASS of remnants created at each time 

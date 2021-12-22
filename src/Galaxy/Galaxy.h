@@ -52,6 +52,7 @@ class Galaxy
 		void SaveState(double t);
 		void SaveState_Mass(double t);
 		void SaveState_Enrichment(double t);
+		void SaveState_Events(double t);
 		
 		static std::string MassHeaders(); 
 		

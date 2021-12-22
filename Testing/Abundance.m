@@ -1,10 +1,11 @@
 % files = "../Output/" + ["LowTempLowSpace","HighTempLowSpace","LowTempUniformLowSpace","HighTempUniformLowSpace","LowTempHighSpace","HighTempHighSpace","LowTempUniformHighSpace","HighTempUniformHighSpace"]+ "/Enrichment_Log_ColdGas.dat";
 clf;
 % T=tiledlayout(4,2);
-files = ["../Output/Test/Enrichment_Log_ColdGas.dat"];
+files = "../Output/" + ["LightweightIGM"] +"/Enrichment_Log_ColdGas.dat";
 T = tiledlayout(1,1);
 for file = files
     nexttile;
+    file
     plotter(file);
 end
 xlabel(T,"[Fe/H]");

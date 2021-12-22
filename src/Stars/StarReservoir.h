@@ -8,6 +8,7 @@
 #include <sstream>
 #include "IMF.h"
 #include "SLF.h"
+#include "StarEvents.h"
 class StarReservoir
 {
 	public:
@@ -22,6 +23,7 @@ class StarReservoir
 		void Death(int currentTime, GasReservoir & birthGas);
 		void PrintStatus(int t);
 		const std::vector<GasStream> & YieldsFrom(int t);
+		void SaveEventRate(int t, std::stringstream & output);
 	private:
 		std::vector<StellarPopulation> Population;
 		RemnantPopulation Remnants;
@@ -37,5 +39,5 @@ class StarReservoir
 		int PopulationIndex;
 		
 		GasReservoir YieldOutput;
-		
+		std::vector<StarEvents> EventRate;
 };

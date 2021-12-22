@@ -15,6 +15,7 @@ StarReservoir::StarReservoir(int parentRing, InitialisedData & data) : Data(data
 	double r = Param.Galaxy.RingRadius[parentRing];
 	ParentArea = 2 * pi * r * width;
 	Temp_Mass = 0;
+	EventRate.resize(Param.Meta.SimulationSteps-1);
 	PopulationIndex = 0;
 }
 
@@ -57,8 +58,11 @@ void StarReservoir::Form(GasReservoir & gas)
 	gas.Deplete(starMassFormed,0.0);	
 	gas.Heat(feedbackMass); 
 	
+	EventRate[PopulationIndex].StarMassFormed += starMassFormed;
 	
-	Population[PopulationIndex].FormStars(starMassFormed,PopulationIndex,z);
+	int newStarCount = Population[PopulationIndex].FormStars(starMassFormed,PopulationIndex,z);
+	EventRate[PopulationIndex].NStarsFormed += newStarCount;
+	
 	if (gas.ColdMass() < 0)
 	{
 		std::cout << "ERROR!" << gas.ColdMass() << "  " << gas.HotMass() << std::endl;
@@ -79,7 +83,7 @@ double StarReservoir::AliveMass()
 
 void StarReservoir::PrintStatus(int t)
 {
-	std::string ringName = Param.Output.RingDirectory.Value + "Ring" + std::to_string(ParentRing) + "_stars.dat";
+	std::string ringName = "Ring" + std::to_string(ParentRing) + "_stars.dat";
 	std::stringstream output;
 	int N = Param.Stellar.MassResolution;
 	if (t == 0)
@@ -108,15 +112,16 @@ void StarReservoir::PrintStatus(int t)
 
 void StarReservoir::Death(int currentTime, GasReservoir & birthGas)
 {
+
 	YieldOutput.WipeMemoryUpTo(currentTime);
-	for (int i = 0; i < currentTime; ++i)
+	for (int i = 0; i < currentTime+1; ++i)
 	{
 		if (Population[i].Active())
 		{
-			Population[i].Death(currentTime, YieldOutput,Remnants, birthGas);
+			Population[i].Death(currentTime, YieldOutput,Remnants, birthGas, EventRate[currentTime]);
 		}
 	}
-	Remnants.Decay(currentTime,YieldOutput);
+	Remnants.Decay(currentTime,YieldOutput, EventRate[currentTime]);
 }
 
 const std::vector<GasStream> & StarReservoir::YieldsFrom(int t)
@@ -127,4 +132,14 @@ const std::vector<GasStream> & StarReservoir::YieldsFrom(int t)
 MassReport StarReservoir::DeadMass()
 {
 	return Remnants.Mass();
+}
+
+void StarReservoir::SaveEventRate(int t, std::stringstream & output)
+{
+	if (t == 0 && ParentRing == 0)
+	{
+		EventRate[0].AddHeaders(output);
+	}
+	output << t * Param.Meta.TimeStep<< ", " << Param.Galaxy.RingRadius[ParentRing] << ", ";
+	EventRate[t].Save(output,Param.Meta.TimeStep);
 }

@@ -61,13 +61,13 @@ void RemnantPopulation::Feed(int timeIndex, RemnantOutput rem)
 		
 	}
 }
-void RemnantPopulation::Decay(int currentTime, GasReservoir & scatteringReservoir)
+void RemnantPopulation::Decay(int currentTime, GasReservoir & scatteringReservoir, StarEvents & EventRate)
 {
 	double deltaT = Param.Meta.TimeStep;
-	for (int t = 0; t < currentTime; ++t)
+	for (int t = 0; t <= currentTime; ++t)
 	{
 		double timeSince = (currentTime - t) * deltaT;
-		if (timeSince > Param.Yield.SNIa_DelayTime)
+		if (timeSince >= Param.Yield.SNIa_DelayTime)
 		{
 			double oldSNIa_short = ShortSNIaBuffer[t];
 			double oldSNIa_long = LongSNIaBuffer[t];
@@ -79,7 +79,7 @@ void RemnantPopulation::Decay(int currentTime, GasReservoir & scatteringReservoi
 			
 			double snIa_released = oldSNIa_short * (1 - decayShort) + oldSNIa_long * (1-decayLong);
 			int snIa_amount = snIa_released / Param.Yield.SNIa_TypicalMass;
-			
+			EventRate.SNIa += snIa_amount;
 			SNIaYield(scatteringReservoir,snIa_amount,t);
 		}
 	}

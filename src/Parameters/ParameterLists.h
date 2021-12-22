@@ -54,14 +54,11 @@ class OutputValues : public ParamList
 		//!The name for the output config file which would replicate this simulation
 		Argument<std::string> Config = Argument<std::string>("rerun.config","config-out");
 			
-		//!The directory containing mass-type information (set to empty by default, so saved in the main Output root directory)
-		Argument<std::string> GalacticDirectory = Argument<std::string>("","galaxy-data");
 		
 		//!The name of the file containing galactic-scale mass information
 		Argument<std::string> GalaxyMassFile = Argument<std::string>("Mass.dat","galaxy-mass-file");
 		
-		//!The directory where individual ring data can be found
-		Argument<std::string> RingDirectory = Argument<std::string>("Ring/","ring-data");
+		Argument<std::string> EventRateFile = Argument<std::string>("Events.dat","event-rate-file");
 		
 		//!The ring-star data identifier
 		Argument<std::string> StarFile = Argument<std::string>("StarPop.dat","ring-data-stars");
@@ -83,7 +80,7 @@ class OutputValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		OutputValues()
 		{
-			argPointers = {&Root, &GalacticDirectory,&GalaxyMassFile,&RingDirectory,&StarFile, &ChemicalPrefactor,&ColdGasDataFile,&HotGasDataFile};
+			argPointers = {&Root, &GalaxyMassFile,&StarFile, &ChemicalPrefactor,&ColdGasDataFile,&HotGasDataFile};
 		};
 		
 		//! An overload of a normally empty function. Goes through and creates the necessary directory structure 
@@ -217,9 +214,9 @@ class YieldValues : public ParamList
 		std::vector<SourceProcess> ProcessTypes;
 		
 		//!Time before SNIa can turn on, in Gyr
-		Argument<double> SNIa_DelayTime = Argument<double>(0.15,"sn1a-delay");
+		Argument<double> SNIa_DelayTime = Argument<double>(0.2,"sn1a-delay");
 		
-		Argument<double> SNIa_ActiveFraction = Argument<double>(0.07,"sn1a-fraction");
+		Argument<double> SNIa_ActiveFraction = Argument<double>(0.05,"sn1a-fraction");
 		
 		Argument<double> SNIa_LongFraction = Argument<double>(0,"sn1a-fraction-long");
 		
@@ -289,8 +286,11 @@ class GalaxyValues : public ParamList
 		//! The cutoff radius of the galaxy
 		Argument<double> Radius = Argument<double>(20.0,"radius");
 		
+		Argument<bool> UsingVariableRingWidth = Argument<bool>(false,"variable-ring-width");
+		
 		//!Width of the innermost ring (kpc)
 		Argument<double> Ring0Width = Argument<double>(0.05,"inner-ring-width");
+		
 		
 		std::vector<double> RingRadius;
 		std::vector<double> RingWidth;
@@ -344,7 +344,7 @@ class GalaxyValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		GalaxyValues()
 		{
-			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2, &InflowParameterA, &InflowParameterB, &MaxSFRFraction, &Ring0Width};
+			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2, &InflowParameterA, &InflowParameterB, &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth};
 		}
 		void Initialise(std::string resourceRoot);
 };

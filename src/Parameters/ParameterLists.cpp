@@ -8,14 +8,13 @@ void MetaValues::Initialise(std::string resourceRoot)
 void OutputValues::Initialise(std::string resourceRoot)
 {
 	JSL::mkdir(Root.Value);
-	GalacticDirectory.Value = Root.Value + "/" + GalacticDirectory.Value;
-	JSL::mkdir(GalacticDirectory.Value);
-	
-	GalaxyMassFile.Value = GalacticDirectory.Value + "/" + GalaxyMassFile.Value;
+
+
+	GalaxyMassFile.Value = Root.Value + "/" + GalaxyMassFile.Value;
 	JSL::initialiseFile(GalaxyMassFile.Value);
-	
-	RingDirectory.Value = Root.Value + "/" + RingDirectory.Value;
-	JSL::mkdir(RingDirectory.Value);
+
+	EventRateFile.Value = Root.Value + "/" + EventRateFile.Value;
+	JSL::initialiseFile(EventRateFile.Value);
 	
 	AbsoluteColdGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Absolute_" + ColdGasDataFile.Value;
 	JSL::initialiseFile(AbsoluteColdGasFile);
@@ -78,7 +77,7 @@ void ElementValues::Initialise(std::string resourceRoot)
 
 double stepFraction(double targetMinStep, double width, int N)
 {
-	int nRaphson = 100;
+	int nRaphson = 400;
 	double x= 1;
 	
 	for (int i = 0; i < nRaphson; ++i)
@@ -107,7 +106,7 @@ void StellarValues::Initialise(std::string resourceRoot)
 	MassDeltas = std::vector<double>(MassResolution.Value);
 	//~ double gridWidth = (MaxStellarMass - ImmortalMass)/MassResolution
 	
-	double minStepSize = 0.05;
+	double minStepSize = 0.01;
 	double alpha = stepFraction(minStepSize, MaxStellarMass - ImmortalMass,MassResolution.Value);
 	double sumFactor;
 	if (alpha == 1)
@@ -165,11 +164,12 @@ void GalaxyValues::Initialise(std::string resourceRoot)
 	double minStepSize = Ring0Width.Value;
 	
 	
-	double alpha = 1;
+	double alpha;
 	
 	
-	if ( abs(minStepSize - Radius/RingCount.Value) < 1e-7)
+	if ( abs(minStepSize - Radius/RingCount.Value) < 1e-7  || UsingVariableRingWidth.Value == false)
 	{
+		alpha = 1;
 	}
 	else
 	{
@@ -189,7 +189,6 @@ void GalaxyValues::Initialise(std::string resourceRoot)
 	for (int i = 0; i < RingCount.Value; ++i)
 	{
 		x += w/2;
-		std::cout << x - w/2 << "->" << x + w/2 << std::endl;
 		RingRadius[i] = x;
 		RingWidth[i] = w;
 		x += w/2;
