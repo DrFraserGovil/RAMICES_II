@@ -3,7 +3,7 @@
 //~ #include "../Stars/RemnantPopulation.h"
 #include "../Parameters/GlobalParameters.h"
 #include "../Gas/GasReservoir.h"
-
+#include "YieldRidge.h"
 //~ #include <ostream>
 
 struct RemnantOutput
@@ -37,4 +37,14 @@ class YieldGrid
 		
 		RemnantOutput StellarInject( GasReservoir & scatteringReservoir, int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const;
 		
+		void LoadOrfeoYields();
+		void LoadMarigoYields();
+		void LoadLimongiYields();
+		void LoadMaederYields();
+		std::vector<std::vector<YieldRidge>> RidgeStorage;
+		int RemnantLocation;
+		
+		void CreateGrid();
+		YieldBracket GetBracket(int id, double mass, double z);
+		std::vector<int> SourcePriority;
 };

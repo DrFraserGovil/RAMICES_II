@@ -21,3 +21,5 @@ enum YieldProcess {CCSN, SNIa, NSM, AGB, YieldCount};
 
 enum RemnantType {WhiteDwarf, DormantDwarf, SNIaDwarf, NeutronStar, DormantNS, MergerNS, BlackHole};
 
+//! Enums to identify the theoretical basis for different yield tables
+enum SourceID {Orfeo,Marigo,Limongi,Maeder,Mixed,Unknown, SourceCount};

@@ -97,7 +97,8 @@ class ElementValues : public ParamList
 		//! Human readable names for the elements, in the order associated with the ElementIDs. These names are primarily elemental symbols, except Metals, which uses "Z"
 		std::vector<std::string> ElementNames;
 
-		
+		// The values of Z associated with each element
+		std::vector<int> ProtonCounts;
 
 		//! Solar abundances (in mass units) of the elements, in the order associated with the ElementIDs
 		std::vector<double> SolarAbundances;
@@ -111,8 +112,7 @@ class ElementValues : public ParamList
 		//! The column of the solar abundance file which contains the relevant solar abundance value to be saved to memory
 		Argument<int> SolarAbundanceFileDataColumn = Argument<int>(3,"solar-values-data-col");
 		
-		//! Enums to identify the theoretical basis for different yield tables
-		enum SourceIDs {Orfeo,Marigo,Limongi,Maeder,Mixed};
+		
 		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		ElementValues()
@@ -209,7 +209,9 @@ class StellarValues : public ParamList
 class YieldValues : public ParamList
 {
 	public:
-	
+		Argument<std::string> YieldRoot = Argument<std::string>("ChemicalData/","yield-root");
+		Argument<double> TargetNi56Yield = Argument<double>(0.1,"ideal-ni56");
+		Argument<double> MassOverhang = Argument<double>(10,"yield-mass-overhang");
 		std::vector<std::string> ProcessNames;
 		std::vector<SourceProcess> ProcessTypes;
 		
@@ -236,7 +238,7 @@ class YieldValues : public ParamList
 		
 	YieldValues()
 	{
-		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime, & SNIa_ActiveFraction, &SNIa_LongFraction, &CCSN_MassCut,&NSM_ActiveFraction, &NSM_Scale,&SNIa_TypicalMass,&NSM_TypicalMass};
+		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime, & SNIa_ActiveFraction, &SNIa_LongFraction, &CCSN_MassCut,&NSM_ActiveFraction, &NSM_Scale,&SNIa_TypicalMass,&NSM_TypicalMass, &YieldRoot, &TargetNi56Yield};
 	}
 	//! Initialises the mass grid etc.
 		void Initialise(std::string resourceRoot);

@@ -49,8 +49,8 @@ int main(int argc, char** argv)
 	//~ initialise main galaxy object
 	Galaxy g = Galaxy(Data);
 
-	Data.UrgentLog("Beginning main computation loop...\n");
-	g.Evolve();
+	//~ Data.UrgentLog("Beginning main computation loop...\n");
+	//~ g.Evolve();
 	
 	Exit();
 	return 0;

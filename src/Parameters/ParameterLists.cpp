@@ -45,6 +45,21 @@ void ElementValues::GiveElementsNames()
 	ElementNames[Cobalt] = "Co";
 	ElementNames[Europium] = "Eu";
 	
+	ProtonCounts.resize(ElementCount);
+	ProtonCounts[Hydrogen] = 1;
+	ProtonCounts[Helium] = 2;
+	ProtonCounts[Metals] = -1;
+	ProtonCounts[Iron] = 26;
+	ProtonCounts[Oxygen] = 8;
+	ProtonCounts[Magnesium] = 12;
+	ProtonCounts[Carbon] = 6;
+	ProtonCounts[Silicon] = 14;
+	ProtonCounts[Calcium] = 20;
+	ProtonCounts[Manganese] = 25;
+	ProtonCounts[Chromium] = 24;
+	ProtonCounts[Cobalt] = 27;
+	ProtonCounts[Europium] = 63;
+	
 	
 }
 
@@ -155,6 +170,7 @@ void YieldValues::Initialise(std::string resourceRoot)
 	ProcessTypes[AGB] = Stellar;
 	ProcessTypes[SNIa] = Remnant;
 	ProcessTypes[NSM] = Remnant;
+	YieldRoot.Value = resourceRoot + "/" + YieldRoot.Value;
 }
 
 void GalaxyValues::Initialise(std::string resourceRoot)
