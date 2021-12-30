@@ -92,10 +92,14 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int
 				double upSynth = Grid[mass - MassOffset][upID][elem];
 				double downSynth = Grid[mass - MassOffset][downID][elem];
 				synthesisFraction = downSynth + (upSynth - downSynth) * interpolationFactor;
+				
 			}
 			double outputFraction = std::max(0.0,birthFraction + synthesisFraction);
 			double massOfElem = ejectaMass * outputFraction / 1e9;
-			
+			if (elem == Magnesium && proc == Stellar)
+				{
+					//~ std::cout << "Through " << proc << " I am producing " << massOfElem << " of Mg at this step from a yield of " << Grid[mass - MassOffset][upID][elem] << "->" << Grid[mass - MassOffset][downID][elem] << "  =  "<< synthesisFraction << " and an ejecta mass of " << ejectaMass <<std::endl;
+				}
 			
 			chunk.Cold(elem) = massOfElem * hotInjectionFraction;
 			chunk.Hot(elem) = massOfElem * (1.0 - hotInjectionFraction);
@@ -136,8 +140,8 @@ void YieldGrid::CCSN_Initialise()
 	hotInjectionFraction = Param.Thermal.HotInjection_CCSN;
 	
 	SourcePriority.resize(SourceCount);
-	SourcePriority[Orfeo] = 3;
-	SourcePriority[Limongi] = 2;
+	SourcePriority[Orfeo] = 2;
+	SourcePriority[Limongi] = 3;
 	SourcePriority[Maeder] = 1;
 	
 	LoadOrfeoYields();
@@ -145,6 +149,7 @@ void YieldGrid::CCSN_Initialise()
 	LoadMaederYields();
 
 	CreateGrid();
+	SaveGrid("CCSN");
 }
 
 void YieldGrid::AGB_Initialise()
@@ -167,10 +172,15 @@ void YieldGrid::AGB_Initialise()
 	LoadMarigoYields();
 	LoadMaederYields();
 	CreateGrid();
+	SaveGrid("AGB");
 }
 
 void YieldGrid::CreateGrid()
 {
+	if (Param.Meta.Verbosity> 0)
+	{
+		std::cout << "\t\tBeginning grid interpolation\n";
+	}
 	for (int i = 0; i < RidgeStorage.size(); ++i)
 	{
 		if (RidgeStorage[i].size() > 0)
@@ -183,7 +193,14 @@ void YieldGrid::CreateGrid()
 				{
 					double z = pow(10,Param.Stellar.LogZGrid[zIndex]);
 					YieldBracket pair = GetBracket(i,mass,z);
-					Grid[i][mIndex][zIndex] = pair.Interpolate(mass,z);
+					if (pair.isEnclosed)
+					{
+						Grid[mIndex][zIndex][i] = pair.Interpolate(mass,z);
+					}
+					else
+					{
+						Grid[mIndex][zIndex][i] = 0;
+					}
 				}
 			}
 			
@@ -197,6 +214,8 @@ YieldBracket YieldGrid::GetBracket(int id, double mass, double z)
 	bool hasUpper = false;
 	YieldRidge lower;
 	YieldRidge upper;
+	bool lowerLax = false;
+	bool upperLax = false;
 	double overhang = Param.Yield.MassOverhang;
 	
 	
@@ -204,8 +223,8 @@ YieldBracket YieldGrid::GetBracket(int id, double mass, double z)
 	for (int i = 0; i < RidgeStorage[id].size(); ++i)
 	{
 		int nPoints = RidgeStorage[id][i].Points.size();
-		double lowerRidgeMass = RidgeStorage[id][i].Points[0].Mass - overhang;
-		double upperRidgeMass = RidgeStorage[id][i].Points[nPoints-1].Mass + overhang;
+		double lowerRidgeMass = RidgeStorage[id][i].Points[0].Mass;
+		double upperRidgeMass = RidgeStorage[id][i].Points[nPoints-1].Mass;
 		
 		if (MassOffset > 0)
 		{
@@ -216,6 +235,7 @@ YieldBracket YieldGrid::GetBracket(int id, double mass, double z)
 			upperRidgeMass = std::min(upperRidgeMass, Param.Yield.CCSN_MassCut.Value);
 		}
 		bool withinMassRange = (lowerRidgeMass - overhang < mass) && (upperRidgeMass + overhang > mass);
+		bool withinTightMassRange = (lowerRidgeMass < mass) && (upperRidgeMass > mass);
 		if (withinMassRange)
 		{
 			if (RidgeStorage[id][i].Z > z)
@@ -224,16 +244,27 @@ YieldBracket YieldGrid::GetBracket(int id, double mass, double z)
 				{
 					upper = RidgeStorage[id][i];
 					hasUpper = true;
+					upperLax = false;
+					if (!withinTightMassRange)
+					{
+						upperLax = true;
+					}
 				}
 				else
 				{
-					bool differentZ = abs(upper.Z - RidgeStorage[id][i].Z)/upper.Z > 0.03;
+					bool differentZ = abs(upper.Z - RidgeStorage[id][i].Z)/upper.Z > 0.05;
 					bool closer = abs(upper.Z - z) > abs(RidgeStorage[id][i].Z - z);
 					bool higherPriority = SourcePriority[RidgeStorage[id][i].Source] > SourcePriority[upper.Source];
-					
-					if ( (differentZ || higherPriority) && closer)
+					bool tighterThanCurrent = (withinTightMassRange && upperLax);
+					if ( (differentZ || higherPriority || (tighterThanCurrent)) && (closer ))
 					{
+						upperLax = false;
 						upper = RidgeStorage[id][i];
+						if (!withinTightMassRange)
+						{
+							upperLax = true;
+						}
+
 					}
 				}
 			}
@@ -246,9 +277,9 @@ YieldBracket YieldGrid::GetBracket(int id, double mass, double z)
 				}
 				else
 				{
-					bool differentZ = abs(upper.Z - RidgeStorage[id][i].Z)/upper.Z > 0.03;
-					bool closer = abs(upper.Z - z) > abs(RidgeStorage[id][i].Z - z);
-					bool higherPriority = SourcePriority[RidgeStorage[id][i].Source] > SourcePriority[upper.Source];
+					bool differentZ = abs(lower.Z - RidgeStorage[id][i].Z)/lower.Z > 0.03;
+					bool closer = abs(lower.Z - z) > abs(RidgeStorage[id][i].Z - z);
+					bool higherPriority = SourcePriority[RidgeStorage[id][i].Source] > SourcePriority[lower.Source];
 					if ((differentZ || higherPriority) && closer)
 					{
 						lower = RidgeStorage[id][i];
@@ -268,15 +299,75 @@ YieldBracket YieldGrid::GetBracket(int id, double mass, double z)
 	else if (hasUpper)
 	{
 		output = YieldBracket(upper);
+		
 	}
 	else if (hasLower)
 	{
 		output = YieldBracket(lower);
 	}
-	else
-	{
-		throw std::runtime_error("Could not locate a bracket when there should be one....I hate life!");
-	}
+
 	
 	return output;
+}
+
+void YieldGrid::SaveGrid(std::string name)
+{
+	if (Param.Meta.Verbosity > 0)
+	{
+		std::cout << "\t\tBeginning filesave" << std::endl;
+	}
+	std::string fileName = Param.Output.Root.Value + name + "_yields.dat";
+	JSL::initialiseFile(fileName);
+	
+	std::stringstream output;
+	output << "Mass, logZ";
+	for (int i = 0; i < ElementCount;++i)
+	{
+		output << ", " << Param.Element.ElementNames[i];
+	}
+	output << ", RemnantFraction\n";
+	for (int mIndex = 0; mIndex < Grid.size(); ++mIndex)
+	{
+		double mass = Param.Stellar.MassGrid[mIndex + MassOffset];
+		//~ std::cout << mIndex << "  " << MassOffset << "  " << mass <<std::endl;
+		for (int zIndex = 0; zIndex < Param.Stellar.LogZResolution; ++zIndex)
+		{
+			double logz = Param.Stellar.LogZGrid[zIndex];
+			output << mass << ", " << logz;
+			for (int i = 0; i < ElementCount; ++i)
+			{
+				output << ", " << Grid[mIndex][zIndex][i];
+			}
+			output << ", " << Grid[mIndex][zIndex][RemnantLocation] << "\n";
+		
+			//~ YieldBracket pair = GetBracket(i,mass,z);
+			//~ Grid[i][mIndex][zIndex] = pair.Interpolate(mass,z);
+		}
+	}
+	JSL::writeStringToFile(fileName,output.str());
+	
+	for (int i = 0; i < RidgeStorage.size(); ++i)
+	{
+		std::string subname;
+		if (i < ElementCount)
+		{
+			subname = Param.Element.ElementNames[i];
+		}
+		else
+		{
+			subname = "Remnant";
+		}
+		subname = Param.Output.Root.Value + subname + "_ridges_" + name + ".dat";
+		JSL::initialiseFile(subname);
+		std::stringstream output2;
+		output2 << "Mass, logZ, Value\n";
+		for (int j = 0; j < RidgeStorage[i].size(); ++j)
+		{
+			for (int m = 0; m < RidgeStorage[i][j].Points.size(); ++m)
+			{
+				output2 << RidgeStorage[i][j].Points[m].Mass << ", " << log10(RidgeStorage[i][j].Z) << ", " << RidgeStorage[i][j].Points[m].Yield <<"\n";
+			}
+		}
+		JSL::writeStringToFile(subname,output2.str());
+	}
 }

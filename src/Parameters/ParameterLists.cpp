@@ -7,6 +7,7 @@ void MetaValues::Initialise(std::string resourceRoot)
 
 void OutputValues::Initialise(std::string resourceRoot)
 {
+	Root.Value += "/";
 	JSL::mkdir(Root.Value);
 
 

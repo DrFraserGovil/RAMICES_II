@@ -143,6 +143,10 @@ double GasStream::Mass()
 	}
 	return internal_TotalMass;
 }
+double GasStream::Mass() const
+{
+	return internal_TotalMass;
+}
 double GasStream::HotMass()
 {
 	if (NeedsRecomputing)

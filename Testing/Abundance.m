@@ -1,7 +1,7 @@
 % files = "../Output/" + ["LowTempLowSpace","HighTempLowSpace","LowTempUniformLowSpace","HighTempUniformLowSpace","LowTempHighSpace","HighTempHighSpace","LowTempUniformHighSpace","HighTempUniformHighSpace"]+ "/Enrichment_Log_ColdGas.dat";
 clf;
 % T=tiledlayout(4,2);
-files = "../Output/" + ["LightweightIGM"] +"/Enrichment_Log_ColdGas.dat";
+files = "../Output/" + ["Yield"] +"/Enrichment_Log_ColdGas.dat";
 T = tiledlayout(1,1);
 for file = files
     nexttile;
@@ -12,9 +12,9 @@ xlabel(T,"[Fe/H]");
 ylabel(T,"[Mg/Fe]");
 function plotter(fileName)
 f = readtable(fileName);
-fe = str2double(f.Total_Fe);
+fe = (f.Total_Fe);
 h = f.Total_H;
-mg = str2double(f.Total_Mg);
+mg = (f.Total_Mg);
 
 % scatter(fe-h,mg-fe);
 r = unique(f.RingIndex);
@@ -22,6 +22,7 @@ r = unique(f.RingIndex);
 cs = jet(length(r));
 for i = 1:length(r)
     selector = f.RingIndex == r(i);
+  
     feSub = fe(selector);
     hSub = h(selector);
     mgSub = mg(selector);

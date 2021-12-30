@@ -272,7 +272,7 @@ void YieldGrid::LoadLimongiYields()
 			{
 				solarValue *= z / Param.Element.SolarAbundances[Metals];
 			}
-			double yield = std::stod(FILE_LINE_VECTOR[5+j])/ejectaMass;//-solarValue?? perhaps not....was generated from Ralph's hardcoding, so maybe not
+			double yield = std::stod(FILE_LINE_VECTOR[5+j])/ejectaMass-solarValue ;//?? perhaps not....was generated from Ralph's hardcoding, so maybe not
 
 			Ridges[j][zIndex].Points[mIndex] = YieldPoint(mass, yield);
 		}
@@ -284,13 +284,13 @@ void YieldGrid::LoadLimongiYields()
 	for (int i = 0; i < elementsPresent.size() ; ++i)
 	{
 		ElementID elem = elementsPresent[i];
-		//~ if (elem != Iron)
-		//~ {
+		if (elem != Iron)
+		{
 			for (YieldRidge ridge : Ridges[i])
 			{
 				RidgeStorage[elem].push_back(ridge);
 			}
-		//~ }
+		}
 	}
 	
 	for (YieldRidge relics : RemnantRidges)

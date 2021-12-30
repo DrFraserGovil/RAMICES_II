@@ -43,11 +43,11 @@ struct YieldBracket
 	YieldBracket(YieldRidge r1, YieldRidge r2): UpperRidge(r1), LowerRidge(r2)
 	{
 		isEnclosed = true;
-
+		hasSingle = false;
 	}
 	YieldBracket(YieldRidge r1): UpperRidge(r1), LowerRidge(r1)
 	{
-		isEnclosed = false;
+		isEnclosed = true;
 		hasSingle = true;
 	}
 	

@@ -47,4 +47,5 @@ class YieldGrid
 		void CreateGrid();
 		YieldBracket GetBracket(int id, double mass, double z);
 		std::vector<int> SourcePriority;
+		void SaveGrid(std::string name);
 };

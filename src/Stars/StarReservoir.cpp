@@ -122,6 +122,7 @@ void StarReservoir::Death(int currentTime, GasReservoir & birthGas)
 		}
 	}
 	Remnants.Decay(currentTime,YieldOutput, EventRate[currentTime]);
+	
 }
 
 const std::vector<GasStream> & StarReservoir::YieldsFrom(int t)

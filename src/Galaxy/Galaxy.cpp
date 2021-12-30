@@ -106,6 +106,8 @@ void Galaxy::Evolve()
 		IGM.PassiveCool(Param.Meta.TimeStep);
 		Infall(t);
 		LaunchParallelRings(timestep,RingStep);
+		
+		
 		LaunchParallelRings(timestep,Scattering);
 		//~ ScatterYields(timestep);
 		
@@ -205,7 +207,6 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		//check that we do not remove more gas than is actually present
 		double maxDepletion = 0.9;
 		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());
-		//~ std::cout << "Ring " << ring << " wants " << inflowMass / Rings[ring+1].Gas.Mass() * 100 << "% of the next ring" << std::endl;
 		Rings[ring].Gas.TransferFrom(Rings[ring+1].Gas,inflowMass);
 		
 		//if some part of the budget was missed because of the std::min above, then make up the deficit from the IGM
@@ -286,7 +287,7 @@ void Galaxy::ScatterStep(int time, int ringstart, int ringend)
 {
 	for (int i = ringstart; i < ringend; ++i)
 	{
-		for (int t = 0; t < time; ++t)
+		for (int t = 0; t <= time; ++t)
 		{
 			double absorbFrac = 1.0 - Param.Stellar.EjectionFraction;
 			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t),absorbFrac);

@@ -23,6 +23,7 @@ void Ring::TimeStep(int t)
 	MakeStars();
 	KillStars(t);
 	UpdateMemory(t);
+	std::vector<GasStream> mem = Stars.YieldsFrom(0);
 }
 
 void Ring::MakeStars()
@@ -32,7 +33,7 @@ void Ring::MakeStars()
 void Ring::KillStars(int time)
 {
 	Stars.Death(time,Gas);
-
+	std::vector<GasStream> mem = Stars.YieldsFrom(0);
 }
 
 void Ring::Cool()

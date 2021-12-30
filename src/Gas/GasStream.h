@@ -35,6 +35,7 @@ class GasStream
 		//! This function attempts to be clever. Checks the #NedsRecomputing flag, and if necessary, calls ComputeMasses(), then sets the flag accordingly. Should reduce the number of loops needed. \returns The current total mass of the stream
 		double Mass();
 		
+		double Mass() const;
 		//! See Mass() for details \returns The current mass of the #Hot component
 		double HotMass();
 		

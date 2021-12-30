@@ -154,13 +154,13 @@ class StellarValues : public ParamList
 			
 		
 		//!Minimum Z that the ILM(??) can consider
-		Argument<double> MinLogZ = Argument<double>(-7,"logz-min");
+		Argument<double> MinLogZ = Argument<double>(-8,"logz-min");
 		
 		//!Maximum Z that the ILM(??) can consider
 		Argument<double> MaxLogZ = Argument<double>(-1,"logz-max");
 
 		//!Z Resolution
-		Argument<int> LogZResolution = Argument<int>(25,"logz-resolution");
+		Argument<int> LogZResolution = Argument<int>(50,"logz-resolution");
 
 		//! As with MassGrid, but for metallicity (assumed to be always uniform in log-space)
 		std::vector<double> LogZGrid;
@@ -211,7 +211,7 @@ class YieldValues : public ParamList
 	public:
 		Argument<std::string> YieldRoot = Argument<std::string>("ChemicalData/","yield-root");
 		Argument<double> TargetNi56Yield = Argument<double>(0.1,"ideal-ni56");
-		Argument<double> MassOverhang = Argument<double>(10,"yield-mass-overhang");
+		Argument<double> MassOverhang = Argument<double>(4,"yield-mass-overhang");
 		std::vector<std::string> ProcessNames;
 		std::vector<SourceProcess> ProcessTypes;
 		
@@ -230,7 +230,7 @@ class YieldValues : public ParamList
 		
 		Argument<double> SNIa_LongScale = Argument<double>(100,"sn1a-long-decay");
 		
-		Argument<double> CCSN_MassCut = Argument<double>(8,"ccsn-mass");
+		Argument<double> CCSN_MassCut = Argument<double>(10,"ccsn-mass");
 		
 		Argument<double> NSM_DelayTime = Argument<double>(0.02,"nsm-delay");
 		Argument<double> NSM_ActiveFraction = Argument<double>(0.1,"nsm-fraction");
