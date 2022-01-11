@@ -17,7 +17,7 @@ enum SourceProcess {Accreted, Stellar, Remnant,
 	
 	};
 	
-enum YieldProcess {CCSN, SNIa, NSM, AGB, YieldCount};
+enum YieldProcess {CCSN, ECSN,SNIa, NSM, AGB, YieldCount};
 
 enum RemnantType {WhiteDwarf, DormantDwarf, SNIaDwarf, NeutronStar, DormantNS, MergerNS, BlackHole};
 

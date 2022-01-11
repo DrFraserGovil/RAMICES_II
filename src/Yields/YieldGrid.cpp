@@ -71,9 +71,11 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int
 	double initMass = Param.Stellar.MassGrid[mass];
 	
 	////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-	double remnantMass = 0.3*initMass;
+	double remnantMassUp = Grid[mass-MassOffset][upID][RemnantLocation];
+	double remnantMassDown = Grid[mass-MassOffset][downID][RemnantLocation];
+	double remnantMass = remnantMassDown + interpolationFactor * (remnantMassUp - remnantMassDown);
 	
-	double ejectaMass = Nstars * (initMass - remnantMass); //need to change!
+	double ejectaMass = Nstars * (initMass - remnantMass); 
 	
 	
 	const std::vector<GasStream> & birthStreams = birthReservoir.GetHistory(birthIndex);
@@ -96,10 +98,6 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int
 			}
 			double outputFraction = std::max(0.0,birthFraction + synthesisFraction);
 			double massOfElem = ejectaMass * outputFraction / 1e9;
-			if (elem == Magnesium && proc == Stellar)
-				{
-					//~ std::cout << "Through " << proc << " I am producing " << massOfElem << " of Mg at this step from a yield of " << Grid[mass - MassOffset][upID][elem] << "->" << Grid[mass - MassOffset][downID][elem] << "  =  "<< synthesisFraction << " and an ejecta mass of " << ejectaMass <<std::endl;
-				}
 			
 			chunk.Cold(elem) = massOfElem * hotInjectionFraction;
 			chunk.Hot(elem) = massOfElem * (1.0 - hotInjectionFraction);
