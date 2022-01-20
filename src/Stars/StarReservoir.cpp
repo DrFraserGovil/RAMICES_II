@@ -19,10 +19,17 @@ StarReservoir::StarReservoir(int parentRing, InitialisedData & data) : Data(data
 	PopulationIndex = 0;
 }
 
-double integratedSchmidt(double s0, double cutDensity, double prefactor,double power, double t)
+double integratedSchmidt(double s0, double prefactor,double power, double t)
 {
-	double timeFactor = (power - 1)*prefactor* t;
-	return pow( 1.0/pow(s0,power - 1) + timeFactor, 1.0/(1 - power));
+	if (power != 1)
+	{
+		double timeFactor = (power - 1)*prefactor* t;
+		return pow( 1.0/pow(s0,power - 1) + timeFactor, 1.0/(1 - power));
+	}
+	else
+	{
+		return s0 * exp( - prefactor*t);
+	}
 }
 double StarReservoir::SFR_GasLoss(double density)
 {	
@@ -37,7 +44,7 @@ double StarReservoir::SFR_GasLoss(double density)
 		prefactor *= pow(sigmaCut,nBig - nSmall); // ensures the SFR is continuous
 	}
 	//integrates the SFR smoothly over the timestep (including Feedback losses), makes it impossible to losemore gas than you have
-	double gasDensity = integratedSchmidt(density,sigmaCut,prefactor,power,Param.Meta.TimeStep);
+	double gasDensity = integratedSchmidt(density,prefactor,power,Param.Meta.TimeStep);
 	
 	return density - gasDensity;
 	
@@ -51,7 +58,7 @@ void StarReservoir::Form(GasReservoir & gas)
 	
 	////////   density version (old)
 	//~ double gasSurfaceDensity = gas.ColdMass() / ParentArea;
-	//~ double gasLossMass = std::max(0.0,SFR_GasLoss(gasSurfaceDensity));
+	//~ double gasLossMass = std::max(0.0,ParentArea * SFR_GasLoss(gasSurfaceDensity));
 	
 	//////// mass version (new)
 	double gasLossMass = SFR_GasLoss(gas.ColdMass());

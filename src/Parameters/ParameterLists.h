@@ -179,7 +179,7 @@ class StellarValues : public ParamList
 		Argument<double> NSMFraction = Argument<double>(0.0001,"nsm-frac");
 		
 		//! The normal Kennicutt-Schmidt power law index
-		Argument<double> SchmidtMainPower = Argument<double>(1,"schmidt-main");
+		Argument<double> SchmidtMainPower = Argument<double>(1.4,"schmidt-main");
 		
 		//! The low-density Kennicutt-Schmidt power law index
 		Argument<double> SchmidtLowPower = Argument<double>(4.0,"schmidt-low");
@@ -188,7 +188,7 @@ class StellarValues : public ParamList
 		Argument<double> SchmidtDensityCut = Argument<double>(4e-13,"schmidt-cut");
 		
 		//! The Schmidt prefactor
-		Argument<double> SchmidtPrefactor = Argument<double>(1,"schmidt-factor");
+		Argument<double> SchmidtPrefactor = Argument<double>(2,"schmidt-factor");
 		
 		//! The slope of the high-mass tail fo the IMF
 		Argument<double> IMF_Slope = Argument<double>(2.3,"imf-slope");
@@ -264,13 +264,17 @@ class ThermalValues : public ParamList
 		Argument<double> HotInjection_SNIa = Argument<double>(0.99,"fh-sn1a");
 		
 		//! The exponential timescale over which the hot gas cools into the cold gas
-		Argument<double> GasCoolingTimeScale = Argument<double>(1.0,"cool");
+		Argument<double> GasCoolingTimeScale = Argument<double>(0.1,"cool");
 	
+		Argument<int> NumericalResolution = Argument<int>(30,"cool-resolution");
 		
+		Argument<double> DormantHotFraction = Argument<double> (1e-20,"dormant-hot-frac");
+		
+		Argument<double> CoolingPower = Argument<double>(1,"cooling-index");
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		ThermalValues()
 		{
-			argPointers = {&HotInjection_CCSN, &HotInjection_NSM, &HotInjection_SNIa, &GasCoolingTimeScale, &HotInjection_SNIa};
+			argPointers = {&HotInjection_CCSN, &HotInjection_NSM, &HotInjection_SNIa, &GasCoolingTimeScale, &HotInjection_SNIa, &NumericalResolution, &DormantHotFraction,&CoolingPower};
 		}
 };
 
@@ -308,7 +312,7 @@ class GalaxyValues : public ParamList
 		Argument<double> IGM_Mass = Argument<double>(200,"igm-mass");
 		
 		//! The initial exponential scale length of the galaxy
-		Argument<double> MinScaleLength = Argument<double>(1.75,"scale-length-min");
+		Argument<double> MinScaleLength = Argument<double>(0.75,"scale-length-min");
 	
 		//! The exponential scale length that the galaxy achieves at ScaleLengthFinalTime
 		Argument<double> MaxScaleLength = Argument<double>(3.75,"scale-length-max");

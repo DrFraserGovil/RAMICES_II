@@ -176,17 +176,55 @@ void GasReservoir::Heat(double amountToHeat)
 	}
 }
 
-void GasReservoir::PassiveCool(double dt)
+void GasReservoir::PassiveCool(double dt, bool isIGM)
 {
-	double tau = Param.Thermal.GasCoolingTimeScale;
-	double coolingFraction = (1.0 - exp(-dt/tau)); //basic exponential cooling law
-	for (int i = 0; i < ProcessCount; ++i)
+	//~ double tau = Param.Thermal.GasCoolingTimeScale;
+	//~ double coolingFraction = (1.0 - exp(-dt/tau)); //basic exponential cooling law
+	//~ for (int i = 0; i < ProcessCount; ++i)
+	//~ {
+		//~ double componentCool = coolingFraction * Components[i].HotMass();
+		//~ Components[i].Cool(componentCool);
+		
+	//~ }
+	double hotMass = HotMass();
+	double gasMass = hotMass + ColdMass();
+	double n = Param.Thermal.CoolingPower;
+	double dormantPower = pow(Param.Thermal.DormantHotFraction,n);
+	if (isIGM)
 	{
-		double componentCool = coolingFraction * Components[i].HotMass();
-		Components[i].Cool(componentCool);
+		dormantPower = 1e-99;
+	}
+	double ddt = dt/Param.Thermal.NumericalResolution;
+	for (int i = 0; i < Param.Thermal.NumericalResolution; ++i)
+	{
+		double dMh = gasMass/ Param.Thermal.GasCoolingTimeScale * (dormantPower - pow(hotMass/gasMass,n));
+		double delta = std::max(std::min(dMh * ddt,hotMass),hotMass-gasMass);
+		hotMass += delta;
+		hotMass = std::max(0.0,hotMass);
 	}
 	
+	double cooledAmount = HotMass() - hotMass;
+	if (cooledAmount > 0 && HotMass() > 0)
+	{
+		double cooledFraction = cooledAmount / HotMass();
+		for (int i = 0; i < ProcessCount; ++i)
+		{
+			double componentCool = cooledFraction * Components[i].HotMass();
+			Components[i].Cool(componentCool);
+		}
+	}
+	else
+	{
+		double heatedAmount = -cooledAmount;
 
+		double heatedFraction = std::min(1.0,heatedAmount/ColdMass());
+		for (int i = 0; i < ProcessCount; ++i)
+		{
+			double componentHeat = heatedFraction * Components[i].ColdMass();
+			Components[i].Heat(componentHeat);
+		}
+	}
+	
 }
 
 GasStream GasReservoir::AccretionStream(double amountToLose)

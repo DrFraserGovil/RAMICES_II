@@ -38,7 +38,7 @@ void Ring::KillStars(int time)
 
 void Ring::Cool()
 {
-	Gas.PassiveCool(Param.Meta.TimeStep);
+	Gas.PassiveCool(Param.Meta.TimeStep,false);
 }
 void Ring::UpdateMemory(int t)
 {

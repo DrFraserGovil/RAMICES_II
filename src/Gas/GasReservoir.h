@@ -61,7 +61,7 @@ class GasReservoir
 		void Heat(double amoutToHeat);
 		
 		//!Executes the usual cooling mechanism
-		void PassiveCool(double dt);
+		void PassiveCool(double dt, bool isIGM);
 		
 		//! Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object
 		void TransferFrom(GasReservoir & givingGas, double massToMove);

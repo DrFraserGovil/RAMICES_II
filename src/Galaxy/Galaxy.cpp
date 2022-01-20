@@ -103,14 +103,11 @@ void Galaxy::Evolve()
 	Data.UrgentLog("\tStarting Galaxy evolution: ");
 	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
 	{
-		IGM.PassiveCool(Param.Meta.TimeStep);
+		IGM.PassiveCool(Param.Meta.TimeStep,true);
 		Infall(t);
 		LaunchParallelRings(timestep,RingStep);
 		
-		
 		LaunchParallelRings(timestep,Scattering);
-		//~ ScatterYields(timestep);
-		
 		t += Param.Meta.TimeStep;
 		
 		
@@ -291,7 +288,7 @@ void Galaxy::ScatterStep(int time, int ringstart, int ringend)
 		{
 			double absorbFrac = 1.0 - Param.Stellar.EjectionFraction;
 			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t),absorbFrac);
-			IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1 - absorbFrac); //this step might be broken with the parallelisation....
+			IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1.0 - absorbFrac); //this step might be broken with the parallelisation....
 		}
 	}
 }

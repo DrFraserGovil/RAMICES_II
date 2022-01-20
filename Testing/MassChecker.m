@@ -2,7 +2,7 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["LightweightIGM"] + "/Mass.dat";
+files = "../Output/" + ["OldStyle","NewCool"] + "/Mass.dat";
 
 for i = 1:length(files)
     figure(i);
@@ -69,31 +69,45 @@ function plotMassFile(fileName)
     ylabel("Gas ($10^9M_\odot $ kpc $^{-2}$)");
     set(gca,'yscale','log');
     % legend(ts);
+    grid on;
     caxis([0,t]);
     colorbar;
 
     nexttile(2);
     xlabel("Central Radius of Ring (kpc)");
     ylabel("Stars ($10^9M_\odot$kpc $^{-2}$)");
+    
+    trueTop = 25/1000;
+    trueBottom = 60/1000;
+    w = 0.5;
+    sol = 8;
+    hold on;
+    fill([sol-w/2,sol-w/2,sol+w/2,sol+w/2],[trueBottom,trueTop,trueTop,trueBottom],[0.7,0.7,0.7],'FaceAlpha',0.7);
+    hold off;
     set(gca,'yscale','log');
+    grid on;
     nexttile(3);
     xlabel("Central Radius of Ring (kpc)"); 
     ylabel("Cold-Stellar Mass Ratio");
     set(gca,'yscale','log')
-
+    grid on;
     nexttile(4);
     plot(timeset,ctotal);
     hold on;
-
+    
     plot(timeset,htotal);
     plot(timeset,stotal);
     plot(timeset,wdtotal);
     plot(timeset,nstotal);
     plot(timeset,bhtotal);
     plot(timeset,mtotal,'LineWidth',2);
+    
+    plot(timeset,8 + 4.5*(1-exp(-timeset/0.3)) + 46 * (1 - exp(-timeset/14)),'k')
+    
     % plot(timeset,ctotal+htotal+stotal)
     xlabel("Simulation Time (Gyr)");
     ylabel("Total Mass");
     legend("Cold Gas","Hot Gas", "Stars","White Dwarfs", "Neutron Stars", "Black Holes","Total mass");
+    grid on;
     title(T,fileName);
 end
