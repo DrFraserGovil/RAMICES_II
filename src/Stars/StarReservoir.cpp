@@ -48,8 +48,14 @@ void StarReservoir::Form(GasReservoir & gas)
 	double z = gas.Metallicity();
 	double initMass = gas.ColdMass();
 	//~ double initialTotalMass = gas.Mass() + Mass();
-	double gasSurfaceDensity = gas.ColdMass() / ParentArea;
-	double gasLossMass = std::max(0.0,ParentArea * SFR_GasLoss(gasSurfaceDensity));
+	
+	////////   density version (old)
+	//~ double gasSurfaceDensity = gas.ColdMass() / ParentArea;
+	//~ double gasLossMass = std::max(0.0,SFR_GasLoss(gasSurfaceDensity));
+	
+	//////// mass version (new)
+	double gasLossMass = SFR_GasLoss(gas.ColdMass());
+	
 	double heatFrac = Param.Stellar.FeedbackFactor;
 	
 	

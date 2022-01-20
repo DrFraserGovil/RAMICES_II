@@ -179,7 +179,7 @@ class StellarValues : public ParamList
 		Argument<double> NSMFraction = Argument<double>(0.0001,"nsm-frac");
 		
 		//! The normal Kennicutt-Schmidt power law index
-		Argument<double> SchmidtMainPower = Argument<double>(1.4,"schmidt-main");
+		Argument<double> SchmidtMainPower = Argument<double>(1,"schmidt-main");
 		
 		//! The low-density Kennicutt-Schmidt power law index
 		Argument<double> SchmidtLowPower = Argument<double>(4.0,"schmidt-low");
