@@ -106,7 +106,6 @@ void Galaxy::Evolve()
 		IGM.PassiveCool(Param.Meta.TimeStep,true);
 		Infall(t);
 		LaunchParallelRings(timestep,RingStep);
-		
 		LaunchParallelRings(timestep,Scattering);
 		t += Param.Meta.TimeStep;
 		

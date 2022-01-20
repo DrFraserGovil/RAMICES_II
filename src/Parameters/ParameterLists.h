@@ -211,7 +211,7 @@ class YieldValues : public ParamList
 	public:
 		Argument<std::string> YieldRoot = Argument<std::string>("ChemicalData/","yield-root");
 		Argument<double> TargetNi56Yield = Argument<double>(0.1,"ideal-ni56");
-		Argument<double> MassOverhang = Argument<double>(4,"yield-mass-overhang");
+		Argument<double> MassOverhang = Argument<double>(5,"yield-mass-overhang");
 		std::vector<std::string> ProcessNames;
 		std::vector<SourceProcess> ProcessTypes;
 		
@@ -231,6 +231,10 @@ class YieldValues : public ParamList
 		Argument<double> SNIa_LongScale = Argument<double>(100,"sn1a-long-decay");
 		
 		Argument<double> CCSN_MassCut = Argument<double>(10,"ccsn-mass");
+		
+		Argument<double> ECSN_MassCut = Argument<double>(8.5,"ecsn-mass");
+		Argument<double> CODwarf_MassCut = Argument<double>(3.2,"co-mass");
+		Argument<double> Collapse_MassCut = Argument<double>(40,"bh-mass");
 		
 		Argument<double> NSM_DelayTime = Argument<double>(0.02,"nsm-delay");
 		Argument<double> NSM_ActiveFraction = Argument<double>(0.1,"nsm-fraction");
@@ -312,7 +316,7 @@ class GalaxyValues : public ParamList
 		Argument<double> IGM_Mass = Argument<double>(200,"igm-mass");
 		
 		//! The initial exponential scale length of the galaxy
-		Argument<double> MinScaleLength = Argument<double>(0.75,"scale-length-min");
+		Argument<double> MinScaleLength = Argument<double>(3.75,"scale-length-min");
 	
 		//! The exponential scale length that the galaxy achieves at ScaleLengthFinalTime
 		Argument<double> MaxScaleLength = Argument<double>(3.75,"scale-length-max");

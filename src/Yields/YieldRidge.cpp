@@ -37,13 +37,13 @@ double YieldBracket::Interpolate(double mass, double z)
 	{
 		double d = abs(mass - lowZLowMass);
 		lowerDecayFactor = exp(-d/decayScaleLength); 
-		dist = lowZHighMass - lowZLowMass - d*lowerDecayFactor;
+		dist = 0;
 	}
 	if (lowZHighMass < mass)
 	{
 		double d = abs(mass - lowZHighMass);
 		lowerDecayFactor = exp(-d/decayScaleLength); 
-		dist = lowZHighMass - lowZLowMass + d*lowerDecayFactor;
+		dist = lowZHighMass - lowZLowMass;
 	}
 	double lowZInterp = dist /(lowZHighMass - lowZLowMass);
 	
@@ -65,13 +65,13 @@ double YieldBracket::Interpolate(double mass, double z)
 	{
 		double d = abs(mass - highZLowMass);
 		upperDecayFactor = exp(-d/decayScaleLength); 
-		dist = highZHighMass - highZLowMass - d*upperDecayFactor;
+		dist = 0;
 	}
 	if (highZHighMass < mass)
 	{
 		double d = abs(mass - highZHighMass);
 		upperDecayFactor = exp(-d/decayScaleLength); 
-		dist = highZHighMass - highZLowMass + d*upperDecayFactor;
+		dist = highZHighMass - highZLowMass;
 	}
 	
 	double highZInterp = dist /(highZHighMass - highZLowMass);
@@ -93,7 +93,7 @@ double YieldBracket::Interpolate(double mass, double z)
 	{
 		upZ = log10(UpperRidge.Z) ;
 		downZ = log10(LowerRidge.Z) ;
-		logZInterp = (log10(z) - downZ)/(upZ - downZ);
+		logZInterp = (log10(std::min(UpperRidge.Z,z)) - downZ)/(upZ - downZ);
 	}
 	
 	double interpolatedValue =  lowZValue + logZInterp * (highZValue - lowZValue);

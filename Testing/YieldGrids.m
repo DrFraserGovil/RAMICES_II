@@ -1,10 +1,11 @@
-ccsn = readtable("../Output/Yield/CCSN_yields.dat");
-agb = readtable("../Output/Yield/AGB_yields.dat");
+ccsn = readtable("../Output/Test/CCSN_yields.dat");
+agb = readtable("../Output/Test/AGB_yields.dat");
 old = readtable("../Resources/ChemicalData/RalphSavedYields.dat");
 column = "Mg";
 oldColum = 3 + 5;
-overplotter = "../Output/Yield/" + column + "_ridges_AGB.dat";
+overplotter = "../Output/Test/" + column + "_ridges_CCSN.dat";
 ridges = readtable(overplotter);
+figure(3)
 T = tiledlayout('flow');
 
 xC = ccsn.Mass;
@@ -14,7 +15,7 @@ zC = ccsn.(column);
 nexttile;
 % scatter3(xC,yC,zC);
 tri = delaunay(xC,yC);
-h = trisurf(tri, xC, yC, zC);
+h = trisurf(tri, xC, yC, zC,'LineStyle','None');
 hold on;
 xA = agb.Mass;
 yA = agb.logZ;

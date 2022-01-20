@@ -33,7 +33,12 @@ void RemnantPopulation::Feed(int timeIndex, RemnantOutput rem)
 {
 	switch (rem.Type)
 	{
-		case WhiteDwarf:
+		case DormantDwarf:
+		{
+			DormantWDMass += rem.Mass;
+			break;
+		}
+		case CODwarf:
 		{
 			double activeWD = rem.Mass * Param.Yield.SNIa_ActiveFraction;
 			DormantWDMass += rem.Mass - activeWD;

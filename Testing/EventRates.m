@@ -2,7 +2,7 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["Yield"] + "/Events.dat";
+files = "../Output/" + ["Test"] + "/Events.dat";
 
 for i = 1:length(files)
     figure(i);
@@ -28,7 +28,7 @@ function plotEventFile(fileName)
     totalNSM = mset;
     totalSNIa = mset;
     
-    T = tiledlayout(3,2,"TileSpacing","Compact","Padding","Compact");
+    T = tiledlayout(4,2,"TileSpacing","Compact","Padding","Compact");
     c= (jet(nSample));
     colormap(jet);
     for i = 1:nSample
@@ -39,7 +39,7 @@ function plotEventFile(fileName)
         rs = f.Radius(selector);
        
         birth = f.StarsFormed(selector);
-        ccsn = f.CCSNRate(selector);
+        ccsn = f.CCSN_Events(selector);
         agb = f.AGB_Deaths(selector);
         nsm = f.NSM_Events(selector);
         snia = f.SNIa_Events(selector);
@@ -90,12 +90,14 @@ function plotEventFile(fileName)
     ylabel("CCSN Count");
     set(gca,'yscale','log');
     grid on;
+%     ylim([10^4,1r0^6])
     
     nexttile(3);
     xlabel("Central Radius of Ring (kpc)"); 
     ylabel("AGB Death");
     set(gca,'yscale','log')
     grid on;
+%     ylim([10^4,10^6])
     
     nexttile(4);
     xlabel("Central Radius of Ring (kpc)"); 
@@ -108,7 +110,7 @@ function plotEventFile(fileName)
 %     ylabel("NSM Rate");
 %     set(gca,'yscale','log')
     
-    nexttile(5,[1,2]);
+    nexttile(5,[2,2]);
     lw = 2;
     plot(timeset,totalBirth/10^9,'LineWidth',lw);
     hold on;
@@ -118,10 +120,10 @@ function plotEventFile(fileName)
     plot(timeset,totalNSM/10^9,'LineWidth',lw);
     hold off;
     xlabel("Simulation Time (Gyr)");
-    ylabel("Events per Gyr");
-    legend("Star Birth","CCSN","AGB Death","SNIa","NSM");
+    ylabel("Events per yr");
+    legend(["Star Birth","CCSN","AGB Death","SNIa","NSM"],"location","southeast");
     title(T,fileName);
     set(gca,'yscale','log');
-    set(gca,'xscale','log');
+    set(gca,'xscale','linear');
     grid on;
 end

@@ -3,6 +3,8 @@
 double SLF_Functor::PredictLifetime(double mass, double logz)
 {
 	//units = Gyr
+	if (mass < 10)
+		return 100;
 	return 10 * pow(mass,-2.5);
 }
 
@@ -19,6 +21,11 @@ int SLF_Functor::operator()(int mass, double metallicity)
 {
 
 	double logZ = std::max(log10(metallicity),Param.Stellar.MinLogZ.Value);
+	if (logZ > Param.Stellar.MaxLogZ)
+	{
+		std::cout << "ERROR - the metallicity (z = " << logZ << ") has exceeded the value and overflowed the edge of the grid (" << Param.Stellar.MaxLogZ << "). Please recompute with a higher metallicity boundary" << std::endl;
+		exit(10);
+	}
 	int closestMetallicityID = round((logZ - Param.Stellar.MinLogZ)/Param.Stellar.LogZDelta);
 	int upID;
 	int downID;

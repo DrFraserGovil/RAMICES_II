@@ -125,7 +125,6 @@ void StarReservoir::PrintStatus(int t)
 
 void StarReservoir::Death(int currentTime, GasReservoir & birthGas)
 {
-
 	YieldOutput.WipeMemoryUpTo(currentTime);
 	for (int i = 0; i < currentTime+1; ++i)
 	{
@@ -135,7 +134,6 @@ void StarReservoir::Death(int currentTime, GasReservoir & birthGas)
 		}
 	}
 	Remnants.Decay(currentTime,YieldOutput, EventRate[currentTime]);
-	
 }
 
 const std::vector<GasStream> & StarReservoir::YieldsFrom(int t)

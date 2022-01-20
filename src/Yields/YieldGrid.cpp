@@ -37,12 +37,14 @@ RemnantOutput YieldGrid::operator()(GasReservoir & scatteringReservoir, int Nsta
 
 RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const
 {
+	
 	if (mass - MassOffset < 0)
 	{
 		throw std::runtime_error("You have called a yield injection on a star which is outside the scope of this yield grid - likely you have asked for the CCSN from a low mass star");
 	}
 	double logZ = std::max(log10(z),Param.Stellar.MinLogZ.Value);
 	int closestMetallicityID = round((logZ - Param.Stellar.MinLogZ)/Param.Stellar.LogZDelta);
+	closestMetallicityID = std::min(closestMetallicityID, Param.Stellar.LogZResolution-1);
 	int upID;
 	int downID;
 	
@@ -73,10 +75,9 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int
 	////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	double remnantMassUp = Grid[mass-MassOffset][upID][RemnantLocation];
 	double remnantMassDown = Grid[mass-MassOffset][downID][RemnantLocation];
-	double remnantMass = remnantMassDown + interpolationFactor * (remnantMassUp - remnantMassDown);
+	double remnantMass = 0.7 * initMass; //remnantMassDown + interpolationFactor * (remnantMassUp - remnantMassDown);
 	
 	double ejectaMass = Nstars * (initMass - remnantMass); 
-	
 	
 	const std::vector<GasStream> & birthStreams = birthReservoir.GetHistory(birthIndex);
 	for (int p = 0; p < ProcessCount; ++p)
@@ -109,7 +110,23 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int
 	
 	//deal with remnants
 	RemnantOutput output;
-	output.Type = WhiteDwarf;
+	if (initMass > Param.Yield.Collapse_MassCut)
+	{
+		output.Type = BlackHole;
+	}
+	else if (initMass > Param.Yield.ECSN_MassCut)
+	{
+		output.Type = NeutronStar;
+	}
+	else if (initMass > Param.Yield.CODwarf_MassCut)
+	{
+		output.Type = CODwarf;
+	}
+	else
+	{
+		output.Type = DormantDwarf;
+	}
+	
 	output.Mass = Nstars * remnantMass;
 	return output;
 }
@@ -139,8 +156,8 @@ void YieldGrid::CCSN_Initialise()
 	
 	SourcePriority.resize(SourceCount);
 	SourcePriority[Orfeo] = 2;
-	SourcePriority[Limongi] = 3;
-	SourcePriority[Maeder] = 1;
+	SourcePriority[Limongi] = 1;
+	SourcePriority[Maeder] = 3;
 	
 	LoadOrfeoYields();
 	LoadLimongiYields();

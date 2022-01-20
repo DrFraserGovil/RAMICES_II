@@ -9,7 +9,7 @@ class StarEvents
 		int AGBDeaths;
 		int NSM;
 		int SNIa;
-	
+		int ECSN;
 		StarEvents();
 		
 		void AddHeaders(std::stringstream & output);

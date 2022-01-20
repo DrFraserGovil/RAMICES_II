@@ -2,10 +2,10 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["OldStyle","NewCool"] + "/Mass.dat";
+files = "../Output/" + ["Test"] + "/Mass.dat";
 
 for i = 1:length(files)
-    figure(i);
+    figure(i+1);
     plotMassFile(files(i));
     
 end
@@ -109,8 +109,9 @@ function plotMassFile(fileName)
     
     % plot(timeset,ctotal+htotal+stotal)
     xlabel("Simulation Time (Gyr)");
-    ylabel("Total Mass");
+    ylabel("Total Mass ($10^{10}M_\odot$)");
     legend("Cold Gas","Hot Gas", "Stars","White Dwarfs", "Neutron Stars", "Black Holes","Total mass");
+%     set(gca,'yscale','log');
     grid on;
     title(T,fileName);
 end

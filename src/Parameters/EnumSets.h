@@ -19,7 +19,7 @@ enum SourceProcess {Accreted, Stellar, Remnant,
 	
 enum YieldProcess {CCSN, ECSN,SNIa, NSM, AGB, YieldCount};
 
-enum RemnantType {WhiteDwarf, DormantDwarf, SNIaDwarf, NeutronStar, DormantNS, MergerNS, BlackHole};
+enum RemnantType {DormantDwarf, CODwarf, NeutronStar, DormantNS, MergerNS, BlackHole};
 
 //! Enums to identify the theoretical basis for different yield tables
 enum SourceID {Orfeo,Marigo,Limongi,Maeder,Mixed,Unknown, SourceCount};

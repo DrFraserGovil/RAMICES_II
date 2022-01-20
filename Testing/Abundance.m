@@ -1,7 +1,7 @@
 % files = "../Output/" + ["LowTempLowSpace","HighTempLowSpace","LowTempUniformLowSpace","HighTempUniformLowSpace","LowTempHighSpace","HighTempHighSpace","LowTempUniformHighSpace","HighTempUniformHighSpace"]+ "/Enrichment_Log_ColdGas.dat";
 clf;
 % T=tiledlayout(4,2);
-files = "../Output/" + ["Yield"] +"/Enrichment_Log_ColdGas.dat";
+files = "../Output/" + ["Test"] +"/Enrichment_Log_ColdGas.dat";
 T = tiledlayout(1,1);
 for file = files
     nexttile;
@@ -10,6 +10,7 @@ for file = files
 end
 xlabel(T,"[Fe/H]");
 ylabel(T,"[Mg/Fe]");
+grid on;
 function plotter(fileName)
 f = readtable(fileName);
 fe = (f.Total_Fe);

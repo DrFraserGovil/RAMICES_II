@@ -44,7 +44,7 @@ class StellarPopulation
 		const IMF_Functor & IMF; 
 		SLF_Functor & SLF;
 		const YieldGrid & CCSNYield;
-		
+		const YieldGrid & AGBYield;
 		bool IsLifetimeMonotonic;
 		bool IsDepleted;
 		int DepletionIndex;

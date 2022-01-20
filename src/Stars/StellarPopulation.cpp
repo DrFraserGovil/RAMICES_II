@@ -19,7 +19,7 @@ IsoMass::IsoMass(int n, int m, double z, int birth, int death)
 
 
 
-StellarPopulation::StellarPopulation(InitialisedData & data): Param(data.Param), IMF(data.IMF), SLF(data.SLF), CCSNYield(data.CCSNYield)
+StellarPopulation::StellarPopulation(InitialisedData & data): Param(data.Param), IMF(data.IMF), SLF(data.SLF), CCSNYield(data.CCSNYield), AGBYield(data.AGBYield)
 {
 	Distribution.resize(Param.Stellar.MassResolution);
 	internal_MassCounter = 0;
@@ -81,6 +81,13 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex,double formin
 		if (deathIndex < prevIndex)
 		{
 			IsLifetimeMonotonic = false;
+			std::cout << "t = " << timeIndex << "  death index = " << deathIndex << std::endl;
+			std::cout << "z = " << formingMetallicity << std::endl;
+			std::cout << "lifetime = " << SLF(i,formingMetallicity) << std::endl;
+			std::cout << "m = " << m << std::endl;
+			std::cout << "Previous index = " << prevIndex << std::endl;
+			std::cout << "Non-monotonic lifetime generated?" << std::endl;
+			exit(5);
 		}
 		prevIndex = deathIndex;
 	}
@@ -145,15 +152,20 @@ void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYiel
 			internal_MassCounter -= gasMassReclaimed;
 	
 			RemnantOutput newRem;
+			
 			if (starMass > Param.Yield.CCSN_MassCut)
 			{
 				newRem = CCSNYield(temporalYieldGrid,nStars,massID,z,birthID,birthGas);
 				eventRate.CCSN += nStars;
 			}
+			else if (starMass > Param.Yield.ECSN_MassCut)
+			{
+				newRem.Type = NeutronStar;
+				newRem.Mass = nStars * starMass;
+			}
 			else
 			{
-				newRem.Type = WhiteDwarf;
-				newRem.Mass = stellarMassReleased;
+				newRem = AGBYield(temporalYieldGrid,nStars,massID,z,birthID,birthGas);
 				eventRate.AGBDeaths += nStars;
 			}
 			remnants.Feed(birthID,newRem);
