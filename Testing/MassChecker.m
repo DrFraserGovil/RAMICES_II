@@ -83,15 +83,18 @@ function plotMassFile(fileName)
     sol = 8;
     hold on;
     fill([sol-w/2,sol-w/2,sol+w/2,sol+w/2],[trueBottom,trueTop,trueTop,trueBottom],[0.7,0.7,0.7],'FaceAlpha',0.7);
+    ylim([1e-5,1e1])
     hold off;
     set(gca,'yscale','log');
     grid on;
+    
     nexttile(3);
     xlabel("Central Radius of Ring (kpc)"); 
     ylabel("Cold-Stellar Mass Ratio");
     set(gca,'yscale','log')
     grid on;
     nexttile(4);
+    
     plot(timeset,ctotal);
     hold on;
     
