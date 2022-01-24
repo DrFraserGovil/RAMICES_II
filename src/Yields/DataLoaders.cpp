@@ -284,13 +284,13 @@ void YieldGrid::LoadLimongiYields()
 	for (int i = 0; i < elementsPresent.size() ; ++i)
 	{
 		ElementID elem = elementsPresent[i];
-		if (elem != Iron)
-		{
+		//~ if (elem != Iron)
+		//~ {
 			for (YieldRidge ridge : Ridges[i])
 			{
 				RidgeStorage[elem].push_back(ridge);
 			}
-		}
+		//~ }
 	}
 	
 	for (YieldRidge relics : RemnantRidges)

@@ -105,10 +105,10 @@ void Galaxy::Evolve()
 	{
 		IGM.PassiveCool(Param.Meta.TimeStep,true);
 		Infall(t);
+		
 		LaunchParallelRings(timestep,RingStep);
 		LaunchParallelRings(timestep,Scattering);
 		t += Param.Meta.TimeStep;
-		
 		
 		
 		Data.ProgressBar(currentBars, timestep,Param.Meta.SimulationSteps);	
@@ -189,15 +189,17 @@ double bilitewskiRatio(double a, double b, double radius, double width, double n
 
 void Galaxy::InsertInfallingGas(int ring, double amount)
 {
+	double oldMass = Rings[ring].Gas.Mass();
 	double a_factor  = Param.Galaxy.InflowParameterA;
 	double b_factor = Param.Galaxy.InflowParameterB;
 	double remainingMass;
+	double ratio = 1;
 	if ( ring < Rings.size() - 1)
 	{
 		double radius = Rings[ring].Radius;
 		double width = Rings[ring].Width;
 		double nextwidth = Rings[ring+1].Width;
-		double ratio = bilitewskiRatio(a_factor,b_factor,radius,width,nextwidth,Param.Galaxy.Radius);
+		ratio = bilitewskiRatio(a_factor,b_factor,radius,width,nextwidth,Param.Galaxy.Radius);
 		double inflowMass = ratio/(1 + ratio) * amount;
 		
 		//check that we do not remove more gas than is actually present
@@ -212,12 +214,7 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 	{
 		remainingMass = amount;
 	}
-	GasStream igm = IGM.AccretionStream(remainingMass);
-	
-	
-	//~ std::cout << "I am sending " << remainingMass <<"  " << igm.ColdMass() << std::endl;
-	Rings[ring].Gas.Absorb(igm);
-	
+	Rings[ring].Gas.Absorb(IGM.AccretionStream(remainingMass));
 }
 
 void Galaxy::Infall(double t)
@@ -243,6 +240,7 @@ void Galaxy::Infall(double t)
 		else
 		{
 			newGas -= abs(delta);
+			newGas = std::max(0.0,newGas);
 		}
 		
 	}	

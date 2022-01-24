@@ -3,9 +3,8 @@
 double SLF_Functor::PredictLifetime(double mass, double logz)
 {
 	//units = Gyr
-	if (mass < 10)
-		return 100;
-	return 10 * pow(mass,-2.5);
+
+	return 10*pow(mass,-3.5);
 }
 
 SLF_Functor::SLF_Functor(const GlobalParameters & param) : Param(param)

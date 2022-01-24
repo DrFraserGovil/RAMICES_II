@@ -2,8 +2,9 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["Test"] + "/Mass.dat";
+files = "../Output/" + ["Test_SNOn"] + "/Mass.dat";
 
+clf;
 for i = 1:length(files)
     figure(i+1);
     plotMassFile(files(i));
@@ -39,6 +40,7 @@ function plotMassFile(fileName)
         rs = f.Radius(selector);
         cgm = f.ColdGasMass(selector);
         sgm = f.StellarMass(selector);
+        wdm = f.WDMass(selector);
 %         igm(i) = mean(f.IGMMass(selector));
 
         mtotal(i) = sum(f.TotalMass(selector));
@@ -60,7 +62,7 @@ function plotMassFile(fileName)
 
         nexttile(3);
         hold on;
-        plot(rs,cgm./sgm,'Color',c(i,:));
+        plot(rs,wdm,'Color',c(i,:));
         hold off;
 
     end
@@ -95,15 +97,16 @@ function plotMassFile(fileName)
     grid on;
     nexttile(4);
     
-    plot(timeset,ctotal);
+    lw = 2;
+    plot(timeset,ctotal,'LineWidth',lw);
     hold on;
     
-    plot(timeset,htotal);
-    plot(timeset,stotal);
-    plot(timeset,wdtotal);
-    plot(timeset,nstotal);
-    plot(timeset,bhtotal);
-    plot(timeset,mtotal,'LineWidth',2);
+    plot(timeset,htotal,'LineWidth',lw);
+    plot(timeset,stotal,'LineWidth',lw);
+    plot(timeset,wdtotal,'LineWidth',lw);
+    plot(timeset,nstotal,'LineWidth',lw);
+    plot(timeset,bhtotal,'LineWidth',lw);
+    plot(timeset,mtotal,'LineWidth',4);
     
     plot(timeset,8 + 4.5*(1-exp(-timeset/0.3)) + 46 * (1 - exp(-timeset/14)),'k')
     

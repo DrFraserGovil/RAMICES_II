@@ -57,7 +57,9 @@ void SimpleYield::SNIa_Initialise()
 	
 	Grid = std::vector<double>(ElementCount,0.0);
 	
-	Grid[Iron] = 0.8;
+	Grid[Iron] = 0.77;
+	Grid[Oxygen] = 0.133;
+	Grid[Magnesium] = 0.0158;
 }
 void SimpleYield::NSM_Initialise()
 {

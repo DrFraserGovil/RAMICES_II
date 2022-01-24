@@ -7,7 +7,7 @@ IsoMass::IsoMass()
 	BirthIndex = 0;
 	DeathIndex = 1e10;
 }
-IsoMass::IsoMass(int n, int m, double z, int birth, int death)
+IsoMass::IsoMass(double n, int m, double z, int birth, int death)
 {
 	MassIndex = m;
 	Count = n;
@@ -136,10 +136,13 @@ void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYiel
 {
 	while ( (Distribution[DepletionIndex].DeathIndex <= time || Distribution[DepletionIndex].Count == 0) && DepletionIndex >= 0)
 	{
+
 		//recover population information
-		int nStars = Distribution[DepletionIndex].Count;
+		double nStars = Distribution[DepletionIndex].Count;
 		int massID = Distribution[DepletionIndex].MassIndex;
+		
 		double starMass = Param.Stellar.MassGrid[massID];
+	
 		int birthID = Distribution[DepletionIndex].BirthIndex;
 		double z = Distribution[DepletionIndex].Metallicity;
 		 
@@ -155,6 +158,7 @@ void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYiel
 			
 			if (starMass > Param.Yield.CCSN_MassCut)
 			{
+				//~ std::cout << "CCSN Event: n = " << nStars << " m = " << Param.Stellar.MassGrid[massID] << "  z = " << z << std::endl;
 				newRem = CCSNYield(temporalYieldGrid,nStars,massID,z,birthID,birthGas);
 				eventRate.CCSN += nStars;
 			}

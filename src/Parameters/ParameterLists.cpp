@@ -25,6 +25,10 @@ void OutputValues::Initialise(std::string resourceRoot)
 	JSL::initialiseFile(LogarithmicColdGasFile);
 	LogarithmicHotGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Log_" + HotGasDataFile.Value;
 	JSL::initialiseFile(LogarithmicHotGasFile);
+	
+	
+	YieldSubdir.Value = Root.Value + YieldSubdir.Value;
+	JSL::mkdir(YieldSubdir.Value);
 }
 
 

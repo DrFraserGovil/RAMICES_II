@@ -1,9 +1,13 @@
-ccsn = readtable("../Output/Test/CCSN_yields.dat");
-agb = readtable("../Output/Test/AGB_yields.dat");
+dir = "../Output/Test_SNOn/Yields/";
+ccsn = readtable(dir + "CCSN_yields.dat");
+agb = readtable(dir + "AGB_yields.dat");
 old = readtable("../Resources/ChemicalData/RalphSavedYields.dat");
 column = "Mg";
 oldColum = 3 + 5;
-overplotter = "../Output/Test/" + column + "_ridges_CCSN.dat";
+overplotter = dir + column + "_ridges_CCSN.dat";
+if column == "Remnant"
+    column = column + "Fraction";
+end
 ridges = readtable(overplotter);
 figure(3)
 T = tiledlayout('flow');
@@ -21,12 +25,13 @@ xA = agb.Mass;
 yA = agb.logZ;
 zA = agb.(column);
 tri = delaunay(xA,yA);
-h = trisurf(tri, xA, yA, zA);
+h = trisurf(tri, xA, yA, zA,'LineStyle','None');
 % scatter3(ridges.Mass,ridges.logZ,ridges.Value,100,'r');
 Zs = unique(ridges.logZ);
 for z = Zs'
     z
    selector = (ridges.logZ ==z);
+   ridges.Mass(selector)
    plot3(ridges.Mass(selector),ones(sum(selector),1)*z,ridges.Value(selector),'LineWidth',5);
 end
 xO = old.Var1;

@@ -53,7 +53,10 @@ double StarReservoir::SFR_GasLoss(double density)
 void StarReservoir::Form(GasReservoir & gas)
 {
 	double z = gas.Metallicity();
+	
 	double initMass = gas.ColdMass();
+	
+	//~ std::cout << "Forming stars from a cloud of M = " << initMass << " z = " << z << " hot = " << gas.HotMass() << " total = " << gas.Mass() << std::endl;
 	//~ double initialTotalMass = gas.Mass() + Mass();
 	
 	////////   density version (old)
@@ -61,6 +64,8 @@ void StarReservoir::Form(GasReservoir & gas)
 	//~ double gasLossMass = std::max(0.0,ParentArea * SFR_GasLoss(gasSurfaceDensity));
 	
 	//////// mass version (new)
+	
+	
 	double gasLossMass = SFR_GasLoss(gas.ColdMass());
 	
 	double heatFrac = Param.Stellar.FeedbackFactor;
@@ -73,7 +78,11 @@ void StarReservoir::Form(GasReservoir & gas)
 	
 	EventRate[PopulationIndex].StarMassFormed += starMassFormed;
 	
+
+	
 	int newStarCount = Population[PopulationIndex].FormStars(starMassFormed,PopulationIndex,z);
+	
+	
 	EventRate[PopulationIndex].NStarsFormed += newStarCount;
 	
 	if (gas.ColdMass() < 0)
@@ -128,10 +137,13 @@ void StarReservoir::Death(int currentTime, GasReservoir & birthGas)
 	YieldOutput.WipeMemoryUpTo(currentTime);
 	for (int i = 0; i < currentTime+1; ++i)
 	{
+		
 		if (Population[i].Active())
 		{
+			
 			Population[i].Death(currentTime, YieldOutput,Remnants, birthGas, EventRate[currentTime]);
 		}
+		
 	}
 	Remnants.Decay(currentTime,YieldOutput, EventRate[currentTime]);
 }

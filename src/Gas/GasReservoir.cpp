@@ -186,8 +186,10 @@ void GasReservoir::PassiveCool(double dt, bool isIGM)
 		//~ Components[i].Cool(componentCool);
 		
 	//~ }
+	
 	double hotMass = HotMass();
 	double gasMass = hotMass + ColdMass();
+	//~ std::cout << "\t\tStarted with " << gasMass << " ( C = " << gasMass - hotMass << "  H = " << hotMass << ")" << std::endl;
 	double n = Param.Thermal.CoolingPower;
 	double dormantPower = pow(Param.Thermal.DormantHotFraction,n);
 	if (isIGM)
@@ -224,13 +226,18 @@ void GasReservoir::PassiveCool(double dt, bool isIGM)
 			Components[i].Heat(componentHeat);
 		}
 	}
-	
+	//~ std::cout << "\t\tEnded with " << Mass() << " ( C = " << ColdMass() << "  H = " << HotMass() << ")" << std::endl;
 }
 
 GasStream GasReservoir::AccretionStream(double amountToLose)
 {
 	double initMass = ColdMass();
-	amountToLose = std::min(amountToLose,initMass); //Can't lose more than I have!
+	if (amountToLose > initMass)
+	{
+		std::cout << "You have just attempted to accrete gas from a reservoir exceeding the mass of the reservoir. This is likely because your IGM mass is too low." << std::endl;
+		exit(5);
+	}
+	
 	GasStream output(Accreted);
 	double lossFraction = amountToLose / initMass;
 	for (int i = 0; i < ProcessCount; ++i)

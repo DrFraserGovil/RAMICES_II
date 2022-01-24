@@ -29,15 +29,18 @@ YieldGrid::YieldGrid(const GlobalParameters & param, YieldProcess yieldsource): 
 	
 }
 
-RemnantOutput YieldGrid::operator()(GasReservoir & scatteringReservoir, int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const
+RemnantOutput YieldGrid::operator()(GasReservoir & scatteringReservoir, double Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const
 {
 	return StellarInject(scatteringReservoir, Nstars, mass, z, birthIndex, birthReservoir);
 }
 
 
-RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const
+RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  double Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const
 {
-	
+	//~ z = 0;
+
+	int massSpoof = mass;
+
 	if (mass - MassOffset < 0)
 	{
 		throw std::runtime_error("You have called a yield injection on a star which is outside the scope of this yield grid - likely you have asked for the CCSN from a low mass star");
@@ -71,11 +74,10 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int
 	double interpolationFactor = (logZ - downLogZ)/(upLogZ - downLogZ);
 	
 	double initMass = Param.Stellar.MassGrid[mass];
-	
 	////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-	double remnantMassUp = Grid[mass-MassOffset][upID][RemnantLocation];
-	double remnantMassDown = Grid[mass-MassOffset][downID][RemnantLocation];
-	double remnantMass = 0.7 * initMass; //remnantMassDown + interpolationFactor * (remnantMassUp - remnantMassDown);
+	double remnantMassUp = Grid[massSpoof-MassOffset][upID][RemnantLocation];
+	double remnantMassDown = Grid[massSpoof-MassOffset][downID][RemnantLocation];
+	double remnantMass = remnantMassDown + interpolationFactor * (remnantMassUp - remnantMassDown);
 	
 	double ejectaMass = Nstars * (initMass - remnantMass); 
 	
@@ -92,8 +94,8 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int
 			double synthesisFraction = 0;
 			if (p == Process)
 			{
-				double upSynth = Grid[mass - MassOffset][upID][elem];
-				double downSynth = Grid[mass - MassOffset][downID][elem];
+				double upSynth = Grid[massSpoof - MassOffset][upID][elem];
+				double downSynth = Grid[massSpoof - MassOffset][downID][elem];
 				synthesisFraction = downSynth + (upSynth - downSynth) * interpolationFactor;
 				
 			}
@@ -101,8 +103,7 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int
 			double massOfElem = ejectaMass * outputFraction / 1e9;
 			
 			chunk.Cold(elem) = massOfElem * hotInjectionFraction;
-			chunk.Hot(elem) = massOfElem * (1.0 - hotInjectionFraction);
-			//~ GrossOutputStream[birthIndex][proc][elem] += ejectaMass * outputFraction;
+			chunk.Hot(elem) = massOfElem * (1.0 - hotInjectionFraction);			
 		}
 		
 		scatteringReservoir.AbsorbMemory(birthIndex, chunk);
@@ -113,18 +114,22 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  int
 	if (initMass > Param.Yield.Collapse_MassCut)
 	{
 		output.Type = BlackHole;
+		//~ std::cout << "BH with " << initMass << std::endl;
 	}
 	else if (initMass > Param.Yield.ECSN_MassCut)
 	{
 		output.Type = NeutronStar;
+		//~ std::cout << "NS with " << initMass << std::endl;
 	}
 	else if (initMass > Param.Yield.CODwarf_MassCut)
 	{
 		output.Type = CODwarf;
+		//~ std::cout << "CO with " << initMass << std::endl;
 	}
 	else
 	{
 		output.Type = DormantDwarf;
+		//~ std::cout << "Dormant with " << initMass << std::endl;
 	}
 	
 	output.Mass = Nstars * remnantMass;
@@ -207,7 +212,15 @@ void YieldGrid::CreateGrid()
 				for (int zIndex = 0; zIndex < Param.Stellar.LogZResolution; ++zIndex)
 				{
 					double z = pow(10,Param.Stellar.LogZGrid[zIndex]);
-					YieldBracket pair = GetBracket(i,mass,z);
+					YieldBracket pair = GetBracket(i,mass,z,false);
+					if (pair.hasSingle || !pair.isEnclosed)
+					{
+						YieldBracket pair2 = GetBracket(i,mass,z,true);
+						if (pair.hasSingle && !pair2.hasSingle || !pair.isEnclosed)
+						{
+							pair = pair2;
+						}
+					}
 					if (pair.isEnclosed)
 					{
 						Grid[mIndex][zIndex][i] = pair.Interpolate(mass,z);
@@ -223,7 +236,7 @@ void YieldGrid::CreateGrid()
 	}
 }
 
-YieldBracket YieldGrid::GetBracket(int id, double mass, double z)
+YieldBracket YieldGrid::GetBracket(int id, double mass, double z, bool overhanging)
 {
 	bool hasLower = false;
 	bool hasUpper = false;
@@ -231,8 +244,14 @@ YieldBracket YieldGrid::GetBracket(int id, double mass, double z)
 	YieldRidge upper;
 	bool lowerLax = false;
 	bool upperLax = false;
-	double overhang = Param.Yield.MassOverhang;
 	
+	
+	double overhang = Param.Yield.MassOverhang/10;
+	
+	if (overhanging)
+	{
+		overhang = Param.Yield.MassOverhang;
+	}
 	
 	
 	for (int i = 0; i < RidgeStorage[id].size(); ++i)
@@ -331,7 +350,7 @@ void YieldGrid::SaveGrid(std::string name)
 	{
 		std::cout << "\t\tBeginning filesave" << std::endl;
 	}
-	std::string fileName = Param.Output.Root.Value + name + "_yields.dat";
+	std::string fileName = Param.Output.YieldSubdir.Value + name + "_yields.dat";
 	JSL::initialiseFile(fileName);
 	
 	std::stringstream output;
@@ -372,7 +391,7 @@ void YieldGrid::SaveGrid(std::string name)
 		{
 			subname = "Remnant";
 		}
-		subname = Param.Output.Root.Value + subname + "_ridges_" + name + ".dat";
+		subname = Param.Output.YieldSubdir.Value + subname + "_ridges_" + name + ".dat";
 		JSL::initialiseFile(subname);
 		std::stringstream output2;
 		output2 << "Mass, logZ, Value\n";

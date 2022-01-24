@@ -18,7 +18,7 @@ class YieldGrid
 		const SourceProcess Process;
 		YieldGrid(const GlobalParameters & param, YieldProcess Process);
 		
-		RemnantOutput operator()(GasReservoir & scatteringReservoir, int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const;
+		RemnantOutput operator()(GasReservoir & scatteringReservoir, double Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const;
 		
 	private:
 		const GlobalParameters & Param;
@@ -35,7 +35,7 @@ class YieldGrid
 		//allows the grid size to be truncated for CCSN etc.
 		int MassOffset;
 		
-		RemnantOutput StellarInject( GasReservoir & scatteringReservoir, int Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const;
+		RemnantOutput StellarInject( GasReservoir & scatteringReservoir, double Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const;
 		
 		void LoadOrfeoYields();
 		void LoadMarigoYields();
@@ -45,7 +45,7 @@ class YieldGrid
 		int RemnantLocation;
 		
 		void CreateGrid();
-		YieldBracket GetBracket(int id, double mass, double z);
+		YieldBracket GetBracket(int id, double mass, double z, bool overhang);
 		std::vector<int> SourcePriority;
 		void SaveGrid(std::string name);
 };

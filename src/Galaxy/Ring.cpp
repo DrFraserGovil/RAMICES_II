@@ -20,10 +20,13 @@ double Ring::Mass()
 void Ring::TimeStep(int t)
 {
 	Cool();
+	//~ std::cout << "\tCooled" << std::endl;
 	MakeStars();
+	//~ std::cout << "\tFormed" << std::endl;
 	KillStars(t);
+	//~ std::cout << "\tKilled" << std::endl;
 	UpdateMemory(t);
-	std::vector<GasStream> mem = Stars.YieldsFrom(0);
+	//~ std::cout << "\tSaved" << std::endl;
 }
 
 void Ring::MakeStars()
@@ -33,7 +36,6 @@ void Ring::MakeStars()
 void Ring::KillStars(int time)
 {
 	Stars.Death(time,Gas);
-	std::vector<GasStream> mem = Stars.YieldsFrom(0);
 }
 
 void Ring::Cool()

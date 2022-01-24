@@ -16,7 +16,7 @@ class IsoMass
 		int BirthIndex;
 		int DeathIndex;
 		IsoMass();
-		IsoMass(int n, int m, double z, int birth, int death);
+		IsoMass(double n, int m, double z, int birth, int death);
 };
 
 

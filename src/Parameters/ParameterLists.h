@@ -53,7 +53,8 @@ class OutputValues : public ParamList
 			
 		//!The name for the output config file which would replicate this simulation
 		Argument<std::string> Config = Argument<std::string>("rerun.config","config-out");
-			
+		
+		Argument<std::string> YieldSubdir = Argument<std::string>("Yields/","yield-dir");
 		
 		//!The name of the file containing galactic-scale mass information
 		Argument<std::string> GalaxyMassFile = Argument<std::string>("Mass.dat","galaxy-mass-file");
@@ -80,7 +81,7 @@ class OutputValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		OutputValues()
 		{
-			argPointers = {&Root, &GalaxyMassFile,&StarFile, &ChemicalPrefactor,&ColdGasDataFile,&HotGasDataFile};
+			argPointers = {&Root, &GalaxyMassFile,&StarFile, &ChemicalPrefactor,&ColdGasDataFile,&HotGasDataFile,&YieldSubdir};
 		};
 		
 		//! An overload of a normally empty function. Goes through and creates the necessary directory structure 
@@ -157,7 +158,7 @@ class StellarValues : public ParamList
 		Argument<double> MinLogZ = Argument<double>(-8,"logz-min");
 		
 		//!Maximum Z that the ILM(??) can consider
-		Argument<double> MaxLogZ = Argument<double>(-1,"logz-max");
+		Argument<double> MaxLogZ = Argument<double>(-0.5,"logz-max");
 
 		//!Z Resolution
 		Argument<int> LogZResolution = Argument<int>(50,"logz-resolution");
@@ -172,14 +173,10 @@ class StellarValues : public ParamList
 		//!For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase
 		Argument<double> FeedbackFactor = Argument<double>(0.5,"mass-load");
 		
-		//! The fraction of white dwarfs which go SNIa
-		Argument<double> SNIaFraction = Argument<double>(0.05,"sn1a-frac");
-		
-		//! The fraction of neutron stars which go NSM
-		Argument<double> NSMFraction = Argument<double>(0.0001,"nsm-frac");
+
 		
 		//! The normal Kennicutt-Schmidt power law index
-		Argument<double> SchmidtMainPower = Argument<double>(1.4,"schmidt-main");
+		Argument<double> SchmidtMainPower = Argument<double>(1,"schmidt-main");
 		
 		//! The low-density Kennicutt-Schmidt power law index
 		Argument<double> SchmidtLowPower = Argument<double>(4.0,"schmidt-low");
@@ -198,7 +195,7 @@ class StellarValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		StellarValues()
 		{
-			argPointers = {&MaxStellarMass, &MinStellarMass, &ImmortalMass, &MassResolution, &MinLogZ, &MaxLogZ, &LogZResolution, &EjectionFraction, &SNIaFraction, &NSMFraction,&SchmidtMainPower, &SchmidtLowPower, &SchmidtDensityCut, &SchmidtPrefactor, &FeedbackFactor};
+			argPointers = {&MaxStellarMass, &MinStellarMass, &ImmortalMass, &MassResolution, &MinLogZ, &MaxLogZ, &LogZResolution, &EjectionFraction,&SchmidtMainPower, &SchmidtLowPower, &SchmidtDensityCut, &SchmidtPrefactor, &FeedbackFactor};
 		}
 		
 		//! Initialises the mass grid etc.
@@ -218,17 +215,17 @@ class YieldValues : public ParamList
 		//!Time before SNIa can turn on, in Gyr
 		Argument<double> SNIa_DelayTime = Argument<double>(0.2,"sn1a-delay");
 		
-		Argument<double> SNIa_ActiveFraction = Argument<double>(0.05,"sn1a-fraction");
+		Argument<double> SNIa_ActiveFraction = Argument<double>(0.1,"sn1a-fraction");
 		
-		Argument<double> SNIa_LongFraction = Argument<double>(0,"sn1a-fraction-long");
+		Argument<double> SNIa_LongFraction = Argument<double>(0.99,"sn1a-fraction-long");
 		
-		Argument<double> SNIa_ShortScale = Argument<double>(0.5,"sn1a-short-decay");
+		Argument<double> SNIa_ShortScale = Argument<double>(0.29,"sn1a-short-decay");
 		
 		Argument<double> SNIa_TypicalMass = Argument<double>(1.2,"sn1a-progenitor-mass");
 		
 		Argument<double> NSM_TypicalMass = Argument<double>(1.4,"nsm-progenitor-mass");
 		
-		Argument<double> SNIa_LongScale = Argument<double>(100,"sn1a-long-decay");
+		Argument<double> SNIa_LongScale = Argument<double>(1.5,"sn1a-long-decay");
 		
 		Argument<double> CCSN_MassCut = Argument<double>(10,"ccsn-mass");
 		
@@ -262,13 +259,13 @@ class ThermalValues : public ParamList
 		Argument<double> HotInjection_NSM = Argument<double>(0.4,"fh-nsm");
 		
 		//!Fraction of AGB ejecta which is put into the hot phase
-		Argument<double> HotInjection_AGB = Argument<double>(0.8,"fh-nsm");
+		Argument<double> HotInjection_AGB = Argument<double>(0.7,"fh-nsm");
 		
 		//!Fraction of SNIa ejecta which is put into the hot phase
 		Argument<double> HotInjection_SNIa = Argument<double>(0.99,"fh-sn1a");
 		
 		//! The exponential timescale over which the hot gas cools into the cold gas
-		Argument<double> GasCoolingTimeScale = Argument<double>(0.1,"cool");
+		Argument<double> GasCoolingTimeScale = Argument<double>(1,"cool");
 	
 		Argument<int> NumericalResolution = Argument<int>(30,"cool-resolution");
 		
@@ -316,7 +313,7 @@ class GalaxyValues : public ParamList
 		Argument<double> IGM_Mass = Argument<double>(200,"igm-mass");
 		
 		//! The initial exponential scale length of the galaxy
-		Argument<double> MinScaleLength = Argument<double>(3.75,"scale-length-min");
+		Argument<double> MinScaleLength = Argument<double>(0.75,"scale-length-min");
 	
 		//! The exponential scale length that the galaxy achieves at ScaleLengthFinalTime
 		Argument<double> MaxScaleLength = Argument<double>(3.75,"scale-length-max");
@@ -334,7 +331,7 @@ class GalaxyValues : public ParamList
 		Argument<double> InfallMass1 = Argument<double>(4.5,"M1");
 		
 		//! The mass of the second (slow) exponential infall
-		Argument<double> InfallMass2 = Argument<double>(45,"M2");
+		Argument<double> InfallMass2 = Argument<double>(100,"M2");
 		
 		//! The exponential timescale for the first (fast) exponential infall
 		Argument<double> InfallTime1 = Argument<double>(0.3,"b1");
