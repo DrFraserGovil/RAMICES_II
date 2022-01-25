@@ -18,7 +18,7 @@ void GlobalParameters::Initialise(int argc, char * argv[])
 	
 	for (int i = 0; i < ParamMembers.size(); ++i)
 	{
-		ParamMembers[i]->Initialise(Meta.ResourceRoot);
+		ParamMembers[i]->Initialise(Resources.ResourceRoot);
 	}
 }
 

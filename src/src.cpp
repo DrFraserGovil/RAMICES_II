@@ -14,8 +14,7 @@ void Welcome()
 {
 	if (Params.Meta.Verbosity > 0)
 	{
-		std::string welcomeFile = Params.Meta.ResourceRoot.Value + Params.Meta.WelcomeFile.Value;
-		forLineIn(welcomeFile,
+		forLineIn(Params.Resources.WelcomeFile.Value,
 			std::cout << FILE_LINE << "\n";
 		);
 		std::cout << "\nNew Simulation initiated on " << JSL::CurrentTime();

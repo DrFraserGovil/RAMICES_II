@@ -1,6 +1,6 @@
 #pragma once
 #include "../Parameters/GlobalParameters.h"
-
+#include <algorithm>
 class SLF_Functor
 {
 	public:
@@ -14,6 +14,8 @@ class SLF_Functor
 		const GlobalParameters & Param;
 		
 		double LifeTime(int mass, int metallicity);
+		void PrecomputeGrid();
 		std::vector<std::vector<double>> PrecomputedGrid;
 		const double NotComputed = -1;
+		
 };

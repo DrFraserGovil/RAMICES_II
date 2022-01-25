@@ -78,14 +78,68 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 	double remnantMassUp = Grid[massSpoof-MassOffset][upID][RemnantLocation];
 	double remnantMassDown = Grid[massSpoof-MassOffset][downID][RemnantLocation];
 	double remnantMass = remnantMassDown + interpolationFactor * (remnantMassUp - remnantMassDown);
-	
 	double ejectaMass = Nstars * (initMass - remnantMass); 
 	
+	
 	const std::vector<GasStream> & birthStreams = birthReservoir.GetHistory(birthIndex);
+	
+	double xSum = 0;
+	double ySum = 0;
+	double zSum = 0;
+	
+	std::vector<GasStream> chunkCatcher;
+	for (int p = 0; p < ProcessCount; ++p)
+	{
+		GasStream chunk(proc);
+		chunkCatcher.push_back(chunk);
+	} 
+	
+	for (int e = 0; e < ElementCount; ++e)
+	{
+		ElementID elem = (ElementID)e;
+		double upSynth = Grid[massSpoof - MassOffset][upID][elem];
+		double downSynth = Grid[massSpoof - MassOffset][downID][elem];
+		synthesisFraction = downSynth + (upSynth - downSynth) * interpolationFactor;
+		
+		double original_elem_Mass = 0;
+		double originalMass = 0;
+		for (int p = 0; p < ProcessCount; ++p)
+		{
+			SourceProcess proc = (SourceProcess)p;
+			double pElem =  birthStreams[p].Cold(elem);
+			original_elem_Mass += pElem;
+			originalMass += birthStreams[proc].ColdMass();
+			if (synthesisFraction >= 0)
+			{
+				double birthFraction = pElem / birthStreams[proc].ColdMass();
+				double outputFraction = birthFraction;
+				if (proc == Process)
+				{
+					outputFraction += synthesisFraction;
+				}
+				double massOfElem = ejectaMass * outputFraction / 1e9;
+			
+				chunkCatcher[p].Cold(elem) = massOfElem * hotInjectionFraction;
+				chunkCatcher[p].Hot(elem) = massOfElem * (1.0 - hotInjectionFraction);	
+			}
+		}
+		if (synthesisFraction < 0)
+		{
+			double birthFrac = original_elem_Mass / originalMass;
+			double amountToLose = ejectaMass * (birthFrac + synthesisFraction) /1e9;
+			double lossFrac = amountToLose / original_elem_Mass;
+			for (int p = 0; p < ProcessCount; ++p)
+			{
+				SourceProcess proc = (SourceProcess)p;
+				
+			}
+		}
+	}
+	
 	for (int p = 0; p < ProcessCount; ++p)
 	{
 		SourceProcess proc = (SourceProcess)p;
-		double initBirthMass = birthStreams[proc].ColdMass()+ 1e-88; //basic offset to prevent zero division
+		double initBirthMass = birthStreams[proc].ColdMass()+ 1e-99; //basic offset to prevent zero division
 		GasStream chunk(proc);
 		for (int e = 0; e < ElementCount; ++e)
 		{
@@ -99,15 +153,42 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 				synthesisFraction = downSynth + (upSynth - downSynth) * interpolationFactor;
 				
 			}
-			double outputFraction = std::max(0.0,birthFraction + synthesisFraction);
-			double massOfElem = ejectaMass * outputFraction / 1e9;
+			double outputFraction = birthFraction + synthesisFraction;
 			
-			chunk.Cold(elem) = massOfElem * hotInjectionFraction;
-			chunk.Hot(elem) = massOfElem * (1.0 - hotInjectionFraction);			
+			
+			
+			if (outputFraction > 0)
+			{
+				double massOfElem = ejectaMass * outputFraction / 1e9;
+			
+				chunk.Cold(elem) = massOfElem * hotInjectionFraction;
+				chunk.Hot(elem) = massOfElem * (1.0 - hotInjectionFraction);	
+				if (elem == Hydrogen)
+				{
+					xSum += massOfElem * 1e9;
+				}		
+				if (elem == Helium)
+				{
+					ySum += massOfElem* 1e9;
+				}
+				if (elem == Metals)
+				{
+					zSum += massOfElem * 1e9;
+				}
+			}
+			else
+			{
+				double massLoss = ejectaMass * outputFraction / 1e9;
+				double totalMass = 0;
+				for (int p = 0; 
+			}
 		}
 		
 		scatteringReservoir.AbsorbMemory(birthIndex, chunk);
 	}
+	
+	
+	std::cout << "With an ejecta mass of " << ejectaMass << " I synthesised (X,Y,Z) = ("<< xSum << ", " << ySum << ", " << zSum << ") Mass deficit = " << ejectaMass - xSum - ySum - zSum << std::endl;
 	
 	//deal with remnants
 	RemnantOutput output;

@@ -38,7 +38,7 @@ remainingMasses = f(tableEnds,:);
 zs = unique(remainingMasses.MH);
 zs(isnan(zs)) = [];
 zzz = ZCon(zs);
-Ms = 10.^linspace(log10(0.7),2,200);
+Ms = 10.^linspace(log10(0.7),2,500);
 
 [Z,M] = meshgrid(zzz,Ms);
 default = -1;
@@ -88,27 +88,27 @@ end
 defaultOverride = 11;
 Tau(Tau==default) = defaultOverride;
 
-% 
+
 % scatter3(mm,zz,tt,10,zz);
-% % hold on;
-% % scatter3(mm,log10(10^10*(mm).^(-3)),zz);
-% % hold off;
 % hold on;
-% % surf(M,Z,Tau,'LineStyle','None');
-% contour(M,Z,Tau,100)
+% scatter3(mm,log10(10^10*(mm).^(-3)),zz);
 % hold off;
-% xlabel("Mass");
-% ylabel("Metallicity");
+hold on;
+% surf(M,Z,Tau,'LineStyle','None');
+contour(M,log10(Z),Tau,100)
+hold off;
+xlabel("Mass");
+ylabel("Metallicity");
 % set(gca,'yscale','log');
-% set(gca,'xscale','log');
-% set(gca,'zscale','linear');
-% caxis([6,10.3]);
-% c = colorbar;
-% c.Label.String = "$\log_{10}($Age/Gyr)";
-% 
-% c.Label.Interpreter = 'latex';
-% % view(0,0);
-% view(2);
+set(gca,'xscale','log');
+set(gca,'zscale','linear');
+caxis([6,10.3]);
+c = colorbar;
+c.Label.String = "$\log_{10}($Age/Gyr)";
+
+c.Label.Interpreter = 'latex';
+% view(0,0);
+view(2);
 
 T2 = table();
 c = 1;

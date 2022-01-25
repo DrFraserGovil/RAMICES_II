@@ -12,7 +12,7 @@ void YieldGrid::LoadOrfeoYields()
 	std::vector<ElementID> elementsInSet = {Hydrogen, Helium, Metals, Iron, Carbon,Oxygen,Magnesium, Silicon, Calcium, Manganese, Chromium, Cobalt};
 	
 	int nElements = elementsInSet.size();
-	std::string directory = Param.Yield.YieldRoot.Value + "OriginalOrfeo/";
+	std::string directory = Param.Resources.YieldRoot.Value + "OriginalOrfeo/";
 	std::string metaData = directory + "orfeoPrescription.dat";
 	
 	std::vector<double> masses;
@@ -148,7 +148,7 @@ void YieldGrid::LoadMarigoYields()
 		std::vector<YieldRidge> Ridges(nElementsPresent, YieldRidge(Marigo,fileZ, nMassPointsInFile[file]));
 		
 		
-		std::string fileName = Param.Yield.YieldRoot.Value + "/MarigoYields/totyieldsz0";
+		std::string fileName = Param.Resources.YieldRoot.Value + "/MarigoYields/totyieldsz0";
 		if (fileZ < 0.01)
 		{
 			fileName += "0";
@@ -218,7 +218,7 @@ void YieldGrid::LoadLimongiYields()
 	std::vector<double> metallicity = {1e-8, 0.000001, 0.0001, 0.001, 0.006,0.02};
 	std::vector<double> heliumContent = {0.23,0.23,0.23,0.23,0.26,0.28};
 	
-	std::string fileName = Param.Yield.YieldRoot.Value +"LimoChiefYields.dat";
+	std::string fileName = Param.Resources.YieldRoot.Value +"LimoChiefYields.dat";
 
 	std::vector<ElementID> elementsPresent = {Hydrogen,Helium,Metals,Iron,Oxygen,Magnesium,Carbon,Silicon,Calcium,Manganese,Chromium,Cobalt};
 	
@@ -318,7 +318,7 @@ void YieldGrid::LoadMaederYields()
 	std::vector<double> metallicity = {0.001,0.02};
 	std::vector<double> heliumContent = {0.24,0.28};
 	
-	std::string fileName =  Param.Yield.YieldRoot.Value + "MaederYields.dat";
+	std::string fileName =  Param.Resources.YieldRoot.Value + "MaederYields.dat";
 	
 	std::vector<ElementID> elementsPresent = {Helium, Carbon, Oxygen,Metals,Hydrogen};
 	

@@ -2,7 +2,7 @@ dir = "../Output/Test_SNOn/Yields/";
 ccsn = readtable(dir + "CCSN_yields.dat");
 agb = readtable(dir + "AGB_yields.dat");
 old = readtable("../Resources/ChemicalData/RalphSavedYields.dat");
-column = "Mg";
+column = "H";
 oldColum = 3 + 5;
 overplotter = dir + column + "_ridges_CCSN.dat";
 if column == "Remnant"

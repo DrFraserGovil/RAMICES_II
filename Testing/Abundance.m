@@ -4,8 +4,8 @@ set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 clf;
 % T=tiledlayout(4,2);
-files = "../Output/Test_" + ["01","02","03"] +"/Enrichment_Log_ColdGas.dat";
-T = tiledlayout(3,1);
+files = "../Output/Test_" + ["SLF"] +"/Enrichment_Log_ColdGas.dat";
+T = tiledlayout(1,1);
 for file = files
     nexttile;
     file

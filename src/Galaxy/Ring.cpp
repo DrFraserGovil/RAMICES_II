@@ -23,6 +23,7 @@ void Ring::TimeStep(int t)
 	//~ std::cout << "\tCooled" << std::endl;
 	MakeStars();
 	//~ std::cout << "\tFormed" << std::endl;
+	UpdateMemory(t);
 	KillStars(t);
 	//~ std::cout << "\tKilled" << std::endl;
 	UpdateMemory(t);

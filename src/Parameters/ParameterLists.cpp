@@ -33,7 +33,10 @@ void OutputValues::Initialise(std::string resourceRoot)
 
 void ResourceValues::Initialise(std::string resourceRoot)
 {
-	WelcomeFile.Value = resourceRoot + WelcomeFile.Value;
+	WelcomeFile.Value = resourceRoot + "/" + WelcomeFile.Value;
+	YieldRoot.Value = resourceRoot + "/" + YieldRoot.Value;
+	IsochroneDirectory.Value = resourceRoot + "/" + IsochroneDirectory.Value + "/";
+	LifeTimeFile.Value = IsochroneDirectory.Value + LifeTimeFile.Value;
 }
 
 void ElementValues::GiveElementsNames()
@@ -179,7 +182,6 @@ void YieldValues::Initialise(std::string resourceRoot)
 	ProcessTypes[AGB] = Stellar;
 	ProcessTypes[SNIa] = Remnant;
 	ProcessTypes[NSM] = Remnant;
-	YieldRoot.Value = resourceRoot + "/" + YieldRoot.Value;
 }
 
 void GalaxyValues::Initialise(std::string resourceRoot)

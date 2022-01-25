@@ -91,21 +91,27 @@ class ResourceValues : public ParamList
 		//!The location of the directory which the code looks for its expected resource file structure
 		Argument<std::string> ResourceRoot  = Argument<std::string>("Resources/","resource");
 		
+		//!The location of the directory within ResourceRoot which houses the stellar yield data
+		Argument<std::string> YieldRoot = Argument<std::string>("ChemicalData/","yield-root");
+		
+		Argument<std::string> IsochroneDirectory = Argument<std::string>("Isochrones/","iso-dir");
+		
+		Argument<std::string> LifeTimeFile = Argument<std::string>("LifetimeGrid.dat","lifetime-file");
+		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
-		OutputValues()
+		ResourceValues()
 		{
-			argPointers = {&WelcomeFile, &ResourceRoot};
+			argPointers = {&WelcomeFile, &ResourceRoot,&YieldRoot,&IsochroneDirectory,&LifeTimeFile};
 		};
 		
 		//! An overload of a normally empty function. Goes through and creates the necessary directory structure 
 		virtual void Initialise(std::string resourceRoot);
 	
-}
+};
 
 //! The elemental suboptions contains variables and data associated with the solar abundances (and where to locate them), and how to extract and extrapolate the yield data from files. 
 class ElementValues : public ParamList
 {
-	
 	
 	public:
 		
@@ -155,7 +161,7 @@ class StellarValues : public ParamList
 		Argument<double> MinStellarMass = Argument<double>(0.1,"mass-min");
 		
 		//!Mass of stars which we consider immortal without checking their isochrones
-		Argument<double> ImmortalMass = Argument<double>(0.5,"mass-immortal");
+		Argument<double> ImmortalMass = Argument<double>(0.7,"mass-immortal");
 		
 		//!Number of points along the stellar mass grid
 		Argument<int> MassResolution = Argument<int>(199,"mass-resolution");
@@ -220,7 +226,6 @@ class StellarValues : public ParamList
 class YieldValues : public ParamList
 {
 	public:
-		Argument<std::string> YieldRoot = Argument<std::string>("ChemicalData/","yield-root");
 		Argument<double> TargetNi56Yield = Argument<double>(0.1,"ideal-ni56");
 		Argument<double> MassOverhang = Argument<double>(5,"yield-mass-overhang");
 		std::vector<std::string> ProcessNames;
@@ -253,7 +258,7 @@ class YieldValues : public ParamList
 		
 	YieldValues()
 	{
-		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime, & SNIa_ActiveFraction, &SNIa_LongFraction, &CCSN_MassCut,&NSM_ActiveFraction, &NSM_Scale,&SNIa_TypicalMass,&NSM_TypicalMass, &YieldRoot, &TargetNi56Yield};
+		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime, & SNIa_ActiveFraction, &SNIa_LongFraction, &CCSN_MassCut,&NSM_ActiveFraction, &NSM_Scale,&SNIa_TypicalMass,&NSM_TypicalMass, &TargetNi56Yield};
 	}
 	//! Initialises the mass grid etc.
 		void Initialise(std::string resourceRoot);
@@ -327,7 +332,7 @@ class GalaxyValues : public ParamList
 		Argument<double> IGM_Mass = Argument<double>(200,"igm-mass");
 		
 		//! The initial exponential scale length of the galaxy
-		Argument<double> MinScaleLength = Argument<double>(0.75,"scale-length-min");
+		Argument<double> MinScaleLength = Argument<double>(3.75,"scale-length-min");
 	
 		//! The exponential scale length that the galaxy achieves at ScaleLengthFinalTime
 		Argument<double> MaxScaleLength = Argument<double>(3.75,"scale-length-max");
@@ -342,10 +347,10 @@ class GalaxyValues : public ParamList
 		Argument<double> ScaleLengthFinalTime = Argument<double>(12.0,"scale-length-final");
 
 		//! The mass of the first (fast) exponential infall
-		Argument<double> InfallMass1 = Argument<double>(4.5,"M1");
+		Argument<double> InfallMass1 = Argument<double>(0,"M1");
 		
 		//! The mass of the second (slow) exponential infall
-		Argument<double> InfallMass2 = Argument<double>(100,"M2");
+		Argument<double> InfallMass2 = Argument<double>(0,"M2");
 		
 		//! The exponential timescale for the first (fast) exponential infall
 		Argument<double> InfallTime1 = Argument<double>(0.3,"b1");

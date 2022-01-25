@@ -56,7 +56,6 @@ void StarReservoir::Form(GasReservoir & gas)
 	
 	double initMass = gas.ColdMass();
 	
-	//~ std::cout << "Forming stars from a cloud of M = " << initMass << " z = " << z << " hot = " << gas.HotMass() << " total = " << gas.Mass() << std::endl;
 	//~ double initialTotalMass = gas.Mass() + Mass();
 	
 	////////   density version (old)
