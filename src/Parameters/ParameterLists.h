@@ -12,12 +12,6 @@ class MetaValues : public ParamList
 	public:
 		//! Controls whether the funky ASCII welcome message is played at the beginning of the code
 		Argument<int> Verbosity = Argument<int>(1, "verbose");
-
-		//! The location of the funky ASCII welcome messgae
-		Argument<std::string> WelcomeFile = Argument<std::string>("welcome.dat","welcome-file");
-		
-		//!The location of the directory which the code looks for its expected resource file structure
-		Argument<std::string> ResourceRoot  = Argument<std::string>("Resources/","resource");
 		
 		//!The maximum number of parallel threads which can be active at any given time
 		Argument<int> ParallelThreads = Argument<int>(3,"thread");
@@ -37,7 +31,7 @@ class MetaValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		MetaValues()
 		{
-			argPointers = {&Verbosity, &WelcomeFile,&ResourceRoot,&ParallelThreads,&TimeStep,&SimulationDuration};
+			argPointers = {&Verbosity,&ParallelThreads,&TimeStep,&SimulationDuration};
 		};
 		
 		//! An overload of a normally empty function. Computes the value of #SimulationSteps
@@ -87,6 +81,26 @@ class OutputValues : public ParamList
 		//! An overload of a normally empty function. Goes through and creates the necessary directory structure 
 		virtual void Initialise(std::string resourceRoot);
 };
+
+class ResourceValues : public ParamList
+{
+	public:
+		//! The location of the funky ASCII welcome messgae
+		Argument<std::string> WelcomeFile = Argument<std::string>("welcome.dat","welcome-file");
+		
+		//!The location of the directory which the code looks for its expected resource file structure
+		Argument<std::string> ResourceRoot  = Argument<std::string>("Resources/","resource");
+		
+		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
+		OutputValues()
+		{
+			argPointers = {&WelcomeFile, &ResourceRoot};
+		};
+		
+		//! An overload of a normally empty function. Goes through and creates the necessary directory structure 
+		virtual void Initialise(std::string resourceRoot);
+	
+}
 
 //! The elemental suboptions contains variables and data associated with the solar abundances (and where to locate them), and how to extract and extrapolate the yield data from files. 
 class ElementValues : public ParamList

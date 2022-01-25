@@ -31,6 +31,10 @@ void OutputValues::Initialise(std::string resourceRoot)
 	JSL::mkdir(YieldSubdir.Value);
 }
 
+void ResourceValues::Initialise(std::string resourceRoot)
+{
+	WelcomeFile.Value = resourceRoot + WelcomeFile.Value;
+}
 
 void ElementValues::GiveElementsNames()
 {
