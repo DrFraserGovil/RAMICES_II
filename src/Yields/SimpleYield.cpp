@@ -7,7 +7,6 @@ SimpleYield::SimpleYield(const GlobalParameters & param, YieldProcess yieldproce
 	{
 		std::cout << "\t" << Param.Yield.ProcessNames[Process] << " yield grid initialising...." << std::flush;
 	}
-	
 	switch(yieldprocess)
 	{
 		case NSM:
@@ -48,7 +47,7 @@ void SimpleYield::RemnantInject(GasReservoir & scatteringReservoir, int nObjects
 		TempStream.Cold(elem) = amountInjected * (1.0 - hotInjectionFraction);
 		TempStream.Hot(elem) = amountInjected * hotInjectionFraction;
 	}
-	
+	//~ std::cout << "Sending " <<TempStream.Mass() << " from " << nObjects << std::endl;
 	scatteringReservoir.AbsorbMemory(birthIndex,TempStream);
 }
 void SimpleYield::SNIa_Initialise()
@@ -57,9 +56,13 @@ void SimpleYield::SNIa_Initialise()
 	
 	Grid = std::vector<double>(ElementCount,0.0);
 	
+	Grid[Metals] = Param.Yield.SNIa_TypicalMass;
 	Grid[Iron] = 0.77;
 	Grid[Oxygen] = 0.133;
 	Grid[Magnesium] = 0.0158;
+	Grid[Carbon] = 0.0508;
+	Grid[Silicon] = 0.142;
+	Grid[Calcium] = 0.0181;
 }
 void SimpleYield::NSM_Initialise()
 {

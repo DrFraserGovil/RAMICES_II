@@ -28,7 +28,6 @@ void Galaxy::RingEvolve(int timestep,int ringStart, int ringEnd)
 	for (int i = ringStart; i < ringEnd; ++i)
 	{
 		Rings[i].TimeStep(timestep);
-		std::cout << "\tAfter " << i << "  M = " << Mass() << std::endl; 
 	}
 	
 }
@@ -105,15 +104,10 @@ void Galaxy::Evolve()
 	
 	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
 	{
-		std::cout << "Timestep " << timestep << " Total Mass : " << Mass() << std::endl;
 		IGM.PassiveCool(Param.Meta.TimeStep,true);
-		std::cout << "\tAfter IGM Cool: " << Mass() << std::endl;
 		Infall(t);
-		std::cout << "\tAfter Infall: " << Mass() << std::endl;
 		LaunchParallelRings(timestep,RingStep);
-		std::cout << "\tAfter parallel shenanigans: " << Mass() << std::endl;
 		LaunchParallelRings(timestep,Scattering);
-		std::cout << "\tAfter scattering: " << Mass() << std::endl;
 		t += Param.Meta.TimeStep;
 		
 		
@@ -248,7 +242,7 @@ std::vector<double> IterativeFit(const std::vector<double> & oldDeltas, const do
 	double correctionFactor = newMass / correctedAmount;
 	for (int i = 0; i < n; ++i)
 	{
-		newDeltas[i] *= correctionFactor;
+		//~ newDeltas[i] *= correctionFactor;
 	}
 	return newDeltas;
 	
@@ -338,6 +332,13 @@ void Galaxy::ScatterStep(int time, int ringstart, int ringend)
 			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t),absorbFrac);
 			IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1.0 - absorbFrac); //this step might be broken with the parallelisation....
 		}
+		
+		Rings[i].UpdateMemory(time);
+		//~ for (int pc = 0; pc < ProcessCount; ++pc)
+		//~ {
+			//~ SourceProcess p = (SourceProcess)pc;
+			//~ std::cout << "Proc: " << p << " X = " << Rings[i].Gas[p].Cold(Hydrogen) + Rings[i].Gas[p].Hot(Hydrogen) << "  Y = " << Rings[i].Gas[p].Cold(Helium) + Rings[i].Gas[p].Hot(Helium) << "  Z = " << Rings[i].Gas[p].Cold(Metals) + Rings[i].Gas[p].Hot(Metals) << " for total mass " << Rings[i].Gas[p].Mass() << std::endl;
+		//~ }
 	}
 }
 

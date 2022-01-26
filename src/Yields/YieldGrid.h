@@ -11,6 +11,16 @@ struct RemnantOutput
 	RemnantType Type;
 	double Mass;
 };
+struct Interpolator
+{
+	int UpperID;
+	int LowerID;
+	double LinearFactor;
+	double Interpolate(double lower, double upper)
+	{
+		return lower + LinearFactor*(upper - lower);
+	}
+};
 
 class YieldGrid
 {
@@ -44,8 +54,16 @@ class YieldGrid
 		std::vector<std::vector<YieldRidge>> RidgeStorage;
 		int RemnantLocation;
 		
+		Interpolator MetallicityInterpolation(double z) const;
+		
+		void ElementProduction(ElementID element, double synthesisFraction, double ejectaMass,std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams,bool wordy) const;
+		void ElementDestruction(ElementID element, double synthesisFraction, double ejectaMass, std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams,bool wordy) const;
+		
+		// Creation properties
+		
 		void CreateGrid();
 		YieldBracket GetBracket(int id, double mass, double z, bool overhang);
 		std::vector<int> SourcePriority;
 		void SaveGrid(std::string name);
+		void PurityEnforce();
 };

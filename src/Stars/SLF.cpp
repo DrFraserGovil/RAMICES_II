@@ -170,7 +170,7 @@ void SLF_Functor::PrecomputeGrid()
 			double zDownBranch = fileGrid[m_Down][z_Down] + m_interp * (fileGrid[m_Up][z_Down] - fileGrid[m_Down][z_Down]);
 			
 			double interpolatedValue = zDownBranch + z_interp * (zUpBranch - zDownBranch);
-			interpolatedValue = std::max(1e-3,interpolatedValue);
+			interpolatedValue = std::min(std::max(1e-3,interpolatedValue),11.0);
 			PrecomputedGrid[i][j] = interpolatedValue;
 			
 			//~ std::cout << "For grid coord ( " << gridM << ", " << gridZ << "), I recommend \n\tM = " << uniqueM[m_Down] << " -> " << uniqueM[m_Up] <<  " (fac = " << m_interp << ")  \n\tZ = " << uniqueLogZ[z_Down] << " -> " << uniqueLogZ[z_Up] << "(fac = " << z_interp << ")\n\t Giving tau = " << log10(interpolatedValue) << std::endl;

@@ -75,20 +75,22 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex,double formin
 		budget +=  nStars * m/1e9;
 		
 		int deathIndex = timeIndex + SLF(i,formingMetallicity);
-		Distribution[i] = IsoMass(nStars,i,formingMetallicity, timeIndex,deathIndex);
+		
 		
 		//check for monotonicity
 		if (deathIndex < prevIndex)
 		{
-			IsLifetimeMonotonic = false;
-			std::cout << "t = " << timeIndex << "  death index = " << deathIndex << std::endl;
-			std::cout << "z = " << formingMetallicity << std::endl;
-			std::cout << "lifetime = " << SLF(i,formingMetallicity) << std::endl;
-			std::cout << "m = " << m << std::endl;
-			std::cout << "Previous index = " << prevIndex << std::endl;
-			std::cout << "Non-monotonic lifetime generated?" << std::endl;
-			exit(5);
+			//~ IsLifetimeMonotonic = false;
+			//~ std::cout << "t = " << timeIndex << "  death index = " << deathIndex << std::endl;
+			//~ std::cout << "z = " << formingMetallicity << std::endl;
+			//~ std::cout << "lifetime = " << SLF(i,formingMetallicity) << " steps = " << SLF(i,formingMetallicity) * Param.Meta.TimeStep << "Gyr" << std::endl;
+			//~ std::cout << "m = " << m << std::endl;
+			//~ std::cout << "Previous index = " << prevIndex << std::endl;
+			//~ std::cout << "Non-monotonic lifetime generated?" << std::endl;
+			//~ exit(5);
+			deathIndex = prevIndex;
 		}
+		Distribution[i] = IsoMass(nStars,i,formingMetallicity, timeIndex,deathIndex);
 		prevIndex = deathIndex;
 	}
 	//the remaining mass gets turned into immortal stars, al of which are assumed to have the minimum mortal mass
@@ -156,13 +158,13 @@ void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYiel
 	
 			RemnantOutput newRem;
 			
-			if (starMass > Param.Yield.CCSN_MassCut)
+			if (starMass >= Param.Yield.CCSN_MassCut)
 			{
 				//~ std::cout << "CCSN Event: n = " << nStars << " m = " << Param.Stellar.MassGrid[massID] << "  z = " << z << std::endl;
 				newRem = CCSNYield(temporalYieldGrid,nStars,massID,z,birthID,birthGas);
 				eventRate.CCSN += nStars;
 			}
-			else if (starMass > Param.Yield.ECSN_MassCut)
+			else if (starMass >= Param.Yield.ECSN_MassCut)
 			{
 				newRem.Type = NeutronStar;
 				newRem.Mass = nStars * starMass;

@@ -87,7 +87,7 @@ void RemnantPopulation::Decay(int currentTime, GasReservoir & scatteringReservoi
 			double snIa_released = oldSNIa_short * (1.0 - decayShort) + oldSNIa_long * (1.0-decayLong);
 			int snIa_amount = snIa_released / Param.Yield.SNIa_TypicalMass;
 			
-			//~ std::cout << "SNIa decay! " << snIa_amount << std::endl;
+			//~ std::cout << "SNIa decay! " << snIa_amount << "  " << ShortSNIaBuffer[t] << "  " << LongSNIaBuffer[t] << "  " << decayShort << "  " << decayLong << std::endl;
 			EventRate.SNIa += snIa_amount;
 			SNIaYield(scatteringReservoir,snIa_amount,t);
 			

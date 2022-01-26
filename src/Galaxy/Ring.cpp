@@ -13,21 +13,23 @@ Ring::Ring(int index, double mass,InitialisedData & data): Data(data), Param(dat
 
 double Ring::Mass()
 {
-	
+	MassReport Mrr = Stars.DeadMass();
+	return Gas.Mass() + Stars.AliveMass() + Mrr.Total /1e9; 
 }
 
 
 void Ring::TimeStep(int t)
 {
+	//~ std::cout << "\nRing " << RadiusIndex << std::endl;
 	Cool();
-	//~ std::cout << "\tCooled" << std::endl;
+	//~ std::cout << "\tCooled " << Mass() << std::endl;
 	MakeStars();
-	//~ std::cout << "\tFormed" << std::endl;
+	//~ std::cout << "\tFormed "  << Mass()<< std::endl;
 	UpdateMemory(t);
 	KillStars(t);
-	//~ std::cout << "\tKilled" << std::endl;
+	//~ std::cout << "\tKilled "  << Mass() << std::endl;
 	UpdateMemory(t);
-	//~ std::cout << "\tSaved" << std::endl;
+	//~ std::cout << "\tSaved "  << Mass() << std::endl;
 }
 
 void Ring::MakeStars()

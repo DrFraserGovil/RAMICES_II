@@ -34,20 +34,12 @@ RemnantOutput YieldGrid::operator()(GasReservoir & scatteringReservoir, double N
 	return StellarInject(scatteringReservoir, Nstars, mass, z, birthIndex, birthReservoir);
 }
 
-
-RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  double Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const
+Interpolator YieldGrid::MetallicityInterpolation(double z) const
 {
-	//~ z = 0;
-
-	int massSpoof = mass;
-
-	if (mass - MassOffset < 0)
-	{
-		throw std::runtime_error("You have called a yield injection on a star which is outside the scope of this yield grid - likely you have asked for the CCSN from a low mass star");
-	}
 	double logZ = std::max(log10(z),Param.Stellar.MinLogZ.Value);
-	int closestMetallicityID = round((logZ - Param.Stellar.MinLogZ)/Param.Stellar.LogZDelta);
+	int closestMetallicityID = round((logZ - Param.Stellar.MinLogZ)/Param.Stellar.LogZDelta); // critical assumption that logZ grid is uniform!
 	closestMetallicityID = std::min(closestMetallicityID, Param.Stellar.LogZResolution-1);
+	
 	int upID;
 	int downID;
 	
@@ -73,122 +65,143 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 	double upLogZ = Param.Stellar.LogZGrid[upID];
 	double interpolationFactor = (logZ - downLogZ)/(upLogZ - downLogZ);
 	
+	Interpolator output;
+	output.LowerID = downID;
+	output.UpperID = upID;
+	output.LinearFactor = interpolationFactor;
+	return output;
+}
+
+void YieldGrid::ElementProduction(ElementID element, double synthesisFraction, double ejectaMass,std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams, bool wordy) const
+{
+	if (wordy && (element == Helium || element == Metals || element == Iron))
+	{
+		std::cout << "\nI have been asked to synthesise " << Param.Element.ElementNames[element] << " to a net ejection fraction " << synthesisFraction << std::endl;
+	}
+	double birthReservoirMass = 0;
+	for (int p = 0 ; p < ProcessCount;++p)
+	{
+		SourceProcess proc = (SourceProcess)p;
+		birthReservoirMass += birthStreams[proc].ColdMass();
+	}
+	for (int p = 0 ; p < ProcessCount;++p)
+	{
+		SourceProcess proc = (SourceProcess)p;
+		double initialProcessMass = birthStreams[proc].ColdMass();
+		
+		double birthFraction = 0;
+		if (initialProcessMass > 0)
+		{
+			birthFraction = birthStreams[proc].Cold(element) / birthReservoirMass;
+		}
+		double returnFraction = birthFraction + (proc == Process) * synthesisFraction; // double check this line works!
+		double massReturned = ejectaMass * returnFraction / 1e9;
+		output[proc].Cold(element) = massReturned * (1.0-hotInjectionFraction);
+		output[proc].Hot(element) = massReturned * hotInjectionFraction;	
+		if (wordy && (element == Helium || element == Metals | element == Iron))
+		{
+			std::cout << "\tProc " << output[proc].Source << " had " << birthFraction << " from a reservoir of mass " << initialProcessMass << ", synthesised a total of " << massReturned * 1e9 << std::endl;
+		}
+	}
+	
+}
+
+void YieldGrid::ElementDestruction(ElementID element, double synthesisFraction, double ejectaMass,std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams,bool wordy) const
+{
+	
+	double totalElemMass = 0;
+	double totalMass = 0;
+	
+	for (int p = 0 ; p < ProcessCount;++p)
+	{
+		SourceProcess proc = (SourceProcess)p;
+		totalMass += birthStreams[proc].ColdMass();
+		totalElemMass += birthStreams[proc].Cold(element);
+	}
+	double birthFraction_noStreaming = totalElemMass / totalMass;
+	double deathFraction_noStreaming = std::max(0.0,birthFraction_noStreaming + synthesisFraction);
+	
+	double outputMass = deathFraction_noStreaming * ejectaMass / 1e9;
+	if (wordy)
+	{
+		std::cout << "\n\n\nI have been asked to destroy " << Param.Element.ElementNames[element] << " to a net ejection fraction " << synthesisFraction << std::endl;
+		std::cout << "\tIt was born with " << birthFraction_noStreaming << "  and will die with " << deathFraction_noStreaming << "( M = " << outputMass * 1e9 << ")" << std::endl;
+	}
+	for (int p = 0 ; p < ProcessCount;++p)
+	{
+		SourceProcess proc = (SourceProcess)p;
+		double initialWeighting = birthStreams[proc].Cold(element)/ totalElemMass;
+		double massReturned = initialWeighting * outputMass;
+		output[proc].Cold(element) = massReturned * (1.0-hotInjectionFraction);
+		output[proc].Hot(element) = massReturned * hotInjectionFraction;	
+		
+	}
+}
+
+
+RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  double Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const
+{
+	bool wordy = false;
+	if (mass - MassOffset < 0)
+	{
+		throw std::runtime_error("You have called a yield injection on a star which is outside the scope of this yield grid - likely you have asked for the CCSN from a low mass star");
+	}
+	
+	Interpolator LogZ = MetallicityInterpolation(z);
 	double initMass = Param.Stellar.MassGrid[mass];
-	////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-	double remnantMassUp = Grid[massSpoof-MassOffset][upID][RemnantLocation];
-	double remnantMassDown = Grid[massSpoof-MassOffset][downID][RemnantLocation];
-	double remnantMass = remnantMassDown + interpolationFactor * (remnantMassUp - remnantMassDown);
+
+	double remnantMass = LogZ.Interpolate(Grid[mass-MassOffset][LogZ.LowerID][RemnantLocation], Grid[mass-MassOffset][LogZ.UpperID][RemnantLocation]);
 	double ejectaMass = Nstars * (initMass - remnantMass); 
 	
-	
 	const std::vector<GasStream> & birthStreams = birthReservoir.GetHistory(birthIndex);
+		
+	std::vector<GasStream> chunkCatcher;
+	for (int p = 0; p < ProcessCount; ++p)
+	{
+		SourceProcess proc = (SourceProcess)p;
+		GasStream chunk(proc);
+		chunkCatcher.push_back(chunk);
+	} 
+	for (int e = 0; e < ElementCount; ++e)
+	{
+		ElementID elem = (ElementID)e;
+		double upSynth = Grid[mass - MassOffset][LogZ.UpperID][elem];
+		double downSynth = Grid[mass - MassOffset][LogZ.LowerID][elem];
+		double synthesisFraction = LogZ.Interpolate(downSynth,upSynth);
+		
+		if (synthesisFraction >= 0)
+		{
+			ElementProduction(elem,synthesisFraction,ejectaMass,chunkCatcher,birthStreams,wordy);
+		}
+		else
+		{
+			ElementDestruction(elem,synthesisFraction,ejectaMass,chunkCatcher,birthStreams,wordy);
+		}
+	}
 	
 	double xSum = 0;
 	double ySum = 0;
 	double zSum = 0;
-	
-	std::vector<GasStream> chunkCatcher;
 	for (int p = 0; p < ProcessCount; ++p)
 	{
-		GasStream chunk(proc);
-		chunkCatcher.push_back(chunk);
-	} 
-	
-	for (int e = 0; e < ElementCount; ++e)
-	{
-		ElementID elem = (ElementID)e;
-		double upSynth = Grid[massSpoof - MassOffset][upID][elem];
-		double downSynth = Grid[massSpoof - MassOffset][downID][elem];
-		synthesisFraction = downSynth + (upSynth - downSynth) * interpolationFactor;
-		
-		double original_elem_Mass = 0;
-		double originalMass = 0;
-		for (int p = 0; p < ProcessCount; ++p)
-		{
-			SourceProcess proc = (SourceProcess)p;
-			double pElem =  birthStreams[p].Cold(elem);
-			original_elem_Mass += pElem;
-			originalMass += birthStreams[proc].ColdMass();
-			if (synthesisFraction >= 0)
-			{
-				double birthFraction = pElem / birthStreams[proc].ColdMass();
-				double outputFraction = birthFraction;
-				if (proc == Process)
-				{
-					outputFraction += synthesisFraction;
-				}
-				double massOfElem = ejectaMass * outputFraction / 1e9;
-			
-				chunkCatcher[p].Cold(elem) = massOfElem * hotInjectionFraction;
-				chunkCatcher[p].Hot(elem) = massOfElem * (1.0 - hotInjectionFraction);	
-			}
-		}
-		if (synthesisFraction < 0)
-		{
-			double birthFrac = original_elem_Mass / originalMass;
-			double amountToLose = ejectaMass * (birthFrac + synthesisFraction) /1e9;
-			double lossFrac = amountToLose / original_elem_Mass;
-			for (int p = 0; p < ProcessCount; ++p)
-			{
-				SourceProcess proc = (SourceProcess)p;
-				
-			}
-		}
+		scatteringReservoir.AbsorbMemory(birthIndex, chunkCatcher[p]);
+		xSum += chunkCatcher[p].Cold(Hydrogen) + chunkCatcher[p].Hot(Hydrogen);
+		ySum += chunkCatcher[p].Cold(Helium) + chunkCatcher[p].Hot(Helium);
+		zSum += chunkCatcher[p].Cold(Metals) + chunkCatcher[p].Hot(Metals);
 	}
+	xSum *= 1e9;
+	ySum *= 1e9;
+	zSum *= 1e9;
 	
-	for (int p = 0; p < ProcessCount; ++p)
+	double abberation = ejectaMass - xSum - ySum - zSum;
+	//~ std::cout << "With an ejecta mass of " << ejectaMass << " I synthesised (X,Y,Z) = ("<< xSum << ", " << ySum << ", " << zSum << ") Mass deficit = " << ejectaMass - xSum - ySum - zSum << std::endl;
+	
+	if (abs(abberation/ejectaMass) > 0.01)
 	{
-		SourceProcess proc = (SourceProcess)p;
-		double initBirthMass = birthStreams[proc].ColdMass()+ 1e-99; //basic offset to prevent zero division
-		GasStream chunk(proc);
-		for (int e = 0; e < ElementCount; ++e)
-		{
-			ElementID elem = (ElementID)e;
-			double birthFraction = birthStreams[proc].Cold(elem) / initBirthMass;
-			double synthesisFraction = 0;
-			if (p == Process)
-			{
-				double upSynth = Grid[massSpoof - MassOffset][upID][elem];
-				double downSynth = Grid[massSpoof - MassOffset][downID][elem];
-				synthesisFraction = downSynth + (upSynth - downSynth) * interpolationFactor;
-				
-			}
-			double outputFraction = birthFraction + synthesisFraction;
-			
-			
-			
-			if (outputFraction > 0)
-			{
-				double massOfElem = ejectaMass * outputFraction / 1e9;
-			
-				chunk.Cold(elem) = massOfElem * hotInjectionFraction;
-				chunk.Hot(elem) = massOfElem * (1.0 - hotInjectionFraction);	
-				if (elem == Hydrogen)
-				{
-					xSum += massOfElem * 1e9;
-				}		
-				if (elem == Helium)
-				{
-					ySum += massOfElem* 1e9;
-				}
-				if (elem == Metals)
-				{
-					zSum += massOfElem * 1e9;
-				}
-			}
-			else
-			{
-				double massLoss = ejectaMass * outputFraction / 1e9;
-				double totalMass = 0;
-				for (int p = 0; 
-			}
-		}
-		
-		scatteringReservoir.AbsorbMemory(birthIndex, chunk);
+		std::cout << "Yield abberation detected! X + Y + Z should be 0, I found it to be" << abberation/ejectaMass <<std::endl;
+		std::cout << "The most likely cause of this is that the material has become hyper-enriched and I am trying to destroy more hydrogen than is present" << std::endl;
+		exit(-20);
 	}
-	
-	
-	std::cout << "With an ejecta mass of " << ejectaMass << " I synthesised (X,Y,Z) = ("<< xSum << ", " << ySum << ", " << zSum << ") Mass deficit = " << ejectaMass - xSum - ySum - zSum << std::endl;
 	
 	//deal with remnants
 	RemnantOutput output;
@@ -213,7 +226,7 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 		//~ std::cout << "Dormant with " << initMass << std::endl;
 	}
 	
-	output.Mass = Nstars * remnantMass;
+	output.Mass = std::max(0.0,Nstars * remnantMass);
 	return output;
 }
 
@@ -225,6 +238,17 @@ void YieldGrid::InitialiseLargeGrid(int mSize, int zSize)
 	RemnantLocation = yieldElements -1;
 	Grid = std::vector<std::vector<std::vector<double>>>(mSize, std::vector<std::vector<double>>(zSize, std::vector<double>(yieldElements,0.0)));
 	RidgeStorage.resize(yieldElements);
+}
+
+void YieldGrid::PurityEnforce()
+{
+	for (int i = 0; i < Grid.size(); ++i)
+	{
+		for (int j = 0; j < Param.Stellar.LogZResolution; ++j)
+		{
+			Grid[i][j][Hydrogen] = -1.0 * (Grid[i][j][Metals] + Grid[i][j][Helium]);
+		}
+	}
 }
 
 void YieldGrid::CCSN_Initialise()
@@ -250,6 +274,8 @@ void YieldGrid::CCSN_Initialise()
 	LoadMaederYields();
 
 	CreateGrid();
+	
+	PurityEnforce();
 	SaveGrid("CCSN");
 }
 
@@ -273,6 +299,7 @@ void YieldGrid::AGB_Initialise()
 	LoadMarigoYields();
 	LoadMaederYields();
 	CreateGrid();
+	PurityEnforce();
 	SaveGrid("AGB");
 }
 

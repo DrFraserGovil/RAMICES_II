@@ -18,7 +18,7 @@ function plotMassFile(fileName)
     radius = unique(f.Radius);
 
     clf;
-    nSample = 300;
+    nSample = 50;
     ts = string.empty;
     timeset = time(ceil(linspace(1,length(time),nSample)))';
     mset = zeros(size(timeset));
@@ -41,6 +41,7 @@ function plotMassFile(fileName)
         cgm = f.ColdGasMass(selector);
         sgm = f.StellarMass(selector);
         wdm = f.WDMass(selector);
+        nsm = f.NSMass(selector);
 %         igm(i) = mean(f.IGMMass(selector));
 
         mtotal(i) = sum(f.TotalMass(selector));
@@ -92,7 +93,7 @@ function plotMassFile(fileName)
     
     nexttile(3);
     xlabel("Central Radius of Ring (kpc)"); 
-    ylabel("Cold-Stellar Mass Ratio");
+    ylabel("White Dwarfs($10^9M_\odot$kpc $^{-2}$)");
     set(gca,'yscale','log')
     grid on;
     nexttile(4);

@@ -2,6 +2,7 @@
 set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegendInterpreter','latex');
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
+figure(1)
 clf;
 % T=tiledlayout(4,2);
 files = "../Output/Test_" + ["SLF"] +"/Enrichment_Log_ColdGas.dat";
@@ -30,6 +31,7 @@ mg = (f.Total_Mg);
 
 % scatter(fe-h,mg-fe);
 r = unique(f.RingIndex);
+r = r(2:end-2);
 % clf;
 colormap(jet)
 cs = jet(length(r));
@@ -47,7 +49,7 @@ for i = 1:length(r)
     plot(feSub - hSub, mgSub - feSub, 'Color',cs(i,:));
     colorbar;
     caxis([min(r),max(r)])
-    xlim([-3,0.5]);
+    xlim([-2,0.7]);
 %     ylim([0,0.35]);
     hold off;
     

@@ -139,7 +139,6 @@ void StarReservoir::Death(int currentTime, GasReservoir & birthGas)
 		
 		if (Population[i].Active())
 		{
-			
 			Population[i].Death(currentTime, YieldOutput,Remnants, birthGas, EventRate[currentTime]);
 		}
 		
@@ -149,6 +148,12 @@ void StarReservoir::Death(int currentTime, GasReservoir & birthGas)
 
 const std::vector<GasStream> & StarReservoir::YieldsFrom(int t)
 {
+	//~ const std::vector<GasStream> output = YieldOutput.GetHistory(t);
+	//~ std::cout << "Returning yield grid, XYZ incoming: " << std::endl;
+	//~ for (int p = 0; p < ProcessCount; ++p)
+	//~ {
+		//~ std::cout << "Proc: " << output[p].Source << " X = " << output[p].Cold(Hydrogen) + output[p].Hot(Hydrogen) << "  Y = " << output[p].Cold(Helium) + output[p].Hot(Helium) << "  Z = " << output[p].Cold(Metals) + output[p].Hot(Metals) << " for total mass " << output[p].Mass() << std::endl;
+	//~ }
 	return YieldOutput.GetHistory(t);
 }
 

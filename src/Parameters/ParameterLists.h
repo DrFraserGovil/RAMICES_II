@@ -178,10 +178,10 @@ class StellarValues : public ParamList
 		Argument<double> MinLogZ = Argument<double>(-8,"logz-min");
 		
 		//!Maximum Z that the ILM(??) can consider
-		Argument<double> MaxLogZ = Argument<double>(-0.5,"logz-max");
+		Argument<double> MaxLogZ = Argument<double>(-0.1,"logz-max");
 
 		//!Z Resolution
-		Argument<int> LogZResolution = Argument<int>(50,"logz-resolution");
+		Argument<int> LogZResolution = Argument<int>(100,"logz-resolution");
 
 		//! As with MassGrid, but for metallicity (assumed to be always uniform in log-space)
 		std::vector<double> LogZGrid;
@@ -227,7 +227,7 @@ class YieldValues : public ParamList
 {
 	public:
 		Argument<double> TargetNi56Yield = Argument<double>(0.1,"ideal-ni56");
-		Argument<double> MassOverhang = Argument<double>(5,"yield-mass-overhang");
+		Argument<double> MassOverhang = Argument<double>(6,"yield-mass-overhang");
 		std::vector<std::string> ProcessNames;
 		std::vector<SourceProcess> ProcessTypes;
 		
@@ -249,7 +249,7 @@ class YieldValues : public ParamList
 		Argument<double> CCSN_MassCut = Argument<double>(10,"ccsn-mass");
 		
 		Argument<double> ECSN_MassCut = Argument<double>(8.5,"ecsn-mass");
-		Argument<double> CODwarf_MassCut = Argument<double>(3.2,"co-mass");
+		Argument<double> CODwarf_MassCut = Argument<double>(3.1,"co-mass");
 		Argument<double> Collapse_MassCut = Argument<double>(40,"bh-mass");
 		
 		Argument<double> NSM_DelayTime = Argument<double>(0.02,"nsm-delay");
@@ -281,7 +281,7 @@ class ThermalValues : public ParamList
 		Argument<double> HotInjection_AGB = Argument<double>(0.7,"fh-nsm");
 		
 		//!Fraction of SNIa ejecta which is put into the hot phase
-		Argument<double> HotInjection_SNIa = Argument<double>(0.99,"fh-sn1a");
+		Argument<double> HotInjection_SNIa = Argument<double>(0.9,"fh-sn1a");
 		
 		//! The exponential timescale over which the hot gas cools into the cold gas
 		Argument<double> GasCoolingTimeScale = Argument<double>(1,"cool");
@@ -332,7 +332,7 @@ class GalaxyValues : public ParamList
 		Argument<double> IGM_Mass = Argument<double>(200,"igm-mass");
 		
 		//! The initial exponential scale length of the galaxy
-		Argument<double> MinScaleLength = Argument<double>(3.75,"scale-length-min");
+		Argument<double> MinScaleLength = Argument<double>(0.75,"scale-length-min");
 	
 		//! The exponential scale length that the galaxy achieves at ScaleLengthFinalTime
 		Argument<double> MaxScaleLength = Argument<double>(3.75,"scale-length-max");
@@ -347,10 +347,10 @@ class GalaxyValues : public ParamList
 		Argument<double> ScaleLengthFinalTime = Argument<double>(12.0,"scale-length-final");
 
 		//! The mass of the first (fast) exponential infall
-		Argument<double> InfallMass1 = Argument<double>(0,"M1");
+		Argument<double> InfallMass1 = Argument<double>(4.5,"M1");
 		
 		//! The mass of the second (slow) exponential infall
-		Argument<double> InfallMass2 = Argument<double>(0,"M2");
+		Argument<double> InfallMass2 = Argument<double>(46,"M2");
 		
 		//! The exponential timescale for the first (fast) exponential infall
 		Argument<double> InfallTime1 = Argument<double>(0.3,"b1");

@@ -12,6 +12,10 @@ GasReservoir::GasReservoir() : Param(GlobalParameters())
 	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
 	{
 		ComponentHistory[i].resize(ProcessCount);
+		for (int j = 0; j < ProcessCount; ++j)
+		{
+			ComponentHistory[i][j].Source = (SourceProcess)j;
+		}
 	}
 }
 GasReservoir::GasReservoir(const GlobalParameters & param): Param(param)
@@ -26,6 +30,10 @@ GasReservoir::GasReservoir(const GlobalParameters & param): Param(param)
 	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
 	{
 		ComponentHistory[i].resize(ProcessCount);
+		for (int j = 0; j < ProcessCount; ++j)
+		{
+			ComponentHistory[i][j].Source = (SourceProcess)j;
+		}
 	}
 }
 
@@ -104,11 +112,19 @@ void GasReservoir::Absorb(const std::vector<GasStream> & givingGas, double fract
 	{
 		SourceProcess source = (SourceProcess)i;
 		Absorb(givingGas[source],fraction);
+		//~ if (source == Remnant)
+		//~ {
+			//~ std::cout << "I am absorbing " << givingGas[source].Mass() << " of remnant-sourced matter " <<std::endl;
+		//~ }
 	}
 }
 
 void GasReservoir::AbsorbMemory(int t, const GasStream & input)
 {
+	//~ if (input.Source == Remnant && input.Mass() > 1e-80)
+		//~ {
+			//~ std::cout << "I am absorbing " << input.Mass() << " of remnant-sourced matter to t = " << t  <<std::endl;
+		//~ }
 	ComponentHistory[t][input.Source].Absorb(input);
 }
 
@@ -156,6 +172,7 @@ void GasReservoir::Deplete(double amountToLose_Cold, double amountToLose_Hot)
 void GasReservoir::Absorb(const GasStream & givingGas)
 {	
 	SourceProcess source = givingGas.Source;
+
 	Components[source].Absorb(givingGas);
 }
 

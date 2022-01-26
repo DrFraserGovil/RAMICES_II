@@ -15,7 +15,7 @@ template <typename T> int sgn(T val) {
 
 double interp(double x, double x1, double x2)
 {
-	double extrap = 0.5;
+	double extrap = 0.2;
 	double scale = 5;
 	double inter = (x - x1)/(x2 - x1);
 	inter = std::min(std::max(inter,-extrap),1.0+extrap);
