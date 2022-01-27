@@ -32,12 +32,12 @@ SimpleYield::SimpleYield(const GlobalParameters & param, YieldProcess yieldproce
 	}
 }
 
-void SimpleYield::operator()(GasReservoir & scatteringReservoir, int nObjects, int birthIndex) const
+void SimpleYield::operator()(GasReservoir & scatteringReservoir, double nObjects, int birthIndex) const
 {
 	RemnantInject(scatteringReservoir,nObjects,birthIndex);
 }
 
-void SimpleYield::RemnantInject(GasReservoir & scatteringReservoir, int nObjects, int birthIndex) const
+void SimpleYield::RemnantInject(GasReservoir & scatteringReservoir, double nObjects, int birthIndex) const
 {
 	GasStream TempStream(Process);
 	for (int e = 0; e < ElementCount; ++e)

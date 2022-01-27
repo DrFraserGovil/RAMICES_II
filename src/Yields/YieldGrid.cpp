@@ -119,8 +119,12 @@ void YieldGrid::ElementDestruction(ElementID element, double synthesisFraction, 
 		totalElemMass += birthStreams[proc].Cold(element);
 	}
 	double birthFraction_noStreaming = totalElemMass / totalMass;
-	double deathFraction_noStreaming = std::max(0.0,birthFraction_noStreaming + synthesisFraction);
-	
+	double deathFraction_noStreaming = birthFraction_noStreaming + synthesisFraction;
+	if (deathFraction_noStreaming < 0)
+	{
+		//~ std::cout << "I am trying to destroy more than is present of " << Param.Element.ElementNames[element] << " since I was born with " << birthFraction_noStreaming << " and synthesised " << synthesisFraction << " this will most likely cause a mass deficit" <<std::endl;
+		deathFraction_noStreaming = 0;
+	}
 	double outputMass = deathFraction_noStreaming * ejectaMass / 1e9;
 	if (wordy)
 	{
@@ -196,12 +200,16 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 	double abberation = ejectaMass - xSum - ySum - zSum;
 	//~ std::cout << "With an ejecta mass of " << ejectaMass << " I synthesised (X,Y,Z) = ("<< xSum << ", " << ySum << ", " << zSum << ") Mass deficit = " << ejectaMass - xSum - ySum - zSum << std::endl;
 	
-	if (abs(abberation/ejectaMass) > 0.01)
-	{
-		std::cout << "Yield abberation detected! X + Y + Z should be 0, I found it to be" << abberation/ejectaMass <<std::endl;
-		std::cout << "The most likely cause of this is that the material has become hyper-enriched and I am trying to destroy more hydrogen than is present" << std::endl;
-		exit(-20);
-	}
+	//~ if (abs(abberation/ejectaMass) > 0.1)
+	//~ {
+		//~ std::cout << "\n\nYield abberation detected! X + Y + Z should be 0, I found it to be" << abberation/ejectaMass <<std::endl;
+		//~ std::cout << "The most likely cause of this is that the material has become hyper-enriched and I am trying to destroy more hydrogen than is present. The birth registry of this star is:" << std::endl;
+		//~ for (int p = 0; p < ProcessCount; ++p)
+		//~ {
+			//~ std::cout << "Proc " << birthStreams[p].Source << "  had XYZ = " << birthStreams[p].Cold(Hydrogen) << "  " << birthStreams[p].Cold(Helium) << "   " << birthStreams[p].Cold(Metals) << " with mass " << birthStreams[p].ColdMass() << std::endl;
+		//~ }
+		//~ exit(-20);
+	//~ }
 	
 	//deal with remnants
 	RemnantOutput output;
@@ -271,7 +279,7 @@ void YieldGrid::CCSN_Initialise()
 	
 	LoadOrfeoYields();
 	LoadLimongiYields();
-	LoadMaederYields();
+	//~ LoadMaederYields();
 
 	CreateGrid();
 	

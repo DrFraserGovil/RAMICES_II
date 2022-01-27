@@ -45,6 +45,7 @@ class Galaxy
 		void ScatterYields(int time);
 		double PredictSurfaceDensity(double radius,double width, double totalGasMass, double scalelength);
 		double GasMass();
+		double ColdGasMass();
 		double StarMass();
 
 		double RelicMass();

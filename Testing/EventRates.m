@@ -17,7 +17,7 @@ function plotEventFile(fileName)
     radius = unique(f.Radius);
 
     clf;
-    nSample = 300;
+    nSample = 200;
     ts = string.empty;
     timeset = time(ceil(linspace(1,length(time),nSample)))';
     mset = zeros(size(timeset));
@@ -63,7 +63,7 @@ function plotEventFile(fileName)
 
         nexttile(3);
         hold on;
-        plot(rs,agb,'Color',c(i,:));
+        plot(rs,agb./birth,'Color',c(i,:));
         hold off;
         
         nexttile(4);

@@ -158,7 +158,7 @@ class StellarValues : public ParamList
 		Argument<double> MaxStellarMass = Argument<double>(100,"mass-max");
 		
 		//!Maxmimum stellar mass that IMF can generate
-		Argument<double> MinStellarMass = Argument<double>(0.1,"mass-min");
+		Argument<double> MinStellarMass = Argument<double>(0.8,"mass-min");
 		
 		//!Mass of stars which we consider immortal without checking their isochrones
 		Argument<double> ImmortalMass = Argument<double>(0.7,"mass-immortal");
@@ -278,7 +278,7 @@ class ThermalValues : public ParamList
 		Argument<double> HotInjection_NSM = Argument<double>(0.4,"fh-nsm");
 		
 		//!Fraction of AGB ejecta which is put into the hot phase
-		Argument<double> HotInjection_AGB = Argument<double>(0.7,"fh-nsm");
+		Argument<double> HotInjection_AGB = Argument<double>(0.7,"fh-agb");
 		
 		//!Fraction of SNIa ejecta which is put into the hot phase
 		Argument<double> HotInjection_SNIa = Argument<double>(0.9,"fh-sn1a");
@@ -294,7 +294,7 @@ class ThermalValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		ThermalValues()
 		{
-			argPointers = {&HotInjection_CCSN, &HotInjection_NSM, &HotInjection_SNIa, &GasCoolingTimeScale, &HotInjection_SNIa, &NumericalResolution, &DormantHotFraction,&CoolingPower};
+			argPointers = {&HotInjection_CCSN, &HotInjection_NSM, &HotInjection_SNIa, &GasCoolingTimeScale, &HotInjection_AGB, &NumericalResolution, &DormantHotFraction,&CoolingPower};
 		}
 };
 

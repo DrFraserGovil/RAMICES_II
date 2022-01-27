@@ -1,10 +1,10 @@
-dir = "../Output/Test_SNOn/Yields/";
+dir = "../Output/Test_SLF/Yields/";
 ccsn = readtable(dir + "CCSN_yields.dat");
 agb = readtable(dir + "AGB_yields.dat");
 old = readtable("../Resources/ChemicalData/RalphSavedYields.dat");
-column = "Mg";
-oldColum = 3 + 5;
-overplotter = dir + column + "_ridges_CCSN.dat";
+column = "C";
+oldColum = 3 + 3;
+overplotter = dir + column + "_ridges_AGB.dat";
 if column == "Remnant"
     column = column + "Fraction";
 end

@@ -192,7 +192,7 @@ void GasStream::Heat(double amountToHeat)
 	{
 		ElementID elem = (ElementID)i;
 		double mass = Cold(elem) * moveFraction;
-		Cold(elem) -= mass;
+		Cold(elem) = std::max(0.0,Cold(elem) - mass);
 		Hot(elem) += mass;
 	}
 	Dirty();
@@ -213,7 +213,7 @@ void GasStream::Cool(double amountToCool)
 		ElementID elem = (ElementID)i;
 		double mass = Hot(elem) * moveFraction;
 		Cold(elem) += mass;
-		Hot(elem) -= mass;
+		Hot(elem) =  std::max(0.0,Hot(elem) - mass);
 	}
 	Dirty();
 }

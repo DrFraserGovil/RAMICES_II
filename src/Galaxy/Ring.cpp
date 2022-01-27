@@ -20,7 +20,7 @@ double Ring::Mass()
 
 void Ring::TimeStep(int t)
 {
-	//~ std::cout << "\nRing " << RadiusIndex << std::endl;
+	MetCheck("Start of internal loop");
 	Cool();
 	//~ std::cout << "\tCooled " << Mass() << std::endl;
 	MakeStars();
@@ -28,8 +28,12 @@ void Ring::TimeStep(int t)
 	UpdateMemory(t);
 	KillStars(t);
 	//~ std::cout << "\tKilled "  << Mass() << std::endl;
+	
+	
 	UpdateMemory(t);
 	//~ std::cout << "\tSaved "  << Mass() << std::endl;
+	
+	MetCheck("End of internal loop");
 }
 
 void Ring::MakeStars()
@@ -159,4 +163,17 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 	logarithmicStreamCold  << "\n";
 	absoluteStreamHot   << "\n";
 	logarithmicStreamHot   << "\n";
+}
+
+
+void Ring::MetCheck(const std::string & location)
+{
+	double z = Gas.Metallicity();
+	if (z < 0)
+	{
+		std::cout << "The gas in Ring " << RadiusIndex << " had a negative metallicity at " << location << "\n Critical Error!" << std::endl;
+		exit(5);
+		
+	}
+	
 }

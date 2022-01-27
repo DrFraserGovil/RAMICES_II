@@ -38,12 +38,13 @@ double StarReservoir::SFR_GasLoss(double density)
 	double sigmaCut = Param.Stellar.SchmidtDensityCut;
 	double prefactor = Param.Stellar.SchmidtPrefactor * (1+Param.Stellar.FeedbackFactor);
 	double power = nBig;
-	if (density < sigmaCut)
-	{
-		power = nSmall;
-		prefactor *= pow(sigmaCut,nBig - nSmall); // ensures the SFR is continuous
-	}
+	//~ if (density < sigmaCut)
+	//~ {
+		//~ power = nSmall;
+		//~ prefactor *= pow(sigmaCut,nBig - nSmall); // ensures the SFR is continuous
+	//~ }
 	//integrates the SFR smoothly over the timestep (including Feedback losses), makes it impossible to losemore gas than you have
+	
 	double gasDensity = integratedSchmidt(density,prefactor,power,Param.Meta.TimeStep);
 	
 	return density - gasDensity;
@@ -53,9 +54,9 @@ double StarReservoir::SFR_GasLoss(double density)
 void StarReservoir::Form(GasReservoir & gas)
 {
 	double z = gas.Metallicity();
-	
+	//~ std::cout << "I want to form stars" <<std::endl;
 	double initMass = gas.ColdMass();
-	
+	//~ std::cout << "I have " << initMass << std::endl;
 	//~ double initialTotalMass = gas.Mass() + Mass();
 	
 	////////   density version (old)
@@ -66,30 +67,32 @@ void StarReservoir::Form(GasReservoir & gas)
 	
 	
 	double gasLossMass = SFR_GasLoss(gas.ColdMass());
-	
+	//~ std::cout << "I am about to lose " << gasLossMass << std::endl;
 	double heatFrac = Param.Stellar.FeedbackFactor;
 	
 	
 	double starMassFormed = 1.0/(1 + heatFrac) * gasLossMass;
 	double feedbackMass = gasLossMass - starMassFormed;
+	//~ std::cout << feedbackMass << "  " << starMassFormed << std::endl;
 	gas.Deplete(starMassFormed,0.0);	
 	gas.Heat(feedbackMass); 
-	
+	//~ std::cout << "Depleted successfully" <<std::endl;
 	EventRate[PopulationIndex].StarMassFormed += starMassFormed;
 	
 
-	
+	//~ std::cout<< "Calling form stars...." <<std::endl;
 	int newStarCount = Population[PopulationIndex].FormStars(starMassFormed,PopulationIndex,z);
-	
+	//~ std::cout << newStarCount << "  " << PopulationIndex << std::endl;
 	
 	EventRate[PopulationIndex].NStarsFormed += newStarCount;
-	
+	//~ std::cout << "Checking gas mass" <<std::endl;
 	if (gas.ColdMass() < 0)
 	{
 		std::cout << "ERROR!" << gas.ColdMass() << "  " << gas.HotMass() << std::endl;
 		exit(3);
 	}
 	++PopulationIndex;
+	//~ std::cout << "Done! " <<std::endl;
 }
 
 double StarReservoir::AliveMass()

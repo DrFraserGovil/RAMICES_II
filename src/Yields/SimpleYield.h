@@ -8,7 +8,7 @@ class SimpleYield
 		const SourceProcess Process;
 		SimpleYield(const GlobalParameters & param, YieldProcess Process);
 		
-		void operator()(GasReservoir & scatteringReservoir, int nObjects, int birthIndex)  const;
+		void operator()(GasReservoir & scatteringReservoir, double nObjects, int birthIndex)  const;
 	
 	private:
 		
@@ -16,7 +16,7 @@ class SimpleYield
 		void NSM_Initialise();
 		void SNIa_Initialise();
 		
-		void RemnantInject( GasReservoir & scatteringReservoir, int Nstars, int birthIndex) const;
+		void RemnantInject( GasReservoir & scatteringReservoir, double Nstars, int birthIndex) const;
 		std::vector<double> Grid;
 		const GlobalParameters & Param;
 };

@@ -62,8 +62,9 @@ IsoMass & StellarPopulation::operator [](int i)
 
 int StellarPopulation::FormStars(double formingMass, int timeIndex,double formingMetallicity)
 {
+	//~ std::cout << "I am here to form " << formingMass << std::endl;
 	double NStarsFormed = IMF.FormationCount(formingMass);
-	
+	//~ std::cout << NStarsFormed <<std::endl;
 	double budget = 0;
 	
 	int prevIndex = timeIndex;
@@ -72,10 +73,12 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex,double formin
 		//~ std::cout << "Mass " << i << "  " << formingMetallicity << std::endl;
 		double m = Param.Stellar.MassGrid[i];
 		double nStars = NStarsFormed * IMF.Weighting(i);
+		//~ std::cout << i << "  " << m << "  " << nStars << std::endl;
 		budget +=  nStars * m/1e9;
 		
+		//~ std::cout << "Calc. death index" <<std::endl;
 		int deathIndex = timeIndex + SLF(i,formingMetallicity);
-		
+		//~ std::cout << deathIndex << std::endl;
 		
 		//check for monotonicity
 		if (deathIndex < prevIndex)
@@ -90,12 +93,17 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex,double formin
 			//~ exit(5);
 			deathIndex = prevIndex;
 		}
+		//~ std::cout << deathIndex << std::endl;
 		Distribution[i] = IsoMass(nStars,i,formingMetallicity, timeIndex,deathIndex);
+		//~ std::cout << "Assigned to distribution" <<std::endl;
 		prevIndex = deathIndex;
 	}
+	
 	//the remaining mass gets turned into immortal stars, al of which are assumed to have the minimum mortal mass
 	double mInf = Param.Stellar.ImmortalMass;
+	
 	double effectiveImmortalCount = std::max(0.0,formingMass - budget)*1e9 / mInf;
+	//~ std::cout << "Immortal shenanigans" << effectiveImmortalCount << std::endl;
 	ImmortalStars = IsoMass(effectiveImmortalCount,mInf,formingMetallicity,timeIndex,1e10);
 	
 	internal_MassCounter += formingMass;

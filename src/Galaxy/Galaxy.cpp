@@ -104,15 +104,21 @@ void Galaxy::Evolve()
 	
 	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
 	{
+		//~ std::cout << "Starting " << timestep << std::endl;
 		IGM.PassiveCool(Param.Meta.TimeStep,true);
+		//~ std::cout << "\tPassive cooled" <<std::endl;
 		Infall(t);
+		//~ std::cout << "\tInfell" <<std::endl;
 		LaunchParallelRings(timestep,RingStep);
+		//~ std::cout << "\tParallel" <<std::endl;
 		LaunchParallelRings(timestep,Scattering);
+		//~ std::cout << "\tScatter" <<std::endl;
 		t += Param.Meta.TimeStep;
 		
 		
 		Data.ProgressBar(currentBars, timestep,Param.Meta.SimulationSteps);	
-		SaveState(t);	
+		SaveState(t);
+		//~ std::cout << "\tSaved" <<std::endl;	
 	}
 	
 	
@@ -136,6 +142,15 @@ double Galaxy::GasMass()
 	for (int i = 0; i < Rings.size(); ++i)
 	{
 		m+=Rings[i].Gas.Mass();
+	}
+	return m;
+}
+double Galaxy::ColdGasMass()
+{
+	double m = 0;
+	for (int i = 0; i < Rings.size(); ++i)
+	{
+		m+=Rings[i].Gas.ColdMass();
 	}
 	return m;
 }
@@ -230,6 +245,7 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 
 std::vector<double> IterativeFit(const std::vector<double> & oldDeltas, const double newMass)
 {
+	//~ std::cout << "Had to use iterative" <<std::endl;
 	int n = oldDeltas.size();
 	std::vector<double> newDeltas(n,0.0);
 	double correctedAmount = 0;
@@ -242,7 +258,7 @@ std::vector<double> IterativeFit(const std::vector<double> & oldDeltas, const do
 	double correctionFactor = newMass / correctedAmount;
 	for (int i = 0; i < n; ++i)
 	{
-		//~ newDeltas[i] *= correctionFactor;
+		newDeltas[i] *= correctionFactor;
 	}
 	return newDeltas;
 	
@@ -251,7 +267,7 @@ std::vector<double> IterativeFit(const std::vector<double> & oldDeltas, const do
 void Galaxy::Infall(double t)
 {
 	double Rd = GasScaleLength(t);
-	double oldGas = GasMass();
+	double oldGas = ColdGasMass();
 	double predictedInfall = InfallMass(t);
 	double newGas = oldGas + predictedInfall;
 	
@@ -261,13 +277,14 @@ void Galaxy::Infall(double t)
 	bool perfect = true;
 	for (int i = 0; i < Rings.size(); ++i)
 	{
+		Rings[i].MetCheck("Whilst infall computed");
 		double r = Rings[i].Radius;
 		double w = Rings[i].Width;
-		origMass[i] = Rings[i].Gas.Mass();
+		origMass[i] = Rings[i].Gas.ColdMass();
 		double sigma = PredictSurfaceDensity(r,w,newGas,Rd);
 		double newMass = sigma * 2.0 * pi * r*w;
 		perfectMasses[i] = newMass;
-		perfectDeltas[i] = newMass - Rings[i].Gas.Mass();
+		perfectDeltas[i] = newMass - Rings[i].Gas.ColdMass();
 		if (perfectDeltas[i] < 0)
 		{
 			perfect = false;
@@ -286,8 +303,10 @@ void Galaxy::Infall(double t)
 	for (int i = 0; i < Rings.size(); ++i)
 	{
 		double target = origMass[i] + realDeltas[i];
-		double required = target - Rings[i].Gas.Mass();
+		double required = target - Rings[i].Gas.ColdMass();
 		InsertInfallingGas(i,required);	
+		
+		Rings[i].MetCheck("After Infall applied " + std::to_string(required));
 	}	
 }
 
@@ -330,7 +349,7 @@ void Galaxy::ScatterStep(int time, int ringstart, int ringend)
 		{
 			double absorbFrac = 1.0 - Param.Stellar.EjectionFraction;
 			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t),absorbFrac);
-			IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1.0 - absorbFrac); //this step might be broken with the parallelisation....
+			//~ IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1.0 - absorbFrac); //this step might be broken with the parallelisation....
 		}
 		
 		Rings[i].UpdateMemory(time);

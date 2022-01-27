@@ -18,7 +18,12 @@ struct Interpolator
 	double LinearFactor;
 	double Interpolate(double lower, double upper)
 	{
-		return lower + LinearFactor*(upper - lower);
+		double val = lower + LinearFactor*(upper - lower);
+		if (val < 0 && (lower > 0 || upper > 0))
+		{
+			val = 0;
+		}
+		return val;
 	}
 };
 

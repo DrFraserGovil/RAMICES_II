@@ -14,8 +14,8 @@ SLF_Functor::SLF_Functor(const GlobalParameters & param) : Param(param)
 
 int SLF_Functor::operator()(int mass, double metallicity)
 {
-
-	double logZ = std::max(log10(metallicity),Param.Stellar.MinLogZ.Value);
+	double logZ = std::max(log10(metallicity+1e-99),Param.Stellar.MinLogZ.Value);
+	//~ std::cout << "SLF(" << mass << ", " << ", " << metallicity << ", " << logZ << "  )" <<std::endl;
 	if (logZ > Param.Stellar.MaxLogZ)
 	{
 		std::cout << "ERROR - the metallicity (z = " << logZ << ") has exceeded the value and overflowed the edge of the grid (" << Param.Stellar.MaxLogZ << "). Please recompute with a higher metallicity boundary" << std::endl;
@@ -36,7 +36,7 @@ int SLF_Functor::operator()(int mass, double metallicity)
 		upID = closestMetallicityID;
 		downID = std::max(0,closestMetallicityID - 1);
 	}
-	
+	//~ std::cout << "SLFInterpolate: " << downID << "  " << upID << "  " << Param.Stellar.LogZResolution << std::endl;
 	double lifeTime;
 	if (upID == downID)
 	{
@@ -51,7 +51,7 @@ int SLF_Functor::operator()(int mass, double metallicity)
 		
 		lifeTime = downLife + (upLife -downLife)/(upZ - downZ) * (logZ - downZ);
 	}
-		
+	
 	//Turn the lifetime into timestep units
 	return round(lifeTime / Param.Meta.TimeStep);
 }

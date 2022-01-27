@@ -325,7 +325,6 @@ void GasReservoir::PrintSelf()
 	
 double GasReservoir::Metallicity()
 {
-	//~ std::cout << "I am requesting a metallicity call" << std::endl;
 	double Mz = 0;
 	double M = 0;
 	for (int i = 0; i < ProcessCount; ++i)

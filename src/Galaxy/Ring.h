@@ -27,6 +27,8 @@ class Ring
 		void UpdateMemory(int t);
 		
 		void SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, std::stringstream & logarithmicStreamCold, std::stringstream & absoluteStreamHot, std::stringstream & logarithmicStreamHot);
+		
+		void MetCheck(const std::string & location);
 	private:
 		
 		//~ std::vector<GasReservoir> PreviousEnrichment;

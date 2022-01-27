@@ -14,7 +14,7 @@ double IMF_Functor::IMF(double mass)
 	const double k = prefactor * exp( - log10(mu) * log10(mu)/(2*sigma*sigma));
 	
 	double value;
-	if (mass < 1)
+	if (mass < 1.0)
 	{
 		double dist = (log10(mass / 0.08) ) / 0.69;
 		value = prefactor / mass * exp( - dist*dist / 2);
@@ -56,7 +56,7 @@ Integral IMF_Functor::MomentCompute(double start, double stop, int resolution)
 	Integral integral;
 	integral.ZerothMoment = 0.5 * (IMF(start) + IMF(stop));
 	integral.FirstMoment = 0.5 * (IMF(start)*start + IMF(stop)*stop);
-	double delta = (stop - start)/resolution;
+	double delta = (stop - start)/(resolution-1);
 	for (int i = 0; i < resolution; ++i)
 	{
 		double m = start + (i+1)*delta;
@@ -87,7 +87,9 @@ void IMF_Functor::Normalise()
 	
 	//perform the normalisation corrections
 	IMF_Normalisation = 1.0/integratedIMF.ZerothMoment;
+	std::cout << "NORMALISER: " << IMF_Normalisation << "  " << integratedIMF.ZerothMoment << std::endl;
 	IMF_MeanMass = integratedIMF.FirstMoment/integratedIMF.ZerothMoment;
+	std::cout << "Mean mass = " << IMF_MeanMass << std::endl;
 	for (int i = 0;i < IMF_Weighting.size(); ++i)
 	{
 		IMF_Weighting[i] *= IMF_Normalisation;
