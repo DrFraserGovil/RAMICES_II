@@ -58,7 +58,7 @@ void Gas::CheckMass()
 	{
 		elementWiseMass += Species[i];
 	}
-	if (abs(elementWiseMass - basicMass) > 1e-8)
+	if (elementWiseMass > basicMass)
 	{
 		Species[Metals] += elementWiseMass - basicMass;
 		basicMass= elementWiseMass;	

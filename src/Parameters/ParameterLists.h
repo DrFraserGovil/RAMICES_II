@@ -196,7 +196,7 @@ class StellarValues : public ParamList
 
 		
 		//! The normal Kennicutt-Schmidt power law index
-		Argument<double> SchmidtMainPower = Argument<double>(1,"schmidt-main");
+		Argument<double> SchmidtMainPower = Argument<double>(1.4,"schmidt-main");
 		
 		//! The low-density Kennicutt-Schmidt power law index
 		Argument<double> SchmidtLowPower = Argument<double>(4.0,"schmidt-low");
@@ -236,15 +236,15 @@ class YieldValues : public ParamList
 		
 		Argument<double> SNIa_ActiveFraction = Argument<double>(0.1,"sn1a-fraction");
 		
-		Argument<double> SNIa_LongFraction = Argument<double>(0.99,"sn1a-fraction-long");
+		Argument<double> SNIa_LongFraction = Argument<double>(0.8,"sn1a-fraction-long");
 		
-		Argument<double> SNIa_ShortScale = Argument<double>(0.29,"sn1a-short-decay");
+		Argument<double> SNIa_ShortScale = Argument<double>(0.2,"sn1a-short-decay");
 		
 		Argument<double> SNIa_TypicalMass = Argument<double>(1.2,"sn1a-progenitor-mass");
 		
 		Argument<double> NSM_TypicalMass = Argument<double>(1.4,"nsm-progenitor-mass");
 		
-		Argument<double> SNIa_LongScale = Argument<double>(1.5,"sn1a-long-decay");
+		Argument<double> SNIa_LongScale = Argument<double>(1,"sn1a-long-decay");
 		
 		Argument<double> CCSN_MassCut = Argument<double>(10,"ccsn-mass");
 		
@@ -281,7 +281,7 @@ class ThermalValues : public ParamList
 		Argument<double> HotInjection_AGB = Argument<double>(0.7,"fh-agb");
 		
 		//!Fraction of SNIa ejecta which is put into the hot phase
-		Argument<double> HotInjection_SNIa = Argument<double>(0.9,"fh-sn1a");
+		Argument<double> HotInjection_SNIa = Argument<double>(0.99,"fh-sn1a");
 		
 		//! The exponential timescale over which the hot gas cools into the cold gas
 		Argument<double> GasCoolingTimeScale = Argument<double>(1,"cool");

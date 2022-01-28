@@ -2,7 +2,7 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["Test_SLF"] + "/Events.dat";
+files = "../Output/" + ["Test_NewMassParadigm"] + "/Events.dat";
 
 for i = 1:length(files)
     figure(i);

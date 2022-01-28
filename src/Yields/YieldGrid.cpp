@@ -154,7 +154,7 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 	Interpolator LogZ = MetallicityInterpolation(z);
 	double initMass = Param.Stellar.MassGrid[mass];
 
-	double remnantMass = LogZ.Interpolate(Grid[mass-MassOffset][LogZ.LowerID][RemnantLocation], Grid[mass-MassOffset][LogZ.UpperID][RemnantLocation]);
+	double remnantMass =  initMass * LogZ.Interpolate(Grid[mass-MassOffset][LogZ.LowerID][RemnantLocation], Grid[mass-MassOffset][LogZ.UpperID][RemnantLocation]);
 	double ejectaMass = Nstars * (initMass - remnantMass); 
 	
 	const std::vector<GasStream> & birthStreams = birthReservoir.GetHistory(birthIndex);
@@ -198,6 +198,7 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 	zSum *= 1e9;
 	
 	double abberation = ejectaMass - xSum - ySum - zSum;
+	//~ std::cout << "ejecting " << xSum + ySum + zSum << std::endl;
 	//~ std::cout << "With an ejecta mass of " << ejectaMass << " I synthesised (X,Y,Z) = ("<< xSum << ", " << ySum << ", " << zSum << ") Mass deficit = " << ejectaMass - xSum - ySum - zSum << std::endl;
 	
 	//~ if (abs(abberation/ejectaMass) > 0.1)
@@ -226,12 +227,11 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 	else if (initMass > Param.Yield.CODwarf_MassCut)
 	{
 		output.Type = CODwarf;
-		//~ std::cout << "CO with " << initMass << std::endl;
+		//~ std::cout << "CO with " << " mass " << remnantMass << " from star with M = " << initMass << " z = " << z << "  remFrac = " << Grid[mass-MassOffset][LogZ.LowerID][RemnantLocation] << " - > " << Grid[mass-MassOffset][LogZ.UpperID][RemnantLocation] << std::endl;
 	}
 	else
 	{
 		output.Type = DormantDwarf;
-		//~ std::cout << "Dormant with " << initMass << std::endl;
 	}
 	
 	output.Mass = std::max(0.0,Nstars * remnantMass);

@@ -38,7 +38,9 @@ void Ring::TimeStep(int t)
 
 void Ring::MakeStars()
 {
+	//~ std::cout << "Ring " << RadiusIndex << " forming stars " << Gas.Mass() + Stars.AliveMass() << "  " << Gas.ColdMass() << "  " << Gas.HotMass() << std::endl;
 	Stars.Form(Gas);
+	//~ std::cout << "\t " << Gas.Mass() + Stars.AliveMass() << "  " << Gas.ColdMass() << "  " << Gas.HotMass() << std::endl;
 }
 void Ring::KillStars(int time)
 {

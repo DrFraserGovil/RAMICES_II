@@ -5,8 +5,10 @@ set(0,'defaultAxesFontSize',28);
 figure(1)
 clf;
 % T=tiledlayout(4,2);
-files = "../Output/Test_" + ["SLF"] +"/Enrichment_Log_ColdGas.dat";
+files = "../Output/Test_" + ["Calibrate"] +"/Enrichment_Log_ColdGas.dat";
+figure(2)
 T = tiledlayout(1,1);
+
 for file = files
     nexttile;
     file
@@ -22,6 +24,7 @@ opts = detectImportOptions(fileName);
 opts.VariableTypes(:) = {'double'};
 
 f = readtable(fileName,opts);
+% f(1:10,:)
 
 fe = (f.Total_Fe);
 h = f.Total_H;

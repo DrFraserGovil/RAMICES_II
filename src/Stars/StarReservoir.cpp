@@ -71,11 +71,13 @@ void StarReservoir::Form(GasReservoir & gas)
 	double heatFrac = Param.Stellar.FeedbackFactor;
 	
 	
-	double starMassFormed = 1.0/(1 + heatFrac) * gasLossMass;
+	double starMassFormed = 1.0/(1.0 + heatFrac) * gasLossMass;
 	double feedbackMass = gasLossMass - starMassFormed;
 	//~ std::cout << feedbackMass << "  " << starMassFormed << std::endl;
 	gas.Deplete(starMassFormed,0.0);	
+	//~ std::cout << "Attempting to heat the gas: " << gas.ColdMass() << "  " << gas.HotMass() << "  " << gas.Mass() << std::endl;
 	gas.Heat(feedbackMass); 
+	//~ std::cout << "After heating the gas: " << gas.ColdMass() << "  " << gas.HotMass() << "  " << gas.Mass() << std::endl;
 	//~ std::cout << "Depleted successfully" <<std::endl;
 	EventRate[PopulationIndex].StarMassFormed += starMassFormed;
 	

@@ -23,6 +23,7 @@ struct Interpolator
 		{
 			val = 0;
 		}
+		//~ std::cout << "INTERPOLATE " << val << std::endl;
 		return val;
 	}
 };

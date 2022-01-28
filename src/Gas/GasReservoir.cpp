@@ -114,7 +114,6 @@ void GasReservoir::Absorb(const std::vector<GasStream> & givingGas, double fract
 		Absorb(givingGas[source],fraction);
 		//~ if (source == Remnant)
 		//~ {
-			//~ std::cout << "I am absorbing " << givingGas[source].Mass() << " of remnant-sourced matter " <<std::endl;
 		//~ }
 	}
 }

@@ -2,11 +2,11 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["Test_SLF"] + "/Mass.dat";
+files = "../Output/Test_" + ["Calibrate"] + "/Mass.dat";
 
 clf;
 for i = 1:length(files)
-    figure(i+1);
+    figure(i);
     plotMassFile(files(i));
     
 end
@@ -18,7 +18,7 @@ function plotMassFile(fileName)
     radius = unique(f.Radius);
 
     clf;
-    nSample = 50;
+    nSample = 150;
     ts = string.empty;
     timeset = time(ceil(linspace(1,length(time),nSample)))';
     mset = zeros(size(timeset));
@@ -50,7 +50,7 @@ function plotMassFile(fileName)
         htotal(i) = sum(f.HotGasMass(selector));
         wdtotal(i) = sum(f.WDMass(selector));
         nstotal(i) = sum(f.NSMass(selector));
-        bhtotal(i) = sum(f.BHMass(selector));
+        bhtotal(i) = sum(f.BHMass(selector)) + stotal(i) + ctotal(i) + htotal(i) + wdtotal(i) + nstotal(i);
 
         nexttile(1);
         hold on;
@@ -109,7 +109,7 @@ function plotMassFile(fileName)
     plot(timeset,bhtotal,'LineWidth',lw);
     plot(timeset,mtotal,'LineWidth',4);
     
-    plot(timeset,8 + 4.5*(1-exp(-timeset/0.3)) + 46 * (1 - exp(-timeset/14)),'k')
+    plot(timeset,8 + 4.5*(1-exp(-timeset/0.3)) + 45 * (1 - exp(-timeset/14)),'k')
     
     % plot(timeset,ctotal+htotal+stotal)
     xlabel("Simulation Time (Gyr)");
@@ -117,5 +117,5 @@ function plotMassFile(fileName)
     legend("Cold Gas","Hot Gas", "Stars","White Dwarfs", "Neutron Stars", "Black Holes","Total mass");
 %     set(gca,'yscale','log');
     grid on;
-    title(T,fileName);
+    title(T,"\verb|" + fileName + "|","Interpreter","latex");
 end
