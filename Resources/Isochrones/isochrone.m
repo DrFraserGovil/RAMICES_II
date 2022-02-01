@@ -94,15 +94,16 @@ Tau(Tau==default) = defaultOverride;
 % scatter3(mm,log10(10^10*(mm).^(-3)),zz);
 % hold off;
 hold on;
-% surf(M,Z,Tau,'LineStyle','None');
-contour(M,log10(Z),Tau,100)
+surf(M,log10(Z),10.^Tau,'LineStyle','None');
+% contour(M,log10(Z),10.^Tau,5000)
 hold off;
 xlabel("Mass");
 ylabel("Metallicity");
+
 % set(gca,'yscale','log');
 set(gca,'xscale','log');
-set(gca,'zscale','linear');
-caxis([6,10.3]);
+set(gca,'zscale','log');
+caxis(10.^[6,10.3]);
 c = colorbar;
 c.Label.String = "$\log_{10}($Age/Gyr)";
 

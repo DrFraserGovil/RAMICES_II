@@ -5,9 +5,9 @@ set(0,'defaultAxesFontSize',28);
 figure(1)
 clf;
 % T=tiledlayout(4,2);
-files = "../Output/Test_" + ["Calibrate"] +"/Enrichment_Log_ColdGas.dat";
-figure(2)
-T = tiledlayout(1,1);
+files = "../Output/Test_" + ["Truncated","Truncated_Low"] +"/Enrichment_Log_ColdGas.dat";
+
+T = tiledlayout(2,1);
 
 for file = files
     nexttile;
@@ -50,12 +50,13 @@ for i = 1:length(r)
 %     plot(f.TimeIndex(selector)*0.02, mgSub- hSub,'Color',cs(i,:));
 %     set(gca,'xscale','log')
     plot(feSub - hSub, mgSub - feSub, 'Color',cs(i,:));
-    colorbar;
-    caxis([min(r),max(r)])
-    xlim([-2,0.7]);
-%     ylim([0,0.35]);
-    hold off;
-    
+   
 end
+ colorbar;
+ caxis([min(r),max(r)])
+ xlim([-2.5,1.2]);
+ ylim([-0.2,0.5]);
+ hold off;
+    
 title("\verb|" +fileName + "|","FontSize",10);
 end

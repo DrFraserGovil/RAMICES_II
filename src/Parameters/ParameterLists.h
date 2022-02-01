@@ -202,7 +202,7 @@ class StellarValues : public ParamList
 		Argument<double> SchmidtLowPower = Argument<double>(4.0,"schmidt-low");
 		
 		//! The density cut for the low/high density switchover in Schmidt power law
-		Argument<double> SchmidtDensityCut = Argument<double>(4e-13,"schmidt-cut");
+		Argument<double> SchmidtDensityCut = Argument<double>(1e-3,"schmidt-cut");
 		
 		//! The Schmidt prefactor
 		Argument<double> SchmidtPrefactor = Argument<double>(2,"schmidt-factor");

@@ -37,6 +37,8 @@ int SLF_Functor::operator()(int mass, double metallicity)
 		downID = std::max(0,closestMetallicityID - 1);
 	}
 	//~ std::cout << "SLFInterpolate: " << downID << "  " << upID << "  " << Param.Stellar.LogZResolution << std::endl;
+	double upLife;
+	double downLife;
 	double lifeTime;
 	if (upID == downID)
 	{
@@ -44,8 +46,8 @@ int SLF_Functor::operator()(int mass, double metallicity)
 	}
 	else
 	{
-		double upLife = ValueInquiry(mass,upID);
-		double downLife = ValueInquiry(mass,downID);
+		upLife = ValueInquiry(mass,upID);
+		downLife = ValueInquiry(mass,downID);
 		double upZ = Param.Stellar.LogZGrid[upID];
 		double downZ = Param.Stellar.LogZGrid[downID];
 		

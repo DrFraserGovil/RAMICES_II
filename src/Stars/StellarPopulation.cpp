@@ -70,32 +70,45 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex,double formin
 	int prevIndex = timeIndex;
 	for (int i = Param.Stellar.MassResolution -1; i >= 0; --i)
 	{
-		//~ std::cout << "Mass " << i << "  " << formingMetallicity << std::endl;
 		double m = Param.Stellar.MassGrid[i];
+		
 		double nStars = NStarsFormed * IMF.Weighting(i);
-		//~ std::cout << i << "  " << m << "  " << nStars << std::endl;
+		double nOrig = nStars;
+		int truncated = (int)nStars;
+		
+		double roundingFactor = nStars - truncated;
+		double diceRoll = (double)rand() / RAND_MAX;
+		if (diceRoll > roundingFactor)
+		{
+			nStars = truncated;
+		}
+		else
+		{
+			nStars = truncated + 1;
+		}
+		//~ std::cout << m << " " << NStarsFormed << "  " << nOrig << "  " << diceRoll << "  "  << roundingFactor<< "  " << nStars << std::endl;
+		
 		budget +=  nStars * m/1e9;
 		
-		//~ std::cout << "Calc. death index" <<std::endl;
 		int deathIndex = timeIndex + SLF(i,formingMetallicity);
-		//~ std::cout << deathIndex << std::endl;
 		
 		//check for monotonicity
 		if (deathIndex < prevIndex)
 		{
+			//~ double slf = SLF(i,formingMetallicity);
+			//~ double slf_old = SLF(i+1,formingMetallicity);
 			//~ IsLifetimeMonotonic = false;
 			//~ std::cout << "t = " << timeIndex << "  death index = " << deathIndex << std::endl;
-			//~ std::cout << "z = " << formingMetallicity << std::endl;
-			//~ std::cout << "lifetime = " << SLF(i,formingMetallicity) << " steps = " << SLF(i,formingMetallicity) * Param.Meta.TimeStep << "Gyr" << std::endl;
+			//~ std::cout << "z = " << formingMetallicity << "  =  " << log10(formingMetallicity) << std::endl;
+			
+			//~ std::cout << "lifetime = " << slf<< " steps = " << slf * Param.Meta.TimeStep << "Gyr" << std::endl;
 			//~ std::cout << "m = " << m << std::endl;
-			//~ std::cout << "Previous index = " << prevIndex << std::endl;
+			//~ std::cout << "Previous index = " << prevIndex << "  (" << slf_old * Param.Meta.TimeStep << ")  " << std::endl;
 			//~ std::cout << "Non-monotonic lifetime generated?" << std::endl;
 			//~ exit(5);
 			deathIndex = prevIndex;
 		}
-		//~ std::cout << deathIndex << std::endl;
 		Distribution[i] = IsoMass(nStars,i,formingMetallicity, timeIndex,deathIndex);
-		//~ std::cout << "Assigned to distribution" <<std::endl;
 		prevIndex = deathIndex;
 	}
 	

@@ -38,11 +38,11 @@ double StarReservoir::SFR_GasLoss(double density)
 	double sigmaCut = Param.Stellar.SchmidtDensityCut;
 	double prefactor = Param.Stellar.SchmidtPrefactor * (1+Param.Stellar.FeedbackFactor);
 	double power = nBig;
-	//~ if (density < sigmaCut)
-	//~ {
-		//~ power = nSmall;
-		//~ prefactor *= pow(sigmaCut,nBig - nSmall); // ensures the SFR is continuous
-	//~ }
+	if (density < sigmaCut)
+	{
+		power = nSmall;
+		prefactor *= pow(sigmaCut,nBig - nSmall); // ensures the SFR is continuous
+	}
 	//integrates the SFR smoothly over the timestep (including Feedback losses), makes it impossible to losemore gas than you have
 	
 	double gasDensity = integratedSchmidt(density,prefactor,power,Param.Meta.TimeStep);
@@ -60,13 +60,13 @@ void StarReservoir::Form(GasReservoir & gas)
 	//~ double initialTotalMass = gas.Mass() + Mass();
 	
 	////////   density version (old)
-	//~ double gasSurfaceDensity = gas.ColdMass() / ParentArea;
-	//~ double gasLossMass = std::max(0.0,ParentArea * SFR_GasLoss(gasSurfaceDensity));
-	
+	double gasSurfaceDensity = gas.Mass() / ParentArea;
+	double gasLossMass = std::max(0.0,ParentArea * SFR_GasLoss(gasSurfaceDensity));
+	gasLossMass = std::min(gas.ColdMass() * 0.99, gasLossMass);
 	//////// mass version (new)
 	
 	
-	double gasLossMass = SFR_GasLoss(gas.ColdMass());
+	//~ double gasLossMass = SFR_GasLoss(gas.ColdMass());
 	//~ std::cout << "I am about to lose " << gasLossMass << std::endl;
 	double heatFrac = Param.Stellar.FeedbackFactor;
 	
