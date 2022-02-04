@@ -2,9 +2,11 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 files = "PadovaFiles/Met_" + ["m22_m18","m17_m13","m13_m09","m09_m05","m04_0","05_35","4_5"] + ".dat";
+% files = "PadovaFiles/Met_" + ["m22_m18"];
 ZCon = @(m) (1 - 0.2485)./(2.78 + 1/0.0207 * 10.^(-m));
 f = table();
 
+T = tiledlayout(1,1,'TileSpacing','None','Padding','None');
 clf;
 for i = 1:length(files)
 	file = files(i);
@@ -38,7 +40,7 @@ remainingMasses = f(tableEnds,:);
 zs = unique(remainingMasses.MH);
 zs(isnan(zs)) = [];
 zzz = ZCon(zs);
-Ms = 10.^linspace(log10(0.7),2,500);
+Ms = 10.^linspace(log10(0.7),2,2000);
 
 [Z,M] = meshgrid(zzz,Ms);
 default = -1;
@@ -94,22 +96,30 @@ Tau(Tau==default) = defaultOverride;
 % scatter3(mm,log10(10^10*(mm).^(-3)),zz);
 % hold off;
 hold on;
-surf(M,log10(Z),10.^Tau,'LineStyle','None');
-% contour(M,log10(Z),10.^Tau,5000)
-hold off;
-xlabel("Mass");
-ylabel("Metallicity");
+Zz = (Z/0.014);
+% surf(M,Zz,Tau,'LineStyle','None');
 
-% set(gca,'yscale','log');
+imagesc([min(Ms),max(Ms)],[min(min(Zz)),max(max(Zz))],transpose(10.^Tau))
+g = 0.4;
+contour(M,Zz,Tau,[6:0.2:10.1],'LineColor',[g,g,g])
+hold off;
+xlabel("Mass ($M_\odot$)");
+ylabel("Metallicity $(Z/Z_\odot)$");
+
+xlim([min(Ms),max(Ms)]);
+ylim([min(min(Zz)),max(max(Zz))])
+set(gca,'yscale','log');
 set(gca,'xscale','log');
-set(gca,'zscale','log');
+set(gca,'colorscale','log');
+% set(gca,'zscale','log');
 caxis(10.^[6,10.3]);
 c = colorbar;
-c.Label.String = "$\log_{10}($Age/Gyr)";
-
+c.TickLabelInterpreter = "latex";
 c.Label.Interpreter = 'latex';
+c.Label.String = "Age (Gyr)";
+
 % view(0,0);
-view(2);
+% view(2);
 
 T2 = table();
 c = 1;
