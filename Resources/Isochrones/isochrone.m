@@ -40,7 +40,7 @@ remainingMasses = f(tableEnds,:);
 zs = unique(remainingMasses.MH);
 zs(isnan(zs)) = [];
 zzz = ZCon(zs);
-Ms = 10.^linspace(log10(0.7),2,2000);
+Ms = 10.^linspace(log10(0.7),2,200);
 
 [Z,M] = meshgrid(zzz,Ms);
 default = -1;

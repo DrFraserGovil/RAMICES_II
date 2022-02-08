@@ -2,7 +2,7 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/Test_" + ["Truncated_Low"] + "/Mass.dat";
+files = "../Output/" + ["Pollute_NoScattering"] + "/Mass.dat";
 
 clf;
 for i = 1:length(files)

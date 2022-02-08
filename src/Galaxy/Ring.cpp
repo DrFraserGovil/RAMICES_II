@@ -78,7 +78,7 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 		
 		if (RadiusIndex == 0)
 		{
-			std::string headers = "TimeIndex, RingIndex";
+			std::string headers = "Time, RingIndex, RingRadius";
 			for (int p = -1; p < ProcessCount; ++p)
 			{
 				std::string processName;
@@ -101,7 +101,7 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 			basic = headers + "\n";
 		}
 	}
-	basic += std::to_string(t) + ", " + std::to_string(Radius);
+	basic += std::to_string(t*Param.Meta.TimeStep) + ", " + std::to_string(RadiusIndex) + ", " + std::to_string(Radius);
 	
 	absoluteStreamCold << basic;
 	logarithmicStreamCold  << basic;
@@ -149,9 +149,15 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 	{
 		for (int e = 0; e < ElementCount; ++e)
 		{
-			
-			neatLog(ColdBuffer[p][e], absoluteStreamCold);
-			neatLog(HotBuffer[p][e], absoluteStreamHot);
+			double coldCorrect = coldMass;
+			double hotCorrect = hotMass;
+			if (p > 0)
+			{
+				coldCorrect = target[p-1].ColdMass();
+				coldCorrect = target[p-1].HotMass();
+			}
+			neatLog(ColdBuffer[p][e] * coldCorrect, absoluteStreamCold);
+			neatLog(HotBuffer[p][e] * hotCorrect, absoluteStreamHot);
 					
 			double logValueCold = log10(ColdBuffer[p][e] / Param.Element.SolarAbundances[e]);
 			double logValueHot = log10(HotBuffer[p][e]/Param.Element.SolarAbundances[e]);

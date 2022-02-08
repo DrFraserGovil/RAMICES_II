@@ -47,7 +47,20 @@ int main(int argc, char** argv)
 	
 	//~ initialise main galaxy object
 	Galaxy g = Galaxy(Data);
-
+	int n = Params.Galaxy.RingCount;
+	
+	double amount = 1e-2;
+	int pol = 10;
+	int centre = 4*n/5;
+	amount = amount * g.Rings[centre].Gas.Mass();
+	for (int i = 0; i < pol;++i)
+	{
+	
+		g.Rings[centre + i].Gas[Accreted].Cold(Europium) = amount ;
+		g.Rings[centre - i].Gas[Accreted].Cold(Europium) = amount ;
+			amount = amount / 100;
+	}
+	
 	Data.UrgentLog("Beginning main computation loop...\n");
 	g.Evolve();
 	

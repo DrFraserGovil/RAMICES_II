@@ -73,7 +73,7 @@ void IMF_Functor::Normalise()
 	IMF_Normalisation = 1;
 	int inter_delta_resolution = 3000;
 	
-	Integral integratedIMF = MomentCompute(Param.Stellar.MinStellarMass, Param.Stellar.ImmortalMass,inter_delta_resolution);
+	Integral integratedIMF = MomentCompute(0, Param.Stellar.ImmortalMass,inter_delta_resolution);
 	IMF_Weighting.resize(Param.Stellar.MassResolution);
 	for (int i = 0; i < Param.Stellar.MassResolution; ++i)
 	{

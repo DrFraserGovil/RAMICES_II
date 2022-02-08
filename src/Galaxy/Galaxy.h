@@ -17,9 +17,9 @@ class Galaxy
 		Galaxy(InitialisedData & Data);
 		void Evolve();
 	
-	
-	private:
 		std::vector<Ring> Rings;
+	private:
+		
 		std::vector<std::thread> Threads;
 		GasReservoir IGM;
 		const GlobalParameters & Param;

@@ -3,12 +3,16 @@
 
 SLF_Functor::SLF_Functor(const GlobalParameters & param) : Param(param)
 {
+	if (Param.Meta.Verbosity > 0)
+	{
+		std::cout << "\tInitialising Stellar Lifetime Functor...." << std::flush;
+	}
 	PrecomputedGrid = std::vector<std::vector<double>>(Param.Stellar.MassResolution, std::vector<double>(Param.Stellar.LogZResolution,NotComputed));
 	
 	PrecomputeGrid();
 	if (Param.Meta.Verbosity > 0)
 	{
-		std::cout << "\tSLF Functor Initialised" << std::endl;
+		std::cout << "complete" << std::endl;
 	}
 }
 

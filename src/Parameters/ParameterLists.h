@@ -317,6 +317,7 @@ class GalaxyValues : public ParamList
 		//!Width of the innermost ring (kpc)
 		Argument<double> Ring0Width = Argument<double>(0.05,"inner-ring-width");
 		
+		Argument<bool> IGMAbsorbing = Argument<bool>(true,"igm-absorb");
 		
 		std::vector<double> RingRadius;
 		std::vector<double> RingWidth;
@@ -370,7 +371,7 @@ class GalaxyValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		GalaxyValues()
 		{
-			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2, &InflowParameterA, &InflowParameterB, &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth};
+			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2, &InflowParameterA, &InflowParameterB, &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &IGMAbsorbing};
 		}
 		void Initialise(std::string resourceRoot);
 };

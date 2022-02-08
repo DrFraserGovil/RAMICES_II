@@ -227,12 +227,13 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		double nextwidth = Rings[ring+1].Width;
 		ratio = bilitewskiRatio(a_factor,b_factor,radius,width,nextwidth,Param.Galaxy.Radius);
 		double inflowMass = ratio/(1 + ratio) * amount;
-		
 		//check that we do not remove more gas than is actually present
 		double maxDepletion = 0.9;
 		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());
-		Rings[ring].Gas.TransferFrom(Rings[ring+1].Gas,inflowMass);
 		
+		inflowMass = 0.99 * Rings[ring+1].Gas.Mass();
+		
+		Rings[ring].Gas.TransferFrom(Rings[ring+1].Gas,inflowMass);
 		//if some part of the budget was missed because of the std::min above, then make up the deficit from the IGM
 		remainingMass = amount -inflowMass;
 	}
@@ -362,7 +363,10 @@ void Galaxy::ScatterStep(int time, int ringstart, int ringend)
 			
 			double absorbFrac = 1.0 - Param.Stellar.EjectionFraction;
 			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t),absorbFrac);
-			//~ IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1.0 - absorbFrac); //this step might be broken with the parallelisation....
+			if (Param.Galaxy.IGMAbsorbing.Value)
+			{
+				IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1.0 - absorbFrac); //this step might be broken with the parallelisation....
+			}
 		}
 		Rings[i].UpdateMemory(time);
 	}
