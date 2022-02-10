@@ -4,12 +4,13 @@
 #include "../Gas/GasReservoir.h"
 #include "../Stars/IMF.h"
 #include "../Stars/SLF.h"
+#include "MigrationMatrix.h"
 #include <sstream>
-
+#include <iomanip>
 #include <thread>
 #include <future>
 
-enum ParallelJob {RingStep, Scattering};
+enum ParallelJob {RingStep, Compounding, Scattering};
 
 class Galaxy
 {
@@ -21,10 +22,11 @@ class Galaxy
 	private:
 		
 		std::vector<std::thread> Threads;
+		std::vector<MigrationMatrix> Migrator;
 		GasReservoir IGM;
 		const GlobalParameters & Param;
 		
-		void LaunchParallelRings(int time,ParallelJob type);
+		void LaunchParallelOperation(int time,int nOperations,ParallelJob type);
 		
 		//Infall Stuff
 		double GasScaleLength(double t);
@@ -39,7 +41,8 @@ class Galaxy
 
 	
 		
-
+		void ComputeScattering(int t);
+		void CompoundScattering(int currentTime,int timeStart, int timeEnd);
 		void ScatterYields(int time);
 		double PredictSurfaceDensity(double radius,double width, double totalGasMass, double scalelength);
 		double GasMass();
@@ -57,5 +60,5 @@ class Galaxy
 		
 		InitialisedData & Data;
 		
-
+		std::vector<double> RingMasses;
 };

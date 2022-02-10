@@ -55,9 +55,10 @@ int main(int argc, char** argv)
 	amount = amount * g.Rings[centre].Gas.Mass();
 	for (int i = 0; i < pol;++i)
 	{
-	
-		g.Rings[centre + i].Gas[Accreted].Cold(Europium) = amount ;
-		g.Rings[centre - i].Gas[Accreted].Cold(Europium) = amount ;
+		if (centre + i < n)
+			g.Rings[centre + i].Gas[Accreted].Cold(Europium) = amount ;
+		if (centre - i >= 0)
+			g.Rings[centre - i].Gas[Accreted].Cold(Europium) = amount ;
 			amount = amount / 100;
 	}
 	

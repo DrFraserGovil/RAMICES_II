@@ -8,6 +8,7 @@ Galaxy::Galaxy(InitialisedData & data): Data(data), Param(data.Param), IGM(GasRe
 	
 	double initMass = 0;
 	double initialScaleLength = GasScaleLength(0);
+	RingMasses.resize(Param.Galaxy.RingCount);
 	for (int i = 0; i < Param.Galaxy.RingCount; ++i)
 	{
 		double ri = Param.Galaxy.RingRadius[i];
@@ -21,6 +22,10 @@ Galaxy::Galaxy(InitialisedData & data): Data(data), Param(data.Param), IGM(GasRe
 	
 	Threads.resize(Param.Meta.ParallelThreads-1);
 	Data.UrgentLog("\tGalaxy Rings initialised.\n");
+	
+	
+	Migrator = std::vector<MigrationMatrix>(Param.Meta.SimulationSteps,MigrationMatrix(Data));
+	Data.UrgentLog("\tMigration Matrices initialised.\n");
 }
 
 void Galaxy::RingEvolve(int timestep,int ringStart, int ringEnd)
@@ -32,47 +37,61 @@ void Galaxy::RingEvolve(int timestep,int ringStart, int ringEnd)
 	
 }
 
-void Galaxy::LaunchParallelRings(int timestep, ParallelJob type)
+void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob type)
 {
+	//~ std::cout << "A new parallel job started at " << timestep << " jobtype = " << type << "  calling " << nOperations << std::endl;
 	int N = Param.Meta.ParallelThreads;
-	int nRings = Rings.size();
-	int chunkDivisor = ceil((double)nRings / N);
-	int ringStart = 0;
-	int ringEnd = 0;
+	int chunkDivisor = ceil((double)nOperations / N);
+	int start = 0;
+	int end = 0;
 	
-	for (int n = 0; n < N-1; ++n)
+	int n = 0;
+
+	while (n < N-1 && end < nOperations)
 	{
-		ringStart = n*chunkDivisor;
-		ringEnd = std::min(ringStart + chunkDivisor,nRings);
-		
+		start = n*chunkDivisor;
+		end = std::min(start + chunkDivisor,nOperations);
+		//~ std::cout << "\tSending " << start << "->" << end << " to worker " << n << std::endl;
 		switch (type)
 		{
 			case RingStep:
 			{
-				Threads[n] = std::thread(&Galaxy::RingEvolve,this,timestep,ringStart,ringEnd);
+				Threads[n] = std::thread(&Galaxy::RingEvolve,this,timestep,start,end);
 				break;
 			}
 			case Scattering:
 			{
-				Threads[n] = std::thread(&Galaxy::ScatterStep,this,timestep,ringStart,ringEnd);
+				Threads[n] = std::thread(&Galaxy::ScatterStep,this,timestep,start,end);
 				break;
 			}
-			
+			case Compounding:
+			{
+				Threads[n] = std::thread(&Galaxy::CompoundScattering,this,timestep,start,end);
+				break;
+			}
 		}
+		++n;
+		
 	}
 	
-	ringStart = ringEnd;
-	ringEnd = nRings;
+	start = end;
+	end = nOperations;
+	//~ std::cout << "I am working on the final set : " << start << "->" << end << std::endl;
 	switch (type)
 	{
 		case RingStep:
 		{
-			RingEvolve(timestep, ringStart,ringEnd);
+			RingEvolve(timestep, start,end);
 			break;
 		}
 		case Scattering:
 		{
-			ScatterStep(timestep,ringStart,ringEnd);
+			ScatterStep(timestep,start,end);
+			break;
+		}
+		case Compounding:
+		{
+			CompoundScattering(timestep,start,end);
 			break;
 		}
 		
@@ -80,13 +99,13 @@ void Galaxy::LaunchParallelRings(int timestep, ParallelJob type)
 	
 	int joined = 0;
 	
-	while (joined < N-1)
+	while (joined < n)
 	{	
-		for (int n = 0; n < N-1; ++n)
+		for (int nn = 0; nn < n; ++nn)
 			{
-				if (Threads[n].joinable())
+				if (Threads[nn].joinable())
 				{
-					Threads[n].join();
+					Threads[nn].join();
 					++joined;
 				}
 			}
@@ -104,14 +123,15 @@ void Galaxy::Evolve()
 	
 	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
 	{
-		//~ std::cout << "Starting " << timestep << "  " << Mass() << std::endl;
 		IGM.PassiveCool(Param.Meta.TimeStep,true);
 		//~ std::cout << "\tPassive cooled" <<std::endl;
 		Infall(t);
+		ComputeScattering(timestep);
 		//~ std::cout << "\tInfell" << "  " << Mass() << std::endl;
-		LaunchParallelRings(timestep,RingStep);
-		//~ std::cout << "\tParallel" << "  " << Mass() << std::endl;
-		LaunchParallelRings(timestep,Scattering);
+		LaunchParallelOperation(timestep,Rings.size(),RingStep);
+		
+		
+		LaunchParallelOperation(timestep,Rings.size(),Scattering);
 		//~ std::cout << "\tScatter" << "  " s<< Mass() << std::endl;
 		t += Param.Meta.TimeStep;
 		
@@ -318,6 +338,7 @@ void Galaxy::Infall(double t)
 		InsertInfallingGas(i,required);	
 		
 		Rings[i].MetCheck("After Infall applied " + std::to_string(required));
+		RingMasses[i] = Rings[i].Mass();
 	}	
 }
 
@@ -335,6 +356,24 @@ double Galaxy::PredictSurfaceDensity(double radius, double width, double totalGa
 	double upRadius = (r+w/2)/scaleLength;
 	double downRadius = (r - w/2)/scaleLength;
 	return prefactor * (mass_integrand(upRadius) - mass_integrand(downRadius));
+}
+
+
+void Galaxy::CompoundScattering(int currentTime, int timeStart, int timeEnd)
+{
+	for (int t= timeStart; t < timeEnd; ++t)
+	{
+		Migrator[t].Compound(Migrator[currentTime]);
+	}
+}
+void Galaxy::ComputeScattering(int t)
+{
+	if (Param.Migration.DispersionOrder > 0)
+	{
+		Migrator[t].Create(RingMasses);
+		
+		LaunchParallelOperation(t,t,Compounding);
+	}
 }
 
 void Galaxy::ScatterStep(int time, int ringstart, int ringend)

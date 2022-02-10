@@ -25,8 +25,8 @@ YieldGrid::YieldGrid(const GlobalParameters & param, YieldProcess yieldsource): 
 			throw std::runtime_error("You have tried to initialise a yield grid for which there is no rule to create - ID = " +std::to_string(Process) + "...I am forced to quit");
 		}
 	}
-	
-	
+	//clear the data to reduce memory usage
+	RidgeStorage.resize(0);
 }
 
 RemnantOutput YieldGrid::operator()(GasReservoir & scatteringReservoir, double Nstars, int mass, double z, int birthIndex, GasReservoir & birthReservoir) const
