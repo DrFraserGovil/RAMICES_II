@@ -216,8 +216,8 @@ double bilitewskiRatio(double a, double b, double radius, double width, double n
 void Galaxy::InsertInfallingGas(int ring, double amount)
 {
 	double oldMass = Rings[ring].Gas.Mass();
-	double a_factor  = Param.Galaxy.InflowParameterA;
-	double b_factor = Param.Galaxy.InflowParameterB;
+	double a_factor  = Param.Migration.InflowParameterA;
+	double b_factor = Param.Migration.InflowParameterB;
 	double remainingMass;
 	double ratio = 1;
 	if ( ring < Rings.size() - 1)
@@ -228,11 +228,9 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		ratio = bilitewskiRatio(a_factor,b_factor,radius,width,nextwidth,Param.Galaxy.Radius);
 		double inflowMass = ratio/(1 + ratio) * amount;
 		//check that we do not remove more gas than is actually present
-		double maxDepletion = 0.9;
+		double maxDepletion = Param.Migration.MaxStealFraction;
 		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());
-		
-		inflowMass = 0.99 * Rings[ring+1].Gas.Mass();
-		
+				
 		Rings[ring].Gas.TransferFrom(Rings[ring+1].Gas,inflowMass);
 		//if some part of the budget was missed because of the std::min above, then make up the deficit from the IGM
 		remainingMass = amount -inflowMass;
@@ -339,21 +337,6 @@ double Galaxy::PredictSurfaceDensity(double radius, double width, double totalGa
 	return prefactor * (mass_integrand(upRadius) - mass_integrand(downRadius));
 }
 
-void Galaxy::FormStars()
-{
-	for (int i = 0; i < Rings.size(); ++i)
-	{
-		Rings[i].MakeStars();
-	}
-}
-void Galaxy::KillStars(int time)
-{
-	for (int i = 0; i < Rings.size(); ++i)
-	{
-		Rings[i].KillStars(time);
-	}
-}
-
 void Galaxy::ScatterStep(int time, int ringstart, int ringend)
 {
 	for (int i = ringstart; i < ringend; ++i)
@@ -369,14 +352,6 @@ void Galaxy::ScatterStep(int time, int ringstart, int ringend)
 			}
 		}
 		Rings[i].UpdateMemory(time);
-	}
-}
-
-void Galaxy::Cool()
-{
-	for (int i = 0; i < Rings.size(); ++i)
-	{
-		Rings[i].Cool();
 	}
 }
 

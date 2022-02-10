@@ -37,9 +37,7 @@ class Galaxy
 		void RingEvolve(int timestep,int ringStart, int ringEnd);
 		void ScatterStep(int timestep, int ringStart, int ringEnd);
 
-		void FormStars();
-		void Cool();
-		void KillStars(int time);
+	
 		
 
 		void ScatterYields(int time);

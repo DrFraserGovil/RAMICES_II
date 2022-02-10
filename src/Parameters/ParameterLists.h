@@ -299,6 +299,35 @@ class ThermalValues : public ParamList
 };
 
 
+//!Holds values associated with how matter mvoes throughout the disc
+class MigrationValues: public ParamList
+{
+		
+	public:
+		//! A parameter to do with the inflow weighting scheme (icky)
+		Argument<double> InflowParameterA = Argument<double>(0.33,"inflow-a");
+		
+		//! A parameter to do with the inflow weighting scheme (icky)
+		Argument<double> InflowParameterB = Argument<double>(0.53,"inflow-b");
+		
+		//! The maximum amount of gas which can be moved moved between rings during the inflow portion
+		Argument<double> MaxStealFraction = Argument<double>(0.95,"max-steal");
+		
+		//! The strength of the random-walk mixing process, in units of kpc/Gyr
+		Argument<double> MarkovDispersionStrength = Argument<double>(0.2,"mixing-strength");
+		
+		//! The order to which the mixing matrix is computed - note that higher values allow instantaneous dispersion to higher radii
+		Argument<int> DispersionOrder = Argument<int>(3,"mixing-order");
+		
+		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
+		MigrationValues()
+		{
+			argPointers = {&InflowParameterA,&InflowParameterB,&MaxStealFraction,&MarkovDispersionStrength,&DispersionOrder};
+		}
+	
+	
+};
+
 //!The galaxy suboptions contians variables associated with the galaxy as a whole, such as the maximum radius, and various mass/infall properties
 class GalaxyValues : public ParamList
 {
@@ -359,11 +388,7 @@ class GalaxyValues : public ParamList
 		//! The exponential timescale for the second (slow) exponential infall
 		Argument<double> InfallTime2 = Argument<double>(14.0,"b2");
 
-		//! A parameter to do with the inflow weighting scheme (icky)
-		Argument<double> InflowParameterA = Argument<double>(0.33,"inflow-a");
-		
-		//! A parameter to do with the inflow weighting scheme (icky)
-		Argument<double> InflowParameterB = Argument<double>(0.53,"inflow-b");
+
 		
 		//!maximum fraction which can be removed by SFR + associated feedback 
 		Argument<double> MaxSFRFraction = Argument<double>(0.98,"max-sfr");
@@ -371,7 +396,7 @@ class GalaxyValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		GalaxyValues()
 		{
-			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2, &InflowParameterA, &InflowParameterB, &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &IGMAbsorbing};
+			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2,  &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &IGMAbsorbing};
 		}
 		void Initialise(std::string resourceRoot);
 };
