@@ -61,7 +61,7 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 			}
 			case Scattering:
 			{
-				Threads[n] = std::thread(&Galaxy::ScatterStep,this,timestep,start,end);
+				Threads[n] = std::thread(&Galaxy::ScatterYields,this,timestep,start,end);
 				break;
 			}
 			case Compounding:
@@ -86,7 +86,7 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 		}
 		case Scattering:
 		{
-			ScatterStep(timestep,start,end);
+			ScatterYields(timestep,start,end);
 			break;
 		}
 		case Compounding:
@@ -123,16 +123,20 @@ void Galaxy::Evolve()
 	
 	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
 	{
+		//~ std::cout << "Time " << timestep << std::endl;
 		IGM.PassiveCool(Param.Meta.TimeStep,true);
 		//~ std::cout << "\tPassive cooled" <<std::endl;
 		Infall(t);
-		ComputeScattering(timestep);
 		//~ std::cout << "\tInfell" << "  " << Mass() << std::endl;
+		ComputeScattering(timestep);
+		//~ std::cout << "\tComputed scattering" << "  " << Mass() << std::endl;
 		LaunchParallelOperation(timestep,Rings.size(),RingStep);
+		//~ std::cout << "\tRingstepped" << "  " << Mass() << std::endl;
 		
-		
-		LaunchParallelOperation(timestep,Rings.size(),Scattering);
-		//~ std::cout << "\tScatter" << "  " s<< Mass() << std::endl;
+		//~ LaunchParallelOperation(timestep,Rings.size(),Scattering);
+		//~ std::cout << "\tScattered yields" << "  " << Mass() << std::endl;
+		ScatterGas(timestep);
+		//~ std::cout << "\tScattered Gas" << "  " << Mass() << std::endl;
 		t += Param.Meta.TimeStep;
 		
 		
@@ -246,10 +250,11 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		double width = Rings[ring].Width;
 		double nextwidth = Rings[ring+1].Width;
 		ratio = bilitewskiRatio(a_factor,b_factor,radius,width,nextwidth,Param.Galaxy.Radius);
-		double inflowMass = ratio/(1 + ratio) * amount;
+		double inflowMass = 0;// ratio/(1 + ratio) * amount;
 		//check that we do not remove more gas than is actually present
 		double maxDepletion = Param.Migration.MaxStealFraction;
 		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());
+		//~ std::cout << a_factor << "  " << b_factor << "  " << inflowMass <<std::endl;
 				
 		Rings[ring].Gas.TransferFrom(Rings[ring+1].Gas,inflowMass);
 		//if some part of the budget was missed because of the std::min above, then make up the deficit from the IGM
@@ -372,26 +377,107 @@ void Galaxy::ComputeScattering(int t)
 	{
 		Migrator[t].Create(RingMasses);
 		
-		LaunchParallelOperation(t,t,Compounding);
+		//~ LaunchParallelOperation(t,t,Compounding);
 	}
+	//~ std::cout << "Scattering Matrix at " << t << std::endl;
+	//~ for (int i = 0; i < Rings.size(); ++i)
+	//~ {
+		//~ for (int j = 0; j < Rings.size(); ++j)
+		//~ {
+			//~ std::cout << std::setw(15) << Migrator[t].Grid[i][j];
+		//~ }
+		//~ std::cout << std::endl;
+	//~ }
 }
 
-void Galaxy::ScatterStep(int time, int ringstart, int ringend)
+void Galaxy::ScatterYields(int time, int ringstart, int ringend)
 {
-	for (int i = ringstart; i < ringend; ++i)
+	double absorbFrac = 1.0 - Param.Stellar.EjectionFraction;
+	
+	for (int t = 0; t <= time; ++t)
 	{
-		for (int t = 0; t <= time; ++t)
-		{
 			
-			double absorbFrac = 1.0 - Param.Stellar.EjectionFraction;
-			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t),absorbFrac);
+			
+		//grab migrator
+		const std::vector<std::vector<double>> & migrator = Migrator[t].Grid;
+		
+		for (int i = ringstart; i < ringend; ++i)
+			{
+		
+			
+			//self absorb fraction
+			double selfAbsorb = migrator[i][i];
+			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t),absorbFrac*selfAbsorb);
+			bool dispersionContinues = true;
+			int distance = 1;
+			double truncationCheck = 0.0;
+			while (dispersionContinues)
+			{
+				int upGrab = i + distance;
+				int downGrab = i - distance;
+				double grabFractionUp = 0;
+				double grabFractionDown = 0;
+				if (upGrab < Rings.size())
+				{
+					grabFractionUp = migrator[i][upGrab];
+					Rings[i].Gas.Absorb(Rings[upGrab].Stars.YieldsFrom(t),absorbFrac*grabFractionUp);
+				}
+				if (downGrab >= 0)
+				{
+					grabFractionDown = migrator[i][downGrab];
+					Rings[i].Gas.Absorb(Rings[downGrab].Stars.YieldsFrom(t),absorbFrac*grabFractionDown);
+				}
+				truncationCheck = std::max(grabFractionUp,grabFractionDown);
+				++distance;
+				if (distance >= Rings.size() || truncationCheck < Param.Migration.DispersionTruncation)
+				{
+					dispersionContinues = false;
+				}
+			}
+			
+			
+			
 			if (Param.Galaxy.IGMAbsorbing.Value)
 			{
 				IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1.0 - absorbFrac); //this step might be broken with the parallelisation....
 			}
 		}
+		
+	}
+	
+	for (int i =0; i < Rings.size(); ++i)
+	{
 		Rings[i].UpdateMemory(time);
 	}
+
+		
+}
+
+void Galaxy::ScatterGas(int time)
+{
+	const std::vector<std::vector<double>> & migrator = Migrator[time].Grid;
+	int n = Rings.size();
+	std::vector<double> oldMasses(n,0.0);
+	for (int i = 0; i < n; ++i)
+	{
+		oldMasses[i] = Rings[i].Gas.ColdMass();
+	}
+	for (int i = 0; i < n ; ++i)
+	{
+		
+		int lower = std::max(0,i - Param.Migration.DispersionOrder-1);
+		int upper = std::min(n,i + Param.Migration.DispersionOrder+2);
+		for (int j = lower; j < upper; ++j)
+		{
+			if (j != i)
+			{
+				double availableMass = oldMasses[j];
+				double scatteredMass = availableMass * migrator[i][j];
+				Rings[i].Gas.TransferColdFrom(Rings[j].Gas,scatteredMass);
+			}
+		}
+	}
+	
 }
 
 void Galaxy::SaveState(double t)

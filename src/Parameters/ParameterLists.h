@@ -97,7 +97,6 @@ class ResourceValues : public ParamList
 		Argument<std::string> IsochroneDirectory = Argument<std::string>("Isochrones/","iso-dir");
 		
 		Argument<std::string> LifeTimeFile = Argument<std::string>("LifetimeGrid.dat","lifetime-file");
-		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		ResourceValues()
 		{
@@ -319,10 +318,14 @@ class MigrationValues: public ParamList
 		//! The order to which the mixing matrix is computed - note that higher values allow instantaneous dispersion to higher radii
 		Argument<int> DispersionOrder = Argument<int>(3,"mixing-order");
 		
+		Argument<double> DispersionTruncation = Argument<double>(1e-10,"mixing-truncation");
+		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		MigrationValues()
 		{
-			argPointers = {&InflowParameterA,&InflowParameterB,&MaxStealFraction,&MarkovDispersionStrength,&DispersionOrder};
+			std::cout << "Init migration" << std::endl;
+			argPointers = {&InflowParameterA,&InflowParameterB,&MaxStealFraction,&MarkovDispersionStrength,&DispersionOrder, &DispersionTruncation};
+			std::cout << "mig done" << std::endl;
 		}
 	
 	

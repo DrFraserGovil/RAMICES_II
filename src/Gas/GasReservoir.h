@@ -66,6 +66,9 @@ class GasReservoir
 		//! Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object
 		void TransferFrom(GasReservoir & givingGas, double massToMove);
 		
+		//! Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the source and elemental ratios of the source object
+		void TransferColdFrom(GasReservoir & givingGas, double massToMove);
+		
 		//! Extracts the chosen amount of cold gas from the reservoir, and puts it into an accretion stream
 		GasStream AccretionStream(double amountToLose);
 		

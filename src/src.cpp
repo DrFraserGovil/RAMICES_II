@@ -35,7 +35,7 @@ void Exit()
 int main(int argc, char** argv)
 {
 	startTime = std::chrono::system_clock::now();
-	
+	std::cout << "init" << std::endl;
 	Params.Initialise(argc,argv);
 	
 	Welcome();
@@ -49,9 +49,9 @@ int main(int argc, char** argv)
 	Galaxy g = Galaxy(Data);
 	int n = Params.Galaxy.RingCount;
 	
-	double amount = 1e-2;
+	double amount = 1e-3;
 	int pol = 10;
-	int centre = 4*n/5;
+	int centre = 2*n/9;
 	amount = amount * g.Rings[centre].Gas.Mass();
 	for (int i = 0; i < pol;++i)
 	{

@@ -31,6 +31,7 @@ void GlobalParameters::SaveInputs()
 	std::stringstream output;
 	for (int i = 0; i < ParamMembers.size(); ++i)
 	{
+		
 		ParamMembers[i]->StreamContentsTo(output);
 	}
 	JSL::initialiseFile(configOut);

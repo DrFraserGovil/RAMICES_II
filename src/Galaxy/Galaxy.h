@@ -37,13 +37,12 @@ class Galaxy
 		//Star Formation
 		
 		void RingEvolve(int timestep,int ringStart, int ringEnd);
-		void ScatterStep(int timestep, int ringStart, int ringEnd);
-
+		void ScatterYields(int timestep, int ringStart, int ringEnd);
+		void ScatterGas(int timestep);
 	
 		
 		void ComputeScattering(int t);
 		void CompoundScattering(int currentTime,int timeStart, int timeEnd);
-		void ScatterYields(int time);
 		double PredictSurfaceDensity(double radius,double width, double totalGasMass, double scalelength);
 		double GasMass();
 		double ColdGasMass();

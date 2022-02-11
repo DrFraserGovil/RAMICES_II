@@ -176,6 +176,11 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 
 void Ring::MetCheck(const std::string & location)
 {
+	if (Gas.Mass() < 0)
+	{
+		std::cout << "The gas in Ring " << RadiusIndex << " has negative mass -- something has gone very wrong!" << std::endl;
+		exit(5);
+	}
 	double z = Gas.Metallicity();
 	if (z < 0)
 	{

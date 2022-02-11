@@ -297,6 +297,32 @@ void GasReservoir::TransferFrom(GasReservoir & givingGas, double massToMove)
 	}
 
 }
+void GasReservoir::TransferColdFrom(GasReservoir & givingGas, double massToMove)
+{
+	if (givingGas.ColdMass() < massToMove)
+	{
+		std::cout << "Error - you are trying to transfer more gas from one reservoir to another than is available" << std::endl;
+		exit(6); 
+	}
+	double lossFraction = std::min(1.0,massToMove/givingGas.ColdMass());
+	
+	
+	
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		SourceProcess proc = (SourceProcess)i;
+		for (int j = 0; j < ElementCount; ++j)
+		{
+			ElementID elem = (ElementID)j;
+			double currentCold = givingGas[proc].Cold(elem);
+			double extractCold = lossFraction * currentCold;
+			
+			givingGas[proc].Cold(elem) -= extractCold;			
+			Components[proc].Cold(elem) += extractCold; 
+		}	
+	}
+
+}
 
 void GasReservoir::PrintSelf()
 {
