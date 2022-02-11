@@ -133,7 +133,7 @@ void Galaxy::Evolve()
 		LaunchParallelOperation(timestep,Rings.size(),RingStep);
 		//~ std::cout << "\tRingstepped" << "  " << Mass() << std::endl;
 		
-		//~ LaunchParallelOperation(timestep,Rings.size(),Scattering);
+		LaunchParallelOperation(timestep,Rings.size(),Scattering);
 		//~ std::cout << "\tScattered yields" << "  " << Mass() << std::endl;
 		ScatterGas(timestep);
 		//~ std::cout << "\tScattered Gas" << "  " << Mass() << std::endl;
@@ -250,7 +250,7 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		double width = Rings[ring].Width;
 		double nextwidth = Rings[ring+1].Width;
 		ratio = bilitewskiRatio(a_factor,b_factor,radius,width,nextwidth,Param.Galaxy.Radius);
-		double inflowMass = 0;// ratio/(1 + ratio) * amount;
+		double inflowMass = ratio/(1 + ratio) * amount;
 		//check that we do not remove more gas than is actually present
 		double maxDepletion = Param.Migration.MaxStealFraction;
 		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());
@@ -377,7 +377,7 @@ void Galaxy::ComputeScattering(int t)
 	{
 		Migrator[t].Create(RingMasses);
 		
-		//~ LaunchParallelOperation(t,t,Compounding);
+		LaunchParallelOperation(t,t,Compounding);
 	}
 	//~ std::cout << "Scattering Matrix at " << t << std::endl;
 	//~ for (int i = 0; i < Rings.size(); ++i)
