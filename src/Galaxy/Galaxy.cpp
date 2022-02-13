@@ -111,6 +111,7 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 			}
 	}
 }
+
 void Galaxy::Evolve()
 {
 	double t = 0;
@@ -148,6 +149,7 @@ void Galaxy::Evolve()
 	
 	
 }
+
 double Galaxy::InfallMass(double t)
 {
 	double delta = Param.Meta.TimeStep;
@@ -160,6 +162,7 @@ double Galaxy::InfallMass(double t)
 	
 	return fastInfall + slowInfall;
 }
+
 double Galaxy::GasMass()
 {
 	double m = 0;
@@ -169,6 +172,7 @@ double Galaxy::GasMass()
 	}
 	return m;
 }
+
 double Galaxy::ColdGasMass()
 {
 	double m = 0;
@@ -178,6 +182,7 @@ double Galaxy::ColdGasMass()
 	}
 	return m;
 }
+
 double Galaxy::StarMass()
 {
 	double m = 0;
