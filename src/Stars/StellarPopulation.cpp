@@ -68,6 +68,9 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex,double formin
 	//~ std::cout << NStarsFormed <<std::endl;
 	double budget = 0;
 	
+	BirthIndex = timeIndex;
+	Metallicity = formingMetallicity;
+	
 	int prevIndex = timeIndex;
 	for (int i = Param.Stellar.MassResolution -1; i >= 0; --i)
 	{

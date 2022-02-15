@@ -496,7 +496,6 @@ void Galaxy::StellarScattering(int time, int ringstart, int ringend)
 }
 
 
-
 void Galaxy::ScatterGas(int time)
 {
 	const std::vector<std::vector<double>> & migrator = Migrator[time].Grid;

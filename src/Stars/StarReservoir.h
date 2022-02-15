@@ -4,6 +4,7 @@
 #include "../Parameters/InitialisedData.h"
 #include "../Gas/GasReservoir.h"
 #include "RemnantPopulation.h"
+#include "IsochroneTracker.h"
 #include "StellarPopulation.h"
 #include <sstream>
 #include "IMF.h"
@@ -18,7 +19,7 @@ class StarReservoir
 		MassReport DeadMass();
 		
 		
-		
+		void Observations();
 		void Form(GasReservoir & gas);
 		void Death(int currentTime, GasReservoir & birthGas);
 		void PrintStatus(int t);

@@ -27,6 +27,8 @@ class StellarPopulation
 	
 		void PrepareIMF();
 		int BirthRadius;
+		double Metallicity; 
+		int BirthIndex;
 		//!Returns the number of stars formed (spread across all mass grids)
 		int FormStars(double formingMass, int timeIndex, double formingMetallicity);
 		double Mass();
@@ -38,6 +40,8 @@ class StellarPopulation
 		void Death(int time, GasReservoir & TemporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas, StarEvents & EventRate);
 		std::vector<IsoMass> Distribution;
 		IsoMass ImmortalStars;
+		
+
 	private:
 		const GlobalParameters & Param;
 
