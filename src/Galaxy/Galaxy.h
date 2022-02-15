@@ -17,7 +17,7 @@ class Galaxy
 	public:
 		Galaxy(InitialisedData & Data);
 		void Evolve();
-	
+		void SynthesiseObservations();
 		std::vector<Ring> Rings;
 	private:
 		

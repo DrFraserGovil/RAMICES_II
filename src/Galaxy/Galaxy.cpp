@@ -1,5 +1,67 @@
 #include "Galaxy.h"
 double pi = 3.141592654;
+
+//Main Evolution Loop
+void Galaxy::Evolve()
+{
+	double t = 0;
+	SaveState(t);
+
+	int fullBar = Param.Meta.ProgressHashes;
+	int currentBars = 0;
+	
+	Data.UrgentLog("\tStarting Galaxy evolution: ");
+	
+	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
+	{
+		//~ std::cout << "Time " << timestep << std::endl;
+		IGM.PassiveCool(Param.Meta.TimeStep,true);
+		//~ std::cout << "\tPassive cooled" <<std::endl;
+		Infall(t);
+		//~ std::cout << "\tInfell" << "  " << Mass() << std::endl;
+		ComputeScattering(timestep);
+		//~ std::cout << "\tComputed scattering" << "  " << Mass() << std::endl;
+		LaunchParallelOperation(timestep,Rings.size(),RingStep);
+		//~ std::cout << "\tRingstepped" << "  " << Mass() << std::endl;
+		
+		LaunchParallelOperation(timestep,Rings.size(),Scattering);
+		//~ std::cout << "\tScattered yields" << "  " << Mass() << std::endl;
+		ScatterGas(timestep);
+		//~ std::cout << "\tScattered Gas" << "  " << Mass() << std::endl;
+		t += Param.Meta.TimeStep;
+		
+		
+		Data.ProgressBar(currentBars, timestep,Param.Meta.SimulationSteps);	
+		SaveState(t);
+		//~ std::cout << "\tSaved" <<std::endl;	
+	}
+	
+	
+	
+}
+
+void Galaxy::SynthesiseObservations()
+{
+	Data.Isochrones.Construct();
+	
+	
+	std::vector<int> ms = {0,10,99,170,299};
+	std::vector<double> zs = {1e-4,1e-2};
+	std::vector<double> ts = {1e-3,1};
+	
+	for (int j= 0; j < zs.size(); ++j)
+	{
+		auto out = Data.Isochrones.GetProperties(ms,zs[j],ts[j]);
+	
+		for (int i = 0; i < ms.size(); ++i)
+		{
+			std::cout << "M = " << Param.Stellar.MassGrid[ms[i]] << "  Z = " << zs[j] << "   T = " << ts[j] << "  Kmag = " << out[i].Properties[KMag] << std::endl;
+		}
+	}
+	
+}
+
+//Galactic Constructor
 Galaxy::Galaxy(InitialisedData & data): Data(data), Param(data.Param), IGM(GasReservoir::Primordial(data.Param.Galaxy.IGM_Mass,data.Param))
 {
 	int currentRings = 0;
@@ -27,6 +89,7 @@ Galaxy::Galaxy(InitialisedData & data): Data(data), Param(data.Param), IGM(GasRe
 	Migrator = std::vector<MigrationMatrix>(Param.Meta.SimulationSteps,MigrationMatrix(Data));
 	Data.UrgentLog("\tMigration Matrices initialised.\n");
 }
+
 
 void Galaxy::RingEvolve(int timestep,int ringStart, int ringEnd)
 {
@@ -110,44 +173,6 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 				}
 			}
 	}
-}
-
-void Galaxy::Evolve()
-{
-	double t = 0;
-	SaveState(t);
-
-	int fullBar = Param.Meta.ProgressHashes;
-	int currentBars = 0;
-	
-	Data.UrgentLog("\tStarting Galaxy evolution: ");
-	
-	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
-	{
-		//~ std::cout << "Time " << timestep << std::endl;
-		IGM.PassiveCool(Param.Meta.TimeStep,true);
-		//~ std::cout << "\tPassive cooled" <<std::endl;
-		Infall(t);
-		//~ std::cout << "\tInfell" << "  " << Mass() << std::endl;
-		ComputeScattering(timestep);
-		//~ std::cout << "\tComputed scattering" << "  " << Mass() << std::endl;
-		LaunchParallelOperation(timestep,Rings.size(),RingStep);
-		//~ std::cout << "\tRingstepped" << "  " << Mass() << std::endl;
-		
-		LaunchParallelOperation(timestep,Rings.size(),Scattering);
-		//~ std::cout << "\tScattered yields" << "  " << Mass() << std::endl;
-		ScatterGas(timestep);
-		//~ std::cout << "\tScattered Gas" << "  " << Mass() << std::endl;
-		t += Param.Meta.TimeStep;
-		
-		
-		Data.ProgressBar(currentBars, timestep,Param.Meta.SimulationSteps);	
-		SaveState(t);
-		//~ std::cout << "\tSaved" <<std::endl;	
-	}
-	
-	
-	
 }
 
 double Galaxy::InfallMass(double t)
@@ -347,7 +372,7 @@ void Galaxy::Infall(double t)
 		double required = target - Rings[i].Gas.Mass(); // reocmpute mass to account for mass dragged through disc
 		InsertInfallingGas(i,required);	
 		
-		Rings[i].MetCheck("After Infall applied " + std::to_string(required));
+		//~ Rings[i].MetCheck("After Infall applied " + std::to_string(required));
 		RingMasses[i] = Rings[i].Mass();
 	}	
 }

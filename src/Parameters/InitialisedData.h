@@ -3,6 +3,7 @@ class YieldGrid;
 class SimpleYield;
 #include "../Stars/IMF.h"
 #include "../Stars/SLF.h"
+#include "../Stars/IsochroneTracker.h"
 #include "../Yields/YieldGrid.h"
 #include "../Yields/SimpleYield.h"
 #include "GlobalParameters.h"
@@ -18,7 +19,7 @@ class InitialisedData
 		const YieldGrid AGBYield;
 		const SimpleYield SNIaYield;
 		const SimpleYield NSMYield;
-		
+		IsochroneTracker Isochrones;
 		InitialisedData(const GlobalParameters & param);
 	
 		void Log(const std::string & input) const;

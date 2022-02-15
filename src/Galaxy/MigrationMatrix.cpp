@@ -72,19 +72,18 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 				Grid[i][j] += pow(dt,order)/factorial * K_power[i][j];
 			}
 		}
-		
-		//~ std::cout << "\n To order " << order << std::endl;
-		//~ for (int i = 0; i < n; ++i)
-		//~ {
-			//~ for (int j = 0; j < n; ++j)
-			//~ {
-				//~ std::cout << std::setw(15)<< Grid[i][j] ;
-			//~ }
-			//~ std::cout << std::endl;
-		//~ }
-		
 	}
-
+	//prevent negative values in migration matrix -- shouldn't happen in analytical case, but might happen due to finite precision errors
+	int maxOrder = Param.Migration.DispersionOrder;
+	for (int i = 0; i < n; ++i)
+	{
+		int lower = std::max(0,i - maxOrder-1);
+		int upper = std::min(n, i + maxOrder+1);
+		for (int j = lower; j < upper; ++j)
+		{
+			Grid[i][j] = std::max(Grid[i][j],0.0);
+		}
+	}
 	//~ exit(5);
 	
 }

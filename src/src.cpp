@@ -29,7 +29,7 @@ void Exit()
 	{
 		auto endTime = std::chrono::system_clock::now();
 		std::cout << "\n\nSimulation complete. Computation duration was " << JSL::FormatClock(startTime,endTime);
-		std::cout << "\nHave a nice day!";
+		std::cout << "\nHave a nice day!\n";
 	}
 }
 int main(int argc, char** argv)
@@ -56,14 +56,28 @@ int main(int argc, char** argv)
 	for (int i = 0; i < pol;++i)
 	{
 		if (centre + i < n)
+		{	
 			g.Rings[centre + i].Gas[Accreted].Cold(Europium) = amount ;
+		}
 		if (centre - i >= 0)
+		{
 			g.Rings[centre - i].Gas[Accreted].Cold(Europium) = amount ;
-			amount = amount / 100;
+		}
+		amount = amount / 10;
 	}
 	
 	Data.UrgentLog("Beginning main computation loop...\n");
-	g.Evolve();
+	//~ g.Evolve();
+	
+	auto endTime = std::chrono::system_clock::now();
+	Data.UrgentLog("\tMain Computation loop complete in " + JSL::FormatClock(startTime,endTime) + ".\n");
+	
+	if (Params.Meta.StellarSynthesisActive)
+	{
+		Data.UrgentLog("Beginning Synthesis of mock catalogue\n");
+		g.SynthesiseObservations();
+	}
+	
 	
 	Exit();
 	return 0;

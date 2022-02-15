@@ -1,6 +1,6 @@
 #include "InitialisedData.h"
 
-InitialisedData::InitialisedData(const GlobalParameters & param) : Param(param), IMF(param), SLF(param), CCSNYield(param,CCSN), AGBYield(param,AGB), SNIaYield(param,SNIa), NSMYield(param,NSM) 
+InitialisedData::InitialisedData(const GlobalParameters & param) : Param(param), IMF(param), SLF(param), CCSNYield(param,CCSN), AGBYield(param,AGB), SNIaYield(param,SNIa), NSMYield(param,NSM), Isochrones(param)
 {	
 	UrgentLog("\tPortable data structure initialisation complete\n");
 }

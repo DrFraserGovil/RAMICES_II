@@ -25,13 +25,14 @@ class MetaValues : public ParamList
 		//!The number of hashes used to display progress bars
 		Argument<int> ProgressHashes = Argument<int>(32,"progress-hashes");
 		
+		Argument<bool> StellarSynthesisActive = Argument<bool>(true,"stellar-synthesis");
 		//!The number of timesteps in the simulation, computed from #SimulationDuration and #TimeStep
 		int SimulationSteps;
 		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		MetaValues()
 		{
-			argPointers = {&Verbosity,&ParallelThreads,&TimeStep,&SimulationDuration};
+			argPointers = {&Verbosity,&ParallelThreads,&TimeStep,&SimulationDuration,&ProgressHashes,&StellarSynthesisActive};
 		};
 		
 		//! An overload of a normally empty function. Computes the value of #SimulationSteps
@@ -97,10 +98,12 @@ class ResourceValues : public ParamList
 		Argument<std::string> IsochroneDirectory = Argument<std::string>("Isochrones/","iso-dir");
 		
 		Argument<std::string> LifeTimeFile = Argument<std::string>("LifetimeGrid.dat","lifetime-file");
+		
+		Argument<std::string> IsochroneRepository = Argument<std::string>("PadovaFiles/","iso-repo");
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		ResourceValues()
 		{
-			argPointers = {&WelcomeFile, &ResourceRoot,&YieldRoot,&IsochroneDirectory,&LifeTimeFile};
+			argPointers = {&WelcomeFile, &ResourceRoot,&YieldRoot,&IsochroneDirectory,&LifeTimeFile,&IsochroneRepository};
 		};
 		
 		//! An overload of a normally empty function. Goes through and creates the necessary directory structure 

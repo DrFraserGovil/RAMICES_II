@@ -37,6 +37,7 @@ void ResourceValues::Initialise(std::string resourceRoot)
 	YieldRoot.Value = resourceRoot + "/" + YieldRoot.Value;
 	IsochroneDirectory.Value = resourceRoot + "/" + IsochroneDirectory.Value + "/";
 	LifeTimeFile.Value = IsochroneDirectory.Value + LifeTimeFile.Value;
+	IsochroneRepository.Value = IsochroneDirectory.Value + IsochroneRepository.Value;
 }
 
 void ElementValues::GiveElementsNames()

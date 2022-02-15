@@ -5,8 +5,8 @@ global dSol phi0 nNorm zMin kappa zMax bCut southOverride
 phi0 = 1;
 dSol = 8.2;
 nNorm = 1;
-zMin = 0.1;
-kappa = 0.1;
+zMin = 0.05;
+kappa = 0.2;
 bCut = 0;
 southOverride = true;
 r = 4;
@@ -25,12 +25,12 @@ b = 3;
 times = [0.1,10];
 Ntimes = length(times);
 cs = jet(Nrings);
-radii = linspace(1,20,Nrings);
-N = 100;
+radii = linspace(1,20,Nrings)
+N = 80;
 Mvs = linspace(-3,8,N);
 vals = zeros(size(Mvs));
 c= 1;
-T = tiledlayout(3,Ntimes);
+T = tiledlayout(3,Ntimes,'TileSpacing','Compact');
 modenames = ["Magnitude Only", "Avoiding Disc","Southern Skies"];
 for mode = 1:3
     
@@ -49,14 +49,13 @@ for mode = 1:3
     
     for i = 1:Nrings
     for k = 1:Ntimes
-        nNorm = 1;
-        nNorm = 1/trapz(zs,n(1,zs,times(k)));
         
+
         nexttile(k + Ntimes * (mode-1));
         r = radii(i);
         for j = 1:N
             waitbar(j/N,loop,'Integrating');
-            vals(j) = Fraction(r,width,Mvs(j),times(k),4);
+            vals(j) = Fraction(r,width,Mvs(j),times(k),6);
         end
         time = times(k);
    
@@ -105,13 +104,10 @@ function frac = Fraction(radius,width,Mv,time,resolution)
     end
     
     
-    phi = linspace(0,2*pi,180*resolution);
+    phi = linspace(0,2*pi,160*resolution);
     
     rs = linspace(radius - width/2, radius + width/2,resolution);
     rVals = zeros(size(rs));
-    zRes = 50;
-    zs = 10.^(linspace(-3,log10(zMax),zRes));
-    zVals = zeros(zRes,1);
 
     
     

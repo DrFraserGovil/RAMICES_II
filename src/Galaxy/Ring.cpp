@@ -178,13 +178,24 @@ void Ring::MetCheck(const std::string & location)
 {
 	if (Gas.Mass() < 0)
 	{
-		std::cout << "The gas in Ring " << RadiusIndex << " has negative mass -- something has gone very wrong!" << std::endl;
+		std::cout << "\n\nThe gas in Ring " << RadiusIndex << " has negative mass -- something has gone very wrong!" << std::endl;
 		exit(5);
 	}
 	double z = Gas.Metallicity();
 	if (z < 0)
 	{
-		std::cout << "The gas in Ring " << RadiusIndex << " had a negative metallicity at " << location << "\n Critical Error!" << std::endl;
+		std::cout << "\n\nThe gas in Ring " << RadiusIndex << " had a negative metallicity at " << location << "\n Critical Error!" << std::endl;
+		std::cout << "The components of the ring are: \n";
+		for (int p = 0; p < ProcessCount; ++p)
+		{
+			SourceProcess proc = (SourceProcess)p;
+			for (int e = 0; e < ElementCount; ++e)
+			{
+				ElementID elem = (ElementID)e;
+				std::cout << Gas[proc].Cold(elem) << "\t";
+			}
+			std::cout << "\n";
+		}
 		exit(5);
 		
 	}
