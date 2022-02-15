@@ -10,7 +10,7 @@
 #include <thread>
 #include <future>
 
-enum ParallelJob {RingStep, Compounding, Scattering};
+enum ParallelJob {RingStep, Compounding, Scattering, StealStars};
 
 class Galaxy
 {
@@ -43,6 +43,7 @@ class Galaxy
 		
 		void ComputeScattering(int t);
 		void CompoundScattering(int currentTime,int timeStart, int timeEnd);
+		void StellarScattering(int currentTime, int ringStart, int ringEnd);
 		double PredictSurfaceDensity(double radius,double width, double totalGasMass, double scalelength);
 		double GasMass();
 		double ColdGasMass();

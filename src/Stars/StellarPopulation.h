@@ -23,10 +23,10 @@ class IsoMass
 class StellarPopulation
 {
 	public:
-		StellarPopulation(InitialisedData & data);
+		StellarPopulation(InitialisedData & data, int parentRing);
 	
 		void PrepareIMF();
-		
+		int BirthRadius;
 		//!Returns the number of stars formed (spread across all mass grids)
 		int FormStars(double formingMass, int timeIndex, double formingMetallicity);
 		double Mass();
@@ -36,10 +36,12 @@ class StellarPopulation
 		const IsoMass & operator[](int i) const;
 		bool Active();
 		void Death(int time, GasReservoir & TemporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas, StarEvents & EventRate);
+		std::vector<IsoMass> Distribution;
+		IsoMass ImmortalStars;
 	private:
 		const GlobalParameters & Param;
-		IsoMass ImmortalStars;
-		std::vector<IsoMass> Distribution;
+
+
 
 		const IMF_Functor & IMF; 
 		SLF_Functor & SLF;

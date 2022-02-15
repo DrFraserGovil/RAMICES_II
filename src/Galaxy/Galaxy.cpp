@@ -45,19 +45,7 @@ void Galaxy::SynthesiseObservations()
 	Data.Isochrones.Construct();
 	
 	
-	std::vector<int> ms = {0,10,99,170,299};
-	std::vector<double> zs = {1e-4,1e-2};
-	std::vector<double> ts = {1e-3,1};
-	
-	for (int j= 0; j < zs.size(); ++j)
-	{
-		auto out = Data.Isochrones.GetProperties(ms,zs[j],ts[j]);
-	
-		for (int i = 0; i < ms.size(); ++i)
-		{
-			std::cout << "M = " << Param.Stellar.MassGrid[ms[i]] << "  Z = " << zs[j] << "   T = " << ts[j] << "  Kmag = " << out[i].Properties[KMag] << std::endl;
-		}
-	}
+	LaunchParallelOperation(Param.Meta.SimulationDuration,Rings.size(), StealStars);
 	
 }
 
@@ -132,6 +120,11 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 				Threads[n] = std::thread(&Galaxy::CompoundScattering,this,timestep,start,end);
 				break;
 			}
+			case StealStars:
+			{
+				Threads[n] = std::thread(&Galaxy::StellarScattering,this,timestep,start,end);
+				break;
+			}
 		}
 		++n;
 		
@@ -157,7 +150,11 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 			CompoundScattering(timestep,start,end);
 			break;
 		}
-		
+		case StealStars:
+		{
+			StellarScattering(timestep,start,end);
+			break;
+		}
 	}
 	
 	int joined = 0;
@@ -482,6 +479,23 @@ void Galaxy::ScatterYields(int time, int ringstart, int ringend)
 
 		
 }
+
+void Galaxy::StellarScattering(int time, int ringstart, int ringend)
+{
+	for (int i = ringstart; i < ringend; ++i)
+	{
+		for (int j = 0; j < Rings.size(); ++j)
+		{
+			for (int t = 0; t <= time; ++ t)
+			{
+				double migrationFraction = Migrator[t].Grid[i][j];
+				Rings[i].Stars.StealFrom(Rings[j].Stars.Population[t],migrationFraction);
+			}
+		}
+	}
+}
+
+
 
 void Galaxy::ScatterGas(int time)
 {

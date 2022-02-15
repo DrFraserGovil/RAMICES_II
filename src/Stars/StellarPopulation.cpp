@@ -19,8 +19,9 @@ IsoMass::IsoMass(double n, int m, double z, int birth, int death)
 
 
 
-StellarPopulation::StellarPopulation(InitialisedData & data): Param(data.Param), IMF(data.IMF), SLF(data.SLF), CCSNYield(data.CCSNYield), AGBYield(data.AGBYield)
+StellarPopulation::StellarPopulation(InitialisedData & data, int parentRing): Param(data.Param), IMF(data.IMF), SLF(data.SLF), CCSNYield(data.CCSNYield), AGBYield(data.AGBYield)
 {
+	BirthRadius = parentRing;
 	Distribution.resize(Param.Stellar.MassResolution);
 	internal_MassCounter = 0;
 	IsDepleted = false;

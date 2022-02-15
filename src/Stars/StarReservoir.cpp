@@ -2,7 +2,7 @@
 
 StarReservoir::StarReservoir(int parentRing, InitialisedData & data) : Data(data),Param(data.Param), ParentRing(parentRing), IMF(data.IMF), SLF(data.SLF), Remnants(data), YieldOutput(data.Param)
 {
-	StellarPopulation empty(Data);
+	StellarPopulation empty(Data,parentRing);
 		
 	for (int i = 0; i < Param.Meta.SimulationSteps+1; ++i)
 	{
@@ -176,3 +176,24 @@ void StarReservoir::SaveEventRate(int t, std::stringstream & output)
 	output << t * Param.Meta.TimeStep<< ", " << Param.Galaxy.RingRadius[ParentRing] << ", ";
 	EventRate[t].Save(output,Param.Meta.TimeStep);
 }
+
+void StarReservoir::StealFrom(const StellarPopulation & mark, double fraction)
+{
+	StellarPopulation copy = mark;
+	for (int i = 0; i < copy.Distribution.size(); ++i)
+	{
+		double n = copy.Distribution[i].Count * fraction;
+		int intPart = n;
+		
+		double targetRoll = (n - intPart);
+		double diceRoll = (double)rand() / RAND_MAX;
+		if (diceRoll < targetRoll)
+		{
+			++intPart;
+		}
+		
+		copy.Distribution[i].Count = intPart;
+	}
+	MigratedPopulation.push_back(copy);
+}
+
