@@ -12,6 +12,10 @@ struct IsochroneEntry
 	{
 		Properties = std::vector<double>(PropertyCount,0.0);
 	}
+	double & operator[](IsochroneProperties p)
+	{
+		return Properties[p];
+	}
 };
 class IsochroneTracker
 {

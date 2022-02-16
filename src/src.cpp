@@ -53,21 +53,21 @@ int main(int argc, char** argv)
 	int pol = 10;
 	int centre = 2*n/9;
 	amount = amount * g.Rings[centre].Gas.Mass();
-	for (int i = 0; i < pol;++i)
-	{
-		if (centre + i < n)
-		{	
-			g.Rings[centre + i].Gas[Accreted].Cold(Europium) = amount ;
-		}
-		if (centre - i >= 0)
-		{
-			g.Rings[centre - i].Gas[Accreted].Cold(Europium) = amount ;
-		}
-		amount = amount / 10;
-	}
+	//~ for (int i = 0; i < pol;++i)
+	//~ {
+		//~ if (centre + i < n)
+		//~ {	
+			//~ g.Rings[centre + i].Gas[Accreted].Cold(Europium) = amount ;
+		//~ }
+		//~ if (centre - i >= 0)
+		//~ {
+			//~ g.Rings[centre - i].Gas[Accreted].Cold(Europium) = amount ;
+		//~ }
+		//~ amount = amount / 10;
+	//~ }
 	
 	Data.UrgentLog("Beginning main computation loop...\n");
-	//~ g.Evolve();
+	g.Evolve();
 	
 	auto endTime = std::chrono::system_clock::now();
 	Data.UrgentLog("\tMain Computation loop complete in " + JSL::FormatClock(startTime,endTime) + ".\n");

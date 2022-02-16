@@ -8,15 +8,6 @@ GasReservoir::GasReservoir() : Param(GlobalParameters())
 	{
 		Components[i].Source = (SourceProcess)i;
 	}
-	ComponentHistory.resize(Param.Meta.SimulationSteps+1);
-	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
-	{
-		ComponentHistory[i].resize(ProcessCount);
-		for (int j = 0; j < ProcessCount; ++j)
-		{
-			ComponentHistory[i][j].Source = (SourceProcess)j;
-		}
-	}
 }
 GasReservoir::GasReservoir(const GlobalParameters & param): Param(param)
 {
@@ -25,15 +16,6 @@ GasReservoir::GasReservoir(const GlobalParameters & param): Param(param)
 	for (int i = 0; i < ProcessCount; ++i)
 	{
 		Components[i].Source = (SourceProcess)i;
-	}
-	ComponentHistory.resize(Param.Meta.SimulationSteps+1);
-	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
-	{
-		ComponentHistory[i].resize(ProcessCount);
-		for (int j = 0; j < ProcessCount; ++j)
-		{
-			ComponentHistory[i][j].Source = (SourceProcess)j;
-		}
 	}
 }
 
@@ -111,20 +93,11 @@ void GasReservoir::Absorb(const std::vector<GasStream> & givingGas, double fract
 	for (int i = 0; i < ProcessCount; ++i)
 	{
 		SourceProcess source = (SourceProcess)i;
+		
+		
 		Absorb(givingGas[source],fraction);
-		//~ if (source == Remnant)
-		//~ {
-		//~ }
 	}
-}
-
-void GasReservoir::AbsorbMemory(int t, const GasStream & input)
-{
-	//~ if (input.Source == Remnant && input.Mass() > 1e-80)
-		//~ {
-			//~ std::cout << "I am absorbing " << input.Mass() << " of remnant-sourced matter to t = " << t  <<std::endl;
-		//~ }
-	ComponentHistory[t][input.Source].Absorb(input);
+	
 }
 
 void GasReservoir::Deplete(double amountToLose)
@@ -173,6 +146,7 @@ void GasReservoir::Absorb(const GasStream & givingGas)
 	SourceProcess source = givingGas.Source;
 
 	Components[source].Absorb(givingGas);
+
 }
 
 void GasReservoir::Absorb(const GasStream & givingGas, double fraction)
@@ -323,32 +297,8 @@ void GasReservoir::TransferColdFrom(GasReservoir & givingGas, double massToMove)
 	}
 
 }
-
-void GasReservoir::PrintSelf()
-{
-	for (int c = 0; c < ProcessCount; ++c)
-	{
-		SourceProcess source = (SourceProcess)c;
-		auto stream = Components[source];
-		bool headerPrinted = false;
-		
-		for (int i = 0; i < ElementCount; ++i)
-		{
-			ElementID elem = (ElementID)i;
-			if (stream.Cold(elem)!= 0 || stream.Hot(elem) != 0)
-			{
-				if (!headerPrinted)
-				{
-					std::cout << "From process " << c << ": \n";
-					headerPrinted = true;
-				}
-				std::cout << "\t" << Param.Element.ElementNames[elem] << " Cold = " << stream.Cold(elem) << "  Hot = " << stream.Hot(elem) << std::endl;
-			}
-		}
-	}
-}
 	
-double GasReservoir::Metallicity()
+double GasReservoir::ColdGasMetallicity() const
 {
 	double Mz = 0;
 	double M = 0;
@@ -361,32 +311,23 @@ double GasReservoir::Metallicity()
 	}
 	return Mz/M;
 }
-void GasReservoir::UpdateMemory(int t)
+
+
+const std::vector<GasStream> & GasReservoir::Composition() const
 {
-	ComponentHistory[t] = Components;
-}
-const std::vector<GasStream> & GasReservoir::GetHistory(int t)
-{
-	//force update to mass calculation, as cannot be done with consts!
-	for (int  p =0; p < ProcessCount; ++p)
-	{
-		ComponentHistory[t][p].ColdMass();
-	}
-	return ComponentHistory[t];
+	return Components;
 }
 
-void GasReservoir::WipeMemoryUpTo(int t)
+
+void GasReservoir::Wipe()
 {
-	for (int time = 0; time < t; ++time)
+	for (int p = 0; p < ProcessCount; ++p)
 	{
-		for (int p = 0; p < ProcessCount; ++p)
+		for (int e = 0; e < ElementCount; ++e)
 		{
-			for (int e = 0; e < ElementCount; ++e)
-			{
-				ElementID elem = (ElementID)e;
-				ComponentHistory[time][p].Cold(elem) = 0;
-				ComponentHistory[time][p].Hot(elem) = 0;
-			}
+			ElementID elem = (ElementID)e;
+			Components[p].Cold(elem) = 0;
+			Components[p].Hot(elem) = 0;
 		}
 	}
 }

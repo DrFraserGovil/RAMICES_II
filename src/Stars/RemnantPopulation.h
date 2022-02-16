@@ -19,7 +19,7 @@ class RemnantPopulation
 		
 		void Feed(int timeIndex, double bhMass, double wdMass, double nsMass);
 		void Feed(int timeIndex, RemnantOutput rem);
-		void Decay(int currentTime, GasReservoir & scatteringReservoir, StarEvents & EventRate);
+		void Decay(int currentTime, std::vector<GasReservoir> & scatteringReservoir, StarEvents & EventRate);
 		MassReport Mass();
 	private:
 		//the MASS of remnants created at each time 

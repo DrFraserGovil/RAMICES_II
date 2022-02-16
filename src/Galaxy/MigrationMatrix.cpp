@@ -86,6 +86,19 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 	}
 	//~ exit(5);
 	
+	
+	//~ std::cout << "New migration matrix: " << std::endl;
+	//~ for (int i = 0; i < n; ++i)
+	//~ {
+		//~ int lower = 0;
+		//~ int upper = n;
+		//~ for (int j = lower; j < upper; ++j)
+		//~ {
+			//~ std::cout <<std::setw(10) << Grid[i][j];
+		//~ }
+		//~ std::cout << "\n";
+	//~ }
+	
 }
 
 void MigrationMatrix::Compound(const MigrationMatrix & newMatrix)
@@ -102,13 +115,25 @@ void MigrationMatrix::Compound(const MigrationMatrix & newMatrix)
 			
 			for (int k = lower; k < upper; ++k)
 			{
-				temp[i][j] = newMatrix.Grid[i][k] * Grid[i][j];
+				temp[i][j] += newMatrix.Grid[i][k] * Grid[i][j];
 			}
 			
 		}
 		
 	}
 	Grid = temp;
+	
+	//~ std::cout << "New compounded matrix: " << std::endl;
+	//~ for (int i = 0; i < n; ++i)
+	//~ {
+		//~ int lower = 0;
+		//~ int upper = n;
+		//~ for (int j = lower; j < upper; ++j)
+		//~ {
+			//~ std::cout <<std::setw(10) << Grid[i][j];
+		//~ }
+		//~ std::cout << "\n";
+	//~ }
 	
 }
 

@@ -6,6 +6,7 @@
 #include "RemnantPopulation.h"
 #include "SLF.h"
 #include "StarEvents.h"
+#include "IsochroneTracker.h"
 //! A simple struct for tracking the number of stars of a given mass
 class IsoMass
 {
@@ -15,6 +16,7 @@ class IsoMass
 		double Metallicity;
 		int BirthIndex;
 		int DeathIndex;
+		IsochroneEntry Isochrone;
 		IsoMass();
 		IsoMass(double n, int m, double z, int birth, int death);
 };
@@ -30,18 +32,19 @@ class StellarPopulation
 		double Metallicity; 
 		int BirthIndex;
 		//!Returns the number of stars formed (spread across all mass grids)
-		int FormStars(double formingMass, int timeIndex, double formingMetallicity);
+		int FormStars(double formingMass, int timeIndex, GasReservoir & formingGas);
 		double Mass();
 		IsoMass & Relic();
 		const IsoMass & Relic() const;
 		IsoMass & operator[](int i);
 		const IsoMass & operator[](int i) const;
 		bool Active();
-		void Death(int time, GasReservoir & TemporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas, StarEvents & EventRate);
+		
+		void Death(int time, std::vector<GasReservoir> & TemporalYieldGrid, RemnantPopulation & remnants, StarEvents & EventRate);
 		std::vector<IsoMass> Distribution;
 		IsoMass ImmortalStars;
 		
-
+		std::vector<GasStream> BirthGas;
 	private:
 		const GlobalParameters & Param;
 
@@ -57,7 +60,7 @@ class StellarPopulation
 		
 		double internal_MassCounter;
 		
-		void MonotonicDeathScan(int time,GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas, StarEvents & eventRate);
+		void MonotonicDeathScan(int time,std::vector<GasReservoir> & YieldGrid, RemnantPopulation & remnants, StarEvents & eventRate);
 		void FullDeathScan(int time);
 		
 		void RecoverMatter(int time,int nstars, int mass, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants);

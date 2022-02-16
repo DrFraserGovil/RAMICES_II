@@ -6,6 +6,7 @@
 #include "RemnantPopulation.h"
 #include "IsochroneTracker.h"
 #include "StellarPopulation.h"
+#include "IsochroneTracker.h"
 #include <sstream>
 #include "IMF.h"
 #include "SLF.h"
@@ -21,17 +22,16 @@ class StarReservoir
 		
 		void Observations();
 		void Form(GasReservoir & gas);
-		void Death(int currentTime, GasReservoir & birthGas);
+		void Death(int currentTime);
 		void PrintStatus(int t);
 		const std::vector<GasStream> & YieldsFrom(int t);
 		void SaveEventRate(int t, std::stringstream & output);
-		void StealFrom(const StellarPopulation & mark, double fraction);
+		void AssignMagnitudes();
+			std::vector<GasReservoir> YieldOutput;
 	private:
 		
 		RemnantPopulation Remnants;
-		std::vector<StellarPopulation> MigratedPopulation;
-		InitialisedData & Data;
-		const GlobalParameters & Param;
+		
 		double SFR_GasLoss(double surfaceArea);
 		const int ParentRing;
 		double ParentArea;
@@ -40,6 +40,10 @@ class StarReservoir
 		SLF_Functor & SLF;
 		int PopulationIndex;
 		
-		GasReservoir YieldOutput;
 		std::vector<StarEvents> EventRate;
+	
+		
+		
+		InitialisedData & Data;
+		const GlobalParameters & Param;
 };

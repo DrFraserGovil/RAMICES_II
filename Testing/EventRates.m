@@ -2,7 +2,8 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["Test_NewMassParadigm"] + "/Events.dat";
+files = "../Output/" + ["Pollute_RadialFlow_NoIGM"] + "/Events.dat";
+
 
 for i = 1:length(files)
     figure(i);

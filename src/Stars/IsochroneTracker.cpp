@@ -87,13 +87,17 @@ void IsochroneTracker::Construct()
 	}
 	UnsortedGrid.resize(0);
 }
-
+double bounder(double a)
+{
+	return std::min( std::max(0.0,a),1.0);
+}
 std::vector<IsochroneEntry> IsochroneTracker::GetProperties(std::vector<int> mass, double z, double age)
 {
 	//supposedly runs quicker than a brute force method!
 	auto closestZID = std::upper_bound(CapturedZs.begin(),CapturedZs.end(), z);
 	int corresponding = closestZID - CapturedZs.begin();
-	int zUpperID = std::max(1,corresponding);
+	int zMax = CapturedZs.size() - 1;
+	int zUpperID = std::min(std::max(1,corresponding),zMax);
 	
 	int zLowerID = zUpperID - 1;
 	
@@ -125,39 +129,70 @@ std::vector<IsochroneEntry> IsochroneTracker::GetProperties(std::vector<int> mas
 
 	std::vector<IsochroneEntry> output(mass.size());
 	
-	double zInterp = log10(z / CapturedZs[zLowerID]) / log10(CapturedZs[zUpperID]/CapturedZs[zLowerID]);
-	double tInterp = (logAge - CapturedTs[tLowerID]) / (CapturedTs[tUpperID] - CapturedTs[tLowerID]);
+	double zInterp = bounder(log10(z / CapturedZs[zLowerID]) / log10(CapturedZs[zUpperID]/CapturedZs[zLowerID]));
+	double tInterp = bounder((logAge - CapturedTs[tLowerID]) / (CapturedTs[tUpperID] - CapturedTs[tLowerID]));
+	
+	
+	
+	//~ std::cout << tLowerID << "  " << tUpperID << "  " << zLowerID << "  " << zUpperID << "  " << CapturedZs.size() << "  " << CapturedTs.size() << std::endl;
+	
 	for (int i = 0; i < mass.size(); ++i)
 	{
-		
+		//~ std::cout << "Attempting recognition for " << i+1  << "/" << mass.size() << std::endl;
 		double tTempUp = tUpperID;
 		double tTempDown = tLowerID;
 		double tempTInterp = tInterp;
-		int maxSize = std::min(Grid[zUpperID][tUpperID].size(), Grid[zLowerID][tUpperID].size());
+		int a = Grid[zUpperID][tTempUp].size();
+		int b = Grid[zUpperID][tTempDown].size();
+		int c = Grid[zLowerID][tTempUp].size();
+		int d = Grid[zUpperID][tTempDown].size();
+		int maxSize = std::min(a,std::min(b,std::min(c,d)));;
 		if (mass[i] >= maxSize )
 		{
+			//~ std::cout << "Some movement necessary" <<std::endl;
+			int decrement = 0;
 			while (mass[i] >= maxSize)
 			{
 				--tTempUp;
 				--tTempDown; 
-				maxSize = std::min(Grid[zUpperID][tTempUp].size(), Grid[zLowerID][tTempDown].size());
+				int ap = Grid[zUpperID][tTempUp].size();
+				int bp = Grid[zUpperID][tTempDown].size();
+				int cp = Grid[zLowerID][tTempUp].size();
+				int dp = Grid[zUpperID][tTempDown].size();
+				maxSize = std::min(ap,std::min(bp,std::min(cp,dp)));
+				++ decrement;
 			}
-			std::cout << "WARNING: Isochrone request for M = " << Param.Stellar.MassGrid[mass[i]] << " Z = " << z << " of age 10^" << logAge << ", but isochrones say this star should have died at 10^" << CapturedTs[tTempUp] << ", this might just be an overflow close to the edge of the grid!" << std::endl;
+			tempTInterp = 1.0;
+			
+			//check that any errors incurred are within timestep tolerances (i.e. grid-edge effects)
+			double newAge = pow(10,6 + tTempUp * DeltaLogT)/1e9;
+			double deltaAge = abs(age - newAge);
+			int deltaSteps = deltaAge / Param.Meta.TimeStep;
+			if (decrement > 3 && deltaSteps > 1)
+			{
+				std::cout << "ERROR: Isochrone request for M = " << Param.Stellar.MassGrid[mass[i]] << " Z = " << z << " of age 10^" << logAge << ", but isochrones say this star should have died at 10^" << std::min(CapturedTs[tTempUp],CapturedTs[tTempDown]) << std::endl;
+				exit(11);
+			}
 		}
-		
+		//~ std::cout << "About to grab data" <<std::endl;
+		a = Grid[zUpperID][tTempUp].size();
+		b = Grid[zUpperID][tTempDown].size();
+		c = Grid[zLowerID][tTempUp].size();
+		d = Grid[zUpperID][tTempDown].size();
+		//~ std::cout << a << "  " << b << "  " << c << "  " << d << "  " << mass[i] << std::endl;
 		const IsochroneEntry & upTupZ = Grid[zUpperID][tTempUp][mass[i]];
 		const IsochroneEntry & upTdownZ = Grid[zLowerID][tTempUp][mass[i]];
 		const IsochroneEntry & downTupZ = Grid[zUpperID][tTempDown][mass[i]];
 		const IsochroneEntry & downTdownZ = Grid[zLowerID][tTempDown][mass[i]];
 		
+		
+		//~ std::cout << "About to insert things" <<std::endl;
 		for (int k = 0; k < PropertyCount; ++k)
 		{
 			double vTUp =  upTdownZ.Properties[k] + zInterp * (upTupZ.Properties[k] -  upTdownZ.Properties[k]);
 			double vTDown = downTdownZ.Properties[k] + zInterp * (downTupZ.Properties[k] - downTdownZ.Properties[k]);			
 			output[i].Properties[k] = vTDown + tempTInterp * (vTUp - vTDown);
-		}
-		
-		
+		}		
 	}
 	return output;
 }

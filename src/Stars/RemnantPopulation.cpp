@@ -66,7 +66,7 @@ void RemnantPopulation::Feed(int timeIndex, RemnantOutput rem)
 		
 	}
 }
-void RemnantPopulation::Decay(int currentTime, GasReservoir & scatteringReservoir, StarEvents & EventRate)
+void RemnantPopulation::Decay(int currentTime, std::vector<GasReservoir> & scatteringReservoir, StarEvents & EventRate)
 {
 	double deltaT = Param.Meta.TimeStep;
 	for (int t = 0; t <= currentTime; ++t)
@@ -89,8 +89,8 @@ void RemnantPopulation::Decay(int currentTime, GasReservoir & scatteringReservoi
 			
 			//~ std::cout << "SNIa decay! " << snIa_amount << "  " << ShortSNIaBuffer[t] << "  " << LongSNIaBuffer[t] << "  " << decayShort << "  " << decayLong << std::endl;
 			EventRate.SNIa += snIa_amount;
-			SNIaYield(scatteringReservoir,snIa_amount,t);
-			
+			SNIaYield(scatteringReservoir[t],snIa_amount);
+			//~ std::cout << "Added to t = " << t << "  " << snIa_amount << std::endl;
 		}
 	}
 }

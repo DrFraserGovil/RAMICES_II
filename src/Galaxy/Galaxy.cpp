@@ -30,7 +30,7 @@ void Galaxy::Evolve()
 		//~ std::cout << "\tScattered Gas" << "  " << Mass() << std::endl;
 		t += Param.Meta.TimeStep;
 		
-		
+		//~ std::cout << "Incremented timestep" <<std::endl;
 		Data.ProgressBar(currentBars, timestep,Param.Meta.SimulationSteps);	
 		SaveState(t);
 		//~ std::cout << "\tSaved" <<std::endl;	
@@ -44,9 +44,9 @@ void Galaxy::SynthesiseObservations()
 {
 	Data.Isochrones.Construct();
 	
-	
-	LaunchParallelOperation(Param.Meta.SimulationDuration,Rings.size(), StealStars);
-	
+	Data.UrgentLog("\tAssigning Stellar Isochrones....");
+	LaunchParallelOperation(Param.Meta.SimulationDuration,Rings.size(), AssignIsochrones);
+	Data.UrgentLog("Complete");
 }
 
 //Galactic Constructor
@@ -120,9 +120,9 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 				Threads[n] = std::thread(&Galaxy::CompoundScattering,this,timestep,start,end);
 				break;
 			}
-			case StealStars:
+			case AssignIsochrones:
 			{
-				Threads[n] = std::thread(&Galaxy::StellarScattering,this,timestep,start,end);
+				Threads[n] = std::thread(&Galaxy::AssignMagnitudes,this,timestep,start,end);
 				break;
 			}
 		}
@@ -150,9 +150,9 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 			CompoundScattering(timestep,start,end);
 			break;
 		}
-		case StealStars:
+		case AssignIsochrones:
 		{
-			StellarScattering(timestep,start,end);
+			AssignMagnitudes(timestep,start,end);
 			break;
 		}
 	}
@@ -434,7 +434,10 @@ void Galaxy::ScatterYields(int time, int ringstart, int ringend)
 			
 			//self absorb fraction
 			double selfAbsorb = migrator[i][i];
+			//~ std::cout << "Ring " << i << " is self absorbing " << 100*selfAbsorb << " of " << Rings[i].Stars.YieldsFrom(t)[Remnant].ColdMass() << "originating from " << t <<std::endl;
+			
 			Rings[i].Gas.Absorb(Rings[i].Stars.YieldsFrom(t),absorbFrac*selfAbsorb);
+			//~ std::cout << "Ring " << i << " now has " << Rings[i].Gas[Remnant].ColdMass() << std::endl;
 			bool dispersionContinues = true;
 			int distance = 1;
 			double truncationCheck = 0.0;
@@ -452,7 +455,15 @@ void Galaxy::ScatterYields(int time, int ringstart, int ringend)
 				if (downGrab >= 0)
 				{
 					grabFractionDown = migrator[i][downGrab];
-					Rings[i].Gas.Absorb(Rings[downGrab].Stars.YieldsFrom(t),absorbFrac*grabFractionDown);
+					const std::vector<GasStream> yield = Rings[downGrab].Stars.YieldsFrom(t);
+					
+					//~ if ( time - t > 10)
+					//~ {
+						//~ std::cout << "Downgrabbing remnant contribution from " << t << " / " << time << " of " << yield[Remnant].ColdMass() << "  " << absorbFrac << std::endl;
+					//~ }
+					//~ std::cout << "\t\tRing " << i << "  is absorbing " << yield[Remnant].ColdMass() << std::endl;
+					Rings[i].Gas.Absorb(yield,absorbFrac*grabFractionDown);
+					//~ std::cout << "\t\tRing " << i << "  now has " << Rings[i].Gas[Remnant].ColdMass() << std::endl;
 				}
 				truncationCheck = std::max(grabFractionUp,grabFractionDown);
 				++distance;
@@ -472,26 +483,16 @@ void Galaxy::ScatterYields(int time, int ringstart, int ringend)
 		
 	}
 	
-	for (int i =0; i < Rings.size(); ++i)
-	{
-		Rings[i].UpdateMemory(time);
-	}
+	
 
 		
 }
 
-void Galaxy::StellarScattering(int time, int ringstart, int ringend)
+void Galaxy::AssignMagnitudes(int time, int ringstart, int ringend)
 {
 	for (int i = ringstart; i < ringend; ++i)
 	{
-		for (int j = 0; j < Rings.size(); ++j)
-		{
-			for (int t = 0; t <= time; ++ t)
-			{
-				double migrationFraction = Migrator[t].Grid[i][j];
-				Rings[i].Stars.StealFrom(Rings[j].Stars.Population[t],migrationFraction);
-			}
-		}
+		Rings[i].Stars.AssignMagnitudes();
 	}
 }
 
@@ -580,7 +581,7 @@ void Galaxy::SaveState_Enrichment(double t)
 		std::stringstream outputLogarithmicCold;
 		std::stringstream outputAbsoluteHot;
 		std::stringstream outputLogarithmicHot;
-		for (int time = 0; time < Param.Meta.SimulationSteps; ++time)
+		for (int time = 0; time < Param.Meta.SimulationSteps-1; ++time)
 		{
 			Data.ProgressBar(bars,time,Param.Meta.SimulationSteps);
 			for (int i  = 0; i < Rings.size(); ++i)

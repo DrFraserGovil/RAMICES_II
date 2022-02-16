@@ -54,6 +54,10 @@ class GasReservoir
 		//! Calls #GasStream::Deplete(double) on each element of #Components, keeping the relative mass contribution of each component equal \param amountToLose The total amount of mass to be lost from the reservoir (shared amongst components)
 		void Deplete(double amountToLose);
 		
+		
+		//!Wipes all mass from the reservoir
+		void Wipe();
+		
 		//! Calls #GasStream::Deplete(double, double) on each element of #Components, keeping the relative hot mass and cold mass contribution of each component equal \param amountToLose_Cold The total amount of cold gas mass to be lost from the reservoir (shared amongst components) \param amountToLose_Hot The total amount of hot gas mass to be lost from the reservoir (shared amongst components)
 		void Deplete(double amountToLose_Cold, double amountToLose_Hot);
 		
@@ -74,22 +78,17 @@ class GasReservoir
 		
 		//! Generates a primordial gas reservoir of the specified mass -- only the ::Primordial component is populated, with the nature of that component determined by several key parameters in GlobalParameters \param mass The total mass of the new reservoir \param param A reference to the global parameter set - required for primordial abundances and hot-gas fractions 
 		static GasReservoir Primordial(double mass, const GlobalParameters & param);
-		void PrintSelf();
+
+		double ColdGasMetallicity() const;
 		
-		double Metallicity();
-		
-		void UpdateMemory(int t);
-		void WipeMemoryUpTo(int t);
-		
-		
-		const std::vector<GasStream> & GetHistory(int t);
+	
+		const std::vector<GasStream> & Composition() const;
 	private:
 	
 		//! A representation of the total amount of gas within the reservoir, separated by the origin of the gas
 		std::vector<GasStream> Components;
 		
-		std::vector<std::vector<GasStream>> ComponentHistory;
-		
+
 		const GlobalParameters & Param;
 		
 		

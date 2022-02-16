@@ -20,8 +20,10 @@ double Ring::Mass()
 
 void Ring::TimeStep(int t)
 {
+	//~ std::cout << "Ring " << RadiusIndex << " at " << t << std::endl;
 	MetCheck("Start of internal loop");
 	Cool();
+	
 	//~ std::cout << "\tCooled " << Mass() << std::endl;
 	MakeStars();
 	//~ std::cout << "\tFormed "  << Mass()<< std::endl;
@@ -44,7 +46,14 @@ void Ring::MakeStars()
 }
 void Ring::KillStars(int time)
 {
-	Stars.Death(time,Gas);
+	Stars.Death(time);
+
+	double m = 0;
+	for (int t = 0; t < time; ++t)
+	{
+		m += Stars.YieldOutput[t][Remnant].ColdMass();
+	}
+	//~ std::cout << "Ring " << RadiusIndex << " has synthesised " << m << " remnant matter at " << time << std::endl;
 }
 
 void Ring::Cool()
@@ -53,7 +62,7 @@ void Ring::Cool()
 }
 void Ring::UpdateMemory(int t)
 {
-	Gas.UpdateMemory(t);
+	//~ Gas.UpdateMemory(t);
 }
 
 void neatLog(double value, std::stringstream & stream)
@@ -108,10 +117,8 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 	absoluteStreamHot   << basic;
 	logarithmicStreamHot   << basic;
 	
-	const std::vector<GasStream> & target = Gas.GetHistory(t);
+	const std::vector<GasStream> & target = Stars.Population[t].BirthGas;
 	
-	
-
 	double coldMass = 0;
 	double hotMass = 0;
 	for (int p = 0; p < ProcessCount; ++p)
@@ -181,7 +188,7 @@ void Ring::MetCheck(const std::string & location)
 		std::cout << "\n\nThe gas in Ring " << RadiusIndex << " has negative mass -- something has gone very wrong!" << std::endl;
 		exit(5);
 	}
-	double z = Gas.Metallicity();
+	double z = Gas.ColdGasMetallicity();
 	if (z < 0)
 	{
 		std::cout << "\n\nThe gas in Ring " << RadiusIndex << " had a negative metallicity at " << location << "\n Critical Error!" << std::endl;

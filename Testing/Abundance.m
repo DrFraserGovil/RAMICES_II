@@ -5,9 +5,9 @@ set(0,'defaultAxesFontSize',28);
 figure(1)
 clf;
 % T=tiledlayout(4,2);
-files = "../Output/Test_" + ["Truncated","Truncated_Low"] +"/Enrichment_Log_ColdGas.dat";
+files = "../Output/" + ["Pollute_RadialFlow_NoIGM"] + "/Enrichment_Log_ColdGas.dat";
 
-T = tiledlayout(2,1);
+T = tiledlayout('flow');
 
 for file = files
     nexttile;

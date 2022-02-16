@@ -61,15 +61,18 @@ IsoMass & StellarPopulation::operator [](int i)
 	}
 }
 
-int StellarPopulation::FormStars(double formingMass, int timeIndex,double formingMetallicity)
+int StellarPopulation::FormStars(double formingMass, int timeIndex, GasReservoir & formingGas)
 {
-	//~ std::cout << "I am here to form " << formingMass << std::endl;
 	double NStarsFormed = IMF.FormationCount(formingMass);
-	//~ std::cout << NStarsFormed <<std::endl;
+	double formingMetallicity = formingGas.ColdGasMetallicity();
 	double budget = 0;
 	
 	BirthIndex = timeIndex;
 	Metallicity = formingMetallicity;
+	BirthGas = formingGas.Composition();
+	double c = BirthGas[Remnant].ColdMass();
+	double d= BirthGas[Accreted].ColdMass();
+	//~ std::cout << "Birth remnant mass = " << c << "  " << d << std::endl;
 	
 	int prevIndex = timeIndex;
 	for (int i = Param.Stellar.MassResolution -1; i >= 0; --i)
@@ -89,9 +92,7 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex,double formin
 		else
 		{
 			nStars = truncated + 1;
-		}
-		//~ std::cout << m << " " << NStarsFormed << "  " << nOrig << "  " << diceRoll << "  "  << roundingFactor<< "  " << nStars << std::endl;
-		
+		}		
 		budget +=  nStars * m/1e9;
 		
 		int deathIndex = timeIndex + SLF(i,formingMetallicity);
@@ -99,17 +100,6 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex,double formin
 		//check for monotonicity
 		if (deathIndex < prevIndex)
 		{
-			//~ double slf = SLF(i,formingMetallicity);
-			//~ double slf_old = SLF(i+1,formingMetallicity);
-			//~ IsLifetimeMonotonic = false;
-			//~ std::cout << "t = " << timeIndex << "  death index = " << deathIndex << std::endl;
-			//~ std::cout << "z = " << formingMetallicity << "  =  " << log10(formingMetallicity) << std::endl;
-			
-			//~ std::cout << "lifetime = " << slf<< " steps = " << slf * Param.Meta.TimeStep << "Gyr" << std::endl;
-			//~ std::cout << "m = " << m << std::endl;
-			//~ std::cout << "Previous index = " << prevIndex << "  (" << slf_old * Param.Meta.TimeStep << ")  " << std::endl;
-			//~ std::cout << "Non-monotonic lifetime generated?" << std::endl;
-			//~ exit(5);
 			deathIndex = prevIndex;
 		}
 		Distribution[i] = IsoMass(nStars,i,formingMetallicity, timeIndex,deathIndex);
@@ -120,7 +110,6 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex,double formin
 	double mInf = Param.Stellar.ImmortalMass;
 	
 	double effectiveImmortalCount = std::max(0.0,formingMass - budget)*1e9 / mInf;
-	//~ std::cout << "Immortal shenanigans" << effectiveImmortalCount << std::endl;
 	ImmortalStars = IsoMass(effectiveImmortalCount,mInf,formingMetallicity,timeIndex,1e10);
 	
 	internal_MassCounter += formingMass;
@@ -128,7 +117,7 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex,double formin
 	
 	if (std::isnan(internal_MassCounter))
 	{
-		std::cout << "Encountered critical errror " << std::endl;
+		std::cout << "Encountered critical errror in stellar formation routine " << std::endl;
 	}
 	return NStarsFormed;
 }
@@ -148,18 +137,18 @@ bool StellarPopulation::Active()
 {
 	return !IsDepleted;
 }
-void StellarPopulation::Death(int time, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas, StarEvents & eventRate)
+void StellarPopulation::Death(int time, std::vector<GasReservoir> & temporalYieldGrid, RemnantPopulation & remnants, StarEvents & eventRate)
 {
 	if (IsLifetimeMonotonic)
 	{
-		MonotonicDeathScan(time,temporalYieldGrid, remnants,birthGas, eventRate);
+		MonotonicDeathScan(time,temporalYieldGrid, remnants, eventRate);
 	}
 	else
 	{
 		FullDeathScan(time);
 	}
 }
-void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants, GasReservoir & birthGas, StarEvents & eventRate)
+void StellarPopulation::MonotonicDeathScan(int time, std::vector<GasReservoir> & temporalYieldGrid, RemnantPopulation & remnants, StarEvents & eventRate)
 {
 	while ( (Distribution[DepletionIndex].DeathIndex <= time || Distribution[DepletionIndex].Count == 0) && DepletionIndex >= 0)
 	{
@@ -186,7 +175,7 @@ void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYiel
 			if (starMass >= Param.Yield.CCSN_MassCut)
 			{
 				//~ std::cout << "CCSN Event: n = " << nStars << " m = " << Param.Stellar.MassGrid[massID] << "  z = " << z << std::endl;
-				newRem = CCSNYield(temporalYieldGrid,nStars,massID,z,birthID,birthGas);
+				newRem = CCSNYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
 				eventRate.CCSN += nStars;
 			}
 			else if (starMass >= Param.Yield.ECSN_MassCut)
@@ -196,7 +185,7 @@ void StellarPopulation::MonotonicDeathScan(int time, GasReservoir & temporalYiel
 			}
 			else
 			{
-				newRem = AGBYield(temporalYieldGrid,nStars,massID,z,birthID,birthGas);
+				newRem = AGBYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
 				eventRate.AGBDeaths += nStars;
 			}
 			remnants.Feed(birthID,newRem);

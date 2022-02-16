@@ -32,12 +32,12 @@ SimpleYield::SimpleYield(const GlobalParameters & param, YieldProcess yieldproce
 	}
 }
 
-void SimpleYield::operator()(GasReservoir & scatteringReservoir, double nObjects, int birthIndex) const
+void SimpleYield::operator()(GasReservoir & scatteringReservoir, double nObjects) const
 {
-	RemnantInject(scatteringReservoir,nObjects,birthIndex);
+	RemnantInject(scatteringReservoir,nObjects);
 }
 
-void SimpleYield::RemnantInject(GasReservoir & scatteringReservoir, double nObjects, int birthIndex) const
+void SimpleYield::RemnantInject(GasReservoir & scatteringReservoir, double nObjects) const
 {
 	GasStream TempStream(Process);
 	for (int e = 0; e < ElementCount; ++e)
@@ -48,7 +48,9 @@ void SimpleYield::RemnantInject(GasReservoir & scatteringReservoir, double nObje
 		TempStream.Hot(elem) = amountInjected * hotInjectionFraction;
 	}
 	//~ std::cout << "Sending " <<TempStream.Mass() << " from " << nObjects << std::endl;
-	scatteringReservoir.AbsorbMemory(birthIndex,TempStream);
+	scatteringReservoir.Absorb(TempStream);
+	
+	//~ std::cout << "Injected " << scatteringReservoir[Process].Cold(Europium) << "  " << scatteringReservoir[Process].Hot(Europium) << std::endl;
 }
 void SimpleYield::SNIa_Initialise()
 {
@@ -63,6 +65,7 @@ void SimpleYield::SNIa_Initialise()
 	Grid[Carbon] = 0.0508;
 	Grid[Silicon] = 0.142;
 	Grid[Calcium] = 0.0181;
+	Grid[Europium] = 1e-3;
 }
 void SimpleYield::NSM_Initialise()
 {
