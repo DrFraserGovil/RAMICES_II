@@ -174,40 +174,25 @@ void StarReservoir::SaveEventRate(int t, std::stringstream & output)
 
 void StarReservoir::AssignMagnitudes()
 {
-	std::cout << "Ring " << ParentRing << std::endl;
 	for (int i = 0; i < PopulationIndex; ++i)
 	{
-		std::cout << "\tt = " << i << " / " << Param.Meta.SimulationSteps << std::endl;
 		
 		double age = (Param.Meta.SimulationSteps -0.5 - i) * Param.Meta.TimeStep;
 		double z = Population[i].Metallicity;
-		std::vector<int> ms;
-		
-		int q = 0;
-		bool loopContinues = (Population[i].Distribution[q].Count > 0);
-		int maxQ = Population[i].Distribution.size();
-		//~ std::cout << "Finding ms" <<std::endl;
-		//~ std::cout << "Loop starts? " << loopContinues << std::endl;
-		while(loopContinues)
+
+		int maxAliveIdx = -1;
+		for (int j = 0; j < Population[i].Distribution.size(); ++j)
 		{
-			//~ std::cout << q << "/" << maxQ << std::flush;
-			//~ std::cout << "  " << Population[i].Distribution.size() << std::flush;
-			//~ std::cout  << "  " << Population[i].Distribution[q].Count << std::endl;
-			ms.push_back(Population[i].Distribution[q].MassIndex);
-			++q;
-			loopContinues = (q < maxQ);
-			if (loopContinues)
-				loopContinues = (Population[i].Distribution[q].Count > 0);
-		}
-		//~ if (ms.size() >= -1)
-		//~ {
-			std::cout << "Why didn't I find any stars? " << age << "  " << z << std::endl;
-			for (int i = 0; i < maxQ; ++i)
+			if (Population[i].Distribution[j].Count > 0)
 			{
-				std::cout << Population[i].Distribution[q].Count << std::endl;
+				maxAliveIdx = j;
 			}
-		//~ }
-		std::cout << "Requesting isochrone data for " << ms[0] << " -> " << ms[ms.size() - 1] << std::endl;
+		}
+		std::vector<int> ms(maxAliveIdx+1);
+		for (int j = 0; j < maxAliveIdx +1; ++j)
+		{
+			ms[j] = j;
+		}
 		
 		std::vector<IsochroneEntry> output = Data.Isochrones.GetProperties(ms,z,age);
 		//~ std::cout << "Isochrone data returned " << std::endl;

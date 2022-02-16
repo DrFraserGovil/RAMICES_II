@@ -72,7 +72,7 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex, GasReservoir
 	BirthGas = formingGas.Composition();
 	double c = BirthGas[Remnant].ColdMass();
 	double d= BirthGas[Accreted].ColdMass();
-	//~ std::cout << "Birth remnant mass = " << c << "  " << d << std::endl;
+
 	
 	int prevIndex = timeIndex;
 	for (int i = Param.Stellar.MassResolution -1; i >= 0; --i)
@@ -110,6 +110,7 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex, GasReservoir
 	double mInf = Param.Stellar.ImmortalMass;
 	
 	double effectiveImmortalCount = std::max(0.0,formingMass - budget)*1e9 / mInf;
+	
 	ImmortalStars = IsoMass(effectiveImmortalCount,mInf,formingMetallicity,timeIndex,1e10);
 	
 	internal_MassCounter += formingMass;
@@ -119,6 +120,7 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex, GasReservoir
 	{
 		std::cout << "Encountered critical errror in stellar formation routine " << std::endl;
 	}
+	
 	return NStarsFormed;
 }
 
