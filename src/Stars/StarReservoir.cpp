@@ -58,7 +58,7 @@ void StarReservoir::Form(GasReservoir & gas)
 	double initMass = gas.ColdMass();
 	double gasSurfaceDensity = gas.Mass() / ParentArea;
 	double gasLossMass = std::max(0.0,ParentArea * SFR_GasLoss(gasSurfaceDensity));
-	gasLossMass = std::min(gas.ColdMass() * 0.99, gasLossMass);
+	gasLossMass = std::min(gas.ColdMass() * 0.5, gasLossMass);
 		
 	//compute how much goes to stars vs hot gas
 	double heatFrac = Param.Stellar.FeedbackFactor;
@@ -174,10 +174,12 @@ void StarReservoir::SaveEventRate(int t, std::stringstream & output)
 
 void StarReservoir::AssignMagnitudes()
 {
+	double minMv = 100;
+	double maxMv = -100;
 	for (int i = 0; i < PopulationIndex; ++i)
 	{
 		
-		double age = (Param.Meta.SimulationSteps -0.5 - i) * Param.Meta.TimeStep;
+		double age = (Param.Meta.SimulationSteps - 2 - i) * Param.Meta.TimeStep;
 		double z = Population[i].Metallicity;
 
 		int maxAliveIdx = -1;
@@ -194,17 +196,17 @@ void StarReservoir::AssignMagnitudes()
 			ms[j] = j;
 		}
 		
-		std::vector<IsochroneEntry> output = Data.Isochrones.GetProperties(ms,z,age);
-		//~ std::cout << "Isochrone data returned " << std::endl;
-		for (int j = 0; j < ms.size(); ++j)
+		if (ms.size() > 0)
 		{
-			Population[i].Distribution[j].Isochrone = output[j];
-		}
-		//~ std::cout << "Isochrones assigned " <<std::endl;
+			std::vector<IsochroneEntry> output = Data.Isochrones.GetProperties(ms,z,age);
+			
+			for (int j = 0; j < ms.size(); ++j)
+			{
+				Population[i].Distribution[j].Isochrone = output[j];
+			}
 		
-	}
-	
-	
+		}
+	}	
 }
 
 //~ void StarReservoir::Observations()

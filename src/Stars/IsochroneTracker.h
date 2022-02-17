@@ -5,6 +5,7 @@
 #include <algorithm>  
 
 enum IsochroneProperties {logL,BolometricMag, UMag,BMag,VMag, RMag,IMag,JMag, HMag,KMag, TEff, Logg, PropertyCount};
+const std::vector<std::string> PropertyNames = {"logL", "BolometricMag", "UMag","BMag","VMag", "RMag","IMag","JMag","HMag","KMag","TEff","Logg"};
 struct IsochroneEntry
 {
 	std::vector<double> Properties;

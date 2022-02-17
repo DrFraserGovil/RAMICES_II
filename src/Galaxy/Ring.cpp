@@ -24,25 +24,19 @@ void Ring::TimeStep(int t)
 	MetCheck("Start of internal loop");
 	Cool();
 	
-	//~ std::cout << "\tCooled " << Mass() << std::endl;
 	MakeStars();
-	//~ std::cout << "\tFormed "  << Mass()<< std::endl;
-	UpdateMemory(t);
-	KillStars(t);
-	//~ std::cout << "\tKilled "  << Mass() << std::endl;
-	
-	
-	UpdateMemory(t);
-	//~ std::cout << "\tSaved "  << Mass() << std::endl;
-	
+
+	if (t < Param.Meta.SimulationSteps-2)
+	{
+		KillStars(t);
+	}
+
 	MetCheck("End of internal loop");
 }
 
 void Ring::MakeStars()
 {
-	//~ std::cout << "Ring " << RadiusIndex << " forming stars " << Gas.Mass() + Stars.AliveMass() << "  " << Gas.ColdMass() << "  " << Gas.HotMass() << std::endl;
 	Stars.Form(Gas);
-	//~ std::cout << "\t " << Gas.Mass() + Stars.AliveMass() << "  " << Gas.ColdMass() << "  " << Gas.HotMass() << std::endl;
 }
 void Ring::KillStars(int time)
 {
@@ -53,7 +47,6 @@ void Ring::KillStars(int time)
 	{
 		m += Stars.YieldOutput[t][Remnant].ColdMass();
 	}
-	//~ std::cout << "Ring " << RadiusIndex << " has synthesised " << m << " remnant matter at " << time << std::endl;
 }
 
 void Ring::Cool()

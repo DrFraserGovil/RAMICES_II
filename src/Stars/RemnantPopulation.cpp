@@ -80,7 +80,6 @@ void RemnantPopulation::Decay(int currentTime, std::vector<GasReservoir> & scatt
 			double decayShort = exp(-deltaT/ Param.Yield.SNIa_ShortScale);
 			double decayLong = exp(-deltaT/Param.Yield.SNIa_LongScale);
 			
-			
 			ShortSNIaBuffer[t] = oldSNIa_short*decayShort;
 			LongSNIaBuffer[t] = oldSNIa_long * decayLong;
 			

@@ -177,25 +177,33 @@ void GasReservoir::PassiveCool(double dt, bool isIGM)
 		
 	//~ }
 	
-	double hotMass = HotMass();
-	double gasMass = hotMass + ColdMass();
+	//~ double hotMass = HotMass();
+	//~ double gasMass = hotMass + ColdMass();
 	//~ std::cout << "\t\tStarted with " << gasMass << " ( C = " << gasMass - hotMass << "  H = " << hotMass << ")" << std::endl;
-	double n = Param.Thermal.CoolingPower;
-	double dormantPower = pow(Param.Thermal.DormantHotFraction,n);
-	if (isIGM)
-	{
-		dormantPower = 1e-99;
-	}
-	double ddt = dt/Param.Thermal.NumericalResolution;
-	for (int i = 0; i < Param.Thermal.NumericalResolution; ++i)
-	{
-		double dMh = gasMass/ Param.Thermal.GasCoolingTimeScale * (dormantPower - pow(hotMass/gasMass,n));
-		double delta = std::max(std::min(dMh * ddt,hotMass),hotMass-gasMass);
-		hotMass += delta;
-		hotMass = std::max(0.0,hotMass);
-	}
+	//~ double n = Param.Thermal.CoolingPower;
+	//~ int lambda = 1.0/Param.Thermal.GasCoolingTimeScale;
+	//~ double dormantPower = pow(Param.Thermal.DormantHotFraction,n);
+	//~ if (isIGM)
+	//~ {
+		//~ dormantPower = 1e-99;
+		//~ lambda *= 100;
+	//~ }
+	//~ double ddt = dt/Param.Thermal.NumericalResolution;
+	//~ for (int i = 0; i < Param.Thermal.NumericalResolution; ++i)
+	//~ {
+		//~ double dMh = gasMass/ Param.Thermal.GasCoolingTimeScale * (dormantPower - pow(hotMass/gasMass,n));
+		//~ double dMh = - lambda *  hotMass;
+		//~ double delta = std::max(std::min(dMh * ddt,hotMass),hotMass-gasMass);
+		//~ hotMass += delta;
+		//~ hotMass = std::max(0.0,hotMass);
+	//~ }
 	
-	double cooledAmount = HotMass() - hotMass;
+	double lambda = 1.0/Param.Thermal.GasCoolingTimeScale;
+	if (isIGM)
+		lambda *= 100;
+	double newHot = HotMass() * exp( - lambda * dt);
+	
+	double cooledAmount = HotMass() - newHot;
 	if (cooledAmount > 0 && HotMass() > 0)
 	{
 		double cooledFraction = cooledAmount / HotMass();

@@ -190,7 +190,7 @@ void StellarPopulation::MonotonicDeathScan(int time, std::vector<GasReservoir> &
 				newRem = AGBYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
 				eventRate.AGBDeaths += nStars;
 			}
-			remnants.Feed(birthID,newRem);
+			remnants.Feed(time,newRem);
 		}
 		
 		--DepletionIndex;
@@ -210,4 +210,78 @@ void StellarPopulation::MonotonicDeathScan(int time, std::vector<GasReservoir> &
 void StellarPopulation::FullDeathScan(int time)
 {
 	throw std::runtime_error("You are calling death on a non-monotonic population, but this functionality does not exist yet!");
+}
+
+std::string StellarPopulation::CatalogueHeaders()
+{
+	std::string s= "Radius, TrueAge, BirthIndex, BirthRadius, MeasuredAge, Mass";
+	for (int i = 0; i < PropertyCount; ++i)
+	{
+		s+= ", " + PropertyNames[i];
+	}
+	for (int i = 1; i < ElementCount; ++i)
+	{
+		s += ", " + Param.Element.ElementNames[i] + "H";
+	}
+	return s;
+}
+std::string StellarPopulation::CatalogueEntry(int n, int m, double currentRadius, double birthRadius)
+{
+	int nManualEntries = 6;
+	std::vector<double> values(nManualEntries+PropertyCount+ElementCount - 1,0.0);
+	values[0] = currentRadius;
+	values[1] = (Param.Meta.SimulationSteps - 1 - BirthIndex) * Param.Meta.TimeStep;
+	values[2] = BirthIndex;
+	values[3] = birthRadius;
+	values[4] = values[1];
+	values[5] = Param.Stellar.MassGrid[m];
+	int offset = nManualEntries;
+	for (int i = 0; i < PropertyCount; ++i)
+	{
+		values[offset] = Distribution[m].Isochrone[(IsochroneProperties)i]; 
+		++offset; 
+	}
+	double hContent = 1e-99;
+	for (int p = 0; p < ProcessCount; ++p)
+	{
+		hContent += BirthGas[p].Cold(Hydrogen);
+	}
+	double hSol = Param.Element.SolarAbundances[Hydrogen];
+	for (int i = 1; i < ElementCount; ++i)
+	{
+		double eContent = 1e-99;
+		for (int p = 0; p < ProcessCount; ++p)
+		{
+			eContent+=BirthGas[p].Cold((ElementID)i);
+		}
+		//~ std::cout << "Evaluating " << Param.Element.ElementNames[i] << " = " << eContent << " h content = " << hContent << std::endl;
+		double logVal = log10(eContent/hContent) - log10(Param.Element.SolarAbundances[(ElementID)i]/hSol);
+		//~ std::cout << "Inferred abundances: " << logVal << std::endl;
+		values[offset] = logVal;
+		++offset;
+	}
+	std::vector<double> typicalErrors(values.size(),0.0);
+	//~ typicalErrors[3] = 1;
+	
+	
+	
+	std::default_random_engine generator;
+	std::normal_distribution<double> distribution(0,1.0);
+	std::string output = "";
+	for (int star = 0; star < n; ++star)
+	{
+		std::string line = "";
+		for (int k = 0; k < values.size(); ++k)
+		{
+			
+			double val = values[k] + typicalErrors[k] * distribution(generator);
+			if (k > 0)
+			{
+				line += ", ";
+			}
+			line += std::to_string(val);
+		}
+		output += line + "\n";
+	}
+	return output;
 }

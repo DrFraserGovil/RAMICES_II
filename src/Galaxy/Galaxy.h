@@ -10,7 +10,7 @@
 #include <thread>
 #include <future>
 
-enum ParallelJob {RingStep, Compounding, Scattering, AssignIsochrones};
+enum ParallelJob {RingStep, Compounding, Scattering, AssignIsochrones,Synthesis};
 
 class Galaxy
 {
@@ -64,4 +64,9 @@ class Galaxy
 		InitialisedData & Data;
 		
 		std::vector<double> RingMasses;
+		
+		void ComputeVisibilityFunction();
+		
+		void StellarSynthesis(int ringstart, int ringend);
+		std::vector<std::string> SynthesisOutput;
 };

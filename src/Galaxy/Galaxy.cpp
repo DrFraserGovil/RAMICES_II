@@ -4,40 +4,51 @@ double pi = 3.141592654;
 //Main Evolution Loop
 void Galaxy::Evolve()
 {
+	Data.UrgentLog("\tEvolution will occur between 0Gyr and " + std::to_string(Param.Meta.SimulationDuration) + "Gyr, across " + std::to_string(Param.Meta.SimulationSteps) + " steps.\n\n");
 	double t = 0;
-	SaveState(t);
+
 
 	int fullBar = Param.Meta.ProgressHashes;
 	int currentBars = 0;
 	
 	Data.UrgentLog("\tStarting Galaxy evolution: ");
-	
-	for (int timestep = 0; timestep < Param.Meta.SimulationSteps-1; ++timestep)
+	int finalStep = Param.Meta.SimulationSteps -1; // intentionally offset by 1!
+	for (int timestep = 0; timestep < finalStep; ++timestep)
 	{
-		//~ std::cout << "Time " << timestep << std::endl;
 		IGM.PassiveCool(Param.Meta.TimeStep,true);
-		//~ std::cout << "\tPassive cooled" <<std::endl;
 		Infall(t);
-		//~ std::cout << "\tInfell" << "  " << Mass() << std::endl;
-		ComputeScattering(timestep);
-		//~ std::cout << "\tComputed scattering" << "  " << Mass() << std::endl;
-		LaunchParallelOperation(timestep,Rings.size(),RingStep);
-		//~ std::cout << "\tRingstepped" << "  " << Mass() << std::endl;
 		
-		LaunchParallelOperation(timestep,Rings.size(),Scattering);
-		//~ std::cout << "\tScattered yields" << "  " << Mass() << std::endl;
-		ScatterGas(timestep);
-		//~ std::cout << "\tScattered Gas" << "  " << Mass() << std::endl;
+		//~ std::cout << "Computing scattering" << std::endl;
+		ComputeScattering(timestep);
+		
+		//~ std::cout << "Computing rngs" << std::endl;
+		LaunchParallelOperation(timestep,Rings.size(),RingStep);
+		
+		//~ std::cout << "Computing scattering pt 2" << std::endl;
+		if (timestep < finalStep)
+		{
+			LaunchParallelOperation(timestep,Rings.size(),Scattering);
+			ScatterGas(timestep);
+		}
+		
+		//~ std::cout << "Computing savestate" << std::endl;
+		
+		Data.ProgressBar(currentBars, timestep,finalStep);	
+		SaveState(t);
 		t += Param.Meta.TimeStep;
 		
-		//~ std::cout << "Incremented timestep" <<std::endl;
-		Data.ProgressBar(currentBars, timestep,Param.Meta.SimulationSteps);	
-		SaveState(t);
-		//~ std::cout << "\tSaved" <<std::endl;	
+		
+		//~ std::cout << "Done " <<std::endl;
 	}
 	
+	//~ std::cout << "Completed" << std::endl;
 	
 	
+	//~ for (int i = 0; i < finalStep; ++i)
+	//~ {
+		//~ std::cout << "The compounded migration matrix for stars born at time " << i << " is: " <<std::endl;
+		//~ Migrator[i].Print();
+	//~ }
 }
 
 void Galaxy::SynthesiseObservations()
@@ -47,6 +58,20 @@ void Galaxy::SynthesiseObservations()
 	Data.UrgentLog("\tAssigning Stellar Isochrones....");
 	LaunchParallelOperation(Param.Meta.SimulationDuration,Rings.size(), AssignIsochrones);
 	Data.UrgentLog("Complete");
+	
+	ComputeVisibilityFunction();
+	
+	SynthesisOutput.resize(Rings.size());
+	Data.UrgentLog("\tSynthesis begins....");
+	LaunchParallelOperation(Param.Meta.SimulationDuration,Rings.size(), Synthesis);
+	Data.UrgentLog("Complete");
+	
+	JSL::initialiseFile(Param.Output.StarFile.Value);
+	JSL::writeStringToFile(Param.Output.StarFile.Value, Rings[0].Stars.Population[0].CatalogueHeaders() + "\n");
+	for (int i = 0; i < Rings.size(); ++i)
+	{
+		JSL::writeStringToFile(Param.Output.StarFile.Value, SynthesisOutput[i]);
+	}
 }
 
 //Galactic Constructor
@@ -125,6 +150,11 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 				Threads[n] = std::thread(&Galaxy::AssignMagnitudes,this,timestep,start,end);
 				break;
 			}
+			case Synthesis:
+			{
+				Threads[n] = std::thread(&Galaxy::StellarSynthesis,this,start,end);
+				break;
+			}
 		}
 		++n;
 		
@@ -153,6 +183,11 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 		case AssignIsochrones:
 		{
 			AssignMagnitudes(timestep,start,end);
+			break;
+		}
+		case Synthesis:
+		{
+			StellarSynthesis(start,end);
 			break;
 		}
 	}
@@ -496,7 +531,6 @@ void Galaxy::AssignMagnitudes(int time, int ringstart, int ringend)
 	}
 }
 
-
 void Galaxy::ScatterGas(int time)
 {
 	const std::vector<std::vector<double>> & migrator = Migrator[time].Grid;
@@ -533,6 +567,7 @@ void Galaxy::SaveState(double t)
 }
 void Galaxy::SaveState_Mass(double t)
 {
+	//~ std::cout << "Attempting mass save " << std::endl;
 	std::stringstream output;
 	if (t == 0)
 	{
@@ -560,7 +595,6 @@ void Galaxy::SaveState_Mass(double t)
 		output << "\n";
 	}	
 	JSL::writeStringToFile(Param.Output.GalaxyMassFile,output.str());
-	
 }
 std::string Galaxy::MassHeaders()
 {
@@ -571,9 +605,8 @@ void Galaxy::SaveState_Enrichment(double t)
 {
 	
 	int tt = round(t / Param.Meta.TimeStep);
-	
 	//only save to file at simiulation end!
-	if (tt == Param.Meta.SimulationSteps-1)
+	if (tt == Param.Meta.SimulationSteps-2)
 	{
 		Data.UrgentLog("\tSaving Chemical makeup:    ");
 		int bars = 0;
@@ -604,7 +637,7 @@ void Galaxy::SaveState_Events(double t)
 	int tt = round(t / Param.Meta.TimeStep);
 	
 	//only save to file at simiulation end!
-	if (tt == Param.Meta.SimulationSteps-1)
+	if (tt == Param.Meta.SimulationSteps-2)
 	{
 		Data.UrgentLog("\tSaving Stellar Event Rate: ");
 		int bars = 0;
@@ -621,4 +654,88 @@ void Galaxy::SaveState_Events(double t)
 		
 		JSL::writeStringToFile(Param.Output.EventRateFile,eventOutput.str());
 	}
+}
+
+void Galaxy::ComputeVisibilityFunction()
+{
+	double dt = Param.Catalogue.IsochroneTimeStep;
+	int Nt = ceil((double)Param.Meta.SimulationDuration / dt);
+	std::cout << "I estimate that there are " << Nt << " rough timesteps for dt = " << dt << " across a duration " << Param.Meta.SimulationDuration<< std::endl;
+	std::vector<double> minMv(Nt,100);
+	std::vector<double> maxMv(Nt,-100);
+	
+	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
+	{
+		int roughIdx = i * (double)Nt/(Param.Meta.SimulationSteps);
+
+		for (int j = 0; j < Rings.size(); ++j)
+		{
+			for (int k = 0; k < Rings[j].Stars.Population[i].Distribution.size(); ++k)
+			{
+				if (Rings[j].Stars.Population[i].Distribution[k].Count > 0)
+				{
+					double vmag = Rings[j].Stars.Population[i].Distribution[k].Isochrone[VMag];
+					if (vmag < minMv[roughIdx])
+					{
+						minMv[roughIdx] = vmag;
+					}
+					if (vmag > maxMv[roughIdx])
+					{
+						maxMv[roughIdx] = vmag;
+					}
+				}
+			}
+		}
+	}
+
+	//ring compute absorption fractions for M, tau
+	
+	
+}
+
+void Galaxy::StellarSynthesis(int ringstart, int ringend)
+{
+	std::cout << "Synthesis " << ringstart << "->" << ringend << "started" << std::endl;
+	for (int i = ringstart; i < ringend; ++i)
+	{
+		int cTot = 0;
+		int cFilter = 0;
+		for (int j = 0; j < Rings.size(); ++j)
+		{
+			for (int t = 0; t < Param.Meta.SimulationSteps -1; ++t)
+			{
+				double migrateFrac = Migrator[t].Grid[i][j];
+				if (migrateFrac > 1e-8)
+				{
+					for (int m = 0; m < Param.Stellar.MassResolution; ++m)
+					{
+						double d = (Rings[i].Radius - 8.2);
+						double observeFrac = 3e-5 * exp( - d*d);// change this!!!
+						int count = migrateFrac * Rings[j].Stars.Population[t].Distribution[m].Count;
+						double obs = observeFrac * count;
+						int intObs = obs;
+		
+						double targetRoll = (obs - intObs);
+						double diceRoll = (double)rand() / RAND_MAX;
+						if (diceRoll < targetRoll)
+						{
+							++intObs;
+						}
+									
+						if (intObs > 0)
+						{
+							std::string output = Rings[j].Stars.Population[t].CatalogueEntry(intObs,m,Rings[i].Radius,Rings[j].Radius);
+							SynthesisOutput[i] += output;
+						}
+					}
+				}
+			}
+			
+			
+		}
+		
+		
+	}
+	std::cout << "Synthesis " << ringstart << "->" << ringend << "complete" << std::endl;
+	
 }

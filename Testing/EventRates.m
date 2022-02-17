@@ -2,7 +2,7 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["Pollute_RadialFlow_NoIGM"] + "/Events.dat";
+files = "../Output/" + ["SynthesisTest"] + "/Events.dat";
 
 
 for i = 1:length(files)
@@ -64,7 +64,7 @@ function plotEventFile(fileName)
 
         nexttile(3);
         hold on;
-        plot(rs,agb./birth,'Color',c(i,:));
+        plot(rs,agb,'Color',c(i,:));
         hold off;
         
         nexttile(4);

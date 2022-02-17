@@ -25,14 +25,14 @@ class MetaValues : public ParamList
 		//!The number of hashes used to display progress bars
 		Argument<int> ProgressHashes = Argument<int>(32,"progress-hashes");
 		
-		Argument<bool> StellarSynthesisActive = Argument<bool>(true,"stellar-synthesis");
+	
 		//!The number of timesteps in the simulation, computed from #SimulationDuration and #TimeStep
 		int SimulationSteps;
 		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		MetaValues()
 		{
-			argPointers = {&Verbosity,&ParallelThreads,&TimeStep,&SimulationDuration,&ProgressHashes,&StellarSynthesisActive};
+			argPointers = {&Verbosity,&ParallelThreads,&TimeStep,&SimulationDuration,&ProgressHashes};
 		};
 		
 		//! An overload of a normally empty function. Computes the value of #SimulationSteps
@@ -57,7 +57,9 @@ class OutputValues : public ParamList
 		Argument<std::string> EventRateFile = Argument<std::string>("Events.dat","event-rate-file");
 		
 		//!The ring-star data identifier
-		Argument<std::string> StarFile = Argument<std::string>("StarPop.dat","ring-data-stars");
+		Argument<std::string> StarFile = Argument<std::string>("StellarCatalogue.dat","ring-data-stars");
+		
+		
 		
 		//!The enrichment file identifier
 		Argument<std::string> ChemicalPrefactor  = Argument<std::string>("Enrichment_","enrichment-base");
@@ -160,10 +162,10 @@ class StellarValues : public ParamList
 		Argument<double> MaxStellarMass = Argument<double>(100,"mass-max");
 		
 		//!Maxmimum stellar mass that IMF can generate
-		Argument<double> MinStellarMass = Argument<double>(0.8,"mass-min");
+		Argument<double> MinStellarMass = Argument<double>(0.07,"mass-min");
 		
 		//!Mass of stars which we consider immortal without checking their isochrones
-		Argument<double> ImmortalMass = Argument<double>(0.7,"mass-immortal");
+		Argument<double> ImmortalMass = Argument<double>(0.13,"mass-immortal");
 		
 		//!Number of points along the stellar mass grid
 		Argument<int> MassResolution = Argument<int>(199,"mass-resolution");
@@ -238,20 +240,20 @@ class YieldValues : public ParamList
 		
 		Argument<double> SNIa_ActiveFraction = Argument<double>(0.1,"sn1a-fraction");
 		
-		Argument<double> SNIa_LongFraction = Argument<double>(0.8,"sn1a-fraction-long");
+		Argument<double> SNIa_LongFraction = Argument<double>(0.99,"sn1a-fraction-long");
 		
-		Argument<double> SNIa_ShortScale = Argument<double>(0.2,"sn1a-short-decay");
+		Argument<double> SNIa_ShortScale = Argument<double>(0.1,"sn1a-short-decay");
 		
 		Argument<double> SNIa_TypicalMass = Argument<double>(1.2,"sn1a-progenitor-mass");
 		
 		Argument<double> NSM_TypicalMass = Argument<double>(1.4,"nsm-progenitor-mass");
 		
-		Argument<double> SNIa_LongScale = Argument<double>(1,"sn1a-long-decay");
+		Argument<double> SNIa_LongScale = Argument<double>(0.5,"sn1a-long-decay");
 		
-		Argument<double> CCSN_MassCut = Argument<double>(10,"ccsn-mass");
+		Argument<double> CCSN_MassCut = Argument<double>(9,"ccsn-mass");
 		
 		Argument<double> ECSN_MassCut = Argument<double>(8.5,"ecsn-mass");
-		Argument<double> CODwarf_MassCut = Argument<double>(3.1,"co-mass");
+		Argument<double> CODwarf_MassCut = Argument<double>(3.2,"co-mass");
 		Argument<double> Collapse_MassCut = Argument<double>(40,"bh-mass");
 		
 		Argument<double> NSM_DelayTime = Argument<double>(0.02,"nsm-delay");
@@ -326,11 +328,26 @@ class MigrationValues: public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		MigrationValues()
 		{
-			std::cout << "Init migration" << std::endl;
 			argPointers = {&InflowParameterA,&InflowParameterB,&MaxStealFraction,&MarkovDispersionStrength,&DispersionOrder, &DispersionTruncation};
-			std::cout << "mig done" << std::endl;
 		}
 	
+	
+};
+
+class CatalogueValues: public ParamList
+{
+	public:
+	
+		Argument<bool> SynthesisActive = Argument<bool>(true,"stellar-synthesis");
+	
+		//! The timesteps used to interpolate isochrones over
+		Argument<double> IsochroneTimeStep = Argument<double>(0.1,"isochrone-dt");
+		
+		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
+		CatalogueValues()
+		{
+			argPointers = {&SynthesisActive,&IsochroneTimeStep};
+		}
 	
 };
 
@@ -358,7 +375,7 @@ class GalaxyValues : public ParamList
 		std::vector<double> RingWidth;
 		
 		//! Initial in-situ mass of the galaxy (assumed to be 100% gas)
-		Argument<double> PrimordialMass = Argument<double>(8,"M0");
+		Argument<double> PrimordialMass = Argument<double>(2,"M0");
 		
 		
 		//! Fraction of primordial gas which is hot
@@ -383,21 +400,21 @@ class GalaxyValues : public ParamList
 		Argument<double> ScaleLengthFinalTime = Argument<double>(12.0,"scale-length-final");
 
 		//! The mass of the first (fast) exponential infall
-		Argument<double> InfallMass1 = Argument<double>(4.5,"M1");
+		Argument<double> InfallMass1 = Argument<double>(50,"M1");
 		
 		//! The mass of the second (slow) exponential infall
-		Argument<double> InfallMass2 = Argument<double>(46,"M2");
+		Argument<double> InfallMass2 = Argument<double>(100,"M2");
 		
 		//! The exponential timescale for the first (fast) exponential infall
-		Argument<double> InfallTime1 = Argument<double>(0.3,"b1");
+		Argument<double> InfallTime1 = Argument<double>(1,"b1");
 		
 		//! The exponential timescale for the second (slow) exponential infall
-		Argument<double> InfallTime2 = Argument<double>(14.0,"b2");
+		Argument<double> InfallTime2 = Argument<double>(9.0,"b2");
 
 
 		
 		//!maximum fraction which can be removed by SFR + associated feedback 
-		Argument<double> MaxSFRFraction = Argument<double>(0.98,"max-sfr");
+		Argument<double> MaxSFRFraction = Argument<double>(0.95,"max-sfr");
 
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		GalaxyValues()

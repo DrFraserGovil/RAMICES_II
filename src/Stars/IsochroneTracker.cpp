@@ -105,11 +105,11 @@ std::vector<IsochroneEntry> IsochroneTracker::GetProperties(std::vector<int> mas
 	int tLowerID;
 	double startTime = CapturedTs[0];
 	double endTime = CapturedTs[CapturedTs.size() - 1];
-	double logAge = std::max(std::min(endTime,log10(age) + 9),startTime);
+	double logAge = std::max(std::min(endTime,log10(std::max(age,1e6)) + 9),startTime);
 	
 	if (isTimeLogUniform)
 	{		
-		double delta = logAge - startTime;
+		double delta = std::max(0.0,logAge - startTime);
 		tLowerID = floor(delta / DeltaLogT);
 		tUpperID = ceil(delta / DeltaLogT);
 		if (tLowerID == tUpperID)
@@ -134,11 +134,8 @@ std::vector<IsochroneEntry> IsochroneTracker::GetProperties(std::vector<int> mas
 	
 	
 	
-	//~ std::cout << tLowerID << "  " << tUpperID << "  " << zLowerID << "  " << zUpperID << "  " << CapturedZs.size() << "  " << CapturedTs.size() << std::endl;
-	
 	for (int i = 0; i < mass.size(); ++i)
 	{
-		//~ std::cout << "Attempting recognition for " << i+1  << "/" << mass.size() << std::endl;
 		double tTempUp = tUpperID;
 		double tTempDown = tLowerID;
 		double tempTInterp = tInterp;
@@ -149,7 +146,6 @@ std::vector<IsochroneEntry> IsochroneTracker::GetProperties(std::vector<int> mas
 		int maxSize = std::min(a,std::min(b,std::min(c,d)));;
 		if (mass[i] >= maxSize )
 		{
-			//~ std::cout << "Some movement necessary" <<std::endl;
 			int decrement = 0;
 			while (mass[i] >= maxSize)
 			{
@@ -174,18 +170,11 @@ std::vector<IsochroneEntry> IsochroneTracker::GetProperties(std::vector<int> mas
 				exit(11);
 			}
 		}
-		//~ std::cout << "About to grab data" <<std::endl;
-		a = Grid[zUpperID][tTempUp].size();
-		b = Grid[zUpperID][tTempDown].size();
-		c = Grid[zLowerID][tTempUp].size();
-		d = Grid[zUpperID][tTempDown].size();
-		//~ std::cout << a << "  " << b << "  " << c << "  " << d << "  " << mass[i] << std::endl;
 		const IsochroneEntry & upTupZ = Grid[zUpperID][tTempUp][mass[i]];
 		const IsochroneEntry & upTdownZ = Grid[zLowerID][tTempUp][mass[i]];
 		const IsochroneEntry & downTupZ = Grid[zUpperID][tTempDown][mass[i]];
 		const IsochroneEntry & downTdownZ = Grid[zLowerID][tTempDown][mass[i]];
-		
-		
+
 		//~ std::cout << "About to insert things" <<std::endl;
 		for (int k = 0; k < PropertyCount; ++k)
 		{

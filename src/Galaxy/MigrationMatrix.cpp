@@ -54,7 +54,7 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 	}
 	
 	double dt = Param.Meta.TimeStep;
-	double factorial = 1;
+	double factorialInverse = 1;
 	for (int order = 1; order <= Param.Migration.DispersionOrder; ++order)
 	{
 		if (order > 1)
@@ -62,14 +62,14 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 			//multiply up
 			K_power = DiagonalMultiply(K_power,K,order);
 		}
-		factorial = factorial * order;
+		factorialInverse /= order;
 		for (int i = 0; i < n; ++i)
 		{
 			int lower = std::max(0,i - order-1);
 			int upper = std::min(n, i + order+1);
 			for (int j = lower; j < upper; ++j)
 			{
-				Grid[i][j] += pow(dt,order)/factorial * K_power[i][j];
+				Grid[i][j] += pow(dt,order) * factorialInverse * K_power[i][j];
 			}
 		}
 	}
@@ -81,7 +81,7 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 		int upper = std::min(n, i + maxOrder+1);
 		for (int j = lower; j < upper; ++j)
 		{
-			Grid[i][j] = std::max(Grid[i][j],0.0);
+			Grid[i][j] = std::min(1.0,std::max(Grid[i][j],0.0));
 		}
 	}
 	//~ exit(5);
@@ -108,14 +108,14 @@ void MigrationMatrix::Compound(const MigrationMatrix & newMatrix)
 	std::vector<std::vector<double>> temp(n,std::vector<double>(n,0.0));
 	for (int i = 0; i < n; ++i)
 	{
-		int lower = std::max(0, i - maxOffDiagonal);
-		int upper = std::max(0, i + maxOffDiagonal);
-		for (int j = 0; j < n; ++j)
+		int lower = std::max(0, i - maxOffDiagonal-1);
+		int upper = std::min(n, i + maxOffDiagonal+1);
+		for (int j = lower; j < upper; ++j)
 		{
 			
 			for (int k = lower; k < upper; ++k)
 			{
-				temp[i][j] += newMatrix.Grid[i][k] * Grid[i][j];
+				temp[i][j] += newMatrix.Grid[i][k] * Grid[k][j];
 			}
 			
 		}
@@ -156,4 +156,20 @@ std::vector<std::vector<double>> MigrationMatrix::DiagonalMultiply(const std::ve
 		}
 	}
 	return output;
+}
+
+void MigrationMatrix::Print()
+{
+	int n = Grid.size();
+	
+	for(int i = 0; i < n; ++i)
+	{
+		for (int k = 0; k < n; ++k)
+		{
+			std::cout << std::setw(15) << Grid[i][k];
+		}
+		
+	}
+	
+	
 }

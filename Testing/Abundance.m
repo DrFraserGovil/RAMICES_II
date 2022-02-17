@@ -5,7 +5,7 @@ set(0,'defaultAxesFontSize',28);
 figure(1)
 clf;
 % T=tiledlayout(4,2);
-files = "../Output/" + ["Pollute_RadialFlow_NoIGM"] + "/Enrichment_Log_ColdGas.dat";
+files = "../Output/" + ["SynthesisTest"] + "/Enrichment_Log_ColdGas.dat";
 
 T = tiledlayout('flow');
 
@@ -55,7 +55,7 @@ end
  colorbar;
  caxis([min(r),max(r)])
  xlim([-2.5,1.2]);
- ylim([-0.2,0.5]);
+ ylim([-0.3,0.5]);
  hold off;
     
 title("\verb|" +fileName + "|","FontSize",10);

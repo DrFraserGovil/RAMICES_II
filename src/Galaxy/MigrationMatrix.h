@@ -12,6 +12,7 @@ class MigrationMatrix
 		void Create(const std::vector<double> & masses);
 		
 		void Compound(const MigrationMatrix & newTime);
+		void Print();
 	private:
 		int NRings;
 		const GlobalParameters & Param;

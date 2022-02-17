@@ -2,7 +2,7 @@
 
 void MetaValues::Initialise(std::string resourceRoot)
 {
-	SimulationSteps = ceil(SimulationDuration / TimeStep);
+	SimulationSteps = ceil(SimulationDuration / TimeStep) +1 ;
 }
 
 void OutputValues::Initialise(std::string resourceRoot)
@@ -26,6 +26,7 @@ void OutputValues::Initialise(std::string resourceRoot)
 	LogarithmicHotGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Log_" + HotGasDataFile.Value;
 	JSL::initialiseFile(LogarithmicHotGasFile);
 	
+	StarFile.Value = Root.Value + "/" + StarFile.Value;
 	
 	YieldSubdir.Value = Root.Value + YieldSubdir.Value;
 	JSL::mkdir(YieldSubdir.Value);

@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <random>
 #include "../Parameters/InitialisedData.h"
 #include "IMF.h"
 #include "../Gas/GasReservoir.h"
@@ -45,6 +46,9 @@ class StellarPopulation
 		IsoMass ImmortalStars;
 		
 		std::vector<GasStream> BirthGas;
+		
+		std::string CatalogueHeaders();
+		std::string CatalogueEntry(int n, int m, double currentRadius, double birthRadius);
 	private:
 		const GlobalParameters & Param;
 
