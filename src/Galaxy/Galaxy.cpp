@@ -688,7 +688,12 @@ void Galaxy::ComputeVisibilityFunction()
 		}
 	}
 
-	//ring compute absorption fractions for M, tau
+	//ring compute absorption fractions for M, 
+	std::cout << "Beginning computation of visibility function" << std::endl;
+	for (int i = 0; i < Nt; ++i)
+	{
+		std::cout << "For t = " << i * dt << " we have " << minMv[i] << " < Mv < " << maxMv[i] << std::endl;
+	}
 	
 	
 }
