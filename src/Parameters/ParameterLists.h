@@ -343,10 +343,20 @@ class CatalogueValues: public ParamList
 		//! The timesteps used to interpolate isochrones over
 		Argument<double> IsochroneTimeStep = Argument<double>(0.1,"isochrone-dt");
 		
+		Argument<double> IsochroneMagnitudeResolution = Argument<double>(20,"isochrone-mag-resolution");
+		
+		Argument<double> SolarRadius = Argument<double>(8.2,"solar-radius");
+		
+		Argument<int> RadialResolution = Argument<int>(6,"isochrone-radial-resolution");
+		Argument<int> AzimuthalResolution = Argument<int>(360,"isochrone-radial-resolution");
+		
+		Argument<double> VerticalHeightStart = Argument<double>(0.01,"vertical-height-z0");
+		Argument<double> VerticalHeightScaling = Argument<double>(0.1,"vertical-height-scaling");
+		Argument<double> VerticalHeightPower = Argument<double>(0.33,"vertical-height-power");
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		CatalogueValues()
 		{
-			argPointers = {&SynthesisActive,&IsochroneTimeStep};
+			argPointers = {&SynthesisActive,&IsochroneTimeStep,&IsochroneMagnitudeResolution,&SolarRadius};
 		}
 	
 };

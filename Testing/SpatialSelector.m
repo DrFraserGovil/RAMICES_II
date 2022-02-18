@@ -18,11 +18,11 @@ loop = waitbar(0,'Integrating');
 
 clf
 
-width = 1;
+width = 0.2;
 Nrings = 20;
 
 b = 3;
-times = [0.1,10];
+times = [0];
 Ntimes = length(times);
 cs = jet(Nrings);
 radii = linspace(1,20,Nrings)

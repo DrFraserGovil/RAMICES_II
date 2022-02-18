@@ -57,21 +57,24 @@ void Galaxy::SynthesiseObservations()
 	
 	Data.UrgentLog("\tAssigning Stellar Isochrones....");
 	LaunchParallelOperation(Param.Meta.SimulationDuration,Rings.size(), AssignIsochrones);
-	Data.UrgentLog("Complete");
+	Data.UrgentLog("Complete\n");
 	
+	SynthesisProgress.resize(Param.Meta.ParallelThreads);
 	ComputeVisibilityFunction();
 	
 	SynthesisOutput.resize(Rings.size());
-	SynthesisProgress.resize(Param.Meta.ParallelThreads);
-	Data.UrgentLog("\n\tDistributing Population:   ");
+	
+	Data.UrgentLog("\tDistributing Population:   ");
 	LaunchParallelOperation(Param.Meta.SimulationDuration,Rings.size(), Synthesis);
 	
 	Data.UrgentLog("\tWriting to file.");
 	JSL::initialiseFile(Param.Output.StarFile.Value);
 	JSL::writeStringToFile(Param.Output.StarFile.Value, Rings[0].Stars.Population[0].CatalogueHeaders() + "\n");
+	int bars = 0;
 	for (int i = 0; i < Rings.size(); ++i)
 	{
 		JSL::writeStringToFile(Param.Output.StarFile.Value, SynthesisOutput[i]);
+		Data.ProgressBar(bars, i,Rings.size());
 	}
 }
 
@@ -156,6 +159,11 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 				Threads[n] = std::thread(&Galaxy::StellarSynthesis,this,start,end,n);
 				break;
 			}
+			case Selection:
+			{
+				Threads[n] = std::thread(&Galaxy::SelectionFunction,this,start,end,n);
+				break;
+			}
 		}
 		++n;
 		
@@ -188,8 +196,12 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 		}
 		case Synthesis:
 		{
-			StellarSynthesis(start,end,0);
+			StellarSynthesis(start,end,N-1);
 			break;
+		}
+		case Selection:
+		{
+			SelectionFunction(start,end,N-1);
 		}
 	}
 	
@@ -660,7 +672,7 @@ void Galaxy::SaveState_Events(double t)
 void Galaxy::ComputeVisibilityFunction()
 {
 	double dt = Param.Catalogue.IsochroneTimeStep;
-	int Nt = ceil((double)Param.Meta.SimulationDuration / dt);
+	int Nt = ceil((double)Param.Meta.SimulationDuration / dt) + 1;
 	std::vector<double> minMv(Nt,100);
 	std::vector<double> maxMv(Nt,-100);
 	
@@ -687,15 +699,58 @@ void Galaxy::ComputeVisibilityFunction()
 			}
 		}
 	}
-
-	//ring compute absorption fractions for M, 
-	std::cout << "Beginning computation of visibility function" << std::endl;
-	for (int i = 0; i < Nt; ++i)
+	IsochroneBrightDistribution = minMv;
+	IsochroneDimDistribution = maxMv;
+	IsochroneAgeDistribution.resize(Nt);
+	for (int i = 0; i < Nt;++i)
 	{
-		std::cout << "For t = " << i * dt << " we have " << minMv[i] << " < Mv < " << maxMv[i] << std::endl;
+		IsochroneAgeDistribution[i] = dt * i;
 	}
+	//ring compute absorption fractions for M, 
+	Data.UrgentLog("\tFinding Selection Effects: ");
 	
+	LaunchParallelOperation(0,Rings.size(),Selection);
 	
+}
+
+void Galaxy::SelectionFunction(int ringstart, int ringend, int threadID)
+{
+	int bars = 0;
+	for (int i = ringstart; i < ringend; ++i)
+	{
+		Rings[i].ComputeSelectionFunction(IsochroneBrightDistribution,IsochroneDimDistribution,IsochroneAgeDistribution);	
+		SynthesisProgress[threadID] = (double)(i - ringstart)/(ringend - ringstart);
+		if (threadID == 0)
+		{
+			double minProg = 1000;
+			for (int k = 0; k < SynthesisProgress.size(); ++k)
+			{
+				minProg = std::min(minProg,SynthesisProgress[k]);
+			
+			}
+			Data.ProgressBar(bars,minProg*100,100);
+
+		}
+	}
+	SynthesisProgress[threadID] = 2;
+	
+	if (threadID > 0)
+	{
+		bool allFinished = true;
+		for (int k = 0; k < SynthesisProgress.size(); ++k)
+		{
+			
+			if (SynthesisProgress[k] != 2)
+			{
+				allFinished = false;
+			}
+		}
+		if (allFinished)
+		{
+			std::cout << "]\n";
+		}
+	}
+
 }
 
 void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
@@ -715,7 +770,11 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 					for (int m = 0; m < Param.Stellar.MassResolution; ++m)
 					{
 						double d = (Rings[i].Radius - 8.2);
-						double observeFrac = 3e-5 * exp( - d*d);// change this!!!
+						
+						
+						double age = Rings[j].Stars.Population[t].Age;
+						double Mv = Rings[j].Stars.Population[t].Distribution[m].Isochrone[VMag];
+						double observeFrac = Rings[j].SelectionEffect(Mv,age);
 						int count = migrateFrac * Rings[j].Stars.Population[t].Distribution[m].Count;
 						double obs = observeFrac * count;
 						int intObs = obs;
@@ -742,11 +801,27 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 		if (threadID == 0)
 		{
 			double minProg = 1000;
-			for (int i = 0; i < SynthesisProgress.size(); ++i)
+			for (int k = 0; k < SynthesisProgress.size(); ++k)
 			{
-				minProg = std::min(minProg,SynthesisProgress[i]);
+				minProg = std::min(minProg,SynthesisProgress[k]);
 			}
-			Data.ProgressBar(bars,minProg*100,100);
+			Data.ProgressBar(bars,minProg*1000,1000);
 		}
 	}	
+	SynthesisProgress[threadID] = 2;
+	
+	bool allFinished = true;
+	for (int k = 0; k < SynthesisProgress.size(); ++k)
+	{		
+		if (SynthesisProgress[k] != 2)
+		{
+			allFinished = false;
+		}
+	}
+	if (allFinished)
+	{
+		std::cout << "]\n";
+	}
+	
 }
+

@@ -29,7 +29,9 @@ class Ring
 		void SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, std::stringstream & logarithmicStreamCold, std::stringstream & absoluteStreamHot, std::stringstream & logarithmicStreamHot);
 		
 		
-		void ComputeSelectionFunction(const std::vector<double> & brightLimit, const std::vector<double> & dimLimit);
+		double SelectionEffect(double Mv, double age);
+		
+		void ComputeSelectionFunction(const std::vector<double> & brightLimit, const std::vector<double> & dimLimit, const std::vector<double> & times);
 		void MetCheck(const std::string & location);
 	private:
 		
@@ -43,4 +45,9 @@ class Ring
 
 		std::vector<std::vector<double>> ColdBuffer;
 		std::vector<std::vector<double>> HotBuffer;
+		
+		std::vector<std::vector<double>> SelectionGrid;
+		std::vector<double> IsoBright;
+		std::vector<double> IsoDim;
+		std::vector<double> IsoTimes;
 };
