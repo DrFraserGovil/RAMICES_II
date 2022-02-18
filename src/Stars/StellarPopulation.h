@@ -49,6 +49,7 @@ class StellarPopulation
 		
 		std::string CatalogueHeaders();
 		std::string CatalogueEntry(int n, int m, double currentRadius, double birthRadius);
+		double Age;
 	private:
 		const GlobalParameters & Param;
 

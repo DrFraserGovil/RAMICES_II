@@ -27,7 +27,7 @@ end
 % f = [f;g;h];
 
 
-f(f.label == 9,:) = [];
+f(f.label > 7,:) = [];
 c = (isnan(f.MH));
 
 tableStarts = [true;c(1:end-2)];

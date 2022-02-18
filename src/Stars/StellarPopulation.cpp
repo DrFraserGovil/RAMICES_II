@@ -230,7 +230,7 @@ std::string StellarPopulation::CatalogueEntry(int n, int m, double currentRadius
 	int nManualEntries = 6;
 	std::vector<double> values(nManualEntries+PropertyCount+ElementCount - 1,0.0);
 	values[0] = currentRadius;
-	values[1] = (Param.Meta.SimulationSteps - 1 - BirthIndex) * Param.Meta.TimeStep;
+	values[1] = Age;
 	values[2] = BirthIndex;
 	values[3] = birthRadius;
 	values[4] = values[1];

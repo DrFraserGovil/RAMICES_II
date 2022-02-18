@@ -179,9 +179,9 @@ void StarReservoir::AssignMagnitudes()
 	for (int i = 0; i < PopulationIndex; ++i)
 	{
 		
-		double age = (Param.Meta.SimulationSteps - 2 - i) * Param.Meta.TimeStep;
+		double age = (Param.Meta.SimulationSteps - 1.5 - i) * Param.Meta.TimeStep;
 		double z = Population[i].Metallicity;
-
+		Population[i].Age = age;
 		int maxAliveIdx = -1;
 		for (int j = 0; j < Population[i].Distribution.size(); ++j)
 		{
@@ -198,6 +198,7 @@ void StarReservoir::AssignMagnitudes()
 		
 		if (ms.size() > 0)
 		{
+			
 			std::vector<IsochroneEntry> output = Data.Isochrones.GetProperties(ms,z,age);
 			
 			for (int j = 0; j < ms.size(); ++j)

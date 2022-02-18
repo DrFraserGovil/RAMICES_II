@@ -35,7 +35,6 @@ void Exit()
 int main(int argc, char** argv)
 {
 	startTime = std::chrono::system_clock::now();
-	std::cout << "init" << std::endl;
 	Params.Initialise(argc,argv);
 	
 	Welcome();

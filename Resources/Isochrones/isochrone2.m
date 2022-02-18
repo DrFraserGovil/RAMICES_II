@@ -1,70 +1,68 @@
+set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegendInterpreter','latex');
 set(0,'defaultTextInterpreter','latex');
-set(groot, 'defaultAxesTickLabelInterpreter','latex'); 
-set(groot, 'defaultLegendInterpreter','latex');
-set(0,'defaultAxesFontSize',16)
-files = "../../Downloads/test_" + ["low","mid","high"];
+set(0,'defaultAxesFontSize',28);
+% files = "PadovaFiles/Met_" + ["m22_m18","m17_m13","m13_m09","m09_m05","m04_0","05_35","4_5"] + ".dat";
+files = "PadovaFiles/Met_" + ["m22_m18","m17_m13","m13_m09","m09_m05","m04_0","05_35","4_5"] + ".dat";
+% files = files(2)
 
-f = table();
+f= parseTable(files);
 
 
-for q = 1:length(files)
-	figure(q);
-	file = files(q);
-	f = readtable(file,"NumHeaderLines",13);
-	
-	
-
-f(f.label == 9,:) = [];
-c = (isnan(f.MH));
-
-tableStarts = [true;c(1:end-2)];
-tableEnds = [c(2:end-1);true];
-
-ns = 1:height(f);
-startID = ns(tableStarts);
-endID = ns(tableEnds);
-clf; 
-hold on;
-zs = unique(f.MH);
+ts = unique(f.logAge);
+ts(isnan(ts)) = [];
+zs = unique(f.Zini);
 zs(isnan(zs)) = [];
-T = tiledlayout(3,3,'TileSpacing','Compact','Padding','Compact');
-prev = 0;
-inc = 5;
-for i = 1:length(startID)
-	
-	prog = round(i/length(startID) * 100);
-	if prog > prev + inc
-		disp("Progress: " + num2str(prog) + "%");
-		while prev < prog
-			prev = prev + inc;
+
+figure(3);
+clf;
+
+closest = [];
+vals = 10.^[0.02,0.04,0.06];
+for i = 1:length(vals)
+    d = abs(ts - vals(i));
+    closest(i) = find(d == min(d));
+end
+
+
+for i = 1:length(ts)
+   t= ts(i) 
+   
+   for j = round(linspace(1,length(zs),8))
+       z = zs(j);
+       
+       subselect = (f.logAge == t) & (f.Zini == z) & (f.Mini < 10);
+       
+       sample = f(subselect,:);
+       color = sample.Bmag - sample.Vmag;
+       mag = sample.Vmag;
+       
+       hold on;
+       plot(color,mag);
+       hold off;
+       set(gca,'ydir','reverse');
+       
+       drawnow;
+   end
+    
+end
+
+function f= parseTable(files)
+f = table();
+for i = 1:length(files)
+	file = files(i);
+	q = readtable(file,"NumHeaderLines",13);
+	q.Properties.VariableNames= {q.Properties.VariableNames{2:end},'Error'};
+	if height(f) > 0 
+		zsPrev = unique(f.MH);
+		zsNew = unique(q.MH);
+		zCollide = intersect(zsPrev,zsNew);
+		if ~isempty(zCollide)
+			for z = zCollide
+				q(q.MH == z,:) = [];
+			end
 		end
 	end
-	
-	subject = f(startID(i):endID(i),:);
-	
-	t = subject.logAge(1);
-	z = subject.MH(1);
-	MS = subject.Mini;
-	on = ones(size(MS));
-	zID = find(zs == z);
-	nexttile(zID);
-	hold on;
-	scatter(MS,on*t,'b');
-% 	
-	hold off;
+	f = [f;q];
 end
-hold off;
-
-
-% view(0,0)
-
-for i = 1:length(zs)
-	nexttile(i);
-	title("[M/H] = " + num2str(zs(i)));
-	xlabel("Mass");
-	ylabel("Time");
-	set(gca,'xscale','log');
-	grid on;
-end
-
+f(f.label > 7,:) = [];
 end

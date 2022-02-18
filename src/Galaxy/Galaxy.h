@@ -67,6 +67,7 @@ class Galaxy
 		
 		void ComputeVisibilityFunction();
 		
-		void StellarSynthesis(int ringstart, int ringend);
+		void StellarSynthesis(int ringstart, int ringend,int threadID);
 		std::vector<std::string> SynthesisOutput;
+		std::vector<double> SynthesisProgress;
 };

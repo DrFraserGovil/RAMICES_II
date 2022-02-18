@@ -87,9 +87,7 @@ void IMF_Functor::Normalise()
 	
 	//perform the normalisation corrections
 	IMF_Normalisation = 1.0/integratedIMF.ZerothMoment;
-	std::cout << "NORMALISER: " << IMF_Normalisation << "  " << integratedIMF.ZerothMoment << std::endl;
 	IMF_MeanMass = integratedIMF.FirstMoment/integratedIMF.ZerothMoment;
-	std::cout << "Mean mass = " << IMF_MeanMass << std::endl;
 	for (int i = 0;i < IMF_Weighting.size(); ++i)
 	{
 		IMF_Weighting[i] *= IMF_Normalisation;

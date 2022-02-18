@@ -4,7 +4,7 @@ double pi = 3.141592654;
 //Main Evolution Loop
 void Galaxy::Evolve()
 {
-	Data.UrgentLog("\tEvolution will occur between 0Gyr and " + std::to_string(Param.Meta.SimulationDuration) + "Gyr, across " + std::to_string(Param.Meta.SimulationSteps) + " steps.\n\n");
+	Data.UrgentLog("\tEvolution will occur between 0Gyr and " + std::to_string(Param.Meta.SimulationDuration) + "Gyr, across " + std::to_string(Param.Meta.SimulationSteps) + " steps.\n");
 	double t = 0;
 
 
@@ -62,10 +62,11 @@ void Galaxy::SynthesiseObservations()
 	ComputeVisibilityFunction();
 	
 	SynthesisOutput.resize(Rings.size());
-	Data.UrgentLog("\tSynthesis begins....");
+	SynthesisProgress.resize(Param.Meta.ParallelThreads);
+	Data.UrgentLog("\n\tDistributing Population:   ");
 	LaunchParallelOperation(Param.Meta.SimulationDuration,Rings.size(), Synthesis);
-	Data.UrgentLog("Complete");
 	
+	Data.UrgentLog("\tWriting to file.");
 	JSL::initialiseFile(Param.Output.StarFile.Value);
 	JSL::writeStringToFile(Param.Output.StarFile.Value, Rings[0].Stars.Population[0].CatalogueHeaders() + "\n");
 	for (int i = 0; i < Rings.size(); ++i)
@@ -152,7 +153,7 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 			}
 			case Synthesis:
 			{
-				Threads[n] = std::thread(&Galaxy::StellarSynthesis,this,start,end);
+				Threads[n] = std::thread(&Galaxy::StellarSynthesis,this,start,end,n);
 				break;
 			}
 		}
@@ -187,7 +188,7 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 		}
 		case Synthesis:
 		{
-			StellarSynthesis(start,end);
+			StellarSynthesis(start,end,0);
 			break;
 		}
 	}
@@ -660,7 +661,6 @@ void Galaxy::ComputeVisibilityFunction()
 {
 	double dt = Param.Catalogue.IsochroneTimeStep;
 	int Nt = ceil((double)Param.Meta.SimulationDuration / dt);
-	std::cout << "I estimate that there are " << Nt << " rough timesteps for dt = " << dt << " across a duration " << Param.Meta.SimulationDuration<< std::endl;
 	std::vector<double> minMv(Nt,100);
 	std::vector<double> maxMv(Nt,-100);
 	
@@ -693,9 +693,9 @@ void Galaxy::ComputeVisibilityFunction()
 	
 }
 
-void Galaxy::StellarSynthesis(int ringstart, int ringend)
+void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 {
-	std::cout << "Synthesis " << ringstart << "->" << ringend << "started" << std::endl;
+	int bars = 0;
 	for (int i = ringstart; i < ringend; ++i)
 	{
 		int cTot = 0;
@@ -733,9 +733,15 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend)
 			
 			
 		}
-		
-		
-	}
-	std::cout << "Synthesis " << ringstart << "->" << ringend << "complete" << std::endl;
-	
+		SynthesisProgress[threadID] = (double)(i - ringstart)/(ringend - ringstart);
+		if (threadID == 0)
+		{
+			double minProg = 1000;
+			for (int i = 0; i < SynthesisProgress.size(); ++i)
+			{
+				minProg = std::min(minProg,SynthesisProgress[i]);
+			}
+			Data.ProgressBar(bars,minProg*100,100);
+		}
+	}	
 }
