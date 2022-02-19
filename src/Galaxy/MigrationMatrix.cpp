@@ -36,18 +36,18 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 				double term = 0;
 				if (i > 0)
 				{
-					term += mass[i-1]/Param.Galaxy.RingWidth[i-1];
+					term += mass[i-1];
 				}
 				if (i < n-1)
 				{
-					term += mass[i+1]/Param.Galaxy.RingWidth[i+1];
+					term += mass[i+1];
 				}
 				K[i][j] = -kappa * term;
 				K_power[i][j] = K[i][j];
 			}
 			if (abs(j-i) == 1)
 			{
-				K[i][j] = kappa/(Param.Galaxy.RingWidth[i]) * mass[i];
+				K[i][j] = kappa  * mass[i];
 				K_power[i][j] = K[i][j];
 			}
 		}
@@ -77,11 +77,18 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 	int maxOrder = Param.Migration.DispersionOrder;
 	for (int i = 0; i < n; ++i)
 	{
-		int lower = std::max(0,i - maxOrder-1);
-		int upper = std::min(n, i + maxOrder+1);
+		int lower = std::max(0,i - maxOrder-2);
+		int upper = std::min(n, i + maxOrder+2);
+		double sum = 0;
 		for (int j = lower; j < upper; ++j)
 		{
-			Grid[i][j] = std::min(1.0,std::max(Grid[i][j],0.0));
+			Grid[i][j] = std::max(Grid[i][j],0.0);
+			sum += Grid[i][j];
+		}
+		//normalise to ensure true stochasticity
+		for (int j = lower; j < upper; ++j)
+		{
+			Grid[i][j] /= sum;
 		}
 	}
 	//~ exit(5);

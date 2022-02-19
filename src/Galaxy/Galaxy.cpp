@@ -325,7 +325,7 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		double width = Rings[ring].Width;
 		double nextwidth = Rings[ring+1].Width;
 		ratio = bilitewskiRatio(a_factor,b_factor,radius,width,nextwidth,Param.Galaxy.Radius);
-		double inflowMass = ratio/(1 + ratio) * amount;
+		double inflowMass = 0;//ratio/(1 + ratio) * amount;
 		//check that we do not remove more gas than is actually present
 		double maxDepletion = Param.Migration.MaxStealFraction;
 		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());
@@ -564,11 +564,11 @@ void Galaxy::ScatterGas(int time)
 			{
 				double availableMass = oldMasses[j];
 				double scatteredMass = availableMass * migrator[i][j];
+				scatteredMass = std::min(scatteredMass, 0.95*Rings[j].Gas.ColdMass());
 				Rings[i].Gas.TransferColdFrom(Rings[j].Gas,scatteredMass);
 			}
 		}
 	}
-	
 }
 
 void Galaxy::SaveState(double t)

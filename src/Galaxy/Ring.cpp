@@ -154,7 +154,7 @@ void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, st
 			if (p > 0)
 			{
 				coldCorrect = target[p-1].ColdMass();
-				coldCorrect = target[p-1].HotMass();
+				hotCorrect = target[p-1].HotMass();
 			}
 			neatLog(ColdBuffer[p][e] * coldCorrect, absoluteStreamCold);
 			neatLog(HotBuffer[p][e] * hotCorrect, absoluteStreamHot);

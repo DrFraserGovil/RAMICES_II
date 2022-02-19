@@ -283,7 +283,9 @@ void GasReservoir::TransferColdFrom(GasReservoir & givingGas, double massToMove)
 {
 	if (givingGas.ColdMass() < massToMove)
 	{
+		
 		std::cout << "Error - you are trying to transfer more gas from one reservoir to another than is available" << std::endl;
+		std::cout << massToMove << " > " << givingGas.ColdMass() << " = " << (givingGas.ColdMass() < massToMove) << std::endl;
 		exit(6); 
 	}
 	double lossFraction = std::min(1.0,massToMove/givingGas.ColdMass());

@@ -48,23 +48,30 @@ int main(int argc, char** argv)
 	Galaxy g = Galaxy(Data);
 	int n = Params.Galaxy.RingCount;
 	
-	double amount = 1e-3;
-	int pol = 10;
-	int centre = 2*n/9;
-	amount = amount * g.Rings[centre].Gas.Mass();
-	//~ for (int i = 0; i < pol;++i)
-	//~ {
-		//~ if (centre + i < n)
-		//~ {	
-			//~ g.Rings[centre + i].Gas[Accreted].Cold(Europium) = amount ;
-		//~ }
-		//~ if (centre - i >= 0)
-		//~ {
-			//~ g.Rings[centre - i].Gas[Accreted].Cold(Europium) = amount ;
-		//~ }
-		//~ amount = amount / 10;
-	//~ }
+	double fraction = 1e-3;
+	int pol = 4;
 	
+	
+	for (int j = 2; j < 9; j+=3)
+	{
+		
+		int centre = j*n/9;
+		
+		double amount = fraction* g.Rings[centre].Gas.Mass();
+		std::cout << "Poluting " << centre << "  " << amount << std::endl;
+		for (int i = 0; i < pol;++i)
+		{
+			if (centre + i < n)
+			{	
+				g.Rings[centre + i].Gas[Accreted].Cold(Europium) = amount ;
+			}
+			if (centre - i >= 0)
+			{
+				g.Rings[centre - i].Gas[Accreted].Cold(Europium) = amount ;
+			}
+			amount = amount / 50;
+		}
+	}
 	Data.UrgentLog("Beginning main computation loop...\n");
 	g.Evolve();
 	

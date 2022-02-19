@@ -2,10 +2,10 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/Pollute_" + ["RadialFlow_NoIGM"] + "/Enrichment_Absolute_ColdGas.dat";
+files = "../Output/Pollution/" + ["Dormant"] + "/Enrichment_Absolute_ColdGas.dat";
 % files = "../Output/Pollute_" + ["NoStars","RadialFlow_NoIGM","RadialFlow"] + "/Enrichment_Absolute_ColdGas.dat";
 names = ["No Star Formation","Radial Inflow, No IGM","Radial Inflow"];
-times = round([2.^linspace(log2(0.1),log2(24.2),9)],2,'significant');
+times = round([2.^linspace(log2(0.1),log2(40),9)],2,'significant');
 
 figure(1);
 clf;
@@ -41,14 +41,18 @@ function track(fileName,times)
 %         focus(1:3,:)
         
         hold on;
-		if i == 1
-			maxVal = max(focus.Total_Eu)
-		end
-        plot(focus.RingRadius,focus.Total_Eu/maxVal);
+        v = focus.Total_Eu./focus.Total_H;
+% 		if i == 1
+			maxVal = max(focus.Total_H);
+%             maxH = max(focus.Total_H);
+%         end
+        s = sum(focus.Total_Eu);
+        plot(focus.RingRadius,v/maxVal);
+%         plot(focus.RingRadius,focus.Total_H/maxVal);
         hold off;
-        set(gca,'yscale','linear')
+        set(gca,'yscale','log')
         xlim([0,20]);
-        ylim([1e-7,1]);
+        ylim([1e-20,1]);
         sum(focus.Total_Eu)
         grid on;
         title("$t = " + num2str(t) + "$");
