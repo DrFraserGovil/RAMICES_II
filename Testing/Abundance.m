@@ -5,7 +5,7 @@ set(0,'defaultAxesFontSize',28);
 figure(1)
 clf;
 % T=tiledlayout(4,2);
-files = "../Output/" + ["SynthesisTest"] + "/Enrichment_Log_ColdGas.dat";
+files = "../Output/Pollution/" + ["Active"] + "/Enrichment_Log_ColdGas.dat";
 
 T = tiledlayout('flow');
 

@@ -20,6 +20,11 @@ YieldGrid::YieldGrid(const GlobalParameters & param, YieldProcess yieldsource): 
 			AGB_Initialise();
 			break;
 		}
+		case ECSN:
+		{
+			ECSN_Initialise();
+			break;
+		}
 		default:
 		{
 			throw std::runtime_error("You have tried to initialise a yield grid for which there is no rule to create - ID = " +std::to_string(Process) + "...I am forced to quit");
@@ -264,12 +269,77 @@ void YieldGrid::CCSN_Initialise()
 	
 	LoadOrfeoYields();
 	LoadLimongiYields();
-	//~ LoadMaederYields();
+	LoadMaederYields();
 
 	CreateGrid();
 	
 	PurityEnforce();
 	SaveGrid("CCSN");
+}
+
+
+void YieldGrid::ECSN_Initialise()
+{
+	//~ double ecsnCut = Param.Yield.ECSN_MassCut;
+	//~ int mUp = 0;
+	//~ int mDown = 0;
+	//~ for (int i = 0; i < Param.Stellar.MassResolution; ++i)
+	//~ {
+		
+		//~ double m = Param.Stellar.MassGrid[i];
+		
+		//~ if (m < Param.Yield.ECSN_MassCut)
+		//~ {
+			//~ ++mDown;
+		//~ }
+		//~ if (m < Param.Yield.CCSN_MassCut)
+		//~ {
+			//~ ++mUp;
+		//~ } 
+	//~ }
+	//~ mDown = std::max(0,--mDown);
+	//~ MassOffset = mDown;
+	//~ int ecsnGridSize = std::max(2,mUp - mDown + 2);
+	//~ InitialiseLargeGrid(ecsnGridSize, Param.Stellar.LogZResolution);
+	//~ std::string ecsnFile = Param.Resources.YieldRoot.Value + "ECSN_Yield.dat";
+	//~ std::vector<double> rawFracs(ElementCount+1,0.0);
+	
+	//~ double nominalMass = 8.8;
+	//~ forLineVectorIn(ecsnFile, ',',
+		//~ for (int i = 0; i < ElementCount; ++i)
+		//~ {
+			//~ if (FILE_LINE_VECTOR[0] == Param.Element.ElementNames[i])
+			//~ {
+				//~ double val = std::stod(FILE_LINE_VECTOR[1]);
+				//~ double solarVal = Param.Element.SolarAbundances[i];
+				//~ rawFracs[i] = (val - solarVal) * 8.8;
+			//~ }
+		//~ }
+		
+		//~ if (FILE_LINE_VECTOR[1] == "Remnant")
+		//~ {
+			//~ double val = std::stod(FILE_LINE_VECTOR[1]);
+			//~ rawFracs[ElementCount] = val * 8.8;
+		//~ }
+	
+	//~ );
+	//~ hotInjectionFraction = Param.Thermal.HotInjection_CCSN;
+	
+	//~ for (int m = 0; m < ecsnGridSize; ++m)
+	//~ {
+		//~ double mass = Param.Stellar.MassGrid[m + MassOffset];
+		//~ for (int z = 0; z < Param.Stellar.LogZResolution; ++z)
+		//~ {
+			//~ for (int i = 0; i < RidgeStorage.size(); ++i)
+			//~ {
+				//~ Grid[m][z][i] = rawFracs[i]/ mass;
+			
+			//~ }
+		//~ }
+	//~ }
+	
+	SaveGrid("ECSN");
+	//~ exit(10);
 }
 
 void YieldGrid::AGB_Initialise()
@@ -292,7 +362,7 @@ void YieldGrid::AGB_Initialise()
 	LoadMarigoYields();
 	LoadMaederYields();
 	CreateGrid();
-	PurityEnforce();
+	//~ PurityEnforce();
 	SaveGrid("AGB");
 }
 

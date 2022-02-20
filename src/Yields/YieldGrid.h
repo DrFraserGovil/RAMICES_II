@@ -44,7 +44,7 @@ class YieldGrid
 		void CCSN_Initialise();
 		
 		void AGB_Initialise();
-		
+		void ECSN_Initialise();
 		void InitialiseLargeGrid(int mSize, int zSize);
 		//~ GasStream TempStream;
 		//allows the grid size to be truncated for CCSN etc.

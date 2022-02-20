@@ -229,6 +229,7 @@ void GasReservoir::PassiveCool(double dt, bool isIGM)
 
 GasStream GasReservoir::AccretionStream(double amountToLose)
 {
+
 	double initMass = ColdMass();
 	if (amountToLose > initMass)
 	{
@@ -238,6 +239,7 @@ GasStream GasReservoir::AccretionStream(double amountToLose)
 	
 	GasStream output(Accreted);
 	double lossFraction = amountToLose / initMass;
+
 	for (int i = 0; i < ProcessCount; ++i)
 	{
 		
@@ -250,6 +252,9 @@ GasStream GasReservoir::AccretionStream(double amountToLose)
 		}	
 	}
 	output.ColdMass(); //force computation of masses
+	
+
+	
 	return output;
 }
 

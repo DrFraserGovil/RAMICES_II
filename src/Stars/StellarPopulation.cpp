@@ -180,11 +180,12 @@ void StellarPopulation::MonotonicDeathScan(int time, std::vector<GasReservoir> &
 				newRem = CCSNYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
 				eventRate.CCSN += nStars;
 			}
-			else if (starMass >= Param.Yield.ECSN_MassCut)
-			{
-				newRem.Type = NeutronStar;
-				newRem.Mass = nStars * starMass;
-			}
+			//~ else if (starMass >= Param.Yield.ECSN_MassCut)
+			//~ {
+				//~ std::cout << "ECSN init!" << std::endl;
+				//~ newRem = ECSNYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
+				//~ eventRate.CCSN += nStars;
+			//~ }
 			else
 			{
 				newRem = AGBYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);

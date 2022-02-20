@@ -49,16 +49,15 @@ int main(int argc, char** argv)
 	int n = Params.Galaxy.RingCount;
 	
 	double fraction = 1e-3;
-	int pol = 4;
+	int pol = 10;
 	
 	
-	for (int j = 2; j < 9; j+=3)
+	for (int j = 3; j < 9; j+=4)
 	{
 		
 		int centre = j*n/9;
 		
 		double amount = fraction* g.Rings[centre].Gas.Mass();
-		std::cout << "Poluting " << centre << "  " << amount << std::endl;
 		for (int i = 0; i < pol;++i)
 		{
 			if (centre + i < n)

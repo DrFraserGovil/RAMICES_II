@@ -17,6 +17,7 @@ class InitialisedData
 		const GlobalParameters & Param;
 		const YieldGrid CCSNYield;
 		const YieldGrid AGBYield;
+		const YieldGrid ECSNYield;
 		const SimpleYield SNIaYield;
 		const SimpleYield NSMYield;
 		IsochroneTracker Isochrones;

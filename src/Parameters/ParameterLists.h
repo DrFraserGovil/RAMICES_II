@@ -97,6 +97,7 @@ class ResourceValues : public ParamList
 		//!The location of the directory within ResourceRoot which houses the stellar yield data
 		Argument<std::string> YieldRoot = Argument<std::string>("ChemicalData/","yield-root");
 		
+		
 		Argument<std::string> IsochroneDirectory = Argument<std::string>("Isochrones/","iso-dir");
 		
 		Argument<std::string> LifeTimeFile = Argument<std::string>("LifetimeGrid.dat","lifetime-file");
@@ -250,7 +251,7 @@ class YieldValues : public ParamList
 		
 		Argument<double> SNIa_LongScale = Argument<double>(0.5,"sn1a-long-decay");
 		
-		Argument<double> CCSN_MassCut = Argument<double>(9,"ccsn-mass");
+		Argument<double> CCSN_MassCut = Argument<double>(10,"ccsn-mass");
 		
 		Argument<double> ECSN_MassCut = Argument<double>(8.5,"ecsn-mass");
 		Argument<double> CODwarf_MassCut = Argument<double>(3.2,"co-mass");
@@ -330,7 +331,7 @@ class MigrationValues: public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		MigrationValues()
 		{
-			argPointers = {&InflowParameterA,&InflowParameterB,&MaxStealFraction,&MarkovDispersionStrength,&DispersionOrder, &DispersionTruncation, InflowOn};
+			argPointers = {&InflowParameterA,&InflowParameterB,&MaxStealFraction,&MarkovDispersionStrength,&DispersionOrder, &DispersionTruncation, &InflowActive};
 		}
 	
 	

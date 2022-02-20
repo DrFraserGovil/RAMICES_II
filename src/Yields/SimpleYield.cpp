@@ -65,7 +65,7 @@ void SimpleYield::SNIa_Initialise()
 	Grid[Carbon] = 0.0508;
 	Grid[Silicon] = 0.142;
 	Grid[Calcium] = 0.0181;
-	Grid[Europium] = 1e-3;
+	//~ Grid[Europium] = 1e-3;
 }
 void SimpleYield::NSM_Initialise()
 {
