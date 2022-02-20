@@ -319,13 +319,13 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 	double b_factor = Param.Migration.InflowParameterB;
 	double remainingMass;
 	double ratio = 1;
-	if ( ring < Rings.size() - 1)
+	if ( Param.Migration.InflowActive && ring < Rings.size() - 1)
 	{
 		double radius = Rings[ring].Radius;
 		double width = Rings[ring].Width;
 		double nextwidth = Rings[ring+1].Width;
 		ratio = bilitewskiRatio(a_factor,b_factor,radius,width,nextwidth,Param.Galaxy.Radius);
-		double inflowMass = 0;//ratio/(1 + ratio) * amount;
+		double inflowMass = ratio/(1 + ratio) * amount;
 		//check that we do not remove more gas than is actually present
 		double maxDepletion = Param.Migration.MaxStealFraction;
 		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());

@@ -308,6 +308,8 @@ class MigrationValues: public ParamList
 {
 		
 	public:
+		//!Turns on or off the gas inflow in the disc
+		Argument<bool> InflowActive = Argument<bool>(true,"inflow-on");
 		//! A parameter to do with the inflow weighting scheme (icky)
 		Argument<double> InflowParameterA = Argument<double>(0.33,"inflow-a");
 		
@@ -328,7 +330,7 @@ class MigrationValues: public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		MigrationValues()
 		{
-			argPointers = {&InflowParameterA,&InflowParameterB,&MaxStealFraction,&MarkovDispersionStrength,&DispersionOrder, &DispersionTruncation};
+			argPointers = {&InflowParameterA,&InflowParameterB,&MaxStealFraction,&MarkovDispersionStrength,&DispersionOrder, &DispersionTruncation, InflowOn};
 		}
 	
 	
