@@ -48,29 +48,29 @@ int main(int argc, char** argv)
 	Galaxy g = Galaxy(Data);
 	int n = Params.Galaxy.RingCount;
 	
-	double fraction = 1e-3;
-	int pol = 10;
+	//~ double fraction = 1e-3;
+	//~ int pol = 10;
 	
 	
-	for (int j = 3; j < 9; j+=4)
-	{
+	//~ for (int j = 3; j < 9; j+=4)
+	//~ {
 		
-		int centre = j*n/9;
+		//~ int centre = j*n/9;
 		
-		double amount = fraction* g.Rings[centre].Gas.Mass();
-		for (int i = 0; i < pol;++i)
-		{
-			if (centre + i < n)
-			{	
-				g.Rings[centre + i].Gas[Accreted].Cold(Europium) = amount ;
-			}
-			if (centre - i >= 0)
-			{
-				g.Rings[centre - i].Gas[Accreted].Cold(Europium) = amount ;
-			}
-			amount = amount / 50;
-		}
-	}
+		//~ double amount = fraction* g.Rings[centre].Gas.Mass();
+		//~ for (int i = 0; i < pol;++i)
+		//~ {
+			//~ if (centre + i < n)
+			//~ {	
+				//~ g.Rings[centre + i].Gas[Accreted].Cold(Europium) = amount ;
+			//~ }
+			//~ if (centre - i >= 0)
+			//~ {
+				//~ g.Rings[centre - i].Gas[Accreted].Cold(Europium) = amount ;
+			//~ }
+			//~ amount = amount / 50;
+		//~ }
+	//~ }
 	Data.UrgentLog("Beginning main computation loop...\n");
 	g.Evolve();
 	

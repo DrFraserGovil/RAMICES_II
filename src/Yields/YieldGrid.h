@@ -68,7 +68,8 @@ class YieldGrid
 		
 		void CreateGrid();
 		YieldBracket GetBracket(int id, double mass, double z, bool overhang);
-		std::vector<int> SourcePriority;
+		//~ std::vector<int> SourcePriority;
+		std::vector<std::vector<int>> SourcePriority;
 		void SaveGrid(std::string name);
 		void PurityEnforce();
 };

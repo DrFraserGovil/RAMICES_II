@@ -33,13 +33,13 @@ mg = (f.Total_Mg);
 
 
 % scatter(fe-h,mg-fe);
-r = unique(f.RingIndex);
+r = unique(f.RingRadius);
 r = r(2:end-2);
 % clf;
 colormap(jet)
 cs = jet(length(r));
 for i = 1:length(r)
-    selector = f.RingIndex == r(i);
+    selector = f.RingRadius == r(i);
   
     feSub = fe(selector);
     hSub = h(selector);

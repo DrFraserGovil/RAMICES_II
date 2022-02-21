@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include <random>
+
 #include "../Parameters/InitialisedData.h"
 #include "IMF.h"
 #include "../Gas/GasReservoir.h"
@@ -9,6 +9,9 @@
 #include "StarEvents.h"
 #include "IsochroneTracker.h"
 //! A simple struct for tracking the number of stars of a given mass
+
+
+
 class IsoMass
 {
 	public:
@@ -58,8 +61,9 @@ class StellarPopulation
 		const IMF_Functor & IMF; 
 		SLF_Functor & SLF;
 		const YieldGrid & CCSNYield;
-		//~ const YieldGrid & ECSNYield;
+		const YieldGrid & ECSNYield;
 		const YieldGrid & AGBYield;
+		InitialisedData & Data;
 		bool IsLifetimeMonotonic;
 		bool IsDepleted;
 		int DepletionIndex;

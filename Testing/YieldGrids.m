@@ -1,11 +1,11 @@
 dir = "../Output/Pollution/Active/Yields/";
 ccsn = readtable(dir + "CCSN_yields.dat");
 agb = readtable(dir + "AGB_yields.dat");
-ecsn = readtable(dir + "ECSN_yields.dat");
+% ecsn = readtable(dir + "ECSN_yields.dat");
 old = readtable("../Resources/ChemicalData/RalphSavedYields.dat");
-column = "Fe";
-oldColum = 3 + 3;
-overplotter = dir + column + "_ridges_AGB.dat";
+column = "O";
+oldColum = 3 + 4;
+overplotter = dir + column + "_ridges_CCSN.dat";
 if column == "Remnant"
     column = column + "Fraction";
 end
@@ -14,11 +14,13 @@ figure(3)
 T = tiledlayout('flow');
 
 xC = ccsn.Mass;
-yC = ccsn.logZ;
-zC = ccsn.(column);
+cut = xC > 0.01;
+xC = xC(cut);
+yC = ccsn.logZ(cut);
+zC = ccsn.(column)(cut);
 
 nexttile;
-% scatter3(xC,yC,zC);
+scatter3(xC,yC,zC);
 tri = delaunay(xC,yC);
 h = trisurf(tri, xC, yC, zC,'LineStyle','None');
 hold on;
@@ -28,12 +30,12 @@ zA = agb.(column);
 tri = delaunay(xA,yA);
 h = trisurf(tri, xA, yA, zA,'LineStyle','None');
 
-xE = ecsn.Mass;
-yE = ecsn.logZ;
-zE = ecsn.(column);
-% scatter3(xC,yC,zC);
-tri = delaunay(xE,yE);
-h = trisurf(tri, xE, yE, zE,'LineStyle','None');
+% xE = ecsn.Mass;
+% yE = ecsn.logZ;
+% zE = ecsn.(column);
+% % scatter3(xC,yC,zC);
+% tri = delaunay(xE,yE);
+% h = trisurf(tri, xE, yE, zE,'LineStyle','None');
 
 
 
@@ -42,8 +44,11 @@ Zs = unique(ridges.logZ);
 for z = Zs'
     z
    selector = (ridges.logZ ==z);
-   ridges.Mass(selector)
-   plot3(ridges.Mass(selector),ones(sum(selector),1)*z,ridges.Value(selector),'LineWidth',5);
+   m = ridges.Mass(selector);
+   y = ridges.Value(selector);
+   [~,I] = sort(ridges.Mass(selector));
+   
+   plot3(m(I),ones(sum(selector),1)*z,y(I),'LineWidth',5);
 end
 xO = old.Var1;
 yO = log10(old.Var2);

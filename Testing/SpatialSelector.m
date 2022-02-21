@@ -1,4 +1,4 @@
-set(0,'defaultTextInterpreter','latex');
+`set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',20);
 set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegendInterpreter','latex');
 global dSol phi0 nNorm zMin kappa zMax bCut southOverride

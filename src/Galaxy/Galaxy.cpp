@@ -65,6 +65,7 @@ void Galaxy::SynthesiseObservations()
 	
 	SynthesisOutput.resize(Rings.size());
 	
+	ParallelBars = 0;
 	Data.UrgentLog("\tDistributing Population:   ");
 	LaunchParallelOperation(Param.Meta.SimulationDuration,Rings.size(), Synthesis);
 	
@@ -756,9 +757,10 @@ void Galaxy::SelectionFunction(int ringstart, int ringend, int threadID)
 
 void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 {
-	int bars = 0;
+	int prog = 0;
 	for (int i = ringstart; i < ringend; ++i)
 	{
+		//~ std::cout << "Thread " << threadID << " at " << prog << std::endl;
 		int cTot = 0;
 		int cFilter = 0;
 		for (int j = 0; j < Rings.size(); ++j)
@@ -770,27 +772,41 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 				{
 					for (int m = 0; m < Param.Stellar.MassResolution; ++m)
 					{
-						double d = (Rings[i].Radius - 8.2);
-						
-						
-						double age = Rings[j].Stars.Population[t].Age;
-						double Mv = Rings[j].Stars.Population[t].Distribution[m].Isochrone[VMag];
-						double observeFrac = Rings[j].SelectionEffect(Mv,age);
-						int count = migrateFrac * Rings[j].Stars.Population[t].Distribution[m].Count;
-						double obs = observeFrac * count;
-						int intObs = obs;
-		
-						double targetRoll = (obs - intObs);
-						double diceRoll = (double)rand() / RAND_MAX;
-						if (diceRoll < targetRoll)
+						if (Rings[j].Stars.Population[t].Distribution[m].Count > 0)
 						{
-							++intObs;
-						}
-									
-						if (intObs > 0)
-						{
-							std::string output = Rings[j].Stars.Population[t].CatalogueEntry(intObs,m,Rings[i].Radius,Rings[j].Radius);
-							SynthesisOutput[i] += output;
+							double d = (Rings[i].Radius - 8.2);
+							
+							
+							double age = 1;//Rings[j].Stars.Population[t].Age;
+							double Mv = Rings[j].Stars.Population[t].Distribution[m].Isochrone[VMag];
+							double observeFrac = Rings[j].SelectionEffect(Mv,age);
+							double count = migrateFrac * Rings[j].Stars.Population[t].Distribution[m].Count;
+							
+							
+							double obs = observeFrac * count * 1e-2;
+							int intObs = obs;
+			
+							double targetRoll = (obs - intObs);
+							double diceRoll = (double)rand() / RAND_MAX;
+							if (diceRoll < targetRoll)
+							{
+								++intObs;
+							}
+										
+							if (intObs > 0)
+							{
+								std::string output = Rings[j].Stars.Population[t].CatalogueEntry(intObs,m,Rings[i].Radius,Rings[j].Radius);
+								SynthesisOutput[i] += output;
+								
+								
+								if (Rings[i].Radius > 9.4)
+								{
+									std::cout << Rings[i].Radius << ", " << observeFrac << ", " << Param.Stellar.MassGrid[m] << ",  " << Rings[j].Stars.Population[t].Age<< ",  " << Mv << ",  " << Rings[j].Stars.Population[t].Distribution[m].Isochrone[logL] << ",   "<< count << "; " <<std::endl;
+								}
+							}
+							
+							
+							
 						}
 					}
 				}
@@ -798,31 +814,25 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 			
 			
 		}
-		SynthesisProgress[threadID] = (double)(i - ringstart)/(ringend - ringstart);
-		if (threadID == 0)
+		
+		double myProgress = (double)prog/(ringend - ringstart);
+		
+
+		double minProg = myProgress;
+		bool lastRemaining = true;
+		for (int k = 0; k < SynthesisProgress.size(); ++k)
 		{
-			double minProg = 1000;
-			for (int k = 0; k < SynthesisProgress.size(); ++k)
-			{
+			if (k!=threadID)
 				minProg = std::min(minProg,SynthesisProgress[k]);
-			}
-			Data.ProgressBar(bars,minProg*1000,1000);
 		}
-	}	
-	SynthesisProgress[threadID] = 2;
-	
-	bool allFinished = true;
-	for (int k = 0; k < SynthesisProgress.size(); ++k)
-	{		
-		if (SynthesisProgress[k] != 2)
+		if (myProgress == minProg)
 		{
-			allFinished = false;
+			Data.ProgressBar(ParallelBars,minProg * 100,100);
 		}
-	}
-	if (allFinished)
-	{
-		std::cout << "]\n";
-	}
-	
+		++prog;
+		SynthesisProgress[threadID] = myProgress;
+	}	
+
+	SynthesisProgress[threadID] = 2;
 }
 

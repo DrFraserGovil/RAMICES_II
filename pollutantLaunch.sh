@@ -1,5 +1,7 @@
 #!/bin/bash
 #~ declare -a files=("dormant" "dormant_inflow" "quiescent" "active" "active_inflow" "active_diffusion")
+
+make
 declare -a files=("active")
 dir="config"
 base=$dir"/pollute_base.config"

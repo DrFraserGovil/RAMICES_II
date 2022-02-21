@@ -19,7 +19,7 @@ IsoMass::IsoMass(double n, int m, double z, int birth, int death)
 
 
 
-StellarPopulation::StellarPopulation(InitialisedData & data, int parentRing): Param(data.Param), IMF(data.IMF), SLF(data.SLF), CCSNYield(data.CCSNYield), AGBYield(data.AGBYield)
+StellarPopulation::StellarPopulation(InitialisedData & data, int parentRing): Param(data.Param), IMF(data.IMF), SLF(data.SLF), CCSNYield(data.CCSNYield), AGBYield(data.AGBYield), ECSNYield(data.ECSNYield), Data(data)
 {
 	BirthRadius = parentRing;
 	Distribution.resize(Param.Stellar.MassResolution);
@@ -180,12 +180,12 @@ void StellarPopulation::MonotonicDeathScan(int time, std::vector<GasReservoir> &
 				newRem = CCSNYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
 				eventRate.CCSN += nStars;
 			}
-			//~ else if (starMass >= Param.Yield.ECSN_MassCut)
-			//~ {
-				//~ std::cout << "ECSN init!" << std::endl;
-				//~ newRem = ECSNYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
-				//~ eventRate.CCSN += nStars;
-			//~ }
+			else if (starMass >= Param.Yield.ECSN_MassCut)
+			{
+				std::cout << "ECSN" << std::endl;
+				newRem = ECSNYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
+				eventRate.CCSN += nStars;
+			}
 			else
 			{
 				newRem = AGBYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
@@ -264,10 +264,20 @@ std::string StellarPopulation::CatalogueEntry(int n, int m, double currentRadius
 	std::vector<double> typicalErrors(values.size(),0.0);
 	//~ typicalErrors[3] = 1;
 	
+	int eOffset = nManualEntries;
+	for (int i = 0; i < PropertyCount; ++i)
+	{
+		typicalErrors[eOffset] = abs(0.02 * values[offset]);
+		++eOffset; 
+	}
+	//~ for (int i = 1; i < ElementCount; ++i)
+	//~ {
+		//~ typicalErrors[eOffset] = 0.04;
+		//~ ++eOffset;
+	//~ }
+	//~ typicalErrors[eOffset + Iron -1] = 0.04;
 	
 	
-	std::default_random_engine generator;
-	std::normal_distribution<double> distribution(0,1.0);
 	std::string output = "";
 	for (int star = 0; star < n; ++star)
 	{
@@ -275,7 +285,11 @@ std::string StellarPopulation::CatalogueEntry(int n, int m, double currentRadius
 		for (int k = 0; k < values.size(); ++k)
 		{
 			
-			double val = values[k] + typicalErrors[k] * distribution(generator);
+			
+			double r = Data.NormalDist();
+			double error = typicalErrors[k] * r;
+			double val = values[k] + error;
+			//~ std::cout << "Given " << values[k] << " and typical value " << typicalErrors[k] << " and random value " << r << " I scattered with error " << error << " giving " <<val << std::endl;
 			if (k > 0)
 			{
 				line += ", ";

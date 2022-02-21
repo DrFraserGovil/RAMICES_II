@@ -27,8 +27,8 @@ end
 for i = 1:length(ts)
    t= ts(i) 
    
-   for j = round(linspace(1,length(zs),8))
-       z = zs(j);
+%    for j = round(linspace(1,length(zs),8))
+       z = zs(end);
        
        subselect = (f.logAge == t) & (f.Zini == z) & (f.Mini < 10);
        
@@ -42,7 +42,7 @@ for i = 1:length(ts)
        set(gca,'ydir','reverse');
        
        drawnow;
-   end
+%    end
     
 end
 

@@ -2,6 +2,7 @@
 
 InitialisedData::InitialisedData(const GlobalParameters & param) : Param(param), IMF(param), SLF(param), CCSNYield(param,CCSN), AGBYield(param,AGB), SNIaYield(param,SNIa), NSMYield(param,NSM), ECSNYield(param,ECSN), Isochrones(param)
 {	
+	std::normal_distribution<double> distribution = std::normal_distribution<double>(0,1.0);
 	UrgentLog("\tPortable data structure initialisation complete\n");
 }
 
@@ -55,4 +56,9 @@ void InitialisedData::ProgressBar(int & currentBars, int i,int N)
 		}
 		UrgentLog(s);
 	}
+}
+
+double InitialisedData::NormalDist()
+{
+	return distribution(generator);
 }

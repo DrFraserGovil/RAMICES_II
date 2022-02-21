@@ -258,15 +258,25 @@ void YieldGrid::CCSN_Initialise()
 		++mID;
 	}
 	MassOffset = mID;
+	
+	std::cout << "CCSN yield grid accounts for stars > " << Param.Stellar.MassGrid[mID] << std::endl;	
 	int ccsnGridSize = Param.Stellar.MassResolution - MassOffset + 2;
 	InitialiseLargeGrid(ccsnGridSize, Param.Stellar.LogZResolution);
 	hotInjectionFraction = Param.Thermal.HotInjection_CCSN;
 	
-	SourcePriority.resize(SourceCount);
-	SourcePriority[Orfeo] = 2;
-	SourcePriority[Limongi] = 1;
-	SourcePriority[Maeder] = 3;
+	std::vector<int> basePriority(SourceCount,0.0);
+	basePriority[Orfeo] = 3;
+	basePriority[Limongi] = 2;
+	basePriority[Maeder] = 1;
 	
+	SourcePriority = std::vector<std::vector<int>>(RidgeStorage.size(),basePriority);
+	
+	SourcePriority[Oxygen][Orfeo] = 0;
+	SourcePriority[Iron][Limongi] = 0;
+	SourcePriority[Carbon][Maeder] = 0;
+	SourcePriority[Silicon][Orfeo] = -35;
+	SourcePriority[Calcium][Orfeo] = -35;
+	SourcePriority[Magnesium][Orfeo] = -35;
 	LoadOrfeoYields();
 	LoadLimongiYields();
 	LoadMaederYields();
@@ -275,68 +285,70 @@ void YieldGrid::CCSN_Initialise()
 	
 	PurityEnforce();
 	SaveGrid("CCSN");
+	
 }
 
 
 void YieldGrid::ECSN_Initialise()
 {
-	//~ double ecsnCut = Param.Yield.ECSN_MassCut;
-	//~ int mUp = 0;
-	//~ int mDown = 0;
-	//~ for (int i = 0; i < Param.Stellar.MassResolution; ++i)
-	//~ {
+	double ecsnCut = Param.Yield.ECSN_MassCut;
+	int mUp = 0;
+	int mDown = 0;
+	for (int i = 0; i < Param.Stellar.MassResolution; ++i)
+	{
 		
-		//~ double m = Param.Stellar.MassGrid[i];
+		double m = Param.Stellar.MassGrid[i];
 		
-		//~ if (m < Param.Yield.ECSN_MassCut)
-		//~ {
-			//~ ++mDown;
-		//~ }
-		//~ if (m < Param.Yield.CCSN_MassCut)
-		//~ {
-			//~ ++mUp;
-		//~ } 
-	//~ }
-	//~ mDown = std::max(0,--mDown);
-	//~ MassOffset = mDown;
-	//~ int ecsnGridSize = std::max(2,mUp - mDown + 2);
-	//~ InitialiseLargeGrid(ecsnGridSize, Param.Stellar.LogZResolution);
-	//~ std::string ecsnFile = Param.Resources.YieldRoot.Value + "ECSN_Yield.dat";
-	//~ std::vector<double> rawFracs(ElementCount+1,0.0);
+		if (m < Param.Yield.ECSN_MassCut)
+		{
+			++mDown;
+		}
+		if (m < Param.Yield.CCSN_MassCut)
+		{
+			++mUp;
+		} 
+	}
+	mDown = std::max(0,--mDown);
+	MassOffset = mDown;
 	
-	//~ double nominalMass = 8.8;
-	//~ forLineVectorIn(ecsnFile, ',',
-		//~ for (int i = 0; i < ElementCount; ++i)
-		//~ {
-			//~ if (FILE_LINE_VECTOR[0] == Param.Element.ElementNames[i])
-			//~ {
-				//~ double val = std::stod(FILE_LINE_VECTOR[1]);
-				//~ double solarVal = Param.Element.SolarAbundances[i];
-				//~ rawFracs[i] = (val - solarVal) * 8.8;
-			//~ }
-		//~ }
+	int ecsnGridSize = std::max(2,mUp - mDown + 2);
+	InitialiseLargeGrid(ecsnGridSize, Param.Stellar.LogZResolution);
+	std::string ecsnFile = Param.Resources.YieldRoot.Value + "ECSN_Yield.dat";
+	std::vector<double> rawFracs(ElementCount+1,0.0);
+	
+	double nominalMass = 8.8;
+	forLineVectorIn(ecsnFile, ',',
+		for (int i = 0; i < ElementCount; ++i)
+		{
+			if (FILE_LINE_VECTOR[0] == Param.Element.ElementNames[i])
+			{
+				double val = std::stod(FILE_LINE_VECTOR[1]);
+				double solarVal = Param.Element.SolarAbundances[i];
+				rawFracs[i] = (val - solarVal) * 8.8;
+			}
+		}
 		
-		//~ if (FILE_LINE_VECTOR[1] == "Remnant")
-		//~ {
-			//~ double val = std::stod(FILE_LINE_VECTOR[1]);
-			//~ rawFracs[ElementCount] = val * 8.8;
-		//~ }
+		if (FILE_LINE_VECTOR[1] == "Remnant")
+		{
+			double val = std::stod(FILE_LINE_VECTOR[1]);
+			rawFracs[ElementCount] = val * 8.8;
+		}
 	
-	//~ );
-	//~ hotInjectionFraction = Param.Thermal.HotInjection_CCSN;
+	);
+	hotInjectionFraction = Param.Thermal.HotInjection_CCSN;
 	
-	//~ for (int m = 0; m < ecsnGridSize; ++m)
-	//~ {
-		//~ double mass = Param.Stellar.MassGrid[m + MassOffset];
-		//~ for (int z = 0; z < Param.Stellar.LogZResolution; ++z)
-		//~ {
-			//~ for (int i = 0; i < RidgeStorage.size(); ++i)
-			//~ {
-				//~ Grid[m][z][i] = rawFracs[i]/ mass;
+	for (int m = 0; m < ecsnGridSize; ++m)
+	{
+		double mass = Param.Stellar.MassGrid[m + MassOffset];
+		for (int z = 0; z < Param.Stellar.LogZResolution; ++z)
+		{
+			for (int i = 0; i < RidgeStorage.size(); ++i)
+			{
+				Grid[m][z][i] = rawFracs[i]/ mass;
 			
-			//~ }
-		//~ }
-	//~ }
+			}
+		}
+	}
 	
 	SaveGrid("ECSN");
 	//~ exit(10);
@@ -355,15 +367,22 @@ void YieldGrid::AGB_Initialise()
 	InitialiseLargeGrid(ccsnGridSize, Param.Stellar.LogZResolution);
 	hotInjectionFraction = Param.Thermal.HotInjection_AGB;
 	
-	SourcePriority.resize(SourceCount);
-	SourcePriority[Marigo] = 3;
-	SourcePriority[Maeder] = 1;
+
+	std::vector<int> basePriority(SourceCount,0.0);
+	basePriority[Marigo] = 3;
+	basePriority[Maeder] = 1;
+	
+	SourcePriority = std::vector<std::vector<int>>(RidgeStorage.size(),basePriority);
+	
+	SourcePriority[Carbon][Maeder] = 0;
+	
 	
 	LoadMarigoYields();
 	LoadMaederYields();
 	CreateGrid();
 	PurityEnforce();
 	SaveGrid("AGB");
+	//~ exit(5);
 }
 
 void YieldGrid::CreateGrid()
@@ -384,7 +403,8 @@ void YieldGrid::CreateGrid()
 				{
 					double z = pow(10,Param.Stellar.LogZGrid[zIndex]);
 					YieldBracket pair = GetBracket(i,mass,z,false);
-					if (pair.hasSingle || !pair.isEnclosed)
+					
+					if (!pair.isEnclosed)
 					{
 						YieldBracket pair2 = GetBracket(i,mass,z,true);
 						if (pair.hasSingle && !pair2.hasSingle || !pair.isEnclosed)
@@ -392,7 +412,7 @@ void YieldGrid::CreateGrid()
 							pair = pair2;
 						}
 					}
-					if (pair.isEnclosed)
+					if (pair.isEnclosed || pair.hasSingle)
 					{
 						Grid[mIndex][zIndex][i] = pair.Interpolate(mass,z);
 					}
@@ -427,72 +447,77 @@ YieldBracket YieldGrid::GetBracket(int id, double mass, double z, bool overhangi
 	
 	for (int i = 0; i < RidgeStorage[id].size(); ++i)
 	{
-		int nPoints = RidgeStorage[id][i].Points.size();
-		double lowerRidgeMass = RidgeStorage[id][i].Points[0].Mass;
-		double upperRidgeMass = RidgeStorage[id][i].Points[nPoints-1].Mass;
-		
-		if (MassOffset > 0)
+		SourceID s = RidgeStorage[id][i].Source;
+		int sourceMessage = SourcePriority[id][s];
+		bool useRidge = (sourceMessage > 0 || (sourceMessage < 0 && mass > abs(sourceMessage)));
+		if (useRidge)
 		{
-			lowerRidgeMass = std::max(lowerRidgeMass, Param.Yield.CCSN_MassCut.Value);
-		}
-		else
-		{
-			upperRidgeMass = std::min(upperRidgeMass, Param.Yield.CCSN_MassCut.Value);
-		}
-		bool withinMassRange = (lowerRidgeMass - overhang < mass) && (upperRidgeMass + overhang > mass);
-		bool withinTightMassRange = (lowerRidgeMass < mass) && (upperRidgeMass > mass);
-		if (withinMassRange)
-		{
-			if (RidgeStorage[id][i].Z > z)
+			int nPoints = RidgeStorage[id][i].Points.size();
+			double lowerRidgeMass = RidgeStorage[id][i].Points[0].Mass;
+			double upperRidgeMass = RidgeStorage[id][i].Points[nPoints-1].Mass;
+			
+			if (MassOffset > 0)
 			{
-				if (!hasUpper)
+				lowerRidgeMass = std::max(lowerRidgeMass, Param.Yield.CCSN_MassCut.Value);
+			}
+			else
+			{
+				upperRidgeMass = std::min(upperRidgeMass, Param.Yield.CCSN_MassCut.Value);
+			}
+			bool withinMassRange = (lowerRidgeMass - overhang < mass) && (upperRidgeMass + overhang > mass);
+			bool withinTightMassRange = (lowerRidgeMass < mass) && (upperRidgeMass > mass);
+			if (withinMassRange)
+			{
+				if (RidgeStorage[id][i].Z > z)
 				{
-					upper = RidgeStorage[id][i];
-					hasUpper = true;
-					upperLax = false;
-					if (!withinTightMassRange)
+					if (!hasUpper)
 					{
-						upperLax = true;
-					}
-				}
-				else
-				{
-					bool differentZ = abs(upper.Z - RidgeStorage[id][i].Z)/upper.Z > 0.05;
-					bool closer = abs(upper.Z - z) > abs(RidgeStorage[id][i].Z - z);
-					bool higherPriority = SourcePriority[RidgeStorage[id][i].Source] > SourcePriority[upper.Source];
-					bool tighterThanCurrent = (withinTightMassRange && upperLax);
-					if ( (differentZ || higherPriority || (tighterThanCurrent)) && (closer ))
-					{
-						upperLax = false;
 						upper = RidgeStorage[id][i];
+						hasUpper = true;
+						upperLax = false;
 						if (!withinTightMassRange)
 						{
 							upperLax = true;
 						}
-
 					}
-				}
-			}
-			else
-			{
-				if (!hasLower)
-				{
-					lower = RidgeStorage[id][i];
-					hasLower = true;
+					else
+					{
+						bool differentZ = abs(upper.Z - RidgeStorage[id][i].Z)/upper.Z > 0.05;
+						bool closer = abs(upper.Z - z) > abs(RidgeStorage[id][i].Z - z);
+						bool higherPriority = SourcePriority[RidgeStorage[id][i].Source] > SourcePriority[upper.Source];
+						bool tighterThanCurrent = (withinTightMassRange && upperLax);
+						if ( (differentZ || higherPriority || (tighterThanCurrent)) && (closer ))
+						{
+							upperLax = false;
+							upper = RidgeStorage[id][i];
+							if (!withinTightMassRange)
+							{
+								upperLax = true;
+							}
+	
+						}
+					}
 				}
 				else
 				{
-					bool differentZ = abs(lower.Z - RidgeStorage[id][i].Z)/lower.Z > 0.03;
-					bool closer = abs(lower.Z - z) > abs(RidgeStorage[id][i].Z - z);
-					bool higherPriority = SourcePriority[RidgeStorage[id][i].Source] > SourcePriority[lower.Source];
-					if ((differentZ || higherPriority) && closer)
+					if (!hasLower)
 					{
 						lower = RidgeStorage[id][i];
+						hasLower = true;
+					}
+					else
+					{
+						bool differentZ = abs(lower.Z - RidgeStorage[id][i].Z)/lower.Z > 0.03;
+						bool closer = abs(lower.Z - z) > abs(RidgeStorage[id][i].Z - z);
+						bool higherPriority = SourcePriority[RidgeStorage[id][i].Source] > SourcePriority[lower.Source];
+						if ((differentZ || higherPriority) && closer)
+						{
+							lower = RidgeStorage[id][i];
+						}
 					}
 				}
 			}
 		}
-		
 	}
 	
 	

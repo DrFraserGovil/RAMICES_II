@@ -211,13 +211,11 @@ double tan_SkyCut(double theta)
 	double order1 = -1.24 * cos(theta) + 1.915 * sin(theta);
 	double order2 = -0.114 * cos(2*theta) - 0.2553*sin(2*theta);
 	
-	return order0 + order1 + order2;
+	return 9999;//order0 + order1 + order2;
 }
 
-void Ring::ComputeSelectionFunction(const std::vector<double> & bright, const std::vector<double> & dim, const std::vector<double> & times)
+void Ring::ComputeSelectionFunction(double minMv,double maxMv, const std::vector<double> & times)
 {
-	IsoBright = bright;
-	IsoDim  = dim;
 	IsoTimes = times;
 	int Nm = Param.Catalogue.IsochroneMagnitudeResolution;
 	int Nt = times.size();
@@ -274,7 +272,7 @@ void Ring::ComputeSelectionFunction(const std::vector<double> & bright, const st
 						double ell = asin(r / inPlaneDistance * sin(phi));
 					
 						double zCut = inPlaneDistance * tan_SkyCut(ell);
-						double discCut_Degrees = 10.0;
+						double discCut_Degrees = 0.0;
 						double discCut = inPlaneDistance * tan( discCut_Degrees * M_PI/180);
 						
 						double bPlus = sqrt(maxDistance * maxDistance - dpSq);

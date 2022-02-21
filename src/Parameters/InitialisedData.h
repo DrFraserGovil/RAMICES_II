@@ -1,6 +1,7 @@
 #pragma once
 class YieldGrid;
 class SimpleYield;
+#include <random>
 #include "../Stars/IMF.h"
 #include "../Stars/SLF.h"
 #include "../Stars/IsochroneTracker.h"
@@ -29,9 +30,10 @@ class InitialisedData
 		void UrgentLog(const std::string & input) const;
 	
 		void ProgressBar(int & currentBars, int currentStep, int totalSteps);
-	
+		double NormalDist();
 	private:
-		
+		std::default_random_engine generator;
+		std::normal_distribution<double> distribution;
 	
 	
 };

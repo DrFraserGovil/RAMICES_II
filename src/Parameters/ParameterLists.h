@@ -163,10 +163,10 @@ class StellarValues : public ParamList
 		Argument<double> MaxStellarMass = Argument<double>(100,"mass-max");
 		
 		//!Maxmimum stellar mass that IMF can generate
-		Argument<double> MinStellarMass = Argument<double>(0.07,"mass-min");
+		Argument<double> MinStellarMass = Argument<double>(0.1,"mass-min");
 		
 		//!Mass of stars which we consider immortal without checking their isochrones
-		Argument<double> ImmortalMass = Argument<double>(0.13,"mass-immortal");
+		Argument<double> ImmortalMass = Argument<double>(0.1,"mass-immortal");
 		
 		//!Number of points along the stellar mass grid
 		Argument<int> MassResolution = Argument<int>(199,"mass-resolution");
@@ -180,7 +180,7 @@ class StellarValues : public ParamList
 			
 		
 		//!Minimum Z that the ILM(??) can consider
-		Argument<double> MinLogZ = Argument<double>(-8,"logz-min");
+		Argument<double> MinLogZ = Argument<double>(-7,"logz-min");
 		
 		//!Maximum Z that the ILM(??) can consider
 		Argument<double> MaxLogZ = Argument<double>(-0.1,"logz-max");
@@ -249,11 +249,11 @@ class YieldValues : public ParamList
 		
 		Argument<double> NSM_TypicalMass = Argument<double>(1.4,"nsm-progenitor-mass");
 		
-		Argument<double> SNIa_LongScale = Argument<double>(0.5,"sn1a-long-decay");
+		Argument<double> SNIa_LongScale = Argument<double>(2,"sn1a-long-decay");
 		
-		Argument<double> CCSN_MassCut = Argument<double>(10,"ccsn-mass");
+		Argument<double> CCSN_MassCut = Argument<double>(9,"ccsn-mass");
 		
-		Argument<double> ECSN_MassCut = Argument<double>(8.5,"ecsn-mass");
+		Argument<double> ECSN_MassCut = Argument<double>(9.1,"ecsn-mass");
 		Argument<double> CODwarf_MassCut = Argument<double>(3.2,"co-mass");
 		Argument<double> Collapse_MassCut = Argument<double>(40,"bh-mass");
 		
@@ -344,17 +344,17 @@ class CatalogueValues: public ParamList
 		Argument<bool> SynthesisActive = Argument<bool>(true,"stellar-synthesis");
 	
 		//! The timesteps used to interpolate isochrones over
-		Argument<double> IsochroneTimeStep = Argument<double>(0.1,"isochrone-dt");
+		Argument<double> IsochroneTimeStep = Argument<double>(0.05,"isochrone-dt");
 		
-		Argument<double> IsochroneMagnitudeResolution = Argument<double>(20,"isochrone-mag-resolution");
+		Argument<double> IsochroneMagnitudeResolution = Argument<double>(30,"isochrone-mag-resolution");
 		
 		Argument<double> SolarRadius = Argument<double>(8.2,"solar-radius");
 		
 		Argument<int> RadialResolution = Argument<int>(6,"isochrone-radial-resolution");
 		Argument<int> AzimuthalResolution = Argument<int>(360,"isochrone-radial-resolution");
 		
-		Argument<double> VerticalHeightStart = Argument<double>(0.01,"vertical-height-z0");
-		Argument<double> VerticalHeightScaling = Argument<double>(0.1,"vertical-height-scaling");
+		Argument<double> VerticalHeightStart = Argument<double>(0.1,"vertical-height-z0");
+		Argument<double> VerticalHeightScaling = Argument<double>(0.5,"vertical-height-scaling");
 		Argument<double> VerticalHeightPower = Argument<double>(0.33,"vertical-height-power");
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		CatalogueValues()
