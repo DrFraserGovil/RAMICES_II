@@ -258,7 +258,7 @@ void YieldGrid::CCSN_Initialise()
 		++mID;
 	}
 	MassOffset = mID;
-	int ccsnGridSize = Param.Stellar.MassResolution - MassOffset;
+	int ccsnGridSize = Param.Stellar.MassResolution - MassOffset + 2;
 	InitialiseLargeGrid(ccsnGridSize, Param.Stellar.LogZResolution);
 	hotInjectionFraction = Param.Thermal.HotInjection_CCSN;
 	
@@ -351,7 +351,7 @@ void YieldGrid::AGB_Initialise()
 		++mID;
 	}
 	MassOffset = 0;
-	int ccsnGridSize = mID;
+	int ccsnGridSize = mID + 2;
 	InitialiseLargeGrid(ccsnGridSize, Param.Stellar.LogZResolution);
 	hotInjectionFraction = Param.Thermal.HotInjection_AGB;
 	
@@ -362,7 +362,7 @@ void YieldGrid::AGB_Initialise()
 	LoadMarigoYields();
 	LoadMaederYields();
 	CreateGrid();
-	//~ PurityEnforce();
+	PurityEnforce();
 	SaveGrid("AGB");
 }
 

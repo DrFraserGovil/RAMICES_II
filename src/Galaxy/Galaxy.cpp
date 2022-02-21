@@ -15,6 +15,7 @@ void Galaxy::Evolve()
 	int finalStep = Param.Meta.SimulationSteps -1; // intentionally offset by 1!
 	for (int timestep = 0; timestep < finalStep; ++timestep)
 	{
+		//~ std::cout << "Time " << timestep << std::endl;
 		IGM.PassiveCool(Param.Meta.TimeStep,true);
 		Infall(t);
 		
