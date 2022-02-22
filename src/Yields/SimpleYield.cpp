@@ -59,15 +59,17 @@ void SimpleYield::SNIa_Initialise()
 	Grid = std::vector<double>(ElementCount,0.0);
 	
 	Grid[Metals] = Param.Yield.SNIa_TypicalMass;
-	Grid[Iron] = 0.77;
+	Grid[Iron] = 0.775;
 	Grid[Oxygen] = 0.133;
 	Grid[Magnesium] = 0.0158;
 	Grid[Carbon] = 0.0508;
 	Grid[Silicon] = 0.142;
 	Grid[Calcium] = 0.0181;
-	//~ Grid[Europium] = 1e-3;
+	Grid[Europium] = 1e-3;
 }
 void SimpleYield::NSM_Initialise()
 {
 	hotInjectionFraction = Param.Thermal.HotInjection_NSM;
+	
+	//~ Grid[Europium] = 
 }

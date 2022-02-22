@@ -211,14 +211,18 @@ double tan_SkyCut(double theta)
 	double order1 = -1.24 * cos(theta) + 1.915 * sin(theta);
 	double order2 = -0.114 * cos(2*theta) - 0.2553*sin(2*theta);
 	
-	return 9999;//order0 + order1 + order2;
+	return order0 + order1 + order2;
 }
 
-void Ring::ComputeSelectionFunction(double minMv,double maxMv, const std::vector<double> & times)
+void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 {
-	IsoTimes = times;
+	MinMv = minMv;
+	MaxMv = maxMv;
+	
 	int Nm = Param.Catalogue.IsochroneMagnitudeResolution;
-	int Nt = times.size();
+	double dt = Param.Catalogue.IsochroneTimeStep;
+	int Nt = ceil((double)Param.Meta.SimulationDuration / dt) + 1;
+	double deltaM = (maxMv - minMv)/(Nm - 1);
 	SelectionGrid = std::vector<std::vector<double>>(Nt,std::vector<double>(Nm,0.0));
 	
 	int Nr = Param.Catalogue.RadialResolution;
@@ -231,24 +235,27 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv, const std::vector
 	double z0 = Param.Catalogue.VerticalHeightStart;
 	double kappa = Param.Catalogue.VerticalHeightScaling;
 	double tauN = Param.Catalogue.VerticalHeightPower;
+	
+	
+	bool printy = (RadiusIndex == 40);
+	
 	for (int t = 0; t < Nt; ++t)
 	{
-		double zBar = z0 + kappa * pow(times[t],tauN);
+		double time = t* dt; 
+		double zBar = z0 + kappa * pow(time,tauN);
 		
-		
-		double time = times[t];
-		
-		double minM = bright[t];
-		double maxM = dim[t];
-		
-		double deltaM = (maxM - minM)/(Nm - 1);
+		//~ if (printy)
+			//~ std::cout << "\n\n\tEntry for age " << time << " has scale height " << zBar << std::endl;
 		
 		for (int i = 0; i < Nm; ++i)
 		{
-			double Mv = minM + i * deltaM;
+			double Mv = minMv + i * deltaM;
 			
 			double maxDistance = pow(10, (4.0 - Mv)/5);
 			double minDistance = pow(10, (2.0 - Mv)/5);
+			
+			//~ if (printy)
+				//~ std::cout << "\t\tEntry for mag " << Mv << " must lie between " << minDistance << "  and " << maxDistance << std::endl;
 			
 			double val = 0;
 			double normVal = 0;
@@ -272,11 +279,13 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv, const std::vector
 						double ell = asin(r / inPlaneDistance * sin(phi));
 					
 						double zCut = inPlaneDistance * tan_SkyCut(ell);
-						double discCut_Degrees = 0.0;
+						double discCut_Degrees = 10.0;
 						double discCut = inPlaneDistance * tan( discCut_Degrees * M_PI/180);
 						
-						double bPlus = sqrt(maxDistance * maxDistance - dpSq);
-						double aMinus = sqrt( std::max( dpSq - minDistance * minDistance, discCut * discCut));
+						double upperCut = inPlaneDistance * tan( 80.0 * M_PI/180);
+						
+						double bPlus = std::min(upperCut,sqrt(maxDistance * maxDistance - dpSq));
+						double aMinus = sqrt( std::max( minDistance * minDistance - dpSq, discCut * discCut));
 						double aPlus = std::min(zCut, bPlus);
 						
 						if (aPlus > aMinus)
@@ -289,7 +298,18 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv, const std::vector
 						{
 							s += 0.5 * (exp( -bMinus/zBar) - exp( - bPlus/zBar));
 						}
-	
+						//~ if (printy)
+						//~ {
+							//~ std::vector<std::string> n = {"r","phi","d_plane", "zCut","discCut","aminus","aplus","bminus","bplus","s"};
+							//~ std::vector<double> v = {r,phi,inPlaneDistance,zCut,discCut,aMinus,aPlus,bMinus,bPlus,s};
+							
+							//~ std::cout << "\t";
+							//~ for (int h = 0; h < n.size(); ++h)
+							//~ {
+								//~ std::cout << std::setw(20) << n[h] + "="  + std::to_string(v[h]);
+							//~ }
+							//~ std::cout << "\n";
+						//~ }
 					}
 					
 					
@@ -300,44 +320,59 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv, const std::vector
 			}
 			val /= normVal;
 			
-			
+			//~ if (printy)
+				//~ std::cout << "\t\tGiving a selection value of " << val << std::endl;
 			SelectionGrid[t][i] = val;
 			
 		}
 	}
+	
+	
+	//~ if (RadiusIndex == 99)
+	//~ {
+		//~ std::cout << "Outputting selection grid data for the ring " << Radius << "  " << Width << ": " << std::endl;
+		
+		//~ for (int j = 0; j < Nm; ++j)
+		//~ {
+			//~ for (int i = 0; i < Nt; ++i)
+			//~ {
+			
+				//~ double t = i * dt;
+				//~ double Mv = minMv + j * deltaM;
+				//~ double maxDistance = pow(10, (4.0 - Mv)/5);
+				//~ double minDistance = pow(10, (2.0 - Mv)/5);
+				//~ std::cout << t << "  " << Mv<< "  " << SelectionGrid[i][j] <<"  " << minDistance << "  " << maxDistance << std::endl;
+			//~ }
+		//~ }
+		
+	//~ }
 }
 
 double Ring::SelectionEffect(double Mv, double age)
 {
-	double dt = IsoTimes[1] - IsoTimes[0];
-	
-	int IDt = floor(age/dt);
-	if (IDt >= IsoTimes.size()-1)
-	{
-		IDt = IsoTimes.size() - 2;
-	}
-	
 	int Nm = Param.Catalogue.IsochroneMagnitudeResolution;
-	double dM_Old = (IsoDim[IDt] - IsoBright[IDt])/(Nm - 1);
-	double dM_New = (IsoDim[IDt+1] - IsoBright[IDt+1])/(Nm - 1);
-	
-	int IDm_Old = floor((Mv - IsoBright[IDt])/dM_Old);
-	int IDm_New = floor((Mv - IsoBright[IDt+1])/dM_New);
-	
-	IDm_Old = std::max(0,std::min(IDm_Old,Nm - 2));
-	IDm_New = std::max(0,std::min(IDm_New,Nm - 2));
-	
-	double old_Interp = std::min(1.0,std::max(0.0,(Mv - IDm_Old * dM_Old)/dM_Old));
-	double new_Interp = std::min(1.0,std::max(0.0,(Mv - IDm_New * dM_New)/dM_New));
-	
-	
-	double oldVal = SelectionGrid[IDt][IDm_Old] + old_Interp * (SelectionGrid[IDt][IDm_Old+1] - SelectionGrid[IDt][IDm_Old]);
-	double newVal = SelectionGrid[IDt+1][IDm_New] + new_Interp * (SelectionGrid[IDt+1][IDm_New+1] - SelectionGrid[IDt+1][IDm_New]);
-	
-	double tInterp = std::min(1.0, std::max(0.0, (age - IsoTimes[IDt])/dt));
-	
+	double dt = Param.Catalogue.IsochroneTimeStep;
+	int Nt = ceil((double)Param.Meta.SimulationDuration / dt) + 1;
+	double deltaM = (MaxMv - MinMv)/(Nm - 1);
 
-	double val = oldVal + tInterp * (newVal - oldVal);
+	double mvProgress = (Mv - MinMv)/deltaM;
+	double tProgress = age/dt;
+	int mv_id = std::min(Nm - 2,std::max(0,(int)mvProgress));
+	int t_id = std::min(Nt - 2,std::max(0,(int)tProgress));
 	
+	double mvInterp = (mvProgress - mv_id);
+	double tInterp = (tProgress - t_id);
+	
+	double lowTVal = SelectionGrid[t_id][mv_id] + mvInterp * (SelectionGrid[t_id][mv_id+1]-SelectionGrid[t_id][mv_id]);
+	double highTVal = SelectionGrid[t_id+1][mv_id] + mvInterp * (SelectionGrid[t_id+1][mv_id+1] - SelectionGrid[t_id+1][mv_id]);
+	double val = lowTVal + tInterp * (highTVal - lowTVal);	
+	
+	//~ if (RadiusIndex == 99)
+	//~ {
+		//~ std::cout << "\tSelection effect call for ring " << RadiusIndex << " for Mv = " << Mv << " age " << age << " my grid coords are:\n";
+		//~ std::cout << "\t\t M is: " << mv_id
+		//~ std::cout << "\t\t LowT: " << t_id * dt << ": " << SelectionGrid[t_id][mv_id] << "-> " <<
+		//~ std::cout << "\t\t For final value: " << val << std::endl;
+	//~ }
 	return val;
 }

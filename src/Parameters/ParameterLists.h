@@ -163,10 +163,10 @@ class StellarValues : public ParamList
 		Argument<double> MaxStellarMass = Argument<double>(100,"mass-max");
 		
 		//!Maxmimum stellar mass that IMF can generate
-		Argument<double> MinStellarMass = Argument<double>(0.1,"mass-min");
+		Argument<double> MinStellarMass = Argument<double>(0.3,"mass-min");
 		
 		//!Mass of stars which we consider immortal without checking their isochrones
-		Argument<double> ImmortalMass = Argument<double>(0.1,"mass-immortal");
+		Argument<double> ImmortalMass = Argument<double>(0.3,"mass-immortal");
 		
 		//!Number of points along the stellar mass grid
 		Argument<int> MassResolution = Argument<int>(199,"mass-resolution");
@@ -245,7 +245,7 @@ class YieldValues : public ParamList
 		
 		Argument<double> SNIa_ShortScale = Argument<double>(0.1,"sn1a-short-decay");
 		
-		Argument<double> SNIa_TypicalMass = Argument<double>(1.2,"sn1a-progenitor-mass");
+		Argument<double> SNIa_TypicalMass = Argument<double>(1.37,"sn1a-progenitor-mass");
 		
 		Argument<double> NSM_TypicalMass = Argument<double>(1.4,"nsm-progenitor-mass");
 		
@@ -286,7 +286,7 @@ class ThermalValues : public ParamList
 		Argument<double> HotInjection_AGB = Argument<double>(0.7,"fh-agb");
 		
 		//!Fraction of SNIa ejecta which is put into the hot phase
-		Argument<double> HotInjection_SNIa = Argument<double>(0.99,"fh-sn1a");
+		Argument<double> HotInjection_SNIa = Argument<double>(0.7,"fh-sn1a");
 		
 		//! The exponential timescale over which the hot gas cools into the cold gas
 		Argument<double> GasCoolingTimeScale = Argument<double>(1,"cool");
@@ -344,22 +344,22 @@ class CatalogueValues: public ParamList
 		Argument<bool> SynthesisActive = Argument<bool>(true,"stellar-synthesis");
 	
 		//! The timesteps used to interpolate isochrones over
-		Argument<double> IsochroneTimeStep = Argument<double>(0.05,"isochrone-dt");
+		Argument<double> IsochroneTimeStep = Argument<double>(0.1,"isochrone-dt");
 		
-		Argument<double> IsochroneMagnitudeResolution = Argument<double>(30,"isochrone-mag-resolution");
+		Argument<double> IsochroneMagnitudeResolution = Argument<double>(100,"isochrone-mag-resolution");
 		
 		Argument<double> SolarRadius = Argument<double>(8.2,"solar-radius");
 		
-		Argument<int> RadialResolution = Argument<int>(6,"isochrone-radial-resolution");
+		Argument<int> RadialResolution = Argument<int>(3,"isochrone-radial-resolution");
 		Argument<int> AzimuthalResolution = Argument<int>(360,"isochrone-radial-resolution");
 		
-		Argument<double> VerticalHeightStart = Argument<double>(0.1,"vertical-height-z0");
-		Argument<double> VerticalHeightScaling = Argument<double>(0.5,"vertical-height-scaling");
-		Argument<double> VerticalHeightPower = Argument<double>(0.33,"vertical-height-power");
+		Argument<double> VerticalHeightStart = Argument<double>(0.05,"vertical-height-z0");
+		Argument<double> VerticalHeightScaling = Argument<double>(0.3,"vertical-height-scaling");
+		Argument<double> VerticalHeightPower = Argument<double>(0.66,"vertical-height-power");
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		CatalogueValues()
 		{
-			argPointers = {&SynthesisActive,&IsochroneTimeStep,&IsochroneMagnitudeResolution,&SolarRadius};
+			argPointers = {&SynthesisActive,&IsochroneTimeStep,&IsochroneMagnitudeResolution,&SolarRadius,&RadialResolution,&AzimuthalResolution,&VerticalHeightStart,&VerticalHeightScaling,&VerticalHeightPower};
 		}
 	
 };
@@ -419,10 +419,10 @@ class GalaxyValues : public ParamList
 		Argument<double> InfallMass2 = Argument<double>(100,"M2");
 		
 		//! The exponential timescale for the first (fast) exponential infall
-		Argument<double> InfallTime1 = Argument<double>(1,"b1");
+		Argument<double> InfallTime1 = Argument<double>(0.4,"b1");
 		
 		//! The exponential timescale for the second (slow) exponential infall
-		Argument<double> InfallTime2 = Argument<double>(9.0,"b2");
+		Argument<double> InfallTime2 = Argument<double>(6.0,"b2");
 
 
 		

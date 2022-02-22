@@ -71,8 +71,7 @@ class Galaxy
 		std::vector<std::string> SynthesisOutput;
 		std::vector<double> SynthesisProgress;
 		
-		std::vector<double> IsochroneDimDistribution;
-		std::vector<double> IsochroneBrightDistribution;
-		std::vector<double> IsochroneAgeDistribution;
+		double DimmestStar;
+		double BrightestStar;
 		int ParallelBars = 0;
 };

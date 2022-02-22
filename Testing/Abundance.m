@@ -29,7 +29,7 @@ f = readtable(fileName,opts);
 fe = (f.Total_Fe);
 h = f.Total_H;
 
-mg = (f.Total_Mg);
+mg = (f.Total_O);
 
 
 % scatter(fe-h,mg-fe);

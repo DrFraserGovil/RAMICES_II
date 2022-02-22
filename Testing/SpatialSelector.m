@@ -1,12 +1,12 @@
-`set(0,'defaultTextInterpreter','latex');
+set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',20);
 set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegendInterpreter','latex');
 global dSol phi0 nNorm zMin kappa zMax bCut southOverride
 phi0 = 1;
 dSol = 8.2;
 nNorm = 1;
-zMin = 0.05;
-kappa = 0.2;
+zMin = 0.3;
+kappa = 0.3;
 bCut = 0;
 southOverride = true;
 r = 4;
@@ -19,15 +19,15 @@ loop = waitbar(0,'Integrating');
 clf
 
 width = 0.2;
-Nrings = 20;
+Nrings = 2;%20;
 
 b = 3;
-times = [0];
+times = [0,5];
 Ntimes = length(times);
 cs = jet(Nrings);
-radii = linspace(1,20,Nrings)
+radii = [19.9,19.8];%linspace(1,20,Nrings)
 N = 80;
-Mvs = linspace(-3,8,N);
+Mvs = linspace(-12,17,N);
 vals = zeros(size(Mvs));
 c= 1;
 T = tiledlayout(3,Ntimes,'TileSpacing','Compact');
@@ -63,8 +63,8 @@ for mode = 1:3
         mV = min(vals(vals>0));
         vals(vals == 0) = min(1e-15,mV);
         plot3(Mvs,ones(size(vals)) * r, vals,'Color',cs(i,:),'LineWidth',3);
-        zlim([1e-6,1]);
-        xlim([-3,8]);
+        zlim([1e-8,1]);
+        xlim([-5,0]);
         set(gca,'zscale','log');
         set(gca,'yscale','linear');
         title(modenames(mode) + " for ages $\tau = "+ num2str(times(k)) + "$");

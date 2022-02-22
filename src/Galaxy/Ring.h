@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-
+#include <iomanip>
 #include "../Parameters/InitialisedData.h"
 #include "../Gas/GasReservoir.h"
 #include "../Stars/StarReservoir.h"
@@ -31,7 +31,7 @@ class Ring
 		
 		double SelectionEffect(double Mv, double age);
 		
-		void ComputeSelectionFunction(const std::vector<double> & brightLimit, const std::vector<double> & dimLimit, const std::vector<double> & times);
+		void ComputeSelectionFunction(const double brightLimit, const double dimLimit);
 		void MetCheck(const std::string & location);
 	private:
 		
@@ -47,7 +47,6 @@ class Ring
 		std::vector<std::vector<double>> HotBuffer;
 		
 		std::vector<std::vector<double>> SelectionGrid;
-		std::vector<double> IsoBright;
-		std::vector<double> IsoDim;
-		std::vector<double> IsoTimes;
+		double MinMv;
+		double MaxMv;
 };
