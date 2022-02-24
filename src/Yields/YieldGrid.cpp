@@ -45,6 +45,8 @@ Interpolator YieldGrid::MetallicityInterpolation(double z) const
 	int closestMetallicityID = round((logZ - Param.Stellar.MinLogZ)/Param.Stellar.LogZDelta); // critical assumption that logZ grid is uniform!
 	closestMetallicityID = std::min(closestMetallicityID, Param.Stellar.LogZResolution-1);
 	
+	
+	
 	int upID;
 	int downID;
 	
@@ -74,6 +76,8 @@ Interpolator YieldGrid::MetallicityInterpolation(double z) const
 	output.LowerID = downID;
 	output.UpperID = upID;
 	output.LinearFactor = interpolationFactor;
+	
+	//~ std::cout<< "Yield requested for " << z << "I compute " << downLogZ << "  < " << logZ << " < " << upLogZ << " with factor " << interpolationFactor<< std::endl;
 	return output;
 }
 
@@ -105,7 +109,8 @@ void YieldGrid::ElementProduction(ElementID element, double synthesisFraction, d
 
 void YieldGrid::ElementDestruction(ElementID element, double synthesisFraction, double ejectaMass,std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams) const
 {
-	
+	//~ if (element == Oxygen)
+		//~ std::cout << "I am destroying " << Param.Element.ElementNames[element] << " with fraction " << synthesisFraction << std::endl;
 	double totalElemMass = 0;
 	double totalMass = 0;
 	
@@ -119,7 +124,10 @@ void YieldGrid::ElementDestruction(ElementID element, double synthesisFraction, 
 	double deathFraction_noStreaming = birthFraction_noStreaming + synthesisFraction;
 	if (deathFraction_noStreaming < 0)
 	{
-		//~ std::cout << "I am trying to destroy more than is present of " << Param.Element.ElementNames[element] << " since I was born with " << birthFraction_noStreaming << " and synthesised " << synthesisFraction << " this will most likely cause a mass deficit" <<std::endl;
+		if (element == Oxygen)
+		{
+			std::cout << "I am trying to destroy more than is present of " << Param.Element.ElementNames[element] << " since I was born with " << birthFraction_noStreaming << " and synthesised " << synthesisFraction << " this will most likely cause a mass deficit" <<std::endl;
+		}
 		deathFraction_noStreaming = 0;
 	}
 	double outputMass = deathFraction_noStreaming * ejectaMass / 1e9;
@@ -146,6 +154,7 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 	double initMass = Param.Stellar.MassGrid[mass];
 
 	double remnantMass =  initMass * LogZ.Interpolate(Grid[mass-MassOffset][LogZ.LowerID][RemnantLocation], Grid[mass-MassOffset][LogZ.UpperID][RemnantLocation]);
+	//~ std::cout << "For a star of mass " << initMass << "   " << remnantMass << " is in the remnant" << std::endl;
 	double ejectaMass = Nstars * (initMass - remnantMass); 
 	
 
@@ -169,7 +178,15 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 		}
 		else
 		{
-			ElementDestruction(elem,synthesisFraction,ejectaMass,chunkCatcher,birthGas);
+			if (elem == Hydrogen || elem == Helium)
+			{
+				ElementDestruction(elem,synthesisFraction,ejectaMass,chunkCatcher,birthGas);
+			}
+		}
+		
+		if (elem == Oxygen)
+		{
+			//~ std::cout << "For a star with mass " << Param.Stellar.MassGrid[mass] << " and logZ = " << log10(z) << " my net synthesis frac is = " << synthesisFraction << std::endl;
 		}
 	}
 	
@@ -251,7 +268,7 @@ void YieldGrid::PurityEnforce()
 
 void YieldGrid::CCSN_Initialise()
 {
-	double ccsnCut = Param.Yield.CCSN_MassCut;
+	double ccsnCut = std::min(Param.Yield.ECSN_MassCut,Param.Yield.CCSN_MassCut); // ensures an effective overlap!
 	int mID = 0;
 	while (mID < Param.Stellar.MassResolution && Param.Stellar.MassGrid[mID] < ccsnCut)
 	{
@@ -259,7 +276,7 @@ void YieldGrid::CCSN_Initialise()
 	}
 	MassOffset = mID;
 	
-	std::cout << "CCSN yield grid accounts for stars > " << Param.Stellar.MassGrid[mID] << std::endl;	
+	//~ std::cout << "CCSN yield grid accounts for stars > " << Param.Stellar.MassGrid[mID] << std::endl;	
 	int ccsnGridSize = Param.Stellar.MassResolution - MassOffset + 2;
 	InitialiseLargeGrid(ccsnGridSize, Param.Stellar.LogZResolution);
 	hotInjectionFraction = Param.Thermal.HotInjection_CCSN;
@@ -335,7 +352,7 @@ void YieldGrid::ECSN_Initialise()
 		}
 	
 	);
-	hotInjectionFraction = Param.Thermal.HotInjection_CCSN;
+	hotInjectionFraction = Param.Thermal.HotInjection_SNIa;
 	
 	for (int m = 0; m < ecsnGridSize; ++m)
 	{
@@ -369,8 +386,8 @@ void YieldGrid::AGB_Initialise()
 	
 
 	std::vector<int> basePriority(SourceCount,0.0);
-	basePriority[Marigo] = 3;
-	basePriority[Maeder] = 1;
+	basePriority[Marigo] = 1;
+	basePriority[Maeder] = 2;
 	
 	SourcePriority = std::vector<std::vector<int>>(RidgeStorage.size(),basePriority);
 	

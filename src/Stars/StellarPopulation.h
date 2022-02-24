@@ -20,7 +20,7 @@ class IsoMass
 		double Metallicity;
 		int BirthIndex;
 		int DeathIndex;
-		IsochroneEntry Isochrone;
+		IsochroneCube Isochrone;
 		IsoMass();
 		IsoMass(double n, int m, double z, int birth, int death);
 };
@@ -51,7 +51,7 @@ class StellarPopulation
 		std::vector<GasStream> BirthGas;
 		
 		std::string CatalogueHeaders();
-		std::string CatalogueEntry(int n, int m, double currentRadius, double birthRadius);
+		std::string CatalogueEntry(std::vector<int> popEntry, int m, double currentRadius, double birthRadius);
 		double Age;
 	private:
 		const GlobalParameters & Param;

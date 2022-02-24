@@ -182,9 +182,16 @@ void StellarPopulation::MonotonicDeathScan(int time, std::vector<GasReservoir> &
 			}
 			else if (starMass >= Param.Yield.ECSN_MassCut)
 			{
-				std::cout << "ECSN" << std::endl;
-				newRem = ECSNYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
-				eventRate.CCSN += nStars;
+				//~ std::cout << "ECSN" << std::endl;
+				double ecsnStars = Param.Yield.ECSN_Fraction * nStars;
+				double ccsnStars = nStars - ecsnStars;
+				//~ std::cout << "Out of " << nStars << ", " << ecsnStars << " are ECSN and " << ccsnStars << " are CCSN " << std::endl;
+				newRem = ECSNYield(temporalYieldGrid[birthID],ecsnStars,massID,z,BirthGas);
+				remnants.Feed(time,newRem); // double feed!
+				eventRate.ECSN += ecsnStars;
+				//~ std::cout << "ECSN = " << eventRate.ECSN << std::endl;
+				eventRate.CCSN += ccsnStars;
+				newRem = CCSNYield(temporalYieldGrid[birthID],ccsnStars,massID,z,BirthGas);
 			}
 			else
 			{
@@ -216,17 +223,17 @@ void StellarPopulation::FullDeathScan(int time)
 std::string StellarPopulation::CatalogueHeaders()
 {
 	std::string s= "Radius, TrueAge, BirthIndex, BirthRadius, MeasuredAge, Mass";
-	for (int i = 0; i < PropertyCount; ++i)
-	{
-		s+= ", " + PropertyNames[i];
-	}
 	for (int i = 1; i < ElementCount; ++i)
 	{
 		s += ", " + Param.Element.ElementNames[i] + "H";
 	}
+	for (int i = 0; i < PropertyCount; ++i)
+	{
+		s+= ", " + PropertyNames[i];
+	}
 	return s;
 }
-std::string StellarPopulation::CatalogueEntry(int n, int m, double currentRadius, double birthRadius)
+std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentRadius, double birthRadius)
 {
 	int nManualEntries = 6;
 	std::vector<double> values(nManualEntries+PropertyCount+ElementCount - 1,0.0);
@@ -237,11 +244,7 @@ std::string StellarPopulation::CatalogueEntry(int n, int m, double currentRadius
 	values[4] = values[1];
 	values[5] = Param.Stellar.MassGrid[m];
 	int offset = nManualEntries;
-	for (int i = 0; i < PropertyCount; ++i)
-	{
-		values[offset] = Distribution[m].Isochrone[(IsochroneProperties)i]; 
-		++offset; 
-	}
+	
 	double hContent = 1e-99;
 	for (int p = 0; p < ProcessCount; ++p)
 	{
@@ -261,6 +264,7 @@ std::string StellarPopulation::CatalogueEntry(int n, int m, double currentRadius
 		values[offset] = logVal;
 		++offset;
 	}
+	int elemOffset = offset;
 	std::vector<double> typicalErrors(values.size(),0.0);
 	//~ typicalErrors[3] = 1;
 	
@@ -279,24 +283,36 @@ std::string StellarPopulation::CatalogueEntry(int n, int m, double currentRadius
 	
 	
 	std::string output = "";
-	for (int star = 0; star < n; ++star)
+	for (int entry = 0; entry < ns.size(); ++entry)
 	{
-		std::string line = "";
-		for (int k = 0; k < values.size(); ++k)
+		int n = ns[entry];
+		
+		for (int i = 0; i < PropertyCount; ++i)
 		{
-			
-			
-			double r = Data.NormalDist();
-			double error = typicalErrors[k] * r;
-			double val = values[k] + error;
-			//~ std::cout << "Given " << values[k] << " and typical value " << typicalErrors[k] << " and random value " << r << " I scattered with error " << error << " giving " <<val << std::endl;
-			if (k > 0)
-			{
-				line += ", ";
-			}
-			line += std::to_string(val);
+			values[elemOffset + i] = Distribution[m].Isochrone.Data[entry][(IsochroneProperties)i]; 
+			++offset; 
 		}
-		output += line + "\n";
+		
+		
+		for (int star = 0; star < n; ++star)
+		{
+			std::string line = "";
+			for (int k = 0; k < values.size(); ++k)
+			{
+				
+				
+				double r = Data.NormalDist();
+				double error = typicalErrors[k] * r;
+				double val = values[k] + error;
+				//~ std::cout << "Given " << values[k] << " and typical value " << typicalErrors[k] << " and random value " << r << " I scattered with error " << error << " giving " <<val << std::endl;
+				if (k > 0)
+				{
+					line += ", ";
+				}
+				line += std::to_string(val);
+			}
+			output += line + "\n";
+		}
 	}
 	return output;
 }

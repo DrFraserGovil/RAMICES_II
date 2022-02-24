@@ -2,7 +2,7 @@
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["SynthesisTest"] + "/Events.dat";
+files = "../Output/" + ["Pollution/Active"] + "/Events.dat";
 
 
 for i = 1:length(files)
@@ -13,7 +13,8 @@ end
 
 function plotEventFile(fileName)
     f = readtable(fileName);
-   
+%     f.Properties.VariableNames = ["Time", "Radius", "StarMassFormed", "StarsFormed", "CCSN_Events", "AGB_Deaths", "NSM_Events", "SNIa_Events", "ECSN_Events", "BirthRate", "CCSNRate", "AGBRate", "NSMRate", "SNIaRate"];
+    f(1:10,:)
     time = unique(f.Time);
     radius = unique(f.Radius);
 
@@ -28,7 +29,7 @@ function plotEventFile(fileName)
     totalAGB = mset;
     totalNSM = mset;
     totalSNIa = mset;
-    
+    totalECSN = mset;
     T = tiledlayout(4,2,"TileSpacing","Compact","Padding","Compact");
     c= (jet(nSample));
     colormap(jet);
@@ -43,14 +44,14 @@ function plotEventFile(fileName)
         ccsn = f.CCSN_Events(selector);
         agb = f.AGB_Deaths(selector);
         nsm = f.NSM_Events(selector);
-        snia = f.SNIa_Events(selector);
+        snia = f.ECSN_Events(selector);
         
         totalBirth(i) = sum(f.BirthRate(selector));
         totalCCSN(i) = sum(f.CCSNRate(selector));
         totalAGB(i) = sum(f.AGBRate(selector));
         totalNSM(i) = sum(f.NSMRate(selector));
         totalSNIa(i) = sum(f.SNIaRate(selector));
-        
+        totalECSN(i) = sum(f.ECSNRate(selector));
         
 %         divider = f.SurfaceArea(selector);
         nexttile(1);
@@ -69,7 +70,7 @@ function plotEventFile(fileName)
         
         nexttile(4);
         hold on;
-        plot(rs,snia,'Color',c(i,:));
+        plot(rs,snia./ccsn,'Color',c(i,:));
         hold off;
 % 
 %         nexttile(5);
@@ -119,10 +120,11 @@ function plotEventFile(fileName)
     plot(timeset,totalAGB/10^9,'LineWidth',lw);
     plot(timeset,totalSNIa/10^9,'LineWidth',lw);
     plot(timeset,totalNSM/10^9,'LineWidth',lw);
+    plot(timeset,totalECSN/10^9,'LineWidth',lw);
     hold off;
     xlabel("Simulation Time (Gyr)");
     ylabel("Events per yr");
-    legend(["Star Birth","CCSN","AGB Death","SNIa","NSM"],"location","southeast");
+    legend(["Star Birth","CCSN","AGB Death","SNIa","NSM","ECSN"],"location","southeast");
     title(T,fileName);
     set(gca,'yscale','log');
     set(gca,'xscale','linear');

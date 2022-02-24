@@ -199,8 +199,8 @@ void GasReservoir::PassiveCool(double dt, bool isIGM)
 	//~ }
 	
 	double lambda = 1.0/Param.Thermal.GasCoolingTimeScale;
-	if (isIGM)
-		lambda *= 100;
+	//~ if (isIGM)
+		//~ lambda *= 100;
 	double newHot = HotMass() * exp( - lambda * dt);
 	
 	double cooledAmount = HotMass() - newHot;

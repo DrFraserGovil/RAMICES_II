@@ -29,7 +29,7 @@ f = readtable(fileName,opts);
 fe = (f.Total_Fe);
 h = f.Total_H;
 
-mg = (f.Total_O);
+mg = (f.Total_Mg);
 
 
 % scatter(fe-h,mg-fe);
@@ -45,17 +45,22 @@ for i = 1:length(r)
     hSub = h(selector);
     mgSub = mg(selector);
     
+    feH = feSub - hSub;
+    if i == 40
+        [min(feH), max(feH)]
+    end
+    delta = f.Total_Mg(selector) - f.Total_Fe(selector);
     
     hold on;
 %     plot(f.TimeIndex(selector)*0.02, mgSub- hSub,'Color',cs(i,:));
 %     set(gca,'xscale','log')
-    plot(feSub - hSub, mgSub - feSub, 'Color',cs(i,:));
+    plot(feH, delta, 'Color',cs(i,:));
    
 end
  colorbar;
  caxis([min(r),max(r)])
  xlim([-2.5,1.2]);
- ylim([-0.3,0.5]);
+%  ylim([-0.3,0.5]);
  hold off;
     
 title("\verb|" +fileName + "|","FontSize",10);

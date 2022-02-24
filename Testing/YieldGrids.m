@@ -5,7 +5,7 @@ agb = readtable(dir + "AGB_yields.dat");
 old = readtable("../Resources/ChemicalData/RalphSavedYields.dat");
 column = "O";
 oldColum = 3 + 4;
-overplotter = dir + column + "_ridges_CCSN.dat";
+overplotter = dir + column + "_ridges_AGB.dat";
 if column == "Remnant"
     column = column + "Fraction";
 end

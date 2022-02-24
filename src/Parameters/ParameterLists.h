@@ -19,7 +19,7 @@ class MetaValues : public ParamList
 		//!The top level timestep used in the main chemical loop
 		Argument<double> TimeStep  = Argument<double>(0.01,"timestep");
 		
-		//!The total duration of the chemical simulation
+		//~ //!The total duration of the chemical simulation
 		Argument<double> SimulationDuration = Argument<double>(10.0,"duration");
 		
 		//!The number of hashes used to display progress bars
@@ -102,7 +102,7 @@ class ResourceValues : public ParamList
 		
 		Argument<std::string> LifeTimeFile = Argument<std::string>("LifetimeGrid.dat","lifetime-file");
 		
-		Argument<std::string> IsochroneRepository = Argument<std::string>("PadovaFiles/","iso-repo");
+		Argument<std::string> IsochroneRepository = Argument<std::string>("NewPadova/","iso-repo");
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		ResourceValues()
 		{
@@ -130,7 +130,7 @@ class ElementValues : public ParamList
 		std::vector<double> SolarAbundances;
 		
 		//! The file in which the solar abundances can be found as a csv
-		Argument<std::string> SolarAbundanceFile = Argument<std::string>("ChemicalData/SolarAbundances.dat","solar-values-file"); 
+		Argument<std::string> SolarAbundanceFile = Argument<std::string>("ChemicalData/SolarAbundances_Maria.dat","solar-values-file"); 
 
 		//! The column of the solar abundance files which contains the ElementName for cross matching
 		Argument<int> SolarAbundanceFileNameColumn = Argument<int>(0,"solar-values-name-col");
@@ -249,13 +249,16 @@ class YieldValues : public ParamList
 		
 		Argument<double> NSM_TypicalMass = Argument<double>(1.4,"nsm-progenitor-mass");
 		
-		Argument<double> SNIa_LongScale = Argument<double>(2,"sn1a-long-decay");
+		Argument<double> SNIa_LongScale = Argument<double>(3,"sn1a-long-decay");
 		
-		Argument<double> CCSN_MassCut = Argument<double>(9,"ccsn-mass");
+		Argument<double> CCSN_MassCut = Argument<double>(10,"ccsn-mass");
 		
-		Argument<double> ECSN_MassCut = Argument<double>(9.1,"ecsn-mass");
+		Argument<double> ECSN_MassCut = Argument<double>(8.5,"ecsn-mass");
 		Argument<double> CODwarf_MassCut = Argument<double>(3.2,"co-mass");
 		Argument<double> Collapse_MassCut = Argument<double>(40,"bh-mass");
+		
+		//!Fraction of stars in ECSN mass range which go ECSN vs CCSN
+		Argument<double> ECSN_Fraction = Argument<double>(0,"ecsn-fraction");
 		
 		Argument<double> NSM_DelayTime = Argument<double>(0.02,"nsm-delay");
 		Argument<double> NSM_ActiveFraction = Argument<double>(0.1,"nsm-fraction");
@@ -263,7 +266,7 @@ class YieldValues : public ParamList
 		
 	YieldValues()
 	{
-		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime, & SNIa_ActiveFraction, &SNIa_LongFraction, &CCSN_MassCut,&NSM_ActiveFraction, &NSM_Scale,&SNIa_TypicalMass,&NSM_TypicalMass, &TargetNi56Yield};
+		argPointers = {&SNIa_DelayTime, &SNIa_ShortScale, &SNIa_LongScale, &NSM_DelayTime, & SNIa_ActiveFraction, &SNIa_LongFraction, &CCSN_MassCut,&NSM_ActiveFraction, &NSM_Scale,&SNIa_TypicalMass,&NSM_TypicalMass, &TargetNi56Yield, &ECSN_Fraction};
 	}
 	//! Initialises the mass grid etc.
 		void Initialise(std::string resourceRoot);
@@ -286,7 +289,7 @@ class ThermalValues : public ParamList
 		Argument<double> HotInjection_AGB = Argument<double>(0.7,"fh-agb");
 		
 		//!Fraction of SNIa ejecta which is put into the hot phase
-		Argument<double> HotInjection_SNIa = Argument<double>(0.7,"fh-sn1a");
+		Argument<double> HotInjection_SNIa = Argument<double>(0.99,"fh-sn1a");
 		
 		//! The exponential timescale over which the hot gas cools into the cold gas
 		Argument<double> GasCoolingTimeScale = Argument<double>(1,"cool");

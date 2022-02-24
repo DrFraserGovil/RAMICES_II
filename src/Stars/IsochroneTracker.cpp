@@ -83,95 +83,137 @@ void IsochroneTracker::Construct()
 	{
 		IsoLog("\tIsochrones are log-uniform. Analytical methods employed for indexing");
 	}
-	UnsortedGrid.resize(0);
+	UnsortedGrid.resize(0); //clear the memory so only have 1 copy of the grid!
 }
 double bounder(double a)
 {
 	return std::min( std::max(0.0,a),1.0);
 }
-std::vector<IsochroneEntry> IsochroneTracker::GetProperties(std::vector<int> mass, double z, double age)
+std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass, double z, double age)
 {
-	//supposedly runs quicker than a brute force method!
-	
-	//~ age = 1e-3;
-	//~ z = 0.001;
-	
-	auto closestZID = std::upper_bound(CapturedZs.begin(),CapturedZs.end(), z);
-	int corresponding = closestZID - CapturedZs.begin();
-	int zMax = CapturedZs.size() - 1;
-	int zUpperID = std::min(std::max(1,corresponding),zMax);
-	
-	int zLowerID = zUpperID - 1;
-	
-	int tUpperID;
-	int tLowerID;
-	double startTime = CapturedTs[0];
-	double endTime = CapturedTs[CapturedTs.size() - 1];
-	double logAge = log10(age)+9;
-	if (logAge < startTime)
-		logAge = startTime;
-	if (logAge > endTime)
-		logAge = endTime;
-	
-	if (isTimeLogUniform)
-	{		
-		double delta = std::max(0.0,logAge - startTime);
-		tLowerID = floor(delta / DeltaLogT);
-		tUpperID = ceil(delta / DeltaLogT);
-		if (tLowerID == tUpperID)
-		{
-			++ tUpperID;
-		}
-	}
-	else //manually search!
+	int z_ID = 0;
+	bool stillSearching = true;
+	while (stillSearching)
 	{
-		tUpperID = 1;
-		while ( tUpperID < CapturedTs.size() && CapturedTs[tUpperID] > logAge)
+		if (CapturedZs[z_ID] > z)
 		{
-			++tUpperID;
+			stillSearching = false;
 		}
-		tLowerID = tUpperID - 1;
+		else
+		{
+			++z_ID;
+			if (z_ID >= CapturedZs.size())
+			{
+				stillSearching = false;
+				z_ID = CapturedZs.size() - 1;
+			}
+		}
 	}
+	double logAge = log10(age) + 9;
+	int t_ID = (logAge - CapturedTs[0])/DeltaLogT;
+	z_ID = std::min((int)CapturedZs.size()-1, std::max(1,z_ID)); //z_ID is upper bound on Z
+	t_ID = std::min((int)CapturedTs.size()-1, std::max(0,t_ID)); // t_ID is lower bound on time
+	
+	
+	int lower_t = t_ID;
+	int upper_t = t_ID + 1;
+	int lower_z = z_ID - 1;
+	int upper_z = z_ID;
+	
+	double tWeight = (logAge - CapturedTs[lower_t])/(CapturedTs[upper_t] - CapturedTs[lower_t]);
+	double zWeight = (z - CapturedZs[lower_z]) / (CapturedTs[upper_z] - CapturedZs[lower_z]);
+	
+	
+	
+	
 
-	std::vector<IsochroneEntry> output(mass.size());
-	double zInterp = bounder(log10(z / CapturedZs[zLowerID]) / log10(CapturedZs[zUpperID]/CapturedZs[zLowerID]));
+	std::vector<IsochroneCube> output(mass.size());
 	
-	for (int i = 0; i < mass.size(); ++i)
+	
+	for (int m = 0; m < mass.size(); ++m)
 	{
-		int highZT = tLowerID;
-		int lowZT = tLowerID;
 		
-		bool modified = false;
-		while (Grid[zUpperID][highZT].size() <= mass[i])
+		int m_ID = mass[m];
+		double mm = Param.Stellar.MassGrid[m_ID];
+		int temp_upper_t = upper_t;
+		
+		int a = Grid[lower_z][upper_t].size();
+		int b = Grid[upper_z][upper_t].size();
+		int maxSize = std::max(a,b);
+		int modified = 0;
+		double tempWeight = tWeight;
+		while (maxSize -2<= m_ID)
 		{
-			--highZT;
-			modified = true;
-			if (highZT < 0)
+			--temp_upper_t;
+			a = Grid[lower_z][temp_upper_t].size();
+			b = Grid[upper_z][temp_upper_t].size();
+			maxSize = std::max(a,b);
+			++modified;
+			if (temp_upper_t < 1)
 			{
-				std::cout << "Something has gone horribly wrong with your isochrones!" << std::endl;
-				exit(5);
+				maxSize = m_ID + 10;
 			}
+			tempWeight = 0;
 		}
-		while (Grid[zLowerID][lowZT].size() <= mass[i])
+		
+	
+		
+		temp_upper_t = std::max(1,temp_upper_t);
+		int temp_lower_t = temp_upper_t - 1;
+		
+		
+		
+		//older, low metal
+		
+		
+		double totalWeighting = 0;
+		if (Grid[lower_z][temp_upper_t].size() > m_ID)
 		{
-			--lowZT;
-			modified = true;
-			if (lowZT < 0)
-			{
-				std::cout << "Something has gone horribly wrong with your isochrones!" << std::endl;
-				exit(5);
-			}
+			output[m].Data.push_back(Grid[lower_z][temp_upper_t][m_ID]);
+			double w = tempWeight * (1.0 - zWeight);
+			output[m].Weighting.push_back(w);
+			totalWeighting += w;
 		}
-
-		const IsochroneEntry & downTupZ = Grid[zUpperID][highZT][mass[i]];
-		const IsochroneEntry & downTdownZ = Grid[zLowerID][lowZT][mass[i]];
-
-		//~ std::cout << "About to insert things" <<std::endl;
-		for (int k = 0; k < PropertyCount; ++k)
+		if (Grid[lower_z][temp_lower_t].size() > m_ID)
 		{
-			double vTDown = downTdownZ.Properties[k] + zInterp * (downTupZ.Properties[k] - downTdownZ.Properties[k]);			
-			output[i].Properties[k] = vTDown;
-		}		
+			output[m].Data.push_back(Grid[lower_z][temp_lower_t][m_ID]);
+			double w = (1.0 - tempWeight) * (1.0 - zWeight);
+			output[m].Weighting.push_back(w);
+			totalWeighting += w;
+		}
+		
+		//older, low metal
+		
+		
+		if (Grid[upper_z][temp_upper_t].size() > m_ID)
+		{
+			output[m].Data.push_back(Grid[upper_z][temp_upper_t][m_ID]);
+			double w = tempWeight * zWeight;
+			output[m].Weighting.push_back(w);
+			totalWeighting += w;
+		}
+		if (Grid[upper_z][temp_lower_t].size() > m_ID)
+		{
+			output[m].Data.push_back(Grid[upper_z][temp_lower_t][m_ID]);
+			double w = (1.0 - tempWeight) * zWeight;
+			output[m].Weighting.push_back(w);
+			totalWeighting += w;
+		}
+		
+		int n = output[m].Weighting.size();
+		if (n == 0)
+		{
+			std::cout << "ERROR! Could not find any isochrones for " << mm << "  " << z << "  " << age << "  " << maxSize << "  " << m_ID << std::endl;
+			exit(5);
+		}
+		//~ std::cout << "
+
+		for (int q = 0; q < n; ++q)
+		{
+			output[m].Weighting[q]/=totalWeighting;
+		}
+		
+		
 	}
 	return output;
 }
@@ -241,6 +283,7 @@ void IsochroneTracker::ParseFile(std::string file)
 			
 			//~ std::cout << zID << "  " << tID << "  " << UnsortedGrid.size() << "  " << UnsortedGrid[0].size() << std::endl;
 			
+			//~ std::cout << "FLAG CHECK = " << FILE_LINE_VECTOR[9] << std::endl;
 			int flag = std::stoi(FILE_LINE_VECTOR[9]);
 			if (flag < 8)
 			{
@@ -252,12 +295,19 @@ void IsochroneTracker::ParseFile(std::string file)
 				double mass = std::stod(FILE_LINE_VECTOR[3]);
 				while (mID < Param.Stellar.MassResolution && Param.Stellar.MassGrid[mID] <= mass)
 				{
+					
 					double interp = (Param.Stellar.MassGrid[mID] - prevMass)/(mass - prevMass);
 					
-					for (int k = 0; k < PropertyCount; ++k)
-					{
-						NewIso.Properties[k] = PrevIso.Properties[k] + interp * (CurrentIso.Properties[k] - PrevIso.Properties[k]); 
-					}
+					NewIso = CurrentIso;
+					//~ if (interp > 0.5)
+					//~ {
+						//~ NewIso = CurrentIso;
+					//~ }
+					
+					//~ for (int k = 0; k < PropertyCount; ++k)
+					//~ {
+						//~ NewIso.Properties[k] = PrevIso.Properties[k] + interp * (CurrentIso.Properties[k] - PrevIso.Properties[k]); 
+					//~ }
 					UnsortedGrid[zID][tID].push_back(NewIso);
 					++mID;
 					//~ std::cout << "\tI just used " << prevMass << " < " << Param.Stellar.MassGrid[mID] << " < " << mass << " at " << zID << "  " << tID << std::endl;

@@ -18,6 +18,13 @@ struct IsochroneEntry
 		return Properties[p];
 	}
 };
+
+
+struct IsochroneCube
+{
+	std::vector<double> Weighting;
+	std::vector<IsochroneEntry> Data;
+};
 class IsochroneTracker
 {
 	
@@ -26,7 +33,7 @@ class IsochroneTracker
 		IsochroneTracker(const GlobalParameters & param);
 		void Construct();
 		
-		std::vector<IsochroneEntry> GetProperties(std::vector<int> mass, double z, double age);
+		std::vector<IsochroneCube> GetProperties(std::vector<int> mass, double z, double age);
 		
 	private:
 		const GlobalParameters Param;

@@ -113,7 +113,7 @@ function plotMassFile(fileName)
     
     % plot(timeset,ctotal+htotal+stotal)
     xlabel("Simulation Time (Gyr)");
-    ylabel("Total Mass ($10^{10}M_\odot$)");
+    ylabel("Total Mass ($10^{9}M_\odot$)");
     legend("Cold Gas","Hot Gas", "Stars","White Dwarfs", "Neutron Stars", "Black Holes","Total mass");
 %     set(gca,'yscale','log');
     grid on;

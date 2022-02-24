@@ -693,14 +693,17 @@ void Galaxy::ComputeVisibilityFunction()
 			{
 				if (Rings[j].Stars.Population[i].Distribution[k].Count > 0)
 				{
-					double vmag = Rings[j].Stars.Population[i].Distribution[k].Isochrone[VMag];
-					if (vmag < minMv)
+					for (int n = 0 ; n < Rings[j].Stars.Population[i].Distribution[k].Isochrone.Weighting.size(); ++n)
 					{
-						minMv = vmag;
-					}
-					if (vmag > maxMv)
-					{
-						maxMv = vmag;
+						double vmag = Rings[j].Stars.Population[i].Distribution[k].Isochrone.Data[n][VMag];
+						if (vmag < minMv)
+						{
+							minMv = vmag;
+						}
+						if (vmag > maxMv)
+						{
+							maxMv = vmag;
+						}
 					}
 				}
 			}
@@ -745,6 +748,7 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 		int cFilter = 0;
 		for (int j = 0; j < Rings.size(); ++j)
 		{
+			
 			for (int t = 0; t < Param.Meta.SimulationSteps -1; ++t)
 			{
 				double migrateFrac = Migrator[t].Grid[i][j];
@@ -759,34 +763,41 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 							
 							
 							double age = Rings[j].Stars.Population[t].Age;
-							double Mv = Rings[j].Stars.Population[t].Distribution[m].Isochrone[VMag];
-							double observeFrac = Rings[i].SelectionEffect(Mv,age);
-							double count = migrateFrac * Rings[j].Stars.Population[t].Distribution[m].Count;
-							
-							double crowdingFactor =1;
+							int n = Rings[j].Stars.Population[t].Distribution[m].Isochrone.Weighting.size();
+							std::vector<int> numberSynthesised(n,0);
 							double mass = Param.Stellar.MassGrid[m];
-							if (mass < 2)
+							int totalObs = 0;
+							for (int entry = 0; entry < n; ++entry)
 							{
-								crowdingFactor = 1e-1;
+								double Mv = Rings[j].Stars.Population[t].Distribution[m].Isochrone.Data[entry][VMag];
+								double populationWeighting = Rings[j].Stars.Population[t].Distribution[m].Isochrone.Weighting[entry];
+								double observeFrac = Rings[i].SelectionEffect(Mv,age);
+								double count = migrateFrac * Rings[j].Stars.Population[t].Distribution[m].Count * populationWeighting;
+								
+								double crowdingFactor =0.05;
+	
+								double obs = observeFrac * count * crowdingFactor;
+								
+								int intObs = obs;
+				
+								double targetRoll = (obs - intObs);
+								double diceRoll = (double)rand() / RAND_MAX;
+								if (diceRoll < targetRoll)
+								{
+									++intObs;
+								}
+								numberSynthesised[entry] = intObs;
+								totalObs += intObs;
 							}
-							double obs = observeFrac * count * crowdingFactor;
 							
-							int intObs = obs;
-			
-							double targetRoll = (obs - intObs);
-							double diceRoll = (double)rand() / RAND_MAX;
-							if (diceRoll < targetRoll)
+							
+							if (totalObs > 0)
 							{
-								++intObs;
-							}
-										
-							if (intObs > 0)
-							{
-								std::string output = Rings[j].Stars.Population[t].CatalogueEntry(intObs,m,Rings[i].Radius,Rings[j].Radius);
+								std::string output = Rings[j].Stars.Population[t].CatalogueEntry(numberSynthesised,m,Rings[i].Radius,Rings[j].Radius);
 								SynthesisOutput[i] += output;
-								SynthesisProgress[threadID] += intObs;
+								SynthesisProgress[threadID] += totalObs;
 							}
-							
+						
 							
 						}
 					}

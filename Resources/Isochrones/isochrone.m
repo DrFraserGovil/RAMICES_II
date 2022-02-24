@@ -1,7 +1,7 @@
 set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegendInterpreter','latex');
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
-files = "PadovaFiles/Met_" + ["m22_m18","m17_m13","m13_m09","m09_m05","m04_0","05_35","4_5"] + ".dat";
+files = "NewPadova/Met_" + ["Minus_20","Minus_15","Minus_10","Minus_05","Minus_01","00","01","025","05"] + ".dat";
 % files = "PadovaFiles/Met_" + ["m22_m18"];
 ZCon = @(m) (1 - 0.2485)./(2.78 + 1/0.0207 * 10.^(-m));
 f = table();
@@ -12,6 +12,7 @@ for i = 1:length(files)
 	file = files(i);
 	q = readtable(file,"NumHeaderLines",13);
 	q.Properties.VariableNames= {q.Properties.VariableNames{2:end},'Error'};
+    q = removevars(q,'Error');
 	if height(f) > 0 
 		zsPrev = unique(f.MH);
 		zsNew = unique(q.MH);
@@ -21,7 +22,8 @@ for i = 1:length(files)
 				q(q.MH == z,:) = [];
 			end
 		end
-	end
+    end
+    q(q.label > 7,:) = [];
 	f = [f;q];
 end
 % f = [f;g;h];
@@ -40,7 +42,7 @@ remainingMasses = f(tableEnds,:);
 zs = unique(remainingMasses.MH);
 zs(isnan(zs)) = [];
 zzz = ZCon(zs);
-Ms = 10.^linspace(log10(0.7),2,200);
+Ms = 10.^linspace(log10(0.7),2,500);
 
 [Z,M] = meshgrid(zzz,Ms);
 default = -1;
@@ -112,7 +114,7 @@ set(gca,'yscale','log');
 set(gca,'xscale','log');
 set(gca,'colorscale','log');
 % set(gca,'zscale','log');
-caxis(10.^[6,10.3]);
+% caxis(10.^[6,10.3]);
 c = colorbar;
 c.TickLabelInterpreter = "latex";
 c.Label.Interpreter = 'latex';
