@@ -224,11 +224,7 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 			output[m].Weighting[q]/=totalWeighting;
 		}
 		
-		std::cout << "For m = " << mm <<"  age = " << logAge << "  z = " << z << " I found the following isochronic data:\n";
-		for (int q = 0; q < n; ++q)
-		{
-			std::cout << "(tau,z) =(" << ts[q] << ", " << zs[q] << "),   w = " << output[m].Weighting[q] << std::endl;
-		}
+	
 	}
 	return output;
 }

@@ -18,22 +18,9 @@ function plotter(files,i)
         g(cut,:) = [];
         disp("Cut")
 
-%         nexttile;
-%         histogram2(g.Radius,g.BirthRadius,15,'FaceColor','flat',"ShowEmptyBins",true);
-%         set(gca,'zscale','log');
-          set(gca,'colorscale','log')
-          xlabel("Final Annulus");
-          ylabel("Birth Annulus");
-          colorbar;
-        view(2) 
+
     %     
-%         nexttile;
-%         histogram2(g.MeasuredAge, g.Radius - g.BirthRadius,20,'FaceColor','flat',"ShowEmptyBins",true)
-%         set(gca,'zscale','log');
-        set(gca,'colorscale','log')
-        xlabel("Age (Gyr)");
-        ylabel("Outward Migration (kpc)");
-        view(2) 
+%        
         
         
 %         nexttile;
@@ -46,8 +33,8 @@ function plotter(files,i)
         
 %         scaling = 
         
-        xDelta = normrnd(0,1,n,1) .*  0.0;
-        yDelta = normrnd(0,1,n,1) .* 0.0;
+        xDelta = normrnd(0,1,n,1) .*  0.05;
+        yDelta = normrnd(0,1,n,1) .* 0.02;
 %         scatter(g.FeH,delta,3,g.BirthRadius,'filled')
         
         disp("Plotted 1")
@@ -66,18 +53,21 @@ function plotter(files,i)
 
         colormap(zeroed)
         image([min(X),max(X)],[min(Y),max(Y)],N,'CDataMapping','scaled')
-      
+        
         set(gca,'YDir','normal')
         set(gca,'ColorScale','log')
         disp("Plotted 2")
         xlim([-2.4,0.6]);
+        xlabel("[Fe/H]");
+        ylabel("[Mg/Fe]");
 %         ylim([-0.2,0.4]);
         colorbar
         grid on;
 
-%         nexttile;
-%         histogram(y,30)
-        
+        nexttile;
+        histogram(y,30)
+        xlabel("[Mg/Fe]");
+        ylabel("Counts");
 %         set(gca,'yscale','log')
           clear x y N xDelta yDelta; 
     %     scatter(g.FeH,delta,1)
@@ -86,10 +76,11 @@ function plotter(files,i)
     %    
         nexttile;
         color = g.BMag - g.VMag;
-        scatter(color,g.VMag,3,g.MeasuredAge,'filled');
-        histogram2(color(cutter),g.VMag(cutter),'FaceColor','flat');
+        histogram2(color(cutter),g.VMag(cutter),200,'FaceColor','flat');
         set(gca,'ydir','reverse');
         set(gca,'ColorScale','log')
+        xlabel("$M_B - M_V$");
+        ylabel("$M_V$");
         colorbar
         view(2);
 
@@ -107,8 +98,14 @@ function plotter(files,i)
         thickScale = mean( z0 + kappa * g.MeasuredAge(thickSampler).^pow)
         thinScale = mean(z0 + kappa * g.MeasuredAge(~thickSampler).^pow)
         
-    
-
+        
+         nexttile;
+        histogram2(g.MeasuredAge, g.Radius - g.BirthRadius,20,'FaceColor','flat',"ShowEmptyBins",true)
+%         set(gca,'zscale','log');
+        set(gca,'colorscale','log')
+        xlabel("Age (Gyr)");
+        ylabel("Outward Migration (kpc)");
+        view(2) 
         
     end
 end

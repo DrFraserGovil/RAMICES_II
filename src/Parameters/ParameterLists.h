@@ -102,7 +102,7 @@ class ResourceValues : public ParamList
 		
 		Argument<std::string> LifeTimeFile = Argument<std::string>("LifetimeGrid.dat","lifetime-file");
 		
-		Argument<std::string> IsochroneRepository = Argument<std::string>("NewPadova/","iso-repo");
+		Argument<std::string> IsochroneRepository = Argument<std::string>("PadovaFiles/","iso-repo");
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		ResourceValues()
 		{
@@ -249,7 +249,7 @@ class YieldValues : public ParamList
 		
 		Argument<double> NSM_TypicalMass = Argument<double>(1.4,"nsm-progenitor-mass");
 		
-		Argument<double> SNIa_LongScale = Argument<double>(3,"sn1a-long-decay");
+		Argument<double> SNIa_LongScale = Argument<double>(1.5,"sn1a-long-decay");
 		
 		Argument<double> CCSN_MassCut = Argument<double>(10,"ccsn-mass");
 		

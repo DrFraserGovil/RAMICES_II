@@ -269,11 +269,11 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 	//~ typicalErrors[3] = 1;
 	
 	int eOffset = nManualEntries;
-	for (int i = 0; i < PropertyCount; ++i)
-	{
-		typicalErrors[eOffset] = abs(0.02 * values[offset]);
-		++eOffset; 
-	}
+	//~ for (int i = 0; i < PropertyCount; ++i)
+	//~ {
+		//~ typicalErrors[eOffset] = abs(0.02 * values[offset]);
+		//~ ++eOffset; 
+	//~ }
 	//~ for (int i = 1; i < ElementCount; ++i)
 	//~ {
 		//~ typicalErrors[eOffset] = 0.04;

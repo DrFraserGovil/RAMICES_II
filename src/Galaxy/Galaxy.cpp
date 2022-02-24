@@ -774,7 +774,7 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 								double observeFrac = Rings[i].SelectionEffect(Mv,age);
 								double count = migrateFrac * Rings[j].Stars.Population[t].Distribution[m].Count * populationWeighting;
 								
-								double crowdingFactor =0.05;
+								double crowdingFactor =0.2;
 	
 								double obs = observeFrac * count * crowdingFactor;
 								
