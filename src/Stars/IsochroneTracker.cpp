@@ -129,7 +129,8 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 
 	std::vector<IsochroneCube> output(mass.size());
 	
-	
+	std::vector<double> ts;
+	std::vector<double> zs;
 	for (int m = 0; m < mass.size(); ++m)
 	{
 		
@@ -173,6 +174,9 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 			double w = tempWeight * (1.0 - zWeight);
 			output[m].Weighting.push_back(w);
 			totalWeighting += w;
+			
+			ts.push_back(CapturedTs[temp_upper_t]);
+			zs.push_back(CapturedZs[lower_z]);
 		}
 		if (Grid[lower_z][temp_lower_t].size() > m_ID)
 		{
@@ -180,6 +184,9 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 			double w = (1.0 - tempWeight) * (1.0 - zWeight);
 			output[m].Weighting.push_back(w);
 			totalWeighting += w;
+			
+			ts.push_back(CapturedTs[temp_lower_t]);
+			zs.push_back(CapturedZs[lower_z]);
 		}
 		
 		//older, low metal
@@ -191,6 +198,8 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 			double w = tempWeight * zWeight;
 			output[m].Weighting.push_back(w);
 			totalWeighting += w;
+			ts.push_back(CapturedTs[temp_upper_t]);
+			zs.push_back(CapturedZs[upper_z]);
 		}
 		if (Grid[upper_z][temp_lower_t].size() > m_ID)
 		{
@@ -198,6 +207,8 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 			double w = (1.0 - tempWeight) * zWeight;
 			output[m].Weighting.push_back(w);
 			totalWeighting += w;
+			ts.push_back(CapturedTs[temp_lower_t]);
+			zs.push_back(CapturedZs[upper_z]);
 		}
 		
 		int n = output[m].Weighting.size();
@@ -213,7 +224,11 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 			output[m].Weighting[q]/=totalWeighting;
 		}
 		
-		
+		std::cout << "For m = " << mm <<"  age = " << logAge << "  z = " << z << " I found the following isochronic data:\n";
+		for (int q = 0; q < n; ++q)
+		{
+			std::cout << "(tau,z) =(" << ts[q] << ", " << zs[q] << "),   w = " << output[m].Weighting[q] << std::endl;
+		}
 	}
 	return output;
 }
