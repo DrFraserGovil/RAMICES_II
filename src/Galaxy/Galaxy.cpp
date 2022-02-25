@@ -695,7 +695,7 @@ void Galaxy::ComputeVisibilityFunction()
 				{
 					for (int n = 0 ; n < Rings[j].Stars.Population[i].Distribution[k].Isochrone.Weighting.size(); ++n)
 					{
-						double vmag = Rings[j].Stars.Population[i].Distribution[k].Isochrone.Data[n][VMag];
+						double vmag = Rings[j].Stars.Population[i].Distribution[k].Isochrone.Data[n]->Properties[VMag];
 						if (vmag < minMv)
 						{
 							minMv = vmag;

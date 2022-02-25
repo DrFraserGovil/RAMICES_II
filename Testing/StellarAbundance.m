@@ -14,10 +14,11 @@ function plotter(files,i)
     for f = files
         g = readtable(f,"ReadVariableNames",true);
         disp("Loaded")
-        cut = g.FeH < -10;
+        cut = g.FeH < -10 ;
         g(cut,:) = [];
         disp("Cut")
-
+        
+        mean(10.^g.TEff)
 
     %     
 %        
@@ -33,8 +34,8 @@ function plotter(files,i)
         
 %         scaling = 
         
-        xDelta = normrnd(0,1,n,1) .*  0.05;
-        yDelta = normrnd(0,1,n,1) .* 0.02;
+        xDelta = normrnd(0,1,n,1) .*  0.0;
+        yDelta = normrnd(0,1,n,1) .* 0.0    ;
 %         scatter(g.FeH,delta,3,g.BirthRadius,'filled')
         
         disp("Plotted 1")
@@ -69,14 +70,14 @@ function plotter(files,i)
         xlabel("[Mg/Fe]");
         ylabel("Counts");
 %         set(gca,'yscale','log')
-          clear x y N xDelta yDelta; 
+%           clear x y N xDelta yDelta; 
     %     scatter(g.FeH,delta,1)
 
     %    
     %    
         nexttile;
         color = g.BMag - g.VMag;
-        histogram2(color(cutter),g.VMag(cutter),200,'FaceColor','flat');
+        histogram2(color(cutter),g.VMag(cutter),200,'FaceColor','flat',"ShowEmptyBins",true);
         set(gca,'ydir','reverse');
         set(gca,'ColorScale','log')
         xlabel("$M_B - M_V$");
@@ -92,7 +93,7 @@ function plotter(files,i)
 
         thickSampler = (g.MeasuredAge < 3);
         z0 = 0.02;
-        kappa = 0.3;
+        kappa = 0.15;
         pow = 0.66;
         
         thickScale = mean( z0 + kappa * g.MeasuredAge(thickSampler).^pow)
@@ -107,6 +108,18 @@ function plotter(files,i)
         ylabel("Outward Migration (kpc)");
         view(2) 
         
+        nexttile(1);
+        sampleCut =  (g.MgH > (0.8 *  g.FeH+ 0.1)) & (g.FeH < -0.6);
+        hold on
+        scatter(x(sampleCut),y(sampleCut));
+        hold off;
+        
+        nexttile(3);
+        hold on;
+        scatter(color(sampleCut),g.VMag(sampleCut),100,'b','filled');
+        hold off;
+        
+        g(sampleCut,:)
     end
 end
     

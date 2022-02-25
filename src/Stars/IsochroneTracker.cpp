@@ -89,141 +89,102 @@ double bounder(double a)
 {
 	return std::min( std::max(0.0,a),1.0);
 }
-std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass, double z, double age)
+
+
+int upperBounder(double val, const std::vector<double> & valArray)
 {
-	int z_ID = 0;
+	int id = 0;
 	bool stillSearching = true;
 	while (stillSearching)
 	{
-		if (CapturedZs[z_ID] > z)
+		if (valArray[id] > val)
 		{
 			stillSearching = false;
 		}
 		else
 		{
-			++z_ID;
-			if (z_ID >= CapturedZs.size())
+			++id;
+			if (id>= valArray.size())
 			{
 				stillSearching = false;
-				z_ID = CapturedZs.size() - 1;
+				id = valArray.size() - 1;
 			}
 		}
 	}
-	double logAge = log10(age) + 9;
-	int t_ID = (logAge - CapturedTs[0])/DeltaLogT;
+	return id;
+}
+
+
+std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass, double z, double age)
+{
+	int z_ID = upperBounder(z,CapturedZs);
 	z_ID = std::min((int)CapturedZs.size()-1, std::max(1,z_ID)); //z_ID is upper bound on Z
-	t_ID = std::min((int)CapturedTs.size()-1, std::max(0,t_ID)); // t_ID is lower bound on time
-	
-	
-	int lower_t = t_ID;
-	int upper_t = t_ID + 1;
 	int lower_z = z_ID - 1;
 	int upper_z = z_ID;
-	
-	double tWeight = (logAge - CapturedTs[lower_t])/(CapturedTs[upper_t] - CapturedTs[lower_t]);
 	double zWeight = (z - CapturedZs[lower_z]) / (CapturedTs[upper_z] - CapturedZs[lower_z]);
+	zWeight = bounder(zWeight);
 	
-	
-	
-	
-
+	int Nt = Param.Catalogue.TemporalSpoofResolution;
+	double ddt = Param.Meta.TimeStep / (Nt- 1);
+	double baseTimeWeighting = 1.0/Nt;
 	std::vector<IsochroneCube> output(mass.size());
 	
-	std::vector<double> ts;
-	std::vector<double> zs;
 	for (int m = 0; m < mass.size(); ++m)
 	{
-		
 		int m_ID = mass[m];
-		double mm = Param.Stellar.MassGrid[m_ID];
-		int temp_upper_t = upper_t;
+		double totalWeight = 0;
 		
-		int a = Grid[lower_z][upper_t].size();
-		int b = Grid[upper_z][upper_t].size();
-		int maxSize = std::max(a,b);
-		int modified = 0;
-		double tempWeight = tWeight;
-		while (maxSize -2<= m_ID)
-		{
-			--temp_upper_t;
-			a = Grid[lower_z][temp_upper_t].size();
-			b = Grid[upper_z][temp_upper_t].size();
-			maxSize = std::max(a,b);
-			++modified;
-			if (temp_upper_t < 1)
-			{
-				maxSize = m_ID + 10;
-			}
-			tempWeight = 0;
-		}
-		
-	
-		
-		temp_upper_t = std::max(1,temp_upper_t);
-		int temp_lower_t = temp_upper_t - 1;
-		
-		
-		
-		//older, low metal
-		
-		
-		double totalWeighting = 0;
-		if (Grid[lower_z][temp_upper_t].size() > m_ID)
-		{
-			output[m].Data.push_back(Grid[lower_z][temp_upper_t][m_ID]);
-			double w = tempWeight * (1.0 - zWeight);
-			output[m].Weighting.push_back(w);
-			totalWeighting += w;
-			
-			ts.push_back(CapturedTs[temp_upper_t]);
-			zs.push_back(CapturedZs[lower_z]);
-		}
-		if (Grid[lower_z][temp_lower_t].size() > m_ID)
-		{
-			output[m].Data.push_back(Grid[lower_z][temp_lower_t][m_ID]);
-			double w = (1.0 - tempWeight) * (1.0 - zWeight);
-			output[m].Weighting.push_back(w);
-			totalWeighting += w;
-			
-			ts.push_back(CapturedTs[temp_lower_t]);
-			zs.push_back(CapturedZs[lower_z]);
-		}
-		
-		//older, low metal
-		
-		
-		if (Grid[upper_z][temp_upper_t].size() > m_ID)
-		{
-			output[m].Data.push_back(Grid[upper_z][temp_upper_t][m_ID]);
-			double w = tempWeight * zWeight;
-			output[m].Weighting.push_back(w);
-			totalWeighting += w;
-			ts.push_back(CapturedTs[temp_upper_t]);
-			zs.push_back(CapturedZs[upper_z]);
-		}
-		if (Grid[upper_z][temp_lower_t].size() > m_ID)
-		{
-			output[m].Data.push_back(Grid[upper_z][temp_lower_t][m_ID]);
-			double w = (1.0 - tempWeight) * zWeight;
-			output[m].Weighting.push_back(w);
-			totalWeighting += w;
-			ts.push_back(CapturedTs[temp_lower_t]);
-			zs.push_back(CapturedZs[upper_z]);
-		}
-		
-		int n = output[m].Weighting.size();
-		if (n == 0)
-		{
-			std::cout << "ERROR! Could not find any isochrones for " << mm << "  " << z << "  " << age << "  " << maxSize << "  " << m_ID << std::endl;
-			exit(5);
-		}
-		//~ std::cout << "
 
-		for (int q = 0; q < n; ++q)
+		for (int t = 0; t < Nt; ++t)
 		{
-			output[m].Weighting[q]/=totalWeighting;
+			double mockAge = age + t * ddt;
+			
+			double logAge = log10(mockAge) + 9;
+			int t_ID = (logAge - CapturedTs[0])/DeltaLogT;
+			t_ID = std::min((int)CapturedTs.size()-2, std::max(3,t_ID)); // t_ID is lower bound on time
+			int lower_t = t_ID;
+			int upper_t = t_ID + 1;
+			
+			double tWeight = (mockAge - pow(10,CapturedTs[lower_t]))/(pow(10,CapturedTs[upper_t]) - pow(10,CapturedTs[lower_t]));
+			tWeight = bounder(tWeight);
+			
+			if (Grid[lower_z][upper_t].size() > m_ID)
+			{
+				output[m].Data.push_back(&Grid[lower_z][upper_t][m_ID]);
+				double w = (1.0 - zWeight) * tWeight * baseTimeWeighting;
+				output[m].Weighting.push_back(w);
+				totalWeight += w;
+			}
+			if (Grid[lower_z][lower_t].size() > m_ID)
+			{
+				output[m].Data.push_back(&Grid[lower_z][lower_t][m_ID]);
+				double w = (1.0 - zWeight) * (1.0-tWeight) * baseTimeWeighting;
+				output[m].Weighting.push_back(w);
+				totalWeight += w;
+			}
+			if (Grid[upper_z][upper_t].size() > m_ID)
+			{
+				output[m].Data.push_back(&Grid[upper_z][upper_t][m_ID]);
+				double w = zWeight * tWeight * baseTimeWeighting;
+				output[m].Weighting.push_back(w);
+				totalWeight += w;
+			}
+			if (Grid[upper_z][lower_t].size() > m_ID)
+			{
+				output[m].Data.push_back(&Grid[upper_z][lower_t][m_ID]);
+				double w = zWeight * (1.0-tWeight) * baseTimeWeighting;
+				output[m].Weighting.push_back(w);
+				totalWeight += w;
+			}
 		}
-		
+		//~ n = output[m].Weighting.size();
+
+		//~ int n = output[m].Weighting.size();
+
+		//~ for (int q = 0; q < n; ++q)
+		//~ {
+			//~ output[m].Weighting[q]/=totalWeight;
+		//~ }
 	
 	}
 	return output;
@@ -296,7 +257,7 @@ void IsochroneTracker::ParseFile(std::string file)
 			
 			//~ std::cout << "FLAG CHECK = " << FILE_LINE_VECTOR[9] << std::endl;
 			int flag = std::stoi(FILE_LINE_VECTOR[9]);
-			if (flag < 8)
+			if (flag < 6)
 			{
 				for (int k = 0; k < PropertyCount; ++k)
 				{

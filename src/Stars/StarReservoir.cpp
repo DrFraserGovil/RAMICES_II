@@ -180,10 +180,10 @@ void StarReservoir::AssignMagnitudes()
 	{
 		
 		double age = (Param.Meta.SimulationSteps - 2 - i) * Param.Meta.TimeStep;
-		if (age == 0)
-		{
-			age = Param.Meta.TimeStep / 2; //just to prevent zero age line!
-		}
+		//~ if (age == 0)
+		//~ {
+			//~ age = Param.Meta.TimeStep / 2; //just to prevent zero age line!
+		//~ }
 		double z = Population[i].Metallicity;
 		Population[i].Age = age;
 		int maxAliveIdx = -1;
@@ -214,38 +214,3 @@ void StarReservoir::AssignMagnitudes()
 	}	
 }
 
-//~ void StarReservoir::Observations()
-//~ {
-	//~ std::string output = "";
-	//~ for (int i = 0; i < MigratedPopulation.size(); ++i)
-	//~ {
-		//~ std::vector<int> ms;
-		
-		//~ double z = MigratedPopulation[i].Metallicity;
-		//~ double age = (Param.Meta.SimulationSteps - MigratedPopulation[i].BirthIndex) * Param.Meta.TimeStep; 
-		
-		//~ for (int j = 0; j < MigratedPopulation[i].Distribution.size(); ++j)
-		//~ {
-			//~ if (MigratedPopulation[i].Distribution[j].Count > 0)
-			//~ {
-				//~ ms.push_back(MigratedPopulation[i].Distribution[j].MassIndex);
-			//~ }
-		//~ }
-		//~ std::vector<IsochroneEntry> data = Data.Isochrones.GetProperties(ms,z,age);
-		//~ std::vector<int> entryNumbers(ms.size(),0.0);
-		//~ for (int j = 0; j < ms.size(); ++j)
-		//~ {
-			//~ double entryFraction = 1e-3; //SOMETHING CLEVER HERE!
-			
-			//~ double entryNumber = MigratedPopulation[i].Distribution[j].Count * entryFraction;
-			//~ int intPart = entryNumber;
-		
-			//~ double targetRoll = (entryNumber - intPart);
-			//~ double diceRoll = (double)rand() / RAND_MAX;
-			//~ if (diceRoll < targetRoll)
-			//~ {
-				//~ ++intPart;
-			//~ }
-		//~ }
-	//~ }
-//~ }

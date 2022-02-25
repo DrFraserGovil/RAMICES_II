@@ -392,7 +392,7 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 			int totalObs = 0;
 			for (int entry = 0; entry < n; ++entry)
 			{
-				double Mv = targetPopulation.Distribution[m].Isochrone.Data[entry][VMag];
+				double Mv = targetPopulation.Distribution[m].Isochrone.Data[entry]->Properties[VMag];
 				double populationWeighting = targetPopulation.Distribution[m].Isochrone.Weighting[entry];
 				double observeFrac = SelectionEffect(Mv,age);
 				double count = migrateFrac * targetPopulation.Distribution[m].Count * populationWeighting;
