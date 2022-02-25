@@ -134,26 +134,32 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 		int m_ID = mass[m];
 		double totalWeight = 0;
 		
-
 		for (int t = 0; t < Nt; ++t)
-		{
+		{ 
+		
 			double mockAge = age + t * ddt;
-			
+				
 			double logAge = log10(mockAge) + 9;
 			int t_ID = (logAge - CapturedTs[0])/DeltaLogT;
 			t_ID = std::min((int)CapturedTs.size()-2, std::max(3,t_ID)); // t_ID is lower bound on time
 			int lower_t = t_ID;
 			int upper_t = t_ID + 1;
 			
-			double tWeight = (mockAge - pow(10,CapturedTs[lower_t]))/(pow(10,CapturedTs[upper_t]) - pow(10,CapturedTs[lower_t]));
+			
+			double mockUpAge = pow(10,CapturedTs[upper_t]-9);
+			double mockDownAge = pow(10,CapturedTs[lower_t]-9);
+			double tWeight = (mockAge - mockDownAge)/(mockUpAge - mockDownAge);
 			tWeight = bounder(tWeight);
 			
+	
 			if (Grid[lower_z][upper_t].size() > m_ID)
 			{
 				output[m].Data.push_back(&Grid[lower_z][upper_t][m_ID]);
 				double w = (1.0 - zWeight) * tWeight * baseTimeWeighting;
 				output[m].Weighting.push_back(w);
 				totalWeight += w;
+				output[m].Zs.push_back(CapturedZs[lower_z]);
+				output[m].Ts.push_back(mockUpAge);
 			}
 			if (Grid[lower_z][lower_t].size() > m_ID)
 			{
@@ -161,6 +167,8 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 				double w = (1.0 - zWeight) * (1.0-tWeight) * baseTimeWeighting;
 				output[m].Weighting.push_back(w);
 				totalWeight += w;
+				output[m].Zs.push_back(CapturedZs[lower_z]);
+				output[m].Ts.push_back(mockDownAge);
 			}
 			if (Grid[upper_z][upper_t].size() > m_ID)
 			{
@@ -168,6 +176,8 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 				double w = zWeight * tWeight * baseTimeWeighting;
 				output[m].Weighting.push_back(w);
 				totalWeight += w;
+				output[m].Zs.push_back(CapturedZs[upper_z]);
+				output[m].Ts.push_back(mockUpAge);
 			}
 			if (Grid[upper_z][lower_t].size() > m_ID)
 			{
@@ -175,6 +185,8 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 				double w = zWeight * (1.0-tWeight) * baseTimeWeighting;
 				output[m].Weighting.push_back(w);
 				totalWeight += w;
+				output[m].Zs.push_back(CapturedZs[upper_z]);
+				output[m].Ts.push_back(mockDownAge);
 			}
 		}
 		//~ n = output[m].Weighting.size();

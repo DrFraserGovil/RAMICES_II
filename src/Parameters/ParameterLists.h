@@ -102,7 +102,7 @@ class ResourceValues : public ParamList
 		
 		Argument<std::string> LifeTimeFile = Argument<std::string>("LifetimeGrid.dat","lifetime-file");
 		
-		Argument<std::string> IsochroneRepository = Argument<std::string>("PadovaFiles/","iso-repo");
+		Argument<std::string> IsochroneRepository = Argument<std::string>("NewPadova/","iso-repo");
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		ResourceValues()
 		{

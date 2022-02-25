@@ -28,6 +28,8 @@ struct IsochroneCube
 {
 	std::vector<double> Weighting;
 	std::vector<IsochroneEntry *> Data;
+	std::vector<double> Zs;
+	std::vector<double> Ts;
 };
 class IsochroneTracker
 {

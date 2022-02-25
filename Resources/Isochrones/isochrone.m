@@ -1,7 +1,19 @@
 set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegendInterpreter','latex');
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
-files = "NewPadova/Met_" + ["Minus_20","Minus_15","Minus_10","Minus_05","Minus_01","00","01","025","05"] + ".dat";
+
+dirName = "NewPadova";
+
+fList = dir(dirName);
+fileList =  {fList.name};
+
+files = string.empty;
+for i = 1:length(fileList)
+   if contains(fileList{i},'.dat')
+       files(end+1) = dirName + "/" +   fileList{i};
+   end
+end
+files
 % files = "PadovaFiles/Met_" + ["m22_m18"];
 ZCon = @(m) (1 - 0.2485)./(2.78 + 1/0.0207 * 10.^(-m));
 f = table();

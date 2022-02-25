@@ -34,8 +34,8 @@ function plotter(files,i)
         
 %         scaling = 
         
-        xDelta = normrnd(0,1,n,1) .*  0.0;
-        yDelta = normrnd(0,1,n,1) .* 0.0    ;
+        xDelta = normrnd(0,1,n,1) .*  0.05;
+        yDelta = normrnd(0,1,n,1) .* 0.05;    ;
 %         scatter(g.FeH,delta,3,g.BirthRadius,'filled')
         
         disp("Plotted 1")
@@ -108,18 +108,26 @@ function plotter(files,i)
         ylabel("Outward Migration (kpc)");
         view(2) 
         
-        nexttile(1);
-        sampleCut =  (g.MgH > (0.8 *  g.FeH+ 0.1)) & (g.FeH < -0.6);
-        hold on
-        scatter(x(sampleCut),y(sampleCut));
-        hold off;
         
-        nexttile(3);
-        hold on;
-        scatter(color(sampleCut),g.VMag(sampleCut),100,'b','filled');
-        hold off;
-        
-        g(sampleCut,:)
+%         nexttile;
+%         m= max(g.MeasuredAge);
+%         scatter(m - g.MeasuredAge, g.MgH,5,g.TEff);
+%         colorbar
+%         nexttile(1);
+%         sampleCut =  (g.MgH > (0.8 *  g.FeH+ 0.1)) & (g.FeH < -0.6);
+%         hold on
+%         scatter(x(sampleCut),y(sampleCut));
+%         hold off;
+%         
+%         nexttile(3);
+%         hold on;
+%         scatter(color(sampleCut),g.VMag(sampleCut),100,'b','filled');
+%         hold off;
+%         
+%      
+%      
+%         q = g(sampleCut,:);
+%         q(1:100,:)
     end
 end
     
