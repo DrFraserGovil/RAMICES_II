@@ -13,7 +13,11 @@ struct IsochroneEntry
 	{
 		Properties = std::vector<double>(PropertyCount,0.0);
 	}
-	double & operator[](IsochroneProperties p)
+	double & operator[](IsochroneProperties p) 
+	{
+		return Properties[p];
+	}
+	const double & operator[](IsochroneProperties p) const 
 	{
 		return Properties[p];
 	}

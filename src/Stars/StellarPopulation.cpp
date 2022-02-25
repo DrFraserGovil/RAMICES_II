@@ -233,7 +233,7 @@ std::string StellarPopulation::CatalogueHeaders()
 	}
 	return s;
 }
-std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentRadius, double birthRadius)
+std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentRadius, double birthRadius) const
 {
 	int nManualEntries = 6;
 	std::vector<double> values(nManualEntries+PropertyCount+ElementCount - 1,0.0);

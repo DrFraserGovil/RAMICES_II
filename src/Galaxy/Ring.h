@@ -33,6 +33,7 @@ class Ring
 		
 		void ComputeSelectionFunction(const double brightLimit, const double dimLimit);
 		void MetCheck(const std::string & location);
+		std::string Synthesis(const StellarPopulation & targetPopulation, double migrationFraction, double originRadius, double & totalSynthesised);
 	private:
 		
 		//~ std::vector<GasReservoir> PreviousEnrichment;

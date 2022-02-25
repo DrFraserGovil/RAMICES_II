@@ -74,7 +74,7 @@ void Galaxy::SynthesiseObservations()
 	{
 		nSynth += SynthesisProgress[i];
 	}
-	Data.UrgentLog("\t\tData for " + std::to_string(nSynth) + " stars was synthesised\n");
+	Data.UrgentLog("\t\t" + std::to_string(nSynth) + " stars were synthesised\n");
 	
 	Data.UrgentLog("\tWriting to file.");
 	JSL::initialiseFile(Param.Output.StarFile.Value);
@@ -754,53 +754,8 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 				double migrateFrac = Migrator[t].Grid[i][j];
 				if (migrateFrac > 1e-8)
 				{
-					for (int m = 0; m < Param.Stellar.MassResolution; ++m)
-					{
-						if (Rings[j].Stars.Population[t].Distribution[m].Count > 0)
-						{
-							
-							double d = (Rings[i].Radius - 8.2);
-							
-							
-							double age = Rings[j].Stars.Population[t].Age;
-							int n = Rings[j].Stars.Population[t].Distribution[m].Isochrone.Weighting.size();
-							std::vector<int> numberSynthesised(n,0);
-							double mass = Param.Stellar.MassGrid[m];
-							int totalObs = 0;
-							for (int entry = 0; entry < n; ++entry)
-							{
-								double Mv = Rings[j].Stars.Population[t].Distribution[m].Isochrone.Data[entry][VMag];
-								double populationWeighting = Rings[j].Stars.Population[t].Distribution[m].Isochrone.Weighting[entry];
-								double observeFrac = Rings[i].SelectionEffect(Mv,age);
-								double count = migrateFrac * Rings[j].Stars.Population[t].Distribution[m].Count * populationWeighting;
-								
-								double crowdingFactor =0.2;
-	
-								double obs = observeFrac * count * crowdingFactor;
-								
-								int intObs = obs;
-				
-								double targetRoll = (obs - intObs);
-								double diceRoll = (double)rand() / RAND_MAX;
-								if (diceRoll < targetRoll)
-								{
-									++intObs;
-								}
-								numberSynthesised[entry] = intObs;
-								totalObs += intObs;
-							}
-							
-							
-							if (totalObs > 0)
-							{
-								std::string output = Rings[j].Stars.Population[t].CatalogueEntry(numberSynthesised,m,Rings[i].Radius,Rings[j].Radius);
-								SynthesisOutput[i] += output;
-								SynthesisProgress[threadID] += totalObs;
-							}
-						
-							
-						}
-					}
+					SynthesisOutput[i] += Rings[i].Synthesis(Rings[j].Stars.Population[t], migrateFrac,Rings[j].Radius,SynthesisProgress[threadID]);
+					
 				}
 			}
 			

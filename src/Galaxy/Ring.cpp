@@ -376,3 +376,53 @@ double Ring::SelectionEffect(double Mv, double age)
 	//~ }
 	return val;
 }
+
+std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double migrateFrac, double originRadius, double & totalSynthesised)
+{
+	std::string output = "";
+	double age = targetPopulation.Age;
+	for (int m = 0; m < Param.Stellar.MassResolution; ++m)
+	{
+		//~ std::cout << "\t Mass " << m << std::endl;
+		if (targetPopulation.Distribution[m].Count > 0)
+		{		
+			int n = targetPopulation.Distribution[m].Isochrone.Weighting.size();
+			std::vector<int> numberSynthesised(n,0);
+			double mass = Param.Stellar.MassGrid[m];
+			int totalObs = 0;
+			for (int entry = 0; entry < n; ++entry)
+			{
+				double Mv = targetPopulation.Distribution[m].Isochrone.Data[entry][VMag];
+				double populationWeighting = targetPopulation.Distribution[m].Isochrone.Weighting[entry];
+				double observeFrac = SelectionEffect(Mv,age);
+				double count = migrateFrac * targetPopulation.Distribution[m].Count * populationWeighting;
+				
+				double crowdingFactor =0.2;
+
+				double obs = observeFrac * count * crowdingFactor;
+				
+				int intObs = obs;
+
+				double targetRoll = (obs - intObs);
+				double diceRoll = (double)rand() / RAND_MAX;
+				if (diceRoll < targetRoll)
+				{
+					++intObs;
+				}
+				numberSynthesised[entry] = intObs;
+				totalObs += intObs;
+			}
+			
+			
+			if (totalObs > 0)
+			{
+				output += targetPopulation.CatalogueEntry(numberSynthesised,m,Radius,originRadius);
+				//~ SynthesisOutput[i] += output;
+				totalSynthesised += totalObs;
+			}
+		
+			
+		}
+	}
+	return output;
+}
