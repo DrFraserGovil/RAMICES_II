@@ -7,7 +7,7 @@ CC = g++
 COMMANDLINE_OPTIONS = /dev/ttyS0
 
 # Compiler options during compilation
-COMPILE_OPTIONS =  -std=c++17 -pthread -O3 -w -march=native -Ilibs/JSL
+COMPILE_OPTIONS =  -std=c++17 -pthread -O3 -w -march=native -Ilibs/JSL 
 
 #Header include directories
 HEADERS = 

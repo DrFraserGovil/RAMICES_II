@@ -121,7 +121,8 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 	z_ID = std::min((int)CapturedZs.size()-1, std::max(1,z_ID)); //z_ID is upper bound on Z
 	int lower_z = z_ID - 1;
 	int upper_z = z_ID;
-	double zWeight = (z - CapturedZs[lower_z]) / (CapturedTs[upper_z] - CapturedZs[lower_z]);
+	double zWeight = (z - CapturedZs[lower_z]) / (CapturedZs[upper_z] - CapturedZs[lower_z]);
+	double orig = zWeight;
 	zWeight = bounder(zWeight);
 	
 	int Nt = Param.Catalogue.TemporalSpoofResolution;
@@ -141,7 +142,7 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 				
 			double logAge = log10(mockAge) + 9;
 			int t_ID = (logAge - CapturedTs[0])/DeltaLogT;
-			t_ID = std::min((int)CapturedTs.size()-2, std::max(3,t_ID)); // t_ID is lower bound on time
+			t_ID = std::min((int)CapturedTs.size()-2, std::max(0,t_ID)); // t_ID is lower bound on time
 			int lower_t = t_ID;
 			int upper_t = t_ID + 1;
 			
@@ -151,42 +152,58 @@ std::vector<IsochroneCube> IsochroneTracker::GetProperties(std::vector<int> mass
 			double tWeight = (mockAge - mockDownAge)/(mockUpAge - mockDownAge);
 			tWeight = bounder(tWeight);
 			
-	
+			
 			if (Grid[lower_z][upper_t].size() > m_ID)
 			{
-				output[m].Data.push_back(&Grid[lower_z][upper_t][m_ID]);
-				double w = (1.0 - zWeight) * tWeight * baseTimeWeighting;
-				output[m].Weighting.push_back(w);
+				InterpolantPair E;
+				E.V1 = &Grid[lower_z][upper_t][m_ID];
+				E.Interp = 0;
+				
+				if (Grid[upper_z][upper_t].size() > m_ID)
+				{
+					E.V2 = &Grid[upper_z][upper_t][m_ID];
+					E.Interp = zWeight;
+				}
+				output[m].Data.push_back(E);
+				double w = tWeight * baseTimeWeighting;
 				totalWeight += w;
-				output[m].Zs.push_back(CapturedZs[lower_z]);
-				output[m].Ts.push_back(mockUpAge);
+				output[m].Weighting.push_back(w);
+			}
+			else if (Grid[upper_z][upper_t].size() > m_ID)
+			{
+				InterpolantPair E;
+				E.V1 = &Grid[upper_z][upper_t][m_ID];
+				double w = tWeight * baseTimeWeighting;
+				totalWeight += w;
+				output[m].Data.push_back(E);
+				output[m].Weighting.push_back(w);
+				E.Interp = 0;
 			}
 			if (Grid[lower_z][lower_t].size() > m_ID)
 			{
-				output[m].Data.push_back(&Grid[lower_z][lower_t][m_ID]);
-				double w = (1.0 - zWeight) * (1.0-tWeight) * baseTimeWeighting;
-				output[m].Weighting.push_back(w);
+				InterpolantPair E;
+				E.V1 = &Grid[lower_z][lower_t][m_ID];
+				E.Interp = 0;
+				
+				if (Grid[upper_z][lower_t].size() > m_ID)
+				{
+					E.V2 = &Grid[upper_z][lower_t][m_ID];
+					E.Interp = zWeight;
+				}
+				output[m].Data.push_back(E);
+				double w = (1.0-tWeight) * baseTimeWeighting;
 				totalWeight += w;
-				output[m].Zs.push_back(CapturedZs[lower_z]);
-				output[m].Ts.push_back(mockDownAge);
+				output[m].Weighting.push_back(w);
 			}
-			if (Grid[upper_z][upper_t].size() > m_ID)
+			else if (Grid[upper_z][lower_t].size() > m_ID)
 			{
-				output[m].Data.push_back(&Grid[upper_z][upper_t][m_ID]);
-				double w = zWeight * tWeight * baseTimeWeighting;
-				output[m].Weighting.push_back(w);
+				InterpolantPair E;
+				E.V1 = &Grid[upper_z][lower_t][m_ID];
+				E.Interp = 0;
+				output[m].Data.push_back(E);
+				double w = (1.0-tWeight) * baseTimeWeighting;
 				totalWeight += w;
-				output[m].Zs.push_back(CapturedZs[upper_z]);
-				output[m].Ts.push_back(mockUpAge);
-			}
-			if (Grid[upper_z][lower_t].size() > m_ID)
-			{
-				output[m].Data.push_back(&Grid[upper_z][lower_t][m_ID]);
-				double w = zWeight * (1.0-tWeight) * baseTimeWeighting;
 				output[m].Weighting.push_back(w);
-				totalWeight += w;
-				output[m].Zs.push_back(CapturedZs[upper_z]);
-				output[m].Ts.push_back(mockDownAge);
 			}
 		}
 		//~ n = output[m].Weighting.size();
@@ -277,24 +294,26 @@ void IsochroneTracker::ParseFile(std::string file)
 				}
 				
 				double mass = std::stod(FILE_LINE_VECTOR[3]);
+				//~ std::cout << "Reached mass = " << mass << std::endl;
 				while (mID < Param.Stellar.MassResolution && Param.Stellar.MassGrid[mID] <= mass)
 				{
 					
 					double interp = (Param.Stellar.MassGrid[mID] - prevMass)/(mass - prevMass);
 					
-					NewIso = CurrentIso;
+					//~ NewIso = CurrentIso;
 					//~ if (interp > 0.5)
 					//~ {
 						//~ NewIso = CurrentIso;
 					//~ }
 					
-					//~ for (int k = 0; k < PropertyCount; ++k)
-					//~ {
-						//~ NewIso.Properties[k] = PrevIso.Properties[k] + interp * (CurrentIso.Properties[k] - PrevIso.Properties[k]); 
-					//~ }
+					for (int k = 0; k < PropertyCount; ++k)
+					{
+						NewIso.Properties[k] = PrevIso.Properties[k] + interp * (CurrentIso.Properties[k] - PrevIso.Properties[k]); 
+					}
 					UnsortedGrid[zID][tID].push_back(NewIso);
+					//~ std::cout << "\tI just used " << prevMass << " < " << Param.Stellar.MassGrid[mID] << " < " << mass << " at " << zID << "  " << tID << " with Vmag: " << NewIso[VMag]  << "(interp = " << interp << ")"<< std::endl;
 					++mID;
-					//~ std::cout << "\tI just used " << prevMass << " < " << Param.Stellar.MassGrid[mID] << " < " << mass << " at " << zID << "  " << tID << std::endl;
+					
 				}
 				
 				PrevIso = CurrentIso;

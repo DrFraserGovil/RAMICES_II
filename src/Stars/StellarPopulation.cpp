@@ -222,7 +222,7 @@ void StellarPopulation::FullDeathScan(int time)
 
 std::string StellarPopulation::CatalogueHeaders()
 {
-	std::string s= "Radius, TrueAge, BirthIndex, BirthRadius, MeasuredAge, Mass, Metallicity, IsochroneT, IsochroneZ,IsochroneWeight";
+	std::string s= "Radius, TrueAge, BirthIndex, BirthRadius, MeasuredAge, Mass, Metallicity";
 	for (int i = 1; i < ElementCount; ++i)
 	{
 		s += ", " + Param.Element.ElementNames[i] + "H";
@@ -235,7 +235,7 @@ std::string StellarPopulation::CatalogueHeaders()
 }
 std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentRadius, double birthRadius) const
 {
-	int nManualEntries = 10;
+	int nManualEntries = 7;
 	std::vector<double> values(nManualEntries+PropertyCount+ElementCount - 1,0.0);
 	values[0] = currentRadius;
 	values[1] = Age;
@@ -244,9 +244,6 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 	values[4] = values[1];
 	values[5] = Param.Stellar.MassGrid[m];
 	values[6] = Metallicity;
-	values[7] = 0;
-	values[8] = 0;
-	values[9] = 0;
 	int offset = nManualEntries;
 	
 	double hContent = 1e-99;
@@ -290,12 +287,13 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 	for (int entry = 0; entry < ns.size(); ++entry)
 	{
 		int n = ns[entry];
-		values[9] = Distribution[m].Isochrone.Weighting[entry];
-		values[8] = Distribution[m].Isochrone.Zs[entry];
-		values[7] = Distribution[m].Isochrone.Ts[entry];
+
 		for (int i = 0; i < PropertyCount; ++i)
 		{
-			values[elemOffset + i] = Distribution[m].Isochrone.Data[entry]->Properties[(IsochroneProperties)i]; 
+			
+			const InterpolantPair & e = Distribution[m].Isochrone.Data[entry];
+			
+			values[elemOffset + i] = e[(IsochroneProperties)i];
 			++offset; 
 		}
 		

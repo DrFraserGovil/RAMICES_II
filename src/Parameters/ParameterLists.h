@@ -102,7 +102,7 @@ class ResourceValues : public ParamList
 		
 		Argument<std::string> LifeTimeFile = Argument<std::string>("LifetimeGrid.dat","lifetime-file");
 		
-		Argument<std::string> IsochroneRepository = Argument<std::string>("NewPadova/","iso-repo");
+		Argument<std::string> IsochroneRepository = Argument<std::string>("PadovaFiles/","iso-repo");
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		ResourceValues()
 		{
@@ -356,7 +356,7 @@ class CatalogueValues: public ParamList
 		Argument<int> RadialResolution = Argument<int>(3,"isochrone-radial-resolution");
 		Argument<int> AzimuthalResolution = Argument<int>(360,"isochrone-radial-resolution");
 		
-		Argument<int> TemporalSpoofResolution = Argument<int>(3,"isochrone-temporal-resolution");
+		Argument<int> TemporalSpoofResolution = Argument<int>(10,"isochrone-temporal-resolution");
 		
 		Argument<double> VerticalHeightStart = Argument<double>(0.05,"vertical-height-z0");
 		Argument<double> VerticalHeightScaling = Argument<double>(0.3,"vertical-height-scaling");

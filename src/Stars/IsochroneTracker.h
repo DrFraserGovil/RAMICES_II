@@ -23,11 +23,41 @@ struct IsochroneEntry
 	}
 };
 
+struct InterpolantPair
+{
+	IsochroneEntry * V1;
+	IsochroneEntry * V2;
+	double Interp;
+	InterpolantPair()
+	{
+		Interp =0;
+	}
+	InterpolantPair(IsochroneEntry * e1, IsochroneEntry * e2, double interp): V1(e1), V2(e2), Interp(interp)
+	{
+		
+	}
+	double Value(IsochroneProperties p) const
+	{
+		double v = V1->Properties[p];
+		//~ if (Interp > 0)
+		//~ {
+			//~ double v2 = V2->Properties[p];
+			//~ v = v + Interp * (v2 - v);
+		//~ }
+
+		return v;
+	}
+	double operator[](IsochroneProperties p) const 
+	{
+		double v = Value(p);
+		return v;
+	}
+};
 
 struct IsochroneCube
 {
 	std::vector<double> Weighting;
-	std::vector<IsochroneEntry *> Data;
+	std::vector<InterpolantPair> Data;
 	std::vector<double> Zs;
 	std::vector<double> Ts;
 };

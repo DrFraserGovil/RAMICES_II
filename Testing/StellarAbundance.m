@@ -34,8 +34,8 @@ function plotter(files,i)
         
 %         scaling = 
         
-        xDelta = normrnd(0,1,n,1) .*  0.05;
-        yDelta = normrnd(0,1,n,1) .* 0.03;    ;
+        xDelta = normrnd(0,1,n,1) .*  0.0;
+        yDelta = normrnd(0,1,n,1) .* 0.0;    ;
 %         scatter(g.FeH,delta,3,g.BirthRadius,'filled')
         
         disp("Plotted 1")
@@ -99,35 +99,9 @@ function plotter(files,i)
         thickScale = mean( z0 + kappa * g.MeasuredAge(thickSampler).^pow)
         thinScale = mean(z0 + kappa * g.MeasuredAge(~thickSampler).^pow)
         
-        
-         nexttile;
-        histogram2(g.MeasuredAge, g.Radius - g.BirthRadius,20,'FaceColor','flat',"ShowEmptyBins",true)
-%         set(gca,'zscale','log');
-        set(gca,'colorscale','log')
-        xlabel("Age (Gyr)");
-        ylabel("Outward Migration (kpc)");
-        view(2) 
-        
-        
-%         nexttile;
-%         m= max(g.MeasuredAge);
-%         scatter(m - g.MeasuredAge, g.MgH,5,g.TEff);
-%         colorbar
-%         nexttile(1);
-%         sampleCut =  (g.MgH > (0.8 *  g.FeH+ 0.1)) & (g.FeH < -0.6);
-%         hold on
-%         scatter(x(sampleCut),y(sampleCut));
-%         hold off;
-%         
-%         nexttile(3);
-%         hold on;
-%         scatter(color(sampleCut),g.VMag(sampleCut),100,'b','filled');
-%         hold off;
-%         
-%      
-%      
-%         q = g(sampleCut,:);
-%         q(1:100,:)
+        nexttile;
+		scatter(g.MeasuredAge(cutter),g.ZH(cutter),4,g.VMag(cutter));
+		colorbar
     end
 end
     

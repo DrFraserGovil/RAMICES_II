@@ -282,7 +282,7 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 						double discCut_Degrees = 10.0;
 						double discCut = inPlaneDistance * tan( discCut_Degrees * M_PI/180);
 						
-						double upperCut = inPlaneDistance * tan( 45.0 * M_PI/180);
+						double upperCut = inPlaneDistance * tan( 30.0 * M_PI/180);
 						
 						double bPlus = std::min(upperCut,sqrt(maxDistance * maxDistance - dpSq));
 						double aMinus = sqrt( std::max( minDistance * minDistance - dpSq, discCut * discCut));
@@ -392,7 +392,7 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 			int totalObs = 0;
 			for (int entry = 0; entry < n; ++entry)
 			{
-				double Mv = targetPopulation.Distribution[m].Isochrone.Data[entry]->Properties[VMag];
+				double Mv = targetPopulation.Distribution[m].Isochrone.Data[entry][VMag];
 				double populationWeighting = targetPopulation.Distribution[m].Isochrone.Weighting[entry];
 				double observeFrac = SelectionEffect(Mv,age);
 				double count = migrateFrac * targetPopulation.Distribution[m].Count * populationWeighting;

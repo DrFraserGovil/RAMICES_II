@@ -685,6 +685,7 @@ void Galaxy::ComputeVisibilityFunction()
 	double minMv = 100;
 	double maxMv = -100;
 	
+	Data.UrgentLog("\tAscertaining Magnitude range\n" );
 	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
 	{
 		for (int j = 0; j < Rings.size(); ++j)
@@ -695,7 +696,7 @@ void Galaxy::ComputeVisibilityFunction()
 				{
 					for (int n = 0 ; n < Rings[j].Stars.Population[i].Distribution[k].Isochrone.Weighting.size(); ++n)
 					{
-						double vmag = Rings[j].Stars.Population[i].Distribution[k].Isochrone.Data[n]->Properties[VMag];
+						double vmag = Rings[j].Stars.Population[i].Distribution[k].Isochrone.Data[n][VMag];
 						if (vmag < minMv)
 						{
 							minMv = vmag;
@@ -704,6 +705,8 @@ void Galaxy::ComputeVisibilityFunction()
 						{
 							maxMv = vmag;
 						}
+						
+						
 					}
 				}
 			}
