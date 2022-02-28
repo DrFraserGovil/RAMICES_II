@@ -35,7 +35,7 @@ function plotter(files,i)
 %         scaling = 
         
         xDelta = normrnd(0,1,n,1) .*  0.05;
-        yDelta = normrnd(0,1,n,1) .* 0.05;    ;
+        yDelta = normrnd(0,1,n,1) .* 0.03;    ;
 %         scatter(g.FeH,delta,3,g.BirthRadius,'filled')
         
         disp("Plotted 1")
