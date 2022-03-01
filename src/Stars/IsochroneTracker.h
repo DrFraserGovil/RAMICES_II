@@ -11,7 +11,7 @@ struct IsochroneEntry
 	std::vector<double> Properties;
 	IsochroneEntry()
 	{
-		Properties = std::vector<double>(PropertyCount,0.0);
+		Properties = std::vector<double>(PropertyCount,999.0);
 	}
 	double & operator[](IsochroneProperties p) 
 	{
@@ -21,45 +21,29 @@ struct IsochroneEntry
 	{
 		return Properties[p];
 	}
-};
-
-struct InterpolantPair
-{
-	IsochroneEntry * V1;
-	IsochroneEntry * V2;
-	double Interp;
-	InterpolantPair()
+	int Countify()
 	{
-		Interp =0;
-	}
-	InterpolantPair(IsochroneEntry * e1, IsochroneEntry * e2, double interp): V1(e1), V2(e2), Interp(interp)
-	{
-		
-	}
-	double Value(IsochroneProperties p) const
-	{
-		double v = V1->Properties[p];
-		//~ if (Interp > 0)
-		//~ {
-			//~ double v2 = V2->Properties[p];
-			//~ v = v + Interp * (v2 - v);
-		//~ }
-
-		return v;
-	}
-	double operator[](IsochroneProperties p) const 
-	{
-		double v = Value(p);
-		return v;
+		return Properties.size();
 	}
 };
+
+
 
 struct IsochroneCube
 {
 	std::vector<double> Weighting;
-	std::vector<InterpolantPair> Data;
-	std::vector<double> Zs;
+	std::vector<IsochroneEntry	*> Data;
 	std::vector<double> Ts;
+	std::vector<double> Zs;
+	int Count() const
+	{
+		return Data.size();
+	}
+	double Value(int entry, IsochroneProperties p) const
+	{
+		return Data[entry]->Properties[p];
+	}
+	
 };
 class IsochroneTracker
 {
@@ -69,7 +53,7 @@ class IsochroneTracker
 		IsochroneTracker(const GlobalParameters & param);
 		void Construct();
 		
-		std::vector<IsochroneCube> GetProperties(std::vector<int> mass, double z, double age);
+		IsochroneCube GetProperties(int mass, double z, double age);
 		
 	private:
 		const GlobalParameters Param;

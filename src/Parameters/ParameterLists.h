@@ -163,10 +163,10 @@ class StellarValues : public ParamList
 		Argument<double> MaxStellarMass = Argument<double>(100,"mass-max");
 		
 		//!Maxmimum stellar mass that IMF can generate
-		Argument<double> MinStellarMass = Argument<double>(0.3,"mass-min");
+		Argument<double> MinStellarMass = Argument<double>(0.1,"mass-min");
 		
 		//!Mass of stars which we consider immortal without checking their isochrones
-		Argument<double> ImmortalMass = Argument<double>(0.3,"mass-immortal");
+		Argument<double> ImmortalMass = Argument<double>(0.5,"mass-immortal");
 		
 		//!Number of points along the stellar mass grid
 		Argument<int> MassResolution = Argument<int>(199,"mass-resolution");
@@ -356,7 +356,7 @@ class CatalogueValues: public ParamList
 		Argument<int> RadialResolution = Argument<int>(3,"isochrone-radial-resolution");
 		Argument<int> AzimuthalResolution = Argument<int>(360,"isochrone-radial-resolution");
 		
-		Argument<int> TemporalSpoofResolution = Argument<int>(10,"isochrone-temporal-resolution");
+		Argument<int> TemporalSpoofResolution = Argument<int>(2,"isochrone-temporal-resolution");
 		
 		Argument<double> VerticalHeightStart = Argument<double>(0.05,"vertical-height-z0");
 		Argument<double> VerticalHeightScaling = Argument<double>(0.3,"vertical-height-scaling");

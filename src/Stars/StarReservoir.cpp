@@ -186,31 +186,17 @@ void StarReservoir::AssignMagnitudes()
 		//~ }
 		double z = Population[i].Metallicity;
 		Population[i].Age = age;
-		int maxAliveIdx = -1;
 		for (int j = 0; j < Population[i].Distribution.size(); ++j)
 		{
 			if (Population[i].Distribution[j].Count > 0)
 			{
-				maxAliveIdx = j;
+				int m_ID = Population[i].Distribution[j].MassIndex;
+				Population[i].Distribution[j].Isochrone = Data.Isochrones.GetProperties(m_ID,z,age);
+				
+			
 			}
 		}
-		std::vector<int> ms(maxAliveIdx+1);
-		for (int j = 0; j < maxAliveIdx +1; ++j)
-		{
-			ms[j] = j;
-		}
 		
-		if (ms.size() > 0)
-		{
-			
-			std::vector<IsochroneCube> output = Data.Isochrones.GetProperties(ms,z,age);
-			
-			for (int j = 0; j < ms.size(); ++j)
-			{
-				Population[i].Distribution[j].Isochrone = output[j];
-			}
-		
-		}
 	}	
 }
 

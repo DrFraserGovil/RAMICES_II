@@ -386,14 +386,16 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 		//~ std::cout << "\t Mass " << m << std::endl;
 		if (targetPopulation.Distribution[m].Count > 0)
 		{		
-			int n = targetPopulation.Distribution[m].Isochrone.Weighting.size();
+			const IsochroneCube & iso = targetPopulation.Distribution[m].Isochrone;
+			int n = iso.Count();
 			std::vector<int> numberSynthesised(n,0);
 			double mass = Param.Stellar.MassGrid[m];
 			int totalObs = 0;
 			for (int entry = 0; entry < n; ++entry)
 			{
-				double Mv = targetPopulation.Distribution[m].Isochrone.Data[entry][VMag];
-				double populationWeighting = targetPopulation.Distribution[m].Isochrone.Weighting[entry];
+				
+				double Mv = iso.Value(entry,VMag);
+				double populationWeighting = iso.Weighting[entry];
 				double observeFrac = SelectionEffect(Mv,age);
 				double count = migrateFrac * targetPopulation.Distribution[m].Count * populationWeighting;
 				

@@ -128,7 +128,6 @@ void Galaxy::RingEvolve(int timestep,int ringStart, int ringEnd)
 
 void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob type)
 {
-	//~ std::cout << "A new parallel job started at " << timestep << " jobtype = " << type << "  calling " << nOperations << std::endl;
 	int N = Param.Meta.ParallelThreads;
 	int chunkDivisor = ceil((double)nOperations / N);
 	int start = 0;
@@ -338,7 +337,6 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		//check that we do not remove more gas than is actually present
 		double maxDepletion = Param.Migration.MaxStealFraction;
 		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());
-		//~ std::cout << a_factor << "  " << b_factor << "  " << inflowMass <<std::endl;
 				
 		Rings[ring].Gas.TransferFrom(Rings[ring+1].Gas,inflowMass);
 		//if some part of the budget was missed because of the std::min above, then make up the deficit from the IGM
@@ -364,11 +362,8 @@ std::vector<double> IterativeFit(const std::vector<double> & oldDeltas, const do
 		newDeltas[i] = proposal;
 	}
 	
-	//~ double correctionFactor = 0;
-	//~ if (newMass > 0)
-	//~ {
 	double correctionFactor = newMass / (correctedAmount);
-	//~ }
+
 	double sumsum = 0;
 	if (!std::isnan(correctionFactor))
 	{
@@ -463,15 +458,6 @@ void Galaxy::ComputeScattering(int t)
 		
 		LaunchParallelOperation(t,t,Compounding);
 	}
-	//~ std::cout << "Scattering Matrix at " << t << std::endl;
-	//~ for (int i = 0; i < Rings.size(); ++i)
-	//~ {
-		//~ for (int j = 0; j < Rings.size(); ++j)
-		//~ {
-			//~ std::cout << std::setw(15) << Migrator[t].Grid[i][j];
-		//~ }
-		//~ std::cout << std::endl;
-	//~ }
 }
 
 void Galaxy::ScatterYields(int time, int ringstart, int ringend)
@@ -514,13 +500,7 @@ void Galaxy::ScatterYields(int time, int ringstart, int ringend)
 					grabFractionDown = migrator[i][downGrab];
 					const std::vector<GasStream> yield = Rings[downGrab].Stars.YieldsFrom(t);
 					
-					//~ if ( time - t > 10)
-					//~ {
-						//~ std::cout << "Downgrabbing remnant contribution from " << t << " / " << time << " of " << yield[Remnant].ColdMass() << "  " << absorbFrac << std::endl;
-					//~ }
-					//~ std::cout << "\t\tRing " << i << "  is absorbing " << yield[Remnant].ColdMass() << std::endl;
 					Rings[i].Gas.Absorb(yield,absorbFrac*grabFractionDown);
-					//~ std::cout << "\t\tRing " << i << "  now has " << Rings[i].Gas[Remnant].ColdMass() << std::endl;
 				}
 				truncationCheck = std::max(grabFractionUp,grabFractionDown);
 				++distance;
@@ -589,7 +569,6 @@ void Galaxy::SaveState(double t)
 }
 void Galaxy::SaveState_Mass(double t)
 {
-	//~ std::cout << "Attempting mass save " << std::endl;
 	std::stringstream output;
 	if (t == 0)
 	{
@@ -690,13 +669,17 @@ void Galaxy::ComputeVisibilityFunction()
 	{
 		for (int j = 0; j < Rings.size(); ++j)
 		{
-			for (int k = 0; k < Rings[j].Stars.Population[i].Distribution.size(); ++k)
+			const StellarPopulation & population = Rings[j].Stars.Population[i];
+			for (int k = 0; k < population.Distribution.size(); ++k)
 			{
-				if (Rings[j].Stars.Population[i].Distribution[k].Count > 0)
+				if (population.Distribution[k].Count > 0)
 				{
-					for (int n = 0 ; n < Rings[j].Stars.Population[i].Distribution[k].Isochrone.Weighting.size(); ++n)
+					const IsochroneCube & iso = population.Distribution[k].Isochrone;
+					int N = iso.Count();
+					for (int n = 0 ; n < N; ++n)
 					{
-						double vmag = Rings[j].Stars.Population[i].Distribution[k].Isochrone.Data[n][VMag];
+						
+						double vmag = iso.Value(n,VMag);
 						if (vmag < minMv)
 						{
 							minMv = vmag;

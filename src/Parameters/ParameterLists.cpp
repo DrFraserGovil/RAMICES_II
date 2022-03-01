@@ -135,7 +135,7 @@ void StellarValues::Initialise(std::string resourceRoot)
 	MassDeltas = std::vector<double>(MassResolution.Value);
 	//~ double gridWidth = (MaxStellarMass - ImmortalMass)/MassResolution
 	
-	double minStepSize = 0.02;
+	double minStepSize = 0.005;
 	double alpha = stepFraction(minStepSize, MaxStellarMass - ImmortalMass,MassResolution.Value);
 	double sumFactor;
 	if (alpha == 1)
@@ -149,12 +149,15 @@ void StellarValues::Initialise(std::string resourceRoot)
 	double w = (MaxStellarMass - ImmortalMass)/sumFactor;
 	double x = ImmortalMass;
 	
+	//~ std::cout << "The chosen mass grid is: " << std::endl;
 	for (int i = 0; i < MassResolution; ++i)
 	{
+		//~ std::cout <<  x << " -> ";
 		x += w/2;
 		MassGrid[i] = x;
 		MassDeltas[i] = w;
 		x += w/2;
+		//~ std::cout << x << std::endl;	
 		w = w * alpha;
 	}
 	

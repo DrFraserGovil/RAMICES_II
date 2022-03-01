@@ -1,6 +1,6 @@
 #!/bin/bash
 #~ declare -a files=("dormant" "dormant_inflow" "quiescent" "active" "active_inflow" "active_diffusion")
-
+set -e
 make
 declare -a files=("active")
 dir="config"

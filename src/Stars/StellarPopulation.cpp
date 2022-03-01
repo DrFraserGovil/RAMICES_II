@@ -291,9 +291,9 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 		for (int i = 0; i < PropertyCount; ++i)
 		{
 			
-			const InterpolantPair & e = Distribution[m].Isochrone.Data[entry];
+			//~ const InterpolantPair & e = Distribution[m].Isochrone.Data[entry];
 			
-			values[elemOffset + i] = e[(IsochroneProperties)i];
+			values[elemOffset + i] = Distribution[m].Isochrone.Value(entry,(IsochroneProperties)i);
 			++offset; 
 		}
 		
