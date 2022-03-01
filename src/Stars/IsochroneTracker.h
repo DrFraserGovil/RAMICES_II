@@ -32,9 +32,7 @@ struct IsochroneEntry
 struct IsochroneCube
 {
 	std::vector<double> Weighting;
-	std::vector<IsochroneEntry	*> Data;
-	std::vector<double> Ts;
-	std::vector<double> Zs;
+	std::vector<IsochroneEntry *> Data;
 	int Count() const
 	{
 		return Data.size();

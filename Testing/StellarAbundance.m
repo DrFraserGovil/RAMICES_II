@@ -4,7 +4,7 @@ set(0,'defaultAxesFontSize',20);
 
 
 % T=tiledlayout(4,2);
-files = "../Output/Pollution/" + ["Active"] + "/StellarCatalogue.dat";
+files = "../Output/Pollution/" + ["Active2"] + "/StellarCatalogue.dat";
 
 plotter(files,1)
 function plotter(files,i)
@@ -34,8 +34,8 @@ function plotter(files,i)
         
 %         scaling = 
         
-        xDelta = normrnd(0,1,n,1) .*  0.02;
-        yDelta = normrnd(0,1,n,1) .* 0.02;    ;
+        xDelta = normrnd(0,1,n,1) .*  0.04;
+        yDelta = normrnd(0,1,n,1) .* 0.02;   
 %         scatter(g.FeH,delta,3,g.BirthRadius,'filled')
         
         disp("Plotted 1")
@@ -48,7 +48,7 @@ function plotter(files,i)
         colorbar
         x = g.FeH + xDelta;
         y = delta + yDelta;
-        [N,X,Y] = histcounts2(x,y,300);
+        [N,X,Y] = histcounts2(x,y,800);
         N = N';
 
 
@@ -77,7 +77,7 @@ function plotter(files,i)
     %    
         nexttile;
         color = g.BMag - g.VMag;
-        histogram2(color(cutter),g.VMag(cutter),200,'FaceColor','flat',"ShowEmptyBins",true);
+        histogram2(color(cutter),g.VMag(cutter),100,'FaceColor','flat',"ShowEmptyBins",true);
         set(gca,'ydir','reverse');
         set(gca,'ColorScale','log')
         xlabel("$M_B - M_V$");
@@ -92,17 +92,18 @@ function plotter(files,i)
 %         set(gca,'yscale','log');
 
         thickSampler = (g.MeasuredAge < 3);
-        z0 = 0.02;
-        kappa = 0.15;
+        z0 = 0.1;
+        kappa = 0.2;
         pow = 0.66;
         
         thickScale = mean( z0 + kappa * g.MeasuredAge(thickSampler).^pow)
         thinScale = mean(z0 + kappa * g.MeasuredAge(~thickSampler).^pow)
         
         nexttile;
-         cutter = cutter &  ( (g.MeasuredAge > 4) & (g.MeasuredAge < 8.2) );
-		scatter(g.MeasuredAge(cutter),g.ZH(cutter),4,g.Mass(cutter));
+         cutter = cutter &  ( (g.MeasuredAge > 4) & (g.MeasuredAge < 8.2) & (g.Mass > 0.8));
+		scatter3(g.MeasuredAge(cutter),g.ZH(cutter),g.Mass(cutter),4,g.VMag(cutter));
 		colorbar
+        view(2)
         
         nexttile;
         histogram(g.Mass)

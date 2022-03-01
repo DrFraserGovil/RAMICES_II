@@ -150,7 +150,7 @@ int upperBounder(double val, const std::vector<double> & valArray)
 }
 
 
-IsochroneCube IsochroneTracker::GetProperties(int m_ID, double z, double age)
+IsochroneCube IsochroneTracker::GetProperties(int massID, double z, double age)
 {
 	//~ age = 0;
 	int z_ID = upperBounder(z,CapturedZs);
@@ -162,77 +162,77 @@ IsochroneCube IsochroneTracker::GetProperties(int m_ID, double z, double age)
 	int Nt = Param.Catalogue.TemporalSpoofResolution;
 	double ddt = Param.Meta.TimeStep / (Nt- 1);
 	double baseTimeWeighting = 1.0/Nt;
-	
+	double baseWeight;
 	IsochroneCube output;
 	output.Data.resize(0);
 	output.Weighting.resize(0);
-
-	for (int t = 0; t < Nt; ++t)
+	int massDistance = Param.Catalogue.MassSpoofResolution;
+	for (int mm = - massDistance; mm <= massDistance; ++mm)
 	{ 
-	
-		double mockAge = age + t * ddt;
-			
-		double logAge = log10(mockAge) + 9;
-		int t_ID = (logAge - CapturedTs[0])/DeltaLogT;
-		t_ID = std::min((int)CapturedTs.size()-2, std::max(3,t_ID)); // t_ID is lower bound on time
-		int lower_t = t_ID;
-		int upper_t = t_ID + 1;
+		int m_ID = mm + massID;
+		baseWeight = baseTimeWeighting * exp( -abs(mm) / Param.Catalogue.MassSpoofDecay);
 		
-		
-		double mockUpAge = pow(10,CapturedTs[upper_t]-9);
-		double mockDownAge = pow(10,CapturedTs[lower_t]-9);
-		double tWeight = (mockAge - mockDownAge)/(mockUpAge - mockDownAge);
-		tWeight = bounder(tWeight);
-		
-		
-		int upper_z_maxAge = Grid[m_ID][upper_z].size();
-		int lower_z_maxAge = Grid[m_ID][lower_z].size();
-		double lowZ = CapturedZs[lower_z];
-		double upZ = CapturedZs[upper_z];
-		if (lower_t < upper_z_maxAge)
+		if (m_ID >= 0 && m_ID < Param.Stellar.MassResolution)
 		{
-			double w = zWeight * (1.0 - tWeight) * baseTimeWeighting;
-			output.Data.push_back(&Grid[m_ID][upper_z][lower_t]);
-			output.Weighting.push_back(w);
-			output.Zs.push_back(upZ);
-			output.Ts.push_back(mockDownAge);
-			if (upper_t < upper_z_maxAge)
-			{
-				w = zWeight * (tWeight) * baseTimeWeighting;
-				output.Data.push_back(&Grid[m_ID][upper_z][upper_t]);
-				output.Weighting.push_back(w);
-				output.Zs.push_back(upZ);
-				output.Ts.push_back(mockUpAge);
-			}
-			else
-			{
-				int s = output.Weighting.size();
-				output.Weighting[s-1] =  zWeight * tWeight * baseTimeWeighting;;
+			//~ std::cout << "Working on " << Param.Stellar.MassGrid[m_ID] << " spoofing for " <<  Param.Stellar.MassGrid[massID] << std::endl;
+			for (int t = 0; t < Nt; ++t)
+			{ 
+			
+				double mockAge = age + t * ddt;
+					
+				double logAge = log10(mockAge) + 9;
+				int t_ID = (logAge - CapturedTs[0])/DeltaLogT;
+				t_ID = std::min((int)CapturedTs.size()-2, std::max(3,t_ID)); // t_ID is lower bound on time
+				int lower_t = t_ID;
+				int upper_t = t_ID + 1;
+				
+				
+				double mockUpAge = pow(10,CapturedTs[upper_t]-9);
+				double mockDownAge = pow(10,CapturedTs[lower_t]-9);
+				double tWeight = (mockAge - mockDownAge)/(mockUpAge - mockDownAge);
+				tWeight = bounder(tWeight);
+				
+				
+				int upper_z_maxAge = Grid[m_ID][upper_z].size();
+				int lower_z_maxAge = Grid[m_ID][lower_z].size();
+				double lowZ = CapturedZs[lower_z];
+				double upZ = CapturedZs[upper_z];
+				if (lower_t < upper_z_maxAge)
+				{
+					double w = zWeight * (1.0 - tWeight) * baseWeight;
+					output.Data.push_back(&Grid[m_ID][upper_z][lower_t]);
+					output.Weighting.push_back(w);
+					if (upper_t < upper_z_maxAge)
+					{
+						w = zWeight * (tWeight) * baseWeight;
+						output.Data.push_back(&Grid[m_ID][upper_z][upper_t]);
+						output.Weighting.push_back(w);
+					}
+					else
+					{
+						int s = output.Weighting.size();
+						output.Weighting[s-1] =  zWeight * tWeight * baseWeight;
+					}	
+				}
+				if (lower_t < lower_z_maxAge)
+				{
+					double w = (1.0 - zWeight) * (1.0 - tWeight) * baseWeight;
+					output.Data.push_back(&Grid[m_ID][lower_z][lower_t]);
+					output.Weighting.push_back(w);
+					if (upper_t < lower_z_maxAge)
+					{				
+						w = (1.0-zWeight) * (tWeight) * baseWeight;
+						output.Data.push_back(&Grid[m_ID][lower_z][upper_t]);
+						output.Weighting.push_back(w);
+					}
+					else
+					{
+						int s = output.Weighting.size();
+						output.Weighting[s-1] = (1.0 - zWeight) * baseWeight;
+					}
+				}
 			}	
 		}
-		if (lower_t < lower_z_maxAge)
-		{
-			double w = (1.0 - zWeight) * (1.0 - tWeight) * baseTimeWeighting;
-			output.Data.push_back(&Grid[m_ID][lower_z][lower_t]);
-			output.Weighting.push_back(w);
-			output.Zs.push_back(lowZ);
-			output.Ts.push_back(mockDownAge);
-			if (upper_t < lower_z_maxAge)
-			{				
-				w = (1.0-zWeight) * (tWeight) * baseTimeWeighting;
-				output.Data.push_back(&Grid[m_ID][lower_z][upper_t]);
-				output.Weighting.push_back(w);
-				output.Zs.push_back(lowZ);
-				output.Ts.push_back(mockUpAge);
-			}
-			else
-			{
-				int s = output.Weighting.size();
-				output.Weighting[s-1] = (1.0 - zWeight) * baseTimeWeighting;;
-			}
-		}
-			
-			
 		
 	}
 	

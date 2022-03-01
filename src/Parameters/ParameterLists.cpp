@@ -135,31 +135,43 @@ void StellarValues::Initialise(std::string resourceRoot)
 	MassDeltas = std::vector<double>(MassResolution.Value);
 	//~ double gridWidth = (MaxStellarMass - ImmortalMass)/MassResolution
 	
-	double minStepSize = 0.005;
-	double alpha = stepFraction(minStepSize, MaxStellarMass - ImmortalMass,MassResolution.Value);
-	double sumFactor;
-	if (alpha == 1)
-	{
-		sumFactor = MassResolution.Value;
-	}
-	else
-	{
-		sumFactor = (pow(alpha,MassResolution.Value) - 1.0)/(alpha - 1);
-	}
-	double w = (MaxStellarMass - ImmortalMass)/sumFactor;
-	double x = ImmortalMass;
+	//~ double minStepSize = 0.001;
+	//~ double alpha = stepFraction(minStepSize, MaxStellarMass - ImmortalMass,MassResolution.Value);
+	//~ double sumFactor;
+	//~ if (alpha == 1)
+	//~ {
+		//~ sumFactor = MassResolution.Value;
+	//~ }
+	//~ else
+	//~ {
+		//~ sumFactor = (pow(alpha,MassResolution.Value) - 1.0)/(alpha - 1);
+	//~ }
+	//~ double w = (MaxStellarMass - ImmortalMass)/sumFactor;
+	//~ double x = ImmortalMass;
 	
 	//~ std::cout << "The chosen mass grid is: " << std::endl;
+	//~ for (int i = 0; i < MassResolution; ++i)
+	//~ {
+		//~ std::cout <<  x << " -> ";
+		//~ x += w/2;
+		//~ MassGrid[i] = x;
+		//~ MassDeltas[i] = w;
+		//~ x += w/2;
+		//~ std::cout << x << std::endl;	
+		//~ w = w * alpha;
+	//~ }
+	std::cout << "The chosen mass grid is: " << std::endl;
+	double deltaLogM = (log10(MaxStellarMass) - log10(ImmortalMass))/(MassResolution);
+	double prevM = ImmortalMass;
 	for (int i = 0; i < MassResolution; ++i)
 	{
-		//~ std::cout <<  x << " -> ";
-		x += w/2;
-		MassGrid[i] = x;
-		MassDeltas[i] = w;
-		x += w/2;
-		//~ std::cout << x << std::endl;	
-		w = w * alpha;
+		double newM = pow(10,log10(prevM) + deltaLogM);
+		MassDeltas[i] = (newM - prevM);
+		MassGrid[i] = (prevM + newM)/2;
+		std::cout << prevM << "->" << newM << std::endl;
+		prevM = newM;
 	}
+	
 	
 	LogZGrid = std::vector<double>(LogZResolution);
 	double zwidth = (MaxLogZ - MinLogZ)/(LogZResolution-1);

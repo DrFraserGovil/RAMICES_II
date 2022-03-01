@@ -399,7 +399,7 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 				double observeFrac = SelectionEffect(Mv,age);
 				double count = migrateFrac * targetPopulation.Distribution[m].Count * populationWeighting;
 				
-				double crowdingFactor =0.2;
+				double crowdingFactor =0.1;
 
 				double obs = observeFrac * count * crowdingFactor;
 				
