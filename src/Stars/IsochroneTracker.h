@@ -1,11 +1,45 @@
 #pragma once
 #include "../Parameters/GlobalParameters.h"
-#include "Isochrone.h"
 #include <filesystem>
 #include <random>
 
 
+enum IsochroneProperties {logL,BolometricMag, UMag,BMag,VMag, RMag,IMag,JMag, HMag,KMag, TEff, Logg, PropertyCount};
+const std::vector<std::string> PropertyNames = {"logL", "BolometricMag", "UMag","BMag","VMag", "RMag","IMag","JMag","HMag","KMag","TEff","Logg"};
+struct IsochroneEntry
+{
+	std::vector<double> Properties;
+	IsochroneEntry()
+	{
+		Properties = std::vector<double>(PropertyCount,999.0);
+	}
+	double & operator[](IsochroneProperties p) 
+	{
+		return Properties[p];
+	}
+	const double & operator[](IsochroneProperties p) const 
+	{
+		return Properties[p];
+	}
+	int Countify()
+	{
+		return Properties.size();
+	}
+};
+struct IsochroneCube
+{
+	std::vector<double> Weighting;
+	std::vector<IsochroneEntry *> Data;
+	int Count() const
+	{
+		return Data.size();
+	}
+	double Value(int entry, IsochroneProperties p) const
+	{
+		return Data[entry]->Properties[p];
+	}
 
+};
 class IsochroneTracker
 {
 	

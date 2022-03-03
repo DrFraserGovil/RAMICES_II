@@ -124,17 +124,10 @@ IsochroneCube IsochroneTracker::GetProperties(int massID, double z, double age)
 		double sigmaZ = std::min(0.1,abs(logZ)*0.2);
 		double sampledLogZ = NormalSample(logZ,sigmaZ);
 		
-		double sampledAge;
-		if (n == 0)
-		{
-			sampledAge = age;
-		}
-		else
-		{
-			sampledAge = UniformSample(age,age + Param.Meta.TimeStep);
-		}
-		int sampledMass = massID + NormalSample(0,3);
-		sampledMass = std::min(Param.Stellar.MassResolution -1, std::max(0,sampledMass));
+
+		double sampledAge = UniformSample(age,age + Param.Meta.TimeStep);
+		int sampledMass = massID;
+		//~ sampledMass = std::min(Param.Stellar.MassResolution -1, std::max(0,sampledMass));
 		ExtractSample(output,sampledMass, pow(10,sampledLogZ),sampledAge);
 		
 		
@@ -182,107 +175,6 @@ void IsochroneTracker::ExtractSample(IsochroneCube & output, int sampleMass, dou
 	}
 }
 
-/*
-IsochroneCube IsochroneTracker::GetProperties(int massID, double z, double age)
-{
-	//~ age = 0;
-	int z_ID = upperBounder(z,CapturedZs);
-	z_ID = std::min((int)CapturedZs.size()-1, std::max(1,z_ID)); //z_ID is upper bound on Z
-	int lower_z = z_ID - 1;
-	int upper_z = z_ID;
-	double zWeight = bounder( (log10(z) - log10(CapturedZs[lower_z])) / (log10(CapturedZs[upper_z]) - log10(CapturedZs[lower_z])	) );
-	
-	int Nt = Param.Catalogue.TemporalSpoofResolution;
-	double ddt = Param.Meta.TimeStep / (Nt- 1);
-	double baseTimeWeighting = 1.0/Nt;
-	double baseWeight;
-	IsochroneCube output;
-	output.Data.resize(0);
-	output.Weighting.resize(0);
-	int massDistance = Param.Catalogue.MassSpoofResolution;
-	for (int mm = - massDistance; mm <= massDistance; ++mm)
-	{ 
-		int m_ID = mm + massID;
-		baseWeight = baseTimeWeighting * exp( -abs(mm) / Param.Catalogue.MassSpoofDecay);
-		
-		if (m_ID >= 0 && m_ID < Param.Stellar.MassResolution)
-		{
-			//~ std::cout << "Working on " << Param.Stellar.MassGrid[m_ID] << " spoofing for " <<  Param.Stellar.MassGrid[massID] << std::endl;
-			for (int t = 0; t < Nt; ++t)
-			{ 
-			
-				double mockAge = age + t * ddt;
-					
-				double logAge = log10(mockAge) + 9;
-				int t_ID = (logAge - CapturedTs[0])/DeltaLogT;
-				t_ID = std::min((int)CapturedTs.size()-2, std::max(3,t_ID)); // t_ID is lower bound on time
-				int lower_t = t_ID;
-				int upper_t = t_ID + 1;
-				
-				
-				double mockUpAge = pow(10,CapturedTs[upper_t]-9);
-				double mockDownAge = pow(10,CapturedTs[lower_t]-9);
-				double tWeight = (mockAge - mockDownAge)/(mockUpAge - mockDownAge);
-				tWeight = bounder(tWeight);
-				
-				
-				int upper_z_maxAge = Grid[m_ID][upper_z].size();
-				int lower_z_maxAge = Grid[m_ID][lower_z].size();
-				double lowZ = CapturedZs[lower_z];
-				double upZ = CapturedZs[upper_z];
-				if (lower_t < upper_z_maxAge)
-				{
-					double w = zWeight * (1.0 - tWeight) * baseWeight;
-					output.Data.push_back(&Grid[m_ID][upper_z][lower_t]);
-					output.Weighting.push_back(w);
-					if (upper_t < upper_z_maxAge)
-					{
-						w = zWeight * (tWeight) * baseWeight;
-						output.Data.push_back(&Grid[m_ID][upper_z][upper_t]);
-						output.Weighting.push_back(w);
-					}
-					else
-					{
-						int s = output.Weighting.size();
-						output.Weighting[s-1] =  zWeight * tWeight * baseWeight;
-					}	
-				}
-				if (lower_t < lower_z_maxAge)
-				{
-					double w = (1.0 - zWeight) * (1.0 - tWeight) * baseWeight;
-					output.Data.push_back(&Grid[m_ID][lower_z][lower_t]);
-					output.Weighting.push_back(w);
-					if (upper_t < lower_z_maxAge)
-					{				
-						w = (1.0-zWeight) * (tWeight) * baseWeight;
-						output.Data.push_back(&Grid[m_ID][lower_z][upper_t]);
-						output.Weighting.push_back(w);
-					}
-					else
-					{
-						int s = output.Weighting.size();
-						output.Weighting[s-1] = (1.0 - zWeight) * baseWeight;
-					}
-				}
-			}	
-		}
-		
-	}
-	
-	int n = output.Weighting.size();
-	double total = 0;
-	for (int i = 0; i < n; ++i)
-	{
-		total += output.Weighting[i];
-	}
-	for (int i = 0; i < n; ++i)
-	{
-		output.Weighting[i]/=total;
-	}
-	
-	return output;
-}
-*/
 void IsochroneTracker::ParseFile(std::string file)
 {
 
@@ -341,7 +233,7 @@ void IsochroneTracker::ParseFile(std::string file)
 			
 			
 			int flag = std::stoi(FILE_LINE_VECTOR[9]);
-			if (flag < 8 && flag > 0)
+			if (flag < 8)
 			{
 				for (int k = 0; k < PropertyCount; ++k)
 				{
@@ -349,16 +241,26 @@ void IsochroneTracker::ParseFile(std::string file)
 				}
 				
 				double mass = std::stod(FILE_LINE_VECTOR[3]);
+				if (prevMass == 0)
+				{
+					PrevIso = CurrentIso;
+					prevMass = mass*0.999;
+				}
 				while (m_ID < Param.Stellar.MassResolution && Param.Stellar.MassGrid[m_ID] <= mass)
 				{
 					
 					double interp = (Param.Stellar.MassGrid[m_ID] - prevMass)/(mass - prevMass);
 					
 					NewIso = PrevIso;
-					if (interp > 0.5)
+					
+					
+					
+					for (int k = 0; k < PropertyCount; ++k)
 					{
-						NewIso = CurrentIso;
+						IsochroneProperties kk = (IsochroneProperties) k;
+						NewIso[kk] = PrevIso[kk] + interp * (CurrentIso[kk] - PrevIso[kk]);
 					}
+					
 					
 					if (UnsortedGrid[m_ID][z_ID].size() <= t_ID)
 					{

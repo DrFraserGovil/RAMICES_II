@@ -696,6 +696,7 @@ void Galaxy::ComputeVisibilityFunction()
 		}
 	}
 	maxMv = std::min(maxMv,12.0); //stops excess computation of very dim stars
+	minMv = std::max(-3.0,minMv);
 	Data.UrgentLog("\tThe stars in the galaxy range from Mv=" + std::to_string(minMv) + " ->  " +std::to_string(maxMv) + "\n" );
 	DimmestStar = maxMv;
 	BrightestStar = minMv;

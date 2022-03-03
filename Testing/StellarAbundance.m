@@ -34,8 +34,8 @@ function plotter(files,i)
         
 %         scaling = 
         
-        xDelta = normrnd(0,1,n,1) .*  0.0;
-        yDelta = normrnd(0,1,n,1) .* 0.0;   
+        xDelta = normrnd(0,1,n,1) .*  0.02;
+        yDelta = normrnd(0,1,n,1) .* 0.02;   
 %         scatter(g.FeH,delta,3,g.BirthRadius,'filled')
         
         disp("Plotted 1")
@@ -85,8 +85,7 @@ function plotter(files,i)
         colorbar
         view(2);
 
-;
-
+        
         thickSampler = (g.MeasuredAge < 3);
         z0 = 0.1;
         kappa = 0.3;

@@ -33,7 +33,21 @@ function plotEventFile(fileName)
     totalECSN = mset;
     T = tiledlayout(4,2,"TileSpacing","Compact","Padding","Compact");
     c= (jet(nSample));
+    
     colormap(jet);
+    radiusSample = radius([1:2:length(radius)/2]);
+    c2 = jet(length(radiusSample));
+    for i = 1:length(radiusSample)
+        r = radiusSample(i);
+        selector = (f.Radius == r);
+        nexttile(1);
+        hold on;
+        q = f.StarMassFormed(selector);
+        plot(f.Time(selector),q/max(q),'Color',c2(i,:));
+        hold off;
+    end
+    
+    
     for i = 1:nSample
         t = timeset(i);
         ts(end+1) = num2str(t);
@@ -56,10 +70,10 @@ function plotEventFile(fileName)
         
         
 %         divider = f.SurfaceArea(selector);
-        nexttile(1);
-        hold on;
+%         nexttile(1);
+%         hold on;
 %         plot(rs,f.StarMassFormed(selector),'Color',c(i,:));
-        hold off;
+%         hold off;
         nexttile(2);
         hold on;
         plot(rs,ccsn,'Color',c(i,:));
@@ -85,7 +99,7 @@ function plotEventFile(fileName)
     ylabel("Birth Count");
     set(gca,'yscale','log');
     % legend(ts);
-    caxis([0,t]);
+    caxis([min(radiusSample),max(radiusSample)]);
     colorbar;
     grid on;
     
@@ -94,6 +108,8 @@ function plotEventFile(fileName)
     ylabel("CCSN Count");
     set(gca,'yscale','log');
     grid on;
+    colorbar;
+      caxis([0,t]);
 %     ylim([10^4,1r0^6])
     
     nexttile(3);
