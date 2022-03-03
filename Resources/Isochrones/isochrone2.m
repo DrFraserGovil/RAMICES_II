@@ -2,7 +2,7 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 % files = "PadovaFiles/Met_" + ["m22_m18","m17_m13","m13_m09","m09_m05","m04_0","05_35","4_5"] + ".dat";
-files = "PadovaFiles/Met_" + ["m22_m18","m17_m13","m13_m09","m09_m05","m04_0","05_35","4_5"] + ".dat";
+files = "PadovaFiles/Met_" + ["m22_m18"] + ".dat";
 % files = files(2)
 
 f= parseTable(files);
@@ -24,20 +24,20 @@ for i = 1:length(vals)
 end
 
 
-MS = linspace(0.1,10,100)
-zID = length(zs)/2;
+MS = linspace(0.1,100,1000);
+zID = ceil(length(zs)/2);
 
 V = jet(length(MS));
-for m = 1:length(MS)
-    mass = MS(m);
-    mColor = zeros(size(ts));
-    mMag = mColor;
-    mTeff = mMag;
-    mLum = mMag;
-    colLab = mMag;
-    for i = 1:length(ts)
-       t= ts(i);
 
+mColor = zeros(size(MS));
+mMag = mColor;
+mTeff = mMag;
+mLum = mMag;
+colLab = mMag;
+for i = 1:length(ts)
+   t= ts(i);
+    for m = 1:length(MS)
+         mass = MS(m);
     %    for j = round(linspace(1,length(zs),8))
            z = zs(zID);
 
@@ -54,21 +54,17 @@ for m = 1:length(MS)
            mag = sample.Vmag;
            teff = (sample.logTe);
            lum = sample.logL;
-           if m == 1
-           subplot(3,1,1);
-           hold on;
-           plot(color,mag)
-           hold off;
-            set(gca,'ydir','reverse');
-           end
+           
 %            drawnow;
-           mColor(i) = color(I);
-           mMag(i) = mag(I);
-           mTeff(i) = teff(I);
-           mLum(i) = lum(I);
-           colLab(i) = sample.label(I);
+           mColor(m) = color(I);
+           mMag(m) = mag(I);
+           mTeff(m) = teff(I);
+           mLum(m) = lum(I);
+           colLab(m) = sample.label(I);
     end
-
+    subplot(3,1,1);
+    hold on;
+    plot(MS,mMag);
     subplot(3,1,2);
     hold on;
     scatter(mColor,mMag,5,colLab);

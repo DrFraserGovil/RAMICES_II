@@ -2,11 +2,12 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["Pollution/Active"] + "/Mass.dat";
+files = "../Output/" + ["Pollution/Active2"] + "/Mass.dat";
 
-clf;
 for i = 1:length(files)
     figure(i);
+    
+    clf;
     plotMassFile(files(i));
     
 end
@@ -39,6 +40,7 @@ function plotMassFile(fileName)
         selector = (f.Time == t);
         rs = f.Radius(selector);
         cgm = f.ColdGasMass(selector);
+        hgm = f.HotGasMass(selector);
         sgm = f.StellarMass(selector);
         wdm = f.WDMass(selector);
         nsm = f.NSMass(selector);
@@ -47,7 +49,7 @@ function plotMassFile(fileName)
         mtotal(i) = sum(f.TotalMass(selector));
         stotal(i) = sum(sgm);
         ctotal(i) = sum(cgm);
-        htotal(i) = sum(f.HotGasMass(selector));
+        htotal(i) = sum(hgm);
         wdtotal(i) = sum(f.WDMass(selector));
         nstotal(i) = sum(f.NSMass(selector));
         bhtotal(i) = sum(f.BHMass(selector)) + stotal(i) + ctotal(i) + htotal(i) + wdtotal(i) + nstotal(i);
@@ -55,6 +57,7 @@ function plotMassFile(fileName)
         nexttile(1);
         hold on;
         plot(rs,cgm./ f.SurfaceArea(selector),'Color',c(i,:));
+        plot(rs,hgm./ f.SurfaceArea(selector),'Color',c(i,:),'LineStyle','--');
         hold off;
         nexttile(2);
         hold on;

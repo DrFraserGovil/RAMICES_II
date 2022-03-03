@@ -10,6 +10,7 @@ class StarEvents
 		int NSM;
 		int SNIa;
 		int ECSN;
+		double Efficiency;
 		StarEvents();
 		
 		void AddHeaders(std::stringstream & output);

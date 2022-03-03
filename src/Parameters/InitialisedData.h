@@ -31,6 +31,8 @@ class InitialisedData
 	
 		void ProgressBar(int & currentBars, int currentStep, int totalSteps);
 		double NormalDist();
+		double NormalDist(double mu, double sigma);
+		double UniformDist(double lowerBound, double upperBound);
 	private:
 		std::default_random_engine generator;
 		std::normal_distribution<double> distribution;

@@ -34,8 +34,8 @@ function plotter(files,i)
         
 %         scaling = 
         
-        xDelta = normrnd(0,1,n,1) .*  0.04;
-        yDelta = normrnd(0,1,n,1) .* 0.02;   
+        xDelta = normrnd(0,1,n,1) .*  0.0;
+        yDelta = normrnd(0,1,n,1) .* 0.0;   
 %         scatter(g.FeH,delta,3,g.BirthRadius,'filled')
         
         disp("Plotted 1")
@@ -48,7 +48,7 @@ function plotter(files,i)
         colorbar
         x = g.FeH + xDelta;
         y = delta + yDelta;
-        [N,X,Y] = histcounts2(x,y,800);
+        [N,X,Y] = histcounts2(x,y,300);
         N = N';
 
 
@@ -85,31 +85,16 @@ function plotter(files,i)
         colorbar
         view(2);
 
-
-%         nexttile;
-%         histogram(g.Mass)
-%         disp("Plotted 3")
-%         set(gca,'yscale','log');
+;
 
         thickSampler = (g.MeasuredAge < 3);
         z0 = 0.1;
-        kappa = 0.2;
+        kappa = 0.3;
         pow = 0.66;
         
         thickScale = mean( z0 + kappa * g.MeasuredAge(thickSampler).^pow)
         thinScale = mean(z0 + kappa * g.MeasuredAge(~thickSampler).^pow)
         
-        nexttile;
-         cutter = cutter &  ( (g.MeasuredAge > 4) & (g.MeasuredAge < 8.2) & (g.Mass > 0.8));
-		scatter3(g.MeasuredAge(cutter),g.ZH(cutter),g.Mass(cutter),4,g.VMag(cutter));
-		colorbar
-        view(2)
-        
-        nexttile;
-        histogram(g.Mass)
-        set(gca,'yscale','log');
-        set(gca,'xscale','log');
-%         xlim([4,9])
     end
 end
     

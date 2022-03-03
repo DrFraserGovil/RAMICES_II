@@ -10,35 +10,7 @@ void IsochroneTracker::IsoLog(std::string val)
 	}
 }
 
-//gets first id such that y[id] == x. If no such id exists, returns negative value
-template<class T>
-int FindXInY(T x, std::vector<T> y)
-{
-	for (int j = 0; j < y.size(); ++j)
-	{
-		if (abs((y[j] - x)/x) < 1e-6)
-		{
-			return j; 
-		}
-	}
-	return -1;
-}
-template <typename T>
-std::vector<size_t> sortIndices(const std::vector<T> &v) {
 
-  // initialize original index locations
-  std::vector<size_t> idx(v.size());
-  std::iota(idx.begin(), idx.end(), 0);
-
-  // sort indexes based on comparing values in v
-  // using std::stable_sort instead of std::sort
-  // to avoid unnecessary index re-orderings
-  // when v contains elements of equal values 
-  stable_sort(idx.begin(), idx.end(),
-       [&v](size_t i1, size_t i2) {return v[i1] < v[i2];});
-
-  return idx;
-}
 
 
 IsochroneTracker::IsochroneTracker(const GlobalParameters & param): Param(param)
@@ -58,7 +30,7 @@ void IsochroneTracker::Construct()
 
 	Grid.resize(UnsortedGrid.size());
 	
-	std::vector<size_t> sorter = sortIndices(CapturedZs);
+	std::vector<size_t> sorter = JSL::SortIndices(CapturedZs);
 	std::vector<double> zCopy = CapturedZs;
 	for (int j = 0; j < UnsortedGrid.size(); ++j)
 	{
@@ -94,8 +66,8 @@ void IsochroneTracker::Construct()
 	
 	//~ std::cout << "Attempting a test....." << std::endl;
 	//~ std::vector<int> ms = {1,50,150,280};
-	//~ std::vector<double> logZs = {-3,-2,-1,0};
-	//~ std::vector<double> ages = {0,0.01,0.1,1,5,10};
+	//~ std::vector<double> logZs = {-3,-2,-1};
+	//~ std::vector<double> ages = {0,0.1,1,10};
 	
 	//~ for (int m = 0; m < ms.size(); ++m)
 	//~ {
@@ -108,48 +80,109 @@ void IsochroneTracker::Construct()
 			//~ {
 				//~ double age = ages[y];
 				
-				//~ std::cout << "The following properties were retrieved for a star with M=" << mass << ", z = " << Z << " and age " << age << "Gyr" << std::endl;
+				
+				
+				//~ int z_ID = upperBounder(Z,CapturedZs);
+				//~ z_ID = std::min((int)CapturedZs.size()-1, std::max(1,z_ID)); //z_ID is upper bound on Z
+				//~ int lower_z = z_ID - 1;
+				//~ int upper_z = z_ID;
+				//~ int t_Up = Grid[mID][upper_z].size() - 1;
+				//~ int t_Down = Grid[mID][lower_z].size() - 1;
+				
 				//~ IsochroneCube iso = GetProperties(mID,Z,age);
+				//~ int N = iso.Count();
 				
-				
-				//~ for (int n = 0; n < iso.Weighting.size(); ++n)
+				//~ if (N > 0)
 				//~ {
-					//~ std::cout << "\tFrom " << std::setw(10) << iso.Ts[n] << "  " << std::setw(10)  <<iso.Zs[n] << ", with weighting " << std::setw(10) << iso.Weighting[n] << " Vmag = " << iso.Data[n]->Properties[VMag] <<std::endl;
+					
+					//~ std::cout << "The following properties were retrieved for a star with M=" << mass << ", z = " << Z << " and age " << age << "Gyr" << std::endl;
+					//~ std::cout << "\tI predict the max lifetime to be in the range:" <<  pow(10,CapturedTs[std::max(t_Down,t_Up)]-9) << "Gyr" << std::endl;
+					//~ for (int n = 0; n < N; ++n)
+					//~ {
+						//~ std::cout << "\t\tSampled from M =" << std::setw(10) << iso.Ms[n] << ", Z = " << iso.Zs[n] << " Age = " << pow(10,iso.Ts[n]-9) << " Vmag = " << iso.Value(n,VMag)<<std::endl;
+					//~ }
+				//~ }
+				//~ else
+				//~ {
+					//~ std::cout << "No data was available for stars of m=" << mass << ", z = " << Z << " and age " << age << "Gyr" << std::endl;
 				//~ }
 			//~ }
 		//~ }
 	//~ }
-}
-double bounder(double a)
-{
-	return std::min( std::max(0.0,a),1.0);
+
 }
 
 
-int upperBounder(double val, const std::vector<double> & valArray)
+
+IsochroneCube IsochroneTracker::GetProperties(int massID, double z, double age)
 {
-	int id = 0;
-	bool stillSearching = true;
-	while (stillSearching)
+	int N = Param.Catalogue.SampleCount;
+	IsochroneCube output;
+	for (int n = 0; n < N; ++n)
 	{
-		if (valArray[id] > val)
+		double logZ = log10(z);
+		double sigmaZ = std::min(0.1,abs(logZ)*0.2);
+		double sampledLogZ = NormalSample(logZ,sigmaZ);
+		
+		double sampledAge;
+		if (n == 0)
 		{
-			stillSearching = false;
+			sampledAge = age;
 		}
 		else
 		{
-			++id;
-			if (id>= valArray.size())
-			{
-				stillSearching = false;
-				id = valArray.size() - 1;
-			}
+			sampledAge = UniformSample(age,age + Param.Meta.TimeStep);
 		}
+		int sampledMass = massID + NormalSample(0,3);
+		sampledMass = std::min(Param.Stellar.MassResolution -1, std::max(0,sampledMass));
+		ExtractSample(output,sampledMass, pow(10,sampledLogZ),sampledAge);
+		
+		
 	}
-	return id;
+	return output;
 }
 
+void IsochroneTracker::ExtractSample(IsochroneCube & output, int sampleMass, double sampleZ, double sampleAge)
+{
+	int z_ID = JSL::UpperBoundLocator(sampleZ,CapturedZs);
+	z_ID = std::min((int)CapturedZs.size()-1, std::max(1,z_ID)); //z_ID is upper bound on Z
+	int lower_z = z_ID - 1;
+	int upper_z = z_ID;
+	double zWeight = JSL::FractionBounder( (log10(sampleZ) - log10(CapturedZs[lower_z])) / (log10(CapturedZs[upper_z]) - log10(CapturedZs[lower_z])	) );
+	if (zWeight < 0.5)
+	{
+		z_ID = lower_z;
+	}
+	double latchedZ = CapturedZs[z_ID];
+	
+	
+	double logAge = log10(sampleAge) + 9;
+	int t_ID = (logAge - CapturedTs[0])/DeltaLogT;
+	t_ID = std::min((int)CapturedTs.size()-2, std::max(0,t_ID)); // t_ID is lower bound on time
+	int lower_t = t_ID;
+	int upper_t = t_ID + 1;
+	
+	
+	double mockUpAge = pow(10,CapturedTs[upper_t]-9);
+	double mockDownAge = pow(10,CapturedTs[lower_t]-9);
+	double tWeight = (sampleAge - mockDownAge)/(mockUpAge - mockDownAge);
+	tWeight = JSL::FractionBounder(tWeight);
+	
+	if (tWeight > 0.5)
+	{
+		t_ID = upper_t;
+	}
+	double latchedTs = CapturedTs[t_ID];
+	double latchedMs = Param.Stellar.MassGrid[sampleMass];
+	
+	
+	if (Grid[sampleMass][z_ID].size() > t_ID)
+	{
+		output.Data.push_back(&Grid[sampleMass][z_ID][t_ID]);
+	}
+}
 
+/*
 IsochroneCube IsochroneTracker::GetProperties(int massID, double z, double age)
 {
 	//~ age = 0;
@@ -249,7 +282,7 @@ IsochroneCube IsochroneTracker::GetProperties(int massID, double z, double age)
 	
 	return output;
 }
-
+*/
 void IsochroneTracker::ParseFile(std::string file)
 {
 
@@ -283,7 +316,7 @@ void IsochroneTracker::ParseFile(std::string file)
 		if (firstChar != "#" && firstChar != "#isochrone")
 		{
 			double z = std::stod(firstChar);
-			int z_ID = FindXInY(z,CapturedZs);
+			int z_ID = JSL::FindXInY(z,CapturedZs);
 			if (z_ID < 0)
 			{
 				//resize
@@ -298,7 +331,7 @@ void IsochroneTracker::ParseFile(std::string file)
 			
 			
 			double time = std::stod(FILE_LINE_VECTOR[2]);
-			int t_ID = FindXInY(time,CapturedTs);
+			int t_ID = JSL::FindXInY(time,CapturedTs);
 			if (t_ID < 0)
 			{
 				CapturedTs.push_back(time);
@@ -348,4 +381,14 @@ void IsochroneTracker::ParseFile(std::string file)
 		}
 	);
 	
+}
+
+double IsochroneTracker::NormalSample(double mu, double sigma)
+{
+	return mu + sigma * distribution(generator);
+}
+double IsochroneTracker::UniformSample(double a, double b)
+{
+	double r = (double)rand() / RAND_MAX;
+	return a + r * (b - a);
 }

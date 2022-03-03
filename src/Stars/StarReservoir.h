@@ -32,7 +32,7 @@ class StarReservoir
 		
 		RemnantPopulation Remnants;
 		
-		double SFR_GasLoss(double surfaceArea);
+		double SFR_GasLoss(double coldMass, double hotMass);
 		const int ParentRing;
 		double ParentArea;
 		double Temp_Mass;

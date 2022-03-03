@@ -244,19 +244,12 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 		double time = t* dt; 
 		double zBar = z0 + kappa * pow(time,tauN);
 		
-		//~ if (printy)
-			//~ std::cout << "\n\n\tEntry for age " << time << " has scale height " << zBar << std::endl;
-		
 		for (int i = 0; i < Nm; ++i)
 		{
 			double Mv = minMv + i * deltaM;
 			
 			double maxDistance = pow(10, (4.0 - Mv)/5);
 			double minDistance = pow(10, (2.0 - Mv)/5);
-			
-			//~ if (printy)
-				//~ std::cout << "\t\tEntry for mag " << Mv << " must lie between " << minDistance << "  and " << maxDistance << std::endl;
-			
 			double val = 0;
 			double normVal = 0;
 			for (int ri = 0; ri < Nr; ++ri)
@@ -298,18 +291,6 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 						{
 							s += 0.5 * (exp( -bMinus/zBar) - exp( - bPlus/zBar));
 						}
-						//~ if (printy)
-						//~ {
-							//~ std::vector<std::string> n = {"r","phi","d_plane", "zCut","discCut","aminus","aplus","bminus","bplus","s"};
-							//~ std::vector<double> v = {r,phi,inPlaneDistance,zCut,discCut,aMinus,aPlus,bMinus,bPlus,s};
-							
-							//~ std::cout << "\t";
-							//~ for (int h = 0; h < n.size(); ++h)
-							//~ {
-								//~ std::cout << std::setw(20) << n[h] + "="  + std::to_string(v[h]);
-							//~ }
-							//~ std::cout << "\n";
-						//~ }
 					}
 					
 					
@@ -319,33 +300,11 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 				val += phiVal;
 			}
 			val /= normVal;
-			
-			//~ if (printy)
-				//~ std::cout << "\t\tGiving a selection value of " << val << std::endl;
 			SelectionGrid[t][i] = val;
 			
 		}
 	}
 	
-	
-	//~ if (RadiusIndex == 99)
-	//~ {
-		//~ std::cout << "Outputting selection grid data for the ring " << Radius << "  " << Width << ": " << std::endl;
-		
-		//~ for (int j = 0; j < Nm; ++j)
-		//~ {
-			//~ for (int i = 0; i < Nt; ++i)
-			//~ {
-			
-				//~ double t = i * dt;
-				//~ double Mv = minMv + j * deltaM;
-				//~ double maxDistance = pow(10, (4.0 - Mv)/5);
-				//~ double minDistance = pow(10, (2.0 - Mv)/5);
-				//~ std::cout << t << "  " << Mv<< "  " << SelectionGrid[i][j] <<"  " << minDistance << "  " << maxDistance << std::endl;
-			//~ }
-		//~ }
-		
-	//~ }
 }
 
 double Ring::SelectionEffect(double Mv, double age)
@@ -395,11 +354,11 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 			{
 				
 				double Mv = iso.Value(entry,VMag);
-				double populationWeighting = iso.Weighting[entry];
+				double populationWeighting = 1.0 / Param.Catalogue.SampleCount;
 				double observeFrac = SelectionEffect(Mv,age);
 				double count = migrateFrac * targetPopulation.Distribution[m].Count * populationWeighting;
 				
-				double crowdingFactor =0.1;
+				double crowdingFactor =0.3;
 
 				double obs = observeFrac * count * crowdingFactor;
 				

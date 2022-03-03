@@ -1,12 +1,13 @@
     set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegendInterpreter','latex');
 set(0,'defaultTextInterpreter','latex');
-set(0,'defaultAxesFontSize',28);
+set(0,'defaultAxesFontSize',20);
 
-files = "../Output/" + ["Pollution/Active"] + "/Events.dat";
+files = "../Output/" + ["Pollution/Active2"] + "/Events.dat";
 
 
 for i = 1:length(files)
-    figure(i);
+    figure(i+1);
+    clf;
     plotEventFile(files(i));
     
 end
@@ -45,7 +46,7 @@ function plotEventFile(fileName)
         agb = f.AGB_Deaths(selector);
         nsm = f.NSM_Events(selector);
         snia = f.ECSN_Events(selector);
-        
+        efficiency = f.FormationEfficiency(selector);
         totalBirth(i) = sum(f.BirthRate(selector));
         totalCCSN(i) = sum(f.CCSNRate(selector));
         totalAGB(i) = sum(f.AGBRate(selector));
@@ -53,10 +54,11 @@ function plotEventFile(fileName)
         totalSNIa(i) = sum(f.SNIaRate(selector));
         totalECSN(i) = sum(f.ECSNRate(selector));
         
+        
 %         divider = f.SurfaceArea(selector);
         nexttile(1);
         hold on;
-        plot(rs,birth,'Color',c(i,:));
+%         plot(rs,f.StarMassFormed(selector),'Color',c(i,:));
         hold off;
         nexttile(2);
         hold on;
@@ -70,7 +72,7 @@ function plotEventFile(fileName)
         
         nexttile(4);
         hold on;
-        plot(rs,snia./ccsn,'Color',c(i,:));
+        plot(rs,efficiency,'Color',c(i,:));
         hold off;
 % 
 %         nexttile(5);
@@ -103,8 +105,8 @@ function plotEventFile(fileName)
     
     nexttile(4);
     xlabel("Central Radius of Ring (kpc)"); 
-    ylabel("SNIa Rate");
-    set(gca,'yscale','log')
+    ylabel("$\eta_{SFR}$");
+    set(gca,'yscale','linear')
     grid on;
     
 %     nexttile(5);

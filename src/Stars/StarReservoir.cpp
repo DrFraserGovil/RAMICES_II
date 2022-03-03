@@ -32,39 +32,65 @@ double integratedSchmidt(double s0, double prefactor,double power, double t)
 		return s0 * exp( - prefactor*t);
 	}
 }
-double StarReservoir::SFR_GasLoss(double density)
+double StarReservoir::SFR_GasLoss(double coldMass, double hotMass)
 {	
+	
+	double initialMass = coldMass;
+	
 	double nBig = Param.Stellar.SchmidtMainPower;
 	double nSmall = Param.Stellar.SchmidtLowPower;
 	double sigmaCut = Param.Stellar.SchmidtDensityCut;
-	double prefactor = Param.Stellar.SchmidtPrefactor * (1+Param.Stellar.FeedbackFactor);
-	double power = nBig;
-	if (density < sigmaCut)
-	{
-		power = nSmall;
-		prefactor *= pow(sigmaCut,nBig - nSmall); // ensures the SFR is continuous
-	}
+	double feedBack = Param.Stellar.FeedbackFactor;
+	double prefactorBig = Param.Stellar.SchmidtPrefactor;	
+	double prefactorSmall = prefactorBig * pow(sigmaCut,nBig - nSmall);
 	//integrates the SFR smoothly over the timestep (including Feedback losses), makes it impossible to losemore gas than you have
 	
-	double gasDensity = integratedSchmidt(density,prefactor,power,Param.Meta.TimeStep);
+	double N = 50;
+	double ddt = Param.Meta.TimeStep/(N);
+	double coldDensity = coldMass/ParentArea;
+	double hotDensity = hotMass/ParentArea;
+
+	for (int n = 0; n < N; ++n)
+	{
+		double power = nBig;
+		double prefactor = prefactorBig;
+		double density = (coldDensity + hotDensity);
+		if (density <= sigmaCut)
+		{
+			power = nSmall;
+			prefactor = prefactorSmall;
+		}
+		double sfr = prefactor * pow(density,power);
+		double heat = feedBack * sfr;
+		hotDensity += heat * ddt;
+		coldDensity -= (heat + sfr ) * ddt;
+		coldDensity = std::max(0.0,coldDensity);
+		//~ std::cout << "\tStep" << n << " has " << coldDensity << "  " << hotDensity << "  " << sfr << "   " << heat << "   " << sfr/coldDensity << "   " << prefactor << "  " << power << "   " << pow(coldDensity,power)/coldDensity << "   " << pow(hotDensity + coldDensity,power)/coldDensity << std::endl;
+	}
 	
-	return density - gasDensity;
+	double amountLost = (initialMass - coldDensity * ParentArea);
+	//~ double sfEfficient = amountLost / (Param.Meta.TimeStep * initialMass * (1.0 + feedBack));
+	//~ double sfMax = 0.8;
+	//~ if (sfEfficient > sfMax)
+	//~ {
+		//~ amountLost = sfMax * (Param.Meta.TimeStep * initialMass * (1.0+feedBack));
+	//~ }
+	amountLost = std::min(0.99 * initialMass, amountLost);
+	return amountLost;
 	
 }
 
 void StarReservoir::Form(GasReservoir & gas)
 {
 	//compute how much cold gas mass is lost to star formation (through stars + feedback)
-	double initMass = gas.ColdMass();
-	double gasSurfaceDensity = gas.Mass() / ParentArea;
-	double gasLossMass = std::max(0.0,ParentArea * SFR_GasLoss(gasSurfaceDensity));
-	gasLossMass = std::min(gas.ColdMass() * 0.5, gasLossMass);
+	const double initMass = gas.ColdMass();
+	double hotMass = gas.HotMass();
+	double gasLossMass = SFR_GasLoss(initMass,hotMass);
 		
 	//compute how much goes to stars vs hot gas
 	double heatFrac = Param.Stellar.FeedbackFactor;
 	double starMassFormed = 1.0/(1.0 + heatFrac) * gasLossMass;
 	double feedbackMass = gasLossMass - starMassFormed;
-	
 	//move the gas around + form the stars
 	gas.Deplete(starMassFormed,0.0);	
 	gas.Heat(feedbackMass); 
@@ -73,7 +99,7 @@ void StarReservoir::Form(GasReservoir & gas)
 	//some accounting for event rate tracking
 	EventRate[PopulationIndex].StarMassFormed += starMassFormed;
 	EventRate[PopulationIndex].NStarsFormed += newStarCount;
-	
+	EventRate[PopulationIndex].Efficiency = starMassFormed / (Param.Meta.TimeStep * initMass);
 	
 	//check that nothing went horribly wrong
 	if (gas.ColdMass() < 0)

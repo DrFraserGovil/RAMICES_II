@@ -356,18 +356,19 @@ class CatalogueValues: public ParamList
 		Argument<int> RadialResolution = Argument<int>(3,"isochrone-radial-resolution");
 		Argument<int> AzimuthalResolution = Argument<int>(360,"isochrone-radial-resolution");
 		
-		Argument<int> TemporalSpoofResolution = Argument<int>(4,"isochrone-temporal-resolution");
-		
-		Argument<int> MassSpoofResolution = Argument<int>(1	,"isochrone-mass-resolution");
-		Argument<double> MassSpoofDecay = Argument<double>(5,"isochrone-mass-decay");
+	
 		
 		Argument<double> VerticalHeightStart = Argument<double>(0.05,"vertical-height-z0");
 		Argument<double> VerticalHeightScaling = Argument<double>(0.3,"vertical-height-scaling");
 		Argument<double> VerticalHeightPower = Argument<double>(0.66,"vertical-height-power");
+		
+		
+		Argument<int> SampleCount = Argument<int>(10,"catalogue-sample");
+
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		CatalogueValues()
 		{
-			argPointers = {&SynthesisActive,&IsochroneTimeStep,&IsochroneMagnitudeResolution,&SolarRadius,&RadialResolution,&AzimuthalResolution,&VerticalHeightStart,&VerticalHeightScaling,&VerticalHeightPower,&TemporalSpoofResolution};
+			argPointers = {&SynthesisActive,&IsochroneTimeStep,&IsochroneMagnitudeResolution,&SolarRadius,&RadialResolution,&AzimuthalResolution,&VerticalHeightStart,&VerticalHeightScaling,&VerticalHeightPower};
 		}
 	
 };
