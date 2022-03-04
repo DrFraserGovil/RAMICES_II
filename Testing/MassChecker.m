@@ -2,7 +2,7 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["Pollution/Active2"] + "/Mass.dat";
+files = "../Output/" + ["Calibration"] + "/Mass.dat";
 
 for i = 1:length(files)
     figure(i);
@@ -66,7 +66,7 @@ function plotMassFile(fileName)
 
         nexttile(3);
         hold on;
-        plot(rs,wdm,'Color',c(i,:));
+        plot(rs,hgm./cgm,'Color',c(i,:));
         hold off;
 
     end
@@ -74,6 +74,7 @@ function plotMassFile(fileName)
     xlabel("Central Radius of Ring (kpc)");
     ylabel("Gas ($10^9M_\odot $ kpc $^{-2}$)");
     set(gca,'yscale','log');
+    ylim([1e-6,1])
     % legend(ts);
     grid on;
     caxis([0,t]);
@@ -82,22 +83,23 @@ function plotMassFile(fileName)
     nexttile(2);
     xlabel("Central Radius of Ring (kpc)");
     ylabel("Stars ($10^9M_\odot$kpc $^{-2}$)");
-    
+     
     trueTop = 25/1000;
     trueBottom = 60/1000;
     w = 0.5;
     sol = 8;
     hold on;
     fill([sol-w/2,sol-w/2,sol+w/2,sol+w/2],[trueBottom,trueTop,trueTop,trueBottom],[0.7,0.7,0.7],'FaceAlpha',0.7);
-    ylim([1e-5,1e1])
+    ylim([1e-6,1])
     hold off;
     set(gca,'yscale','log');
     grid on;
     
     nexttile(3);
     xlabel("Central Radius of Ring (kpc)"); 
-    ylabel("White Dwarfs($10^9M_\odot$kpc $^{-2}$)");
+    ylabel("Hot-Cold Gas Ratio");
     set(gca,'yscale','log')
+%     ylim([1e-6,1])
     grid on;
     nexttile(4);
     
@@ -112,7 +114,7 @@ function plotMassFile(fileName)
     plot(timeset,bhtotal,'LineWidth',lw);
     plot(timeset,mtotal,'LineWidth',4);
     
-    plot(timeset,8 + 4.5*(1-exp(-timeset/0.3)) + 45 * (1 - exp(-timeset/14)),'k')
+%     plot(timeset,8 + 4.5*(1-exp(-timeset/0.3)) + 45 * (1 - exp(-timeset/14)),'k')
     
     % plot(timeset,ctotal+htotal+stotal)
     xlabel("Simulation Time (Gyr)");

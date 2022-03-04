@@ -90,6 +90,15 @@ void Galaxy::SynthesiseObservations()
 //Galactic Constructor
 Galaxy::Galaxy(InitialisedData & data): Data(data), Param(data.Param), IGM(GasReservoir::Primordial(data.Param.Galaxy.IGM_Mass,data.Param))
 {
+	double ddt = 0.1;
+	double t = 0;
+	while (t < 14)
+	{
+		std::cout << t << ", " << GasScaleLength(t) << ";\n";
+		t+=ddt;
+	}
+	
+	
 	int currentRings = 0;
 	
 	Data.UrgentLog("\tMain Galaxy Initialised.\n\tStarting ring population:  ");
@@ -322,7 +331,7 @@ double bilitewskiRatio(double a, double b, double radius, double width, double n
 
 void Galaxy::InsertInfallingGas(int ring, double amount)
 {
-	double oldMass = Rings[ring].Gas.Mass();
+	double oldMass = Rings[ring].Gas.ColdMass();
 	double a_factor  = Param.Migration.InflowParameterA;
 	double b_factor = Param.Migration.InflowParameterB;
 	double remainingMass;
@@ -336,9 +345,9 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		double inflowMass = ratio/(1 + ratio) * amount;
 		//check that we do not remove more gas than is actually present
 		double maxDepletion = Param.Migration.MaxStealFraction;
-		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.Mass());
+		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.ColdMass());
 				
-		Rings[ring].Gas.TransferFrom(Rings[ring+1].Gas,inflowMass);
+		Rings[ring].Gas.TransferColdFrom(Rings[ring+1].Gas,inflowMass);
 		//if some part of the budget was missed because of the std::min above, then make up the deficit from the IGM
 		remainingMass = amount -inflowMass;
 	}
@@ -380,7 +389,7 @@ std::vector<double> IterativeFit(const std::vector<double> & oldDeltas, const do
 void Galaxy::Infall(double t)
 {
 	double Rd = GasScaleLength(t);
-	double oldGas = GasMass();
+	double oldGas = ColdGasMass();
 	double predictedInfall = InfallMass(t);
 	
 	double newGas = oldGas + predictedInfall;
@@ -395,11 +404,11 @@ void Galaxy::Infall(double t)
 		Rings[i].MetCheck("Whilst infall computed");
 		double r = Rings[i].Radius;
 		double w = Rings[i].Width;
-		origMass[i] = Rings[i].Gas.Mass();
+		origMass[i] = Rings[i].Gas.ColdMass();
 		double sigma = PredictSurfaceDensity(r,w,newGas,Rd);
 		double newMass = sigma * 2.0 * pi * r*w;
 		perfectMasses[i] = newMass;
-		perfectDeltas[i] = newMass - Rings[i].Gas.Mass();
+		perfectDeltas[i] = newMass - Rings[i].Gas.ColdMass();
 		if (perfectDeltas[i] < 0)
 		{
 			perfect = false;
@@ -418,7 +427,7 @@ void Galaxy::Infall(double t)
 	for (int i = 0; i < Rings.size(); ++i)
 	{
 		double target = origMass[i] + realDeltas[i];
-		double required = target - Rings[i].Gas.Mass(); // reocmpute mass to account for mass dragged through disc
+		double required = target - Rings[i].Gas.ColdMass(); // reocmpute mass to account for mass dragged through disc
 		InsertInfallingGas(i,required);	
 		
 		//~ Rings[i].MetCheck("After Infall applied " + std::to_string(required));
@@ -540,21 +549,24 @@ void Galaxy::ScatterGas(int time)
 	std::vector<double> oldMasses(n,0.0);
 	for (int i = 0; i < n; ++i)
 	{
-		oldMasses[i] = Rings[i].Gas.ColdMass();
+		oldMasses[i] = Rings[i].Gas.Mass();
 	}
+	
 	for (int i = 0; i < n ; ++i)
 	{
 		
-		int lower = std::max(0,i - Param.Migration.DispersionOrder-1);
-		int upper = std::min(n,i + Param.Migration.DispersionOrder+2);
+		int lower = std::max(0,i - Param.Migration.DispersionOrder-3);
+		int upper = std::min(n,i + Param.Migration.DispersionOrder+3);
+		double keepFraction = 0;
 		for (int j = lower; j < upper; ++j)
 		{
 			if (j != i)
 			{
 				double availableMass = oldMasses[j];
 				double scatteredMass = availableMass * migrator[i][j];
-				scatteredMass = std::min(scatteredMass, 0.95*Rings[j].Gas.ColdMass());
-				Rings[i].Gas.TransferColdFrom(Rings[j].Gas,scatteredMass);
+				scatteredMass = std::min(scatteredMass, 0.99*Rings[j].Gas.Mass());
+				Rings[i].Gas.TransferFrom(Rings[j].Gas,scatteredMass);
+				keepFraction += migrator[j][i];
 			}
 		}
 	}
@@ -577,9 +589,9 @@ void Galaxy::SaveState_Mass(double t)
 	int tt  = round(t/Param.Meta.TimeStep);
 	for (int i = 0; i < Rings.size(); ++i)
 	{
-		double Ms = Rings[i].Stars.AliveMass();
-		double Mc = Rings[i].Gas.ColdMass();
-		double Mh = Rings[i].Gas.HotMass();
+		double Ms = std::max(0.0,Rings[i].Stars.AliveMass());
+		double Mc = std::max(0.0,Rings[i].Gas.ColdMass());
+		double Mh = std::max(0.0,Rings[i].Gas.HotMass());
 		MassReport Mrr = Rings[i].Stars.DeadMass();
 		double Mwd = Mrr.WD/1e9;
 		double Mns = Mrr.NS/1e9;

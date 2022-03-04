@@ -5,10 +5,10 @@ set(0,'defaultAxesFontSize',28);
 figure(1)
 clf;
 % T=tiledlayout(4,2);
-files = "../Output/Pollution/" + ["Active2"] + "/Enrichment_Log_ColdGas.dat";
+files = "../Output/" + ["Calibration"] + "/Enrichment_Log_ColdGas.dat";
 
 T = tiledlayout('flow');
-
+figure(3);
 for file = files
     nexttile;
     file
@@ -29,7 +29,7 @@ f = readtable(fileName,opts);
 fe = (f.Total_Fe);
 h = f.Total_H;
 
-mg = (f.Total_Fe);
+mg = (f.Total_Mg);
 
 
 % scatter(fe-h,mg-fe);

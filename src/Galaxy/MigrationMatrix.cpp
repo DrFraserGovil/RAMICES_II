@@ -83,7 +83,7 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 		for (int j = lower; j < upper; ++j)
 		{
 			Grid[i][j] = std::max(Grid[i][j],0.0);
-			sum += Grid[i][j];
+			sum += Grid[j][i];
 		}
 		//normalise to ensure true stochasticity
 		for (int j = lower; j < upper; ++j)
@@ -175,7 +175,7 @@ void MigrationMatrix::Print()
 		{
 			std::cout << std::setw(15) << Grid[i][k];
 		}
-		
+		std::cout << "\n";
 	}
 	
 	

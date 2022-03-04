@@ -91,6 +91,17 @@ void RemnantPopulation::Decay(int currentTime, std::vector<GasReservoir> & scatt
 			SNIaYield(scatteringReservoir[t],snIa_amount);
 			//~ std::cout << "Added to t = " << t << "  " << snIa_amount << std::endl;
 		}
+		
+		if (timeSince >= Param.Yield.NSM_DelayTime)
+		{
+			double oldNSM = NSMBuffer[t];
+			double decay = exp(-deltaT/Param.Yield.NSM_Scale);
+			NSMBuffer[t] = oldNSM * decay;
+			double nsmReleased = oldNSM * (1.0 - decay);
+			double nsm_Amount = nsmReleased / Param.Yield.NSM_TypicalMass;
+			EventRate.NSM += nsm_Amount;
+			NSMYield(scatteringReservoir[t],nsm_Amount);
+		}
 	}
 }
 

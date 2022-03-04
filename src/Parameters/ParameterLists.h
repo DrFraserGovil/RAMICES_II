@@ -166,7 +166,7 @@ class StellarValues : public ParamList
 		Argument<double> MinStellarMass = Argument<double>(0.1,"mass-min");
 		
 		//!Mass of stars which we consider immortal without checking their isochrones
-		Argument<double> ImmortalMass = Argument<double>(0.5,"mass-immortal");
+		Argument<double> ImmortalMass = Argument<double>(0.3,"mass-immortal");
 		
 		//!Number of points along the stellar mass grid
 		Argument<int> MassResolution = Argument<int>(199,"mass-resolution");
@@ -180,7 +180,7 @@ class StellarValues : public ParamList
 			
 		
 		//!Minimum Z that the ILM(??) can consider
-		Argument<double> MinLogZ = Argument<double>(-7,"logz-min");
+		Argument<double> MinLogZ = Argument<double>(-6,"logz-min");
 		
 		//!Maximum Z that the ILM(??) can consider
 		Argument<double> MaxLogZ = Argument<double>(-0.1,"logz-max");
@@ -207,7 +207,7 @@ class StellarValues : public ParamList
 		Argument<double> SchmidtLowPower = Argument<double>(4.0,"schmidt-low");
 		
 		//! The density cut for the low/high density switchover in Schmidt power law
-		Argument<double> SchmidtDensityCut = Argument<double>(1e-3,"schmidt-cut");
+		Argument<double> SchmidtDensityCut = Argument<double>(0,"schmidt-cut");
 		
 		//! The Schmidt prefactor
 		Argument<double> SchmidtPrefactor = Argument<double>(2,"schmidt-factor");
@@ -261,8 +261,8 @@ class YieldValues : public ParamList
 		Argument<double> ECSN_Fraction = Argument<double>(0,"ecsn-fraction");
 		
 		Argument<double> NSM_DelayTime = Argument<double>(0.02,"nsm-delay");
-		Argument<double> NSM_ActiveFraction = Argument<double>(0.1,"nsm-fraction");
-		Argument<double> NSM_Scale = Argument<double>(100,"nsm-decay");
+		Argument<double> NSM_ActiveFraction = Argument<double>(0.001,"nsm-fraction");
+		Argument<double> NSM_Scale = Argument<double>(10,"nsm-decay");
 		
 	YieldValues()
 	{

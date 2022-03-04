@@ -55,10 +55,10 @@ double StarReservoir::SFR_GasLoss(double coldMass, double hotMass)
 		double power = nBig;
 		double prefactor = prefactorBig;
 		double density = (coldDensity + hotDensity);
-		if (density <= sigmaCut)
+		if (coldDensity <= sigmaCut)
 		{
 			power = nSmall;
-			prefactor = prefactorSmall;
+			prefactor = prefactorBig * pow((sigmaCut + hotDensity),nBig - nSmall);
 		}
 		double sfr = prefactor * pow(density,power);
 		double heat = feedBack * sfr;

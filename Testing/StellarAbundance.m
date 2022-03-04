@@ -25,7 +25,7 @@ function plotter(files,i)
         
         
 %         nexttile;
-        delta = g.MgH - g.FeH;
+        delta = g.EuH - g.FeH;
         cutter = ~((delta > 0.6) | (delta < -0.5) | (g.FeH < -5));
     %     histogram2(g.FeH(cutter),delta(cutter),[20,30])
 

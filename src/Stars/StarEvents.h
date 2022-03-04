@@ -4,12 +4,12 @@ class StarEvents
 {
 	public:
 		double StarMassFormed;
-		int NStarsFormed;
-		int CCSN;
-		int AGBDeaths;
-		int NSM;
-		int SNIa;
-		int ECSN;
+		double NStarsFormed;
+		double CCSN;
+		double AGBDeaths;
+		double NSM;
+		double SNIa;
+		double ECSN;
 		double Efficiency;
 		StarEvents();
 		

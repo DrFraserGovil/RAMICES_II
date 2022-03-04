@@ -2,7 +2,7 @@
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',20);
 
-files = "../Output/" + ["Pollution/Active2"] + "/Events.dat";
+files = "../Output/" + ["Calibration"] + "/Events.dat";
 
 
 for i = 1:length(files)
@@ -35,17 +35,19 @@ function plotEventFile(fileName)
     c= (jet(nSample));
     
     colormap(jet);
-    radiusSample = radius([1:2:length(radius)/2]);
+    radiusSample = radius([1:5:length(radius)]);
     c2 = jet(length(radiusSample));
+     nexttile(1);
     for i = 1:length(radiusSample)
         r = radiusSample(i);
         selector = (f.Radius == r);
-        nexttile(1);
+       
         hold on;
         q = f.StarMassFormed(selector);
         plot(f.Time(selector),q/max(q),'Color',c2(i,:));
         hold off;
     end
+    ylim([1e-1,1]);
     
     
     for i = 1:nSample
@@ -96,7 +98,8 @@ function plotEventFile(fileName)
     end
     nexttile(1);
 %     xlabel("Central Radius of Ring (kpc)");
-    ylabel("Birth Count");
+    ylabel("SFR (normalised)");
+    xlabel("Time (Gyr)")
     set(gca,'yscale','log');
     % legend(ts);
     caxis([min(radiusSample),max(radiusSample)]);
