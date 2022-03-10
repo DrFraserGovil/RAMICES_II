@@ -232,7 +232,7 @@ class YieldValues : public ParamList
 {
 	public:
 		Argument<double> TargetNi56Yield = Argument<double>(0.1,"ideal-ni56");
-		Argument<double> MassOverhang = Argument<double>(2,"yield-mass-overhang");
+		Argument<double> MassOverhang = Argument<double>(5,"yield-mass-overhang");
 		std::vector<std::string> ProcessNames;
 		std::vector<SourceProcess> ProcessTypes;
 		
@@ -416,7 +416,7 @@ class GalaxyValues : public ParamList
 		Argument<double> ScaleLengthDelay = Argument<double>(1.0,"scale-length-delay");
 		
 		//! The speed with which the scale length grows
-		Argument<double> ScaleLengthTimeScale = Argument<double>(2.0,"scale-length-time");
+		Argument<double> ScaleLengthTimeScale = Argument<double>(1.0,"scale-length-time");
 		
 		//! The time at which the scale length stops growing at becomes fixed
 		Argument<double> ScaleLengthFinalTime = Argument<double>(12.0,"scale-length-final");

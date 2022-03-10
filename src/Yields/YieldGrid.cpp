@@ -462,7 +462,7 @@ YieldBracket YieldGrid::GetBracket(int id, double mass, double z, bool overhangi
 	bool upperLax = false;
 	
 	
-	double overhang = Param.Yield.MassOverhang/100;
+	double overhang = Param.Yield.MassOverhang/10;
 	
 	if (overhanging)
 	{

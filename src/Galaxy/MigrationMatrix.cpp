@@ -20,7 +20,7 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 	double totalMass = 0;
 	for (int i = 0; i < n; ++i)
 	{
-		totalMass += mass[i];
+		totalMass = std::max(totalMass,mass[i]);
 	}
 	
 	double kappa = Param.Migration.MarkovDispersionStrength / totalMass;

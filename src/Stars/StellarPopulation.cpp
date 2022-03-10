@@ -80,19 +80,19 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex, GasReservoir
 		double m = Param.Stellar.MassGrid[i];
 		
 		double nStars = NStarsFormed * IMF.Weighting(i);
-		double nOrig = nStars;
-		int truncated = (int)nStars;
+		//~ double nOrig = nStars;
+		//~ int truncated = (int)nStars;
 		
-		double roundingFactor = nStars - truncated;
-		double diceRoll = (double)rand() / RAND_MAX;
-		if (diceRoll > roundingFactor)
-		{
-			nStars = truncated;
-		}
-		else
-		{
-			nStars = truncated + 1;
-		}		
+		//~ double roundingFactor = nStars - truncated;
+		//~ double diceRoll = (double)rand() / RAND_MAX;
+		//~ if (diceRoll > roundingFactor)
+		//~ {
+			//~ nStars = truncated;
+		//~ }
+		//~ else
+		//~ {
+			//~ nStars = truncated + 1;
+		//~ }		
 		budget +=  nStars * m/1e9;
 		
 		int deathIndex = timeIndex + SLF(i,formingMetallicity);

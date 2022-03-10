@@ -2,13 +2,13 @@
 set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegendInterpreter','latex');
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
-figure(1)
+figure(3);
 clf;
 % T=tiledlayout(4,2);
 files = "../Output/" + ["Calibration"] + "/Enrichment_Log_ColdGas.dat";
 
 T = tiledlayout('flow');
-figure(3);
+
 for file = files
     nexttile;
     file
@@ -49,7 +49,7 @@ for i = 1:length(r)
     if i == 40
         [min(feH), max(feH)]
     end
-    delta = f.Total_Eu(selector) - f.Total_Fe(selector);
+    delta = f.Total_Mg(selector) - f.Total_Fe(selector);
     
     hold on;
 %     plot(f.TimeIndex(selector)*0.02, mgSub- hSub,'Color',cs(i,:));

@@ -338,7 +338,7 @@ void Galaxy::InsertInfallingGas(int ring, double amount)
 		//check that we do not remove more gas than is actually present
 		double maxDepletion = Param.Migration.MaxStealFraction;
 		inflowMass = std::min(inflowMass, maxDepletion*Rings[ring+1].Gas.ColdMass());
-				
+		//~ std::cout << inflowMass << std::endl;
 		Rings[ring].Gas.TransferColdFrom(Rings[ring+1].Gas,inflowMass);
 		//if some part of the budget was missed because of the std::min above, then make up the deficit from the IGM
 		remainingMass = amount -inflowMass;

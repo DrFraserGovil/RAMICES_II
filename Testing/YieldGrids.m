@@ -3,8 +3,8 @@ ccsn = readtable(dir + "CCSN_yields.dat");
 agb = readtable(dir + "AGB_yields.dat");
 % ecsn = readtable(dir + "ECSN_yields.dat");
 old = readtable("../Resources/ChemicalData/RalphSavedYields.dat");
-column = "O";
-oldColum = 3 + 4;
+column = "Fe";
+oldColum = 3 + 3;
 overplotter = dir + column + "_ridges_CCSN.dat";
 if column == "Remnant"
     column = column + "Fraction";
@@ -21,15 +21,18 @@ yC = 10.^ccsn.logZ(cut);
 zC = ccsn.(column)(cut);
 
 nexttile;
-% scatter3(xC,yC,zC);
+scatter3(xC,yC,zC);
 tri = delaunay(xC,yC);
 h = trisurf(tri, xC, yC, zC,'LineStyle','None');
+
+
 hold on;
 xA = agb.Mass;
 yA = agb.logZ;
 zA = agb.(column);
 tri = delaunay(xA,yA);
-% h = trisurf(tri, xA, yA, zA,'LineStyle','None');
+
+h = trisurf(tri, xA, yA, zA,'LineStyle','None');
 
 % xE = ecsn.Mass;
 % yE = ecsn.logZ;
@@ -61,4 +64,10 @@ set(gca,'xscale','log');
 set(gca,'yscale','log');
 ylabel("Metallicity $Z$");
 xlabel("Stellar Mass ($M_\odot$)");
+% xlim([8,5])
 c = colorbar;
+ c.Label.String= "Fractional Net Oxygen Yield";
+  c.Label.FontSize = 20;
+    c.Label.Interpreter = "latex";
+     c.TickLabelInterpreter = "latex";
+   
