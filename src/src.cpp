@@ -34,8 +34,16 @@ void Exit()
 }
 int main(int argc, char** argv)
 {
+	for (int i = 0; i < argc; ++i)
+	{
+		std::cout << argv[i] << std::endl;
+	}
+	
 	startTime = std::chrono::system_clock::now();
 	Params.Initialise(argc,argv);
+	
+	
+	std::cout << Params.Yield.SNIa_DelayTime << std::endl;
 	
 	Welcome();
 

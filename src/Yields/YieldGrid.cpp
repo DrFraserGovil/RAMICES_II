@@ -289,6 +289,8 @@ void YieldGrid::CCSN_Initialise()
 	SourcePriority = std::vector<std::vector<int>>(RidgeStorage.size(),basePriority);
 	
 	SourcePriority[Oxygen][Orfeo] = 0;
+	//~ SourcePriority[Oxygen][Limongi] = 0;
+	//~ SourcePriority[Oxygen][Maeder] = 0;
 	SourcePriority[Iron][Limongi] = 0;
 	SourcePriority[Carbon][Maeder] = 0;
 	SourcePriority[Silicon][Orfeo] = -35;
@@ -437,6 +439,12 @@ void YieldGrid::CreateGrid()
 					{
 						Grid[mIndex][zIndex][i] = 0;
 					}
+					
+					//~ if (i == Oxygen && Grid[mIndex][zIndex][i] > 0)
+					//~ {
+						//~ std::cout << "At m = " << mass << "   z = " << z << " I have " << Grid[mIndex][zIndex][i] << std::endl;
+						//~ exit(5);
+					//~ }
 				}
 			}
 			
@@ -454,7 +462,7 @@ YieldBracket YieldGrid::GetBracket(int id, double mass, double z, bool overhangi
 	bool upperLax = false;
 	
 	
-	double overhang = Param.Yield.MassOverhang/10;
+	double overhang = Param.Yield.MassOverhang/100;
 	
 	if (overhanging)
 	{

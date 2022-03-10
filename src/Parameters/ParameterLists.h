@@ -232,7 +232,7 @@ class YieldValues : public ParamList
 {
 	public:
 		Argument<double> TargetNi56Yield = Argument<double>(0.1,"ideal-ni56");
-		Argument<double> MassOverhang = Argument<double>(6,"yield-mass-overhang");
+		Argument<double> MassOverhang = Argument<double>(2,"yield-mass-overhang");
 		std::vector<std::string> ProcessNames;
 		std::vector<SourceProcess> ProcessTypes;
 		

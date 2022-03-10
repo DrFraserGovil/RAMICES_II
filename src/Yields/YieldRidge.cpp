@@ -50,17 +50,14 @@ double YieldBracket::Interpolate(double mass, double z)
 		++highZMass;
 	}
 	
-	double decayScaleLength = 3;
-	
 	
 	double lowZLowMass = LowerRidge.Points[lowZMass].Mass;
 	double lowZHighMass = LowerRidge.Points[lowZMass+1].Mass;
 	
-
+	
 	double lowZInterp = interp(mass,lowZLowMass,lowZHighMass);
 	
 	double lowZValue = LowerRidge.Points[lowZMass].Yield + lowZInterp * (LowerRidge.Points[lowZMass+1].Yield - LowerRidge.Points[lowZMass].Yield);
-
 	if (sgn(LowerRidge.Points[lowZMass].Yield) == sgn(LowerRidge.Points[lowZMass+1].Yield) && sgn(LowerRidge.Points[lowZMass].Yield) != sgn(lowZValue))
 	{
 		lowZValue = 0;

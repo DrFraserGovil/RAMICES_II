@@ -90,14 +90,6 @@ void Galaxy::SynthesiseObservations()
 //Galactic Constructor
 Galaxy::Galaxy(InitialisedData & data): Data(data), Param(data.Param), IGM(GasReservoir::Primordial(data.Param.Galaxy.IGM_Mass,data.Param))
 {
-	double ddt = 0.1;
-	double t = 0;
-	while (t < 14)
-	{
-		std::cout << t << ", " << GasScaleLength(t) << ";\n";
-		t+=ddt;
-	}
-	
 	
 	int currentRings = 0;
 	

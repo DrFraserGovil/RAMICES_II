@@ -49,7 +49,7 @@ for i = 1:length(r)
     if i == 40
         [min(feH), max(feH)]
     end
-    delta = f.Total_Mg(selector) - f.Total_Fe(selector);
+    delta = f.Total_Eu(selector) - f.Total_Fe(selector);
     
     hold on;
 %     plot(f.TimeIndex(selector)*0.02, mgSub- hSub,'Color',cs(i,:));
