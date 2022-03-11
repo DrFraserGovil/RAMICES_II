@@ -21,7 +21,7 @@ class StarReservoir
 		
 		
 		void Observations();
-		void Form(GasReservoir & gas);
+		void Form(GasReservoir & gas, GasReservoir & igm);
 		void Death(int currentTime);
 		void PrintStatus(int t);
 		const std::vector<GasStream> & YieldsFrom(int t);
@@ -32,7 +32,7 @@ class StarReservoir
 		
 		RemnantPopulation Remnants;
 		
-		double SFR_GasLoss(double coldMass, double hotMass);
+		double SFR_GasLoss(double coldMass, double hotMass,double ejectFactor);
 		const int ParentRing;
 		double ParentArea;
 		double Temp_Mass;

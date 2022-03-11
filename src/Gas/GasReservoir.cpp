@@ -312,7 +312,69 @@ void GasReservoir::TransferColdFrom(GasReservoir & givingGas, double massToMove)
 	}
 
 }
+
+
+void GasReservoir::TransferHotFrom(GasReservoir & givingGas, double massToMove)
+{
+	if (givingGas.HotMass() < massToMove)
+	{
+		
+		std::cout << "Error - you are trying to transfer more hot gas from one reservoir to another than is available" << std::endl;
+		std::cout << massToMove << " > " << givingGas.HotMass() << " = " << (givingGas.HotMass() < massToMove) << std::endl;
+		exit(6); 
+	}
+	double lossFraction = std::min(1.0,massToMove/givingGas.HotMass());
 	
+	
+	
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		SourceProcess proc = (SourceProcess)i;
+		for (int j = 0; j < ElementCount; ++j)
+		{
+			ElementID elem = (ElementID)j;
+			double currentHot = givingGas[proc].Hot(elem);
+			double extractHot = lossFraction * currentHot;
+			
+			givingGas[proc].Hot(elem) -= extractHot;		
+			givingGas[proc].Hot(elem) = std::max(givingGas[proc].Hot(elem),0.0);
+			Components[proc].Hot(elem) += extractHot; 
+		}	
+	}
+
+}
+
+void GasReservoir::TransferAndHeat(GasReservoir & givingGas, double massToMove)	
+{
+	if (givingGas.ColdMass() < massToMove)
+	{
+		
+		std::cout << "Error - you are trying to transfer/heat more cold gas from one reservoir to another than is available" << std::endl;
+		std::cout << massToMove << " > " << givingGas.ColdMass() << " = " << (givingGas.ColdMass() < massToMove) << std::endl;
+		exit(6); 
+	}
+	double lossFraction = std::min(1.0,massToMove/givingGas.ColdMass());
+	
+	
+	
+	for (int i = 0; i < ProcessCount; ++i)
+	{
+		SourceProcess proc = (SourceProcess)i;
+		for (int j = 0; j < ElementCount; ++j)
+		{
+			ElementID elem = (ElementID)j;
+			double currentCold = givingGas[proc].Cold(elem);
+			double extractCold = lossFraction * currentCold;
+			
+			givingGas[proc].Cold(elem) -= extractCold;		
+			givingGas[proc].Cold(elem) = std::max(givingGas[proc].Cold(elem),0.0);
+			
+			
+			//note that I am addign into hot phase --hence transfer AND heat!
+			Components[proc].Hot(elem) += extractCold; 
+		}	
+	}
+}
 double GasReservoir::ColdGasMetallicity() const
 {
 	double Mz = 0;

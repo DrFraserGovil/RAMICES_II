@@ -50,7 +50,7 @@ class Galaxy
 		double GasMass();
 		double ColdGasMass();
 		double StarMass();
-		
+		void IGMOperations();
 
 		double RelicMass();
 		double Mass();

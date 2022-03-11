@@ -15,8 +15,8 @@ void Galaxy::Evolve()
 	int finalStep = Param.Meta.SimulationSteps -1; // intentionally offset by 1!
 	for (int timestep = 0; timestep < finalStep; ++timestep)
 	{
-		//~ std::cout << "Time " << timestep << std::endl;
-		IGM.PassiveCool(Param.Meta.TimeStep,true);
+		//~ std::cout << "Time " << timestep << std::endl
+		IGMOperations();
 		Infall(t);
 		
 		//~ std::cout << "Computing scattering" << std::endl;
@@ -235,9 +235,10 @@ double Galaxy::InfallMass(double t)
 	//I have analytically integrated Mdot between t-Delta and t, just for an additional layer of accuracy at early times
 	double bFast = Param.Galaxy.InfallTime1;
 	double bSlow = Param.Galaxy.InfallTime2;
-	double fastInfall = Param.Galaxy.InfallMass1 * exp(-t/bFast) * (exp(delta / bFast) - 1.0);
-	double slowInfall = Param.Galaxy.InfallMass2 * exp(-t/bSlow) * ( exp(delta/bSlow) - 1.0);
-	
+	//~ double fastInfall = Param.Galaxy.InfallMass1 * exp(-t/bFast) * (exp(delta / bFast) - 1.0);
+	//~ double slowInfall = Param.Galaxy.InfallMass2 * exp(-t/bSlow) * ( exp(delta/bSlow) - 1.0);
+	double fastInfall =  Param.Galaxy.InfallMass1 * exp(-t/bFast) * (1.0 - exp(-delta/bFast));
+	double slowInfall =  Param.Galaxy.InfallMass2 * exp(-t/bSlow) * (1.0 - exp(-delta/bSlow));
 	
 	return fastInfall + slowInfall;
 }
@@ -515,15 +516,11 @@ void Galaxy::ScatterYields(int time, int ringstart, int ringend)
 			
 			if (Param.Galaxy.IGMAbsorbing.Value)
 			{
-				IGM.Absorb(Rings[i].Stars.YieldsFrom(t),1.0 - absorbFrac); //this step might be broken with the parallelisation....
+				Rings[i].IGMBuffer.Absorb(Rings[i].Stars.YieldsFrom(t),1.0 - absorbFrac); 
 			}
 		}
 		
-	}
-	
-	
-
-		
+	}	
 }
 
 void Galaxy::AssignMagnitudes(int time, int ringstart, int ringend)
@@ -764,3 +761,13 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 
 }
 
+void Galaxy::IGMOperations()
+{
+	IGM.PassiveCool(Param.Meta.TimeStep,true);
+	
+	for (int i = 0; i < Rings.size(); ++i)
+	{
+		IGM.Absorb(Rings[i].IGMBuffer);
+		Rings[i].IGMBuffer.Wipe();
+	}
+}

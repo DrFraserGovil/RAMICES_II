@@ -2,11 +2,13 @@
 set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegendInterpreter','latex');
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
+
+% T=tiledlayout(4,2);
+files = "../Output/" + ["Chimney0","Chimney1","Chimney10","Chimney10000"]+ "/Enrichment_Log_ColdGas.dat";
+
+
 figure(3);
 clf;
-% T=tiledlayout(4,2);
-files = "../Output/" + ["Calibration"] + "/Enrichment_Log_ColdGas.dat";
-
 T = tiledlayout('flow');
 
 for file = files
@@ -24,6 +26,11 @@ opts = detectImportOptions(fileName);
 opts.VariableTypes(:) = {'double'};
 
 f = readtable(fileName,opts);
+if (height(f) > 10)
+    f(1:10,:)
+else
+    f
+end
 % f(1:10,:)
 
 fe = (f.Total_Fe);
@@ -50,7 +57,7 @@ for i = 1:length(r)
         [min(feH), max(feH)]
     end
     delta = f.Total_Mg(selector) - f.Total_Fe(selector);
-    
+    t = f.Time(selector);
     hold on;
 %     plot(f.TimeIndex(selector)*0.02, mgSub- hSub,'Color',cs(i,:));
 %     set(gca,'xscale','log')

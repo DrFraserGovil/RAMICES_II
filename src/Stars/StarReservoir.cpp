@@ -32,7 +32,7 @@ double integratedSchmidt(double s0, double prefactor,double power, double t)
 		return s0 * exp( - prefactor*t);
 	}
 }
-double StarReservoir::SFR_GasLoss(double coldMass, double hotMass)
+double StarReservoir::SFR_GasLoss(double coldMass, double hotMass, double ejectFactor)
 {	
 	
 	double initialMass = coldMass;
@@ -62,7 +62,7 @@ double StarReservoir::SFR_GasLoss(double coldMass, double hotMass)
 		}
 		double sfr = prefactor * pow(density,power);
 		double heat = feedBack * sfr;
-		hotDensity += heat * ddt;
+		hotDensity += heat * ddt * (1.0 - ejectFactor);
 		coldDensity -= (heat + sfr ) * ddt;
 		coldDensity = std::max(0.0,coldDensity);
 		//~ std::cout << "\tStep" << n << " has " << coldDensity << "  " << hotDensity << "  " << sfr << "   " << heat << "   " << sfr/coldDensity << "   " << prefactor << "  " << power << "   " << pow(coldDensity,power)/coldDensity << "   " << pow(hotDensity + coldDensity,power)/coldDensity << std::endl;
@@ -80,20 +80,29 @@ double StarReservoir::SFR_GasLoss(double coldMass, double hotMass)
 	
 }
 
-void StarReservoir::Form(GasReservoir & gas)
+void StarReservoir::Form(GasReservoir & gas, GasReservoir & igm)
 {
 	//compute how much cold gas mass is lost to star formation (through stars + feedback)
 	const double initMass = gas.ColdMass();
 	double hotMass = gas.HotMass();
-	double gasLossMass = SFR_GasLoss(initMass,hotMass);
+	double ejectFactor = std::min(1.0,Param.Thermal.FeedbackEjectFactor * (1.0 + Param.Thermal.ChimneyFactor * hotMass/initMass));
+	double gasLossMass = SFR_GasLoss(initMass,hotMass,ejectFactor);
 		
 	//compute how much goes to stars vs hot gas
 	double heatFrac = Param.Stellar.FeedbackFactor;
 	double starMassFormed = 1.0/(1.0 + heatFrac) * gasLossMass;
 	double feedbackMass = gasLossMass - starMassFormed;
+	
+	
+	
+	
+	double heatedMass = feedbackMass * (1.0 - ejectFactor);
+	double ejectedMass = feedbackMass * ejectFactor;
 	//move the gas around + form the stars
 	gas.Deplete(starMassFormed,0.0);	
-	gas.Heat(feedbackMass); 
+	gas.Heat(heatedMass); 
+	igm.TransferAndHeat(gas,ejectedMass);
+
 	int newStarCount = Population[PopulationIndex].FormStars(starMassFormed,PopulationIndex,gas);
 	
 	//some accounting for event rate tracking

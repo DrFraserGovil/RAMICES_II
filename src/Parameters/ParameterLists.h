@@ -288,6 +288,10 @@ class ThermalValues : public ParamList
 		//!Fraction of AGB ejecta which is put into the hot phase
 		Argument<double> HotInjection_AGB = Argument<double>(0.7,"fh-agb");
 		
+		Argument<double> FeedbackEjectFactor = Argument<double>(0,"feedback-eject");
+		
+		Argument<double> ChimneyFactor = Argument<double>(0,"chimney");
+		
 		//!Fraction of SNIa ejecta which is put into the hot phase
 		Argument<double> HotInjection_SNIa = Argument<double>(0.99,"fh-sn1a");
 		
@@ -302,7 +306,7 @@ class ThermalValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		ThermalValues()
 		{
-			argPointers = {&HotInjection_CCSN, &HotInjection_NSM, &HotInjection_SNIa, &GasCoolingTimeScale, &HotInjection_AGB, &NumericalResolution, &DormantHotFraction,&CoolingPower};
+			argPointers = {&HotInjection_CCSN, &HotInjection_NSM, &HotInjection_SNIa, &GasCoolingTimeScale, &HotInjection_AGB, &NumericalResolution, &DormantHotFraction,&CoolingPower, &FeedbackEjectFactor,&ChimneyFactor};
 		}
 };
 
@@ -416,7 +420,7 @@ class GalaxyValues : public ParamList
 		Argument<double> ScaleLengthDelay = Argument<double>(1.0,"scale-length-delay");
 		
 		//! The speed with which the scale length grows
-		Argument<double> ScaleLengthTimeScale = Argument<double>(1.0,"scale-length-time");
+		Argument<double> ScaleLengthTimeScale = Argument<double>(2.0,"scale-length-time");
 		
 		//! The time at which the scale length stops growing at becomes fixed
 		Argument<double> ScaleLengthFinalTime = Argument<double>(12.0,"scale-length-final");
