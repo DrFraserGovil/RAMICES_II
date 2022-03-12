@@ -240,7 +240,33 @@ double Galaxy::InfallMass(double t)
 	double fastInfall =  Param.Galaxy.InfallMass1 * exp(-t/bFast) * (1.0 - exp(-delta/bFast));
 	double slowInfall =  Param.Galaxy.InfallMass2 * exp(-t/bSlow) * (1.0 - exp(-delta/bSlow));
 	
-	return fastInfall + slowInfall;
+	double tau = Param.Galaxy.MergerDelayTime;
+	double mergerInfall = 0;
+	if ( t > tau)
+	{
+		double Mdelta = Param.Galaxy.MergerTurnOnWidth;
+		double b3 = Param.Galaxy.InfallTimeMerger;
+		double alpha = Param.Galaxy.InfallMassMerger / (Mdelta/2 + b3);
+		
+		int N = 10;
+		double ddt = (delta/N);
+		double sum = 0;
+		for (int i =  0; i < N; ++i)
+		{
+			double mockT = t + i * ddt;
+			if (mockT > tau + Mdelta)
+			{
+				sum += exp(- (t - tau - Mdelta)/b3) * alpha * ddt;
+			}
+			else
+			{
+				double x = (t - tau);
+				sum += 30 * alpha/pow(Mdelta,5) * ( pow(x,5)/5 - Mdelta * pow(x,4)/2 + Mdelta*Mdelta * pow(x,3)/3) * ddt ;
+			}
+		}
+		mergerInfall = sum;
+	}
+	return fastInfall + slowInfall + mergerInfall;
 }
 
 double Galaxy::GasMass()

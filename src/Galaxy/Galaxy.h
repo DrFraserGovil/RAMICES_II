@@ -74,4 +74,5 @@ class Galaxy
 		double DimmestStar;
 		double BrightestStar;
 		int ParallelBars = 0;
+		
 };

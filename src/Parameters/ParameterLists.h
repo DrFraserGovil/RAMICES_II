@@ -437,7 +437,13 @@ class GalaxyValues : public ParamList
 		//! The exponential timescale for the second (slow) exponential infall
 		Argument<double> InfallTime2 = Argument<double>(6.0,"b2");
 
-
+		Argument<double> InfallMassMerger = Argument<double>(8,"merger-mass");
+		
+		Argument<double> InfallTimeMerger = Argument<double>(0.4,"merger-timescale");
+		
+		Argument<double> MergerDelayTime = Argument<double>(8,"merger-delay");
+		
+		Argument<double> MergerTurnOnWidth = Argument<double>(0.3,"merger-width");
 		
 		//!maximum fraction which can be removed by SFR + associated feedback 
 		Argument<double> MaxSFRFraction = Argument<double>(0.95,"max-sfr");
@@ -445,7 +451,7 @@ class GalaxyValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		GalaxyValues()
 		{
-			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2,  &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &IGMAbsorbing};
+			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2,  &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &IGMAbsorbing, &InfallMassMerger, & InfallTimeMerger, & MergerDelayTime,&MergerTurnOnWidth};
 		}
 		void Initialise(std::string resourceRoot);
 };

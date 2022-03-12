@@ -4,7 +4,7 @@ set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
 % T=tiledlayout(4,2);
-files = "../Output/" + ["Chimney0","Chimney1","Chimney10","Chimney10000"]+ "/Enrichment_Log_ColdGas.dat";
+files = "../Output/" + ["Merger_Off","Merger_10"]+ "/Enrichment_Log_ColdGas.dat";
 
 
 figure(3);
@@ -42,6 +42,13 @@ mg = (f.Total_Mg);
 % scatter(fe-h,mg-fe);
 r = unique(f.RingRadius);
 r = r(2:end-2);
+
+Nsample = 108;
+Nsample = min(Nsample,length(r));
+
+samplers = round(linspace(1,length(r),Nsample));
+r = r(samplers)
+
 % clf;
 colormap(jet)
 cs = jet(length(r));

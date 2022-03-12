@@ -2,7 +2,7 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["Chimney0","Chimney10","Chimney100","Chimney10000"] + "/Mass.dat";
+files = "../Output/" + ["Merger_Off","Merger_10"] + "/Mass.dat";
 
 for i = 1:length(files)
     figure(i);
