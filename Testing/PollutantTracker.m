@@ -2,10 +2,10 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',23);
 
-files = "../Output/Pollution/" + ["Quiescent","Active","Quiescent_NoInflow","Quiescent_NoDiffusion","Active_NoInflow","Active_NoDiffusion"] + "/Enrichment_Absolute_ColdGas.dat";
-% files = "../Output/Pollute_" + ["NoStars","RadialFlow_NoIGM","RadialFlow"] + "/Enrichment_Absolute_ColdGas.dat";
-names = [ "Quiescent","Active","Quiescent, No Inflow","Quiescent, No Diffusion","Active, No Inflow","Active, No Diffusion"];
-times = [0.01,1,10];
+files = "../Output/Pollutant/" + ["Active","Quiescent","Active_NoInflow","Quiescent_NoInflow","Active_NoDispersion","Quiescent_NoDispersion"] + "/Enrichment_Absolute_ColdGas.dat";
+
+names = [ "Active","Quiescent","Active, No Inflow","Quiescent, No Inflow","Active, No Diffusion","Quiescent, No Diffusion"];
+times = [0.1,3,10];
 
 figure(1);
 clf;
@@ -21,6 +21,22 @@ legend(names,"FontSize",22);
 xlabel(T,"Radius (kpc)","Interpreter","latex","FontSize",fs)
 ylabel(T,"Pollutant Density (Arbitrary units)","Interpreter","latex","FontSize",fs)
 function track(fileName,times)
+
+    cs = colororder;
+    col = cs(1,:);
+    if (contains(fileName,"Inflow"))
+        col = cs(2,:);
+    end
+    if (contains(fileName,"Dispersion"));
+        col = cs(3,:);
+    end
+    style = "-";
+    if (contains(fileName,"Quiescent"))
+        style = "--";
+    end
+    
+
+
     floor = 1e-10;
     opts = detectImportOptions(fileName);
 
@@ -54,7 +70,7 @@ function track(fileName,times)
         end
         v = v/maxVal;
 %         v(v<floor) = floor * 0.8;
-        plot(focus.RingRadius,v,'LineWidth',2);
+        plot(focus.RingRadius,v,style,'Color',col,'LineWidth',2);
 %         plot(focus.RingRadius,focus.Total_H/maxH,':','Color','k','HandleVisibility','Off');
         hold off;
         set(gca,'yscale','log')

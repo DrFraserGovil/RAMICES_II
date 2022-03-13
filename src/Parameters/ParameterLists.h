@@ -437,7 +437,7 @@ class GalaxyValues : public ParamList
 		//! The exponential timescale for the second (slow) exponential infall
 		Argument<double> InfallTime2 = Argument<double>(6.0,"b2");
 
-		Argument<double> InfallMassMerger = Argument<double>(8,"merger-mass");
+		Argument<double> InfallMassMerger = Argument<double>(0,"merger-mass");
 		
 		Argument<double> InfallTimeMerger = Argument<double>(0.4,"merger-timescale");
 		
