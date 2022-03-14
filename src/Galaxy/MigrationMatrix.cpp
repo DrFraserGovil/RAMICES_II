@@ -23,34 +23,32 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 		totalMass = std::max(totalMass,mass[i]);
 	}
 	
-	double kappa = Param.Migration.MarkovDispersionStrength / totalMass;
+	double kappa = Param.Migration.MarkovDispersionStrength / totalMass / 1e3;
 	std::vector<std::vector<double>> K(n,std::vector<double>(n,0.0));
 	std::vector<std::vector<double>> K_power(n,std::vector<double>(n,0.0));
 	std::vector<std::vector<double>> K_power_temp(n,std::vector<double>(n,0.0));
+	
+	
 	for (int i = 0; i < n; ++i)
-	{
-		for (int j = 0; j < n; ++j)
+	{	
+		double upTerm = 0;
+		double downTerm = 0;
+		
+		double kappaPrime = kappa / Param.Galaxy.RingWidth[i];
+		if (i > 0)
 		{
-			if (i == j)
-			{
-				double term = 0;
-				if (i > 0)
-				{
-					term += mass[i-1];
-				}
-				if (i < n-1)
-				{
-					term += mass[i+1];
-				}
-				K[i][j] = -kappa * term;
-				K_power[i][j] = K[i][j];
-			}
-			if (abs(j-i) == 1)
-			{
-				K[i][j] = kappa  * mass[i];
-				K_power[i][j] = K[i][j];
-			}
+			upTerm = kappaPrime * mass[i-1]/Param.Galaxy.RingWidth[i-1];
+			K[i-1][i] = upTerm;
+			K_power[i-1][i] = upTerm;
 		}
+		if (i < n-1)
+		{
+			downTerm = kappaPrime * mass[i+1]/Param.Galaxy.RingWidth[i+1];
+			K[i+1][i] = downTerm;
+			K_power[i+1][i] = downTerm;
+		}
+		K[i][i] = - (upTerm + downTerm);
+		K_power[i][i] = K[i][i];		
 	}
 	
 	double dt = Param.Meta.TimeStep;
@@ -88,7 +86,7 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 		//normalise to ensure true stochasticity
 		for (int j = lower; j < upper; ++j)
 		{
-			Grid[i][j] /= sum;
+			//~ Grid[i][j] /= sum;
 		}
 	}
 	//~ exit(5);

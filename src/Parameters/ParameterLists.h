@@ -327,7 +327,7 @@ class MigrationValues: public ParamList
 		//! The maximum amount of gas which can be moved moved between rings during the inflow portion
 		Argument<double> MaxStealFraction = Argument<double>(0.95,"max-steal");
 		
-		//! The strength of the random-walk mixing process, in units of kpc/Gyr
+		//! The strength of the random-walk mixing process, in units of 1e-3 kpc^2/Gyr
 		Argument<double> MarkovDispersionStrength = Argument<double>(0.2,"mixing-strength");
 		
 		//! The order to which the mixing matrix is computed - note that higher values allow instantaneous dispersion to higher radii

@@ -483,7 +483,6 @@ void Galaxy::ComputeScattering(int t)
 	if (Param.Migration.DispersionOrder > 0)
 	{
 		Migrator[t].Create(RingMasses);
-		
 		LaunchParallelOperation(t,t,Compounding);
 	}
 }
