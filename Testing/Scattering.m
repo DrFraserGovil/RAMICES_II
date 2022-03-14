@@ -51,7 +51,7 @@ function estimateScattering(fileName,q)
     
     birthTimes = [0,5];
     
-    ts = [0.25:0.5:5];
+    ts = [0:0.5:5];
     c = parula(length(ts));
     if (q == 1)
         T = tiledlayout(length(birthTimes),1);
@@ -124,7 +124,7 @@ cb.Label.Interpreter = "latex";
 end
 
 function K = computeK(ms,rs,dt)
-    kappa = 0.05;
+    kappa = 0.008;
     Mt = max(ms);
     dr = rs(2) - rs(1);
     Nr = length(rs);
@@ -132,6 +132,8 @@ function K = computeK(ms,rs,dt)
     Nr = length(ms);
     K = zeros(Nr);
 
+    maxProb = kappa * 
+    
     for i = 1:Nr
        
         pUp = 0; 
@@ -153,7 +155,8 @@ function K = computeK(ms,rs,dt)
     nApply = 1;
 %     K = (eye(size(K)) + dt/nApply * K)^(nApply);
     K = expm(dt * K);
-
+    K(1:10,1:10)
+    a
 end
 
 function ids = getClosestIDs(vec,targets)

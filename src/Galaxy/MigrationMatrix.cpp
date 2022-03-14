@@ -23,11 +23,10 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 		totalMass = std::max(totalMass,mass[i]);
 	}
 	
-	double kappa = Param.Migration.MarkovDispersionStrength / totalMass / 1e3;
+	double kappa = Param.Migration.MarkovDispersionStrength / totalMass;
 	std::vector<std::vector<double>> K(n,std::vector<double>(n,0.0));
 	std::vector<std::vector<double>> K_power(n,std::vector<double>(n,0.0));
 	std::vector<std::vector<double>> K_power_temp(n,std::vector<double>(n,0.0));
-	
 	
 	for (int i = 0; i < n; ++i)
 	{	

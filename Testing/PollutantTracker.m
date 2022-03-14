@@ -3,7 +3,7 @@ set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',23);
 
 files = "../Output/Pollutant/" + ["Active","Quiescent","Active_NoInflow","Quiescent_NoInflow","Active_NoDispersion","Quiescent_NoDispersion"] + "/Enrichment_Absolute_ColdGas.dat";
-
+% files = files(1)
 names = [ "Active","Quiescent","Active, No Inflow","Quiescent, No Inflow","Active, No Diffusion","Quiescent, No Diffusion"];
 times = [0.1,3,10];
 
