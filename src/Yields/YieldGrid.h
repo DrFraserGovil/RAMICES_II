@@ -49,7 +49,6 @@ class YieldGrid
 		//~ GasStream TempStream;
 		//allows the grid size to be truncated for CCSN etc.
 		int MassOffset;
-		
 		RemnantOutput StellarInject( GasReservoir & scatteringReservoir, double Nstars, int mass, double z, const std::vector<GasStream> & birthGas) const;
 		
 		void LoadOrfeoYields();
@@ -61,7 +60,7 @@ class YieldGrid
 		
 		Interpolator MetallicityInterpolation(double z) const;
 		
-		void ElementProduction(ElementID element, double synthesisFraction, double ejectaMass,std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams) const;
+		double ElementProduction(ElementID element, double synthesisFraction, double ejectaMass,std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams) const;
 		void ElementDestruction(ElementID element, double synthesisFraction, double ejectaMass, std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams) const;
 		
 		// Creation properties

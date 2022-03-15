@@ -166,7 +166,7 @@ class StellarValues : public ParamList
 		Argument<double> MinStellarMass = Argument<double>(0.1,"mass-min");
 		
 		//!Mass of stars which we consider immortal without checking their isochrones
-		Argument<double> ImmortalMass = Argument<double>(0.6,"mass-immortal");
+		Argument<double> ImmortalMass = Argument<double>(0.3,"mass-immortal");
 		
 		//!Number of points along the stellar mass grid
 		Argument<int> MassResolution = Argument<int>(199,"mass-resolution");

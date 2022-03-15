@@ -81,7 +81,7 @@ Interpolator YieldGrid::MetallicityInterpolation(double z) const
 	return output;
 }
 
-void YieldGrid::ElementProduction(ElementID element, double synthesisFraction, double ejectaMass,std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams) const
+double YieldGrid::ElementProduction(ElementID element, double synthesisFraction, double ejectaMass,std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams) const
 {
 	double birthReservoirMass = 0;
 	for (int p = 0 ; p < ProcessCount;++p)
@@ -89,6 +89,7 @@ void YieldGrid::ElementProduction(ElementID element, double synthesisFraction, d
 		SourceProcess proc = (SourceProcess)p;
 		birthReservoirMass += birthStreams[proc].ColdMass();
 	}
+	double Counter = 0;
 	for (int p = 0 ; p < ProcessCount;++p)
 	{
 		SourceProcess proc = (SourceProcess)p;
@@ -101,10 +102,19 @@ void YieldGrid::ElementProduction(ElementID element, double synthesisFraction, d
 		}
 		double returnFraction = birthFraction + (proc == Process) * synthesisFraction; // double check this line works!
 		double massReturned = ejectaMass * returnFraction / 1e9;
+		Counter += massReturned;
 		output[proc].Cold(element) = massReturned * (1.0-hotInjectionFraction);
 		output[proc].Hot(element) = massReturned * hotInjectionFraction;	
 	}
-	
+	return Counter;
+	//~ if (element == Iron)
+	//~ {
+		//~ std::cout << "\tI returned" << t*1e9 << " of iron "<< std::endl;
+	//~ }
+	//~ if (element == Magnesium)
+	//~ {
+		//~ std::cout << "\tI returned" << t*1e9 << " of mg "<< std::endl;
+	//~ }
 }
 
 void YieldGrid::ElementDestruction(ElementID element, double synthesisFraction, double ejectaMass,std::vector<GasStream> & output, const std::vector<GasStream> & birthStreams) const
@@ -157,7 +167,8 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 	//~ std::cout << "For a star of mass " << initMass << "   " << remnantMass << " is in the remnant" << std::endl;
 	double ejectaMass = Nstars * (initMass - remnantMass); 
 	
-
+	double Mg = 0;
+	double Fe = 0;
 	std::vector<GasStream> chunkCatcher;
 	for (int p = 0; p < ProcessCount; ++p)
 	{
@@ -165,16 +176,17 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 		GasStream chunk(proc);
 		chunkCatcher.push_back(chunk);
 	} 
+	
 	for (int e = 0; e < ElementCount; ++e)
 	{
 		ElementID elem = (ElementID)e;
 		double upSynth = Grid[mass - MassOffset][LogZ.UpperID][elem];
 		double downSynth = Grid[mass - MassOffset][LogZ.LowerID][elem];
 		double synthesisFraction = LogZ.Interpolate(downSynth,upSynth);
-		
+		double Counter = 0;
 		if (synthesisFraction >= 0)
 		{
-			ElementProduction(elem,synthesisFraction,ejectaMass,chunkCatcher,birthGas);
+			Counter = ElementProduction(elem,synthesisFraction,ejectaMass,chunkCatcher,birthGas);
 		}
 		else
 		{
@@ -184,12 +196,19 @@ RemnantOutput YieldGrid::StellarInject( GasReservoir & scatteringReservoir,  dou
 			}
 		}
 		
-		if (elem == Oxygen)
-		{
-			//~ std::cout << "For a star with mass " << Param.Stellar.MassGrid[mass] << " and logZ = " << log10(z) << " my net synthesis frac is = " << synthesisFraction << std::endl;
-		}
+		//~ if (elem == Iron)
+		//~ {
+			//~ std::cout << "For " << Nstars << " with mass " << Param.Stellar.MassGrid[mass] << " and logZ = " << log10(z) << " my net iron synthesis frac is = " << synthesisFraction << " making " << Counter*1e9/Nstars << std::endl;
+			//~ Fe = Counter;
+		//~ }
+		//~ if (elem == Magnesium)
+		//~ {
+			//~ std::cout << "For " << Nstars << " stars with mass " << Param.Stellar.MassGrid[mass] << " and logZ = " << log10(z) << " my net mg synthesis frac is = " << synthesisFraction << " making " << Counter*1e9/Nstars << std::endl;
+			//~ Mg = Counter;
+		//~ }
 	}
 	
+	//~ std::cout << "Synthesised in ratio " << Mg/Fe << " giving [Mg/Fe] = " << log10(Mg/Fe) - log10(Param.Element.SolarAbundances[Magnesium]/Param.Element.SolarAbundances[Iron]) << std::endl;
 	double xSum = 0;
 	double ySum = 0;
 	double zSum = 0;

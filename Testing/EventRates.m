@@ -35,7 +35,7 @@ function plotEventFile(fileName)
     c= (jet(nSample));
     
     colormap(jet);
-    radiusSample = radius([1:5:length(radius)]);
+    radiusSample = radius([1:15:length(radius)]);
     c2 = jet(length(radiusSample));
      nexttile(1);
     for i = 1:length(radiusSample)
@@ -101,6 +101,18 @@ function plotEventFile(fileName)
     ylabel("SFR (normalised)");
     xlabel("Time (Gyr)")
     set(gca,'yscale','log');
+    ts = linspace(0,12,100);
+    t2 = 0.01;
+    b = 4.2;
+    ys = (t2 + ts)./((t2 + ts).^2 + b^2).^2;
+    ys = ys/max(ys);
+    y2 = exp(-0.095*ts);
+    y2 = y2/ exp(-0.095*3);
+    
+    hold on;
+    plot(ts(ts < 3),ys(ts<3),'k','LineWidth',2);
+    plot(ts(ts > 3),y2(ts>3),'k','LineWidth',2);
+    hold off;
     % legend(ts);
     caxis([min(radiusSample),max(radiusSample)]);
     colorbar;
@@ -113,14 +125,14 @@ function plotEventFile(fileName)
     grid on;
     colorbar;
       caxis([0,t]);
-%     ylim([10^4,1r0^6])
+    ylim([10^4,10^6])
     
     nexttile(3);
     xlabel("Central Radius of Ring (kpc)"); 
     ylabel("AGB Death");
     set(gca,'yscale','log')
     grid on;
-%     ylim([10^4,10^6])
+    ylim([10^4,10^6])
     
     nexttile(4);
     xlabel("Central Radius of Ring (kpc)"); 

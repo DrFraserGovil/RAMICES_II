@@ -275,7 +275,7 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 						double discCut_Degrees = 10.0;
 						double discCut = inPlaneDistance * tan( discCut_Degrees * M_PI/180);
 						
-						double upperCut = inPlaneDistance * tan( 30.0 * M_PI/180);
+						double upperCut = inPlaneDistance * tan( 50.0 * M_PI/180);
 						
 						double bPlus = std::min(upperCut,sqrt(maxDistance * maxDistance - dpSq));
 						double aMinus = sqrt( std::max( minDistance * minDistance - dpSq, discCut * discCut));

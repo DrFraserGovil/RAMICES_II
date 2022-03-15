@@ -278,7 +278,7 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 	//~ typicalErrors[eOffset + Iron -1] = 0.04;
 	for (int i = 0; i < PropertyCount; ++i)
 	{
-		typicalErrors[eOffset] = 0.05;
+		typicalErrors[eOffset] = 0.0;
 		++eOffset; 
 	}
 	//~ for (int i = 1; i < ElementCount; ++i)

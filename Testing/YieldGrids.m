@@ -3,8 +3,8 @@ ccsn = readtable(dir + "CCSN_yields.dat");
 agb = readtable(dir + "AGB_yields.dat");
 % ecsn = readtable(dir + "ECSN_yields.dat");
 old = readtable("../Resources/ChemicalData/RalphSavedYields.dat");
-column = "Fe";
-oldColum = 3 + 3;
+column = "Mg";
+oldColum = 3 + 5;
 overplotter = dir + column + "_ridges_CCSN.dat";
 if column == "Remnant"
     column = column + "Fraction";

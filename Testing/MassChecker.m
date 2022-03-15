@@ -66,7 +66,7 @@ function plotMassFile(fileName)
 
         nexttile(3);
         hold on;
-        plot(rs,hgm./cgm,'Color',c(i,:));
+        plot(rs,wdm./ f.SurfaceArea(selector),'Color',c(i,:));
         hold off;
 
     end
@@ -74,6 +74,15 @@ function plotMassFile(fileName)
     xlabel("Central Radius of Ring (kpc)");
     ylabel("Gas ($10^9M_\odot $ kpc $^{-2}$)");
     set(gca,'yscale','log');
+    
+    trueTop = 9/1000;
+    trueBottom = 15/1000;
+    w = 1;
+    sol = 8.2;
+    hold on;
+    fill([sol-w/2,sol-w/2,sol+w/2,sol+w/2],[trueBottom,trueTop,trueTop,trueBottom],[0.7,0.7,0.7],'FaceAlpha',0.7);
+    ylim([1e-6,1])
+    
     ylim([1e-6,1])
     % legend(ts);
     grid on;
@@ -85,9 +94,9 @@ function plotMassFile(fileName)
     ylabel("Stars ($10^9M_\odot$kpc $^{-2}$)");
      
     trueTop = 25/1000;
-    trueBottom = 60/1000;
-    w = 0.5;
-    sol = 8;
+    trueBottom = 30/1000;
+%     w = 0.5;
+%     sol = 8;
     hold on;
     fill([sol-w/2,sol-w/2,sol+w/2,sol+w/2],[trueBottom,trueTop,trueTop,trueBottom],[0.7,0.7,0.7],'FaceAlpha',0.7);
     ylim([1e-6,1])
@@ -97,8 +106,14 @@ function plotMassFile(fileName)
     
     nexttile(3);
     xlabel("Central Radius of Ring (kpc)"); 
-    ylabel("Hot-Cold Gas Ratio");
+    ylabel("White Dwarfs");
     set(gca,'yscale','log')
+    trueTop = 4.3/1000;
+    trueBottom = 5.5/1000;
+%     w = 0.5;  
+%     sol = 8;
+    hold on;
+    fill([sol-w/2,sol-w/2,sol+w/2,sol+w/2],[trueBottom,trueTop,trueTop,trueBottom],[0.7,0.7,0.7],'FaceAlpha',0.7);
     ylim([1e-6,10])
     grid on;
     nexttile(4);
