@@ -2,7 +2,7 @@ set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegend
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
-files = "../Output/" + ["Merger_Off","Merger_10"] + "/Mass.dat";
+files = "../Output/" + ["Calibration"] + "/Mass.dat";
 
 for i = 1:length(files)
     figure(i);
@@ -99,7 +99,7 @@ function plotMassFile(fileName)
     xlabel("Central Radius of Ring (kpc)"); 
     ylabel("Hot-Cold Gas Ratio");
     set(gca,'yscale','log')
-%     ylim([1e-6,1])
+    ylim([1e-6,10])
     grid on;
     nexttile(4);
     

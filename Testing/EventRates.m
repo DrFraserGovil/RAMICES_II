@@ -2,7 +2,7 @@
 set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',20);
 
-files = "../Output/" + ["Chimney100"] + "/Events.dat";
+files = "../Output/" + ["Calibration"] + "/Events.dat";
 
 
 for i = 1:length(files)

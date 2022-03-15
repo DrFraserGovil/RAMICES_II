@@ -1,8 +1,8 @@
-files = "../Output/" + ["Movement400"] + "/Mass.dat";
-
+files = "../Output/" + ["Movement300","Pollutant/Active/"] + "/Mass.dat";
+% files = "../Output/Pollutant/Active/Mass.dat";
 clf
 for i = 1:length(files)
-%     figure(i);
+    figure(i);
     
 %     clf;
     estimateScattering(files(i),i);
@@ -11,11 +11,11 @@ end
 
 
 
-function estimateScattering(fileName,q)
+function estimateScattering(fileName,qq)
 
     f = readtable(fileName);
     styles = ["-","--",":","-."];
-    style = styles(q);
+%     style = styles(q);
     time = unique(f.Time);
     radius = unique(f.Radius);
     Nr = length(radius)
@@ -44,28 +44,35 @@ function estimateScattering(fileName,q)
 %     hold off;
 %     return
 
-    rs = [2,6,10,14,18] - 0.1;
+    rs = [5,8,11,16] - 0.1;
+%     rs= 8-0.1;
 %     rs = 1.9;
     rIDs = getClosestIDs(radius,rs);
  
     
-    birthTimes = [0,5];
+    birthTimes = [0,4];
     
-    ts = [0:0.5:5];
-    c = parula(length(ts));
-    if (q == 1)
+    ts = [3:0.25:10];
+    
+%     if (qq == 1)
         T = tiledlayout(length(birthTimes),1);
         xlabel(T,"Radius (kpc)","Interpreter","latex","FontSize",20);
         ylabel(T,"Probability Surface Density (kpc$^{-2}$)","Interpreter","latex","FontSize",20);
-    end
+%     end
     
     norms = zeros(size(rIDs));
     for i = 1:length(birthTimes)
+        
          norms = zeros(size(rIDs));
         nexttile(i);
          minT = ts(1);
          maxT = 0;
        start = birthTimes(i); 
+       
+       c = jet(sum(start + ts < time(end)));
+       if qq == 2
+           c = parula(sum(start + ts < time(end)));
+       end
         startIdx = find(time == start);
        for j = 1:length(ts)
           
@@ -84,56 +91,58 @@ function estimateScattering(fileName,q)
                end
                
 %                 K_compound(1:10,1:10)
-                 spike = zeros(Nr,1);
+                
                for q = 1:length(rIDs)
-                  
-                  spike(rIDs(q)) = 1;
-               end
+                   spike = zeros(Nr,1);
+                    spike(rIDs(q)) = 1;
+               
                     output = K_compound * spike;
 %                     output(output < 1e-7) = NaN;
                    hold on;
-
-%                    if norms(q) == 0
-                       norms(q) = max(output./sf{1});
+                    output = output./sf{1};
+                   if norms(q) == 0
+                       norms(q) = max(output);
 %                        norms
-%                    end
+                   end
 %                    [j,size(c),minT,maxT]
-                   plot(radius,output./sf{1},style,'Color',c(j,:),'LineWidth',3);
+                   plot(radius,output,styles(q),'Color',c(j,:),'LineWidth',3);
 %                    scatter(radius,output,5,c(j,:));
                     
                     hold off;
 %                 end
 %                   set(gca,'yscale','log');
                
-               drawnow;
+                    drawnow;
+               end
            end
        end
        title("Stars born at " + num2str(start) + "Gyr");
+       colormap(jet)
        cb = colorbar;
         cb.Label.String = "Stellar Age (Gyr)";
-cb        
+        
 cb.Label.Interpreter = "latex";
         cb.TickLabelInterpreter = "latex";
         [minT,maxT]
         caxis([minT,maxT])
         grid on;
-        ylim([0,0.45])
+%         ylim([0,0.45])
     end    
 %     set(gca,'yscale','log');
 
 end
 
 function K = computeK(ms,rs,dt)
-    kappa = 0.008;
+    kappa = 0.5;
     Mt = max(ms);
     dr = rs(2) - rs(1);
     Nr = length(rs);
-    kappa = kappa/Mt / dr^2;
+    
     Nr = length(ms);
     K = zeros(Nr);
 
-    maxProb = kappa * 
-    
+    maxProb = kappa * dt / dr^2;
+    kappa = maxProb / (dt*Mt);
     for i = 1:Nr
        
         pUp = 0; 
@@ -155,8 +164,8 @@ function K = computeK(ms,rs,dt)
     nApply = 1;
 %     K = (eye(size(K)) + dt/nApply * K)^(nApply);
     K = expm(dt * K);
-    K(1:10,1:10)
-    a
+%     maxProb
+%    K(1:10,1:10)
 end
 
 function ids = getClosestIDs(vec,targets)

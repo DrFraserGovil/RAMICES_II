@@ -54,7 +54,7 @@ remainingMasses = f(tableEnds,:);
 zs = unique(remainingMasses.MH);
 zs(isnan(zs)) = [];
 zzz = ZCon(zs);
-Ms = 10.^linspace(log10(0.7),2,500);
+Ms = 10.^linspace(log10(0.6),2,500);
 
 [Z,M] = meshgrid(zzz,Ms);
 default = -1;
@@ -110,7 +110,7 @@ Tau(Tau==default) = defaultOverride;
 % scatter3(mm,log10(10^10*(mm).^(-3)),zz);
 % hold off;
 hold on;
-Zz = (Z/0.014);
+Zz = (Z/0.017);
 % surf(M,Zz,Tau,'LineStyle','None');
 
 imagesc([min(Ms),max(Ms)],[min(min(Zz)),max(max(Zz))],transpose(10.^Tau))
@@ -147,4 +147,4 @@ for i = 1:length(Ms)
 end
 T2.Properties.VariableNames = ["Mass","LogZ","LogLifetime"];
         
-writetable(T2,"LifetimeGrid.dat")
+% writetable(T2,"LifetimeGrid.dat")

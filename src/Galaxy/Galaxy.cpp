@@ -114,7 +114,9 @@ Galaxy::Galaxy(InitialisedData & data): Data(data), Param(data.Param), IGM(GasRe
 	
 	
 	Migrator = std::vector<MigrationMatrix>(Param.Meta.SimulationSteps,MigrationMatrix(Data));
-	Data.UrgentLog("\tMigration Matrices initialised.\n");
+	double w = Param.Galaxy.RingWidth[0];
+	double p = Param.Migration.MarkovDispersionStrength * Param.Meta.TimeStep / (w * w);
+	Data.UrgentLog("\tMigration Matrices initialised. Characteristic transition probability: " + std::to_string(p) + "\n");
 }
 
 

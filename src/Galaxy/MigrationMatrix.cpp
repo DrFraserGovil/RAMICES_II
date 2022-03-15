@@ -28,6 +28,7 @@ void MigrationMatrix::Create(const std::vector<double> & mass)
 	std::vector<std::vector<double>> K_power(n,std::vector<double>(n,0.0));
 	std::vector<std::vector<double>> K_power_temp(n,std::vector<double>(n,0.0));
 	
+	//~ std::cout << kappa * totalMass * Param.Meta.TimeStep / pow(Param.Galaxy.RingWidth[0],2) << std::endl;
 	for (int i = 0; i < n; ++i)
 	{	
 		double upTerm = 0;

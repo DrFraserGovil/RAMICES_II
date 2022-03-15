@@ -4,7 +4,7 @@ set(0,'defaultTextInterpreter','latex');
 set(0,'defaultAxesFontSize',28);
 
 % T=tiledlayout(4,2);
-files = "../Output/" + ["Merger_Off","Merger_10"]+ "/Enrichment_Log_ColdGas.dat";
+files = "../Output/" + ["Calibration"]+ "/Enrichment_Log_ColdGas.dat";
 
 
 figure(3);
