@@ -13,7 +13,7 @@ StarEvents::StarEvents()
 }
 void StarEvents::AddHeaders(std::stringstream & output)
 {
-	output << "Time, Radius, StarMassFormed, FormationEfficiency,StarsFormed, CCSN_Events, AGB_Deaths, NSM_Events, SNIa_Events, ECSN_Events, ";
+	output << "Time, Radius, StarMassFormed, FormationEfficiency, StarsFormed, CCSN_Events, AGB_Deaths, NSM_Events, SNIa_Events, ECSN_Events, ";
 	output << "BirthRate, CCSNRate, AGBRate, NSMRate, SNIaRate, ECSNRate\n";
 }
 void StarEvents::Save(std::stringstream &output, double timestep)
