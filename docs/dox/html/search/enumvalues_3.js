@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['helium_763',['Helium',['../EnumSets_8h.html#a8f434816783a791128b48a39ae663f15aa34644900f0e5c1f8961367a789bcd86',1,'EnumSets.h']]],
-  ['hydrogen_764',['Hydrogen',['../EnumSets_8h.html#a8f434816783a791128b48a39ae663f15a20fa2720571344499f799d2839b23c7e',1,'EnumSets.h']]]
+  ['dormantdwarf_0',['DormantDwarf',['../EnumSets_8h.html#a0265631ca5dd95605f5d924b87a8a989aa097de3b160d734233cb21e79cf8ebb3',1,'EnumSets.h']]],
+  ['dormantns_1',['DormantNS',['../EnumSets_8h.html#a0265631ca5dd95605f5d924b87a8a989a1bbaf190d71ae607de6a8b351dfa9c2c',1,'EnumSets.h']]]
 ];

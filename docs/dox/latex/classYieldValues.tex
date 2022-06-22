@@ -1,0 +1,217 @@
+\hypertarget{classYieldValues}{}\doxysection{Yield\+Values Class Reference}
+\label{classYieldValues}\index{YieldValues@{YieldValues}}
+
+
+{\ttfamily \#include $<$Parameter\+Lists.\+h$>$}
+
+Inheritance diagram for Yield\+Values\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classYieldValues}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classYieldValues_a8ce2022ee251a05b2fb95f199ca8d47f}{Yield\+Values}} ()
+\item 
+void \mbox{\hyperlink{classYieldValues_ade59d7982a399ea82496d794fa04a02f}{Initialise}} (std\+::string resource\+Root)
+\begin{DoxyCompactList}\small\item\em Initialises the mass grid etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_a484ba73ba9f9674b7032be80e35ebde8}{Target\+Ni56\+Yield}} = Argument$<$double$>$(0.\+1,\char`\"{}ideal-\/ni56\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_ae2fe9d6b5a122c3c9b082de9fed5f7ae}{Mass\+Overhang}} = Argument$<$double$>$(5,\char`\"{}yield-\/mass-\/overhang\char`\"{})
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classYieldValues_a4ca5714ff84661bf1cfbf6fce79aa51a}{Process\+Names}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} $>$ \mbox{\hyperlink{classYieldValues_a43c9310dbe642a61f2a55094f7bc66f8}{Process\+Types}}
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_a4559667601c7830be76c4a028c06eaf3}{SNIa\+\_\+\+Delay\+Time}} = Argument$<$double$>$(0.\+2,\char`\"{}sn1a-\/delay\char`\"{})
+\begin{DoxyCompactList}\small\item\em Time before SNIa can turn on, in Gyr. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_afede3dd3839ca9bf7ed2f5400bccbd1c}{SNIa\+\_\+\+Active\+Fraction}} = Argument$<$double$>$(0.\+1,\char`\"{}sn1a-\/fraction\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_afa78200d75df408628637545e88dad73}{SNIa\+\_\+\+Long\+Fraction}} = Argument$<$double$>$(0.\+99,\char`\"{}sn1a-\/fraction-\/long\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_a809e0ff21a7a420351786980a34203a6}{SNIa\+\_\+\+Short\+Scale}} = Argument$<$double$>$(0.\+1,\char`\"{}sn1a-\/short-\/decay\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_ad3e1301d4416cad3a916e6c4ac4ca352}{SNIa\+\_\+\+Typical\+Mass}} = Argument$<$double$>$(1.\+37,\char`\"{}sn1a-\/progenitor-\/mass\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_a63f6feed025bfffa83041ede667a2dbe}{NSM\+\_\+\+Typical\+Mass}} = Argument$<$double$>$(1.\+4,\char`\"{}nsm-\/progenitor-\/mass\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_aba7db149817babea718a785b088449ea}{SNIa\+\_\+\+Long\+Scale}} = Argument$<$double$>$(1.\+5,\char`\"{}sn1a-\/long-\/decay\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_aa9dbfb823cab036df2861f8d72955d3b}{CCSN\+\_\+\+Mass\+Cut}} = Argument$<$double$>$(10,\char`\"{}ccsn-\/mass\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_a46e27aebc1ada31f1ea8b50c27703431}{ECSN\+\_\+\+Mass\+Cut}} = Argument$<$double$>$(8.\+5,\char`\"{}ecsn-\/mass\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_a3770f768d4463a3927f6d381eabfef49}{CODwarf\+\_\+\+Mass\+Cut}} = Argument$<$double$>$(3.\+2,\char`\"{}co-\/mass\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_a5dae4c29e55da403335f415f0d6aed17}{Collapse\+\_\+\+Mass\+Cut}} = Argument$<$double$>$(40,\char`\"{}bh-\/mass\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_a804e989f9eb9cadf6b9234d9c69752fd}{ECSN\+\_\+\+Fraction}} = Argument$<$double$>$(0,\char`\"{}ecsn-\/fraction\char`\"{})
+\begin{DoxyCompactList}\small\item\em Fraction of stars in ECSN mass range which go ECSN vs CCSN. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_adb3f9e6e59c7122acb38867cc225dbf9}{NSM\+\_\+\+Delay\+Time}} = Argument$<$double$>$(0.\+02,\char`\"{}nsm-\/delay\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_a9d94124f269f052479294917ff253648}{NSM\+\_\+\+Active\+Fraction}} = Argument$<$double$>$(0.\+001,\char`\"{}nsm-\/fraction\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classYieldValues_a962796aea819064e1c894a1f1e31da3d}{NSM\+\_\+\+Scale}} = Argument$<$double$>$(10,\char`\"{}nsm-\/decay\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classYieldValues_a8ce2022ee251a05b2fb95f199ca8d47f}\label{classYieldValues_a8ce2022ee251a05b2fb95f199ca8d47f}} 
+\index{YieldValues@{YieldValues}!YieldValues@{YieldValues}}
+\index{YieldValues@{YieldValues}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{YieldValues()}{YieldValues()}}
+{\footnotesize\ttfamily Yield\+Values\+::\+Yield\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classYieldValues_ade59d7982a399ea82496d794fa04a02f}\label{classYieldValues_ade59d7982a399ea82496d794fa04a02f}} 
+\index{YieldValues@{YieldValues}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Yield\+Values\+::\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{resource\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initialises the mass grid etc. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classParamList_a7bc1e8cffb0062a056193e34b80f3475}{Param\+List}}.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classYieldValues_aa9dbfb823cab036df2861f8d72955d3b}\label{classYieldValues_aa9dbfb823cab036df2861f8d72955d3b}} 
+\index{YieldValues@{YieldValues}!CCSN\_MassCut@{CCSN\_MassCut}}
+\index{CCSN\_MassCut@{CCSN\_MassCut}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{CCSN\_MassCut}{CCSN\_MassCut}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+CCSN\+\_\+\+Mass\+Cut = Argument$<$double$>$(10,\char`\"{}ccsn-\/mass\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_a3770f768d4463a3927f6d381eabfef49}\label{classYieldValues_a3770f768d4463a3927f6d381eabfef49}} 
+\index{YieldValues@{YieldValues}!CODwarf\_MassCut@{CODwarf\_MassCut}}
+\index{CODwarf\_MassCut@{CODwarf\_MassCut}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{CODwarf\_MassCut}{CODwarf\_MassCut}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+CODwarf\+\_\+\+Mass\+Cut = Argument$<$double$>$(3.\+2,\char`\"{}co-\/mass\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_a5dae4c29e55da403335f415f0d6aed17}\label{classYieldValues_a5dae4c29e55da403335f415f0d6aed17}} 
+\index{YieldValues@{YieldValues}!Collapse\_MassCut@{Collapse\_MassCut}}
+\index{Collapse\_MassCut@{Collapse\_MassCut}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{Collapse\_MassCut}{Collapse\_MassCut}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+Collapse\+\_\+\+Mass\+Cut = Argument$<$double$>$(40,\char`\"{}bh-\/mass\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_a804e989f9eb9cadf6b9234d9c69752fd}\label{classYieldValues_a804e989f9eb9cadf6b9234d9c69752fd}} 
+\index{YieldValues@{YieldValues}!ECSN\_Fraction@{ECSN\_Fraction}}
+\index{ECSN\_Fraction@{ECSN\_Fraction}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{ECSN\_Fraction}{ECSN\_Fraction}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+ECSN\+\_\+\+Fraction = Argument$<$double$>$(0,\char`\"{}ecsn-\/fraction\char`\"{})}
+
+
+
+Fraction of stars in ECSN mass range which go ECSN vs CCSN. 
+
+\mbox{\Hypertarget{classYieldValues_a46e27aebc1ada31f1ea8b50c27703431}\label{classYieldValues_a46e27aebc1ada31f1ea8b50c27703431}} 
+\index{YieldValues@{YieldValues}!ECSN\_MassCut@{ECSN\_MassCut}}
+\index{ECSN\_MassCut@{ECSN\_MassCut}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{ECSN\_MassCut}{ECSN\_MassCut}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+ECSN\+\_\+\+Mass\+Cut = Argument$<$double$>$(8.\+5,\char`\"{}ecsn-\/mass\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_ae2fe9d6b5a122c3c9b082de9fed5f7ae}\label{classYieldValues_ae2fe9d6b5a122c3c9b082de9fed5f7ae}} 
+\index{YieldValues@{YieldValues}!MassOverhang@{MassOverhang}}
+\index{MassOverhang@{MassOverhang}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{MassOverhang}{MassOverhang}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+Mass\+Overhang = Argument$<$double$>$(5,\char`\"{}yield-\/mass-\/overhang\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_a9d94124f269f052479294917ff253648}\label{classYieldValues_a9d94124f269f052479294917ff253648}} 
+\index{YieldValues@{YieldValues}!NSM\_ActiveFraction@{NSM\_ActiveFraction}}
+\index{NSM\_ActiveFraction@{NSM\_ActiveFraction}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{NSM\_ActiveFraction}{NSM\_ActiveFraction}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+NSM\+\_\+\+Active\+Fraction = Argument$<$double$>$(0.\+001,\char`\"{}nsm-\/fraction\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_adb3f9e6e59c7122acb38867cc225dbf9}\label{classYieldValues_adb3f9e6e59c7122acb38867cc225dbf9}} 
+\index{YieldValues@{YieldValues}!NSM\_DelayTime@{NSM\_DelayTime}}
+\index{NSM\_DelayTime@{NSM\_DelayTime}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{NSM\_DelayTime}{NSM\_DelayTime}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+NSM\+\_\+\+Delay\+Time = Argument$<$double$>$(0.\+02,\char`\"{}nsm-\/delay\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_a962796aea819064e1c894a1f1e31da3d}\label{classYieldValues_a962796aea819064e1c894a1f1e31da3d}} 
+\index{YieldValues@{YieldValues}!NSM\_Scale@{NSM\_Scale}}
+\index{NSM\_Scale@{NSM\_Scale}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{NSM\_Scale}{NSM\_Scale}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+NSM\+\_\+\+Scale = Argument$<$double$>$(10,\char`\"{}nsm-\/decay\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_a63f6feed025bfffa83041ede667a2dbe}\label{classYieldValues_a63f6feed025bfffa83041ede667a2dbe}} 
+\index{YieldValues@{YieldValues}!NSM\_TypicalMass@{NSM\_TypicalMass}}
+\index{NSM\_TypicalMass@{NSM\_TypicalMass}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{NSM\_TypicalMass}{NSM\_TypicalMass}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+NSM\+\_\+\+Typical\+Mass = Argument$<$double$>$(1.\+4,\char`\"{}nsm-\/progenitor-\/mass\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_a4ca5714ff84661bf1cfbf6fce79aa51a}\label{classYieldValues_a4ca5714ff84661bf1cfbf6fce79aa51a}} 
+\index{YieldValues@{YieldValues}!ProcessNames@{ProcessNames}}
+\index{ProcessNames@{ProcessNames}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{ProcessNames}{ProcessNames}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Yield\+Values\+::\+Process\+Names}
+
+\mbox{\Hypertarget{classYieldValues_a43c9310dbe642a61f2a55094f7bc66f8}\label{classYieldValues_a43c9310dbe642a61f2a55094f7bc66f8}} 
+\index{YieldValues@{YieldValues}!ProcessTypes@{ProcessTypes}}
+\index{ProcessTypes@{ProcessTypes}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{ProcessTypes}{ProcessTypes}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}}$>$ Yield\+Values\+::\+Process\+Types}
+
+\mbox{\Hypertarget{classYieldValues_afede3dd3839ca9bf7ed2f5400bccbd1c}\label{classYieldValues_afede3dd3839ca9bf7ed2f5400bccbd1c}} 
+\index{YieldValues@{YieldValues}!SNIa\_ActiveFraction@{SNIa\_ActiveFraction}}
+\index{SNIa\_ActiveFraction@{SNIa\_ActiveFraction}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{SNIa\_ActiveFraction}{SNIa\_ActiveFraction}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+SNIa\+\_\+\+Active\+Fraction = Argument$<$double$>$(0.\+1,\char`\"{}sn1a-\/fraction\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_a4559667601c7830be76c4a028c06eaf3}\label{classYieldValues_a4559667601c7830be76c4a028c06eaf3}} 
+\index{YieldValues@{YieldValues}!SNIa\_DelayTime@{SNIa\_DelayTime}}
+\index{SNIa\_DelayTime@{SNIa\_DelayTime}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{SNIa\_DelayTime}{SNIa\_DelayTime}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+SNIa\+\_\+\+Delay\+Time = Argument$<$double$>$(0.\+2,\char`\"{}sn1a-\/delay\char`\"{})}
+
+
+
+Time before SNIa can turn on, in Gyr. 
+
+\mbox{\Hypertarget{classYieldValues_afa78200d75df408628637545e88dad73}\label{classYieldValues_afa78200d75df408628637545e88dad73}} 
+\index{YieldValues@{YieldValues}!SNIa\_LongFraction@{SNIa\_LongFraction}}
+\index{SNIa\_LongFraction@{SNIa\_LongFraction}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{SNIa\_LongFraction}{SNIa\_LongFraction}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+SNIa\+\_\+\+Long\+Fraction = Argument$<$double$>$(0.\+99,\char`\"{}sn1a-\/fraction-\/long\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_aba7db149817babea718a785b088449ea}\label{classYieldValues_aba7db149817babea718a785b088449ea}} 
+\index{YieldValues@{YieldValues}!SNIa\_LongScale@{SNIa\_LongScale}}
+\index{SNIa\_LongScale@{SNIa\_LongScale}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{SNIa\_LongScale}{SNIa\_LongScale}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+SNIa\+\_\+\+Long\+Scale = Argument$<$double$>$(1.\+5,\char`\"{}sn1a-\/long-\/decay\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_a809e0ff21a7a420351786980a34203a6}\label{classYieldValues_a809e0ff21a7a420351786980a34203a6}} 
+\index{YieldValues@{YieldValues}!SNIa\_ShortScale@{SNIa\_ShortScale}}
+\index{SNIa\_ShortScale@{SNIa\_ShortScale}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{SNIa\_ShortScale}{SNIa\_ShortScale}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+SNIa\+\_\+\+Short\+Scale = Argument$<$double$>$(0.\+1,\char`\"{}sn1a-\/short-\/decay\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_ad3e1301d4416cad3a916e6c4ac4ca352}\label{classYieldValues_ad3e1301d4416cad3a916e6c4ac4ca352}} 
+\index{YieldValues@{YieldValues}!SNIa\_TypicalMass@{SNIa\_TypicalMass}}
+\index{SNIa\_TypicalMass@{SNIa\_TypicalMass}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{SNIa\_TypicalMass}{SNIa\_TypicalMass}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+SNIa\+\_\+\+Typical\+Mass = Argument$<$double$>$(1.\+37,\char`\"{}sn1a-\/progenitor-\/mass\char`\"{})}
+
+\mbox{\Hypertarget{classYieldValues_a484ba73ba9f9674b7032be80e35ebde8}\label{classYieldValues_a484ba73ba9f9674b7032be80e35ebde8}} 
+\index{YieldValues@{YieldValues}!TargetNi56Yield@{TargetNi56Yield}}
+\index{TargetNi56Yield@{TargetNi56Yield}!YieldValues@{YieldValues}}
+\doxysubsubsection{\texorpdfstring{TargetNi56Yield}{TargetNi56Yield}}
+{\footnotesize\ttfamily Argument$<$double$>$ Yield\+Values\+::\+Target\+Ni56\+Yield = Argument$<$double$>$(0.\+1,\char`\"{}ideal-\/ni56\char`\"{})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/jf20/\+Documents/\+Physics/\+RAMICES\+\_\+\+II/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}

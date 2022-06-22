@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="InitialisedData_8h" kind="file" language="C++">
+    <compoundname>InitialisedData.h</compoundname>
+    <includes local="no">random</includes>
+    <includes refid="IMF_8h" local="yes">../Stars/IMF.h</includes>
+    <includes refid="SLF_8h" local="yes">../Stars/SLF.h</includes>
+    <includes refid="IsochroneTracker_8h" local="yes">../Stars/IsochroneTracker.h</includes>
+    <includes refid="YieldGrid_8h" local="yes">../Yields/YieldGrid.h</includes>
+    <includes refid="SimpleYield_8h" local="yes">../Yields/SimpleYield.h</includes>
+    <includes refid="GlobalParameters_8h" local="yes">GlobalParameters.h</includes>
+    <includedby refid="Galaxy_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</includedby>
+    <includedby refid="MigrationMatrix_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/MigrationMatrix.h</includedby>
+    <includedby refid="Ring_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</includedby>
+    <includedby refid="RemnantPopulation_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/RemnantPopulation.h</includedby>
+    <includedby refid="StarReservoir_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</includedby>
+    <includedby refid="StellarPopulation_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</includedby>
+    <incdepgraph>
+      <node id="19">
+        <label>Gas.h</label>
+        <link refid="Gas_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>../Gas/GasReservoir.h</label>
+        <link refid="GasReservoir_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>GasStream.h</label>
+        <link refid="GasStream_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>EnumSets.h</label>
+        <link refid="EnumSets_8h"/>
+      </node>
+      <node id="4">
+        <label>../Parameters/GlobalParameters.h</label>
+        <link refid="GlobalParameters_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/InitialisedData.h</label>
+        <link refid="InitialisedData_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>List.h</label>
+        <link refid="List_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Stars/IMF.h</label>
+        <link refid="IMF_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>../Stars/IsochroneTracker.h</label>
+        <link refid="IsochroneTracker_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../Stars/SLF.h</label>
+        <link refid="SLF_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>../Yields/SimpleYield.h</label>
+        <link refid="SimpleYield_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>../Yields/YieldGrid.h</label>
+        <link refid="YieldGrid_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>YieldRidge.h</label>
+        <link refid="YieldRidge_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>JSL.h</label>
+      </node>
+      <node id="13">
+        <label>algorithm</label>
+      </node>
+      <node id="15">
+        <label>filesystem</label>
+      </node>
+      <node id="2">
+        <label>random</label>
+      </node>
+      <node id="8">
+        <label>sstream</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+      </node>
+      <node id="3">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/MigrationMatrix.h</label>
+        <link refid="MigrationMatrix_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/InitialisedData.h</label>
+        <link refid="InitialisedData_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/RemnantPopulation.h</label>
+        <link refid="RemnantPopulation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</label>
+        <link refid="StellarPopulation_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classInitialisedData" prot="public">InitialisedData</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classYieldGrid" kindref="compound">YieldGrid</ref>;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classSimpleYield" kindref="compound">SimpleYield</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;random&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Stars/IMF.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Stars/SLF.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Stars/IsochroneTracker.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Yields/YieldGrid.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Yields/SimpleYield.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="GlobalParameters_8h" kindref="compound">GlobalParameters.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="classInitialisedData" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classInitialisedData" kindref="compound">InitialisedData</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16" refid="classInitialisedData_1a3faf1e06dc9f0fff9ed6af9f475c8962" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classIMF__Functor" kindref="compound">IMF_Functor</ref><sp/><ref refid="classInitialisedData_1a3faf1e06dc9f0fff9ed6af9f475c8962" kindref="member">IMF</ref>;</highlight></codeline>
+<codeline lineno="17" refid="classInitialisedData_1ae95d7986d842c692fabd818705c51692" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classSLF__Functor" kindref="compound">SLF_Functor</ref><sp/><ref refid="classInitialisedData_1ae95d7986d842c692fabd818705c51692" kindref="member">SLF</ref>;</highlight></codeline>
+<codeline lineno="18" refid="classInitialisedData_1a5a3a78c4082e1d5157e76deb943e9ab1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/><ref refid="classInitialisedData_1a5a3a78c4082e1d5157e76deb943e9ab1" kindref="member">Param</ref>;</highlight></codeline>
+<codeline lineno="19" refid="classInitialisedData_1a4208f03dceeae358bb9945817434fe4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classYieldGrid" kindref="compound">YieldGrid</ref><sp/><ref refid="classInitialisedData_1a4208f03dceeae358bb9945817434fe4c" kindref="member">CCSNYield</ref>;</highlight></codeline>
+<codeline lineno="20" refid="classInitialisedData_1a1538c36a75e617d2b6dff798e74d0aee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classYieldGrid" kindref="compound">YieldGrid</ref><sp/><ref refid="classInitialisedData_1a1538c36a75e617d2b6dff798e74d0aee" kindref="member">AGBYield</ref>;</highlight></codeline>
+<codeline lineno="21" refid="classInitialisedData_1af61340b74f9689a413156f3347dd2f83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classYieldGrid" kindref="compound">YieldGrid</ref><sp/><ref refid="classInitialisedData_1af61340b74f9689a413156f3347dd2f83" kindref="member">ECSNYield</ref>;</highlight></codeline>
+<codeline lineno="22" refid="classInitialisedData_1ada4849f69ea4ed627d90c94cda597d2c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classSimpleYield" kindref="compound">SimpleYield</ref><sp/><ref refid="classInitialisedData_1ada4849f69ea4ed627d90c94cda597d2c" kindref="member">SNIaYield</ref>;</highlight></codeline>
+<codeline lineno="23" refid="classInitialisedData_1aba9e519e6380d5bf76b82d8ab6473bc2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classSimpleYield" kindref="compound">SimpleYield</ref><sp/><ref refid="classInitialisedData_1aba9e519e6380d5bf76b82d8ab6473bc2" kindref="member">NSMYield</ref>;</highlight></codeline>
+<codeline lineno="24" refid="classInitialisedData_1ae6a199be44781f4af5017e62ec760c7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classIsochroneTracker" kindref="compound">IsochroneTracker</ref><sp/><ref refid="classInitialisedData_1ae6a199be44781f4af5017e62ec760c7f" kindref="member">Isochrones</ref>;</highlight></codeline>
+<codeline lineno="25" refid="classInitialisedData_1ae90f5d86d69b3e72d20e413b077c6c6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classInitialisedData_1ae90f5d86d69b3e72d20e413b077c6c6a" kindref="member">InitialisedData</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/>param);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27" refid="classInitialisedData_1a7d47d64878c02ddfcc7f892b5f57a37e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classInitialisedData_1a7d47d64878c02ddfcc7f892b5f57a37e" kindref="member">Log</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;<sp/>input)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28" refid="classInitialisedData_1a9a9bce945115e23a0007e0cbcfdc3e1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classInitialisedData_1a9a9bce945115e23a0007e0cbcfdc3e1f" kindref="member">Log</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;<sp/>input,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>importance)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29" refid="classInitialisedData_1a53595c9a8688c72cbc387507989acded" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classInitialisedData_1a53595c9a8688c72cbc387507989acded" kindref="member">LogFlush</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30" refid="classInitialisedData_1a8c49916eda1130d7106ab888427082ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classInitialisedData_1a8c49916eda1130d7106ab888427082ce" kindref="member">UrgentLog</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;<sp/>input)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32" refid="classInitialisedData_1a8f72227ae353128b6266d1aa68a21c60" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classInitialisedData_1a8f72227ae353128b6266d1aa68a21c60" kindref="member">ProgressBar</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;<sp/>currentBars,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentStep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>totalSteps);</highlight></codeline>
+<codeline lineno="33" refid="classInitialisedData_1a04eab602ca3e7f52d55ada22f3a9c145" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classInitialisedData_1a04eab602ca3e7f52d55ada22f3a9c145" kindref="member">NormalDist</ref>();</highlight></codeline>
+<codeline lineno="34" refid="classInitialisedData_1aa05c8f39b7913d919b3c6af6d58c1fad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classInitialisedData_1aa05c8f39b7913d919b3c6af6d58c1fad" kindref="member">NormalDist</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mu,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>sigma);</highlight></codeline>
+<codeline lineno="35" refid="classInitialisedData_1a6521bd174810d3a1f626c0e9f09d0ede" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classInitialisedData_1a6521bd174810d3a1f626c0e9f09d0ede" kindref="member">UniformDist</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>lowerBound,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>upperBound);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="37" refid="classInitialisedData_1ae959c7cf9eb068b628557e031f152cf4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::default_random_engine<sp/><ref refid="classInitialisedData_1ae959c7cf9eb068b628557e031f152cf4" kindref="member">generator</ref>;</highlight></codeline>
+<codeline lineno="38" refid="classInitialisedData_1aab64e17c912677f6c8e88dc1281bb987" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::normal_distribution&lt;double&gt;<sp/><ref refid="classInitialisedData_1aab64e17c912677f6c8e88dc1281bb987" kindref="member">distribution</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/InitialisedData.h"/>
+  </compounddef>
+</doxygen>

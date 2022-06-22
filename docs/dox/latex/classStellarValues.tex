@@ -19,26 +19,48 @@ Inheritance diagram for Stellar\+Values\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classStellarValues_aae44507bd5653641e14b3a4e6a880dcc}{Stellar\+Values}} ()
-\begin{DoxyCompactList}\small\item\em Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classStellarValues_a0f81d57b6ed32e721b8879db7d7ab5bf}{Initialise}} (std\+::string resource\+Root)
+\begin{DoxyCompactList}\small\item\em Initialises the mass grid etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classStellarValues_ad87b9db57efd7c785e2e7009e3f6c8c8}{Max\+Stellar\+Mass}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(100,\char`\"{}max-\/mass\char`\"{})
-\begin{DoxyCompactList}\small\item\em Minimum stellar mass that I\+MF can generate. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classStellarValues_aebf3fb39167a9719618d7bf381543171}{Min\+Stellar\+Mass}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+5,\char`\"{}min-\/mass\char`\"{})
-\begin{DoxyCompactList}\small\item\em Maxmimum stellar mass that I\+MF can generate. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classStellarValues_ab575d1540bc306e4d295806b86712502}{MinZ}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(1e-\/7,\char`\"{}min-\/z\char`\"{})
-\begin{DoxyCompactList}\small\item\em Minimum Z that the I\+LM(??) can consider. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classStellarValues_ae337595f7ddf523dd01e07fc95ed719b}{MaxZ}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+052,\char`\"{}max-\/z\char`\"{})
-\begin{DoxyCompactList}\small\item\em Maximum Z that the I\+LM(??) can consider. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classStellarValues_aadc9b602660ad5cea7a6266bfcdc2a62}{Ejection\+Fraction}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+45,\char`\"{}eject\char`\"{})
-\begin{DoxyCompactList}\small\item\em The fraction of supernovae ejecta which is thrown into the I\+GM. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classStellarValues_a69d9a1255ae9b0895009d14879567957}{Feedback\+Factor}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+4,\char`\"{}mass-\/load\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_ad87b9db57efd7c785e2e7009e3f6c8c8}{Max\+Stellar\+Mass}} = Argument$<$double$>$(100,\char`\"{}mass-\/max\char`\"{})
+\begin{DoxyCompactList}\small\item\em Minimum stellar mass that IMF can generate. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_aebf3fb39167a9719618d7bf381543171}{Min\+Stellar\+Mass}} = Argument$<$double$>$(0.\+1,\char`\"{}mass-\/min\char`\"{})
+\begin{DoxyCompactList}\small\item\em Maxmimum stellar mass that IMF can generate. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_a6787c82010676babb8f830f68951d1ac}{Immortal\+Mass}} = Argument$<$double$>$(0.\+3,\char`\"{}mass-\/immortal\char`\"{})
+\begin{DoxyCompactList}\small\item\em Mass of stars which we consider immortal without checking their isochrones. \end{DoxyCompactList}\item 
+Argument$<$ int $>$ \mbox{\hyperlink{classStellarValues_a29237c69025586eb05e58bdcc6954e3b}{Mass\+Resolution}} = Argument$<$int$>$(199,\char`\"{}mass-\/resolution\char`\"{})
+\begin{DoxyCompactList}\small\item\em Number of points along the stellar mass grid. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classStellarValues_aac9148580c2a1839d6c5f4119eaa3109}{Mass\+Grid}}
+\begin{DoxyCompactList}\small\item\em A grid which holds the masses onto which all interpolation will take place. Allows for the possibility of non-\/uniform steps. The values are the centre of each mass divide. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classStellarValues_aa235e48a42420168c9e3e64b695d4761}{Mass\+Deltas}}
+\begin{DoxyCompactList}\small\item\em The corresponding widths of each interval on the mass line. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_a4651c0cd50f61e7aade35035708509a0}{Min\+LogZ}} = Argument$<$double$>$(-\/6,\char`\"{}logz-\/min\char`\"{})
+\begin{DoxyCompactList}\small\item\em Minimum Z that the ILM(??) can consider. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_abc39f561c4a2e082163f37cc8bb5cbc8}{Max\+LogZ}} = Argument$<$double$>$(-\/0.\+1,\char`\"{}logz-\/max\char`\"{})
+\begin{DoxyCompactList}\small\item\em Maximum Z that the ILM(??) can consider. \end{DoxyCompactList}\item 
+Argument$<$ int $>$ \mbox{\hyperlink{classStellarValues_a57a459e3ad441c47f293a0bd201f5db2}{Log\+ZResolution}} = Argument$<$int$>$(100,\char`\"{}logz-\/resolution\char`\"{})
+\begin{DoxyCompactList}\small\item\em Z Resolution. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classStellarValues_ac59aba168a79cdbf7e3c6cdd87bb49df}{Log\+ZGrid}}
+\begin{DoxyCompactList}\small\item\em As with Mass\+Grid, but for metallicity (assumed to be always uniform in log-\/space) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classStellarValues_a5062a3a14495d0d573ba4af8a3b4cc10}{Log\+ZDelta}}
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_aadc9b602660ad5cea7a6266bfcdc2a62}{Ejection\+Fraction}} = Argument$<$double$>$(0.\+45,\char`\"{}eject\char`\"{})
+\begin{DoxyCompactList}\small\item\em The fraction of supernovae ejecta which is thrown into the IGM. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_a69d9a1255ae9b0895009d14879567957}{Feedback\+Factor}} = Argument$<$double$>$(0.\+5,\char`\"{}mass-\/load\char`\"{})
 \begin{DoxyCompactList}\small\item\em For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classStellarValues_a6f4290b1dbd5032297414ada54703379}{S\+N\+Ia\+Fraction}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+05,\char`\"{}sn1a-\/frac\char`\"{})
-\begin{DoxyCompactList}\small\item\em The fraction of white dwarfs which go S\+N\+Ia. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classStellarValues_ad49ac36512a6b86cd4a61647baf315f4}{N\+S\+M\+Fraction}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+0001,\char`\"{}nsm-\/frac\char`\"{})
-\begin{DoxyCompactList}\small\item\em The fraction of neutron stars which go N\+SM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_a74e6bdf446aaa1ea75131afdcf53467e}{Schmidt\+Main\+Power}} = Argument$<$double$>$(1.\+4,\char`\"{}schmidt-\/main\char`\"{})
+\begin{DoxyCompactList}\small\item\em The normal Kennicutt-\/\+Schmidt power law index. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_a2beac93357eedcc2ead6dad7379dafd4}{Schmidt\+Low\+Power}} = Argument$<$double$>$(4.\+0,\char`\"{}schmidt-\/low\char`\"{})
+\begin{DoxyCompactList}\small\item\em The low-\/density Kennicutt-\/\+Schmidt power law index. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_a9609172ddd57fa8fdb12105773054264}{Schmidt\+Density\+Cut}} = Argument$<$double$>$(0,\char`\"{}schmidt-\/cut\char`\"{})
+\begin{DoxyCompactList}\small\item\em The density cut for the low/high density switchover in Schmidt power law. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_ae7a8b5b52064eb662ab23fc6db4e851d}{Schmidt\+Prefactor}} = Argument$<$double$>$(2,\char`\"{}schmidt-\/factor\char`\"{})
+\begin{DoxyCompactList}\small\item\em The Schmidt prefactor. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classStellarValues_a61cb9de1bd9cc6c29beb3781f1ffde1f}{IMF\+\_\+\+Slope}} = Argument$<$double$>$(2.\+3,\char`\"{}imf-\/slope\char`\"{})
+\begin{DoxyCompactList}\small\item\em The slope of the high-\/mass tail fo the IMF. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
@@ -58,89 +80,202 @@ Boring constructor -- slots in the relevant arguments into the Param\+List\+::ar
 
 
 
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStellarValues_a0f81d57b6ed32e721b8879db7d7ab5bf}\label{classStellarValues_a0f81d57b6ed32e721b8879db7d7ab5bf}} 
+\index{StellarValues@{StellarValues}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Stellar\+Values\+::\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{resource\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initialises the mass grid etc. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classParamList_a7bc1e8cffb0062a056193e34b80f3475}{Param\+List}}.
+
+
+
 \doxysubsection{Field Documentation}
 \mbox{\Hypertarget{classStellarValues_aadc9b602660ad5cea7a6266bfcdc2a62}\label{classStellarValues_aadc9b602660ad5cea7a6266bfcdc2a62}} 
 \index{StellarValues@{StellarValues}!EjectionFraction@{EjectionFraction}}
 \index{EjectionFraction@{EjectionFraction}!StellarValues@{StellarValues}}
 \doxysubsubsection{\texorpdfstring{EjectionFraction}{EjectionFraction}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Stellar\+Values\+::\+Ejection\+Fraction = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+45,\char`\"{}eject\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Ejection\+Fraction = Argument$<$double$>$(0.\+45,\char`\"{}eject\char`\"{})}
 
 
 
-The fraction of supernovae ejecta which is thrown into the I\+GM. 
+The fraction of supernovae ejecta which is thrown into the IGM. 
 
 \mbox{\Hypertarget{classStellarValues_a69d9a1255ae9b0895009d14879567957}\label{classStellarValues_a69d9a1255ae9b0895009d14879567957}} 
 \index{StellarValues@{StellarValues}!FeedbackFactor@{FeedbackFactor}}
 \index{FeedbackFactor@{FeedbackFactor}!StellarValues@{StellarValues}}
 \doxysubsubsection{\texorpdfstring{FeedbackFactor}{FeedbackFactor}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Stellar\+Values\+::\+Feedback\+Factor = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+4,\char`\"{}mass-\/load\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Feedback\+Factor = Argument$<$double$>$(0.\+5,\char`\"{}mass-\/load\char`\"{})}
 
 
 
 For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase. 
 
+\mbox{\Hypertarget{classStellarValues_a61cb9de1bd9cc6c29beb3781f1ffde1f}\label{classStellarValues_a61cb9de1bd9cc6c29beb3781f1ffde1f}} 
+\index{StellarValues@{StellarValues}!IMF\_Slope@{IMF\_Slope}}
+\index{IMF\_Slope@{IMF\_Slope}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{IMF\_Slope}{IMF\_Slope}}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+IMF\+\_\+\+Slope = Argument$<$double$>$(2.\+3,\char`\"{}imf-\/slope\char`\"{})}
+
+
+
+The slope of the high-\/mass tail fo the IMF. 
+
+\mbox{\Hypertarget{classStellarValues_a6787c82010676babb8f830f68951d1ac}\label{classStellarValues_a6787c82010676babb8f830f68951d1ac}} 
+\index{StellarValues@{StellarValues}!ImmortalMass@{ImmortalMass}}
+\index{ImmortalMass@{ImmortalMass}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{ImmortalMass}{ImmortalMass}}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Immortal\+Mass = Argument$<$double$>$(0.\+3,\char`\"{}mass-\/immortal\char`\"{})}
+
+
+
+Mass of stars which we consider immortal without checking their isochrones. 
+
+\mbox{\Hypertarget{classStellarValues_a5062a3a14495d0d573ba4af8a3b4cc10}\label{classStellarValues_a5062a3a14495d0d573ba4af8a3b4cc10}} 
+\index{StellarValues@{StellarValues}!LogZDelta@{LogZDelta}}
+\index{LogZDelta@{LogZDelta}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{LogZDelta}{LogZDelta}}
+{\footnotesize\ttfamily double Stellar\+Values\+::\+Log\+ZDelta}
+
+\mbox{\Hypertarget{classStellarValues_ac59aba168a79cdbf7e3c6cdd87bb49df}\label{classStellarValues_ac59aba168a79cdbf7e3c6cdd87bb49df}} 
+\index{StellarValues@{StellarValues}!LogZGrid@{LogZGrid}}
+\index{LogZGrid@{LogZGrid}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{LogZGrid}{LogZGrid}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Stellar\+Values\+::\+Log\+ZGrid}
+
+
+
+As with Mass\+Grid, but for metallicity (assumed to be always uniform in log-\/space) 
+
+\mbox{\Hypertarget{classStellarValues_a57a459e3ad441c47f293a0bd201f5db2}\label{classStellarValues_a57a459e3ad441c47f293a0bd201f5db2}} 
+\index{StellarValues@{StellarValues}!LogZResolution@{LogZResolution}}
+\index{LogZResolution@{LogZResolution}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{LogZResolution}{LogZResolution}}
+{\footnotesize\ttfamily Argument$<$int$>$ Stellar\+Values\+::\+Log\+ZResolution = Argument$<$int$>$(100,\char`\"{}logz-\/resolution\char`\"{})}
+
+
+
+Z Resolution. 
+
+\mbox{\Hypertarget{classStellarValues_aa235e48a42420168c9e3e64b695d4761}\label{classStellarValues_aa235e48a42420168c9e3e64b695d4761}} 
+\index{StellarValues@{StellarValues}!MassDeltas@{MassDeltas}}
+\index{MassDeltas@{MassDeltas}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{MassDeltas}{MassDeltas}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Stellar\+Values\+::\+Mass\+Deltas}
+
+
+
+The corresponding widths of each interval on the mass line. 
+
+\mbox{\Hypertarget{classStellarValues_aac9148580c2a1839d6c5f4119eaa3109}\label{classStellarValues_aac9148580c2a1839d6c5f4119eaa3109}} 
+\index{StellarValues@{StellarValues}!MassGrid@{MassGrid}}
+\index{MassGrid@{MassGrid}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{MassGrid}{MassGrid}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Stellar\+Values\+::\+Mass\+Grid}
+
+
+
+A grid which holds the masses onto which all interpolation will take place. Allows for the possibility of non-\/uniform steps. The values are the centre of each mass divide. 
+
+\mbox{\Hypertarget{classStellarValues_a29237c69025586eb05e58bdcc6954e3b}\label{classStellarValues_a29237c69025586eb05e58bdcc6954e3b}} 
+\index{StellarValues@{StellarValues}!MassResolution@{MassResolution}}
+\index{MassResolution@{MassResolution}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{MassResolution}{MassResolution}}
+{\footnotesize\ttfamily Argument$<$int$>$ Stellar\+Values\+::\+Mass\+Resolution = Argument$<$int$>$(199,\char`\"{}mass-\/resolution\char`\"{})}
+
+
+
+Number of points along the stellar mass grid. 
+
+\mbox{\Hypertarget{classStellarValues_abc39f561c4a2e082163f37cc8bb5cbc8}\label{classStellarValues_abc39f561c4a2e082163f37cc8bb5cbc8}} 
+\index{StellarValues@{StellarValues}!MaxLogZ@{MaxLogZ}}
+\index{MaxLogZ@{MaxLogZ}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{MaxLogZ}{MaxLogZ}}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Max\+LogZ = Argument$<$double$>$(-\/0.\+1,\char`\"{}logz-\/max\char`\"{})}
+
+
+
+Maximum Z that the ILM(??) can consider. 
+
 \mbox{\Hypertarget{classStellarValues_ad87b9db57efd7c785e2e7009e3f6c8c8}\label{classStellarValues_ad87b9db57efd7c785e2e7009e3f6c8c8}} 
 \index{StellarValues@{StellarValues}!MaxStellarMass@{MaxStellarMass}}
 \index{MaxStellarMass@{MaxStellarMass}!StellarValues@{StellarValues}}
 \doxysubsubsection{\texorpdfstring{MaxStellarMass}{MaxStellarMass}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Stellar\+Values\+::\+Max\+Stellar\+Mass = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(100,\char`\"{}max-\/mass\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Max\+Stellar\+Mass = Argument$<$double$>$(100,\char`\"{}mass-\/max\char`\"{})}
 
 
 
-Minimum stellar mass that I\+MF can generate. 
+Minimum stellar mass that IMF can generate. 
 
-\mbox{\Hypertarget{classStellarValues_ae337595f7ddf523dd01e07fc95ed719b}\label{classStellarValues_ae337595f7ddf523dd01e07fc95ed719b}} 
-\index{StellarValues@{StellarValues}!MaxZ@{MaxZ}}
-\index{MaxZ@{MaxZ}!StellarValues@{StellarValues}}
-\doxysubsubsection{\texorpdfstring{MaxZ}{MaxZ}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Stellar\+Values\+::\+MaxZ = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+052,\char`\"{}max-\/z\char`\"{})}
+\mbox{\Hypertarget{classStellarValues_a4651c0cd50f61e7aade35035708509a0}\label{classStellarValues_a4651c0cd50f61e7aade35035708509a0}} 
+\index{StellarValues@{StellarValues}!MinLogZ@{MinLogZ}}
+\index{MinLogZ@{MinLogZ}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{MinLogZ}{MinLogZ}}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Min\+LogZ = Argument$<$double$>$(-\/6,\char`\"{}logz-\/min\char`\"{})}
 
 
 
-Maximum Z that the I\+LM(??) can consider. 
+Minimum Z that the ILM(??) can consider. 
 
 \mbox{\Hypertarget{classStellarValues_aebf3fb39167a9719618d7bf381543171}\label{classStellarValues_aebf3fb39167a9719618d7bf381543171}} 
 \index{StellarValues@{StellarValues}!MinStellarMass@{MinStellarMass}}
 \index{MinStellarMass@{MinStellarMass}!StellarValues@{StellarValues}}
 \doxysubsubsection{\texorpdfstring{MinStellarMass}{MinStellarMass}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Stellar\+Values\+::\+Min\+Stellar\+Mass = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+5,\char`\"{}min-\/mass\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Min\+Stellar\+Mass = Argument$<$double$>$(0.\+1,\char`\"{}mass-\/min\char`\"{})}
 
 
 
-Maxmimum stellar mass that I\+MF can generate. 
+Maxmimum stellar mass that IMF can generate. 
 
-\mbox{\Hypertarget{classStellarValues_ab575d1540bc306e4d295806b86712502}\label{classStellarValues_ab575d1540bc306e4d295806b86712502}} 
-\index{StellarValues@{StellarValues}!MinZ@{MinZ}}
-\index{MinZ@{MinZ}!StellarValues@{StellarValues}}
-\doxysubsubsection{\texorpdfstring{MinZ}{MinZ}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Stellar\+Values\+::\+MinZ = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(1e-\/7,\char`\"{}min-\/z\char`\"{})}
-
-
-
-Minimum Z that the I\+LM(??) can consider. 
-
-\mbox{\Hypertarget{classStellarValues_ad49ac36512a6b86cd4a61647baf315f4}\label{classStellarValues_ad49ac36512a6b86cd4a61647baf315f4}} 
-\index{StellarValues@{StellarValues}!NSMFraction@{NSMFraction}}
-\index{NSMFraction@{NSMFraction}!StellarValues@{StellarValues}}
-\doxysubsubsection{\texorpdfstring{NSMFraction}{NSMFraction}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Stellar\+Values\+::\+N\+S\+M\+Fraction = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+0001,\char`\"{}nsm-\/frac\char`\"{})}
+\mbox{\Hypertarget{classStellarValues_a9609172ddd57fa8fdb12105773054264}\label{classStellarValues_a9609172ddd57fa8fdb12105773054264}} 
+\index{StellarValues@{StellarValues}!SchmidtDensityCut@{SchmidtDensityCut}}
+\index{SchmidtDensityCut@{SchmidtDensityCut}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{SchmidtDensityCut}{SchmidtDensityCut}}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Schmidt\+Density\+Cut = Argument$<$double$>$(0,\char`\"{}schmidt-\/cut\char`\"{})}
 
 
 
-The fraction of neutron stars which go N\+SM. 
+The density cut for the low/high density switchover in Schmidt power law. 
 
-\mbox{\Hypertarget{classStellarValues_a6f4290b1dbd5032297414ada54703379}\label{classStellarValues_a6f4290b1dbd5032297414ada54703379}} 
-\index{StellarValues@{StellarValues}!SNIaFraction@{SNIaFraction}}
-\index{SNIaFraction@{SNIaFraction}!StellarValues@{StellarValues}}
-\doxysubsubsection{\texorpdfstring{SNIaFraction}{SNIaFraction}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Stellar\+Values\+::\+S\+N\+Ia\+Fraction = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+05,\char`\"{}sn1a-\/frac\char`\"{})}
+\mbox{\Hypertarget{classStellarValues_a2beac93357eedcc2ead6dad7379dafd4}\label{classStellarValues_a2beac93357eedcc2ead6dad7379dafd4}} 
+\index{StellarValues@{StellarValues}!SchmidtLowPower@{SchmidtLowPower}}
+\index{SchmidtLowPower@{SchmidtLowPower}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{SchmidtLowPower}{SchmidtLowPower}}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Schmidt\+Low\+Power = Argument$<$double$>$(4.\+0,\char`\"{}schmidt-\/low\char`\"{})}
 
 
 
-The fraction of white dwarfs which go S\+N\+Ia. 
+The low-\/density Kennicutt-\/\+Schmidt power law index. 
+
+\mbox{\Hypertarget{classStellarValues_a74e6bdf446aaa1ea75131afdcf53467e}\label{classStellarValues_a74e6bdf446aaa1ea75131afdcf53467e}} 
+\index{StellarValues@{StellarValues}!SchmidtMainPower@{SchmidtMainPower}}
+\index{SchmidtMainPower@{SchmidtMainPower}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{SchmidtMainPower}{SchmidtMainPower}}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Schmidt\+Main\+Power = Argument$<$double$>$(1.\+4,\char`\"{}schmidt-\/main\char`\"{})}
+
+
+
+The normal Kennicutt-\/\+Schmidt power law index. 
+
+\mbox{\Hypertarget{classStellarValues_ae7a8b5b52064eb662ab23fc6db4e851d}\label{classStellarValues_ae7a8b5b52064eb662ab23fc6db4e851d}} 
+\index{StellarValues@{StellarValues}!SchmidtPrefactor@{SchmidtPrefactor}}
+\index{SchmidtPrefactor@{SchmidtPrefactor}!StellarValues@{StellarValues}}
+\doxysubsubsection{\texorpdfstring{SchmidtPrefactor}{SchmidtPrefactor}}
+{\footnotesize\ttfamily Argument$<$double$>$ Stellar\+Values\+::\+Schmidt\+Prefactor = Argument$<$double$>$(2,\char`\"{}schmidt-\/factor\char`\"{})}
+
+
+
+The Schmidt prefactor. 
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}
+/\+Users/jf20/\+Documents/\+Physics/\+RAMICES\+\_\+\+II/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}

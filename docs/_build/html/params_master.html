@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Global &amp; Runtime Parameters &#8212; RAMICES_II 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
@@ -44,7 +45,7 @@
           <div class="body" role="main">
             
   <section id="global-runtime-parameters">
-<h1>Global &amp; Runtime Parameters<a class="headerlink" href="#global-runtime-parameters" title="Permalink to this headline">¶</a></h1>
+<h1>Global &amp; Runtime Parameters<a class="headerlink" href="#global-runtime-parameters" title="Permalink to this heading">¶</a></h1>
 <p>Global variables are horrible, but in a project with this many twiddly dials, also fairly unavoidable.</p>
 <p>To avoid having truly “global parameters”, we package the vast majority of our values into a GlobalParameters object, which is then passed around by reference. This object makes extensive use of the <a class="reference external" href="https://jackstandardlibrary.readthedocs.io/en/latest/argument.html">JSL::Argument</a> object, which is included as a submodule.</p>
 <div class="toctree-wrapper compound">
@@ -65,12 +66,16 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">RAMICES II Documentation</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="params_global.html"
-                        title="next chapter">Global Parameters</a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">RAMICES II Documentation</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="params_global.html"
+                          title="next chapter">Global Parameters</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -87,7 +92,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -110,7 +115,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, J. Fraser.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
     </div>
   </body>
 </html>

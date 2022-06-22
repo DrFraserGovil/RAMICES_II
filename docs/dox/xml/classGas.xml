@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="classGas" kind="class" language="C++" prot="public">
     <compoundname>Gas</compoundname>
     <includes refid="Gas_8h" local="no">Gas.h</includes>
@@ -9,6 +9,7 @@
         <definition>std::vector&lt;double&gt; Gas::Species</definition>
         <argsstring></argsstring>
         <name>Species</name>
+        <qualifiedname>Gas::Species</qualifiedname>
         <briefdescription>
 <para>The central mass array. Has <ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e" kindref="member">ElementCount</ref> elements, indexed by ElementID. </para>
         </briefdescription>
@@ -16,7 +17,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="35" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" bodystart="35" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="37" column="13" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGas_1a3b5e714c1acc7dc0aab2dbd6351d84b2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Gas::NeedsRecomputing</definition>
+        <argsstring></argsstring>
+        <name>NeedsRecomputing</name>
+        <qualifiedname>Gas::NeedsRecomputing</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="41" column="6" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGas_1ae4c7a5c7975222332bc53bc4fabba9a3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Gas::internal_Mass</definition>
+        <argsstring></argsstring>
+        <name>internal_Mass</name>
+        <qualifiedname>Gas::internal_Mass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="42" column="8" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -25,6 +54,7 @@
         <definition>Gas::Gas</definition>
         <argsstring>()</argsstring>
         <name>Gas</name>
+        <qualifiedname>Gas::Gas</qualifiedname>
         <briefdescription>
 <para>Default Constructor initialises the chunk of gas to have zero mass. </para>
         </briefdescription>
@@ -32,13 +62,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="13" column="1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="13" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classGas_1a72c22f9017710f7c97af4f727e481bd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>Gas::Gas</definition>
         <argsstring>(const std::vector&lt; double &gt; &amp;elements)</argsstring>
         <name>Gas</name>
+        <qualifiedname>Gas::Gas</qualifiedname>
         <param>
           <type>const std::vector&lt; double &gt; &amp;</type>
           <declname>elements</declname>
@@ -50,13 +81,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="16" column="1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="16" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classGas_1a292ef4704a70acb9aacf7bd10d04f7f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double Gas::Mass</definition>
         <argsstring>()</argsstring>
         <name>Mass</name>
+        <qualifiedname>Gas::Mass</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -66,13 +98,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="19" column="8"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="19" column="8"/>
       </memberdef>
-      <memberdef kind="function" id="classGas_1ae68d91b5ab415a0478e7dcf14cfdc7ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classGas_1ac88f83f21474f4c9237923ed98a43ddc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Gas::Mass</definition>
+        <argsstring>() const</argsstring>
+        <name>Mass</name>
+        <qualifiedname>Gas::Mass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="21" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGas_1a429a614472a47a8297cad9a5442270a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double &amp;</type>
-        <definition>double&amp; Gas::operator[]</definition>
+        <definition>double &amp; Gas::operator[]</definition>
         <argsstring>(ElementID id)</argsstring>
         <name>operator[]</name>
+        <qualifiedname>Gas::operator[]</qualifiedname>
         <param>
           <type><ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref></type>
           <declname>id</declname>
@@ -86,13 +133,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="22" column="9"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="24" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="classGas_1a585dae425060668c22526512e5d7e2b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classGas_1a9b562988d2d6bcba6c1989d0ca99bc7f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const double &amp;</type>
-        <definition>const double&amp; Gas::operator[]</definition>
+        <definition>const double &amp; Gas::operator[]</definition>
         <argsstring>(ElementID id) const</argsstring>
         <name>operator[]</name>
+        <qualifiedname>Gas::operator[]</qualifiedname>
         <param>
           <type><ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref></type>
           <declname>id</declname>
@@ -104,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="25" column="15"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="27" column="15"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -113,6 +161,7 @@
         <definition>static Gas Gas::Primordial</definition>
         <argsstring>(double mass)</argsstring>
         <name>Primordial</name>
+        <qualifiedname>Gas::Primordial</qualifiedname>
         <param>
           <type>double</type>
           <declname>mass</declname>
@@ -126,13 +175,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="28" column="12"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="30" column="12"/>
       </memberdef>
       <memberdef kind="function" id="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classGas" kindref="compound">Gas</ref></type>
         <definition>static Gas Gas::Empty</definition>
         <argsstring>()</argsstring>
         <name>Empty</name>
+        <qualifiedname>Gas::Empty</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -142,7 +192,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="31" column="12"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="33" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classGas_1a40e3560ba64fcaa3a5cac1477421854f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Gas::CheckMass</definition>
+        <argsstring>()</argsstring>
+        <name>CheckMass</name>
+        <qualifiedname>Gas::CheckMass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="39" column="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -150,14 +216,18 @@
     <detaileddescription>
 <para>The most basic gas object there is <ndash/> an array of element-masses and some rules for interacting with it. </para>
     </detaileddescription>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" line="8" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h" bodystart="7" bodyend="40"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" line="7" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h" bodystart="8" bodyend="44"/>
     <listofallmembers>
+      <member refid="classGas_1a40e3560ba64fcaa3a5cac1477421854f" prot="private" virt="non-virtual"><scope>Gas</scope><name>CheckMass</name></member>
       <member refid="classGas_1a6e79d1e5d17931e7ea6a9f823016f648" prot="public" virt="non-virtual"><scope>Gas</scope><name>Empty</name></member>
       <member refid="classGas_1a6506127f6d3c2f0e15e9592c1e0134ea" prot="public" virt="non-virtual"><scope>Gas</scope><name>Gas</name></member>
       <member refid="classGas_1a72c22f9017710f7c97af4f727e481bd4" prot="public" virt="non-virtual"><scope>Gas</scope><name>Gas</name></member>
+      <member refid="classGas_1ae4c7a5c7975222332bc53bc4fabba9a3" prot="private" virt="non-virtual"><scope>Gas</scope><name>internal_Mass</name></member>
       <member refid="classGas_1a292ef4704a70acb9aacf7bd10d04f7f3" prot="public" virt="non-virtual"><scope>Gas</scope><name>Mass</name></member>
-      <member refid="classGas_1ae68d91b5ab415a0478e7dcf14cfdc7ca" prot="public" virt="non-virtual"><scope>Gas</scope><name>operator[]</name></member>
-      <member refid="classGas_1a585dae425060668c22526512e5d7e2b5" prot="public" virt="non-virtual"><scope>Gas</scope><name>operator[]</name></member>
+      <member refid="classGas_1ac88f83f21474f4c9237923ed98a43ddc" prot="public" virt="non-virtual"><scope>Gas</scope><name>Mass</name></member>
+      <member refid="classGas_1a3b5e714c1acc7dc0aab2dbd6351d84b2" prot="private" virt="non-virtual"><scope>Gas</scope><name>NeedsRecomputing</name></member>
+      <member refid="classGas_1a429a614472a47a8297cad9a5442270a9" prot="public" virt="non-virtual"><scope>Gas</scope><name>operator[]</name></member>
+      <member refid="classGas_1a9b562988d2d6bcba6c1989d0ca99bc7f" prot="public" virt="non-virtual"><scope>Gas</scope><name>operator[]</name></member>
       <member refid="classGas_1a2b2398801ceb8fc5b08b00beab3b4eea" prot="public" virt="non-virtual"><scope>Gas</scope><name>Primordial</name></member>
       <member refid="classGas_1a3ed913e9c0c680090dfccb63d0aa6a8c" prot="private" virt="non-virtual"><scope>Gas</scope><name>Species</name></member>
     </listofallmembers>

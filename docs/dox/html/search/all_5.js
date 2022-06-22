@@ -1,16 +1,11 @@
 var searchData=
 [
-  ['feedbackfactor_62',['FeedbackFactor',['../classStellarValues.html#a69d9a1255ae9b0895009d14879567957',1,'StellarValues']]],
-  ['filehandler_2eh_63',['FileHandler.h',['../FileHandler_8h.html',1,'']]],
-  ['fileio_2eh_64',['FileIO.h',['../FileIO_8h.html',1,'']]],
-  ['filewriter_2eh_65',['fileWriter.h',['../fileWriter_8h.html',1,'']]],
-  ['filterridges_66',['FilterRidges',['../classStellarYield.html#a8fe6b87611d4449b371a33dd2acf790c',1,'StellarYield']]],
-  ['findbracket_67',['FindBracket',['../classStellarYield.html#a301919356380cd1c89690d9e635c1734',1,'StellarYield']]],
-  ['forlinein_68',['forLineIn',['../LineReader_8h.html#a5480fba013891b2f3033cc97d5d8edf4',1,'LineReader.h']]],
-  ['forlineinfile_69',['forLineInFile',['../FileHandler_8h.html#afaf801bcb7f7250a7a809ff8be891966',1,'FileHandler.h']]],
-  ['forlinevectorin_70',['forLineVectorIn',['../LineReader_8h.html#abdfa973ea7dd7efb90a74e8ec636f5ed',1,'LineReader.h']]],
-  ['forlinevectorinfile_71',['forLineVectorInFile',['../FileHandler_8h.html#a071173977188e46e42e85001c6ca67e2',1,'FileHandler.h']]],
-  ['formatclock_72',['FormatClock',['../namespaceJSL.html#ae7af96a0311784e019209221335f76d9',1,'JSL']]],
-  ['formatduration_73',['FormatDuration',['../namespaceJSL.html#ad7ff2220bbab0294b95b9aa85332a222',1,'JSL']]],
-  ['formstars_74',['FormStars',['../classRing.html#ac0e89b2ff4f16eb212df406612957324',1,'Ring']]]
+  ['feed_0',['Feed',['../classRemnantPopulation.html#a875d50d8ecf6c716dc0a8050ca9bf8ed',1,'RemnantPopulation::Feed(int timeIndex, double bhMass, double wdMass, double nsMass)'],['../classRemnantPopulation.html#aca6d61c4efeb7677d660e4bdd246f9d3',1,'RemnantPopulation::Feed(int timeIndex, RemnantOutput rem)']]],
+  ['feedbackejectfactor_1',['FeedbackEjectFactor',['../classThermalValues.html#a2fa62ad5eb43528ce23f5b18328e3dc6',1,'ThermalValues']]],
+  ['feedbackfactor_2',['FeedbackFactor',['../classStellarValues.html#a69d9a1255ae9b0895009d14879567957',1,'StellarValues']]],
+  ['firstmoment_3',['FirstMoment',['../structIntegral.html#a461f3f6ec33bd0a1d209c3ac91a95367',1,'Integral']]],
+  ['form_4',['Form',['../classStarReservoir.html#aeca96339fab71dc4136e44a6e11632e3',1,'StarReservoir']]],
+  ['formationcount_5',['FormationCount',['../classIMF__Functor.html#a3f758662ca997ce713e73fcae6b35ec2',1,'IMF_Functor']]],
+  ['formstars_6',['FormStars',['../classStellarPopulation.html#a899ae3e556f06cc8c81ed2de65feed6a',1,'StellarPopulation']]],
+  ['fulldeathscan_7',['FullDeathScan',['../classStellarPopulation.html#acb89f468bb68760db523162ef9880814',1,'StellarPopulation']]]
 ];

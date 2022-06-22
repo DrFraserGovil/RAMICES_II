@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nsm_773',['NSM',['../EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238badb82d907ddf6c04771cbaefe83152476',1,'EnumSets.h']]]
+  ['jmag_0',['JMag',['../IsochroneTracker_8h.html#a744d41c1ece5b6f92c88cc5a295fd318a2361a7a512019fdd5b47a34c2c6e42c5',1,'IsochroneTracker.h']]]
 ];

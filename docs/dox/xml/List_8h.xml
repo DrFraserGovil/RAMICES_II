@@ -1,325 +1,216 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="List_8h" kind="file" language="C++">
     <compoundname>List.h</compoundname>
-    <includes refid="JSL_8h" local="yes">JSL.h</includes>
+    <includes local="yes">JSL.h</includes>
     <includes local="no">vector</includes>
     <includes local="no">string</includes>
-    <includedby refid="ParameterLists_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h</includedby>
-    <includedby refid="GlobalParameters_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h</includedby>
+    <includes local="no">sstream</includes>
+    <includedby refid="GlobalParameters_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/GlobalParameters.h</includedby>
+    <includedby refid="ParameterLists_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h</includedby>
     <incdepgraph>
-      <node id="13">
-        <label>sys/stat.h</label>
-      </node>
-      <node id="23">
-        <label>Argument.h</label>
-        <link refid="Argument_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
       <node id="1">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h</label>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/List.h</label>
         <link refid="List_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="29">
-        <label>UnitTest.h</label>
-        <link refid="UnitTest_8h"/>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-      </node>
-      <node id="25">
-        <label>vector.h</label>
-        <link refid="vector_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-      </node>
-      <node id="31">
-        <label>cmath</label>
-      </node>
-      <node id="15">
-        <label>stdexcept</label>
-      </node>
-      <node id="6">
-        <label>string</label>
-      </node>
-      <node id="4">
-        <label>LineReader.h</label>
-        <link refid="LineReader_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>fstream</label>
-      </node>
-      <node id="30">
-        <label>Testing_UnitTests.h</label>
-        <link refid="Testing__UnitTests_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-      </node>
-      <node id="16">
-        <label>fileWriter.h</label>
-        <link refid="fileWriter_8h"/>
-        <childnode refid="17" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-      </node>
-      <node id="19">
-        <label>Time.h</label>
-        <link refid="Time_8h"/>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-      </node>
-      <node id="17">
-        <label>string.h</label>
-      </node>
-      <node id="18">
-        <label>Strings/Strings.h</label>
-        <link refid="Strings_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>rm.h</label>
-        <link refid="rm_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>mkdir.h</label>
-        <link refid="mkdir_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>vector</label>
       </node>
       <node id="2">
         <label>JSL.h</label>
-        <link refid="JSL_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
       </node>
-      <node id="9">
+      <node id="5">
         <label>sstream</label>
       </node>
-      <node id="28">
-        <label>Testing/Testing.h</label>
-        <link refid="Testing_8h"/>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="30" relation="include">
-        </childnode>
+      <node id="4">
+        <label>string</label>
       </node>
-      <node id="26">
-        <label>math.h</label>
+      <node id="3">
+        <label>vector</label>
       </node>
-      <node id="8">
-        <label>../Strings/split.h</label>
-        <link refid="split_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="21">
-        <label>iostream</label>
-      </node>
-      <node id="27">
-        <label>matrix.h</label>
-        <link refid="matrix_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>chrono</label>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="6">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
       </node>
       <node id="12">
-        <label>locationExists.h</label>
-        <link refid="locationExists_8h"/>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/MigrationMatrix.h</label>
+        <link refid="MigrationMatrix_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+      </node>
+      <node id="7">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="3">
-        <label>FileIO/FileIO.h</label>
-        <link refid="FileIO_8h"/>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h</label>
+        <link refid="Gas_8h"/>
         <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasReservoir.h</label>
+        <link refid="GasReservoir_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+      </node>
+      <node id="4">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasStream.h</label>
+        <link refid="GasStream_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/GlobalParameters.h</label>
+        <link refid="GlobalParameters_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-      </node>
-      <node id="22">
-        <label>CommandArgs/CommandArgs.h</label>
-        <link refid="CommandArgs_8h"/>
-        <childnode refid="23" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
-      </node>
-      <node id="24">
-        <label>Maths/Maths.h</label>
-        <link refid="Maths_8h"/>
-        <childnode refid="25" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="11">
-        <label>dirent.h</label>
-      </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="4">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h</label>
-        <link refid="src_2Galaxy_2Galaxy_8h"/>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/InitialisedData.h</label>
+        <link refid="InitialisedData_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="1">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h</label>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/List.h</label>
         <link refid="List_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="11">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h</label>
-        <link refid="StarReservoir_8h"/>
+      <node id="19">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
       </node>
-      <node id="9">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h</label>
-        <link refid="GasStream_8h"/>
+      <node id="15">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/IMF.h</label>
+        <link refid="IMF_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
-      <node id="7">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
-        <link refid="old__src_2Galaxy_2Ring_8h"/>
+      <node id="16">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/IsochroneTracker.h</label>
+        <link refid="IsochroneTracker_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/RemnantPopulation.h</label>
+        <link refid="RemnantPopulation_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/SLF.h</label>
+        <link refid="SLF_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</label>
+        <link refid="StellarPopulation_8h"/>
         <childnode refid="8" relation="include">
         </childnode>
       </node>
       <node id="10">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h</label>
-        <link refid="Gas_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h</label>
-        <link refid="src_2Galaxy_2Ring_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
-        <link refid="old__src_2Galaxy_2Galaxy_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h</label>
-        <link refid="ParameterLists_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
-        <link refid="GasReservoir_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h</label>
-        <link refid="GlobalParameters_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/SimpleYield.h</label>
+        <link refid="SimpleYield_8h"/>
         <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/YieldGrid.h</label>
+        <link refid="YieldGrid_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/YieldRidge.h</label>
+        <link refid="YieldRidge_8h"/>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -330,24 +221,26 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="JSL_8h" kindref="compound">JSL.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;JSL.h&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classJSL_1_1Argument" kindref="compound">JSL::Argument</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">JSL::Argument;</highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight></codeline>
 <codeline lineno="9" refid="classParamList" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classParamList" kindref="compound">ParamList</ref></highlight></codeline>
 <codeline lineno="10"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" kindref="member">Configure</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>argv[]);</highlight></codeline>
+<codeline lineno="13" refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" kindref="member">Configure</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>argv[]);</highlight></codeline>
 <codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="16" refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" kindref="member">Initialise</ref>(std::string<sp/>resourceRoot){};</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;JSL::ArgumentInterface<sp/>*&gt;<sp/><ref refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" kindref="member">argPointers</ref>;</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="22"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18" refid="classParamList_1a09c507dd8e319a880673a1e5eb070415" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classParamList_1a09c507dd8e319a880673a1e5eb070415" kindref="member">StreamContentsTo</ref>(std::stringstream<sp/>&amp;<sp/>stream);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="22" refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;JSL::ArgumentInterface<sp/>*&gt;<sp/><ref refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" kindref="member">argPointers</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">};</highlight></codeline>
     </programlisting>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/List.h"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/List.h"/>
   </compounddef>
 </doxygen>

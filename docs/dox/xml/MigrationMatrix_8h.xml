@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="MigrationMatrix_8h" kind="file" language="C++">
+    <compoundname>MigrationMatrix.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes refid="InitialisedData_8h" local="yes">../Parameters/InitialisedData.h</includes>
+    <includes local="no">iomanip</includes>
+    <includedby refid="Galaxy_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/MigrationMatrix.h</label>
+        <link refid="MigrationMatrix_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Gas.h</label>
+        <link refid="Gas_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>../Gas/GasReservoir.h</label>
+        <link refid="GasReservoir_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>GasStream.h</label>
+        <link refid="GasStream_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>EnumSets.h</label>
+        <link refid="EnumSets_8h"/>
+      </node>
+      <node id="6">
+        <label>../Parameters/GlobalParameters.h</label>
+        <link refid="GlobalParameters_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Parameters/InitialisedData.h</label>
+        <link refid="InitialisedData_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>List.h</label>
+        <link refid="List_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../Stars/IMF.h</label>
+        <link refid="IMF_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>../Stars/IsochroneTracker.h</label>
+        <link refid="IsochroneTracker_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../Stars/SLF.h</label>
+        <link refid="SLF_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>../Yields/SimpleYield.h</label>
+        <link refid="SimpleYield_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>../Yields/YieldGrid.h</label>
+        <link refid="YieldGrid_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>YieldRidge.h</label>
+        <link refid="YieldRidge_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>JSL.h</label>
+      </node>
+      <node id="14">
+        <label>algorithm</label>
+      </node>
+      <node id="16">
+        <label>filesystem</label>
+      </node>
+      <node id="23">
+        <label>iomanip</label>
+      </node>
+      <node id="4">
+        <label>random</label>
+      </node>
+      <node id="9">
+        <label>sstream</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+      </node>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/MigrationMatrix.h</label>
+        <link refid="MigrationMatrix_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classMigrationMatrix" prot="public">MigrationMatrix</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Parameters/InitialisedData.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="classMigrationMatrix" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classMigrationMatrix" kindref="compound">MigrationMatrix</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="8" refid="classMigrationMatrix_1a525a70940039ea7cbb75a26d9daf5109" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classMigrationMatrix_1a525a70940039ea7cbb75a26d9daf5109" kindref="member">MigrationMatrix</ref>(<ref refid="classInitialisedData" kindref="compound">InitialisedData</ref><sp/>&amp;<sp/>Data);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="10" refid="classMigrationMatrix_1a69cb92da1d163bf1ed092e7920d233d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/><ref refid="classMigrationMatrix_1a69cb92da1d163bf1ed092e7920d233d8" kindref="member">Grid</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="12" refid="classMigrationMatrix_1a14ec1c28609e61bd136464f75b4fa30e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMigrationMatrix_1a14ec1c28609e61bd136464f75b4fa30e" kindref="member">Create</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;double&gt;<sp/>&amp;<sp/>masses);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="14" refid="classMigrationMatrix_1a341661b490d1d7f333053265b9ac1f7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMigrationMatrix_1a341661b490d1d7f333053265b9ac1f7e" kindref="member">Compound</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classMigrationMatrix" kindref="compound">MigrationMatrix</ref><sp/>&amp;<sp/>newTime);</highlight></codeline>
+<codeline lineno="15" refid="classMigrationMatrix_1aadad09739346d39f316f4050204d8da4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMigrationMatrix_1aadad09739346d39f316f4050204d8da4" kindref="member">Print</ref>();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17" refid="classMigrationMatrix_1a4b26a712835a4981f429673a1b04faa5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classMigrationMatrix_1a4b26a712835a4981f429673a1b04faa5" kindref="member">NRings</ref>;</highlight></codeline>
+<codeline lineno="18" refid="classMigrationMatrix_1abd49062939298ffff465122358a2ef9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/><ref refid="classMigrationMatrix_1abd49062939298ffff465122358a2ef9e" kindref="member">Param</ref>;</highlight></codeline>
+<codeline lineno="19" refid="classMigrationMatrix_1a93a6f9c525f5edded3b6aa93bdab9f33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/><ref refid="classMigrationMatrix_1a93a6f9c525f5edded3b6aa93bdab9f33" kindref="member">DiagonalMultiply</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/>&amp;<sp/>a,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/>&amp;<sp/>b,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>diagonalDistance);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/MigrationMatrix.h"/>
+  </compounddef>
+</doxygen>

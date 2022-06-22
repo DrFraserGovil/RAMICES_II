@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['z_371',['Z',['../classYieldRidge.html#adbdf07b5253ca532487d425aecd18a21',1,'YieldRidge']]],
-  ['zero_372',['Zero',['../classJSL_1_1Quaternion.html#a63e84edb5230efc8378d86b5d182221d',1,'JSL::Quaternion']]],
-  ['zfromindex_373',['ZFromIndex',['../classStellarYield.html#aedb56f34d4562cae748662d03ed8f74f',1,'StellarYield']]]
+  ['z_0',['Z',['../classYieldRidge.html#adbdf07b5253ca532487d425aecd18a21',1,'YieldRidge']]],
+  ['zerothmoment_1',['ZerothMoment',['../structIntegral.html#ab6cdc3e939e6e6078a09de9a4b1e98b0',1,'Integral']]]
 ];

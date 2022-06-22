@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['leftmultiplicationmatrix_523',['LeftMultiplicationMatrix',['../classJSL_1_1Quaternion.html#ada6a7067e13b60a65a6103f7508f62f3',1,'JSL::Quaternion']]],
-  ['listparse_524',['ListParse',['../classJSL_1_1ArgumentInterface.html#a256b5bd88b5f6638353f108c48f3ee65',1,'JSL::ArgumentInterface::ListParse()'],['../classJSL_1_1Argument.html#aa2b18bb35e90f91e224a06d60835053a',1,'JSL::Argument::ListParse()']]],
-  ['loadlimongiyields_525',['LoadLimongiYields',['../classYieldGrid.html#a74e21e2aeeef26a0a5e2c6aa1a7d6c41',1,'YieldGrid']]],
-  ['loadmaederyields_526',['LoadMaederYields',['../classYieldGrid.html#a4863d66b1772f1beba4db999f4a51d6a',1,'YieldGrid']]],
-  ['loadmarigoyields_527',['LoadMarigoYields',['../classYieldGrid.html#aa7d85eac45383a8ec79bdc54c3e5ef45',1,'YieldGrid']]],
-  ['loadorfeoyields_528',['LoadOrfeoYields',['../classYieldGrid.html#a9c37ebce300a08e836ce5fceca2038e0',1,'YieldGrid']]],
-  ['locationexists_529',['locationExists',['../namespaceJSL.html#a1752cd7c6e1134da51e9307527e0d788',1,'JSL']]],
-  ['log_530',['log',['../Logger_8h.html#a714ab3ba232f3e6250aae6762e464375',1,'Logger.h']]],
-  ['logstream_531',['LogStream',['../classLogStream.html#a56670710a5bca953cc30c7a623d05291',1,'LogStream']]]
+  ['launchparalleloperation_0',['LaunchParallelOperation',['../classGalaxy.html#ae67a86c83d8966f593f1b50a564862ff',1,'Galaxy']]],
+  ['lifetime_1',['LifeTime',['../classSLF__Functor.html#a890e80c5ffbd7db6eb451ab792798f30',1,'SLF_Functor']]],
+  ['loadlimongiyields_2',['LoadLimongiYields',['../classYieldGrid.html#a74e21e2aeeef26a0a5e2c6aa1a7d6c41',1,'YieldGrid']]],
+  ['loadmaederyields_3',['LoadMaederYields',['../classYieldGrid.html#a4863d66b1772f1beba4db999f4a51d6a',1,'YieldGrid']]],
+  ['loadmarigoyields_4',['LoadMarigoYields',['../classYieldGrid.html#aa7d85eac45383a8ec79bdc54c3e5ef45',1,'YieldGrid']]],
+  ['loadorfeoyields_5',['LoadOrfeoYields',['../classYieldGrid.html#a9c37ebce300a08e836ce5fceca2038e0',1,'YieldGrid']]],
+  ['log_6',['Log',['../classInitialisedData.html#a7d47d64878c02ddfcc7f892b5f57a37e',1,'InitialisedData::Log(const std::string &amp;input) const'],['../classInitialisedData.html#a9a9bce945115e23a0007e0cbcfdc3e1f',1,'InitialisedData::Log(const std::string &amp;input, int importance) const']]],
+  ['logflush_7',['LogFlush',['../classInitialisedData.html#a53595c9a8688c72cbc387507989acded',1,'InitialisedData']]]
 ];

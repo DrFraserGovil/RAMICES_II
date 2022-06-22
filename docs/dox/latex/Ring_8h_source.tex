@@ -1,0 +1,58 @@
+\hypertarget{Ring_8h_source}{}\doxysection{Ring.\+h}
+\label{Ring_8h_source}\index{/Users/jf20/Documents/Physics/RAMICES\_II/src/Galaxy/Ring.h@{/Users/jf20/Documents/Physics/RAMICES\_II/src/Galaxy/Ring.h}}
+\mbox{\hyperlink{Ring_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../Parameters/InitialisedData.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}../Gas/GasReservoir.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}../Stars/StarReservoir.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}../Stars/IMF.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../Stars/SLF.h"{}}}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classRing}{Ring}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{public}:}
+\DoxyCodeLine{13         \mbox{\hyperlink{classRing_a7c98d88d0947f0b5ac8bc52ba4f49331}{Ring}}(\textcolor{keywordtype}{int} radiusIndex, \textcolor{keywordtype}{double} mass, \mbox{\hyperlink{classInitialisedData}{InitialisedData}} \& data);}
+\DoxyCodeLine{14     }
+\DoxyCodeLine{15         \textcolor{keywordtype}{double} \mbox{\hyperlink{classRing_aaf04a946616f5ec362541acb5d8f64a7}{Mass}}();}
+\DoxyCodeLine{16         \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{classRing_a8cc1ffb45fd3ad01e7aeba2155fbc96f}{Radius}};}
+\DoxyCodeLine{17         \textcolor{keyword}{const} \textcolor{keywordtype}{double} \mbox{\hyperlink{classRing_a4f8c8947f8031c8c7b37f084ca6a740f}{Width}};}
+\DoxyCodeLine{18         \textcolor{keywordtype}{double} \mbox{\hyperlink{classRing_a646e6b4dc69c04926fecd53f2a60a001}{Area}};}
+\DoxyCodeLine{19         \textcolor{comment}{//Relic Reservoir}}
+\DoxyCodeLine{20         \mbox{\hyperlink{classStarReservoir}{StarReservoir}} \mbox{\hyperlink{classRing_aa1f7afc1d67b7f41b0edeec853043ae0}{Stars}};}
+\DoxyCodeLine{21         \mbox{\hyperlink{classGasReservoir}{GasReservoir}} \mbox{\hyperlink{classRing_a07a56d858310883fcd0884168f672aa5}{Gas}};}
+\DoxyCodeLine{22         \mbox{\hyperlink{classGasReservoir}{GasReservoir}} \mbox{\hyperlink{classRing_a1f1b47594aead03104f0217832b0b413}{IGMBuffer}};}
+\DoxyCodeLine{23         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRing_a90bdb8683b920097f4a4b21e503d2ab8}{MakeStars}}();}
+\DoxyCodeLine{24         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRing_af5dc7752646d67d66923b572a09e6817}{KillStars}}(\textcolor{keywordtype}{int} time);}
+\DoxyCodeLine{25         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRing_a8b7e54dd656f0c5c9149d9f124d8dc36}{Cool}}();}
+\DoxyCodeLine{26         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRing_add78fc584de63960b29f817a157e1c23}{TimeStep}}(\textcolor{keywordtype}{int} t);}
+\DoxyCodeLine{27         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRing_add4266b32b42ba8141eb1b75a0bde5de}{UpdateMemory}}(\textcolor{keywordtype}{int} t);}
+\DoxyCodeLine{28         }
+\DoxyCodeLine{29         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRing_a2e50e2e7e8a0234ab638f6bb0b60b7b8}{SaveChemicalHistory}}(\textcolor{keywordtype}{int} t, std::stringstream \& absoluteStreamCold, std::stringstream \& logarithmicStreamCold, std::stringstream \& absoluteStreamHot, std::stringstream \& logarithmicStreamHot);}
+\DoxyCodeLine{30         }
+\DoxyCodeLine{31         }
+\DoxyCodeLine{32         \textcolor{keywordtype}{double} \mbox{\hyperlink{classRing_ada6af5ff8e4a8507cdad6227e6ed9c2c}{SelectionEffect}}(\textcolor{keywordtype}{double} Mv, \textcolor{keywordtype}{double} age);}
+\DoxyCodeLine{33         }
+\DoxyCodeLine{34         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRing_a42d50adcaa76f2c472717588bb3153c3}{ComputeSelectionFunction}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} brightLimit, \textcolor{keyword}{const} \textcolor{keywordtype}{double} dimLimit);}
+\DoxyCodeLine{35         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRing_aaeb102265c72260f96a1c4d30ec1353d}{MetCheck}}(\textcolor{keyword}{const} std::string \& location);}
+\DoxyCodeLine{36         std::string \mbox{\hyperlink{classRing_ac54e6427996251900e6668944b16730e}{Synthesis}}(\textcolor{keyword}{const} \mbox{\hyperlink{classStellarPopulation}{StellarPopulation}} \& targetPopulation, \textcolor{keywordtype}{double} migrationFraction, \textcolor{keywordtype}{double} originRadius, \textcolor{keywordtype}{double} \& totalSynthesised);}
+\DoxyCodeLine{37     \textcolor{keyword}{private}:}
+\DoxyCodeLine{38         }
+\DoxyCodeLine{39         \textcolor{comment}{//\string~ std::vector<GasReservoir> PreviousEnrichment;}}
+\DoxyCodeLine{40         \textcolor{keywordtype}{int} \mbox{\hyperlink{classRing_a7e78ffa118882a0d0be0d4198b336ed9}{RadiusIndex}};}
+\DoxyCodeLine{41         }
+\DoxyCodeLine{42         }
+\DoxyCodeLine{43     }
+\DoxyCodeLine{44         \mbox{\hyperlink{classInitialisedData}{InitialisedData}} \& \mbox{\hyperlink{classRing_a0244597e8a04a538b5b343bd3b8841eb}{Data}};}
+\DoxyCodeLine{45         \textcolor{keyword}{const} \mbox{\hyperlink{classGlobalParameters}{GlobalParameters}} \& \mbox{\hyperlink{classRing_abd93716c681cac8d63d1334aa2fbf722}{Param}};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47         std::vector<std::vector<double>> \mbox{\hyperlink{classRing_a6bd341361310de7c0ec7a13d2b00745d}{ColdBuffer}};}
+\DoxyCodeLine{48         std::vector<std::vector<double>> \mbox{\hyperlink{classRing_a759d270dfd623a5a251ad94b9aac3636}{HotBuffer}};}
+\DoxyCodeLine{49         }
+\DoxyCodeLine{50         std::vector<std::vector<double>> \mbox{\hyperlink{classRing_a6dca055cd435d9560c3f254ef0bfd9e2}{SelectionGrid}};}
+\DoxyCodeLine{51         \textcolor{keywordtype}{double} \mbox{\hyperlink{classRing_a7af189aa0b8e5362f5cc08b1ff59d8ed}{MinMv}};}
+\DoxyCodeLine{52         \textcolor{keywordtype}{double} \mbox{\hyperlink{classRing_ad2833971970ae027d9bb238c24c6ff41}{MaxMv}};}
+\DoxyCodeLine{53 \};}
+
+\end{DoxyCode}

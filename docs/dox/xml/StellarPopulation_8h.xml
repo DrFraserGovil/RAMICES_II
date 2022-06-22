@@ -1,55 +1,238 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="StellarPopulation_8h" kind="file" language="C++">
     <compoundname>StellarPopulation.h</compoundname>
     <includes local="no">vector</includes>
-    <includes local="yes">../Options.h</includes>
-    <includes refid="Star_8h" local="yes">Star.h</includes>
-    <includedby refid="old__src_2Galaxy_2Ring_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</includedby>
+    <includes refid="InitialisedData_8h" local="yes">../Parameters/InitialisedData.h</includes>
+    <includes refid="IMF_8h" local="yes">IMF.h</includes>
+    <includes refid="GasReservoir_8h" local="yes">../Gas/GasReservoir.h</includes>
+    <includes refid="RemnantPopulation_8h" local="yes">RemnantPopulation.h</includes>
+    <includes refid="SLF_8h" local="yes">SLF.h</includes>
+    <includes refid="StarEvents_8h" local="yes">StarEvents.h</includes>
+    <includes refid="IsochroneTracker_8h" local="yes">IsochroneTracker.h</includes>
+    <includedby refid="StarReservoir_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</includedby>
     <incdepgraph>
-      <node id="4">
-        <label>Star.h</label>
-        <link refid="Star_8h"/>
-        <childnode refid="3" relation="include">
+      <node id="20">
+        <label>Gas.h</label>
+        <link refid="Gas_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>../Gas/GasReservoir.h</label>
+        <link refid="GasReservoir_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>GasStream.h</label>
+        <link refid="GasStream_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>EnumSets.h</label>
+        <link refid="EnumSets_8h"/>
+      </node>
+      <node id="6">
+        <label>../Parameters/GlobalParameters.h</label>
+        <link refid="GlobalParameters_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="3">
-        <label>../Options.h</label>
+        <label>../Parameters/InitialisedData.h</label>
+        <link refid="InitialisedData_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>List.h</label>
+        <link refid="List_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../Stars/IMF.h</label>
+        <link refid="IMF_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>../Stars/IsochroneTracker.h</label>
+        <link refid="IsochroneTracker_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>RemnantPopulation.h</label>
+        <link refid="RemnantPopulation_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../Stars/SLF.h</label>
+        <link refid="SLF_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>StarEvents.h</label>
+        <link refid="StarEvents_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="1">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h</label>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</label>
         <link refid="StellarPopulation_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>../Yields/SimpleYield.h</label>
+        <link refid="SimpleYield_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>../Yields/YieldGrid.h</label>
+        <link refid="YieldGrid_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>YieldRidge.h</label>
+        <link refid="YieldRidge_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>JSL.h</label>
+      </node>
+      <node id="14">
+        <label>algorithm</label>
+      </node>
+      <node id="16">
+        <label>filesystem</label>
+      </node>
+      <node id="4">
+        <label>random</label>
+      </node>
+      <node id="9">
+        <label>sstream</label>
+      </node>
+      <node id="7">
+        <label>string</label>
       </node>
       <node id="2">
         <label>vector</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="4">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+      </node>
+      <node id="3">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
       <node id="2">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
-        <link refid="old__src_2Galaxy_2Ring_8h"/>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
       <node id="1">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h</label>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</label>
         <link refid="StellarPopulation_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
-        <link refid="old__src_2Galaxy_2Galaxy_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
     </invincdepgraph>
+    <innerclass refid="classIsoMass" prot="public">IsoMass</innerclass>
     <innerclass refid="classStellarPopulation" prot="public">StellarPopulation</innerclass>
     <briefdescription>
     </briefdescription>
@@ -59,24 +242,81 @@
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Options.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Star_8h" kindref="compound">Star.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="6"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7" refid="classStellarPopulation" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classStellarPopulation" kindref="compound">StellarPopulation</ref></highlight></codeline>
-<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="10" refid="classStellarPopulation_1a4f36818fc6ecfdd558ad003ce7e10019" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;StarSet&gt;<sp/><ref refid="classStellarPopulation_1a4f36818fc6ecfdd558ad003ce7e10019" kindref="member">Stars</ref>;</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classStellarPopulation_1a77981d08b1f3e08d40cb0f037521ea78" kindref="member">StellarPopulation</ref>();</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classStellarPopulation_1a77981d08b1f3e08d40cb0f037521ea78" kindref="member">StellarPopulation</ref>(Options<sp/>*<sp/>opts);</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1aa39d2fd1bcfca874ba1a935b7d9a81d0" kindref="member">Mass</ref>();</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="18" refid="classStellarPopulation_1a4b4ed197645138392c812a2aabc4d480" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Options<sp/>*<sp/><ref refid="classStellarPopulation_1a4b4ed197645138392c812a2aabc4d480" kindref="member">Opts</ref>;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="20"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Parameters/InitialisedData.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="IMF_8h" kindref="compound">IMF.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Gas/GasReservoir.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="RemnantPopulation_8h" kindref="compound">RemnantPopulation.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="SLF_8h" kindref="compound">SLF.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="StarEvents_8h" kindref="compound">StarEvents.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="IsochroneTracker_8h" kindref="compound">IsochroneTracker.h</ref>&quot;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="classIsoMass" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classIsoMass" kindref="compound">IsoMass</ref></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18" refid="classIsoMass_1ac5eb0d32e42b2bb7528ed1c9c9fe2449" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classIsoMass_1ac5eb0d32e42b2bb7528ed1c9c9fe2449" kindref="member">MassIndex</ref>;</highlight></codeline>
+<codeline lineno="19" refid="classIsoMass_1a8ce6f10da8bc6adf107eae23844bdc40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIsoMass_1a8ce6f10da8bc6adf107eae23844bdc40" kindref="member">Count</ref>;</highlight></codeline>
+<codeline lineno="20" refid="classIsoMass_1abf8e516092e872775721c898a25ed7e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classIsoMass_1abf8e516092e872775721c898a25ed7e7" kindref="member">Metallicity</ref>;</highlight></codeline>
+<codeline lineno="21" refid="classIsoMass_1ad2c58ad50e15d8fed5c674e180ba716b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classIsoMass_1ad2c58ad50e15d8fed5c674e180ba716b" kindref="member">BirthIndex</ref>;</highlight></codeline>
+<codeline lineno="22" refid="classIsoMass_1af4de48afc8b9f0b7410ecaf75fed9450" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classIsoMass_1af4de48afc8b9f0b7410ecaf75fed9450" kindref="member">DeathIndex</ref>;</highlight></codeline>
+<codeline lineno="23" refid="classIsoMass_1a4f589439a2a8b1e104e817f6a1ed349f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structIsochroneCube" kindref="compound">IsochroneCube</ref><sp/><ref refid="classIsoMass_1a4f589439a2a8b1e104e817f6a1ed349f" kindref="member">Isochrone</ref>;</highlight></codeline>
+<codeline lineno="24" refid="classIsoMass_1a3a020276a509c996474c7525bbd3023c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classIsoMass_1a3a020276a509c996474c7525bbd3023c" kindref="member">IsoMass</ref>();</highlight></codeline>
+<codeline lineno="25" refid="classIsoMass_1ab3385f44981d4c8c40ccfe23c58ab6ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classIsoMass_1ab3385f44981d4c8c40ccfe23c58ab6ee" kindref="member">IsoMass</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>n,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>birth,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>death);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classStellarPopulation" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classStellarPopulation" kindref="compound">StellarPopulation</ref></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32" refid="classStellarPopulation_1a473518f9e42fd30df54321e73e0645ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classStellarPopulation_1a473518f9e42fd30df54321e73e0645ae" kindref="member">StellarPopulation</ref>(<ref refid="classInitialisedData" kindref="compound">InitialisedData</ref><sp/>&amp;<sp/>data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>parentRing);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34" refid="classStellarPopulation_1a32bc371d1a9d9a5127510e9256b32c6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a32bc371d1a9d9a5127510e9256b32c6a" kindref="member">PrepareIMF</ref>();</highlight></codeline>
+<codeline lineno="35" refid="classStellarPopulation_1a97fdeb16decc968a5e3114d1f9044963" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a97fdeb16decc968a5e3114d1f9044963" kindref="member">BirthRadius</ref>;</highlight></codeline>
+<codeline lineno="36" refid="classStellarPopulation_1a215060322d433d7ded411f053f3d41ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a215060322d433d7ded411f053f3d41ee" kindref="member">Metallicity</ref>;<sp/></highlight></codeline>
+<codeline lineno="37" refid="classStellarPopulation_1a068b2370998bff133d0eaa4bc5b647ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a068b2370998bff133d0eaa4bc5b647ca" kindref="member">BirthIndex</ref>;</highlight></codeline>
+<codeline lineno="39" refid="classStellarPopulation_1a899ae3e556f06cc8c81ed2de65feed6a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a899ae3e556f06cc8c81ed2de65feed6a" kindref="member">FormStars</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>formingMass,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeIndex,<sp/><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>formingGas);</highlight></codeline>
+<codeline lineno="40" refid="classStellarPopulation_1aa39d2fd1bcfca874ba1a935b7d9a81d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1aa39d2fd1bcfca874ba1a935b7d9a81d0" kindref="member">Mass</ref>();</highlight></codeline>
+<codeline lineno="41" refid="classStellarPopulation_1aa0c2658ecc05364c3e60ab79f5b39f8b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classIsoMass" kindref="compound">IsoMass</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1aa0c2658ecc05364c3e60ab79f5b39f8b" kindref="member">Relic</ref>();</highlight></codeline>
+<codeline lineno="42" refid="classStellarPopulation_1a8ea1dd89b59ef2710e2e08fda2874d72" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classIsoMass" kindref="compound">IsoMass</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1a8ea1dd89b59ef2710e2e08fda2874d72" kindref="member">Relic</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43" refid="classStellarPopulation_1a5ea8f82261a06e883f16b03bc0c172a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classIsoMass" kindref="compound">IsoMass</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1a5ea8f82261a06e883f16b03bc0c172a9" kindref="member">operator[]</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i);</highlight></codeline>
+<codeline lineno="44" refid="classStellarPopulation_1a38024026f785bdca5f716ee0595c451d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classIsoMass" kindref="compound">IsoMass</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1a38024026f785bdca5f716ee0595c451d" kindref="member">operator[]</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45" refid="classStellarPopulation_1ae1a86d69572e55be6bfcde35be212475" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1ae1a86d69572e55be6bfcde35be212475" kindref="member">Active</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47" refid="classStellarPopulation_1a085ac456ee7b186579c4ee6f7d2f0685" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a085ac456ee7b186579c4ee6f7d2f0685" kindref="member">Death</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>time,<sp/>std::vector&lt;GasReservoir&gt;<sp/>&amp;<sp/>TemporalYieldGrid,<sp/><ref refid="classRemnantPopulation" kindref="compound">RemnantPopulation</ref><sp/>&amp;<sp/>remnants,<sp/><ref refid="classStarEvents" kindref="compound">StarEvents</ref><sp/>&amp;<sp/>EventRate);</highlight></codeline>
+<codeline lineno="48" refid="classStellarPopulation_1a63fca07f471e49fa6063db838f06203c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;IsoMass&gt;<sp/><ref refid="classStellarPopulation_1a63fca07f471e49fa6063db838f06203c" kindref="member">Distribution</ref>;</highlight></codeline>
+<codeline lineno="49" refid="classStellarPopulation_1a8853d0bcc1670badbffde192c4b0dd48" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classIsoMass" kindref="compound">IsoMass</ref><sp/><ref refid="classStellarPopulation_1a8853d0bcc1670badbffde192c4b0dd48" kindref="member">ImmortalStars</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51" refid="classStellarPopulation_1ae42892161befcf8b8f1fac5942577626" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;GasStream&gt;<sp/><ref refid="classStellarPopulation_1ae42892161befcf8b8f1fac5942577626" kindref="member">BirthGas</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53" refid="classStellarPopulation_1a55e761d8f75e7bdabda428b0f6b52f49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classStellarPopulation_1a55e761d8f75e7bdabda428b0f6b52f49" kindref="member">CatalogueHeaders</ref>();</highlight></codeline>
+<codeline lineno="54" refid="classStellarPopulation_1ae3f72cb2cc5ebfab080fddd8991caeba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classStellarPopulation_1ae3f72cb2cc5ebfab080fddd8991caeba" kindref="member">CatalogueEntry</ref>(std::vector&lt;int&gt;<sp/>popEntry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>currentRadius,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>birthRadius)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55" refid="classStellarPopulation_1a572f161ada9f61ecbd0659dc3ff43f61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a572f161ada9f61ecbd0659dc3ff43f61" kindref="member">Age</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="57" refid="classStellarPopulation_1a62d3f6cde603eb10011ec99c927c8f69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1a62d3f6cde603eb10011ec99c927c8f69" kindref="member">Param</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classStellarPopulation_1a10465b079fb5ffbe71f329928612dd72" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classIMF__Functor" kindref="compound">IMF_Functor</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1a10465b079fb5ffbe71f329928612dd72" kindref="member">IMF</ref>;<sp/></highlight></codeline>
+<codeline lineno="62" refid="classStellarPopulation_1ab82791285291b81cd1bbf7863fe88845" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classSLF__Functor" kindref="compound">SLF_Functor</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1ab82791285291b81cd1bbf7863fe88845" kindref="member">SLF</ref>;</highlight></codeline>
+<codeline lineno="63" refid="classStellarPopulation_1a621089521bb68af1efd273cd00a3a4a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classYieldGrid" kindref="compound">YieldGrid</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1a621089521bb68af1efd273cd00a3a4a0" kindref="member">CCSNYield</ref>;</highlight></codeline>
+<codeline lineno="64" refid="classStellarPopulation_1ae7116fd27154558ac372c92117681f75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classYieldGrid" kindref="compound">YieldGrid</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1ae7116fd27154558ac372c92117681f75" kindref="member">ECSNYield</ref>;</highlight></codeline>
+<codeline lineno="65" refid="classStellarPopulation_1a243ded3a9cb206cb026af1c945f204a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classYieldGrid" kindref="compound">YieldGrid</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1a243ded3a9cb206cb026af1c945f204a9" kindref="member">AGBYield</ref>;</highlight></codeline>
+<codeline lineno="66" refid="classStellarPopulation_1ad31bf7b5c2254ef7ea1707888876f750" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classInitialisedData" kindref="compound">InitialisedData</ref><sp/>&amp;<sp/><ref refid="classStellarPopulation_1ad31bf7b5c2254ef7ea1707888876f750" kindref="member">Data</ref>;</highlight></codeline>
+<codeline lineno="67" refid="classStellarPopulation_1a6882258a2c299c1905610fca69ad8c9c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a6882258a2c299c1905610fca69ad8c9c" kindref="member">IsLifetimeMonotonic</ref>;</highlight></codeline>
+<codeline lineno="68" refid="classStellarPopulation_1a5765912176e0c61491815e0164d27922" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a5765912176e0c61491815e0164d27922" kindref="member">IsDepleted</ref>;</highlight></codeline>
+<codeline lineno="69" refid="classStellarPopulation_1af23baaec788cf9fbd85ca9ac922e1da1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1af23baaec788cf9fbd85ca9ac922e1da1" kindref="member">DepletionIndex</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71" refid="classStellarPopulation_1a31092a25d0e6cbbe7abc08f0d5c4a9a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a31092a25d0e6cbbe7abc08f0d5c4a9a5" kindref="member">internal_MassCounter</ref>;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="73" refid="classStellarPopulation_1a82414e5947013ec067829ebe157d89d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a82414e5947013ec067829ebe157d89d7" kindref="member">MonotonicDeathScan</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>time,std::vector&lt;GasReservoir&gt;<sp/>&amp;<sp/><ref refid="classYieldGrid" kindref="compound">YieldGrid</ref>,<sp/><ref refid="classRemnantPopulation" kindref="compound">RemnantPopulation</ref><sp/>&amp;<sp/>remnants,<sp/><ref refid="classStarEvents" kindref="compound">StarEvents</ref><sp/>&amp;<sp/>eventRate);</highlight></codeline>
+<codeline lineno="74" refid="classStellarPopulation_1acb89f468bb68760db523162ef9880814" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1acb89f468bb68760db523162ef9880814" kindref="member">FullDeathScan</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>time);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="76" refid="classStellarPopulation_1a097e182b5f705fc67331c2e1e208900a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStellarPopulation_1a097e182b5f705fc67331c2e1e208900a" kindref="member">RecoverMatter</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>time,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nstars,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mass,<sp/><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>temporalYieldGrid,<sp/><ref refid="classRemnantPopulation" kindref="compound">RemnantPopulation</ref><sp/>&amp;<sp/>remnants);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78" refid="classStellarPopulation_1a779423955f46c3b3416008e89b6bdc68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/><ref refid="classStellarPopulation_1a779423955f46c3b3416008e89b6bdc68" kindref="member">TempGas</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">};</highlight></codeline>
     </programlisting>
-    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Stars/StellarPopulation.h"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h"/>
   </compounddef>
 </doxygen>

@@ -1,16 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="classThermalValues" kind="class" language="C++" prot="public">
     <compoundname>ThermalValues</compoundname>
     <basecompoundref refid="classParamList" prot="public" virt="non-virtual">ParamList</basecompoundref>
     <includes refid="ParameterLists_8h" local="no">ParameterLists.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="classThermalValues_1a225d63d98c19be0b7cdabf2464e223b3" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <type>Argument&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; ThermalValues::HotInjection_CCSN</definition>
         <argsstring></argsstring>
         <name>HotInjection_CCSN</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.7,&quot;fh-ccsn&quot;)</initializer>
+        <qualifiedname>ThermalValues::HotInjection_CCSN</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0.7,&quot;fh-ccsn&quot;)</initializer>
         <briefdescription>
 <para>Fraction of CCSN ejecta which is put into the hot phase. </para>
         </briefdescription>
@@ -18,14 +19,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="144" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="144" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="283" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="283" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classThermalValues_1a0faba77dff54e82e0f3743295a45cdee" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <type>Argument&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; ThermalValues::HotInjection_NSM</definition>
         <argsstring></argsstring>
         <name>HotInjection_NSM</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.4,&quot;fh-nsm&quot;)</initializer>
+        <qualifiedname>ThermalValues::HotInjection_NSM</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0.4,&quot;fh-nsm&quot;)</initializer>
         <briefdescription>
 <para>Fraction of NSM ejecta which is put into the hot phase. </para>
         </briefdescription>
@@ -33,14 +35,61 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="147" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="147" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="286" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThermalValues_1a2257cde40e0dda0a17f6945eaf7c0a24" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; ThermalValues::HotInjection_AGB</definition>
+        <argsstring></argsstring>
+        <name>HotInjection_AGB</name>
+        <qualifiedname>ThermalValues::HotInjection_AGB</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0.7,&quot;fh-agb&quot;)</initializer>
+        <briefdescription>
+<para>Fraction of AGB ejecta which is put into the hot phase. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="289" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThermalValues_1a2fa62ad5eb43528ce23f5b18328e3dc6" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; ThermalValues::FeedbackEjectFactor</definition>
+        <argsstring></argsstring>
+        <name>FeedbackEjectFactor</name>
+        <qualifiedname>ThermalValues::FeedbackEjectFactor</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0,&quot;feedback-eject&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="291" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThermalValues_1a8ecf4e8cc902f8b76554f3556bb1078c" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; ThermalValues::ChimneyFactor</definition>
+        <argsstring></argsstring>
+        <name>ChimneyFactor</name>
+        <qualifiedname>ThermalValues::ChimneyFactor</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0,&quot;chimney&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="293" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="293" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classThermalValues_1ab6d948b7790af5931b26440ca3ad7423" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <type>Argument&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; ThermalValues::HotInjection_SNIa</definition>
         <argsstring></argsstring>
         <name>HotInjection_SNIa</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.99,&quot;fh-sn1a&quot;)</initializer>
+        <qualifiedname>ThermalValues::HotInjection_SNIa</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0.99,&quot;fh-sn1a&quot;)</initializer>
         <briefdescription>
 <para>Fraction of SNIa ejecta which is put into the hot phase. </para>
         </briefdescription>
@@ -48,14 +97,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="150" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="150" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="296" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="296" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classThermalValues_1a2227511e41c87c5e71dec0ee9d13aec7" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <type>Argument&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; ThermalValues::GasCoolingTimeScale</definition>
         <argsstring></argsstring>
         <name>GasCoolingTimeScale</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(1.0,&quot;cool&quot;)</initializer>
+        <qualifiedname>ThermalValues::GasCoolingTimeScale</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(1,&quot;cool&quot;)</initializer>
         <briefdescription>
 <para>The exponential timescale over which the hot gas cools into the cold gas. </para>
         </briefdescription>
@@ -63,7 +113,52 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="153" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="153" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="299" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThermalValues_1a4c81907c8eb64a3716174e740f4bb983" prot="public" static="no" mutable="no">
+        <type>Argument&lt; int &gt;</type>
+        <definition>Argument&lt;int&gt; ThermalValues::NumericalResolution</definition>
+        <argsstring></argsstring>
+        <name>NumericalResolution</name>
+        <qualifiedname>ThermalValues::NumericalResolution</qualifiedname>
+        <initializer>= Argument&lt;int&gt;(30,&quot;cool-resolution&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="301" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThermalValues_1a09a14795f0b3b3621ceeb4d5e6c94c34" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; ThermalValues::DormantHotFraction</definition>
+        <argsstring></argsstring>
+        <name>DormantHotFraction</name>
+        <qualifiedname>ThermalValues::DormantHotFraction</qualifiedname>
+        <initializer>= Argument&lt;double&gt; (1e-20,&quot;dormant-hot-frac&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="303" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classThermalValues_1a91de4947a48b7db212710c70a22873a5" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; ThermalValues::CoolingPower</definition>
+        <argsstring></argsstring>
+        <name>CoolingPower</name>
+        <qualifiedname>ThermalValues::CoolingPower</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(1,&quot;cooling-index&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="305" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="305" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -72,6 +167,7 @@
         <definition>ThermalValues::ThermalValues</definition>
         <argsstring>()</argsstring>
         <name>ThermalValues</name>
+        <qualifiedname>ThermalValues::ThermalValues</qualifiedname>
         <briefdescription>
 <para>Boring constructor <ndash/> slots in the relevant arguments into the ParamList::argPointer array. </para>
         </briefdescription>
@@ -79,7 +175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="157" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="157" bodyend="160"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="307" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="307" bodyend="310"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -100,19 +196,15 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
+      <node id="3">
+        <label>Argument&lt; double &gt;</label>
+      </node>
+      <node id="4">
+        <label>Argument&lt; int &gt;</label>
+      </node>
       <node id="2">
         <label>ParamList</label>
         <link refid="classParamList"/>
-      </node>
-      <node id="3">
-        <label>JSL::Argument&lt; double &gt;</label>
-        <link refid="classJSL_1_1Argument"/>
-        <childnode refid="4" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>JSL::ArgumentInterface</label>
-        <link refid="classJSL_1_1ArgumentInterface"/>
       </node>
       <node id="1">
         <label>ThermalValues</label>
@@ -120,22 +212,37 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>HotInjection_SNIa</edgelabel>
-          <edgelabel>HotInjection_NSM</edgelabel>
-          <edgelabel>HotInjection_CCSN</edgelabel>
+          <edgelabel>ChimneyFactor</edgelabel>
+          <edgelabel>CoolingPower</edgelabel>
+          <edgelabel>DormantHotFraction</edgelabel>
+          <edgelabel>FeedbackEjectFactor</edgelabel>
           <edgelabel>GasCoolingTimeScale</edgelabel>
+          <edgelabel>HotInjection_AGB</edgelabel>
+          <edgelabel>HotInjection_CCSN</edgelabel>
+          <edgelabel>HotInjection_NSM</edgelabel>
+          <edgelabel>HotInjection_SNIa</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>NumericalResolution</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="139" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="138" bodyend="161"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="277" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="278" bodyend="311"/>
     <listofallmembers>
       <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>ThermalValues</scope><name>argPointers</name></member>
+      <member refid="classThermalValues_1a8ecf4e8cc902f8b76554f3556bb1078c" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>ChimneyFactor</name></member>
       <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>Configure</name></member>
+      <member refid="classThermalValues_1a91de4947a48b7db212710c70a22873a5" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>CoolingPower</name></member>
+      <member refid="classThermalValues_1a09a14795f0b3b3621ceeb4d5e6c94c34" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>DormantHotFraction</name></member>
+      <member refid="classThermalValues_1a2fa62ad5eb43528ce23f5b18328e3dc6" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>FeedbackEjectFactor</name></member>
       <member refid="classThermalValues_1a2227511e41c87c5e71dec0ee9d13aec7" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>GasCoolingTimeScale</name></member>
+      <member refid="classThermalValues_1a2257cde40e0dda0a17f6945eaf7c0a24" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>HotInjection_AGB</name></member>
       <member refid="classThermalValues_1a225d63d98c19be0b7cdabf2464e223b3" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>HotInjection_CCSN</name></member>
       <member refid="classThermalValues_1a0faba77dff54e82e0f3743295a45cdee" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>HotInjection_NSM</name></member>
       <member refid="classThermalValues_1ab6d948b7790af5931b26440ca3ad7423" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>HotInjection_SNIa</name></member>
       <member refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" prot="public" virt="virtual"><scope>ThermalValues</scope><name>Initialise</name></member>
+      <member refid="classThermalValues_1a4c81907c8eb64a3716174e740f4bb983" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>NumericalResolution</name></member>
+      <member refid="classParamList_1a09c507dd8e319a880673a1e5eb070415" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>StreamContentsTo</name></member>
       <member refid="classThermalValues_1a49141fdedc915346bdfa0a7a3f974310" prot="public" virt="non-virtual"><scope>ThermalValues</scope><name>ThermalValues</name></member>
     </listofallmembers>
   </compounddef>

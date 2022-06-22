@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="SLF_8h" kind="file" language="C++">
+    <compoundname>SLF.h</compoundname>
+    <includes refid="GlobalParameters_8h" local="yes">../Parameters/GlobalParameters.h</includes>
+    <includes local="no">algorithm</includes>
+    <includedby refid="Galaxy_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</includedby>
+    <includedby refid="Ring_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</includedby>
+    <includedby refid="InitialisedData_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/InitialisedData.h</includedby>
+    <includedby refid="StarReservoir_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</includedby>
+    <includedby refid="StellarPopulation_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</includedby>
+    <incdepgraph>
+      <node id="9">
+        <label>EnumSets.h</label>
+        <link refid="EnumSets_8h"/>
+      </node>
+      <node id="2">
+        <label>../Parameters/GlobalParameters.h</label>
+        <link refid="GlobalParameters_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>List.h</label>
+        <link refid="List_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/SLF.h</label>
+        <link refid="SLF_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>JSL.h</label>
+      </node>
+      <node id="10">
+        <label>algorithm</label>
+      </node>
+      <node id="6">
+        <label>sstream</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+      </node>
+      <node id="5">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/MigrationMatrix.h</label>
+        <link refid="MigrationMatrix_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/InitialisedData.h</label>
+        <link refid="InitialisedData_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/RemnantPopulation.h</label>
+        <link refid="RemnantPopulation_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/SLF.h</label>
+        <link refid="SLF_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</label>
+        <link refid="StellarPopulation_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classSLF__Functor" prot="public">SLF_Functor</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Parameters/GlobalParameters.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="classSLF__Functor" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classSLF__Functor" kindref="compound">SLF_Functor</ref></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="7" refid="classSLF__Functor_1a360ef9919c90ff827553e5f06bb4ca0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classSLF__Functor_1a360ef9919c90ff827553e5f06bb4ca0f" kindref="member">SLF_Functor</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/><ref refid="classSLF__Functor_1a33317b5cdd57c02a1b3bde6010f7136d" kindref="member">Param</ref>);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="9" refid="classSLF__Functor_1ab548ff48ebdf86c267bedd5baea263b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classSLF__Functor_1ab548ff48ebdf86c267bedd5baea263b6" kindref="member">operator() </ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mass,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>metallicity);</highlight></codeline>
+<codeline lineno="10" refid="classSLF__Functor_1ad2cf32d305eee596d1fdbe416812a0c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classSLF__Functor_1ad2cf32d305eee596d1fdbe416812a0c0" kindref="member">PredictLifetime</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>logmetallicity);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="13" refid="classSLF__Functor_1acaae52e5c63f1a930be98e5ee911fa76" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classSLF__Functor_1acaae52e5c63f1a930be98e5ee911fa76" kindref="member">ValueInquiry</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>z);</highlight></codeline>
+<codeline lineno="14" refid="classSLF__Functor_1a33317b5cdd57c02a1b3bde6010f7136d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/><ref refid="classSLF__Functor_1a33317b5cdd57c02a1b3bde6010f7136d" kindref="member">Param</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="16" refid="classSLF__Functor_1a890e80c5ffbd7db6eb451ab792798f30" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classSLF__Functor_1a890e80c5ffbd7db6eb451ab792798f30" kindref="member">LifeTime</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mass,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>metallicity);</highlight></codeline>
+<codeline lineno="17" refid="classSLF__Functor_1a1ca928934956a6fdc48e74fd121331ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSLF__Functor_1a1ca928934956a6fdc48e74fd121331ff" kindref="member">PrecomputeGrid</ref>();</highlight></codeline>
+<codeline lineno="18" refid="classSLF__Functor_1a5e591a88c8733d4be7dc39f8118c0488" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;double&gt;&gt;<sp/><ref refid="classSLF__Functor_1a5e591a88c8733d4be7dc39f8118c0488" kindref="member">PrecomputedGrid</ref>;</highlight></codeline>
+<codeline lineno="19" refid="classSLF__Functor_1a5528f9ef66033f0d690d751326b326db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classSLF__Functor_1a5528f9ef66033f0d690d751326b326db" kindref="member">NotComputed</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/SLF.h"/>
+  </compounddef>
+</doxygen>

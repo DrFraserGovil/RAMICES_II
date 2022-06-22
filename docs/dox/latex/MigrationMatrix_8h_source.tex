@@ -1,0 +1,27 @@
+\hypertarget{MigrationMatrix_8h_source}{}\doxysection{Migration\+Matrix.\+h}
+\label{MigrationMatrix_8h_source}\index{/Users/jf20/Documents/Physics/RAMICES\_II/src/Galaxy/MigrationMatrix.h@{/Users/jf20/Documents/Physics/RAMICES\_II/src/Galaxy/MigrationMatrix.h}}
+\mbox{\hyperlink{MigrationMatrix_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Parameters/InitialisedData.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{classMigrationMatrix}{MigrationMatrix}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     \textcolor{keyword}{public}:}
+\DoxyCodeLine{8         \mbox{\hyperlink{classMigrationMatrix_a525a70940039ea7cbb75a26d9daf5109}{MigrationMatrix}}(\mbox{\hyperlink{classInitialisedData}{InitialisedData}} \& Data);}
+\DoxyCodeLine{9         }
+\DoxyCodeLine{10         std::vector<std::vector<double>> \mbox{\hyperlink{classMigrationMatrix_a69cb92da1d163bf1ed092e7920d233d8}{Grid}};}
+\DoxyCodeLine{11         }
+\DoxyCodeLine{12         \textcolor{keywordtype}{void} \mbox{\hyperlink{classMigrationMatrix_a14ec1c28609e61bd136464f75b4fa30e}{Create}}(\textcolor{keyword}{const} std::vector<double> \& masses);}
+\DoxyCodeLine{13         }
+\DoxyCodeLine{14         \textcolor{keywordtype}{void} \mbox{\hyperlink{classMigrationMatrix_a341661b490d1d7f333053265b9ac1f7e}{Compound}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMigrationMatrix}{MigrationMatrix}} \& newTime);}
+\DoxyCodeLine{15         \textcolor{keywordtype}{void} \mbox{\hyperlink{classMigrationMatrix_aadad09739346d39f316f4050204d8da4}{Print}}();}
+\DoxyCodeLine{16     \textcolor{keyword}{private}:}
+\DoxyCodeLine{17         \textcolor{keywordtype}{int} \mbox{\hyperlink{classMigrationMatrix_a4b26a712835a4981f429673a1b04faa5}{NRings}};}
+\DoxyCodeLine{18         \textcolor{keyword}{const} \mbox{\hyperlink{classGlobalParameters}{GlobalParameters}} \& \mbox{\hyperlink{classMigrationMatrix_abd49062939298ffff465122358a2ef9e}{Param}};}
+\DoxyCodeLine{19         std::vector<std::vector<double>> \mbox{\hyperlink{classMigrationMatrix_a93a6f9c525f5edded3b6aa93bdab9f33}{DiagonalMultiply}}(\textcolor{keyword}{const} std::vector<std::vector<double>> \& a, \textcolor{keyword}{const} std::vector<std::vector<double>> \& b, \textcolor{keywordtype}{int} diagonalDistance);}
+\DoxyCodeLine{20         }
+\DoxyCodeLine{21 \};}
+
+\end{DoxyCode}

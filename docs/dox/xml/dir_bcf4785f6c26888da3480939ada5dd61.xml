@@ -1,12 +1,18 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="dir_bcf4785f6c26888da3480939ada5dd61" kind="dir">
-    <compoundname>/home/jack/Documents/Work/RAMICES_II/src/Stars</compoundname>
+    <compoundname>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars</compoundname>
+    <innerfile refid="IMF_8h">IMF.h</innerfile>
+    <innerfile refid="IsochroneTracker_8h">IsochroneTracker.h</innerfile>
+    <innerfile refid="RemnantPopulation_8h">RemnantPopulation.h</innerfile>
+    <innerfile refid="SLF_8h">SLF.h</innerfile>
+    <innerfile refid="StarEvents_8h">StarEvents.h</innerfile>
     <innerfile refid="StarReservoir_8h">StarReservoir.h</innerfile>
+    <innerfile refid="StellarPopulation_8h">StellarPopulation.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Stars/"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/"/>
   </compounddef>
 </doxygen>

@@ -1,0 +1,80 @@
+\hypertarget{GasStream_8h_source}{}\doxysection{Gas\+Stream.\+h}
+\label{GasStream_8h_source}\index{/Users/jf20/Documents/Physics/RAMICES\_II/src/Gas/GasStream.h@{/Users/jf20/Documents/Physics/RAMICES\_II/src/Gas/GasStream.h}}
+\mbox{\hyperlink{GasStream_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}../Parameters/GlobalParameters.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{Gas_8h}{Gas.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{classGasStream}{GasStream}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{public}:}
+\DoxyCodeLine{11         \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{SourceProcess}} \mbox{\hyperlink{classGasStream_a1ff8e94b9aefcfa71119c35a191ff4d5}{Source}};}
+\DoxyCodeLine{12         }
+\DoxyCodeLine{13         \textcolor{keyword}{const} \mbox{\hyperlink{classGas}{Gas}} \& \mbox{\hyperlink{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}{Hot}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{14         \textcolor{keyword}{const} \mbox{\hyperlink{classGas}{Gas}} \& \mbox{\hyperlink{classGasStream_a08dbd72ea4f2239f285dea932fa83a67}{Cold}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{15         }
+\DoxyCodeLine{16         \textcolor{keywordtype}{double} \& \mbox{\hyperlink{classGasStream_a415cafd7901ab08952ec2e2a50b72ca9}{Hot}}(\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{ElementID}} el);}
+\DoxyCodeLine{17         }
+\DoxyCodeLine{18         \textcolor{keywordtype}{double} \& \mbox{\hyperlink{classGasStream_a054ef524d9b344e0cb155573e1915db1}{Cold}}(\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{ElementID}} el);}
+\DoxyCodeLine{19         }
+\DoxyCodeLine{20         \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& \mbox{\hyperlink{classGasStream_addc6a41e626c53a97a61c649a15a2a04}{Hot}}(\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{ElementID}} el) \textcolor{keyword}{const};}
+\DoxyCodeLine{21         \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& \mbox{\hyperlink{classGasStream_aff8fe7805049b0af6aba719e456c6a6f}{Cold}}(\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{ElementID}} el) \textcolor{keyword}{const};}
+\DoxyCodeLine{22         }
+\DoxyCodeLine{24         \mbox{\hyperlink{classGasStream_af53972311a6821deda7f211a828f65e7}{GasStream}}();}
+\DoxyCodeLine{25         }
+\DoxyCodeLine{27         \mbox{\hyperlink{classGasStream_a9c4c6fe0b3df01b5586cca667eaf11ca}{GasStream}}(\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{SourceProcess}} source);}
+\DoxyCodeLine{28         }
+\DoxyCodeLine{30         \mbox{\hyperlink{classGasStream_a83de215a9348757ca94bdf5b9d491328}{GasStream}}(\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{SourceProcess}} source,\textcolor{keyword}{const} \mbox{\hyperlink{classGas}{Gas}} \& hot, \textcolor{keyword}{const} \mbox{\hyperlink{classGas}{Gas}} \& cold);}
+\DoxyCodeLine{31         }
+\DoxyCodeLine{33         \mbox{\hyperlink{classGasStream_a07e893367e97b31d50c6b1dd31394c88}{GasStream}}(\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{SourceProcess}} source, \textcolor{keyword}{const} \mbox{\hyperlink{classGas}{Gas}} \& gas, \textcolor{keywordtype}{double} hotFraction);}
+\DoxyCodeLine{34         }
+\DoxyCodeLine{36         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass}}();}
+\DoxyCodeLine{37         }
+\DoxyCodeLine{38         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGasStream_a459ec5e6bcb3f918577797a3fb0de301}{Mass}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{40         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGasStream_ab030a30e5279402f9c2134110c0f7fb5}{HotMass}}();}
+\DoxyCodeLine{41         }
+\DoxyCodeLine{43         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGasStream_a82682ae8856ff675869cce398a6bbd26}{ColdMass}}();}
+\DoxyCodeLine{44         }
+\DoxyCodeLine{46         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGasStream_a859a2361bc92873f500aec41d31a8211}{HotMass}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{47         }
+\DoxyCodeLine{49         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGasStream_a174e85fccbdd8e5884884acfc55472ca}{ColdMass}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{50         }
+\DoxyCodeLine{52         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}{Deplete}}(\textcolor{keywordtype}{double} amountToRemove);}
+\DoxyCodeLine{53         }
+\DoxyCodeLine{55         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGasStream_a21f78c6110e49d187dfa6081c6a90582}{Heat}}(\textcolor{keywordtype}{double} amountToHeat);}
+\DoxyCodeLine{56         }
+\DoxyCodeLine{58         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGasStream_ae5e3e4b7780db6fa1323770de3b4e63a}{Cool}}(\textcolor{keywordtype}{double} amountToCool);}
+\DoxyCodeLine{59         \textcolor{comment}{//\string~ void DepleteFraction(double fraction)}}
+\DoxyCodeLine{60         \textcolor{comment}{//\string~ \{}}
+\DoxyCodeLine{61                 \textcolor{comment}{//\string~ Deplete(fraction* Mass());}}
+\DoxyCodeLine{62         \textcolor{comment}{//\string~ \}}}
+\DoxyCodeLine{63         }
+\DoxyCodeLine{65         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGasStream_a44ab71ee97b6bf6cb7fba7ce0c861a32}{Deplete}}(\textcolor{keywordtype}{double} amountToRemove\_Cold, \textcolor{keywordtype}{double} amountToRemove\_Hot);}
+\DoxyCodeLine{66         }
+\DoxyCodeLine{68         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}{Absorb}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGasStream}{GasStream}} \& input);}
+\DoxyCodeLine{69         }
+\DoxyCodeLine{71         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGasStream_a16b5f8981b852b950e04da8c0293ef69}{Absorb}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGasStream}{GasStream}} \& input,\textcolor{keywordtype}{double} fraction);}
+\DoxyCodeLine{72         }
+\DoxyCodeLine{74         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGasStream_abbd41dd93fa28b504760b8e85ce21047}{Absorb}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGas}{Gas}} \& input, \textcolor{keywordtype}{double} hotFraction);}
+\DoxyCodeLine{75         }
+\DoxyCodeLine{77         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGasStream_ac3801d0fc9d450844cea477c3dfe27e1}{Dirty}}();}
+\DoxyCodeLine{78         }
+\DoxyCodeLine{79         }
+\DoxyCodeLine{80     \textcolor{keyword}{private}:}
+\DoxyCodeLine{82         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}{NeedsRecomputing}};}
+\DoxyCodeLine{83         }
+\DoxyCodeLine{85         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGasStream_abe1a79f69bd2d9f597e9bb2ede651bca}{internal\_HotMass}};}
+\DoxyCodeLine{86         }
+\DoxyCodeLine{88         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGasStream_aea8b87c6a88f4c386f06d03ed3139e63}{internal\_ColdMass}};}
+\DoxyCodeLine{89         }
+\DoxyCodeLine{91         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGasStream_a14fe3a90aa022cedea487e27ddcb57ac}{internal\_TotalMass}};}
+\DoxyCodeLine{92         }
+\DoxyCodeLine{94         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGasStream_ae0827e81446bddfc0c36ff0591a765fb}{ComputeMasses}}();}
+\DoxyCodeLine{95         }
+\DoxyCodeLine{97         \mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGasStream_a4eeb871be8663aa1671d778d2be58d33}{internal\_Hot}};}
+\DoxyCodeLine{98         }
+\DoxyCodeLine{100         \mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGasStream_afaec9b6fec0d6a21b5263cf415f0c9fb}{internal\_Cold}};}
+\DoxyCodeLine{101 \};}
+\DoxyCodeLine{102 }
+
+\end{DoxyCode}

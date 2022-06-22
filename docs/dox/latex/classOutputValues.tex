@@ -20,12 +20,32 @@ virtual void \mbox{\hyperlink{classOutputValues_ae0eb3295f290bfc2e78f151ae9dda1b
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_a13836f99ceda7a78fa13a252c58d3449}{Root}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Output/\char`\"{},\char`\"{}output\char`\"{})
+Argument$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_a13836f99ceda7a78fa13a252c58d3449}{Root}} = Argument$<$std\+::string$>$(\char`\"{}Output/\char`\"{},\char`\"{}output\char`\"{})
 \begin{DoxyCompactList}\small\item\em The name of the output directory into which the output will be saved. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_a0fbdd1d6de541ea47150ab19b8de6434}{Galactic\+Directory}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Galactic/\char`\"{},\char`\"{}galaxy-\/data\char`\"{})
-\begin{DoxyCompactList}\small\item\em The directory containing mass-\/type information. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_ab16e6fc8205241d387ad427556581dcc}{Galaxy\+Mass\+File}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Mass.\+dat\char`\"{},\char`\"{}galaxy-\/mass-\/file\char`\"{})
-\begin{DoxyCompactList}\small\item\em The name of the file containing galactic-\/scale mass information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+Argument$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_a4c49b0fc1d13e29f80f375c8cbdcb09d}{Config}} = Argument$<$std\+::string$>$(\char`\"{}rerun.\+config\char`\"{},\char`\"{}config-\/out\char`\"{})
+\begin{DoxyCompactList}\small\item\em The name for the output config file which would replicate this simulation. \end{DoxyCompactList}\item 
+Argument$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_aed0fe417136f33807c94441d1aeb18db}{Yield\+Subdir}} = Argument$<$std\+::string$>$(\char`\"{}Yields/\char`\"{},\char`\"{}yield-\/dir\char`\"{})
+\item 
+Argument$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_ab16e6fc8205241d387ad427556581dcc}{Galaxy\+Mass\+File}} = Argument$<$std\+::string$>$(\char`\"{}Mass.\+dat\char`\"{},\char`\"{}galaxy-\/mass-\/file\char`\"{})
+\begin{DoxyCompactList}\small\item\em The name of the file containing galactic-\/scale mass information. \end{DoxyCompactList}\item 
+Argument$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_a3f83769da437873a448d2fcaec173df8}{Event\+Rate\+File}} = Argument$<$std\+::string$>$(\char`\"{}Events.\+dat\char`\"{},\char`\"{}event-\/rate-\/file\char`\"{})
+\item 
+Argument$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_a6ba0114bf7bae6efc849cb57f2c9adc9}{Star\+File}} = Argument$<$std\+::string$>$(\char`\"{}Stellar\+Catalogue.\+dat\char`\"{},\char`\"{}ring-\/data-\/stars\char`\"{})
+\begin{DoxyCompactList}\small\item\em The ring-\/star data identifier. \end{DoxyCompactList}\item 
+Argument$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_a526c7b76bff47f1c2f844c3e0d9635f1}{Chemical\+Prefactor}} = Argument$<$std\+::string$>$(\char`\"{}Enrichment\+\_\+\char`\"{},\char`\"{}enrichment-\/base\char`\"{})
+\begin{DoxyCompactList}\small\item\em The enrichment file identifier. \end{DoxyCompactList}\item 
+Argument$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_a4b3103621af5b86a4c634dbcb334b6bf}{Cold\+Gas\+Data\+File}} = Argument$<$std\+::string$>$(\char`\"{}Cold\+Gas.\+dat\char`\"{},\char`\"{}enrichment-\/cold\char`\"{})
+\begin{DoxyCompactList}\small\item\em The cold gas filename. \end{DoxyCompactList}\item 
+Argument$<$ std\+::string $>$ \mbox{\hyperlink{classOutputValues_ae761c2b52ee3a2889a414d4e477414d3}{Hot\+Gas\+Data\+File}} = Argument$<$std\+::string$>$(\char`\"{}Hot\+Gas.\+dat\char`\"{},\char`\"{}enrichment-\/hot\char`\"{})
+\begin{DoxyCompactList}\small\item\em The hot gas filename. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classOutputValues_a2d9b99ddd4d69c5baa405be9acddcf2d}{Logarithmic\+Cold\+Gas\+File}}
+\item 
+std\+::string \mbox{\hyperlink{classOutputValues_ab8da4522d7612f81429b9602e472b712}{Absolute\+Cold\+Gas\+File}}
+\item 
+std\+::string \mbox{\hyperlink{classOutputValues_a1ba62eb9f589c4d1280e008ac791dd49}{Logarithmic\+Hot\+Gas\+File}}
+\item 
+std\+::string \mbox{\hyperlink{classOutputValues_a659e61c6fe1778c4f68c0718790eb009}{Absolute\+Hot\+Gas\+File}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
@@ -60,38 +80,114 @@ Reimplemented from \mbox{\hyperlink{classParamList_a7bc1e8cffb0062a056193e34b80f
 
 
 \doxysubsection{Field Documentation}
-\mbox{\Hypertarget{classOutputValues_a0fbdd1d6de541ea47150ab19b8de6434}\label{classOutputValues_a0fbdd1d6de541ea47150ab19b8de6434}} 
-\index{OutputValues@{OutputValues}!GalacticDirectory@{GalacticDirectory}}
-\index{GalacticDirectory@{GalacticDirectory}!OutputValues@{OutputValues}}
-\doxysubsubsection{\texorpdfstring{GalacticDirectory}{GalacticDirectory}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Output\+Values\+::\+Galactic\+Directory = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Galactic/\char`\"{},\char`\"{}galaxy-\/data\char`\"{})}
+\mbox{\Hypertarget{classOutputValues_ab8da4522d7612f81429b9602e472b712}\label{classOutputValues_ab8da4522d7612f81429b9602e472b712}} 
+\index{OutputValues@{OutputValues}!AbsoluteColdGasFile@{AbsoluteColdGasFile}}
+\index{AbsoluteColdGasFile@{AbsoluteColdGasFile}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{AbsoluteColdGasFile}{AbsoluteColdGasFile}}
+{\footnotesize\ttfamily std\+::string Output\+Values\+::\+Absolute\+Cold\+Gas\+File}
+
+\mbox{\Hypertarget{classOutputValues_a659e61c6fe1778c4f68c0718790eb009}\label{classOutputValues_a659e61c6fe1778c4f68c0718790eb009}} 
+\index{OutputValues@{OutputValues}!AbsoluteHotGasFile@{AbsoluteHotGasFile}}
+\index{AbsoluteHotGasFile@{AbsoluteHotGasFile}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{AbsoluteHotGasFile}{AbsoluteHotGasFile}}
+{\footnotesize\ttfamily std\+::string Output\+Values\+::\+Absolute\+Hot\+Gas\+File}
+
+\mbox{\Hypertarget{classOutputValues_a526c7b76bff47f1c2f844c3e0d9635f1}\label{classOutputValues_a526c7b76bff47f1c2f844c3e0d9635f1}} 
+\index{OutputValues@{OutputValues}!ChemicalPrefactor@{ChemicalPrefactor}}
+\index{ChemicalPrefactor@{ChemicalPrefactor}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{ChemicalPrefactor}{ChemicalPrefactor}}
+{\footnotesize\ttfamily Argument$<$std\+::string$>$ Output\+Values\+::\+Chemical\+Prefactor = Argument$<$std\+::string$>$(\char`\"{}Enrichment\+\_\+\char`\"{},\char`\"{}enrichment-\/base\char`\"{})}
 
 
 
-The directory containing mass-\/type information. 
+The enrichment file identifier. 
+
+\mbox{\Hypertarget{classOutputValues_a4b3103621af5b86a4c634dbcb334b6bf}\label{classOutputValues_a4b3103621af5b86a4c634dbcb334b6bf}} 
+\index{OutputValues@{OutputValues}!ColdGasDataFile@{ColdGasDataFile}}
+\index{ColdGasDataFile@{ColdGasDataFile}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{ColdGasDataFile}{ColdGasDataFile}}
+{\footnotesize\ttfamily Argument$<$std\+::string$>$ Output\+Values\+::\+Cold\+Gas\+Data\+File = Argument$<$std\+::string$>$(\char`\"{}Cold\+Gas.\+dat\char`\"{},\char`\"{}enrichment-\/cold\char`\"{})}
+
+
+
+The cold gas filename. 
+
+\mbox{\Hypertarget{classOutputValues_a4c49b0fc1d13e29f80f375c8cbdcb09d}\label{classOutputValues_a4c49b0fc1d13e29f80f375c8cbdcb09d}} 
+\index{OutputValues@{OutputValues}!Config@{Config}}
+\index{Config@{Config}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{Config}{Config}}
+{\footnotesize\ttfamily Argument$<$std\+::string$>$ Output\+Values\+::\+Config = Argument$<$std\+::string$>$(\char`\"{}rerun.\+config\char`\"{},\char`\"{}config-\/out\char`\"{})}
+
+
+
+The name for the output config file which would replicate this simulation. 
+
+\mbox{\Hypertarget{classOutputValues_a3f83769da437873a448d2fcaec173df8}\label{classOutputValues_a3f83769da437873a448d2fcaec173df8}} 
+\index{OutputValues@{OutputValues}!EventRateFile@{EventRateFile}}
+\index{EventRateFile@{EventRateFile}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{EventRateFile}{EventRateFile}}
+{\footnotesize\ttfamily Argument$<$std\+::string$>$ Output\+Values\+::\+Event\+Rate\+File = Argument$<$std\+::string$>$(\char`\"{}Events.\+dat\char`\"{},\char`\"{}event-\/rate-\/file\char`\"{})}
 
 \mbox{\Hypertarget{classOutputValues_ab16e6fc8205241d387ad427556581dcc}\label{classOutputValues_ab16e6fc8205241d387ad427556581dcc}} 
 \index{OutputValues@{OutputValues}!GalaxyMassFile@{GalaxyMassFile}}
 \index{GalaxyMassFile@{GalaxyMassFile}!OutputValues@{OutputValues}}
 \doxysubsubsection{\texorpdfstring{GalaxyMassFile}{GalaxyMassFile}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Output\+Values\+::\+Galaxy\+Mass\+File = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Mass.\+dat\char`\"{},\char`\"{}galaxy-\/mass-\/file\char`\"{})}
+{\footnotesize\ttfamily Argument$<$std\+::string$>$ Output\+Values\+::\+Galaxy\+Mass\+File = Argument$<$std\+::string$>$(\char`\"{}Mass.\+dat\char`\"{},\char`\"{}galaxy-\/mass-\/file\char`\"{})}
 
 
 
 The name of the file containing galactic-\/scale mass information. 
 
+\mbox{\Hypertarget{classOutputValues_ae761c2b52ee3a2889a414d4e477414d3}\label{classOutputValues_ae761c2b52ee3a2889a414d4e477414d3}} 
+\index{OutputValues@{OutputValues}!HotGasDataFile@{HotGasDataFile}}
+\index{HotGasDataFile@{HotGasDataFile}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{HotGasDataFile}{HotGasDataFile}}
+{\footnotesize\ttfamily Argument$<$std\+::string$>$ Output\+Values\+::\+Hot\+Gas\+Data\+File = Argument$<$std\+::string$>$(\char`\"{}Hot\+Gas.\+dat\char`\"{},\char`\"{}enrichment-\/hot\char`\"{})}
+
+
+
+The hot gas filename. 
+
+\mbox{\Hypertarget{classOutputValues_a2d9b99ddd4d69c5baa405be9acddcf2d}\label{classOutputValues_a2d9b99ddd4d69c5baa405be9acddcf2d}} 
+\index{OutputValues@{OutputValues}!LogarithmicColdGasFile@{LogarithmicColdGasFile}}
+\index{LogarithmicColdGasFile@{LogarithmicColdGasFile}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{LogarithmicColdGasFile}{LogarithmicColdGasFile}}
+{\footnotesize\ttfamily std\+::string Output\+Values\+::\+Logarithmic\+Cold\+Gas\+File}
+
+\mbox{\Hypertarget{classOutputValues_a1ba62eb9f589c4d1280e008ac791dd49}\label{classOutputValues_a1ba62eb9f589c4d1280e008ac791dd49}} 
+\index{OutputValues@{OutputValues}!LogarithmicHotGasFile@{LogarithmicHotGasFile}}
+\index{LogarithmicHotGasFile@{LogarithmicHotGasFile}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{LogarithmicHotGasFile}{LogarithmicHotGasFile}}
+{\footnotesize\ttfamily std\+::string Output\+Values\+::\+Logarithmic\+Hot\+Gas\+File}
+
 \mbox{\Hypertarget{classOutputValues_a13836f99ceda7a78fa13a252c58d3449}\label{classOutputValues_a13836f99ceda7a78fa13a252c58d3449}} 
 \index{OutputValues@{OutputValues}!Root@{Root}}
 \index{Root@{Root}!OutputValues@{OutputValues}}
 \doxysubsubsection{\texorpdfstring{Root}{Root}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Output\+Values\+::\+Root = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Output/\char`\"{},\char`\"{}output\char`\"{})}
+{\footnotesize\ttfamily Argument$<$std\+::string$>$ Output\+Values\+::\+Root = Argument$<$std\+::string$>$(\char`\"{}Output/\char`\"{},\char`\"{}output\char`\"{})}
 
 
 
 The name of the output directory into which the output will be saved. 
 
+\mbox{\Hypertarget{classOutputValues_a6ba0114bf7bae6efc849cb57f2c9adc9}\label{classOutputValues_a6ba0114bf7bae6efc849cb57f2c9adc9}} 
+\index{OutputValues@{OutputValues}!StarFile@{StarFile}}
+\index{StarFile@{StarFile}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{StarFile}{StarFile}}
+{\footnotesize\ttfamily Argument$<$std\+::string$>$ Output\+Values\+::\+Star\+File = Argument$<$std\+::string$>$(\char`\"{}Stellar\+Catalogue.\+dat\char`\"{},\char`\"{}ring-\/data-\/stars\char`\"{})}
+
+
+
+The ring-\/star data identifier. 
+
+\mbox{\Hypertarget{classOutputValues_aed0fe417136f33807c94441d1aeb18db}\label{classOutputValues_aed0fe417136f33807c94441d1aeb18db}} 
+\index{OutputValues@{OutputValues}!YieldSubdir@{YieldSubdir}}
+\index{YieldSubdir@{YieldSubdir}!OutputValues@{OutputValues}}
+\doxysubsubsection{\texorpdfstring{YieldSubdir}{YieldSubdir}}
+{\footnotesize\ttfamily Argument$<$std\+::string$>$ Output\+Values\+::\+Yield\+Subdir = Argument$<$std\+::string$>$(\char`\"{}Yields/\char`\"{},\char`\"{}yield-\/dir\char`\"{})}
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}
+/\+Users/jf20/\+Documents/\+Physics/\+RAMICES\+\_\+\+II/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}

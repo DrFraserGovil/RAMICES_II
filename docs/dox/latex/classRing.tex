@@ -7,89 +7,72 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{classRing_aaf04a946616f5ec362541acb5d8f64a7}{Mass}} ()
-\item 
-\mbox{\hyperlink{structGasRequest}{Gas\+Request}} \mbox{\hyperlink{classRing_a3603a35a11069c3a09a325f592485888}{Accretion\+Request}} (double t, double new\+Density, double newR)
-\item 
-void \mbox{\hyperlink{classRing_ac0e89b2ff4f16eb212df406612957324}{Form\+Stars}} (double t)
-\item 
-void \mbox{\hyperlink{classRing_a02f9116714dc4f501caa8a2d3560357d}{Update\+Internal\+Properties}} ()
-\item 
-std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classRing_a571ecead833a1919a4d9791f3ac5ee00}{Property\+Headers}} ()
-\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{classRing_a971ecf443202c92aab533855a57da564}{Report\+Properties}} (double t)
-\item 
-\mbox{\hyperlink{classRing_ac171f1f73adeadb4cfbe90cc39664b3c}{Ring}} (Options $\ast$opts)
-\item 
-\mbox{\hyperlink{classRing_a94ee90a62a38d0d5fcb80ecd8dde98f2}{Ring}} (Options $\ast$opts, int id, double dr, \mbox{\hyperlink{classGalaxy}{Galaxy}} $\ast$parent)
-\item 
-\mbox{\hyperlink{classRing_a4377a033aba9f264993f203481196b64}{Ring}} (int radius\+Index, double mass, const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&param)
+\mbox{\hyperlink{classRing_a7c98d88d0947f0b5ac8bc52ba4f49331}{Ring}} (int radius\+Index, double mass, \mbox{\hyperlink{classInitialisedData}{Initialised\+Data}} \&data)
 \begin{DoxyCompactList}\small\item\em Initialises itself into a primordial state. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classRing_aaf04a946616f5ec362541acb5d8f64a7}{Mass}} ()
+\item 
+void \mbox{\hyperlink{classRing_a90bdb8683b920097f4a4b21e503d2ab8}{Make\+Stars}} ()
+\item 
+void \mbox{\hyperlink{classRing_af5dc7752646d67d66923b572a09e6817}{Kill\+Stars}} (int time)
+\item 
+void \mbox{\hyperlink{classRing_a8b7e54dd656f0c5c9149d9f124d8dc36}{Cool}} ()
+\item 
+void \mbox{\hyperlink{classRing_add78fc584de63960b29f817a157e1c23}{Time\+Step}} (int t)
+\item 
+void \mbox{\hyperlink{classRing_add4266b32b42ba8141eb1b75a0bde5de}{Update\+Memory}} (int t)
+\item 
+void \mbox{\hyperlink{classRing_a2e50e2e7e8a0234ab638f6bb0b60b7b8}{Save\+Chemical\+History}} (int t, std\+::stringstream \&absolute\+Stream\+Cold, std\+::stringstream \&logarithmic\+Stream\+Cold, std\+::stringstream \&absolute\+Stream\+Hot, std\+::stringstream \&logarithmic\+Stream\+Hot)
+\item 
+double \mbox{\hyperlink{classRing_ada6af5ff8e4a8507cdad6227e6ed9c2c}{Selection\+Effect}} (double Mv, double age)
+\item 
+void \mbox{\hyperlink{classRing_a42d50adcaa76f2c472717588bb3153c3}{Compute\+Selection\+Function}} (const double bright\+Limit, const double dim\+Limit)
+\item 
+void \mbox{\hyperlink{classRing_aaeb102265c72260f96a1c4d30ec1353d}{Met\+Check}} (const std\+::string \&location)
+\item 
+std\+::string \mbox{\hyperlink{classRing_ac54e6427996251900e6668944b16730e}{Synthesis}} (const \mbox{\hyperlink{classStellarPopulation}{Stellar\+Population}} \&target\+Population, double migration\+Fraction, double origin\+Radius, double \&total\+Synthesised)
 \end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classRing_a07a56d858310883fcd0884168f672aa5}{Gas}}
-\item 
-double \mbox{\hyperlink{classRing_a85ca5dfb0e8dda469a877943bb1a91d4}{Radius}}
-\item 
-double \mbox{\hyperlink{classRing_a499c0d45f534f04a115573aa4f39743b}{Surface\+Density}}
-\item 
-\mbox{\hyperlink{classStellarPopulation}{Stellar\+Population}} \mbox{\hyperlink{classRing_a854edeaee31fc2579f86d9dc4b8a77b7}{Stars}}
-\item 
 const double \mbox{\hyperlink{classRing_a8cc1ffb45fd3ad01e7aeba2155fbc96f}{Radius}}
 \item 
 const double \mbox{\hyperlink{classRing_a4f8c8947f8031c8c7b37f084ca6a740f}{Width}}
-\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{classRing_a453e3dbe47906636b64305598d124d2e}{Ring\+Mass}} (double Galaxy\+Mass, double Scale\+Length)
+double \mbox{\hyperlink{classRing_a646e6b4dc69c04926fecd53f2a60a001}{Area}}
 \item 
-double \mbox{\hyperlink{classRing_a25774bb524fc42f8417ec778e265d3d5}{Star\+Formation\+Rate}} ()
+\mbox{\hyperlink{classStarReservoir}{Star\+Reservoir}} \mbox{\hyperlink{classRing_aa1f7afc1d67b7f41b0edeec853043ae0}{Stars}}
+\item 
+\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classRing_a07a56d858310883fcd0884168f672aa5}{Gas}}
+\item 
+\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \mbox{\hyperlink{classRing_a1f1b47594aead03104f0217832b0b413}{IGMBuffer}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Options $\ast$ \mbox{\hyperlink{classRing_aa4f60bfc8f60790513824b130569d78f}{Opts}}
-\item 
-double \mbox{\hyperlink{classRing_a974990af6b5e342f8397acded3bc036d}{Width}}
-\item 
-double \mbox{\hyperlink{classRing_ae504175835d37e56cee8fb0042ba49de}{Inner\+Radius}}
-\item 
-double \mbox{\hyperlink{classRing_a8f8fe4995320dcc963d9e966b770fa22}{Outer\+Radius}}
-\item 
-double \mbox{\hyperlink{classRing_a646e6b4dc69c04926fecd53f2a60a001}{Area}}
-\item 
-int \mbox{\hyperlink{classRing_aaee9522e870bddc5fda5bd9d8c45dc82}{ID}}
-\item 
-\mbox{\hyperlink{classGalaxy}{Galaxy}} $\ast$ \mbox{\hyperlink{classRing_af2ad94d6e3c930a6a52cddb6bc61cf9b}{Parent}}
-\item 
 int \mbox{\hyperlink{classRing_a7e78ffa118882a0d0be0d4198b336ed9}{Radius\+Index}}
 \item 
+\mbox{\hyperlink{classInitialisedData}{Initialised\+Data}} \& \mbox{\hyperlink{classRing_a0244597e8a04a538b5b343bd3b8841eb}{Data}}
+\item 
 const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \& \mbox{\hyperlink{classRing_abd93716c681cac8d63d1334aa2fbf722}{Param}}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classRing_a6bd341361310de7c0ec7a13d2b00745d}{Cold\+Buffer}}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classRing_a759d270dfd623a5a251ad94b9aac3636}{Hot\+Buffer}}
+\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classRing_a6dca055cd435d9560c3f254ef0bfd9e2}{Selection\+Grid}}
+\item 
+double \mbox{\hyperlink{classRing_a7af189aa0b8e5362f5cc08b1ff59d8ed}{Min\+Mv}}
+\item 
+double \mbox{\hyperlink{classRing_ad2833971970ae027d9bb238c24c6ff41}{Max\+Mv}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classRing_ac171f1f73adeadb4cfbe90cc39664b3c}\label{classRing_ac171f1f73adeadb4cfbe90cc39664b3c}} 
+\mbox{\Hypertarget{classRing_a7c98d88d0947f0b5ac8bc52ba4f49331}\label{classRing_a7c98d88d0947f0b5ac8bc52ba4f49331}} 
 \index{Ring@{Ring}!Ring@{Ring}}
 \index{Ring@{Ring}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Ring()}{Ring()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily Ring\+::\+Ring (\begin{DoxyParamCaption}\item[{Options $\ast$}]{opts }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{classRing_a94ee90a62a38d0d5fcb80ecd8dde98f2}\label{classRing_a94ee90a62a38d0d5fcb80ecd8dde98f2}} 
-\index{Ring@{Ring}!Ring@{Ring}}
-\index{Ring@{Ring}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Ring()}{Ring()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily Ring\+::\+Ring (\begin{DoxyParamCaption}\item[{Options $\ast$}]{opts,  }\item[{int}]{id,  }\item[{double}]{dr,  }\item[{\mbox{\hyperlink{classGalaxy}{Galaxy}} $\ast$}]{parent }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{classRing_a4377a033aba9f264993f203481196b64}\label{classRing_a4377a033aba9f264993f203481196b64}} 
-\index{Ring@{Ring}!Ring@{Ring}}
-\index{Ring@{Ring}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Ring()}{Ring()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily Ring\+::\+Ring (\begin{DoxyParamCaption}\item[{int}]{radius\+Index,  }\item[{double}]{mass,  }\item[{const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&}]{param }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{Ring()}{Ring()}}
+{\footnotesize\ttfamily Ring\+::\+Ring (\begin{DoxyParamCaption}\item[{int}]{radius\+Index,  }\item[{double}]{mass,  }\item[{\mbox{\hyperlink{classInitialisedData}{Initialised\+Data}} \&}]{data }\end{DoxyParamCaption})}
 
 
 
@@ -98,59 +81,71 @@ Initialises itself into a primordial state.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classRing_a3603a35a11069c3a09a325f592485888}\label{classRing_a3603a35a11069c3a09a325f592485888}} 
-\index{Ring@{Ring}!AccretionRequest@{AccretionRequest}}
-\index{AccretionRequest@{AccretionRequest}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{AccretionRequest()}{AccretionRequest()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structGasRequest}{Gas\+Request}} Ring\+::\+Accretion\+Request (\begin{DoxyParamCaption}\item[{double}]{t,  }\item[{double}]{new\+Density,  }\item[{double}]{newR }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classRing_a42d50adcaa76f2c472717588bb3153c3}\label{classRing_a42d50adcaa76f2c472717588bb3153c3}} 
+\index{Ring@{Ring}!ComputeSelectionFunction@{ComputeSelectionFunction}}
+\index{ComputeSelectionFunction@{ComputeSelectionFunction}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{ComputeSelectionFunction()}{ComputeSelectionFunction()}}
+{\footnotesize\ttfamily void Ring\+::\+Compute\+Selection\+Function (\begin{DoxyParamCaption}\item[{const double}]{bright\+Limit,  }\item[{const double}]{dim\+Limit }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classRing_ac0e89b2ff4f16eb212df406612957324}\label{classRing_ac0e89b2ff4f16eb212df406612957324}} 
-\index{Ring@{Ring}!FormStars@{FormStars}}
-\index{FormStars@{FormStars}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{FormStars()}{FormStars()}}
-{\footnotesize\ttfamily void Ring\+::\+Form\+Stars (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classRing_a8b7e54dd656f0c5c9149d9f124d8dc36}\label{classRing_a8b7e54dd656f0c5c9149d9f124d8dc36}} 
+\index{Ring@{Ring}!Cool@{Cool}}
+\index{Cool@{Cool}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{Cool()}{Cool()}}
+{\footnotesize\ttfamily void Ring\+::\+Cool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRing_af5dc7752646d67d66923b572a09e6817}\label{classRing_af5dc7752646d67d66923b572a09e6817}} 
+\index{Ring@{Ring}!KillStars@{KillStars}}
+\index{KillStars@{KillStars}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{KillStars()}{KillStars()}}
+{\footnotesize\ttfamily void Ring\+::\+Kill\+Stars (\begin{DoxyParamCaption}\item[{int}]{time }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classRing_a90bdb8683b920097f4a4b21e503d2ab8}\label{classRing_a90bdb8683b920097f4a4b21e503d2ab8}} 
+\index{Ring@{Ring}!MakeStars@{MakeStars}}
+\index{MakeStars@{MakeStars}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{MakeStars()}{MakeStars()}}
+{\footnotesize\ttfamily void Ring\+::\+Make\+Stars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{classRing_aaf04a946616f5ec362541acb5d8f64a7}\label{classRing_aaf04a946616f5ec362541acb5d8f64a7}} 
 \index{Ring@{Ring}!Mass@{Mass}}
 \index{Mass@{Mass}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}}
 {\footnotesize\ttfamily double Ring\+::\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classRing_aaf04a946616f5ec362541acb5d8f64a7}\label{classRing_aaf04a946616f5ec362541acb5d8f64a7}} 
-\index{Ring@{Ring}!Mass@{Mass}}
-\index{Mass@{Mass}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily double Ring\+::\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classRing_aaeb102265c72260f96a1c4d30ec1353d}\label{classRing_aaeb102265c72260f96a1c4d30ec1353d}} 
+\index{Ring@{Ring}!MetCheck@{MetCheck}}
+\index{MetCheck@{MetCheck}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{MetCheck()}{MetCheck()}}
+{\footnotesize\ttfamily void Ring\+::\+Met\+Check (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{location }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classRing_a571ecead833a1919a4d9791f3ac5ee00}\label{classRing_a571ecead833a1919a4d9791f3ac5ee00}} 
-\index{Ring@{Ring}!PropertyHeaders@{PropertyHeaders}}
-\index{PropertyHeaders@{PropertyHeaders}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{PropertyHeaders()}{PropertyHeaders()}}
-{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Ring\+::\+Property\+Headers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classRing_a2e50e2e7e8a0234ab638f6bb0b60b7b8}\label{classRing_a2e50e2e7e8a0234ab638f6bb0b60b7b8}} 
+\index{Ring@{Ring}!SaveChemicalHistory@{SaveChemicalHistory}}
+\index{SaveChemicalHistory@{SaveChemicalHistory}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{SaveChemicalHistory()}{SaveChemicalHistory()}}
+{\footnotesize\ttfamily void Ring\+::\+Save\+Chemical\+History (\begin{DoxyParamCaption}\item[{int}]{t,  }\item[{std\+::stringstream \&}]{absolute\+Stream\+Cold,  }\item[{std\+::stringstream \&}]{logarithmic\+Stream\+Cold,  }\item[{std\+::stringstream \&}]{absolute\+Stream\+Hot,  }\item[{std\+::stringstream \&}]{logarithmic\+Stream\+Hot }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classRing_a971ecf443202c92aab533855a57da564}\label{classRing_a971ecf443202c92aab533855a57da564}} 
-\index{Ring@{Ring}!ReportProperties@{ReportProperties}}
-\index{ReportProperties@{ReportProperties}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{ReportProperties()}{ReportProperties()}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Ring\+::\+Report\+Properties (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classRing_ada6af5ff8e4a8507cdad6227e6ed9c2c}\label{classRing_ada6af5ff8e4a8507cdad6227e6ed9c2c}} 
+\index{Ring@{Ring}!SelectionEffect@{SelectionEffect}}
+\index{SelectionEffect@{SelectionEffect}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{SelectionEffect()}{SelectionEffect()}}
+{\footnotesize\ttfamily double Ring\+::\+Selection\+Effect (\begin{DoxyParamCaption}\item[{double}]{Mv,  }\item[{double}]{age }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classRing_a453e3dbe47906636b64305598d124d2e}\label{classRing_a453e3dbe47906636b64305598d124d2e}} 
-\index{Ring@{Ring}!RingMass@{RingMass}}
-\index{RingMass@{RingMass}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{RingMass()}{RingMass()}}
-{\footnotesize\ttfamily double Ring\+::\+Ring\+Mass (\begin{DoxyParamCaption}\item[{double}]{Galaxy\+Mass,  }\item[{double}]{Scale\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classRing_ac54e6427996251900e6668944b16730e}\label{classRing_ac54e6427996251900e6668944b16730e}} 
+\index{Ring@{Ring}!Synthesis@{Synthesis}}
+\index{Synthesis@{Synthesis}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{Synthesis()}{Synthesis()}}
+{\footnotesize\ttfamily std\+::string Ring\+::\+Synthesis (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStellarPopulation}{Stellar\+Population}} \&}]{target\+Population,  }\item[{double}]{migration\+Fraction,  }\item[{double}]{origin\+Radius,  }\item[{double \&}]{total\+Synthesised }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classRing_a25774bb524fc42f8417ec778e265d3d5}\label{classRing_a25774bb524fc42f8417ec778e265d3d5}} 
-\index{Ring@{Ring}!StarFormationRate@{StarFormationRate}}
-\index{StarFormationRate@{StarFormationRate}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{StarFormationRate()}{StarFormationRate()}}
-{\footnotesize\ttfamily double Ring\+::\+Star\+Formation\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classRing_add78fc584de63960b29f817a157e1c23}\label{classRing_add78fc584de63960b29f817a157e1c23}} 
+\index{Ring@{Ring}!TimeStep@{TimeStep}}
+\index{TimeStep@{TimeStep}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{TimeStep()}{TimeStep()}}
+{\footnotesize\ttfamily void Ring\+::\+Time\+Step (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classRing_a02f9116714dc4f501caa8a2d3560357d}\label{classRing_a02f9116714dc4f501caa8a2d3560357d}} 
-\index{Ring@{Ring}!UpdateInternalProperties@{UpdateInternalProperties}}
-\index{UpdateInternalProperties@{UpdateInternalProperties}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{UpdateInternalProperties()}{UpdateInternalProperties()}}
-{\footnotesize\ttfamily void Ring\+::\+Update\+Internal\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classRing_add4266b32b42ba8141eb1b75a0bde5de}\label{classRing_add4266b32b42ba8141eb1b75a0bde5de}} 
+\index{Ring@{Ring}!UpdateMemory@{UpdateMemory}}
+\index{UpdateMemory@{UpdateMemory}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{UpdateMemory()}{UpdateMemory()}}
+{\footnotesize\ttfamily void Ring\+::\+Update\+Memory (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
 
 
 
@@ -159,7 +154,19 @@ Initialises itself into a primordial state.
 \index{Ring@{Ring}!Area@{Area}}
 \index{Area@{Area}!Ring@{Ring}}
 \doxysubsubsection{\texorpdfstring{Area}{Area}}
-{\footnotesize\ttfamily double Ring\+::\+Area\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily double Ring\+::\+Area}
+
+\mbox{\Hypertarget{classRing_a6bd341361310de7c0ec7a13d2b00745d}\label{classRing_a6bd341361310de7c0ec7a13d2b00745d}} 
+\index{Ring@{Ring}!ColdBuffer@{ColdBuffer}}
+\index{ColdBuffer@{ColdBuffer}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{ColdBuffer}{ColdBuffer}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Ring\+::\+Cold\+Buffer\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRing_a0244597e8a04a538b5b343bd3b8841eb}\label{classRing_a0244597e8a04a538b5b343bd3b8841eb}} 
+\index{Ring@{Ring}!Data@{Data}}
+\index{Data@{Data}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{Data}{Data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classInitialisedData}{Initialised\+Data}}\& Ring\+::\+Data\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{classRing_a07a56d858310883fcd0884168f672aa5}\label{classRing_a07a56d858310883fcd0884168f672aa5}} 
 \index{Ring@{Ring}!Gas@{Gas}}
@@ -167,29 +174,29 @@ Initialises itself into a primordial state.
 \doxysubsubsection{\texorpdfstring{Gas}{Gas}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} Ring\+::\+Gas}
 
-\mbox{\Hypertarget{classRing_aaee9522e870bddc5fda5bd9d8c45dc82}\label{classRing_aaee9522e870bddc5fda5bd9d8c45dc82}} 
-\index{Ring@{Ring}!ID@{ID}}
-\index{ID@{ID}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{ID}{ID}}
-{\footnotesize\ttfamily int Ring\+::\+ID\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classRing_a759d270dfd623a5a251ad94b9aac3636}\label{classRing_a759d270dfd623a5a251ad94b9aac3636}} 
+\index{Ring@{Ring}!HotBuffer@{HotBuffer}}
+\index{HotBuffer@{HotBuffer}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{HotBuffer}{HotBuffer}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Ring\+::\+Hot\+Buffer\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classRing_ae504175835d37e56cee8fb0042ba49de}\label{classRing_ae504175835d37e56cee8fb0042ba49de}} 
-\index{Ring@{Ring}!InnerRadius@{InnerRadius}}
-\index{InnerRadius@{InnerRadius}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{InnerRadius}{InnerRadius}}
-{\footnotesize\ttfamily double Ring\+::\+Inner\+Radius\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classRing_a1f1b47594aead03104f0217832b0b413}\label{classRing_a1f1b47594aead03104f0217832b0b413}} 
+\index{Ring@{Ring}!IGMBuffer@{IGMBuffer}}
+\index{IGMBuffer@{IGMBuffer}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{IGMBuffer}{IGMBuffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} Ring\+::\+IGMBuffer}
 
-\mbox{\Hypertarget{classRing_aa4f60bfc8f60790513824b130569d78f}\label{classRing_aa4f60bfc8f60790513824b130569d78f}} 
-\index{Ring@{Ring}!Opts@{Opts}}
-\index{Opts@{Opts}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Opts}{Opts}}
-{\footnotesize\ttfamily Options$\ast$ Ring\+::\+Opts\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classRing_ad2833971970ae027d9bb238c24c6ff41}\label{classRing_ad2833971970ae027d9bb238c24c6ff41}} 
+\index{Ring@{Ring}!MaxMv@{MaxMv}}
+\index{MaxMv@{MaxMv}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{MaxMv}{MaxMv}}
+{\footnotesize\ttfamily double Ring\+::\+Max\+Mv\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classRing_a8f8fe4995320dcc963d9e966b770fa22}\label{classRing_a8f8fe4995320dcc963d9e966b770fa22}} 
-\index{Ring@{Ring}!OuterRadius@{OuterRadius}}
-\index{OuterRadius@{OuterRadius}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{OuterRadius}{OuterRadius}}
-{\footnotesize\ttfamily double Ring\+::\+Outer\+Radius\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classRing_a7af189aa0b8e5362f5cc08b1ff59d8ed}\label{classRing_a7af189aa0b8e5362f5cc08b1ff59d8ed}} 
+\index{Ring@{Ring}!MinMv@{MinMv}}
+\index{MinMv@{MinMv}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{MinMv}{MinMv}}
+{\footnotesize\ttfamily double Ring\+::\+Min\+Mv\hspace{0.3cm}{\ttfamily [private]}}
 
 \mbox{\Hypertarget{classRing_abd93716c681cac8d63d1334aa2fbf722}\label{classRing_abd93716c681cac8d63d1334aa2fbf722}} 
 \index{Ring@{Ring}!Param@{Param}}
@@ -197,23 +204,11 @@ Initialises itself into a primordial state.
 \doxysubsubsection{\texorpdfstring{Param}{Param}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}}\& Ring\+::\+Param\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classRing_af2ad94d6e3c930a6a52cddb6bc61cf9b}\label{classRing_af2ad94d6e3c930a6a52cddb6bc61cf9b}} 
-\index{Ring@{Ring}!Parent@{Parent}}
-\index{Parent@{Parent}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Parent}{Parent}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classGalaxy}{Galaxy}}$\ast$ Ring\+::\+Parent\hspace{0.3cm}{\ttfamily [private]}}
-
 \mbox{\Hypertarget{classRing_a8cc1ffb45fd3ad01e7aeba2155fbc96f}\label{classRing_a8cc1ffb45fd3ad01e7aeba2155fbc96f}} 
 \index{Ring@{Ring}!Radius@{Radius}}
 \index{Radius@{Radius}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Radius}{Radius}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Radius}{Radius}}
 {\footnotesize\ttfamily const double Ring\+::\+Radius}
-
-\mbox{\Hypertarget{classRing_a85ca5dfb0e8dda469a877943bb1a91d4}\label{classRing_a85ca5dfb0e8dda469a877943bb1a91d4}} 
-\index{Ring@{Ring}!Radius@{Radius}}
-\index{Radius@{Radius}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Radius}{Radius}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily double Ring\+::\+Radius}
 
 \mbox{\Hypertarget{classRing_a7e78ffa118882a0d0be0d4198b336ed9}\label{classRing_a7e78ffa118882a0d0be0d4198b336ed9}} 
 \index{Ring@{Ring}!RadiusIndex@{RadiusIndex}}
@@ -221,32 +216,26 @@ Initialises itself into a primordial state.
 \doxysubsubsection{\texorpdfstring{RadiusIndex}{RadiusIndex}}
 {\footnotesize\ttfamily int Ring\+::\+Radius\+Index\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classRing_a854edeaee31fc2579f86d9dc4b8a77b7}\label{classRing_a854edeaee31fc2579f86d9dc4b8a77b7}} 
+\mbox{\Hypertarget{classRing_a6dca055cd435d9560c3f254ef0bfd9e2}\label{classRing_a6dca055cd435d9560c3f254ef0bfd9e2}} 
+\index{Ring@{Ring}!SelectionGrid@{SelectionGrid}}
+\index{SelectionGrid@{SelectionGrid}!Ring@{Ring}}
+\doxysubsubsection{\texorpdfstring{SelectionGrid}{SelectionGrid}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$double$>$ $>$ Ring\+::\+Selection\+Grid\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classRing_aa1f7afc1d67b7f41b0edeec853043ae0}\label{classRing_aa1f7afc1d67b7f41b0edeec853043ae0}} 
 \index{Ring@{Ring}!Stars@{Stars}}
 \index{Stars@{Stars}!Ring@{Ring}}
 \doxysubsubsection{\texorpdfstring{Stars}{Stars}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classStellarPopulation}{Stellar\+Population}} Ring\+::\+Stars}
-
-\mbox{\Hypertarget{classRing_a499c0d45f534f04a115573aa4f39743b}\label{classRing_a499c0d45f534f04a115573aa4f39743b}} 
-\index{Ring@{Ring}!SurfaceDensity@{SurfaceDensity}}
-\index{SurfaceDensity@{SurfaceDensity}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{SurfaceDensity}{SurfaceDensity}}
-{\footnotesize\ttfamily double Ring\+::\+Surface\+Density}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStarReservoir}{Star\+Reservoir}} Ring\+::\+Stars}
 
 \mbox{\Hypertarget{classRing_a4f8c8947f8031c8c7b37f084ca6a740f}\label{classRing_a4f8c8947f8031c8c7b37f084ca6a740f}} 
 \index{Ring@{Ring}!Width@{Width}}
 \index{Width@{Width}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Width}{Width}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Width}{Width}}
 {\footnotesize\ttfamily const double Ring\+::\+Width}
-
-\mbox{\Hypertarget{classRing_a974990af6b5e342f8397acded3bc036d}\label{classRing_a974990af6b5e342f8397acded3bc036d}} 
-\index{Ring@{Ring}!Width@{Width}}
-\index{Width@{Width}!Ring@{Ring}}
-\doxysubsubsection{\texorpdfstring{Width}{Width}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily double Ring\+::\+Width\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/old\+\_\+src/\+Galaxy/\mbox{\hyperlink{old__src_2Galaxy_2Ring_8h}{Ring.\+h}}\end{DoxyCompactItemize}
+/\+Users/jf20/\+Documents/\+Physics/\+RAMICES\+\_\+\+II/src/\+Galaxy/\mbox{\hyperlink{Ring_8h}{Ring.\+h}}\end{DoxyCompactItemize}

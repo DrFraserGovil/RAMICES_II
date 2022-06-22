@@ -1,268 +1,47 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="GasReservoir_8h" kind="file" language="C++">
     <compoundname>GasReservoir.h</compoundname>
     <includes local="no">vector</includes>
     <includes refid="GlobalParameters_8h" local="yes">../Parameters/GlobalParameters.h</includes>
     <includes refid="GasStream_8h" local="yes">GasStream.h</includes>
-    <includedby refid="old__src_2Galaxy_2Ring_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</includedby>
-    <includedby refid="src_2Galaxy_2Ring_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h</includedby>
-    <includedby refid="src_2Galaxy_2Galaxy_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h</includedby>
+    <includes local="no">sstream</includes>
+    <includedby refid="Galaxy_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</includedby>
+    <includedby refid="Ring_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</includedby>
+    <includedby refid="StarReservoir_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</includedby>
+    <includedby refid="StellarPopulation_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</includedby>
+    <includedby refid="SimpleYield_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/SimpleYield.h</includedby>
+    <includedby refid="YieldGrid_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/YieldGrid.h</includedby>
     <incdepgraph>
-      <node id="14">
-        <label>sys/stat.h</label>
-      </node>
-      <node id="24">
-        <label>Argument.h</label>
-        <link refid="Argument_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="34">
-        <label>List.h</label>
-        <link refid="List_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="36">
-        <label>GasStream.h</label>
-        <link refid="GasStream_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
-        </childnode>
-      </node>
-      <node id="30">
-        <label>UnitTest.h</label>
-        <link refid="UnitTest_8h"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-      </node>
-      <node id="26">
-        <label>vector.h</label>
-        <link refid="vector_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-      </node>
-      <node id="32">
-        <label>cmath</label>
-      </node>
-      <node id="16">
-        <label>stdexcept</label>
-      </node>
-      <node id="4">
-        <label>string</label>
-      </node>
-      <node id="7">
-        <label>LineReader.h</label>
-        <link refid="LineReader_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>fstream</label>
-      </node>
-      <node id="31">
-        <label>Testing_UnitTests.h</label>
-        <link refid="Testing__UnitTests_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-      </node>
-      <node id="37">
+      <node id="11">
         <label>Gas.h</label>
         <link refid="Gas_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="17">
-        <label>fileWriter.h</label>
-        <link refid="fileWriter_8h"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>Time.h</label>
-        <link refid="Time_8h"/>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>string.h</label>
-      </node>
-      <node id="19">
-        <label>Strings/Strings.h</label>
-        <link refid="Strings_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>rm.h</label>
-        <link refid="rm_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>mkdir.h</label>
-        <link refid="mkdir_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>vector</label>
-      </node>
-      <node id="5">
-        <label>JSL.h</label>
-        <link refid="JSL_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>sstream</label>
-      </node>
-      <node id="33">
-        <label>ParameterLists.h</label>
-        <link refid="ParameterLists_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-      </node>
-      <node id="29">
-        <label>Testing/Testing.h</label>
-        <link refid="Testing_8h"/>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-      </node>
-      <node id="27">
-        <label>math.h</label>
-      </node>
-      <node id="9">
-        <label>../Strings/split.h</label>
-        <link refid="split_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="35">
-        <label>EnumSets.h</label>
-        <link refid="EnumSets_8h"/>
-      </node>
       <node id="1">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasReservoir.h</label>
         <link refid="GasReservoir_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="36" relation="include">
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="22">
-        <label>iostream</label>
-      </node>
-      <node id="28">
-        <label>matrix.h</label>
-        <link refid="matrix_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-      </node>
-      <node id="21">
-        <label>chrono</label>
-      </node>
-      <node id="13">
-        <label>locationExists.h</label>
-        <link refid="locationExists_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>FileIO/FileIO.h</label>
-        <link refid="FileIO_8h"/>
-        <childnode refid="7" relation="include">
+      <node id="10">
+        <label>GasStream.h</label>
+        <link refid="GasStream_8h"/>
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
+      </node>
+      <node id="9">
+        <label>EnumSets.h</label>
+        <link refid="EnumSets_8h"/>
       </node>
       <node id="3">
         <label>../Parameters/GlobalParameters.h</label>
@@ -273,62 +52,133 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="33" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="34" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="35" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-      </node>
-      <node id="23">
-        <label>CommandArgs/CommandArgs.h</label>
-        <link refid="CommandArgs_8h"/>
-        <childnode refid="24" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="25">
-        <label>Maths/Maths.h</label>
-        <link refid="Maths_8h"/>
-        <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
-        <label>dirent.h</label>
-      </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="5">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h</label>
-        <link refid="src_2Galaxy_2Galaxy_8h"/>
-      </node>
-      <node id="2">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
-        <link refid="old__src_2Galaxy_2Ring_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h</label>
-        <link refid="src_2Galaxy_2Ring_8h"/>
+      <node id="8">
+        <label>List.h</label>
+        <link refid="List_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-      </node>
-      <node id="3">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
-        <link refid="old__src_2Galaxy_2Galaxy_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
-        <link refid="GasReservoir_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
         <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>JSL.h</label>
+      </node>
+      <node id="6">
+        <label>sstream</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+      </node>
+      <node id="8">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/MigrationMatrix.h</label>
+        <link refid="MigrationMatrix_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasReservoir.h</label>
+        <link refid="GasReservoir_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/InitialisedData.h</label>
+        <link refid="InitialisedData_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/RemnantPopulation.h</label>
+        <link refid="RemnantPopulation_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</label>
+        <link refid="StellarPopulation_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/SimpleYield.h</label>
+        <link refid="SimpleYield_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/YieldGrid.h</label>
+        <link refid="YieldGrid_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -341,54 +191,79 @@
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Parameters/GlobalParameters.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="GasStream_8h" kindref="compound">GasStream.h</ref>&quot;</highlight></codeline>
-<codeline lineno="11" refid="classGasReservoir" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref></highlight></codeline>
-<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" kindref="member">GasReservoir</ref>();</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" kindref="member">GasReservoir</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/>param);</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/><ref refid="classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645" kindref="member">operator[]</ref>(<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>source);</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/><ref refid="classGasReservoir_1ae082c5254cca8d39c72e90ffa6784645" kindref="member">operator[]</ref>(<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>source)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="GasStream_8h" kindref="compound">GasStream.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classGasReservoir" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="17" refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasReservoir_1af461f3f039a67daecb68c26f2fd6149f" kindref="member">GasReservoir</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20" refid="classGasReservoir_1a15fab3e87fac3f22e9d221a33269da70" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasReservoir_1a15fab3e87fac3f22e9d221a33269da70" kindref="member">GasReservoir</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/>param);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23" refid="classGasReservoir_1ad022675663eb9843ecedebba23bd25a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/><ref refid="classGasReservoir_1ad022675663eb9843ecedebba23bd25a5" kindref="member">operator[]</ref>(<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>source);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26" refid="classGasReservoir_1aba858610420e9afc693d63763a8f9600" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/><ref refid="classGasReservoir_1aba858610420e9afc693d63763a8f9600" kindref="member">operator[]</ref>(<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>source)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a841a10da610c205d4eb8de4e9ab9ce8c" kindref="member">Mass</ref>();</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a57f681a7cedc98b43dc9aeca96e8f3cd" kindref="member">ColdMass</ref>();</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1acf13e9d636ab41d1838548ec08d26f00" kindref="member">HotMass</ref>();</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a5a6aa00a210d88d1469d3fb565d255d3" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>givingGas);</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a5a6aa00a210d88d1469d3fb565d255d3" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/>givingGas);<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1ae2e4fdaa1f6b3f7a335b0948e1af1a9e" kindref="member">Deplete</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToLose);</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1ae2e4fdaa1f6b3f7a335b0948e1af1a9e" kindref="member">Deplete</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToLose_Cold,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToLose_Hot);</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1aa65b29009b11d92cec10d328783df1c4" kindref="member">TransferFrom</ref>(<ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>givingGas,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>massToMove);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30" refid="classGasReservoir_1a841a10da610c205d4eb8de4e9ab9ce8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a841a10da610c205d4eb8de4e9ab9ce8c" kindref="member">Mass</ref>();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33" refid="classGasReservoir_1a57f681a7cedc98b43dc9aeca96e8f3cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a57f681a7cedc98b43dc9aeca96e8f3cd" kindref="member">ColdMass</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36" refid="classGasReservoir_1acf13e9d636ab41d1838548ec08d26f00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1acf13e9d636ab41d1838548ec08d26f00" kindref="member">HotMass</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39" refid="classGasReservoir_1a5a6aa00a210d88d1469d3fb565d255d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a5a6aa00a210d88d1469d3fb565d255d3" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>givingGas);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44" refid="classGasReservoir_1a2f358644898f78a0e1594de154e53047" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a2f358644898f78a0e1594de154e53047" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/>givingGas);<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="classGasReservoir_1a11dd44d7407dc8ed420c8158886fe7f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a11dd44d7407dc8ed420c8158886fe7f3" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/>givingGas,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fraction);<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="classGasReservoir_1a8e45a133c25b9368fbf425145b24efb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a8e45a133c25b9368fbf425145b24efb8" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;GasStream&gt;<sp/>&amp;<sp/>givingGas);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classGasReservoir_1a7c31a13ad15f6675a5e279132808a7ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a7c31a13ad15f6675a5e279132808a7ca" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;GasStream&gt;<sp/>&amp;<sp/>givingGas,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fraction);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="classGasReservoir_1aab1d6bcb957f83c271d89953aca1a8a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1aab1d6bcb957f83c271d89953aca1a8a0" kindref="member">AbsorbMemory</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>t,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/>input);</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/><ref refid="classGasReservoir_1aae92dfb5664e694526db78d5a47c48cf" kindref="member">AccretionStream</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToLose);</highlight></codeline>
+<codeline lineno="55" refid="classGasReservoir_1ae2e4fdaa1f6b3f7a335b0948e1af1a9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1ae2e4fdaa1f6b3f7a335b0948e1af1a9e" kindref="member">Deplete</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToLose);</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/><ref refid="classGasReservoir_1aea21701bb5b49713afe907026ea4046e" kindref="member">Primordial</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/>param);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a630611da13a36426ade46dcdf3528d24" kindref="member">PrintSelf</ref>();</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="63" refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;GasStream&gt;<sp/><ref refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kindref="member">Components</ref>;</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="65" refid="classGasReservoir_1a48858dc4bc562bfab187e76a0d45c8c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/><ref refid="classGasReservoir_1a48858dc4bc562bfab187e76a0d45c8c4" kindref="member">Param</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59" refid="classGasReservoir_1abd4ae39cd8fbd16237a4fbc329e9a4b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1abd4ae39cd8fbd16237a4fbc329e9a4b8" kindref="member">Wipe</ref>();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62" refid="classGasReservoir_1a81bf7608a5ca448d267ce0a563786361" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a81bf7608a5ca448d267ce0a563786361" kindref="member">Deplete</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToLose_Cold,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToLose_Hot);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65" refid="classGasReservoir_1a097ab7e6f76dc55a5d26a11862824e77" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a097ab7e6f76dc55a5d26a11862824e77" kindref="member">Heat</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amoutToHeat);</highlight></codeline>
 <codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="69"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="classGasReservoir_1a4bcd32922dac2b020de2499efe0d7e26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a4bcd32922dac2b020de2499efe0d7e26" kindref="member">PassiveCool</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dt,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isIGM);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71" refid="classGasReservoir_1aa65b29009b11d92cec10d328783df1c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1aa65b29009b11d92cec10d328783df1c4" kindref="member">TransferFrom</ref>(<ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>givingGas,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>massToMove);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74" refid="classGasReservoir_1aa9bd5c97b5d61e60c8e0d5a5875778bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1aa9bd5c97b5d61e60c8e0d5a5875778bb" kindref="member">TransferColdFrom</ref>(<ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>givingGas,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>massToMove);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="76" refid="classGasReservoir_1a08c9574f1fa1466fb9004456cdddd861" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a08c9574f1fa1466fb9004456cdddd861" kindref="member">TransferHotFrom</ref>(<ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>givingGas,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>massToMove);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78" refid="classGasReservoir_1a1187bb85657a158df6b6733fbd261688" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1a1187bb85657a158df6b6733fbd261688" kindref="member">TransferAndHeat</ref>(<ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>givingGas,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>massToMove);</highlight></codeline>
+<codeline lineno="80" refid="classGasReservoir_1aae92dfb5664e694526db78d5a47c48cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/><ref refid="classGasReservoir_1aae92dfb5664e694526db78d5a47c48cf" kindref="member">AccretionStream</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToLose);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="83" refid="classGasReservoir_1aea21701bb5b49713afe907026ea4046e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/><ref refid="classGasReservoir_1aea21701bb5b49713afe907026ea4046e" kindref="member">Primordial</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/>param);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="classGasReservoir_1adee8d0e0b23555ca6b3318ed8e7e3f34" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasReservoir_1adee8d0e0b23555ca6b3318ed8e7e3f34" kindref="member">ColdGasMetallicity</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88" refid="classGasReservoir_1ab0316bd1805b3c87e50eb4ef24e59cdf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;GasStream&gt;<sp/>&amp;<sp/><ref refid="classGasReservoir_1ab0316bd1805b3c87e50eb4ef24e59cdf" kindref="member">Composition</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="92" refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;GasStream&gt;<sp/><ref refid="classGasReservoir_1a605b8cee25a348cc3f2899b5108ba674" kindref="member">Components</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="classGasReservoir_1a48858dc4bc562bfab187e76a0d45c8c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/><ref refid="classGasReservoir_1a48858dc4bc562bfab187e76a0d45c8c4" kindref="member">Param</ref>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasReservoir.h"/>
   </compounddef>
 </doxygen>
