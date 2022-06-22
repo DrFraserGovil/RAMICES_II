@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 64.102564
+%%BoundingBox: 0 0 500 948.275879
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,13 +19,13 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 7.800000 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 0.527273 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 2 def
-/cols 6 def
+/rows 11 def
+/cols 2 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
 
@@ -174,12 +174,16 @@
 boxfont setfont
 1 boundaspect scale
 (ParamList) cw
+(CatalogueValues) cw
 (ElementValues) cw
 (GalaxyValues) cw
 (MetaValues) cw
+(MigrationValues) cw
 (OutputValues) cw
+(ResourceValues) cw
 (StellarValues) cw
 (ThermalValues) cw
+(YieldValues) cw
 /boxwidth boxwidth marginwidth 2 mul add def
 /xspacing boxwidth distx add def
 /yspacing boxheight disty add def
@@ -191,29 +195,41 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (ParamList) 2.500000 1.000000 box
- (ElementValues) 0.000000 0.000000 box
- (GalaxyValues) 1.000000 0.000000 box
- (MetaValues) 2.000000 0.000000 box
- (OutputValues) 3.000000 0.000000 box
- (StellarValues) 4.000000 0.000000 box
- (ThermalValues) 5.000000 0.000000 box
+ (ParamList) 0.000000 10.000000 box
+ (CatalogueValues) 1.000000 9.000000 box
+ (ElementValues) 1.000000 8.000000 box
+ (GalaxyValues) 1.000000 7.000000 box
+ (MetaValues) 1.000000 6.000000 box
+ (MigrationValues) 1.000000 5.000000 box
+ (OutputValues) 1.000000 4.000000 box
+ (ResourceValues) 1.000000 3.000000 box
+ (StellarValues) 1.000000 2.000000 box
+ (ThermalValues) 1.000000 1.000000 box
+ (YieldValues) 1.000000 0.000000 box
 
 % ----- relations -----
 
 solid
-1 2.500000 0.250000 out
+1 0.000000 9.250000 out
 solid
-0.000000 5.000000 1.000000 conn
+0 0.000000 9.500000 hedge
 solid
-0 0.000000 0.750000 in
+0 0.000000 8.500000 hedge
 solid
-0 1.000000 0.750000 in
+0 0.000000 7.500000 hedge
 solid
-0 2.000000 0.750000 in
+0 0.000000 6.500000 hedge
 solid
-0 3.000000 0.750000 in
+0 0.000000 5.500000 hedge
 solid
-0 4.000000 0.750000 in
+0 0.000000 4.500000 hedge
 solid
-0 5.000000 0.750000 in
+0 0.000000 3.500000 hedge
+solid
+0 0.000000 2.500000 hedge
+solid
+0 0.000000 1.500000 hedge
+solid
+0 0.000000 0.500000 hedge
+solid
+0.000000 10.000000 0.500000 vedge

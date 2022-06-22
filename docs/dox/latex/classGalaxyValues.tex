@@ -19,44 +19,60 @@ Inheritance diagram for Galaxy\+Values\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classGalaxyValues_a21533ba013a6f9a5b1df16191c7e93d2}{Galaxy\+Values}} ()
-\begin{DoxyCompactList}\small\item\em Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Boring constructor -- slots in the relevant arguments into the Param\+List\+::arg\+Pointer array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGalaxyValues_ab35c10d098e6238dffe42fccbbf7dfd7}{Initialise}} (std\+::string resource\+Root)
+\begin{DoxyCompactList}\small\item\em A (hopefully) rarely used function which calls any additional functions which can only be called {\itshape after} the configuration has been run. For most members, this is an empty function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ int $>$ \mbox{\hyperlink{classGalaxyValues_a611bcb1e5ae6b88481a68fc75537dd47}{Ring\+Count}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(100,\char`\"{}rings\char`\"{})
+Argument$<$ int $>$ \mbox{\hyperlink{classGalaxyValues_a611bcb1e5ae6b88481a68fc75537dd47}{Ring\+Count}} = Argument$<$int$>$(100,\char`\"{}rings\char`\"{})
 \begin{DoxyCompactList}\small\item\em The number of annuli into which the galaxy is split. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a9d89e9b288bf1874d5895d0aba9ca6ed}{Radius}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(20.\+0,\char`\"{}radius\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a9d89e9b288bf1874d5895d0aba9ca6ed}{Radius}} = Argument$<$double$>$(20.\+0,\char`\"{}radius\char`\"{})
 \begin{DoxyCompactList}\small\item\em The cutoff radius of the galaxy. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a0b8bb4de49945b5bf21c44c46750482b}{Primordial\+Mass}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(8,\char`\"{}M0\char`\"{})
+Argument$<$ bool $>$ \mbox{\hyperlink{classGalaxyValues_a54c2ba4fac92cc9d7960c55fb29a6810}{Using\+Variable\+Ring\+Width}} = Argument$<$bool$>$(false,\char`\"{}variable-\/ring-\/width\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a7e5ddcf12388c18a4600a981b3200c1c}{Ring0\+Width}} = Argument$<$double$>$(0.\+05,\char`\"{}inner-\/ring-\/width\char`\"{})
+\begin{DoxyCompactList}\small\item\em Width of the innermost ring (kpc) \end{DoxyCompactList}\item 
+Argument$<$ bool $>$ \mbox{\hyperlink{classGalaxyValues_a1b23ac0a65c02961c78fe6869e25bb2c}{IGMAbsorbing}} = Argument$<$bool$>$(true,\char`\"{}igm-\/absorb\char`\"{})
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a6451ce3867b2ec5ab6dfc98516f2137e}{Ring\+Radius}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a6b0e10afed3b4751dd30b7c065f8ede4}{Ring\+Width}}
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a0b8bb4de49945b5bf21c44c46750482b}{Primordial\+Mass}} = Argument$<$double$>$(2,\char`\"{}M0\char`\"{})
 \begin{DoxyCompactList}\small\item\em Initial in-\/situ mass of the galaxy (assumed to be 100\% gas) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_ae72dee5f4f6eb8c1c4573b5caa6d82af}{Primordial\+Hot\+Fraction}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0,\char`\"{}primordial-\/hot\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_ae72dee5f4f6eb8c1c4573b5caa6d82af}{Primordial\+Hot\+Fraction}} = Argument$<$double$>$(0,\char`\"{}primordial-\/hot\char`\"{})
 \begin{DoxyCompactList}\small\item\em Fraction of primordial gas which is hot. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a61a7e9021fb7dbf1f3b6cfbb1c9888ef}{I\+G\+M\+\_\+\+Mass}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(1e6,\char`\"{}igm-\/mass\char`\"{})
-\begin{DoxyCompactList}\small\item\em Initial Mass of the I\+GM Reservoir. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a239f649cbcecf52fbe441aabe2575d5b}{Min\+Scale\+Length}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(1.\+75,\char`\"{}scale-\/length-\/min\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a61a7e9021fb7dbf1f3b6cfbb1c9888ef}{IGM\+\_\+\+Mass}} = Argument$<$double$>$(200,\char`\"{}igm-\/mass\char`\"{})
+\begin{DoxyCompactList}\small\item\em Initial Mass of the IGM Reservoir. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a239f649cbcecf52fbe441aabe2575d5b}{Min\+Scale\+Length}} = Argument$<$double$>$(0.\+75,\char`\"{}scale-\/length-\/min\char`\"{})
 \begin{DoxyCompactList}\small\item\em The initial exponential scale length of the galaxy. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a1eadee2260b53785ed45e4fc1adefa1b}{Max\+Scale\+Length}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(3.\+75,\char`\"{}scale-\/length-\/max\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a1eadee2260b53785ed45e4fc1adefa1b}{Max\+Scale\+Length}} = Argument$<$double$>$(3.\+75,\char`\"{}scale-\/length-\/max\char`\"{})
 \begin{DoxyCompactList}\small\item\em The exponential scale length that the galaxy achieves at Scale\+Length\+Final\+Time. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_af6825df7eafbc2a2394beeb674f63c14}{Scale\+Length\+Delay}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(1.\+0,\char`\"{}scale-\/length-\/delay\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_af6825df7eafbc2a2394beeb674f63c14}{Scale\+Length\+Delay}} = Argument$<$double$>$(1.\+0,\char`\"{}scale-\/length-\/delay\char`\"{})
 \begin{DoxyCompactList}\small\item\em The delay time before the scale length begins to grow. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_ad737d3b239e948f2b9f59a1ba18e298d}{Scale\+Length\+Time\+Scale}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(2.\+0,\char`\"{}scale-\/length-\/time\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_ad737d3b239e948f2b9f59a1ba18e298d}{Scale\+Length\+Time\+Scale}} = Argument$<$double$>$(2.\+0,\char`\"{}scale-\/length-\/time\char`\"{})
 \begin{DoxyCompactList}\small\item\em The speed with which the scale length grows. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a79f49f1cfb772db8fbe0b6b2a36c532d}{Scale\+Length\+Final\+Time}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(12.\+0,\char`\"{}scale-\/length-\/final\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a79f49f1cfb772db8fbe0b6b2a36c532d}{Scale\+Length\+Final\+Time}} = Argument$<$double$>$(12.\+0,\char`\"{}scale-\/length-\/final\char`\"{})
 \begin{DoxyCompactList}\small\item\em The time at which the scale length stops growing at becomes fixed. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a684319d15ecbdd2434fd30de9e49236d}{Infall\+Mass1}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(4.\+5,\char`\"{}M1\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a684319d15ecbdd2434fd30de9e49236d}{Infall\+Mass1}} = Argument$<$double$>$(50,\char`\"{}M1\char`\"{})
 \begin{DoxyCompactList}\small\item\em The mass of the first (fast) exponential infall. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_af9f7596b0a1d23af97619a0b3e8be305}{Infall\+Mass2}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(45,\char`\"{}M2\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_af9f7596b0a1d23af97619a0b3e8be305}{Infall\+Mass2}} = Argument$<$double$>$(100,\char`\"{}M2\char`\"{})
 \begin{DoxyCompactList}\small\item\em The mass of the second (slow) exponential infall. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a70b8b11bafce6aed3fb78751e5d955e6}{Infall\+Time1}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+3,\char`\"{}b1\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a70b8b11bafce6aed3fb78751e5d955e6}{Infall\+Time1}} = Argument$<$double$>$(0.\+4,\char`\"{}b1\char`\"{})
 \begin{DoxyCompactList}\small\item\em The exponential timescale for the first (fast) exponential infall. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a21c48e7fba737968ac3e64beb83d46ea}{Infall\+Time2}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(14.\+0,\char`\"{}b2\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a21c48e7fba737968ac3e64beb83d46ea}{Infall\+Time2}} = Argument$<$double$>$(6.\+0,\char`\"{}b2\char`\"{})
 \begin{DoxyCompactList}\small\item\em The exponential timescale for the second (slow) exponential infall. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a01c4dcc116ec4bf4214e8194e29f3f9b}{Inflow\+ParameterA}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+33,\char`\"{}inflow-\/a\char`\"{})
-\begin{DoxyCompactList}\small\item\em A parameter to do with the inflow weighting scheme (icky) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a1a4150d770c9723ec34ac23fefb012b4}{Inflow\+ParameterB}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+53,\char`\"{}inflow-\/b\char`\"{})
-\begin{DoxyCompactList}\small\item\em A parameter to do with the inflow weighting scheme (icky) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_aead472c67bfd2186b59126721f40b6c8}{Max\+S\+F\+R\+Fraction}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+98,\char`\"{}max-\/sfr\char`\"{})
-\begin{DoxyCompactList}\small\item\em maximum fraction which can be removed by S\+FR + associated feedback \end{DoxyCompactList}\end{DoxyCompactItemize}
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a0da91cfc76c9acf27bc346c8282d3a63}{Infall\+Mass\+Merger}} = Argument$<$double$>$(0,\char`\"{}merger-\/mass\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a4310ce5b6f222ea1e124384d9a5cb85e}{Infall\+Time\+Merger}} = Argument$<$double$>$(0.\+4,\char`\"{}merger-\/timescale\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a569dc9bb39ad72b7e4c4d20765de6588}{Merger\+Delay\+Time}} = Argument$<$double$>$(8,\char`\"{}merger-\/delay\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_a6ec86129a89ea0ab4868d73b9979d398}{Merger\+Turn\+On\+Width}} = Argument$<$double$>$(0.\+3,\char`\"{}merger-\/width\char`\"{})
+\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classGalaxyValues_aead472c67bfd2186b59126721f40b6c8}{Max\+SFRFraction}} = Argument$<$double$>$(0.\+95,\char`\"{}max-\/sfr\char`\"{})
+\begin{DoxyCompactList}\small\item\em maximum fraction which can be removed by SFR + associated feedback \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
@@ -76,22 +92,45 @@ Boring constructor -- slots in the relevant arguments into the Param\+List\+::ar
 
 
 
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGalaxyValues_ab35c10d098e6238dffe42fccbbf7dfd7}\label{classGalaxyValues_ab35c10d098e6238dffe42fccbbf7dfd7}} 
+\index{GalaxyValues@{GalaxyValues}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!GalaxyValues@{GalaxyValues}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Galaxy\+Values\+::\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{resource\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+A (hopefully) rarely used function which calls any additional functions which can only be called {\itshape after} the configuration has been run. For most members, this is an empty function. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classParamList_a7bc1e8cffb0062a056193e34b80f3475}{Param\+List}}.
+
+
+
 \doxysubsection{Field Documentation}
 \mbox{\Hypertarget{classGalaxyValues_a61a7e9021fb7dbf1f3b6cfbb1c9888ef}\label{classGalaxyValues_a61a7e9021fb7dbf1f3b6cfbb1c9888ef}} 
 \index{GalaxyValues@{GalaxyValues}!IGM\_Mass@{IGM\_Mass}}
 \index{IGM\_Mass@{IGM\_Mass}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{IGM\_Mass}{IGM\_Mass}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+I\+G\+M\+\_\+\+Mass = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(1e6,\char`\"{}igm-\/mass\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+IGM\+\_\+\+Mass = Argument$<$double$>$(200,\char`\"{}igm-\/mass\char`\"{})}
 
 
 
-Initial Mass of the I\+GM Reservoir. 
+Initial Mass of the IGM Reservoir. 
+
+\mbox{\Hypertarget{classGalaxyValues_a1b23ac0a65c02961c78fe6869e25bb2c}\label{classGalaxyValues_a1b23ac0a65c02961c78fe6869e25bb2c}} 
+\index{GalaxyValues@{GalaxyValues}!IGMAbsorbing@{IGMAbsorbing}}
+\index{IGMAbsorbing@{IGMAbsorbing}!GalaxyValues@{GalaxyValues}}
+\doxysubsubsection{\texorpdfstring{IGMAbsorbing}{IGMAbsorbing}}
+{\footnotesize\ttfamily Argument$<$bool$>$ Galaxy\+Values\+::\+IGMAbsorbing = Argument$<$bool$>$(true,\char`\"{}igm-\/absorb\char`\"{})}
 
 \mbox{\Hypertarget{classGalaxyValues_a684319d15ecbdd2434fd30de9e49236d}\label{classGalaxyValues_a684319d15ecbdd2434fd30de9e49236d}} 
 \index{GalaxyValues@{GalaxyValues}!InfallMass1@{InfallMass1}}
 \index{InfallMass1@{InfallMass1}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{InfallMass1}{InfallMass1}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Infall\+Mass1 = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(4.\+5,\char`\"{}M1\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Infall\+Mass1 = Argument$<$double$>$(50,\char`\"{}M1\char`\"{})}
 
 
 
@@ -101,17 +140,23 @@ The mass of the first (fast) exponential infall.
 \index{GalaxyValues@{GalaxyValues}!InfallMass2@{InfallMass2}}
 \index{InfallMass2@{InfallMass2}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{InfallMass2}{InfallMass2}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Infall\+Mass2 = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(45,\char`\"{}M2\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Infall\+Mass2 = Argument$<$double$>$(100,\char`\"{}M2\char`\"{})}
 
 
 
 The mass of the second (slow) exponential infall. 
 
+\mbox{\Hypertarget{classGalaxyValues_a0da91cfc76c9acf27bc346c8282d3a63}\label{classGalaxyValues_a0da91cfc76c9acf27bc346c8282d3a63}} 
+\index{GalaxyValues@{GalaxyValues}!InfallMassMerger@{InfallMassMerger}}
+\index{InfallMassMerger@{InfallMassMerger}!GalaxyValues@{GalaxyValues}}
+\doxysubsubsection{\texorpdfstring{InfallMassMerger}{InfallMassMerger}}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Infall\+Mass\+Merger = Argument$<$double$>$(0,\char`\"{}merger-\/mass\char`\"{})}
+
 \mbox{\Hypertarget{classGalaxyValues_a70b8b11bafce6aed3fb78751e5d955e6}\label{classGalaxyValues_a70b8b11bafce6aed3fb78751e5d955e6}} 
 \index{GalaxyValues@{GalaxyValues}!InfallTime1@{InfallTime1}}
 \index{InfallTime1@{InfallTime1}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{InfallTime1}{InfallTime1}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Infall\+Time1 = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+3,\char`\"{}b1\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Infall\+Time1 = Argument$<$double$>$(0.\+4,\char`\"{}b1\char`\"{})}
 
 
 
@@ -121,37 +166,23 @@ The exponential timescale for the first (fast) exponential infall.
 \index{GalaxyValues@{GalaxyValues}!InfallTime2@{InfallTime2}}
 \index{InfallTime2@{InfallTime2}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{InfallTime2}{InfallTime2}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Infall\+Time2 = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(14.\+0,\char`\"{}b2\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Infall\+Time2 = Argument$<$double$>$(6.\+0,\char`\"{}b2\char`\"{})}
 
 
 
 The exponential timescale for the second (slow) exponential infall. 
 
-\mbox{\Hypertarget{classGalaxyValues_a01c4dcc116ec4bf4214e8194e29f3f9b}\label{classGalaxyValues_a01c4dcc116ec4bf4214e8194e29f3f9b}} 
-\index{GalaxyValues@{GalaxyValues}!InflowParameterA@{InflowParameterA}}
-\index{InflowParameterA@{InflowParameterA}!GalaxyValues@{GalaxyValues}}
-\doxysubsubsection{\texorpdfstring{InflowParameterA}{InflowParameterA}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Inflow\+ParameterA = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+33,\char`\"{}inflow-\/a\char`\"{})}
-
-
-
-A parameter to do with the inflow weighting scheme (icky) 
-
-\mbox{\Hypertarget{classGalaxyValues_a1a4150d770c9723ec34ac23fefb012b4}\label{classGalaxyValues_a1a4150d770c9723ec34ac23fefb012b4}} 
-\index{GalaxyValues@{GalaxyValues}!InflowParameterB@{InflowParameterB}}
-\index{InflowParameterB@{InflowParameterB}!GalaxyValues@{GalaxyValues}}
-\doxysubsubsection{\texorpdfstring{InflowParameterB}{InflowParameterB}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Inflow\+ParameterB = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+53,\char`\"{}inflow-\/b\char`\"{})}
-
-
-
-A parameter to do with the inflow weighting scheme (icky) 
+\mbox{\Hypertarget{classGalaxyValues_a4310ce5b6f222ea1e124384d9a5cb85e}\label{classGalaxyValues_a4310ce5b6f222ea1e124384d9a5cb85e}} 
+\index{GalaxyValues@{GalaxyValues}!InfallTimeMerger@{InfallTimeMerger}}
+\index{InfallTimeMerger@{InfallTimeMerger}!GalaxyValues@{GalaxyValues}}
+\doxysubsubsection{\texorpdfstring{InfallTimeMerger}{InfallTimeMerger}}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Infall\+Time\+Merger = Argument$<$double$>$(0.\+4,\char`\"{}merger-\/timescale\char`\"{})}
 
 \mbox{\Hypertarget{classGalaxyValues_a1eadee2260b53785ed45e4fc1adefa1b}\label{classGalaxyValues_a1eadee2260b53785ed45e4fc1adefa1b}} 
 \index{GalaxyValues@{GalaxyValues}!MaxScaleLength@{MaxScaleLength}}
 \index{MaxScaleLength@{MaxScaleLength}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{MaxScaleLength}{MaxScaleLength}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Max\+Scale\+Length = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(3.\+75,\char`\"{}scale-\/length-\/max\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Max\+Scale\+Length = Argument$<$double$>$(3.\+75,\char`\"{}scale-\/length-\/max\char`\"{})}
 
 
 
@@ -161,17 +192,29 @@ The exponential scale length that the galaxy achieves at Scale\+Length\+Final\+T
 \index{GalaxyValues@{GalaxyValues}!MaxSFRFraction@{MaxSFRFraction}}
 \index{MaxSFRFraction@{MaxSFRFraction}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{MaxSFRFraction}{MaxSFRFraction}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Max\+S\+F\+R\+Fraction = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+98,\char`\"{}max-\/sfr\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Max\+SFRFraction = Argument$<$double$>$(0.\+95,\char`\"{}max-\/sfr\char`\"{})}
 
 
 
-maximum fraction which can be removed by S\+FR + associated feedback 
+maximum fraction which can be removed by SFR + associated feedback 
+
+\mbox{\Hypertarget{classGalaxyValues_a569dc9bb39ad72b7e4c4d20765de6588}\label{classGalaxyValues_a569dc9bb39ad72b7e4c4d20765de6588}} 
+\index{GalaxyValues@{GalaxyValues}!MergerDelayTime@{MergerDelayTime}}
+\index{MergerDelayTime@{MergerDelayTime}!GalaxyValues@{GalaxyValues}}
+\doxysubsubsection{\texorpdfstring{MergerDelayTime}{MergerDelayTime}}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Merger\+Delay\+Time = Argument$<$double$>$(8,\char`\"{}merger-\/delay\char`\"{})}
+
+\mbox{\Hypertarget{classGalaxyValues_a6ec86129a89ea0ab4868d73b9979d398}\label{classGalaxyValues_a6ec86129a89ea0ab4868d73b9979d398}} 
+\index{GalaxyValues@{GalaxyValues}!MergerTurnOnWidth@{MergerTurnOnWidth}}
+\index{MergerTurnOnWidth@{MergerTurnOnWidth}!GalaxyValues@{GalaxyValues}}
+\doxysubsubsection{\texorpdfstring{MergerTurnOnWidth}{MergerTurnOnWidth}}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Merger\+Turn\+On\+Width = Argument$<$double$>$(0.\+3,\char`\"{}merger-\/width\char`\"{})}
 
 \mbox{\Hypertarget{classGalaxyValues_a239f649cbcecf52fbe441aabe2575d5b}\label{classGalaxyValues_a239f649cbcecf52fbe441aabe2575d5b}} 
 \index{GalaxyValues@{GalaxyValues}!MinScaleLength@{MinScaleLength}}
 \index{MinScaleLength@{MinScaleLength}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{MinScaleLength}{MinScaleLength}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Min\+Scale\+Length = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(1.\+75,\char`\"{}scale-\/length-\/min\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Min\+Scale\+Length = Argument$<$double$>$(0.\+75,\char`\"{}scale-\/length-\/min\char`\"{})}
 
 
 
@@ -181,7 +224,7 @@ The initial exponential scale length of the galaxy.
 \index{GalaxyValues@{GalaxyValues}!PrimordialHotFraction@{PrimordialHotFraction}}
 \index{PrimordialHotFraction@{PrimordialHotFraction}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{PrimordialHotFraction}{PrimordialHotFraction}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Primordial\+Hot\+Fraction = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0,\char`\"{}primordial-\/hot\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Primordial\+Hot\+Fraction = Argument$<$double$>$(0,\char`\"{}primordial-\/hot\char`\"{})}
 
 
 
@@ -191,7 +234,7 @@ Fraction of primordial gas which is hot.
 \index{GalaxyValues@{GalaxyValues}!PrimordialMass@{PrimordialMass}}
 \index{PrimordialMass@{PrimordialMass}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{PrimordialMass}{PrimordialMass}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Primordial\+Mass = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(8,\char`\"{}M0\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Primordial\+Mass = Argument$<$double$>$(2,\char`\"{}M0\char`\"{})}
 
 
 
@@ -201,27 +244,49 @@ Initial in-\/situ mass of the galaxy (assumed to be 100\% gas)
 \index{GalaxyValues@{GalaxyValues}!Radius@{Radius}}
 \index{Radius@{Radius}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{Radius}{Radius}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Radius = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(20.\+0,\char`\"{}radius\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Radius = Argument$<$double$>$(20.\+0,\char`\"{}radius\char`\"{})}
 
 
 
 The cutoff radius of the galaxy. 
 
+\mbox{\Hypertarget{classGalaxyValues_a7e5ddcf12388c18a4600a981b3200c1c}\label{classGalaxyValues_a7e5ddcf12388c18a4600a981b3200c1c}} 
+\index{GalaxyValues@{GalaxyValues}!Ring0Width@{Ring0Width}}
+\index{Ring0Width@{Ring0Width}!GalaxyValues@{GalaxyValues}}
+\doxysubsubsection{\texorpdfstring{Ring0Width}{Ring0Width}}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Ring0\+Width = Argument$<$double$>$(0.\+05,\char`\"{}inner-\/ring-\/width\char`\"{})}
+
+
+
+Width of the innermost ring (kpc) 
+
 \mbox{\Hypertarget{classGalaxyValues_a611bcb1e5ae6b88481a68fc75537dd47}\label{classGalaxyValues_a611bcb1e5ae6b88481a68fc75537dd47}} 
 \index{GalaxyValues@{GalaxyValues}!RingCount@{RingCount}}
 \index{RingCount@{RingCount}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{RingCount}{RingCount}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$ Galaxy\+Values\+::\+Ring\+Count = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(100,\char`\"{}rings\char`\"{})}
+{\footnotesize\ttfamily Argument$<$int$>$ Galaxy\+Values\+::\+Ring\+Count = Argument$<$int$>$(100,\char`\"{}rings\char`\"{})}
 
 
 
 The number of annuli into which the galaxy is split. 
 
+\mbox{\Hypertarget{classGalaxyValues_a6451ce3867b2ec5ab6dfc98516f2137e}\label{classGalaxyValues_a6451ce3867b2ec5ab6dfc98516f2137e}} 
+\index{GalaxyValues@{GalaxyValues}!RingRadius@{RingRadius}}
+\index{RingRadius@{RingRadius}!GalaxyValues@{GalaxyValues}}
+\doxysubsubsection{\texorpdfstring{RingRadius}{RingRadius}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Galaxy\+Values\+::\+Ring\+Radius}
+
+\mbox{\Hypertarget{classGalaxyValues_a6b0e10afed3b4751dd30b7c065f8ede4}\label{classGalaxyValues_a6b0e10afed3b4751dd30b7c065f8ede4}} 
+\index{GalaxyValues@{GalaxyValues}!RingWidth@{RingWidth}}
+\index{RingWidth@{RingWidth}!GalaxyValues@{GalaxyValues}}
+\doxysubsubsection{\texorpdfstring{RingWidth}{RingWidth}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ Galaxy\+Values\+::\+Ring\+Width}
+
 \mbox{\Hypertarget{classGalaxyValues_af6825df7eafbc2a2394beeb674f63c14}\label{classGalaxyValues_af6825df7eafbc2a2394beeb674f63c14}} 
 \index{GalaxyValues@{GalaxyValues}!ScaleLengthDelay@{ScaleLengthDelay}}
 \index{ScaleLengthDelay@{ScaleLengthDelay}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{ScaleLengthDelay}{ScaleLengthDelay}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Scale\+Length\+Delay = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(1.\+0,\char`\"{}scale-\/length-\/delay\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Scale\+Length\+Delay = Argument$<$double$>$(1.\+0,\char`\"{}scale-\/length-\/delay\char`\"{})}
 
 
 
@@ -231,7 +296,7 @@ The delay time before the scale length begins to grow.
 \index{GalaxyValues@{GalaxyValues}!ScaleLengthFinalTime@{ScaleLengthFinalTime}}
 \index{ScaleLengthFinalTime@{ScaleLengthFinalTime}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{ScaleLengthFinalTime}{ScaleLengthFinalTime}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Scale\+Length\+Final\+Time = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(12.\+0,\char`\"{}scale-\/length-\/final\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Scale\+Length\+Final\+Time = Argument$<$double$>$(12.\+0,\char`\"{}scale-\/length-\/final\char`\"{})}
 
 
 
@@ -241,14 +306,20 @@ The time at which the scale length stops growing at becomes fixed.
 \index{GalaxyValues@{GalaxyValues}!ScaleLengthTimeScale@{ScaleLengthTimeScale}}
 \index{ScaleLengthTimeScale@{ScaleLengthTimeScale}!GalaxyValues@{GalaxyValues}}
 \doxysubsubsection{\texorpdfstring{ScaleLengthTimeScale}{ScaleLengthTimeScale}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Galaxy\+Values\+::\+Scale\+Length\+Time\+Scale = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(2.\+0,\char`\"{}scale-\/length-\/time\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Galaxy\+Values\+::\+Scale\+Length\+Time\+Scale = Argument$<$double$>$(2.\+0,\char`\"{}scale-\/length-\/time\char`\"{})}
 
 
 
 The speed with which the scale length grows. 
 
+\mbox{\Hypertarget{classGalaxyValues_a54c2ba4fac92cc9d7960c55fb29a6810}\label{classGalaxyValues_a54c2ba4fac92cc9d7960c55fb29a6810}} 
+\index{GalaxyValues@{GalaxyValues}!UsingVariableRingWidth@{UsingVariableRingWidth}}
+\index{UsingVariableRingWidth@{UsingVariableRingWidth}!GalaxyValues@{GalaxyValues}}
+\doxysubsubsection{\texorpdfstring{UsingVariableRingWidth}{UsingVariableRingWidth}}
+{\footnotesize\ttfamily Argument$<$bool$>$ Galaxy\+Values\+::\+Using\+Variable\+Ring\+Width = Argument$<$bool$>$(false,\char`\"{}variable-\/ring-\/width\char`\"{})}
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}
+/\+Users/jf20/\+Documents/\+Physics/\+RAMICES\+\_\+\+II/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}

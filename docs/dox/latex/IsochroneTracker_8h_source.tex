@@ -1,0 +1,77 @@
+\hypertarget{IsochroneTracker_8h_source}{}\doxysection{Isochrone\+Tracker.\+h}
+\label{IsochroneTracker_8h_source}\index{/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/IsochroneTracker.h@{/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/IsochroneTracker.h}}
+\mbox{\hyperlink{IsochroneTracker_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}../Parameters/GlobalParameters.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <filesystem>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{enum} \mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318}{IsochroneProperties}} \{\mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a97ebb09d30832af10acd411038dadd0e}{logL}},\mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a992b69ca46115083f35e0789836480b3}{BolometricMag}}, \mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a19d1eecbf1541b18167b330b0c89efd5}{UMag}},\mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a3e6a6deb6fcc8d51c32efabda6a23163}{BMag}},\mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a21ea82cc505c8d8e49e2a40166dac335}{VMag}}, \mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318ad6194bf8446b165134fb44d5784830f1}{RMag}},\mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a1a3cb5f900c86a4628c63f81919cc90f}{IMag}},\mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a2361a7a512019fdd5b47a34c2c6e42c5}{JMag}}, \mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a3ad44a7cab6f2753d9ab684887e00c3b}{HMag}},\mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a22b246511557a311cabf1dcde53da1c0}{KMag}}, \mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318ae2545cec51c4a620d9d4a3af5a98fe66}{TEff}}, \mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a4233680ad9500aa6c8b88f7b63482608}{Logg}}, \mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a8b5bae8372d110f965bc432d7c054064}{PropertyCount}}\};}
+\DoxyCodeLine{8 \textcolor{keyword}{const} std::vector<std::string> \mbox{\hyperlink{IsochroneTracker_8h_a3ca54cfac3933fcb91557835d666c293}{PropertyNames}} = \{\textcolor{stringliteral}{"{}logL"{}}, \textcolor{stringliteral}{"{}BolometricMag"{}}, \textcolor{stringliteral}{"{}UMag"{}},\textcolor{stringliteral}{"{}BMag"{}},\textcolor{stringliteral}{"{}VMag"{}}, \textcolor{stringliteral}{"{}RMag"{}},\textcolor{stringliteral}{"{}IMag"{}},\textcolor{stringliteral}{"{}JMag"{}},\textcolor{stringliteral}{"{}HMag"{}},\textcolor{stringliteral}{"{}KMag"{}},\textcolor{stringliteral}{"{}TEff"{}},\textcolor{stringliteral}{"{}Logg"{}}\};}
+\DoxyCodeLine{9 \textcolor{keyword}{struct }\mbox{\hyperlink{structIsochroneEntry}{IsochroneEntry}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     std::vector<double> \mbox{\hyperlink{structIsochroneEntry_ae9cba9e2b857d2c18d7b715ccce4244e}{Properties}};}
+\DoxyCodeLine{12     \mbox{\hyperlink{structIsochroneEntry_af6196afacb81015429fdb9931787c8e5}{IsochroneEntry}}()}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         \mbox{\hyperlink{structIsochroneEntry_ae9cba9e2b857d2c18d7b715ccce4244e}{Properties}} = std::vector<double>(\mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318a8b5bae8372d110f965bc432d7c054064}{PropertyCount}},999.0);}
+\DoxyCodeLine{15     \}}
+\DoxyCodeLine{16     \textcolor{keywordtype}{double} \& \mbox{\hyperlink{structIsochroneEntry_a7350287c59a1c4fbf426dc6af3a98e39}{operator[]}}(\mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318}{IsochroneProperties}} p) }
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18         \textcolor{keywordflow}{return} \mbox{\hyperlink{structIsochroneEntry_ae9cba9e2b857d2c18d7b715ccce4244e}{Properties}}[p];}
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20     \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& \mbox{\hyperlink{structIsochroneEntry_a201ca5e3eaa75cfe743581243b76b3b8}{operator[]}}(\mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318}{IsochroneProperties}} p)\textcolor{keyword}{ const }}
+\DoxyCodeLine{21 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{22         \textcolor{keywordflow}{return} \mbox{\hyperlink{structIsochroneEntry_ae9cba9e2b857d2c18d7b715ccce4244e}{Properties}}[p];}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} \mbox{\hyperlink{structIsochroneEntry_a4ba47458fe6710e73d020dda39b9916f}{Countify}}()}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26         \textcolor{keywordflow}{return} \mbox{\hyperlink{structIsochroneEntry_ae9cba9e2b857d2c18d7b715ccce4244e}{Properties}}.size();}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 \};}
+\DoxyCodeLine{29 \textcolor{keyword}{struct }\mbox{\hyperlink{structIsochroneCube}{IsochroneCube}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     std::vector<double> \mbox{\hyperlink{structIsochroneCube_a6f55589a0853236e38062aa32b9d599b}{Weighting}};}
+\DoxyCodeLine{32     std::vector<IsochroneEntry *> \mbox{\hyperlink{structIsochroneCube_a196fc891f3f10b748a1b82824db75c31}{Data}};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{int} \mbox{\hyperlink{structIsochroneCube_aae5096e64f4cbea1742a5a16107ec864}{Count}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{34 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{35         \textcolor{keywordflow}{return} \mbox{\hyperlink{structIsochroneCube_a196fc891f3f10b748a1b82824db75c31}{Data}}.size();}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37     \textcolor{keywordtype}{double} \mbox{\hyperlink{structIsochroneCube_a5ad179d105882fd79b6b0ec66fa46c55}{Value}}(\textcolor{keywordtype}{int} entry, \mbox{\hyperlink{IsochroneTracker_8h_a744d41c1ece5b6f92c88cc5a295fd318}{IsochroneProperties}} p)\textcolor{keyword}{ const}}
+\DoxyCodeLine{38 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{39         \textcolor{keywordflow}{return} \mbox{\hyperlink{structIsochroneCube_a196fc891f3f10b748a1b82824db75c31}{Data}}[entry]-\/>Properties[p];}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 \textcolor{keyword}{class }\mbox{\hyperlink{classIsochroneTracker}{IsochroneTracker}}}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45     }
+\DoxyCodeLine{46     }
+\DoxyCodeLine{47     \textcolor{keyword}{public}:}
+\DoxyCodeLine{48         \mbox{\hyperlink{classIsochroneTracker_ac1daed5afc579acf24af4be80a63acc1}{IsochroneTracker}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGlobalParameters}{GlobalParameters}} \& param);}
+\DoxyCodeLine{49         \textcolor{keywordtype}{void} \mbox{\hyperlink{classIsochroneTracker_ac38649b6fa86122f830eb021aa41e6b2}{Construct}}();}
+\DoxyCodeLine{50         }
+\DoxyCodeLine{51         \mbox{\hyperlink{structIsochroneCube}{IsochroneCube}} \mbox{\hyperlink{classIsochroneTracker_a3e45988d847b235eb717b7db210dfded}{GetProperties}}(\textcolor{keywordtype}{int} mass, \textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} age);}
+\DoxyCodeLine{52         }
+\DoxyCodeLine{53     \textcolor{keyword}{private}:}
+\DoxyCodeLine{54         \textcolor{keyword}{const} \mbox{\hyperlink{classGlobalParameters}{GlobalParameters}} \mbox{\hyperlink{classIsochroneTracker_ab1504e3737b6dbb054bcc72c133de201}{Param}};}
+\DoxyCodeLine{55         \textcolor{keywordtype}{void} \mbox{\hyperlink{classIsochroneTracker_aa59ca3c569f74ecdc3b36b5a00d7bdf0}{IsoLog}}(std::string val);}
+\DoxyCodeLine{56         \textcolor{keywordtype}{void} \mbox{\hyperlink{classIsochroneTracker_a4208153081f578eecbad35779e0c2b4d}{ParseFile}}(std::string file);}
+\DoxyCodeLine{57         std::vector<double> \mbox{\hyperlink{classIsochroneTracker_a71492799a2b48ca89a73af49e8eac7b4}{CapturedZs}};}
+\DoxyCodeLine{58         std::vector<double> \mbox{\hyperlink{classIsochroneTracker_ad6f9d4feb984feea48c5f35158b0c11b}{CapturedTs}};}
+\DoxyCodeLine{59         std::vector<std::vector<std::vector<IsochroneEntry>>> \mbox{\hyperlink{classIsochroneTracker_ab8c09c71fd95f57098a39acd8b4e12b2}{Grid}};}
+\DoxyCodeLine{60         std::vector<std::vector<std::vector<IsochroneEntry>>> \mbox{\hyperlink{classIsochroneTracker_afa34704f1a9f6c52bbb590847f6ffe5e}{UnsortedGrid}};}
+\DoxyCodeLine{61         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classIsochroneTracker_a112e1ad78cc9bbf7c6b4f34ec298b7a8}{isTimeLogUniform}};}
+\DoxyCodeLine{62         \textcolor{keywordtype}{double} \mbox{\hyperlink{classIsochroneTracker_a79c3950e17083051c8468a5c0a9b1030}{DeltaLogT}};}
+\DoxyCodeLine{63         }
+\DoxyCodeLine{64         std::default\_random\_engine \mbox{\hyperlink{classIsochroneTracker_a519a99559eae12cc9a3723c529df50ff}{generator}};}
+\DoxyCodeLine{65         std::normal\_distribution<double> \mbox{\hyperlink{classIsochroneTracker_a94331beeecbd7c7bae65867dc7594c5d}{distribution}};}
+\DoxyCodeLine{66         }
+\DoxyCodeLine{67         \textcolor{keywordtype}{double} \mbox{\hyperlink{classIsochroneTracker_a99ca71c7cd6e9a63ba15e1eea2e2956b}{NormalSample}}(\textcolor{keywordtype}{double} mu, \textcolor{keywordtype}{double} sigma);}
+\DoxyCodeLine{68         \textcolor{keywordtype}{double} \mbox{\hyperlink{classIsochroneTracker_a380b78eb3cf4d26d18710572ba02a54e}{UniformSample}}(\textcolor{keywordtype}{double} lowerBound, \textcolor{keywordtype}{double} upperBound);}
+\DoxyCodeLine{69         }
+\DoxyCodeLine{70         \textcolor{keywordtype}{void} \mbox{\hyperlink{classIsochroneTracker_a20ae3e8ebf4ce85c5502e8b04267bc20}{ExtractSample}}(\mbox{\hyperlink{structIsochroneCube}{IsochroneCube}} \& output, \textcolor{keywordtype}{int} sampleMass, \textcolor{keywordtype}{double} sampleZ, \textcolor{keywordtype}{double} sampleAge);}
+\DoxyCodeLine{71 \};}
+
+\end{DoxyCode}

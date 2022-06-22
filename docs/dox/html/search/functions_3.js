@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['deplete_481',['Deplete',['../classGasReservoir.html#ae2e4fdaa1f6b3f7a335b0948e1af1a9e',1,'GasReservoir::Deplete(double amountToLose)'],['../classGasReservoir.html#a81bf7608a5ca448d267ce0a563786361',1,'GasReservoir::Deplete(double amountToLose_Cold, double amountToLose_Hot)'],['../classGasStream.html#af8e82b7a64f1d8a1af93db0473de284f',1,'GasStream::Deplete(double amountToRemove)'],['../classGasStream.html#a44ab71ee97b6bf6cb7fba7ce0c861a32',1,'GasStream::Deplete(double amountToRemove_Cold, double amountToRemove_Hot)']]],
-  ['dirty_482',['Dirty',['../classGasStream.html#ac3801d0fc9d450844cea477c3dfe27e1',1,'GasStream']]],
-  ['dot_483',['Dot',['../classJSL_1_1Vector.html#a60660b5a26e0ddace46f31699834b671',1,'JSL::Vector']]]
+  ['ecsn_5finitialise_0',['ECSN_Initialise',['../classYieldGrid.html#a35af9225db089dff15313e71142221a4',1,'YieldGrid']]],
+  ['elementdestruction_1',['ElementDestruction',['../classYieldGrid.html#a43f5d92e889ef8c9e0086caec2d520cc',1,'YieldGrid']]],
+  ['elementproduction_2',['ElementProduction',['../classYieldGrid.html#ac6f6ee39dc7e0e4cfaa1e38215db3adc',1,'YieldGrid']]],
+  ['elementvalues_3',['ElementValues',['../classElementValues.html#a5adc37ca7878e4a47493a9e18743d464',1,'ElementValues']]],
+  ['empty_4',['Empty',['../classGas.html#a6e79d1e5d17931e7ea6a9f823016f648',1,'Gas']]],
+  ['evolve_5',['Evolve',['../classGalaxy.html#a5898095189818af6050d11aee8f23e81',1,'Galaxy']]],
+  ['extractsample_6',['ExtractSample',['../classIsochroneTracker.html#a20ae3e8ebf4ce85c5502e8b04267bc20',1,'IsochroneTracker']]]
 ];

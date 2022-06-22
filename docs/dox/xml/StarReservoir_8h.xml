@@ -1,283 +1,257 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="StarReservoir_8h" kind="file" language="C++">
     <compoundname>StarReservoir.h</compoundname>
-    <includes refid="vector_8h" local="no">vector.h</includes>
-    <includes refid="GlobalParameters_8h" local="yes">../Parameters/GlobalParameters.h</includes>
+    <includes local="no">vector</includes>
+    <includes refid="InitialisedData_8h" local="yes">../Parameters/InitialisedData.h</includes>
+    <includes refid="GasReservoir_8h" local="yes">../Gas/GasReservoir.h</includes>
+    <includes refid="RemnantPopulation_8h" local="yes">RemnantPopulation.h</includes>
+    <includes refid="IsochroneTracker_8h" local="yes">IsochroneTracker.h</includes>
+    <includes refid="StellarPopulation_8h" local="yes">StellarPopulation.h</includes>
+    <includes local="no">sstream</includes>
+    <includes refid="IMF_8h" local="yes">IMF.h</includes>
+    <includes refid="SLF_8h" local="yes">SLF.h</includes>
+    <includes refid="StarEvents_8h" local="yes">StarEvents.h</includes>
+    <includedby refid="Ring_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</includedby>
     <incdepgraph>
-      <node id="19">
-        <label>sys/stat.h</label>
-      </node>
-      <node id="26">
-        <label>Argument.h</label>
-        <link refid="Argument_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
+      <node id="20">
+        <label>Gas.h</label>
+        <link refid="Gas_8h"/>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="34">
-        <label>List.h</label>
-        <link refid="List_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h</label>
-        <link refid="StarReservoir_8h"/>
+      <node id="18">
+        <label>../Gas/GasReservoir.h</label>
+        <link refid="GasReservoir_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="30">
-        <label>UnitTest.h</label>
-        <link refid="UnitTest_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
-      <node id="2">
-        <label>vector.h</label>
-        <link refid="vector_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
+      <node id="19">
+        <label>GasStream.h</label>
+        <link refid="GasStream_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
-      </node>
-      <node id="32">
-        <label>cmath</label>
-      </node>
-      <node id="4">
-        <label>stdexcept</label>
-      </node>
-      <node id="9">
-        <label>string</label>
       </node>
       <node id="12">
-        <label>LineReader.h</label>
-        <link refid="LineReader_8h"/>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>fstream</label>
-      </node>
-      <node id="31">
-        <label>Testing_UnitTests.h</label>
-        <link refid="Testing__UnitTests_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-      </node>
-      <node id="21">
-        <label>fileWriter.h</label>
-        <link refid="fileWriter_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="23">
-        <label>Time.h</label>
-        <link refid="Time_8h"/>
-        <childnode refid="24" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>string.h</label>
-      </node>
-      <node id="22">
-        <label>Strings/Strings.h</label>
-        <link refid="Strings_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>rm.h</label>
-        <link refid="rm_8h"/>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="16">
-        <label>mkdir.h</label>
-        <link refid="mkdir_8h"/>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>vector</label>
-      </node>
-      <node id="10">
-        <label>JSL.h</label>
-        <link refid="JSL_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>sstream</label>
-      </node>
-      <node id="33">
-        <label>ParameterLists.h</label>
-        <link refid="ParameterLists_8h"/>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-      </node>
-      <node id="29">
-        <label>Testing/Testing.h</label>
-        <link refid="Testing_8h"/>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>math.h</label>
-      </node>
-      <node id="14">
-        <label>../Strings/split.h</label>
-        <link refid="split_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="35">
         <label>EnumSets.h</label>
         <link refid="EnumSets_8h"/>
       </node>
       <node id="6">
-        <label>iostream</label>
-      </node>
-      <node id="28">
-        <label>matrix.h</label>
-        <link refid="matrix_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
+        <label>../Parameters/GlobalParameters.h</label>
+        <link refid="GlobalParameters_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="24">
-        <label>chrono</label>
-      </node>
-      <node id="18">
-        <label>locationExists.h</label>
-        <link refid="locationExists_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Parameters/InitialisedData.h</label>
+        <link refid="InitialisedData_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="11">
-        <label>FileIO/FileIO.h</label>
-        <link refid="FileIO_8h"/>
+        <label>List.h</label>
+        <link refid="List_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
         <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../Stars/IMF.h</label>
+        <link refid="IMF_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>../Stars/IsochroneTracker.h</label>
+        <link refid="IsochroneTracker_8h"/>
+        <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>RemnantPopulation.h</label>
+        <link refid="RemnantPopulation_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../Stars/SLF.h</label>
+        <link refid="SLF_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>StarEvents.h</label>
+        <link refid="StarEvents_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>StellarPopulation.h</label>
+        <link refid="StellarPopulation_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>../Yields/SimpleYield.h</label>
+        <link refid="SimpleYield_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>../Yields/YieldGrid.h</label>
+        <link refid="YieldGrid_8h"/>
+        <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
       </node>
+      <node id="21">
+        <label>YieldRidge.h</label>
+        <link refid="YieldRidge_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
       <node id="8">
-        <label>../Parameters/GlobalParameters.h</label>
-        <link refid="GlobalParameters_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
+        <label>JSL.h</label>
       </node>
-      <node id="25">
-        <label>CommandArgs/CommandArgs.h</label>
-        <link refid="CommandArgs_8h"/>
-        <childnode refid="26" relation="include">
-        </childnode>
+      <node id="14">
+        <label>algorithm</label>
       </node>
-      <node id="27">
-        <label>Maths/Maths.h</label>
-        <link refid="Maths_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
+      <node id="16">
+        <label>filesystem</label>
       </node>
-      <node id="17">
-        <label>dirent.h</label>
+      <node id="4">
+        <label>random</label>
+      </node>
+      <node id="9">
+        <label>sstream</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+      </node>
+      <node id="2">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="classStarReservoir" prot="public">StarReservoir</innerclass>
     <briefdescription>
     </briefdescription>
@@ -286,23 +260,54 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="vector_8h" kindref="compound">vector.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Parameters/GlobalParameters.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6" refid="classStarReservoir" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classStarReservoir" kindref="compound">StarReservoir</ref></highlight></codeline>
-<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classStarReservoir_1a3f60b3f4c8af1509dcc9332cd2f7d9da" kindref="member">StarReservoir</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/><ref refid="classStarReservoir_1a50c92bbb8e133593baca28ccb54bba0f" kindref="member">Param</ref>);</highlight></codeline>
-<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classStarReservoir_1a4db0a7a429c235d914d6b021e1735d1b" kindref="member">Mass</ref>();</highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1adbec993089ffb848b611cc57091586bd" kindref="member">Birth</ref>(<ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>gas);</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="16" refid="classStarReservoir_1a14d18cd77706e1159b5aceb92c45e911" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="classStarReservoir_1a14d18cd77706e1159b5aceb92c45e911" kindref="member">StarPopulations</ref>;</highlight></codeline>
-<codeline lineno="17" refid="classStarReservoir_1a50c92bbb8e133593baca28ccb54bba0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/><ref refid="classStarReservoir_1a50c92bbb8e133593baca28ccb54bba0f" kindref="member">Param</ref>;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Parameters/InitialisedData.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Gas/GasReservoir.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="RemnantPopulation_8h" kindref="compound">RemnantPopulation.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="IsochroneTracker_8h" kindref="compound">IsochroneTracker.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="StellarPopulation_8h" kindref="compound">StellarPopulation.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="IsochroneTracker_8h" kindref="compound">IsochroneTracker.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="IMF_8h" kindref="compound">IMF.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="SLF_8h" kindref="compound">SLF.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="StarEvents_8h" kindref="compound">StarEvents.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="classStarReservoir" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classStarReservoir" kindref="compound">StarReservoir</ref></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17" refid="classStarReservoir_1a28c4d7e912919d958ac919251aaa115e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classStarReservoir_1a28c4d7e912919d958ac919251aaa115e" kindref="member">StarReservoir</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>parentRing,<sp/><ref refid="classInitialisedData" kindref="compound">InitialisedData</ref><sp/>&amp;<sp/>data);</highlight></codeline>
+<codeline lineno="18" refid="classStarReservoir_1afa02877deb4333f600d7916081f2a6ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;StellarPopulation&gt;<sp/><ref refid="classStarReservoir_1afa02877deb4333f600d7916081f2a6ff" kindref="member">Population</ref>;</highlight></codeline>
+<codeline lineno="19" refid="classStarReservoir_1ad7243fb1678924b5514ec37f3bf194f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1ad7243fb1678924b5514ec37f3bf194f4" kindref="member">AliveMass</ref>();</highlight></codeline>
+<codeline lineno="20" refid="classStarReservoir_1a5c4d8761a55c3a9b12501efe580092c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structMassReport" kindref="compound">MassReport</ref><sp/><ref refid="classStarReservoir_1a5c4d8761a55c3a9b12501efe580092c7" kindref="member">DeadMass</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23" refid="classStarReservoir_1ad1ed522b41fb89649ad76c3d9867ce69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1ad1ed522b41fb89649ad76c3d9867ce69" kindref="member">Observations</ref>();</highlight></codeline>
+<codeline lineno="24" refid="classStarReservoir_1aeca96339fab71dc4136e44a6e11632e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1aeca96339fab71dc4136e44a6e11632e3" kindref="member">Form</ref>(<ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>gas,<sp/><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref><sp/>&amp;<sp/>igm);</highlight></codeline>
+<codeline lineno="25" refid="classStarReservoir_1aa78dfd94aa81e491ef22176d7828751b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1aa78dfd94aa81e491ef22176d7828751b" kindref="member">Death</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentTime);</highlight></codeline>
+<codeline lineno="26" refid="classStarReservoir_1a055cbcc4b92d33282c5125de19ff41f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1a055cbcc4b92d33282c5125de19ff41f1" kindref="member">PrintStatus</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>t);</highlight></codeline>
+<codeline lineno="27" refid="classStarReservoir_1a994c32ce225c0350a5e24b2154fbb49f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;GasStream&gt;<sp/>&amp;<sp/><ref refid="classStarReservoir_1a994c32ce225c0350a5e24b2154fbb49f" kindref="member">YieldsFrom</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>t);</highlight></codeline>
+<codeline lineno="28" refid="classStarReservoir_1ac45b307a340af598e28f8081af16cd65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1ac45b307a340af598e28f8081af16cd65" kindref="member">SaveEventRate</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>t,<sp/>std::stringstream<sp/>&amp;<sp/>output);</highlight></codeline>
+<codeline lineno="29" refid="classStarReservoir_1a3a7a1aef699760dfa56c033f57ffba7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1a3a7a1aef699760dfa56c033f57ffba7c" kindref="member">AssignMagnitudes</ref>();</highlight></codeline>
+<codeline lineno="30" refid="classStarReservoir_1a0d8b28cb892d63dd02ace26aefdf76da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;GasReservoir&gt;<sp/><ref refid="classStarReservoir_1a0d8b28cb892d63dd02ace26aefdf76da" kindref="member">YieldOutput</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33" refid="classStarReservoir_1a16164e599a0ebbe983a9408acfa5bb2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRemnantPopulation" kindref="compound">RemnantPopulation</ref><sp/><ref refid="classStarReservoir_1a16164e599a0ebbe983a9408acfa5bb2e" kindref="member">Remnants</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35" refid="classStarReservoir_1aa5e8b5e89146179c6168eb418a052793" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1aa5e8b5e89146179c6168eb418a052793" kindref="member">SFR_GasLoss</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coldMass,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>hotMass,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>ejectFactor);</highlight></codeline>
+<codeline lineno="36" refid="classStarReservoir_1aa397315205191385f71166b062ec3036" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1aa397315205191385f71166b062ec3036" kindref="member">ParentRing</ref>;</highlight></codeline>
+<codeline lineno="37" refid="classStarReservoir_1adde79f75939b70ad6304002e33f3ee23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1adde79f75939b70ad6304002e33f3ee23" kindref="member">ParentArea</ref>;</highlight></codeline>
+<codeline lineno="38" refid="classStarReservoir_1aa679922f06e427853131ab1a4dca974e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1aa679922f06e427853131ab1a4dca974e" kindref="member">Temp_Mass</ref>;</highlight></codeline>
+<codeline lineno="39" refid="classStarReservoir_1a2efd119bd0a557e4a47c7f13a60913dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classIMF__Functor" kindref="compound">IMF_Functor</ref><sp/>&amp;<sp/><ref refid="classStarReservoir_1a2efd119bd0a557e4a47c7f13a60913dd" kindref="member">IMF</ref>;</highlight></codeline>
+<codeline lineno="40" refid="classStarReservoir_1ade2cee0c4d213c254da8af496d396f31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classSLF__Functor" kindref="compound">SLF_Functor</ref><sp/>&amp;<sp/><ref refid="classStarReservoir_1ade2cee0c4d213c254da8af496d396f31" kindref="member">SLF</ref>;</highlight></codeline>
+<codeline lineno="41" refid="classStarReservoir_1a0880ef819d027afc28705ac1afc1d723" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classStarReservoir_1a0880ef819d027afc28705ac1afc1d723" kindref="member">PopulationIndex</ref>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43" refid="classStarReservoir_1a7076b92b5da3307bd3ce15ea48adb527" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;StarEvents&gt;<sp/><ref refid="classStarReservoir_1a7076b92b5da3307bd3ce15ea48adb527" kindref="member">EventRate</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47" refid="classStarReservoir_1a87057a6e84962fb07f8a1c331a044d4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classInitialisedData" kindref="compound">InitialisedData</ref><sp/>&amp;<sp/><ref refid="classStarReservoir_1a87057a6e84962fb07f8a1c331a044d4c" kindref="member">Data</ref>;</highlight></codeline>
+<codeline lineno="48" refid="classStarReservoir_1a50c92bbb8e133593baca28ccb54bba0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref><sp/>&amp;<sp/><ref refid="classStarReservoir_1a50c92bbb8e133593baca28ccb54bba0f" kindref="member">Param</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">};</highlight></codeline>
     </programlisting>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h"/>
   </compounddef>
 </doxygen>

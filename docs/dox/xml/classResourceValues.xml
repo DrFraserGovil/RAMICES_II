@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="classResourceValues" kind="class" language="C++" prot="public">
+    <compoundname>ResourceValues</compoundname>
+    <basecompoundref refid="classParamList" prot="public" virt="non-virtual">ParamList</basecompoundref>
+    <includes refid="ParameterLists_8h" local="no">ParameterLists.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classResourceValues_1a61e989e506d707a7b9ac444106715e56" prot="public" static="no" mutable="no">
+        <type>Argument&lt; std::string &gt;</type>
+        <definition>Argument&lt;std::string&gt; ResourceValues::WelcomeFile</definition>
+        <argsstring></argsstring>
+        <name>WelcomeFile</name>
+        <qualifiedname>ResourceValues::WelcomeFile</qualifiedname>
+        <initializer>= Argument&lt;std::string&gt;(&quot;welcome.dat&quot;,&quot;welcome-file&quot;)</initializer>
+        <briefdescription>
+<para>The location of the funky ASCII welcome messgae. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="92" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classResourceValues_1a23ad6909d1365179c3610db6274bf9e7" prot="public" static="no" mutable="no">
+        <type>Argument&lt; std::string &gt;</type>
+        <definition>Argument&lt;std::string&gt; ResourceValues::ResourceRoot</definition>
+        <argsstring></argsstring>
+        <name>ResourceRoot</name>
+        <qualifiedname>ResourceValues::ResourceRoot</qualifiedname>
+        <initializer>= Argument&lt;std::string&gt;(&quot;Resources/&quot;,&quot;resource&quot;)</initializer>
+        <briefdescription>
+<para>The location of the directory which the code looks for its expected resource file structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="95" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classResourceValues_1afc50e5194bce82b3535cf55293271d72" prot="public" static="no" mutable="no">
+        <type>Argument&lt; std::string &gt;</type>
+        <definition>Argument&lt;std::string&gt; ResourceValues::YieldRoot</definition>
+        <argsstring></argsstring>
+        <name>YieldRoot</name>
+        <qualifiedname>ResourceValues::YieldRoot</qualifiedname>
+        <initializer>= Argument&lt;std::string&gt;(&quot;ChemicalData/&quot;,&quot;yield-root&quot;)</initializer>
+        <briefdescription>
+<para>The location of the directory within ResourceRoot which houses the stellar yield data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="98" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classResourceValues_1a25d9d6c70e86a9fdf28c864bc4ca0932" prot="public" static="no" mutable="no">
+        <type>Argument&lt; std::string &gt;</type>
+        <definition>Argument&lt;std::string&gt; ResourceValues::IsochroneDirectory</definition>
+        <argsstring></argsstring>
+        <name>IsochroneDirectory</name>
+        <qualifiedname>ResourceValues::IsochroneDirectory</qualifiedname>
+        <initializer>= Argument&lt;std::string&gt;(&quot;Isochrones/&quot;,&quot;iso-dir&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="101" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classResourceValues_1a4a4ddcb181a899d24ebe85d7ecc37b33" prot="public" static="no" mutable="no">
+        <type>Argument&lt; std::string &gt;</type>
+        <definition>Argument&lt;std::string&gt; ResourceValues::LifeTimeFile</definition>
+        <argsstring></argsstring>
+        <name>LifeTimeFile</name>
+        <qualifiedname>ResourceValues::LifeTimeFile</qualifiedname>
+        <initializer>= Argument&lt;std::string&gt;(&quot;LifetimeGrid.dat&quot;,&quot;lifetime-file&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="103" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classResourceValues_1ac95e2ca23a1e4e877c836a068ad39b94" prot="public" static="no" mutable="no">
+        <type>Argument&lt; std::string &gt;</type>
+        <definition>Argument&lt;std::string&gt; ResourceValues::IsochroneRepository</definition>
+        <argsstring></argsstring>
+        <name>IsochroneRepository</name>
+        <qualifiedname>ResourceValues::IsochroneRepository</qualifiedname>
+        <initializer>= Argument&lt;std::string&gt;(&quot;NewPadova/&quot;,&quot;iso-repo&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="105" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classResourceValues_1addcf2c751e921dcb3a5c73afe496bd13" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ResourceValues::ResourceValues</definition>
+        <argsstring>()</argsstring>
+        <name>ResourceValues</name>
+        <qualifiedname>ResourceValues::ResourceValues</qualifiedname>
+        <briefdescription>
+<para>Boring constructor <ndash/> slots in the relevant arguments into the ParamList::argPointer array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="107" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classResourceValues_1a2c1abfe74199bbc2fdb58a4024b3f272" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void ResourceValues::Initialise</definition>
+        <argsstring>(std::string resourceRoot)</argsstring>
+        <name>Initialise</name>
+        <qualifiedname>ResourceValues::Initialise</qualifiedname>
+        <reimplements refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475">Initialise</reimplements>
+        <param>
+          <type>std::string</type>
+          <declname>resourceRoot</declname>
+        </param>
+        <briefdescription>
+<para>An overload of a normally empty function. Goes through and creates the necessary directory structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="113" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="1">
+        <label>ResourceValues</label>
+        <link refid="classResourceValues"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>Argument&lt; std::string &gt;</label>
+      </node>
+      <node id="2">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="1">
+        <label>ResourceValues</label>
+        <link refid="classResourceValues"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>IsochroneDirectory</edgelabel>
+          <edgelabel>IsochroneRepository</edgelabel>
+          <edgelabel>LifeTimeFile</edgelabel>
+          <edgelabel>ResourceRoot</edgelabel>
+          <edgelabel>WelcomeFile</edgelabel>
+          <edgelabel>YieldRoot</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="88" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="89" bodyend="115"/>
+    <listofallmembers>
+      <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>ResourceValues</scope><name>argPointers</name></member>
+      <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>ResourceValues</scope><name>Configure</name></member>
+      <member refid="classResourceValues_1a2c1abfe74199bbc2fdb58a4024b3f272" prot="public" virt="virtual"><scope>ResourceValues</scope><name>Initialise</name></member>
+      <member refid="classResourceValues_1a25d9d6c70e86a9fdf28c864bc4ca0932" prot="public" virt="non-virtual"><scope>ResourceValues</scope><name>IsochroneDirectory</name></member>
+      <member refid="classResourceValues_1ac95e2ca23a1e4e877c836a068ad39b94" prot="public" virt="non-virtual"><scope>ResourceValues</scope><name>IsochroneRepository</name></member>
+      <member refid="classResourceValues_1a4a4ddcb181a899d24ebe85d7ecc37b33" prot="public" virt="non-virtual"><scope>ResourceValues</scope><name>LifeTimeFile</name></member>
+      <member refid="classResourceValues_1a23ad6909d1365179c3610db6274bf9e7" prot="public" virt="non-virtual"><scope>ResourceValues</scope><name>ResourceRoot</name></member>
+      <member refid="classResourceValues_1addcf2c751e921dcb3a5c73afe496bd13" prot="public" virt="non-virtual"><scope>ResourceValues</scope><name>ResourceValues</name></member>
+      <member refid="classParamList_1a09c507dd8e319a880673a1e5eb070415" prot="public" virt="non-virtual"><scope>ResourceValues</scope><name>StreamContentsTo</name></member>
+      <member refid="classResourceValues_1a61e989e506d707a7b9ac444106715e56" prot="public" virt="non-virtual"><scope>ResourceValues</scope><name>WelcomeFile</name></member>
+      <member refid="classResourceValues_1afc50e5194bce82b3535cf55293271d72" prot="public" virt="non-virtual"><scope>ResourceValues</scope><name>YieldRoot</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -7,16 +7,20 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \& \mbox{\hyperlink{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}{Hot}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} el)
+const \mbox{\hyperlink{classGas}{Gas}} \& \mbox{\hyperlink{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}{Hot}} () const
 \item 
-double \& \mbox{\hyperlink{classGasStream_a0b2a1a3961e0d5a1701b51851f105868}{Cold}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} el)
+const \mbox{\hyperlink{classGas}{Gas}} \& \mbox{\hyperlink{classGasStream_a08dbd72ea4f2239f285dea932fa83a67}{Cold}} () const
 \item 
-const double \& \mbox{\hyperlink{classGasStream_a7667f4eb26810ad56aec686cf289379c}{Hot}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} el) const
+double \& \mbox{\hyperlink{classGasStream_a415cafd7901ab08952ec2e2a50b72ca9}{Hot}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} el)
 \item 
-const double \& \mbox{\hyperlink{classGasStream_ac2b70a62064c59f880f60b93c906ec6d}{Cold}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} el) const
+double \& \mbox{\hyperlink{classGasStream_a054ef524d9b344e0cb155573e1915db1}{Cold}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} el)
+\item 
+const double \& \mbox{\hyperlink{classGasStream_addc6a41e626c53a97a61c649a15a2a04}{Hot}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} el) const
+\item 
+const double \& \mbox{\hyperlink{classGasStream_aff8fe7805049b0af6aba719e456c6a6f}{Cold}} (\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}} el) const
 \item 
 \mbox{\hyperlink{classGasStream_af53972311a6821deda7f211a828f65e7}{Gas\+Stream}} ()
-\begin{DoxyCompactList}\small\item\em Default constructor -- assigns itself as \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb}{Unknown}}, with zero mass. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Default constructor -- assigns itself as \mbox{\hyperlink{EnumSets_8h_a8f4ca8118d99c14c2c24a2dc704e915ba4e81c184ac3ad48a389cd4454c4a05bb}{Unknown}}, with zero mass. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGasStream_a9c4c6fe0b3df01b5586cca667eaf11ca}{Gas\+Stream}} (\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} source)
 \begin{DoxyCompactList}\small\item\em Gives itself zero mass in both components. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGasStream_a83de215a9348757ca94bdf5b9d491328}{Gas\+Stream}} (\mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238b}{Source\+Process}} source, const \mbox{\hyperlink{classGas}{Gas}} \&hot, const \mbox{\hyperlink{classGas}{Gas}} \&cold)
@@ -25,20 +29,32 @@ const double \& \mbox{\hyperlink{classGasStream_ac2b70a62064c59f880f60b93c906ec6
 \begin{DoxyCompactList}\small\item\em Splits a single \mbox{\hyperlink{classGas}{Gas}} object up into fractions determined by the hot fraction. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass}} ()
 \begin{DoxyCompactList}\small\item\em This function attempts to be clever. Checks the \#\+Neds\+Recomputing flag, and if necessary, calls \mbox{\hyperlink{classGasStream_ae0827e81446bddfc0c36ff0591a765fb}{Compute\+Masses()}}, then sets the flag accordingly. Should reduce the number of loops needed. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classGasStream_a459ec5e6bcb3f918577797a3fb0de301}{Mass}} () const
+\item 
 double \mbox{\hyperlink{classGasStream_ab030a30e5279402f9c2134110c0f7fb5}{Hot\+Mass}} ()
 \begin{DoxyCompactList}\small\item\em See \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass()}} for details. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classGasStream_a82682ae8856ff675869cce398a6bbd26}{Cold\+Mass}} ()
 \begin{DoxyCompactList}\small\item\em See \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass()}} for details. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classGasStream_a859a2361bc92873f500aec41d31a8211}{Hot\+Mass}} () const
+\begin{DoxyCompactList}\small\item\em As with \mbox{\hyperlink{classGasStream_ab030a30e5279402f9c2134110c0f7fb5}{Hot\+Mass()}}, but returns only the last computed value...assumes proper normalisation before casting to const! \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classGasStream_a174e85fccbdd8e5884884acfc55472ca}{Cold\+Mass}} () const
+\begin{DoxyCompactList}\small\item\em As with \mbox{\hyperlink{classGasStream_a82682ae8856ff675869cce398a6bbd26}{Cold\+Mass()}}, but returns only the last computed value...assumes proper normalisation before casting to const! \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}{Deplete}} (double amount\+To\+Remove)
 \begin{DoxyCompactList}\small\item\em Removes (i.\+e. throws away) the chosen amount of mass, keeping the hot/cold ratio and the elemental abundances the same. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGasStream_a21f78c6110e49d187dfa6081c6a90582}{Heat}} (double amount\+To\+Heat)
+\begin{DoxyCompactList}\small\item\em Moves the specified mass from the cold reservoir into the hot reservoir, keeping the cold elemental abundances constant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGasStream_ae5e3e4b7780db6fa1323770de3b4e63a}{Cool}} (double amount\+To\+Cool)
+\begin{DoxyCompactList}\small\item\em Moves the specified mass from the hot reservoir to the cold reservoir, keeping the hot elemental abundances constant. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGasStream_a44ab71ee97b6bf6cb7fba7ce0c861a32}{Deplete}} (double amount\+To\+Remove\+\_\+\+Cold, double amount\+To\+Remove\+\_\+\+Hot)
 \begin{DoxyCompactList}\small\item\em Removes (i.\+e. throws away) the mass from the hot and cold components, keeping the individual elemental abundances the same. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}{Absorb}} (const \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \&input)
 \begin{DoxyCompactList}\small\item\em Adds the gas contained within the input to the current stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGasStream_a16b5f8981b852b950e04da8c0293ef69}{Absorb}} (const \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \&input, double fraction)
+\begin{DoxyCompactList}\small\item\em Adds the specified fractiongas contained within the input to the current stream. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGasStream_abbd41dd93fa28b504760b8e85ce21047}{Absorb}} (const \mbox{\hyperlink{classGas}{Gas}} \&input, double hot\+Fraction)
 \begin{DoxyCompactList}\small\item\em Adds the gas to the current stream, splitting it according to the hot\+Fraction. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGasStream_ac3801d0fc9d450844cea477c3dfe27e1}{Dirty}} ()
-\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}{Needs\+Recomputing}} flag to true. Used to inform the Stream that someone (most probably a call through \mbox{\hyperlink{classGasReservoir_ae082c5254cca8d39c72e90ffa6784645}{Gas\+Reservoir\+::operator\mbox{[}$\,$\mbox{]}}}) has gone over its head and touched its internal workings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}{Needs\+Recomputing}} flag to true. Used to inform the Stream that someone (most probably a call through \mbox{\hyperlink{classGasReservoir_ad022675663eb9843ecedebba23bd25a5}{Gas\+Reservoir\+::operator\mbox{[}$\,$\mbox{]}}}) has gone over its head and touched its internal workings. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
@@ -53,11 +69,11 @@ void \mbox{\hyperlink{classGasStream_ae0827e81446bddfc0c36ff0591a765fb}{Compute\
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}{Needs\+Recomputing}}
-\begin{DoxyCompactList}\small\item\em A flag used to prevent excessive recomputing of the internal masses. By design, if \mbox{\hyperlink{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}{Absorb()}}, \mbox{\hyperlink{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}{Deplete()}} etc. calls are avoided, the components of \mbox{\hyperlink{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}{Hot}} and \mbox{\hyperlink{classGasStream_a0b2a1a3961e0d5a1701b51851f105868}{Cold}} are invariant, so the values of \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass()}} are constant. Therefore if this flag is false, simply returns the last computed value of the mass value. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A flag used to prevent excessive recomputing of the internal masses. By design, if \mbox{\hyperlink{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}{Absorb()}}, \mbox{\hyperlink{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}{Deplete()}} etc. calls are avoided, the components of \mbox{\hyperlink{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}{Hot}} and \mbox{\hyperlink{classGasStream_a08dbd72ea4f2239f285dea932fa83a67}{Cold}} are invariant, so the values of \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass()}} are constant. Therefore if this flag is false, simply returns the last computed value of the mass value. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classGasStream_abe1a79f69bd2d9f597e9bb2ede651bca}{internal\+\_\+\+Hot\+Mass}}
-\begin{DoxyCompactList}\small\item\em The last computed value of \mbox{\hyperlink{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}{Hot}}.\mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Gas\+::\+Mass()}} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The last computed value of \mbox{\hyperlink{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}{Hot}}.\mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Gas\+::\+Mass()}} \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classGasStream_aea8b87c6a88f4c386f06d03ed3139e63}{internal\+\_\+\+Cold\+Mass}}
-\begin{DoxyCompactList}\small\item\em The last computed value of \mbox{\hyperlink{classGasStream_a0b2a1a3961e0d5a1701b51851f105868}{Cold}}.\mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Gas\+::\+Mass()}} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The last computed value of \mbox{\hyperlink{classGasStream_a08dbd72ea4f2239f285dea932fa83a67}{Cold}}.\mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Gas\+::\+Mass()}} \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classGasStream_a14fe3a90aa022cedea487e27ddcb57ac}{internal\+\_\+\+Total\+Mass}}
 \begin{DoxyCompactList}\small\item\em The sum of \mbox{\hyperlink{classGasStream_abe1a79f69bd2d9f597e9bb2ede651bca}{internal\+\_\+\+Hot\+Mass}} and \mbox{\hyperlink{classGasStream_aea8b87c6a88f4c386f06d03ed3139e63}{internal\+\_\+\+Cold\+Mass}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGasStream_a4eeb871be8663aa1671d778d2be58d33}{internal\+\_\+\+Hot}}
@@ -67,7 +83,7 @@ double \mbox{\hyperlink{classGasStream_a14fe3a90aa022cedea487e27ddcb57ac}{intern
 
 
 \doxysubsection{Detailed Description}
-A gas stream is how a homogeneously-\/sourced set of gas gets moved around . They are created through Source\+Events -\/ such as C\+C\+SN or accretion events. 
+A gas stream is how a homogeneously-\/sourced set of gas gets moved around . They are created through Source\+Events -\/ such as CCSN or accretion events. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classGasStream_af53972311a6821deda7f211a828f65e7}\label{classGasStream_af53972311a6821deda7f211a828f65e7}} 
@@ -78,7 +94,7 @@ A gas stream is how a homogeneously-\/sourced set of gas gets moved around . The
 
 
 
-Default constructor -- assigns itself as \mbox{\hyperlink{EnumSets_8h_a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb}{Unknown}}, with zero mass. 
+Default constructor -- assigns itself as \mbox{\hyperlink{EnumSets_8h_a8f4ca8118d99c14c2c24a2dc704e915ba4e81c184ac3ad48a389cd4454c4a05bb}{Unknown}}, with zero mass. 
 
 \mbox{\Hypertarget{classGasStream_a9c4c6fe0b3df01b5586cca667eaf11ca}\label{classGasStream_a9c4c6fe0b3df01b5586cca667eaf11ca}} 
 \index{GasStream@{GasStream}!GasStream@{GasStream}}
@@ -109,9 +125,9 @@ Initialises itself to the correct hot/cold components.
 \begin{DoxyParams}{Parameters}
 {\em source} & The value of \mbox{\hyperlink{classGasStream_a1ff8e94b9aefcfa71119c35a191ff4d5}{Source}} which this object inherits\\
 \hline
-{\em hot} & The gas component which is copied into \mbox{\hyperlink{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}{Hot}}\\
+{\em hot} & The gas component which is copied into \mbox{\hyperlink{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}{Hot}}\\
 \hline
-{\em cold} & The gas component which is copied into \mbox{\hyperlink{classGasStream_a0b2a1a3961e0d5a1701b51851f105868}{Cold}} \\
+{\em cold} & The gas component which is copied into \mbox{\hyperlink{classGasStream_a08dbd72ea4f2239f285dea932fa83a67}{Cold}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classGasStream_a07e893367e97b31d50c6b1dd31394c88}\label{classGasStream_a07e893367e97b31d50c6b1dd31394c88}} 
@@ -130,7 +146,7 @@ Splits a single \mbox{\hyperlink{classGas}{Gas}} object up into fractions determ
 \hline
 {\em gas} & The total gas mass of the new stream\\
 \hline
-{\em hot\+Fraction} & the fraction of the gas which is put into \mbox{\hyperlink{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}{Hot}}, keeping the elemental abundances the same \\
+{\em hot\+Fraction} & the fraction of the gas which is put into \mbox{\hyperlink{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}{Hot}}, keeping the elemental abundances the same \\
 \hline
 \end{DoxyParams}
 
@@ -139,7 +155,7 @@ Splits a single \mbox{\hyperlink{classGas}{Gas}} object up into fractions determ
 \mbox{\Hypertarget{classGasStream_abbd41dd93fa28b504760b8e85ce21047}\label{classGasStream_abbd41dd93fa28b504760b8e85ce21047}} 
 \index{GasStream@{GasStream}!Absorb@{Absorb}}
 \index{Absorb@{Absorb}!GasStream@{GasStream}}
-\doxysubsubsection{\texorpdfstring{Absorb()}{Absorb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Absorb()}{Absorb()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily void Gas\+Stream\+::\+Absorb (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGas}{Gas}} \&}]{input,  }\item[{double}]{hot\+Fraction }\end{DoxyParamCaption})}
 
 
@@ -150,13 +166,13 @@ Adds the gas to the current stream, splitting it according to the hot\+Fraction.
 \begin{DoxyParams}{Parameters}
 {\em input} & The object which donates the gas (unaltered)\\
 \hline
-{\em hot\+Fraction} & The amount of the input which goes into the \mbox{\hyperlink{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}{Hot}} stream \\
+{\em hot\+Fraction} & The amount of the input which goes into the \mbox{\hyperlink{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}{Hot}} stream \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}\label{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}} 
 \index{GasStream@{GasStream}!Absorb@{Absorb}}
 \index{Absorb@{Absorb}!GasStream@{GasStream}}
-\doxysubsubsection{\texorpdfstring{Absorb()}{Absorb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{Absorb()}{Absorb()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily void Gas\+Stream\+::\+Absorb (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \&}]{input }\end{DoxyParamCaption})}
 
 
@@ -168,22 +184,45 @@ Adds the gas contained within the input to the current stream.
 {\em input} & The object which donates the gas (unaltered) \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classGasStream_a0b2a1a3961e0d5a1701b51851f105868}\label{classGasStream_a0b2a1a3961e0d5a1701b51851f105868}} 
-\index{GasStream@{GasStream}!Cold@{Cold}}
-\index{Cold@{Cold}!GasStream@{GasStream}}
-\doxysubsubsection{\texorpdfstring{Cold()}{Cold()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily double\& Gas\+Stream\+::\+Cold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{el }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classGasStream_a16b5f8981b852b950e04da8c0293ef69}\label{classGasStream_a16b5f8981b852b950e04da8c0293ef69}} 
+\index{GasStream@{GasStream}!Absorb@{Absorb}}
+\index{Absorb@{Absorb}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Absorb()}{Absorb()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Gas\+Stream\+::\+Absorb (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGasStream}{Gas\+Stream}} \&}]{input,  }\item[{double}]{fraction }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classGasStream_ac2b70a62064c59f880f60b93c906ec6d}\label{classGasStream_ac2b70a62064c59f880f60b93c906ec6d}} 
+
+
+Adds the specified fractiongas contained within the input to the current stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The object which donates the gas (unaltered)\\
+\hline
+{\em fraction} & the fraction of the input object which is absorbed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGasStream_a08dbd72ea4f2239f285dea932fa83a67}\label{classGasStream_a08dbd72ea4f2239f285dea932fa83a67}} 
 \index{GasStream@{GasStream}!Cold@{Cold}}
 \index{Cold@{Cold}!GasStream@{GasStream}}
-\doxysubsubsection{\texorpdfstring{Cold()}{Cold()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily const double\& Gas\+Stream\+::\+Cold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{el }\end{DoxyParamCaption}) const}
+\doxysubsubsection{\texorpdfstring{Cold()}{Cold()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classGas}{Gas}} \& Gas\+Stream\+::\+Cold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classGasStream_a054ef524d9b344e0cb155573e1915db1}\label{classGasStream_a054ef524d9b344e0cb155573e1915db1}} 
+\index{GasStream@{GasStream}!Cold@{Cold}}
+\index{Cold@{Cold}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Cold()}{Cold()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily double \& Gas\+Stream\+::\+Cold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{el }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_aff8fe7805049b0af6aba719e456c6a6f}\label{classGasStream_aff8fe7805049b0af6aba719e456c6a6f}} 
+\index{GasStream@{GasStream}!Cold@{Cold}}
+\index{Cold@{Cold}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Cold()}{Cold()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily const double \& Gas\+Stream\+::\+Cold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{el }\end{DoxyParamCaption}) const}
 
 \mbox{\Hypertarget{classGasStream_a82682ae8856ff675869cce398a6bbd26}\label{classGasStream_a82682ae8856ff675869cce398a6bbd26}} 
 \index{GasStream@{GasStream}!ColdMass@{ColdMass}}
 \index{ColdMass@{ColdMass}!GasStream@{GasStream}}
-\doxysubsubsection{\texorpdfstring{ColdMass()}{ColdMass()}}
+\doxysubsubsection{\texorpdfstring{ColdMass()}{ColdMass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily double Gas\+Stream\+::\+Cold\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
@@ -191,8 +230,18 @@ Adds the gas contained within the input to the current stream.
 See \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass()}} for details. 
 
 \begin{DoxyReturn}{Returns}
-The current mass of the \mbox{\hyperlink{classGasStream_a0b2a1a3961e0d5a1701b51851f105868}{Cold}} component 
+The current mass of the \mbox{\hyperlink{classGasStream_a08dbd72ea4f2239f285dea932fa83a67}{Cold}} component 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classGasStream_a174e85fccbdd8e5884884acfc55472ca}\label{classGasStream_a174e85fccbdd8e5884884acfc55472ca}} 
+\index{GasStream@{GasStream}!ColdMass@{ColdMass}}
+\index{ColdMass@{ColdMass}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{ColdMass()}{ColdMass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Gas\+Stream\+::\+Cold\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+As with \mbox{\hyperlink{classGasStream_a82682ae8856ff675869cce398a6bbd26}{Cold\+Mass()}}, but returns only the last computed value...assumes proper normalisation before casting to const! 
+
 \mbox{\Hypertarget{classGasStream_ae0827e81446bddfc0c36ff0591a765fb}\label{classGasStream_ae0827e81446bddfc0c36ff0591a765fb}} 
 \index{GasStream@{GasStream}!ComputeMasses@{ComputeMasses}}
 \index{ComputeMasses@{ComputeMasses}!GasStream@{GasStream}}
@@ -202,6 +251,16 @@ The current mass of the \mbox{\hyperlink{classGasStream_a0b2a1a3961e0d5a1701b518
 
 
 If \mbox{\hyperlink{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}{Needs\+Recomputing}} is true, this recalculates \mbox{\hyperlink{classGasStream_abe1a79f69bd2d9f597e9bb2ede651bca}{internal\+\_\+\+Hot\+Mass}} and \mbox{\hyperlink{classGasStream_aea8b87c6a88f4c386f06d03ed3139e63}{internal\+\_\+\+Cold\+Mass}}. 
+
+\mbox{\Hypertarget{classGasStream_ae5e3e4b7780db6fa1323770de3b4e63a}\label{classGasStream_ae5e3e4b7780db6fa1323770de3b4e63a}} 
+\index{GasStream@{GasStream}!Cool@{Cool}}
+\index{Cool@{Cool}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Cool()}{Cool()}}
+{\footnotesize\ttfamily void Gas\+Stream\+::\+Cool (\begin{DoxyParamCaption}\item[{double}]{amount\+To\+Cool }\end{DoxyParamCaption})}
+
+
+
+Moves the specified mass from the hot reservoir to the cold reservoir, keeping the hot elemental abundances constant. 
 
 \mbox{\Hypertarget{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}\label{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}} 
 \index{GasStream@{GasStream}!Deplete@{Deplete}}
@@ -243,24 +302,40 @@ Removes (i.\+e. throws away) the mass from the hot and cold components, keeping 
 
 
 
-Sets the \mbox{\hyperlink{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}{Needs\+Recomputing}} flag to true. Used to inform the Stream that someone (most probably a call through \mbox{\hyperlink{classGasReservoir_ae082c5254cca8d39c72e90ffa6784645}{Gas\+Reservoir\+::operator\mbox{[}$\,$\mbox{]}}}) has gone over its head and touched its internal workings. 
+Sets the \mbox{\hyperlink{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}{Needs\+Recomputing}} flag to true. Used to inform the Stream that someone (most probably a call through \mbox{\hyperlink{classGasReservoir_ad022675663eb9843ecedebba23bd25a5}{Gas\+Reservoir\+::operator\mbox{[}$\,$\mbox{]}}}) has gone over its head and touched its internal workings. 
 
-\mbox{\Hypertarget{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}\label{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}} 
+\mbox{\Hypertarget{classGasStream_a21f78c6110e49d187dfa6081c6a90582}\label{classGasStream_a21f78c6110e49d187dfa6081c6a90582}} 
+\index{GasStream@{GasStream}!Heat@{Heat}}
+\index{Heat@{Heat}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Heat()}{Heat()}}
+{\footnotesize\ttfamily void Gas\+Stream\+::\+Heat (\begin{DoxyParamCaption}\item[{double}]{amount\+To\+Heat }\end{DoxyParamCaption})}
+
+
+
+Moves the specified mass from the cold reservoir into the hot reservoir, keeping the cold elemental abundances constant. 
+
+\mbox{\Hypertarget{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}\label{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}} 
 \index{GasStream@{GasStream}!Hot@{Hot}}
 \index{Hot@{Hot}!GasStream@{GasStream}}
-\doxysubsubsection{\texorpdfstring{Hot()}{Hot()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily double\& Gas\+Stream\+::\+Hot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{el }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{Hot()}{Hot()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classGas}{Gas}} \& Gas\+Stream\+::\+Hot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-\mbox{\Hypertarget{classGasStream_a7667f4eb26810ad56aec686cf289379c}\label{classGasStream_a7667f4eb26810ad56aec686cf289379c}} 
+\mbox{\Hypertarget{classGasStream_a415cafd7901ab08952ec2e2a50b72ca9}\label{classGasStream_a415cafd7901ab08952ec2e2a50b72ca9}} 
 \index{GasStream@{GasStream}!Hot@{Hot}}
 \index{Hot@{Hot}!GasStream@{GasStream}}
-\doxysubsubsection{\texorpdfstring{Hot()}{Hot()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily const double\& Gas\+Stream\+::\+Hot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{el }\end{DoxyParamCaption}) const}
+\doxysubsubsection{\texorpdfstring{Hot()}{Hot()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily double \& Gas\+Stream\+::\+Hot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{el }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classGasStream_addc6a41e626c53a97a61c649a15a2a04}\label{classGasStream_addc6a41e626c53a97a61c649a15a2a04}} 
+\index{GasStream@{GasStream}!Hot@{Hot}}
+\index{Hot@{Hot}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Hot()}{Hot()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily const double \& Gas\+Stream\+::\+Hot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{Element\+ID}}}]{el }\end{DoxyParamCaption}) const}
 
 \mbox{\Hypertarget{classGasStream_ab030a30e5279402f9c2134110c0f7fb5}\label{classGasStream_ab030a30e5279402f9c2134110c0f7fb5}} 
 \index{GasStream@{GasStream}!HotMass@{HotMass}}
 \index{HotMass@{HotMass}!GasStream@{GasStream}}
-\doxysubsubsection{\texorpdfstring{HotMass()}{HotMass()}}
+\doxysubsubsection{\texorpdfstring{HotMass()}{HotMass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily double Gas\+Stream\+::\+Hot\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
@@ -268,12 +343,22 @@ Sets the \mbox{\hyperlink{classGasStream_ac3bb7ece9c3a7453879c2cd2c4760b3a}{Need
 See \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass()}} for details. 
 
 \begin{DoxyReturn}{Returns}
-The current mass of the \mbox{\hyperlink{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}{Hot}} component 
+The current mass of the \mbox{\hyperlink{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}{Hot}} component 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classGasStream_a859a2361bc92873f500aec41d31a8211}\label{classGasStream_a859a2361bc92873f500aec41d31a8211}} 
+\index{GasStream@{GasStream}!HotMass@{HotMass}}
+\index{HotMass@{HotMass}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{HotMass()}{HotMass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Gas\+Stream\+::\+Hot\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+As with \mbox{\hyperlink{classGasStream_ab030a30e5279402f9c2134110c0f7fb5}{Hot\+Mass()}}, but returns only the last computed value...assumes proper normalisation before casting to const! 
+
 \mbox{\Hypertarget{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}\label{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}} 
 \index{GasStream@{GasStream}!Mass@{Mass}}
 \index{Mass@{Mass}!GasStream@{GasStream}}
-\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}}
+\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily double Gas\+Stream\+::\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
@@ -283,6 +368,12 @@ This function attempts to be clever. Checks the \#\+Neds\+Recomputing flag, and 
 \begin{DoxyReturn}{Returns}
 The current total mass of the stream 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classGasStream_a459ec5e6bcb3f918577797a3fb0de301}\label{classGasStream_a459ec5e6bcb3f918577797a3fb0de301}} 
+\index{GasStream@{GasStream}!Mass@{Mass}}
+\index{Mass@{Mass}!GasStream@{GasStream}}
+\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Gas\+Stream\+::\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 
 
 \doxysubsection{Field Documentation}
@@ -304,7 +395,7 @@ The container for the cold component.
 
 
 
-The last computed value of \mbox{\hyperlink{classGasStream_a0b2a1a3961e0d5a1701b51851f105868}{Cold}}.\mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Gas\+::\+Mass()}} 
+The last computed value of \mbox{\hyperlink{classGasStream_a08dbd72ea4f2239f285dea932fa83a67}{Cold}}.\mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Gas\+::\+Mass()}} 
 
 \mbox{\Hypertarget{classGasStream_a4eeb871be8663aa1671d778d2be58d33}\label{classGasStream_a4eeb871be8663aa1671d778d2be58d33}} 
 \index{GasStream@{GasStream}!internal\_Hot@{internal\_Hot}}
@@ -324,7 +415,7 @@ The container for the hot component.
 
 
 
-The last computed value of \mbox{\hyperlink{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}{Hot}}.\mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Gas\+::\+Mass()}} 
+The last computed value of \mbox{\hyperlink{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}{Hot}}.\mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Gas\+::\+Mass()}} 
 
 \mbox{\Hypertarget{classGasStream_a14fe3a90aa022cedea487e27ddcb57ac}\label{classGasStream_a14fe3a90aa022cedea487e27ddcb57ac}} 
 \index{GasStream@{GasStream}!internal\_TotalMass@{internal\_TotalMass}}
@@ -344,7 +435,7 @@ The sum of \mbox{\hyperlink{classGasStream_abe1a79f69bd2d9f597e9bb2ede651bca}{in
 
 
 
-A flag used to prevent excessive recomputing of the internal masses. By design, if \mbox{\hyperlink{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}{Absorb()}}, \mbox{\hyperlink{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}{Deplete()}} etc. calls are avoided, the components of \mbox{\hyperlink{classGasStream_a25b46b6eb7e54986398990d9c47f84ac}{Hot}} and \mbox{\hyperlink{classGasStream_a0b2a1a3961e0d5a1701b51851f105868}{Cold}} are invariant, so the values of \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass()}} are constant. Therefore if this flag is false, simply returns the last computed value of the mass value. 
+A flag used to prevent excessive recomputing of the internal masses. By design, if \mbox{\hyperlink{classGasStream_a65732759a83d7eb8bd23d7f944fe5217}{Absorb()}}, \mbox{\hyperlink{classGasStream_af8e82b7a64f1d8a1af93db0473de284f}{Deplete()}} etc. calls are avoided, the components of \mbox{\hyperlink{classGasStream_a0d15ba77815c9a96e4a6a3f4988c8384}{Hot}} and \mbox{\hyperlink{classGasStream_a08dbd72ea4f2239f285dea932fa83a67}{Cold}} are invariant, so the values of \mbox{\hyperlink{classGasStream_a5cdf9a3ce114e3ddb766fbd8e97c40d9}{Mass()}} are constant. Therefore if this flag is false, simply returns the last computed value of the mass value. 
 
 \mbox{\Hypertarget{classGasStream_a1ff8e94b9aefcfa71119c35a191ff4d5}\label{classGasStream_a1ff8e94b9aefcfa71119c35a191ff4d5}} 
 \index{GasStream@{GasStream}!Source@{Source}}
@@ -360,4 +451,4 @@ A label identifying where and how this gas stream was created.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Gas/\mbox{\hyperlink{GasStream_8h}{Gas\+Stream.\+h}}\end{DoxyCompactItemize}
+/\+Users/jf20/\+Documents/\+Physics/\+RAMICES\+\_\+\+II/src/\+Gas/\mbox{\hyperlink{GasStream_8h}{Gas\+Stream.\+h}}\end{DoxyCompactItemize}

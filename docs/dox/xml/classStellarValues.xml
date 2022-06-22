@@ -1,16 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="classStellarValues" kind="class" language="C++" prot="public">
     <compoundname>StellarValues</compoundname>
     <basecompoundref refid="classParamList" prot="public" virt="non-virtual">ParamList</basecompoundref>
     <includes refid="ParameterLists_8h" local="no">ParameterLists.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="classStellarValues_1ad87b9db57efd7c785e2e7009e3f6c8c8" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <type>Argument&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; StellarValues::MaxStellarMass</definition>
         <argsstring></argsstring>
         <name>MaxStellarMass</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(100,&quot;max-mass&quot;)</initializer>
+        <qualifiedname>StellarValues::MaxStellarMass</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(100,&quot;mass-max&quot;)</initializer>
         <briefdescription>
 <para>Minimum stellar mass that IMF can generate. </para>
         </briefdescription>
@@ -18,14 +19,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="107" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="107" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="163" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="163" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classStellarValues_1aebf3fb39167a9719618d7bf381543171" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <type>Argument&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; StellarValues::MinStellarMass</definition>
         <argsstring></argsstring>
         <name>MinStellarMass</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.5,&quot;min-mass&quot;)</initializer>
+        <qualifiedname>StellarValues::MinStellarMass</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0.1,&quot;mass-min&quot;)</initializer>
         <briefdescription>
 <para>Maxmimum stellar mass that IMF can generate. </para>
         </briefdescription>
@@ -33,14 +35,77 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="110" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="110" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="166" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="166" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classStellarValues_1ab575d1540bc306e4d295806b86712502" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
-        <definition>Argument&lt;double&gt; StellarValues::MinZ</definition>
+      <memberdef kind="variable" id="classStellarValues_1a6787c82010676babb8f830f68951d1ac" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; StellarValues::ImmortalMass</definition>
         <argsstring></argsstring>
-        <name>MinZ</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(1e-7,&quot;min-z&quot;)</initializer>
+        <name>ImmortalMass</name>
+        <qualifiedname>StellarValues::ImmortalMass</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0.3,&quot;mass-immortal&quot;)</initializer>
+        <briefdescription>
+<para>Mass of stars which we consider immortal without checking their isochrones. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="169" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarValues_1a29237c69025586eb05e58bdcc6954e3b" prot="public" static="no" mutable="no">
+        <type>Argument&lt; int &gt;</type>
+        <definition>Argument&lt;int&gt; StellarValues::MassResolution</definition>
+        <argsstring></argsstring>
+        <name>MassResolution</name>
+        <qualifiedname>StellarValues::MassResolution</qualifiedname>
+        <initializer>= Argument&lt;int&gt;(199,&quot;mass-resolution&quot;)</initializer>
+        <briefdescription>
+<para>Number of points along the stellar mass grid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="172" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarValues_1aac9148580c2a1839d6c5f4119eaa3109" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; StellarValues::MassGrid</definition>
+        <argsstring></argsstring>
+        <name>MassGrid</name>
+        <qualifiedname>StellarValues::MassGrid</qualifiedname>
+        <briefdescription>
+<para>A grid which holds the masses onto which all interpolation will take place. Allows for the possibility of non-uniform steps. The values are the centre of each mass divide. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="175" column="13" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarValues_1aa235e48a42420168c9e3e64b695d4761" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; StellarValues::MassDeltas</definition>
+        <argsstring></argsstring>
+        <name>MassDeltas</name>
+        <qualifiedname>StellarValues::MassDeltas</qualifiedname>
+        <briefdescription>
+<para>The corresponding widths of each interval on the mass line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="178" column="13" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarValues_1a4651c0cd50f61e7aade35035708509a0" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; StellarValues::MinLogZ</definition>
+        <argsstring></argsstring>
+        <name>MinLogZ</name>
+        <qualifiedname>StellarValues::MinLogZ</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(-6,&quot;logz-min&quot;)</initializer>
         <briefdescription>
 <para>Minimum Z that the ILM(??) can consider. </para>
         </briefdescription>
@@ -48,14 +113,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="113" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="113" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="183" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="183" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classStellarValues_1ae337595f7ddf523dd01e07fc95ed719b" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
-        <definition>Argument&lt;double&gt; StellarValues::MaxZ</definition>
+      <memberdef kind="variable" id="classStellarValues_1abc39f561c4a2e082163f37cc8bb5cbc8" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; StellarValues::MaxLogZ</definition>
         <argsstring></argsstring>
-        <name>MaxZ</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.052,&quot;max-z&quot;)</initializer>
+        <name>MaxLogZ</name>
+        <qualifiedname>StellarValues::MaxLogZ</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(-0.1,&quot;logz-max&quot;)</initializer>
         <briefdescription>
 <para>Maximum Z that the ILM(??) can consider. </para>
         </briefdescription>
@@ -63,14 +129,60 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="116" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="116" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="186" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarValues_1a57a459e3ad441c47f293a0bd201f5db2" prot="public" static="no" mutable="no">
+        <type>Argument&lt; int &gt;</type>
+        <definition>Argument&lt;int&gt; StellarValues::LogZResolution</definition>
+        <argsstring></argsstring>
+        <name>LogZResolution</name>
+        <qualifiedname>StellarValues::LogZResolution</qualifiedname>
+        <initializer>= Argument&lt;int&gt;(100,&quot;logz-resolution&quot;)</initializer>
+        <briefdescription>
+<para>Z Resolution. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="189" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarValues_1ac59aba168a79cdbf7e3c6cdd87bb49df" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; StellarValues::LogZGrid</definition>
+        <argsstring></argsstring>
+        <name>LogZGrid</name>
+        <qualifiedname>StellarValues::LogZGrid</qualifiedname>
+        <briefdescription>
+<para>As with MassGrid, but for metallicity (assumed to be always uniform in log-space) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="192" column="13" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarValues_1a5062a3a14495d0d573ba4af8a3b4cc10" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double StellarValues::LogZDelta</definition>
+        <argsstring></argsstring>
+        <name>LogZDelta</name>
+        <qualifiedname>StellarValues::LogZDelta</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="193" column="8" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="193" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classStellarValues_1aadc9b602660ad5cea7a6266bfcdc2a62" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <type>Argument&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; StellarValues::EjectionFraction</definition>
         <argsstring></argsstring>
         <name>EjectionFraction</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.45,&quot;eject&quot;)</initializer>
+        <qualifiedname>StellarValues::EjectionFraction</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0.45,&quot;eject&quot;)</initializer>
         <briefdescription>
 <para>The fraction of supernovae ejecta which is thrown into the IGM. </para>
         </briefdescription>
@@ -78,14 +190,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="119" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="119" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="196" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="196" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classStellarValues_1a69d9a1255ae9b0895009d14879567957" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
+        <type>Argument&lt; double &gt;</type>
         <definition>Argument&lt;double&gt; StellarValues::FeedbackFactor</definition>
         <argsstring></argsstring>
         <name>FeedbackFactor</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.4,&quot;mass-load&quot;)</initializer>
+        <qualifiedname>StellarValues::FeedbackFactor</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0.5,&quot;mass-load&quot;)</initializer>
         <briefdescription>
 <para>For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase. </para>
         </briefdescription>
@@ -93,37 +206,87 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="122" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="122" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="199" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="199" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classStellarValues_1a6f4290b1dbd5032297414ada54703379" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
-        <definition>Argument&lt;double&gt; StellarValues::SNIaFraction</definition>
+      <memberdef kind="variable" id="classStellarValues_1a74e6bdf446aaa1ea75131afdcf53467e" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; StellarValues::SchmidtMainPower</definition>
         <argsstring></argsstring>
-        <name>SNIaFraction</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.05,&quot;sn1a-frac&quot;)</initializer>
+        <name>SchmidtMainPower</name>
+        <qualifiedname>StellarValues::SchmidtMainPower</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(1.4,&quot;schmidt-main&quot;)</initializer>
         <briefdescription>
-<para>The fraction of white dwarfs which go SNIa. </para>
+<para>The normal Kennicutt-Schmidt power law index. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="125" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="125" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="204" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="204" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classStellarValues_1ad49ac36512a6b86cd4a61647baf315f4" prot="public" static="no" mutable="no">
-        <type><ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt; double &gt;</type>
-        <definition>Argument&lt;double&gt; StellarValues::NSMFraction</definition>
+      <memberdef kind="variable" id="classStellarValues_1a2beac93357eedcc2ead6dad7379dafd4" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; StellarValues::SchmidtLowPower</definition>
         <argsstring></argsstring>
-        <name>NSMFraction</name>
-        <initializer>= <ref refid="classJSL_1_1Argument" kindref="compound">Argument</ref>&lt;double&gt;(0.0001,&quot;nsm-frac&quot;)</initializer>
+        <name>SchmidtLowPower</name>
+        <qualifiedname>StellarValues::SchmidtLowPower</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(4.0,&quot;schmidt-low&quot;)</initializer>
         <briefdescription>
-<para>The fraction of neutron stars which go NSM. </para>
+<para>The low-density Kennicutt-Schmidt power law index. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="128" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="128" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="207" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarValues_1a9609172ddd57fa8fdb12105773054264" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; StellarValues::SchmidtDensityCut</definition>
+        <argsstring></argsstring>
+        <name>SchmidtDensityCut</name>
+        <qualifiedname>StellarValues::SchmidtDensityCut</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(0,&quot;schmidt-cut&quot;)</initializer>
+        <briefdescription>
+<para>The density cut for the low/high density switchover in Schmidt power law. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="210" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarValues_1ae7a8b5b52064eb662ab23fc6db4e851d" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; StellarValues::SchmidtPrefactor</definition>
+        <argsstring></argsstring>
+        <name>SchmidtPrefactor</name>
+        <qualifiedname>StellarValues::SchmidtPrefactor</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(2,&quot;schmidt-factor&quot;)</initializer>
+        <briefdescription>
+<para>The Schmidt prefactor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="213" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classStellarValues_1a61cb9de1bd9cc6c29beb3781f1ffde1f" prot="public" static="no" mutable="no">
+        <type>Argument&lt; double &gt;</type>
+        <definition>Argument&lt;double&gt; StellarValues::IMF_Slope</definition>
+        <argsstring></argsstring>
+        <name>IMF_Slope</name>
+        <qualifiedname>StellarValues::IMF_Slope</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(2.3,&quot;imf-slope&quot;)</initializer>
+        <briefdescription>
+<para>The slope of the high-mass tail fo the IMF. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="216" column="10" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="216" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -132,6 +295,7 @@
         <definition>StellarValues::StellarValues</definition>
         <argsstring>()</argsstring>
         <name>StellarValues</name>
+        <qualifiedname>StellarValues::StellarValues</qualifiedname>
         <briefdescription>
 <para>Boring constructor <ndash/> slots in the relevant arguments into the ParamList::argPointer array. </para>
         </briefdescription>
@@ -139,7 +303,27 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="131" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="131" bodyend="134"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="221" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="221" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classStellarValues_1a0f81d57b6ed32e721b8879db7d7ab5bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void StellarValues::Initialise</definition>
+        <argsstring>(std::string resourceRoot)</argsstring>
+        <name>Initialise</name>
+        <qualifiedname>StellarValues::Initialise</qualifiedname>
+        <reimplements refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475">Initialise</reimplements>
+        <param>
+          <type>std::string</type>
+          <declname>resourceRoot</declname>
+        </param>
+        <briefdescription>
+<para>Initialises the mass grid etc. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="227" column="6"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -160,15 +344,15 @@
       </node>
     </inheritancegraph>
     <collaborationgraph>
+      <node id="3">
+        <label>Argument&lt; double &gt;</label>
+      </node>
+      <node id="4">
+        <label>Argument&lt; int &gt;</label>
+      </node>
       <node id="2">
         <label>ParamList</label>
         <link refid="classParamList"/>
-      </node>
-      <node id="3">
-        <label>JSL::Argument&lt; double &gt;</label>
-        <link refid="classJSL_1_1Argument"/>
-        <childnode refid="4" relation="public-inheritance">
-        </childnode>
       </node>
       <node id="1">
         <label>StellarValues</label>
@@ -176,35 +360,49 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>NSMFraction</edgelabel>
-          <edgelabel>FeedbackFactor</edgelabel>
-          <edgelabel>SNIaFraction</edgelabel>
           <edgelabel>EjectionFraction</edgelabel>
-          <edgelabel>MaxZ</edgelabel>
-          <edgelabel>MinZ</edgelabel>
-          <edgelabel>MinStellarMass</edgelabel>
+          <edgelabel>FeedbackFactor</edgelabel>
+          <edgelabel>IMF_Slope</edgelabel>
+          <edgelabel>ImmortalMass</edgelabel>
+          <edgelabel>MaxLogZ</edgelabel>
           <edgelabel>MaxStellarMass</edgelabel>
+          <edgelabel>MinLogZ</edgelabel>
+          <edgelabel>MinStellarMass</edgelabel>
+          <edgelabel>SchmidtDensityCut</edgelabel>
+          <edgelabel>SchmidtLowPower</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>LogZResolution</edgelabel>
+          <edgelabel>MassResolution</edgelabel>
         </childnode>
       </node>
-      <node id="4">
-        <label>JSL::ArgumentInterface</label>
-        <link refid="classJSL_1_1ArgumentInterface"/>
-      </node>
     </collaborationgraph>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" line="103" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="102" bodyend="135"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" line="158" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h" bodystart="159" bodyend="228"/>
     <listofallmembers>
       <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>StellarValues</scope><name>argPointers</name></member>
       <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>Configure</name></member>
       <member refid="classStellarValues_1aadc9b602660ad5cea7a6266bfcdc2a62" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>EjectionFraction</name></member>
       <member refid="classStellarValues_1a69d9a1255ae9b0895009d14879567957" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>FeedbackFactor</name></member>
-      <member refid="classParamList_1a7bc1e8cffb0062a056193e34b80f3475" prot="public" virt="virtual"><scope>StellarValues</scope><name>Initialise</name></member>
+      <member refid="classStellarValues_1a61cb9de1bd9cc6c29beb3781f1ffde1f" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>IMF_Slope</name></member>
+      <member refid="classStellarValues_1a6787c82010676babb8f830f68951d1ac" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>ImmortalMass</name></member>
+      <member refid="classStellarValues_1a0f81d57b6ed32e721b8879db7d7ab5bf" prot="public" virt="virtual"><scope>StellarValues</scope><name>Initialise</name></member>
+      <member refid="classStellarValues_1a5062a3a14495d0d573ba4af8a3b4cc10" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>LogZDelta</name></member>
+      <member refid="classStellarValues_1ac59aba168a79cdbf7e3c6cdd87bb49df" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>LogZGrid</name></member>
+      <member refid="classStellarValues_1a57a459e3ad441c47f293a0bd201f5db2" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>LogZResolution</name></member>
+      <member refid="classStellarValues_1aa235e48a42420168c9e3e64b695d4761" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>MassDeltas</name></member>
+      <member refid="classStellarValues_1aac9148580c2a1839d6c5f4119eaa3109" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>MassGrid</name></member>
+      <member refid="classStellarValues_1a29237c69025586eb05e58bdcc6954e3b" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>MassResolution</name></member>
+      <member refid="classStellarValues_1abc39f561c4a2e082163f37cc8bb5cbc8" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>MaxLogZ</name></member>
       <member refid="classStellarValues_1ad87b9db57efd7c785e2e7009e3f6c8c8" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>MaxStellarMass</name></member>
-      <member refid="classStellarValues_1ae337595f7ddf523dd01e07fc95ed719b" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>MaxZ</name></member>
+      <member refid="classStellarValues_1a4651c0cd50f61e7aade35035708509a0" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>MinLogZ</name></member>
       <member refid="classStellarValues_1aebf3fb39167a9719618d7bf381543171" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>MinStellarMass</name></member>
-      <member refid="classStellarValues_1ab575d1540bc306e4d295806b86712502" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>MinZ</name></member>
-      <member refid="classStellarValues_1ad49ac36512a6b86cd4a61647baf315f4" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>NSMFraction</name></member>
-      <member refid="classStellarValues_1a6f4290b1dbd5032297414ada54703379" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>SNIaFraction</name></member>
+      <member refid="classStellarValues_1a9609172ddd57fa8fdb12105773054264" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>SchmidtDensityCut</name></member>
+      <member refid="classStellarValues_1a2beac93357eedcc2ead6dad7379dafd4" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>SchmidtLowPower</name></member>
+      <member refid="classStellarValues_1a74e6bdf446aaa1ea75131afdcf53467e" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>SchmidtMainPower</name></member>
+      <member refid="classStellarValues_1ae7a8b5b52064eb662ab23fc6db4e851d" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>SchmidtPrefactor</name></member>
       <member refid="classStellarValues_1aae44507bd5653641e14b3a4e6a880dcc" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>StellarValues</name></member>
+      <member refid="classParamList_1a09c507dd8e319a880673a1e5eb070415" prot="public" virt="non-virtual"><scope>StellarValues</scope><name>StreamContentsTo</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

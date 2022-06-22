@@ -1,0 +1,42 @@
+\hypertarget{RemnantPopulation_8h_source}{}\doxysection{Remnant\+Population.\+h}
+\label{RemnantPopulation_8h_source}\index{/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/RemnantPopulation.h@{/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/RemnantPopulation.h}}
+\mbox{\hyperlink{RemnantPopulation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}../Yields/YieldGrid.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Yields/SimpleYield.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../Parameters/InitialisedData.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{StarEvents_8h}{StarEvents.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{keyword}{struct }\mbox{\hyperlink{structMassReport}{MassReport}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     \textcolor{keywordtype}{double} \mbox{\hyperlink{structMassReport_a48b343429f6603998124a8bd1a95210e}{Total}};}
+\DoxyCodeLine{9     \textcolor{keywordtype}{double} \mbox{\hyperlink{structMassReport_a8b54bc5f8ddc621f8b273d965aa0d4d1}{WD}};}
+\DoxyCodeLine{10     \textcolor{keywordtype}{double} \mbox{\hyperlink{structMassReport_afce9b3248a0a93a6f7fef2fd50afe996}{NS}};}
+\DoxyCodeLine{11     \textcolor{keywordtype}{double} \mbox{\hyperlink{structMassReport_a6e977a90202998a0df39c35a590193fa}{BH}};}
+\DoxyCodeLine{12 \};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{classRemnantPopulation}{RemnantPopulation}}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     \textcolor{keyword}{public}:}
+\DoxyCodeLine{17         \mbox{\hyperlink{classRemnantPopulation_a8edb6237b9b57967ca95e38aa784d64e}{RemnantPopulation}}(\mbox{\hyperlink{classInitialisedData}{InitialisedData}} \& data);}
+\DoxyCodeLine{18     }
+\DoxyCodeLine{19         }
+\DoxyCodeLine{20         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRemnantPopulation_a875d50d8ecf6c716dc0a8050ca9bf8ed}{Feed}}(\textcolor{keywordtype}{int} timeIndex, \textcolor{keywordtype}{double} bhMass, \textcolor{keywordtype}{double} wdMass, \textcolor{keywordtype}{double} nsMass);}
+\DoxyCodeLine{21         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRemnantPopulation_aca6d61c4efeb7677d660e4bdd246f9d3}{Feed}}(\textcolor{keywordtype}{int} timeIndex, \mbox{\hyperlink{structRemnantOutput}{RemnantOutput}} rem);}
+\DoxyCodeLine{22         \textcolor{keywordtype}{void} \mbox{\hyperlink{classRemnantPopulation_a4fa32bd8dcb88b0b6e705001a995a1d0}{Decay}}(\textcolor{keywordtype}{int} currentTime, std::vector<GasReservoir> \& scatteringReservoir, \mbox{\hyperlink{classStarEvents}{StarEvents}} \& EventRate);}
+\DoxyCodeLine{23         \mbox{\hyperlink{structMassReport}{MassReport}} \mbox{\hyperlink{classRemnantPopulation_a0d18d3a2fe86866b47dcbbc1e78df321}{Mass}}();}
+\DoxyCodeLine{24     \textcolor{keyword}{private}:}
+\DoxyCodeLine{25         \textcolor{comment}{//the MASS of remnants created at each time }}
+\DoxyCodeLine{26         std::vector<double> \mbox{\hyperlink{classRemnantPopulation_a4a81f40d0f8043b6a7e67399d3878c1f}{ShortSNIaBuffer}};}
+\DoxyCodeLine{27         std::vector<double> \mbox{\hyperlink{classRemnantPopulation_ab1545ec1c000ea27b394fa755b59ad74}{LongSNIaBuffer}};}
+\DoxyCodeLine{28         std::vector<double> \mbox{\hyperlink{classRemnantPopulation_a36b41bbafa992b7e2a6ba496ab7b99a7}{NSMBuffer}};}
+\DoxyCodeLine{29     }
+\DoxyCodeLine{30         \textcolor{keyword}{const} \mbox{\hyperlink{classSimpleYield}{SimpleYield}} \& \mbox{\hyperlink{classRemnantPopulation_a5654ebbce5a13a3397bd5fb2cd065f25}{SNIaYield}};}
+\DoxyCodeLine{31         \textcolor{keyword}{const} \mbox{\hyperlink{classSimpleYield}{SimpleYield}} \& \mbox{\hyperlink{classRemnantPopulation_a364f976c30f9da75e82a4cddeec27a2d}{NSMYield}};}
+\DoxyCodeLine{32         \textcolor{keywordtype}{double} \mbox{\hyperlink{classRemnantPopulation_a0b15f976621b1e5ee4ad61b72f4b2cdb}{BlackHoleMass}};}
+\DoxyCodeLine{33         \textcolor{keywordtype}{double} \mbox{\hyperlink{classRemnantPopulation_afdbae93bf27c88ad040f0d2073a5fff3}{DormantWDMass}};}
+\DoxyCodeLine{34         \textcolor{keywordtype}{double} \mbox{\hyperlink{classRemnantPopulation_ace76c4a132d08573a133509fe7bb1065}{DormantNSMass}};}
+\DoxyCodeLine{35         \textcolor{keyword}{const} \mbox{\hyperlink{classGlobalParameters}{GlobalParameters}} \& \mbox{\hyperlink{classRemnantPopulation_aef3dd99481b4b672ab05e9db2dbaf542}{Param}};}
+\DoxyCodeLine{36 \};}
+
+\end{DoxyCode}

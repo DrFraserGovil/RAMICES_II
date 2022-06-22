@@ -15,18 +15,6 @@ Inheritance diagram for Element\+Values\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{classElementValues}
 \end{center}
 \end{figure}
-\doxysubsection*{Public Types}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{classElementValues_a817b2576427ffe893ad83162f5111a0b}{Source\+I\+Ds}} \{ \newline
-\mbox{\hyperlink{classElementValues_a817b2576427ffe893ad83162f5111a0baa55a878e01d11546ba44bc134ea8b5e2}{Orfeo}}, 
-\mbox{\hyperlink{classElementValues_a817b2576427ffe893ad83162f5111a0ba5a9ce28314aafe9bdeaef9fc34fc53c4}{Marigo}}, 
-\mbox{\hyperlink{classElementValues_a817b2576427ffe893ad83162f5111a0baa1793587a4ee3a5d733ec4449c8d6380}{Limongi}}, 
-\mbox{\hyperlink{classElementValues_a817b2576427ffe893ad83162f5111a0ba8df4688bf70b45e6c5e770fbb0738de3}{Maeder}}, 
-\newline
-\mbox{\hyperlink{classElementValues_a817b2576427ffe893ad83162f5111a0ba8eefe85166576dbfeff9f8f101bf81aa}{Mixed}}
- \}
-\begin{DoxyCompactList}\small\item\em Enums to identify the theoretical basis for different yield tables. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,55 +28,22 @@ void \mbox{\hyperlink{classElementValues_a7ffa1bc21d1b35c4dae9959a12d5e221}{Give
 \begin{DoxyCompactItemize}
 \item 
 std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classElementValues_aca3788700e99d2422ea7b2392c2db6a3}{Element\+Names}}
-\begin{DoxyCompactList}\small\item\em Human readable names for the elements, in the order associated with the Element\+I\+Ds. These names are primarily elemental symbols, except Metals, which uses \char`\"{}\+Z\char`\"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Human readable names for the elements, in the order associated with the Element\+IDs. These names are primarily elemental symbols, except Metals, which uses \char`\"{}\+Z\char`\"{}. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classElementValues_ad5a23a4fa4fb94a644f94105508a716c}{Proton\+Counts}}
+\item 
 std\+::vector$<$ double $>$ \mbox{\hyperlink{classElementValues_aa18a62ae74cffc6134cc11465468cfbe}{Solar\+Abundances}}
-\begin{DoxyCompactList}\small\item\em Solar abundances (in mass units) of the elements, in the order associated with the Element\+I\+Ds. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classElementValues_aa94dedbdce87b7e605dedb51e31ed234}{Solar\+Abundance\+File}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Chemical\+Data/Solar\+Abundances.\+dat\char`\"{},\char`\"{}solar-\/values-\/file\char`\"{})
+\begin{DoxyCompactList}\small\item\em Solar abundances (in mass units) of the elements, in the order associated with the Element\+IDs. \end{DoxyCompactList}\item 
+Argument$<$ std\+::string $>$ \mbox{\hyperlink{classElementValues_aa94dedbdce87b7e605dedb51e31ed234}{Solar\+Abundance\+File}} = Argument$<$std\+::string$>$(\char`\"{}Chemical\+Data/Solar\+Abundances\+\_\+\+Maria.\+dat\char`\"{},\char`\"{}solar-\/values-\/file\char`\"{})
 \begin{DoxyCompactList}\small\item\em The file in which the solar abundances can be found as a csv. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ int $>$ \mbox{\hyperlink{classElementValues_af9f7f3d2cc8b20c63d8ff488ea8e2756}{Solar\+Abundance\+File\+Name\+Column}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(0,\char`\"{}solar-\/values-\/name-\/col\char`\"{})
+Argument$<$ int $>$ \mbox{\hyperlink{classElementValues_af9f7f3d2cc8b20c63d8ff488ea8e2756}{Solar\+Abundance\+File\+Name\+Column}} = Argument$<$int$>$(0,\char`\"{}solar-\/values-\/name-\/col\char`\"{})
 \begin{DoxyCompactList}\small\item\em The column of the solar abundance files which contains the Element\+Name for cross matching. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ int $>$ \mbox{\hyperlink{classElementValues_ae9bb2bf686a05c389fa1af650e019705}{Solar\+Abundance\+File\+Data\+Column}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(3,\char`\"{}solar-\/values-\/data-\/col\char`\"{})
+Argument$<$ int $>$ \mbox{\hyperlink{classElementValues_ae9bb2bf686a05c389fa1af650e019705}{Solar\+Abundance\+File\+Data\+Column}} = Argument$<$int$>$(3,\char`\"{}solar-\/values-\/data-\/col\char`\"{})
 \begin{DoxyCompactList}\small\item\em The column of the solar abundance file which contains the relevant solar abundance value to be saved to memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 The elemental suboptions contains variables and data associated with the solar abundances (and where to locate them), and how to extract and extrapolate the yield data from files. 
-
-\doxysubsection{Member Enumeration Documentation}
-\mbox{\Hypertarget{classElementValues_a817b2576427ffe893ad83162f5111a0b}\label{classElementValues_a817b2576427ffe893ad83162f5111a0b}} 
-\index{ElementValues@{ElementValues}!SourceIDs@{SourceIDs}}
-\index{SourceIDs@{SourceIDs}!ElementValues@{ElementValues}}
-\doxysubsubsection{\texorpdfstring{SourceIDs}{SourceIDs}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{classElementValues_a817b2576427ffe893ad83162f5111a0b}{Element\+Values\+::\+Source\+I\+Ds}}}
-
-
-
-Enums to identify the theoretical basis for different yield tables. 
-
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Orfeo@{Orfeo}!ElementValues@{ElementValues}}\index{ElementValues@{ElementValues}!Orfeo@{Orfeo}}}\mbox{\Hypertarget{classElementValues_a817b2576427ffe893ad83162f5111a0baa55a878e01d11546ba44bc134ea8b5e2}\label{classElementValues_a817b2576427ffe893ad83162f5111a0baa55a878e01d11546ba44bc134ea8b5e2}} 
-Orfeo&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Marigo@{Marigo}!ElementValues@{ElementValues}}\index{ElementValues@{ElementValues}!Marigo@{Marigo}}}\mbox{\Hypertarget{classElementValues_a817b2576427ffe893ad83162f5111a0ba5a9ce28314aafe9bdeaef9fc34fc53c4}\label{classElementValues_a817b2576427ffe893ad83162f5111a0ba5a9ce28314aafe9bdeaef9fc34fc53c4}} 
-Marigo&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Limongi@{Limongi}!ElementValues@{ElementValues}}\index{ElementValues@{ElementValues}!Limongi@{Limongi}}}\mbox{\Hypertarget{classElementValues_a817b2576427ffe893ad83162f5111a0baa1793587a4ee3a5d733ec4449c8d6380}\label{classElementValues_a817b2576427ffe893ad83162f5111a0baa1793587a4ee3a5d733ec4449c8d6380}} 
-Limongi&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Maeder@{Maeder}!ElementValues@{ElementValues}}\index{ElementValues@{ElementValues}!Maeder@{Maeder}}}\mbox{\Hypertarget{classElementValues_a817b2576427ffe893ad83162f5111a0ba8df4688bf70b45e6c5e770fbb0738de3}\label{classElementValues_a817b2576427ffe893ad83162f5111a0ba8df4688bf70b45e6c5e770fbb0738de3}} 
-Maeder&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Mixed@{Mixed}!ElementValues@{ElementValues}}\index{ElementValues@{ElementValues}!Mixed@{Mixed}}}\mbox{\Hypertarget{classElementValues_a817b2576427ffe893ad83162f5111a0ba8eefe85166576dbfeff9f8f101bf81aa}\label{classElementValues_a817b2576427ffe893ad83162f5111a0ba8eefe85166576dbfeff9f8f101bf81aa}} 
-Mixed&\\
-\hline
-
-\end{DoxyEnumFields}
-
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classElementValues_a5adc37ca7878e4a47493a9e18743d464}\label{classElementValues_a5adc37ca7878e4a47493a9e18743d464}} 
@@ -139,13 +94,19 @@ Reimplemented from \mbox{\hyperlink{classParamList_a7bc1e8cffb0062a056193e34b80f
 
 
 
-Human readable names for the elements, in the order associated with the Element\+I\+Ds. These names are primarily elemental symbols, except Metals, which uses \char`\"{}\+Z\char`\"{}. 
+Human readable names for the elements, in the order associated with the Element\+IDs. These names are primarily elemental symbols, except Metals, which uses \char`\"{}\+Z\char`\"{}. 
+
+\mbox{\Hypertarget{classElementValues_ad5a23a4fa4fb94a644f94105508a716c}\label{classElementValues_ad5a23a4fa4fb94a644f94105508a716c}} 
+\index{ElementValues@{ElementValues}!ProtonCounts@{ProtonCounts}}
+\index{ProtonCounts@{ProtonCounts}!ElementValues@{ElementValues}}
+\doxysubsubsection{\texorpdfstring{ProtonCounts}{ProtonCounts}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Element\+Values\+::\+Proton\+Counts}
 
 \mbox{\Hypertarget{classElementValues_aa94dedbdce87b7e605dedb51e31ed234}\label{classElementValues_aa94dedbdce87b7e605dedb51e31ed234}} 
 \index{ElementValues@{ElementValues}!SolarAbundanceFile@{SolarAbundanceFile}}
 \index{SolarAbundanceFile@{SolarAbundanceFile}!ElementValues@{ElementValues}}
 \doxysubsubsection{\texorpdfstring{SolarAbundanceFile}{SolarAbundanceFile}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Element\+Values\+::\+Solar\+Abundance\+File = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Chemical\+Data/Solar\+Abundances.\+dat\char`\"{},\char`\"{}solar-\/values-\/file\char`\"{})}
+{\footnotesize\ttfamily Argument$<$std\+::string$>$ Element\+Values\+::\+Solar\+Abundance\+File = Argument$<$std\+::string$>$(\char`\"{}Chemical\+Data/Solar\+Abundances\+\_\+\+Maria.\+dat\char`\"{},\char`\"{}solar-\/values-\/file\char`\"{})}
 
 
 
@@ -155,7 +116,7 @@ The file in which the solar abundances can be found as a csv.
 \index{ElementValues@{ElementValues}!SolarAbundanceFileDataColumn@{SolarAbundanceFileDataColumn}}
 \index{SolarAbundanceFileDataColumn@{SolarAbundanceFileDataColumn}!ElementValues@{ElementValues}}
 \doxysubsubsection{\texorpdfstring{SolarAbundanceFileDataColumn}{SolarAbundanceFileDataColumn}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$ Element\+Values\+::\+Solar\+Abundance\+File\+Data\+Column = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(3,\char`\"{}solar-\/values-\/data-\/col\char`\"{})}
+{\footnotesize\ttfamily Argument$<$int$>$ Element\+Values\+::\+Solar\+Abundance\+File\+Data\+Column = Argument$<$int$>$(3,\char`\"{}solar-\/values-\/data-\/col\char`\"{})}
 
 
 
@@ -165,7 +126,7 @@ The column of the solar abundance file which contains the relevant solar abundan
 \index{ElementValues@{ElementValues}!SolarAbundanceFileNameColumn@{SolarAbundanceFileNameColumn}}
 \index{SolarAbundanceFileNameColumn@{SolarAbundanceFileNameColumn}!ElementValues@{ElementValues}}
 \doxysubsubsection{\texorpdfstring{SolarAbundanceFileNameColumn}{SolarAbundanceFileNameColumn}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$ Element\+Values\+::\+Solar\+Abundance\+File\+Name\+Column = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(0,\char`\"{}solar-\/values-\/name-\/col\char`\"{})}
+{\footnotesize\ttfamily Argument$<$int$>$ Element\+Values\+::\+Solar\+Abundance\+File\+Name\+Column = Argument$<$int$>$(0,\char`\"{}solar-\/values-\/name-\/col\char`\"{})}
 
 
 
@@ -179,10 +140,10 @@ The column of the solar abundance files which contains the Element\+Name for cro
 
 
 
-Solar abundances (in mass units) of the elements, in the order associated with the Element\+I\+Ds. 
+Solar abundances (in mass units) of the elements, in the order associated with the Element\+IDs. 
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}
+/\+Users/jf20/\+Documents/\+Physics/\+RAMICES\+\_\+\+II/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}

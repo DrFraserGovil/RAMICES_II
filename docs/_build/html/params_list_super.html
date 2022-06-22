@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>List Superclass &#8212; RAMICES_II 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
@@ -14,6 +14,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
@@ -45,12 +46,12 @@
           <div class="body" role="main">
             
   <section id="list-superclass">
-<h1>List Superclass<a class="headerlink" href="#list-superclass" title="Permalink to this headline">¶</a></h1>
+<h1>List Superclass<a class="headerlink" href="#list-superclass" title="Permalink to this heading">¶</a></h1>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv49ParamList">
 <span id="_CPPv39ParamList"></span><span id="_CPPv29ParamList"></span><span id="ParamList"></span><span class="target" id="classParamList"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParamList</span></span></span><a class="headerlink" href="#_CPPv49ParamList" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>A Generic superclass structure so that I can heterogenously loop over the various members of <a class="reference internal" href="params_global.html#classGlobalParameters"><span class="std std-ref">GlobalParameters</span></a> without writing it all out arduously. Also provides a consistent interface with the JSL::Argument environment. </p>
-<p>Subclassed by <a class="reference internal" href="params_list.html#classElementValues"><span class="std std-ref">ElementValues</span></a>, <a class="reference internal" href="params_list.html#classGalaxyValues"><span class="std std-ref">GalaxyValues</span></a>, <a class="reference internal" href="params_list.html#classMetaValues"><span class="std std-ref">MetaValues</span></a>, <a class="reference internal" href="params_list.html#classOutputValues"><span class="std std-ref">OutputValues</span></a>, <a class="reference internal" href="params_list.html#classStellarValues"><span class="std std-ref">StellarValues</span></a>, <a class="reference internal" href="params_list.html#classThermalValues"><span class="std std-ref">ThermalValues</span></a></p>
+<p>Subclassed by CatalogueValues, <a class="reference internal" href="params_list.html#classElementValues"><span class="std std-ref">ElementValues</span></a>, <a class="reference internal" href="params_list.html#classGalaxyValues"><span class="std std-ref">GalaxyValues</span></a>, <a class="reference internal" href="params_list.html#classMetaValues"><span class="std std-ref">MetaValues</span></a>, MigrationValues, <a class="reference internal" href="params_list.html#classOutputValues"><span class="std std-ref">OutputValues</span></a>, ResourceValues, <a class="reference internal" href="params_list.html#classStellarValues"><span class="std std-ref">StellarValues</span></a>, <a class="reference internal" href="params_list.html#classThermalValues"><span class="std std-ref">ThermalValues</span></a>, YieldValues</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -64,6 +65,11 @@
 <span id="_CPPv3N9ParamList10InitialiseENSt6stringE"></span><span id="_CPPv2N9ParamList10InitialiseENSt6stringE"></span><span id="ParamList::Initialise__ss"></span><span class="target" id="classParamList_1a7bc1e8cffb0062a056193e34b80f3475"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Initialise</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">resourceRoot</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9ParamList10InitialiseENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>A (hopefully) rarely used function which calls any additional functions which can only be called <em>after</em> the configuration has been run. For most members, this is an empty function. </p>
 </dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9ParamList16StreamContentsToERNSt12stringstreamE">
+<span id="_CPPv3N9ParamList16StreamContentsToERNSt12stringstreamE"></span><span id="_CPPv2N9ParamList16StreamContentsToERNSt12stringstreamE"></span><span id="ParamList::StreamContentsTo__std::stringstreamR"></span><span class="target" id="classParamList_1a09c507dd8e319a880673a1e5eb070415"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">StreamContentsTo</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">stringstream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">stream</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9ParamList16StreamContentsToERNSt12stringstreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
 
 </div>
 <div class="breathe-sectiondef docutils container">
@@ -86,12 +92,16 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="params_global.html"
-                        title="previous chapter">Global Parameters</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="params_list.html"
-                        title="next chapter">Parameter Lists</a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="params_global.html"
+                          title="previous chapter">Global Parameters</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="params_list.html"
+                          title="next chapter">Parameter Lists</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -108,7 +118,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -132,7 +142,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, J. Fraser.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
     </div>
   </body>
 </html>

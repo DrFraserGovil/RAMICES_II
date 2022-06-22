@@ -1,255 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="GasStream_8h" kind="file" language="C++">
     <compoundname>GasStream.h</compoundname>
     <includes refid="GlobalParameters_8h" local="yes">../Parameters/GlobalParameters.h</includes>
     <includes refid="Gas_8h" local="yes">Gas.h</includes>
-    <includedby refid="GasReservoir_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</includedby>
+    <includedby refid="GasReservoir_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasReservoir.h</includedby>
     <incdepgraph>
-      <node id="14">
-        <label>sys/stat.h</label>
-      </node>
-      <node id="24">
-        <label>Argument.h</label>
-        <link refid="Argument_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="34">
-        <label>List.h</label>
-        <link refid="List_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h</label>
-        <link refid="GasStream_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
-      </node>
-      <node id="30">
-        <label>UnitTest.h</label>
-        <link refid="UnitTest_8h"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-      </node>
-      <node id="26">
-        <label>vector.h</label>
-        <link refid="vector_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-      </node>
-      <node id="32">
-        <label>cmath</label>
-      </node>
-      <node id="16">
-        <label>stdexcept</label>
-      </node>
-      <node id="3">
-        <label>string</label>
-      </node>
-      <node id="7">
-        <label>LineReader.h</label>
-        <link refid="LineReader_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>fstream</label>
-      </node>
-      <node id="31">
-        <label>Testing_UnitTests.h</label>
-        <link refid="Testing__UnitTests_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="32" relation="include">
-        </childnode>
-      </node>
-      <node id="36">
+      <node id="10">
         <label>Gas.h</label>
         <link refid="Gas_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="17">
-        <label>fileWriter.h</label>
-        <link refid="fileWriter_8h"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="20">
-        <label>Time.h</label>
-        <link refid="Time_8h"/>
-        <childnode refid="21" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasStream.h</label>
+        <link refid="GasStream_8h"/>
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-      </node>
-      <node id="18">
-        <label>string.h</label>
-      </node>
-      <node id="19">
-        <label>Strings/Strings.h</label>
-        <link refid="Strings_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-      </node>
-      <node id="15">
-        <label>rm.h</label>
-        <link refid="rm_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="11">
-        <label>mkdir.h</label>
-        <link refid="mkdir_8h"/>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="4">
-        <label>vector</label>
-      </node>
-      <node id="5">
-        <label>JSL.h</label>
-        <link refid="JSL_8h"/>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>sstream</label>
-      </node>
-      <node id="33">
-        <label>ParameterLists.h</label>
-        <link refid="ParameterLists_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="34" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
-      </node>
-      <node id="29">
-        <label>Testing/Testing.h</label>
-        <link refid="Testing_8h"/>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
-        </childnode>
-      </node>
-      <node id="27">
-        <label>math.h</label>
       </node>
       <node id="9">
-        <label>../Strings/split.h</label>
-        <link refid="split_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="35">
         <label>EnumSets.h</label>
         <link refid="EnumSets_8h"/>
-      </node>
-      <node id="22">
-        <label>iostream</label>
-      </node>
-      <node id="28">
-        <label>matrix.h</label>
-        <link refid="matrix_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="26" relation="include">
-        </childnode>
-      </node>
-      <node id="21">
-        <label>chrono</label>
-      </node>
-      <node id="13">
-        <label>locationExists.h</label>
-        <link refid="locationExists_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>FileIO/FileIO.h</label>
-        <link refid="FileIO_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
       </node>
       <node id="2">
         <label>../Parameters/GlobalParameters.h</label>
@@ -260,68 +33,139 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="33" relation="include">
+        <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="34" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="35" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-      </node>
-      <node id="23">
-        <label>CommandArgs/CommandArgs.h</label>
-        <link refid="CommandArgs_8h"/>
-        <childnode refid="24" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="25">
-        <label>Maths/Maths.h</label>
-        <link refid="Maths_8h"/>
-        <childnode refid="26" relation="include">
+      <node id="8">
+        <label>List.h</label>
+        <link refid="List_8h"/>
+        <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
-        </childnode>
-      </node>
-      <node id="12">
-        <label>dirent.h</label>
-      </node>
-    </incdepgraph>
-    <invincdepgraph>
-      <node id="6">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h</label>
-        <link refid="src_2Galaxy_2Galaxy_8h"/>
-      </node>
-      <node id="1">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h</label>
-        <link refid="GasStream_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
-        <link refid="old__src_2Galaxy_2Ring_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
-      </node>
-      <node id="5">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h</label>
-        <link refid="src_2Galaxy_2Ring_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
       </node>
+      <node id="7">
+        <label>ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>JSL.h</label>
+      </node>
+      <node id="6">
+        <label>sstream</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
       <node id="4">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
-        <link refid="old__src_2Galaxy_2Galaxy_8h"/>
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
+      </node>
+      <node id="9">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/MigrationMatrix.h</label>
+        <link refid="MigrationMatrix_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
       <node id="2">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasReservoir.h</label>
         <link refid="GasReservoir_8h"/>
         <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasStream.h</label>
+        <link refid="GasStream_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/InitialisedData.h</label>
+        <link refid="InitialisedData_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/RemnantPopulation.h</label>
+        <link refid="RemnantPopulation_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</label>
+        <link refid="StellarPopulation_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/SimpleYield.h</label>
+        <link refid="SimpleYield_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/YieldGrid.h</label>
+        <link refid="YieldGrid_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -333,66 +177,79 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Parameters/GlobalParameters.h&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Gas_8h" kindref="compound">Gas.h</ref>&quot;</highlight></codeline>
-<codeline lineno="7" refid="classGasStream" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGasStream" kindref="compound">GasStream</ref></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Gas_8h" kindref="compound">Gas.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="classGasStream" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGasStream" kindref="compound">GasStream</ref></highlight></codeline>
 <codeline lineno="8"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
 <codeline lineno="11" refid="classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/><ref refid="classGasStream_1a1ff8e94b9aefcfa71119c35a191ff4d5" kindref="member">Source</ref>;</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGasStream_1a25b46b6eb7e54986398990d9c47f84ac" kindref="member">Hot</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>el);</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGasStream_1a0b2a1a3961e0d5a1701b51851f105868" kindref="member">Cold</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>el);</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGasStream_1a25b46b6eb7e54986398990d9c47f84ac" kindref="member">Hot</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>el)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGasStream_1a0b2a1a3961e0d5a1701b51851f105868" kindref="member">Cold</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>el)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13" refid="classGasStream_1a0d15ba77815c9a96e4a6a3f4988c8384" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/>&amp;<sp/><ref refid="classGasStream_1a0d15ba77815c9a96e4a6a3f4988c8384" kindref="member">Hot</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14" refid="classGasStream_1a08dbd72ea4f2239f285dea932fa83a67" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/>&amp;<sp/><ref refid="classGasStream_1a08dbd72ea4f2239f285dea932fa83a67" kindref="member">Cold</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="16" refid="classGasStream_1a415cafd7901ab08952ec2e2a50b72ca9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGasStream_1a415cafd7901ab08952ec2e2a50b72ca9" kindref="member">Hot</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>el);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18" refid="classGasStream_1a054ef524d9b344e0cb155573e1915db1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGasStream_1a054ef524d9b344e0cb155573e1915db1" kindref="member">Cold</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>el);</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream_1af53972311a6821deda7f211a828f65e7" kindref="member">GasStream</ref>();</highlight></codeline>
+<codeline lineno="20" refid="classGasStream_1addc6a41e626c53a97a61c649a15a2a04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGasStream_1addc6a41e626c53a97a61c649a15a2a04" kindref="member">Hot</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>el)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21" refid="classGasStream_1aff8fe7805049b0af6aba719e456c6a6f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="classGasStream_1aff8fe7805049b0af6aba719e456c6a6f" kindref="member">Cold</ref>(<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>el)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream_1af53972311a6821deda7f211a828f65e7" kindref="member">GasStream</ref>(<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>source);</highlight></codeline>
+<codeline lineno="24" refid="classGasStream_1af53972311a6821deda7f211a828f65e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream_1af53972311a6821deda7f211a828f65e7" kindref="member">GasStream</ref>();</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream_1af53972311a6821deda7f211a828f65e7" kindref="member">GasStream</ref>(<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>source,</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/>&amp;<sp/>hot,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/>&amp;<sp/>cold);</highlight></codeline>
+<codeline lineno="27" refid="classGasStream_1a9c4c6fe0b3df01b5586cca667eaf11ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream_1a9c4c6fe0b3df01b5586cca667eaf11ca" kindref="member">GasStream</ref>(<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>source);</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream_1af53972311a6821deda7f211a828f65e7" kindref="member">GasStream</ref>(<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>source,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/>&amp;<sp/>gas,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>hotFraction);</highlight></codeline>
+<codeline lineno="30" refid="classGasStream_1a83de215a9348757ca94bdf5b9d491328" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream_1a83de215a9348757ca94bdf5b9d491328" kindref="member">GasStream</ref>(<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>source,</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/>&amp;<sp/>hot,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/>&amp;<sp/>cold);</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9" kindref="member">Mass</ref>();</highlight></codeline>
+<codeline lineno="33" refid="classGasStream_1a07e893367e97b31d50c6b1dd31394c88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGasStream_1a07e893367e97b31d50c6b1dd31394c88" kindref="member">GasStream</ref>(<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>source,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/>&amp;<sp/>gas,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>hotFraction);</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1ab030a30e5279402f9c2134110c0f7fb5" kindref="member">HotMass</ref>();</highlight></codeline>
+<codeline lineno="36" refid="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a5cdf9a3ce114e3ddb766fbd8e97c40d9" kindref="member">Mass</ref>();</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a82682ae8856ff675869cce398a6bbd26" kindref="member">ColdMass</ref>();</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1af8e82b7a64f1d8a1af93db0473de284f" kindref="member">Deplete</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToRemove);</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>void<sp/>DepleteFraction(double<sp/>fraction)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>{</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>Deplete(fraction*<sp/>Mass());</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1af8e82b7a64f1d8a1af93db0473de284f" kindref="member">Deplete</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToRemove_Cold,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToRemove_Hot);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a65732759a83d7eb8bd23d7f944fe5217" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/>input);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a65732759a83d7eb8bd23d7f944fe5217" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/>&amp;<sp/>input,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>hotFraction);</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1ac3801d0fc9d450844cea477c3dfe27e1" kindref="member">Dirty</ref>();</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="64" refid="classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a" kindref="member">NeedsRecomputing</ref>;</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="67" refid="classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca" kindref="member">internal_HotMass</ref>;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="70" refid="classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63" kindref="member">internal_ColdMass</ref>;</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="73" refid="classGasStream_1a14fe3a90aa022cedea487e27ddcb57ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a14fe3a90aa022cedea487e27ddcb57ac" kindref="member">internal_TotalMass</ref>;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1ae0827e81446bddfc0c36ff0591a765fb" kindref="member">ComputeMasses</ref>();</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="79" refid="classGasStream_1a4eeb871be8663aa1671d778d2be58d33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/><ref refid="classGasStream_1a4eeb871be8663aa1671d778d2be58d33" kindref="member">internal_Hot</ref>;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="82" refid="classGasStream_1afaec9b6fec0d6a21b5263cf415f0c9fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/><ref refid="classGasStream_1afaec9b6fec0d6a21b5263cf415f0c9fb" kindref="member">internal_Cold</ref>;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classGasStream_1a459ec5e6bcb3f918577797a3fb0de301" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a459ec5e6bcb3f918577797a3fb0de301" kindref="member">Mass</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40" refid="classGasStream_1ab030a30e5279402f9c2134110c0f7fb5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1ab030a30e5279402f9c2134110c0f7fb5" kindref="member">HotMass</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43" refid="classGasStream_1a82682ae8856ff675869cce398a6bbd26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a82682ae8856ff675869cce398a6bbd26" kindref="member">ColdMass</ref>();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46" refid="classGasStream_1a859a2361bc92873f500aec41d31a8211" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a859a2361bc92873f500aec41d31a8211" kindref="member">HotMass</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="49" refid="classGasStream_1a174e85fccbdd8e5884884acfc55472ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a174e85fccbdd8e5884884acfc55472ca" kindref="member">ColdMass</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52" refid="classGasStream_1af8e82b7a64f1d8a1af93db0473de284f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1af8e82b7a64f1d8a1af93db0473de284f" kindref="member">Deplete</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToRemove);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55" refid="classGasStream_1a21f78c6110e49d187dfa6081c6a90582" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a21f78c6110e49d187dfa6081c6a90582" kindref="member">Heat</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToHeat);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58" refid="classGasStream_1ae5e3e4b7780db6fa1323770de3b4e63a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1ae5e3e4b7780db6fa1323770de3b4e63a" kindref="member">Cool</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToCool);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>void<sp/>DepleteFraction(double<sp/>fraction)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>Deplete(fraction*<sp/>Mass());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65" refid="classGasStream_1a44ab71ee97b6bf6cb7fba7ce0c861a32" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a44ab71ee97b6bf6cb7fba7ce0c861a32" kindref="member">Deplete</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToRemove_Cold,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>amountToRemove_Hot);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68" refid="classGasStream_1a65732759a83d7eb8bd23d7f944fe5217" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a65732759a83d7eb8bd23d7f944fe5217" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/>input);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="71" refid="classGasStream_1a16b5f8981b852b950e04da8c0293ef69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a16b5f8981b852b950e04da8c0293ef69" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGasStream" kindref="compound">GasStream</ref><sp/>&amp;<sp/>input,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fraction);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74" refid="classGasStream_1abbd41dd93fa28b504760b8e85ce21047" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1abbd41dd93fa28b504760b8e85ce21047" kindref="member">Absorb</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/>&amp;<sp/>input,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>hotFraction);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77" refid="classGasStream_1ac3801d0fc9d450844cea477c3dfe27e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1ac3801d0fc9d450844cea477c3dfe27e1" kindref="member">Dirty</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="82" refid="classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1ac3bb7ece9c3a7453879c2cd2c4760b3a" kindref="member">NeedsRecomputing</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="85" refid="classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1abe1a79f69bd2d9f597e9bb2ede651bca" kindref="member">internal_HotMass</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="88" refid="classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1aea8b87c6a88f4c386f06d03ed3139e63" kindref="member">internal_ColdMass</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91" refid="classGasStream_1a14fe3a90aa022cedea487e27ddcb57ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1a14fe3a90aa022cedea487e27ddcb57ac" kindref="member">internal_TotalMass</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94" refid="classGasStream_1ae0827e81446bddfc0c36ff0591a765fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGasStream_1ae0827e81446bddfc0c36ff0591a765fb" kindref="member">ComputeMasses</ref>();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97" refid="classGasStream_1a4eeb871be8663aa1671d778d2be58d33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/><ref refid="classGasStream_1a4eeb871be8663aa1671d778d2be58d33" kindref="member">internal_Hot</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="100" refid="classGasStream_1afaec9b6fec0d6a21b5263cf415f0c9fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGas" kindref="compound">Gas</ref><sp/><ref refid="classGasStream_1afaec9b6fec0d6a21b5263cf415f0c9fb" kindref="member">internal_Cold</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasStream.h"/>
   </compounddef>
 </doxygen>

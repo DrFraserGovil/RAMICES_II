@@ -1,0 +1,37 @@
+\hypertarget{IMF_8h_source}{}\doxysection{IMF.\+h}
+\label{IMF_8h_source}\index{/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/IMF.h@{/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/IMF.h}}
+\mbox{\hyperlink{IMF_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}../Parameters/GlobalParameters.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{struct }\mbox{\hyperlink{structIntegral}{Integral}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     \textcolor{keywordtype}{double} \mbox{\hyperlink{structIntegral_ab6cdc3e939e6e6078a09de9a4b1e98b0}{ZerothMoment}};}
+\DoxyCodeLine{9     \textcolor{keywordtype}{double} \mbox{\hyperlink{structIntegral_a461f3f6ec33bd0a1d209c3ac91a95367}{FirstMoment}};}
+\DoxyCodeLine{10 \};}
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classIMF__Functor}{IMF\_Functor}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{public}:}
+\DoxyCodeLine{14         \mbox{\hyperlink{classIMF__Functor_a7df043f507ed23def4ff51f49041fce1}{IMF\_Functor}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGlobalParameters}{GlobalParameters}} \& param);}
+\DoxyCodeLine{15         }
+\DoxyCodeLine{16         \textcolor{keywordtype}{double} \mbox{\hyperlink{classIMF__Functor_a10f6d123194e3133ade82846b93b8d50}{operator()}}(\textcolor{keywordtype}{double} mass);}
+\DoxyCodeLine{17         }
+\DoxyCodeLine{18         \textcolor{keywordtype}{double} \mbox{\hyperlink{classIMF__Functor_a3f758662ca997ce713e73fcae6b35ec2}{FormationCount}}(\textcolor{keywordtype}{double} formationMass) \textcolor{keyword}{const};}
+\DoxyCodeLine{19         \textcolor{keywordtype}{double} \mbox{\hyperlink{classIMF__Functor_ae4aa0ab9ed2195a98b2b94b8c910313f}{Weighting}}(\textcolor{keywordtype}{int} i) \textcolor{keyword}{const};}
+\DoxyCodeLine{20         }
+\DoxyCodeLine{21     \textcolor{keyword}{private}:}
+\DoxyCodeLine{22         \textcolor{keyword}{const} \mbox{\hyperlink{classGlobalParameters}{GlobalParameters}} \& \mbox{\hyperlink{classIMF__Functor_ac8877641b1f5111d7a42de32264fc43d}{Param}};}
+\DoxyCodeLine{23         }
+\DoxyCodeLine{24         \textcolor{keywordtype}{double} \mbox{\hyperlink{classIMF__Functor_a0a5e19726fbb5dbfa3159dadb99d1f8f}{IMF\_Normalisation}};}
+\DoxyCodeLine{25         \textcolor{keywordtype}{double} \mbox{\hyperlink{classIMF__Functor_aae9bf6d2edfb0c8b57872ab0000abb65}{IMF\_MeanMass}};}
+\DoxyCodeLine{26         \mbox{\hyperlink{structIntegral}{Integral}} \mbox{\hyperlink{classIMF__Functor_ade522ca24b73c5583049a41719e0a2fb}{MomentCompute}}(\textcolor{keywordtype}{double} start,\textcolor{keywordtype}{double} stop, \textcolor{keywordtype}{int} resolution);}
+\DoxyCodeLine{27         \textcolor{keywordtype}{void} \mbox{\hyperlink{classIMF__Functor_a9bcbbc273db7883f19f995699aa551af}{Normalise}}();}
+\DoxyCodeLine{28         \textcolor{keywordtype}{double} \mbox{\hyperlink{classIMF__Functor_a03e7a129dd3345025c2cc57b02f96e44}{IMF}}(\textcolor{keywordtype}{double} mass);}
+\DoxyCodeLine{29         std::vector<double> \mbox{\hyperlink{classIMF__Functor_ab229e63e8c67ba56451dbd2caffb170f}{IMF\_Weighting}};}
+\DoxyCodeLine{30 \};}
+\DoxyCodeLine{31 }
+
+\end{DoxyCode}

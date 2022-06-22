@@ -1,172 +1,191 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="classGalaxy" kind="class" language="C++" prot="public">
     <compoundname>Galaxy</compoundname>
-    <includes refid="old__src_2Galaxy_2Galaxy_8h" local="no">Galaxy.h</includes>
+    <includes refid="Galaxy_8h" local="no">Galaxy.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="classGalaxy_1a79e9887f8c80ead95220e010a0684240" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="classGalaxy_1acebf3c89d2dd1c75148f82aca4279c21" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="classRing" kindref="compound">Ring</ref> &gt;</type>
-        <definition>std::vector&lt; Ring &gt; Galaxy::Rings</definition>
+        <definition>std::vector&lt;Ring&gt; Galaxy::Rings</definition>
         <argsstring></argsstring>
         <name>Rings</name>
+        <qualifiedname>Galaxy::Rings</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="30" column="13" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="30" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classGalaxy_1a337b7f34ddf0d2eae54e16929b04a698" prot="public" static="no" mutable="no">
-        <type><ref refid="structMassKeeper" kindref="compound">MassKeeper</ref></type>
-        <definition>MassKeeper Galaxy::Mass</definition>
-        <argsstring></argsstring>
-        <name>Mass</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="42" column="12" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="42" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="21" column="13" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="classGalaxy_1a6b6f0928caabc47b067d4fae75655eac" prot="private" static="no" mutable="no">
-        <type>Options *</type>
-        <definition>Options* Galaxy::Opts</definition>
+      <memberdef kind="variable" id="classGalaxy_1a8ad358e744945cb8e353798a0f043b2e" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::thread &gt;</type>
+        <definition>std::vector&lt;std::thread&gt; Galaxy::Threads</definition>
         <argsstring></argsstring>
-        <name>Opts</name>
+        <name>Threads</name>
+        <qualifiedname>Galaxy::Threads</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="44" column="10" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="44" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="24" column="13" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="24" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="classGalaxy_1a2871f848eb9784ccd08da4feff040c19" prot="private" static="no" mutable="no">
-        <type><ref refid="classYieldGrid" kindref="compound">YieldGrid</ref></type>
-        <definition>YieldGrid Galaxy::Demosthenes</definition>
+      <memberdef kind="variable" id="classGalaxy_1aff05d90382fd7620e493e78d24cfbb86" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classMigrationMatrix" kindref="compound">MigrationMatrix</ref> &gt;</type>
+        <definition>std::vector&lt;MigrationMatrix&gt; Galaxy::Migrator</definition>
         <argsstring></argsstring>
-        <name>Demosthenes</name>
+        <name>Migrator</name>
+        <qualifiedname>Galaxy::Migrator</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="45" column="11" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="45" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="25" column="13" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGalaxy_1a9dcf49a989ebbd5b43b279a61fcc4570" prot="private" static="no" mutable="no">
         <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref></type>
         <definition>GasReservoir Galaxy::IGM</definition>
         <argsstring></argsstring>
         <name>IGM</name>
+        <qualifiedname>Galaxy::IGM</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="46" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="46" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classGalaxy_1abd8592aefb87239ebcd305011c8f7ae4" prot="private" static="no" mutable="no">
-        <type>std::fstream</type>
-        <definition>std::fstream Galaxy::RingState</definition>
-        <argsstring></argsstring>
-        <name>RingState</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="62" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="62" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classGalaxy_1aa63ef779b97034043b9c0e5bb8970cbf" prot="private" static="no" mutable="no">
-        <type>std::fstream</type>
-        <definition>std::fstream Galaxy::GalaxyState</definition>
-        <argsstring></argsstring>
-        <name>GalaxyState</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="63" column="14" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="63" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="classGalaxy_1ac901256296640efbb40beb83b2d0ecfc" prot="private" static="no" mutable="no">
-        <type>double</type>
-        <definition>double Galaxy::GasExcess</definition>
-        <argsstring></argsstring>
-        <name>GasExcess</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="64" column="8" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="64" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="26" column="14" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classGalaxy_1af634c5a3bb615e5fc86cdc06c47163ca" prot="private" static="no" mutable="no">
         <type>const <ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref> &amp;</type>
         <definition>const GlobalParameters&amp; Galaxy::Param</definition>
         <argsstring></argsstring>
         <name>Param</name>
+        <qualifiedname>Galaxy::Param</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="17" column="25" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="17" bodyend="-1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="27" column="25" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxy_1adb4c4d20dadf4c4950dc30a9cd4ca694" prot="private" static="no" mutable="no">
+        <type><ref refid="classInitialisedData" kindref="compound">InitialisedData</ref> &amp;</type>
+        <definition>InitialisedData&amp; Galaxy::Data</definition>
+        <argsstring></argsstring>
+        <name>Data</name>
+        <qualifiedname>Galaxy::Data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="64" column="18" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxy_1acb2a2333f34c2f2f9a98fb0321d99090" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; Galaxy::RingMasses</definition>
+        <argsstring></argsstring>
+        <name>RingMasses</name>
+        <qualifiedname>Galaxy::RingMasses</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="66" column="13" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxy_1acc7ae00422126cedeb87fead8e63c3ab" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; Galaxy::SynthesisOutput</definition>
+        <argsstring></argsstring>
+        <name>SynthesisOutput</name>
+        <qualifiedname>Galaxy::SynthesisOutput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="71" column="13" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxy_1a5a1268ffd981b50f8d2c9c3d92aa4fdd" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; Galaxy::SynthesisProgress</definition>
+        <argsstring></argsstring>
+        <name>SynthesisProgress</name>
+        <qualifiedname>Galaxy::SynthesisProgress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="72" column="13" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxy_1af701b1184daec5589eb0b9f5d8bab9d8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Galaxy::DimmestStar</definition>
+        <argsstring></argsstring>
+        <name>DimmestStar</name>
+        <qualifiedname>Galaxy::DimmestStar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="74" column="8" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxy_1a75365caf688373c3b962151bce9b9d29" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Galaxy::BrightestStar</definition>
+        <argsstring></argsstring>
+        <name>BrightestStar</name>
+        <qualifiedname>Galaxy::BrightestStar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="75" column="8" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGalaxy_1a4d7c78b5bd1f1df1674510c148d1acc1" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Galaxy::ParallelBars</definition>
+        <argsstring></argsstring>
+        <name>ParallelBars</name>
+        <qualifiedname>Galaxy::ParallelBars</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="76" column="5" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="classGalaxy_1afaad94ff4ab36cd98744c773e4b34923" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>double</type>
-        <definition>double Galaxy::GasScaleLength</definition>
-        <argsstring>(double t)</argsstring>
-        <name>GasScaleLength</name>
-        <param>
-          <type>double</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="32" column="8"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a67e32cd9cfbef78fdb19989e5f0f0d30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>double</type>
-        <definition>double Galaxy::InfallRate</definition>
-        <argsstring>(double t)</argsstring>
-        <name>InfallRate</name>
-        <param>
-          <type>double</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="33" column="8"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a63119c07647ce95af35b9f860e8b088f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classGalaxy_1a93ce34a3602d1aca3afd38470a25cd92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>Galaxy::Galaxy</definition>
-        <argsstring>(Options *opts)</argsstring>
+        <argsstring>(InitialisedData &amp;Data)</argsstring>
         <name>Galaxy</name>
+        <qualifiedname>Galaxy::Galaxy</qualifiedname>
         <param>
-          <type>Options *</type>
-          <declname>opts</declname>
+          <type><ref refid="classInitialisedData" kindref="compound">InitialisedData</ref> &amp;</type>
+          <declname>Data</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -174,103 +193,55 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="35" column="1"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="18" column="1"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1a5898095189818af6050d11aee8f23e81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void Galaxy::Evolve</definition>
         <argsstring>()</argsstring>
         <name>Evolve</name>
+        <qualifiedname>Galaxy::Evolve</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="37" column="6"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="19" column="6"/>
       </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a2f9013e3430b28ebb7a73ac1feae22f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref></type>
-        <definition>GasReservoir Galaxy::PullIGM</definition>
-        <argsstring>(double mass)</argsstring>
-        <name>PullIGM</name>
-        <param>
-          <type>double</type>
-          <declname>mass</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="39" column="14"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a285372d26bf2fca5f9cd78dbb0bb3fec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classGalaxy_1a4ab586026c923d835823b40faf245c74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void Galaxy::PushIGM</definition>
-        <argsstring>(int donorID, double hotmass, double coldmass)</argsstring>
-        <name>PushIGM</name>
-        <param>
-          <type>int</type>
-          <declname>donorID</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>hotmass</declname>
-        </param>
-        <param>
-          <type>double</type>
-          <declname>coldmass</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="40" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a27e8a92d789f6a5731190e2ac829eb66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>Galaxy::Galaxy</definition>
-        <argsstring>(const GlobalParameters &amp;param)</argsstring>
-        <name>Galaxy</name>
-        <param>
-          <type>const <ref refid="classGlobalParameters" kindref="compound">GlobalParameters</ref> &amp;</type>
-          <declname>param</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="10" column="1"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a5898095189818af6050d11aee8f23e81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void Galaxy::Evolve</definition>
+        <definition>void Galaxy::SynthesiseObservations</definition>
         <argsstring>()</argsstring>
-        <name>Evolve</name>
+        <name>SynthesiseObservations</name>
+        <qualifiedname>Galaxy::SynthesiseObservations</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="11" column="6"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="20" column="6"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="classGalaxy_1ae9ca23e689a849dbc16850139dfbae69" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="classGalaxy_1ae67a86c83d8966f593f1b50a564862ff" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void Galaxy::UpdateGasMass</definition>
-        <argsstring>(double t)</argsstring>
-        <name>UpdateGasMass</name>
+        <definition>void Galaxy::LaunchParallelOperation</definition>
+        <argsstring>(int time, int nOperations, ParallelJob type)</argsstring>
+        <name>LaunchParallelOperation</name>
+        <qualifiedname>Galaxy::LaunchParallelOperation</qualifiedname>
         <param>
-          <type>double</type>
-          <declname>t</declname>
+          <type>int</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>nOperations</declname>
+        </param>
+        <param>
+          <type><ref refid="Galaxy_8h_1ac5fdf1a4567e9cbaff6bc909779d2f4b" kindref="member">ParallelJob</ref></type>
+          <declname>type</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -278,129 +249,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="47" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a0fcd1201164fd7cc6649db93e6640e06" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>double</type>
-        <definition>double Galaxy::ColdGasMass</definition>
-        <argsstring>()</argsstring>
-        <name>ColdGasMass</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="48" column="8"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1aac58bab6b1a9ed7d2c725e9691af630c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>double</type>
-        <definition>double Galaxy::HotGasMass</definition>
-        <argsstring>()</argsstring>
-        <name>HotGasMass</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="49" column="8"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a32892b81e1db6c78adf3e85a52483c06" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void Galaxy::OpenLogs</definition>
-        <argsstring>()</argsstring>
-        <name>OpenLogs</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="54" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a9b65ee4e7c6cc7d944d61976f5d5dac7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void Galaxy::CloseLogs</definition>
-        <argsstring>()</argsstring>
-        <name>CloseLogs</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="55" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a52b629e1b19610b2a6d77761e0bbbfae" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void Galaxy::ChemicalEvolution</definition>
-        <argsstring>(double t)</argsstring>
-        <name>ChemicalEvolution</name>
-        <param>
-          <type>double</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="57" column="6"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1ab4aaea6ebfe1d72381f671d74c8e3e8a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; Galaxy::PropertyHeaders</definition>
-        <argsstring>()</argsstring>
-        <name>PropertyHeaders</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="59" column="13"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1afdb07ef56f8c439a4ee9975d7d753382" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; double &gt;</type>
-        <definition>std::vector&lt;double&gt; Galaxy::ReportProperties</definition>
-        <argsstring>(double t)</argsstring>
-        <name>ReportProperties</name>
-        <param>
-          <type>double</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="60" column="13"/>
-      </memberdef>
-      <memberdef kind="function" id="classGalaxy_1a4429308d9426e2dd167de7f8618b8bcb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void Galaxy::SaveState</definition>
-        <argsstring>(double t)</argsstring>
-        <name>SaveState</name>
-        <param>
-          <type>double</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="61" column="6"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="29" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1afaad94ff4ab36cd98744c773e4b34923" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double Galaxy::GasScaleLength</definition>
         <argsstring>(double t)</argsstring>
         <name>GasScaleLength</name>
+        <qualifiedname>Galaxy::GasScaleLength</qualifiedname>
         <param>
           <type>double</type>
           <declname>t</declname>
@@ -411,13 +267,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="19" column="8"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="32" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1a011bc80de73d4f673c7010dce77265c3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double Galaxy::InfallMass</definition>
         <argsstring>(double t)</argsstring>
         <name>InfallMass</name>
+        <qualifiedname>Galaxy::InfallMass</qualifiedname>
         <param>
           <type>double</type>
           <declname>t</declname>
@@ -428,13 +285,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="20" column="8"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="33" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1a13564f4607192445efba53ad895a3672" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void Galaxy::InsertInfallingGas</definition>
         <argsstring>(int ring, double amount)</argsstring>
         <name>InsertInfallingGas</name>
+        <qualifiedname>Galaxy::InsertInfallingGas</qualifiedname>
         <param>
           <type>int</type>
           <declname>ring</declname>
@@ -449,13 +307,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="21" column="6"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="34" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1a80a875b0032811f506d3fd32264edb88" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void Galaxy::Infall</definition>
         <argsstring>(double t)</argsstring>
         <name>Infall</name>
+        <qualifiedname>Galaxy::Infall</qualifiedname>
         <param>
           <type>double</type>
           <declname>t</declname>
@@ -466,13 +325,154 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="22" column="6"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="35" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a341ba36fe007fa5949815638366b319e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::RingEvolve</definition>
+        <argsstring>(int timestep, int ringStart, int ringEnd)</argsstring>
+        <name>RingEvolve</name>
+        <qualifiedname>Galaxy::RingEvolve</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>timestep</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ringStart</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ringEnd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="39" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a899ec624613ba7cd74054428e2fa2494" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::ScatterYields</definition>
+        <argsstring>(int timestep, int ringStart, int ringEnd)</argsstring>
+        <name>ScatterYields</name>
+        <qualifiedname>Galaxy::ScatterYields</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>timestep</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ringStart</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ringEnd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="40" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a1b2429914142750ec38cb88b503faf35" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::ScatterGas</definition>
+        <argsstring>(int timestep)</argsstring>
+        <name>ScatterGas</name>
+        <qualifiedname>Galaxy::ScatterGas</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>timestep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="41" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1acbcc766ad6253eda123af1d51dc2cdc9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::ComputeScattering</definition>
+        <argsstring>(int t)</argsstring>
+        <name>ComputeScattering</name>
+        <qualifiedname>Galaxy::ComputeScattering</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="44" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a8251fa974e80051aab30673c08a68757" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::CompoundScattering</definition>
+        <argsstring>(int currentTime, int timeStart, int timeEnd)</argsstring>
+        <name>CompoundScattering</name>
+        <qualifiedname>Galaxy::CompoundScattering</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>currentTime</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timeStart</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timeEnd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="45" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a0eac175bb2883263dbe4827dbe620690" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::AssignMagnitudes</definition>
+        <argsstring>(int time, int ringstart, int ringend)</argsstring>
+        <name>AssignMagnitudes</name>
+        <qualifiedname>Galaxy::AssignMagnitudes</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ringstart</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ringend</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="47" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1aef74811eea0fe7be983f71f56354d265" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double Galaxy::PredictSurfaceDensity</definition>
         <argsstring>(double radius, double width, double totalGasMass, double scalelength)</argsstring>
         <name>PredictSurfaceDensity</name>
+        <qualifiedname>Galaxy::PredictSurfaceDensity</qualifiedname>
         <param>
           <type>double</type>
           <declname>radius</declname>
@@ -495,65 +495,98 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="23" column="8"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="49" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1ac5745f8f154464d0d53af6cb2a625ace" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double Galaxy::GasMass</definition>
         <argsstring>()</argsstring>
         <name>GasMass</name>
+        <qualifiedname>Galaxy::GasMass</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="24" column="8"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="50" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a0fcd1201164fd7cc6649db93e6640e06" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Galaxy::ColdGasMass</definition>
+        <argsstring>()</argsstring>
+        <name>ColdGasMass</name>
+        <qualifiedname>Galaxy::ColdGasMass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="51" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1af7dc1d5cae8df3052cf1fdfb3243af8f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double Galaxy::StarMass</definition>
         <argsstring>()</argsstring>
         <name>StarMass</name>
+        <qualifiedname>Galaxy::StarMass</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="25" column="8"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="52" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a2052c8397464befff963854a2e994060" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::IGMOperations</definition>
+        <argsstring>()</argsstring>
+        <name>IGMOperations</name>
+        <qualifiedname>Galaxy::IGMOperations</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="53" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1a0f4ea22ac9923c8f86336002cc505ce5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double Galaxy::RelicMass</definition>
         <argsstring>()</argsstring>
         <name>RelicMass</name>
+        <qualifiedname>Galaxy::RelicMass</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="27" column="8"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="55" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1a1f660f4324741739e2fe746f8057f743" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
         <definition>double Galaxy::Mass</definition>
         <argsstring>()</argsstring>
         <name>Mass</name>
+        <qualifiedname>Galaxy::Mass</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="28" column="8"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="56" column="8"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1a4429308d9426e2dd167de7f8618b8bcb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void Galaxy::SaveState</definition>
         <argsstring>(double t)</argsstring>
         <name>SaveState</name>
+        <qualifiedname>Galaxy::SaveState</qualifiedname>
         <param>
           <type>double</type>
           <declname>t</declname>
@@ -564,13 +597,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="29" column="6"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="57" column="6"/>
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1ae60a8983091a4393c71b1f724a5af5fb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void Galaxy::SaveState_Mass</definition>
         <argsstring>(double t)</argsstring>
         <name>SaveState_Mass</name>
+        <qualifiedname>Galaxy::SaveState_Mass</qualifiedname>
         <param>
           <type>double</type>
           <declname>t</declname>
@@ -581,7 +615,109 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="30" column="6"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="58" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a4afa1b2886cc6e43dc51a6a5bb707c2b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::SaveState_Enrichment</definition>
+        <argsstring>(double t)</argsstring>
+        <name>SaveState_Enrichment</name>
+        <qualifiedname>Galaxy::SaveState_Enrichment</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="59" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1ac9fa5c66f3a7c8a73dae3036799f87b0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::SaveState_Events</definition>
+        <argsstring>(double t)</argsstring>
+        <name>SaveState_Events</name>
+        <qualifiedname>Galaxy::SaveState_Events</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="60" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a0b66b5d4f2532cff76198c3014fc78b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::ComputeVisibilityFunction</definition>
+        <argsstring>()</argsstring>
+        <name>ComputeVisibilityFunction</name>
+        <qualifiedname>Galaxy::ComputeVisibilityFunction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="68" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a59690c25b8460f277a22ffc6bca71f9f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::SelectionFunction</definition>
+        <argsstring>(int ringstart, int ringend, int threadID)</argsstring>
+        <name>SelectionFunction</name>
+        <qualifiedname>Galaxy::SelectionFunction</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ringstart</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ringend</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>threadID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="69" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classGalaxy_1a39d63adf45e25fd7a379ac3b4f228ea5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Galaxy::StellarSynthesis</definition>
+        <argsstring>(int ringstart, int ringend, int threadID)</argsstring>
+        <name>StellarSynthesis</name>
+        <qualifiedname>Galaxy::StellarSynthesis</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>ringstart</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>ringend</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>threadID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="70" column="6"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-static-func">
@@ -590,13 +726,14 @@
         <definition>static std::string Galaxy::MassHeaders</definition>
         <argsstring>()</argsstring>
         <name>MassHeaders</name>
+        <qualifiedname>Galaxy::MassHeaders</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h" line="32" column="20"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="62" column="20"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -604,224 +741,368 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="5">
-        <label>GlobalParameters</label>
-        <link refid="classGlobalParameters"/>
-        <childnode refid="6" relation="usage">
-          <edgelabel>Element</edgelabel>
-        </childnode>
-        <childnode refid="11" relation="usage">
-          <edgelabel>Meta</edgelabel>
-        </childnode>
-        <childnode refid="13" relation="usage">
-          <edgelabel>Output</edgelabel>
-        </childnode>
-        <childnode refid="14" relation="usage">
-          <edgelabel>Thermal</edgelabel>
-        </childnode>
-        <childnode refid="15" relation="usage">
-          <edgelabel>Galaxy</edgelabel>
+      <node id="16">
+        <label>Argument&lt; bool &gt;</label>
+      </node>
+      <node id="7">
+        <label>Argument&lt; double &gt;</label>
+      </node>
+      <node id="6">
+        <label>Argument&lt; int &gt;</label>
+      </node>
+      <node id="9">
+        <label>Argument&lt; std::string &gt;</label>
+      </node>
+      <node id="17">
+        <label>CatalogueValues</label>
+        <link refid="classCatalogueValues"/>
+        <childnode refid="5" relation="public-inheritance">
         </childnode>
         <childnode refid="16" relation="usage">
-          <edgelabel>Stellar</edgelabel>
+          <edgelabel>SynthesisActive</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>IsochroneMagnitudeResolution</edgelabel>
+          <edgelabel>IsochroneTimeStep</edgelabel>
+          <edgelabel>SolarRadius</edgelabel>
+          <edgelabel>VerticalHeightPower</edgelabel>
+          <edgelabel>VerticalHeightScaling</edgelabel>
+          <edgelabel>VerticalHeightStart</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>AzimuthalResolution</edgelabel>
+          <edgelabel>RadialResolution</edgelabel>
+          <edgelabel>SampleCount</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>ElementValues</label>
+        <link refid="classElementValues"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>SolarAbundanceFile</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>SolarAbundanceFileDataColumn</edgelabel>
+          <edgelabel>SolarAbundanceFileNameColumn</edgelabel>
         </childnode>
       </node>
       <node id="1">
         <label>Galaxy</label>
         <link refid="classGalaxy"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>Demosthenes</edgelabel>
-        </childnode>
-        <childnode refid="4" relation="usage">
           <edgelabel>IGM</edgelabel>
         </childnode>
-        <childnode refid="5" relation="usage">
+        <childnode refid="3" relation="usage">
           <edgelabel>Param</edgelabel>
         </childnode>
-        <childnode refid="17" relation="usage">
-          <edgelabel>Mass</edgelabel>
+        <childnode refid="19" relation="usage">
+          <edgelabel>Data</edgelabel>
         </childnode>
       </node>
-      <node id="7">
-        <label>ParamList</label>
-        <link refid="classParamList"/>
+      <node id="18">
+        <label>GalaxyValues</label>
+        <link refid="classGalaxyValues"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>RingCount</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>IGM_Mass</edgelabel>
+          <edgelabel>InfallMass1</edgelabel>
+          <edgelabel>InfallMass2</edgelabel>
+          <edgelabel>InfallMassMerger</edgelabel>
+          <edgelabel>InfallTime1</edgelabel>
+          <edgelabel>InfallTime2</edgelabel>
+          <edgelabel>InfallTimeMerger</edgelabel>
+          <edgelabel>MaxSFRFraction</edgelabel>
+          <edgelabel>MaxScaleLength</edgelabel>
+          <edgelabel>MergerDelayTime</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>IGMAbsorbing</edgelabel>
+          <edgelabel>UsingVariableRingWidth</edgelabel>
+        </childnode>
       </node>
       <node id="2">
-        <label>YieldGrid</label>
-        <link refid="classYieldGrid"/>
+        <label>GasReservoir</label>
+        <link refid="classGasReservoir"/>
         <childnode refid="3" relation="usage">
-          <edgelabel>RelicType</edgelabel>
-          <edgelabel>RelicMass</edgelabel>
-        </childnode>
-      </node>
-      <node id="6">
-        <label>ElementValues</label>
-        <link refid="classElementValues"/>
-        <childnode refid="7" relation="public-inheritance">
-        </childnode>
-        <childnode refid="8" relation="usage">
-          <edgelabel>SolarAbundanceFile</edgelabel>
-        </childnode>
-        <childnode refid="10" relation="usage">
-          <edgelabel>SolarAbundanceFileNameColumn</edgelabel>
-          <edgelabel>SolarAbundanceFileDataColumn</edgelabel>
-        </childnode>
-      </node>
-      <node id="12">
-        <label>JSL::Argument&lt; double &gt;</label>
-        <link refid="classJSL_1_1Argument"/>
-        <childnode refid="9" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="16">
-        <label>StellarValues</label>
-        <link refid="classStellarValues"/>
-        <childnode refid="7" relation="public-inheritance">
-        </childnode>
-        <childnode refid="12" relation="usage">
-          <edgelabel>NSMFraction</edgelabel>
-          <edgelabel>FeedbackFactor</edgelabel>
-          <edgelabel>SNIaFraction</edgelabel>
-          <edgelabel>EjectionFraction</edgelabel>
-          <edgelabel>MaxZ</edgelabel>
-          <edgelabel>MinZ</edgelabel>
-          <edgelabel>MinStellarMass</edgelabel>
-          <edgelabel>MaxStellarMass</edgelabel>
+          <edgelabel>Param</edgelabel>
         </childnode>
       </node>
       <node id="3">
-        <label>StellarYield</label>
-        <link refid="classStellarYield"/>
-      </node>
-      <node id="10">
-        <label>JSL::Argument&lt; int &gt;</label>
-        <link refid="classJSL_1_1Argument"/>
-        <childnode refid="9" relation="public-inheritance">
+        <label>GlobalParameters</label>
+        <link refid="classGlobalParameters"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Meta</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>Output</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Resources</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Element</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Stellar</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Yield</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>Thermal</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Migration</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>Catalogue</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>Galaxy</edgelabel>
         </childnode>
       </node>
-      <node id="4">
-        <label>GasReservoir</label>
-        <link refid="classGasReservoir"/>
-        <childnode refid="5" relation="usage">
+      <node id="20">
+        <label>IMF_Functor</label>
+        <link refid="classIMF__Functor"/>
+        <childnode refid="3" relation="usage">
           <edgelabel>Param</edgelabel>
         </childnode>
       </node>
-      <node id="17">
-        <label>MassKeeper</label>
-        <link refid="structMassKeeper"/>
+      <node id="19">
+        <label>InitialisedData</label>
+        <link refid="classInitialisedData"/>
+        <childnode refid="20" relation="usage">
+          <edgelabel>IMF</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>SLF</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Param</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>AGBYield</edgelabel>
+          <edgelabel>CCSNYield</edgelabel>
+          <edgelabel>ECSNYield</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>NSMYield</edgelabel>
+          <edgelabel>SNIaYield</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>Isochrones</edgelabel>
+        </childnode>
       </node>
-      <node id="9">
-        <label>JSL::ArgumentInterface</label>
-        <link refid="classJSL_1_1ArgumentInterface"/>
+      <node id="24">
+        <label>IsochroneTracker</label>
+        <link refid="classIsochroneTracker"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Param</edgelabel>
+        </childnode>
       </node>
-      <node id="11">
+      <node id="4">
         <label>MetaValues</label>
         <link refid="classMetaValues"/>
-        <childnode refid="7" relation="public-inheritance">
+        <childnode refid="5" relation="public-inheritance">
         </childnode>
-        <childnode refid="12" relation="usage">
-          <edgelabel>TimeStep</edgelabel>
-          <edgelabel>SimulationDuration</edgelabel>
-        </childnode>
-        <childnode refid="8" relation="usage">
-          <edgelabel>ResourceRoot</edgelabel>
-        </childnode>
-        <childnode refid="10" relation="usage">
+        <childnode refid="6" relation="usage">
           <edgelabel>ParallelThreads</edgelabel>
+          <edgelabel>ProgressHashes</edgelabel>
+          <edgelabel>Verbosity</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>SimulationDuration</edgelabel>
+          <edgelabel>TimeStep</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>MigrationValues</label>
+        <link refid="classMigrationValues"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>InflowActive</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>DispersionTruncation</edgelabel>
+          <edgelabel>InflowParameterA</edgelabel>
+          <edgelabel>InflowParameterB</edgelabel>
+          <edgelabel>MarkovDispersionStrength</edgelabel>
+          <edgelabel>MaxStealFraction</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>DispersionOrder</edgelabel>
         </childnode>
       </node>
       <node id="8">
-        <label>JSL::Argument&lt; std::string &gt;</label>
-        <link refid="classJSL_1_1Argument"/>
-        <childnode refid="9" relation="public-inheritance">
+        <label>OutputValues</label>
+        <link refid="classOutputValues"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>ChemicalPrefactor</edgelabel>
+          <edgelabel>ColdGasDataFile</edgelabel>
+          <edgelabel>Config</edgelabel>
+          <edgelabel>EventRateFile</edgelabel>
+          <edgelabel>GalaxyMassFile</edgelabel>
+          <edgelabel>HotGasDataFile</edgelabel>
+          <edgelabel>Root</edgelabel>
+          <edgelabel>StarFile</edgelabel>
+          <edgelabel>YieldSubdir</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ParamList</label>
+        <link refid="classParamList"/>
+      </node>
+      <node id="10">
+        <label>ResourceValues</label>
+        <link refid="classResourceValues"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>IsochroneDirectory</edgelabel>
+          <edgelabel>IsochroneRepository</edgelabel>
+          <edgelabel>LifeTimeFile</edgelabel>
+          <edgelabel>ResourceRoot</edgelabel>
+          <edgelabel>WelcomeFile</edgelabel>
+          <edgelabel>YieldRoot</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>SLF_Functor</label>
+        <link refid="classSLF__Functor"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Param</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>SimpleYield</label>
+        <link refid="classSimpleYield"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Param</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>StellarValues</label>
+        <link refid="classStellarValues"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>EjectionFraction</edgelabel>
+          <edgelabel>FeedbackFactor</edgelabel>
+          <edgelabel>IMF_Slope</edgelabel>
+          <edgelabel>ImmortalMass</edgelabel>
+          <edgelabel>MaxLogZ</edgelabel>
+          <edgelabel>MaxStellarMass</edgelabel>
+          <edgelabel>MinLogZ</edgelabel>
+          <edgelabel>MinStellarMass</edgelabel>
+          <edgelabel>SchmidtDensityCut</edgelabel>
+          <edgelabel>SchmidtLowPower</edgelabel>
+          <edgelabel>...</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>LogZResolution</edgelabel>
+          <edgelabel>MassResolution</edgelabel>
         </childnode>
       </node>
       <node id="14">
         <label>ThermalValues</label>
         <link refid="classThermalValues"/>
-        <childnode refid="7" relation="public-inheritance">
+        <childnode refid="5" relation="public-inheritance">
         </childnode>
-        <childnode refid="12" relation="usage">
-          <edgelabel>HotInjection_SNIa</edgelabel>
-          <edgelabel>HotInjection_NSM</edgelabel>
-          <edgelabel>HotInjection_CCSN</edgelabel>
+        <childnode refid="7" relation="usage">
+          <edgelabel>ChimneyFactor</edgelabel>
+          <edgelabel>CoolingPower</edgelabel>
+          <edgelabel>DormantHotFraction</edgelabel>
+          <edgelabel>FeedbackEjectFactor</edgelabel>
           <edgelabel>GasCoolingTimeScale</edgelabel>
+          <edgelabel>HotInjection_AGB</edgelabel>
+          <edgelabel>HotInjection_CCSN</edgelabel>
+          <edgelabel>HotInjection_NSM</edgelabel>
+          <edgelabel>HotInjection_SNIa</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>NumericalResolution</edgelabel>
+        </childnode>
+      </node>
+      <node id="22">
+        <label>YieldGrid</label>
+        <link refid="classYieldGrid"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Param</edgelabel>
         </childnode>
       </node>
       <node id="13">
-        <label>OutputValues</label>
-        <link refid="classOutputValues"/>
-        <childnode refid="7" relation="public-inheritance">
+        <label>YieldValues</label>
+        <link refid="classYieldValues"/>
+        <childnode refid="5" relation="public-inheritance">
         </childnode>
-        <childnode refid="8" relation="usage">
-          <edgelabel>Root</edgelabel>
-          <edgelabel>GalaxyMassFile</edgelabel>
-          <edgelabel>GalacticDirectory</edgelabel>
-        </childnode>
-      </node>
-      <node id="15">
-        <label>GalaxyValues</label>
-        <link refid="classGalaxyValues"/>
-        <childnode refid="7" relation="public-inheritance">
-        </childnode>
-        <childnode refid="12" relation="usage">
-          <edgelabel>ScaleLengthFinalTime</edgelabel>
-          <edgelabel>MaxSFRFraction</edgelabel>
-          <edgelabel>IGM_Mass</edgelabel>
-          <edgelabel>Radius</edgelabel>
-          <edgelabel>MaxScaleLength</edgelabel>
-          <edgelabel>ScaleLengthTimeScale</edgelabel>
-          <edgelabel>InflowParameterA</edgelabel>
-          <edgelabel>MinScaleLength</edgelabel>
-          <edgelabel>InflowParameterB</edgelabel>
-          <edgelabel>PrimordialHotFraction</edgelabel>
+        <childnode refid="7" relation="usage">
+          <edgelabel>CCSN_MassCut</edgelabel>
+          <edgelabel>CODwarf_MassCut</edgelabel>
+          <edgelabel>Collapse_MassCut</edgelabel>
+          <edgelabel>ECSN_Fraction</edgelabel>
+          <edgelabel>ECSN_MassCut</edgelabel>
+          <edgelabel>MassOverhang</edgelabel>
+          <edgelabel>NSM_ActiveFraction</edgelabel>
+          <edgelabel>NSM_DelayTime</edgelabel>
+          <edgelabel>NSM_Scale</edgelabel>
+          <edgelabel>NSM_TypicalMass</edgelabel>
           <edgelabel>...</edgelabel>
-        </childnode>
-        <childnode refid="10" relation="usage">
-          <edgelabel>RingCount</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" line="28" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h" bodystart="27" bodyend="65"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" line="15" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h" bodystart="16" bodyend="78"/>
     <listofallmembers>
-      <member refid="classGalaxy_1a52b629e1b19610b2a6d77761e0bbbfae" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>ChemicalEvolution</name></member>
-      <member refid="classGalaxy_1a9b65ee4e7c6cc7d944d61976f5d5dac7" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>CloseLogs</name></member>
+      <member refid="classGalaxy_1a0eac175bb2883263dbe4827dbe620690" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>AssignMagnitudes</name></member>
+      <member refid="classGalaxy_1a75365caf688373c3b962151bce9b9d29" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>BrightestStar</name></member>
       <member refid="classGalaxy_1a0fcd1201164fd7cc6649db93e6640e06" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>ColdGasMass</name></member>
-      <member refid="classGalaxy_1a2871f848eb9784ccd08da4feff040c19" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>Demosthenes</name></member>
+      <member refid="classGalaxy_1a8251fa974e80051aab30673c08a68757" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>CompoundScattering</name></member>
+      <member refid="classGalaxy_1acbcc766ad6253eda123af1d51dc2cdc9" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>ComputeScattering</name></member>
+      <member refid="classGalaxy_1a0b66b5d4f2532cff76198c3014fc78b7" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>ComputeVisibilityFunction</name></member>
+      <member refid="classGalaxy_1adb4c4d20dadf4c4950dc30a9cd4ca694" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>Data</name></member>
+      <member refid="classGalaxy_1af701b1184daec5589eb0b9f5d8bab9d8" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>DimmestStar</name></member>
       <member refid="classGalaxy_1a5898095189818af6050d11aee8f23e81" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>Evolve</name></member>
-      <member refid="classGalaxy_1a5898095189818af6050d11aee8f23e81" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>Evolve</name></member>
-      <member refid="classGalaxy_1a63119c07647ce95af35b9f860e8b088f" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>Galaxy</name></member>
-      <member refid="classGalaxy_1a27e8a92d789f6a5731190e2ac829eb66" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>Galaxy</name></member>
-      <member refid="classGalaxy_1aa63ef779b97034043b9c0e5bb8970cbf" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>GalaxyState</name></member>
-      <member refid="classGalaxy_1ac901256296640efbb40beb83b2d0ecfc" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>GasExcess</name></member>
+      <member refid="classGalaxy_1a93ce34a3602d1aca3afd38470a25cd92" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>Galaxy</name></member>
       <member refid="classGalaxy_1ac5745f8f154464d0d53af6cb2a625ace" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>GasMass</name></member>
-      <member refid="classGalaxy_1afaad94ff4ab36cd98744c773e4b34923" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>GasScaleLength</name></member>
       <member refid="classGalaxy_1afaad94ff4ab36cd98744c773e4b34923" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>GasScaleLength</name></member>
-      <member refid="classGalaxy_1aac58bab6b1a9ed7d2c725e9691af630c" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>HotGasMass</name></member>
       <member refid="classGalaxy_1a9dcf49a989ebbd5b43b279a61fcc4570" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>IGM</name></member>
+      <member refid="classGalaxy_1a2052c8397464befff963854a2e994060" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>IGMOperations</name></member>
       <member refid="classGalaxy_1a80a875b0032811f506d3fd32264edb88" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>Infall</name></member>
       <member refid="classGalaxy_1a011bc80de73d4f673c7010dce77265c3" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>InfallMass</name></member>
-      <member refid="classGalaxy_1a67e32cd9cfbef78fdb19989e5f0f0d30" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>InfallRate</name></member>
       <member refid="classGalaxy_1a13564f4607192445efba53ad895a3672" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>InsertInfallingGas</name></member>
-      <member refid="classGalaxy_1a337b7f34ddf0d2eae54e16929b04a698" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>Mass</name></member>
+      <member refid="classGalaxy_1ae67a86c83d8966f593f1b50a564862ff" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>LaunchParallelOperation</name></member>
       <member refid="classGalaxy_1a1f660f4324741739e2fe746f8057f743" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>Mass</name></member>
       <member refid="classGalaxy_1a201827440faacb0346dd1c13b297ac81" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>MassHeaders</name></member>
-      <member refid="classGalaxy_1a32892b81e1db6c78adf3e85a52483c06" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>OpenLogs</name></member>
-      <member refid="classGalaxy_1a6b6f0928caabc47b067d4fae75655eac" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>Opts</name></member>
+      <member refid="classGalaxy_1aff05d90382fd7620e493e78d24cfbb86" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>Migrator</name></member>
+      <member refid="classGalaxy_1a4d7c78b5bd1f1df1674510c148d1acc1" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>ParallelBars</name></member>
       <member refid="classGalaxy_1af634c5a3bb615e5fc86cdc06c47163ca" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>Param</name></member>
       <member refid="classGalaxy_1aef74811eea0fe7be983f71f56354d265" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>PredictSurfaceDensity</name></member>
-      <member refid="classGalaxy_1ab4aaea6ebfe1d72381f671d74c8e3e8a" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>PropertyHeaders</name></member>
-      <member refid="classGalaxy_1a2f9013e3430b28ebb7a73ac1feae22f4" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>PullIGM</name></member>
-      <member refid="classGalaxy_1a285372d26bf2fca5f9cd78dbb0bb3fec" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>PushIGM</name></member>
       <member refid="classGalaxy_1a0f4ea22ac9923c8f86336002cc505ce5" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>RelicMass</name></member>
-      <member refid="classGalaxy_1afdb07ef56f8c439a4ee9975d7d753382" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>ReportProperties</name></member>
-      <member refid="classGalaxy_1a79e9887f8c80ead95220e010a0684240" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>Rings</name></member>
-      <member refid="classGalaxy_1abd8592aefb87239ebcd305011c8f7ae4" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>RingState</name></member>
+      <member refid="classGalaxy_1a341ba36fe007fa5949815638366b319e" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>RingEvolve</name></member>
+      <member refid="classGalaxy_1acb2a2333f34c2f2f9a98fb0321d99090" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>RingMasses</name></member>
+      <member refid="classGalaxy_1acebf3c89d2dd1c75148f82aca4279c21" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>Rings</name></member>
       <member refid="classGalaxy_1a4429308d9426e2dd167de7f8618b8bcb" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>SaveState</name></member>
-      <member refid="classGalaxy_1a4429308d9426e2dd167de7f8618b8bcb" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>SaveState</name></member>
+      <member refid="classGalaxy_1a4afa1b2886cc6e43dc51a6a5bb707c2b" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>SaveState_Enrichment</name></member>
+      <member refid="classGalaxy_1ac9fa5c66f3a7c8a73dae3036799f87b0" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>SaveState_Events</name></member>
       <member refid="classGalaxy_1ae60a8983091a4393c71b1f724a5af5fb" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>SaveState_Mass</name></member>
+      <member refid="classGalaxy_1a1b2429914142750ec38cb88b503faf35" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>ScatterGas</name></member>
+      <member refid="classGalaxy_1a899ec624613ba7cd74054428e2fa2494" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>ScatterYields</name></member>
+      <member refid="classGalaxy_1a59690c25b8460f277a22ffc6bca71f9f" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>SelectionFunction</name></member>
       <member refid="classGalaxy_1af7dc1d5cae8df3052cf1fdfb3243af8f" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>StarMass</name></member>
-      <member refid="classGalaxy_1ae9ca23e689a849dbc16850139dfbae69" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>UpdateGasMass</name></member>
+      <member refid="classGalaxy_1a39d63adf45e25fd7a379ac3b4f228ea5" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>StellarSynthesis</name></member>
+      <member refid="classGalaxy_1a4ab586026c923d835823b40faf245c74" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>SynthesiseObservations</name></member>
+      <member refid="classGalaxy_1acc7ae00422126cedeb87fead8e63c3ab" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>SynthesisOutput</name></member>
+      <member refid="classGalaxy_1a5a1268ffd981b50f8d2c9c3d92aa4fdd" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>SynthesisProgress</name></member>
+      <member refid="classGalaxy_1a8ad358e744945cb8e353798a0f043b2e" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>Threads</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

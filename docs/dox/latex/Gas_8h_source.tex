@@ -1,0 +1,40 @@
+\hypertarget{Gas_8h_source}{}\doxysection{Gas.\+h}
+\label{Gas_8h_source}\index{/Users/jf20/Documents/Physics/RAMICES\_II/src/Gas/Gas.h@{/Users/jf20/Documents/Physics/RAMICES\_II/src/Gas/Gas.h}}
+\mbox{\hyperlink{Gas_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}../Parameters/GlobalParameters.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{classGas}{Gas}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     }
+\DoxyCodeLine{11         }
+\DoxyCodeLine{13         \mbox{\hyperlink{classGas_a6506127f6d3c2f0e15e9592c1e0134ea}{Gas}}();}
+\DoxyCodeLine{14         }
+\DoxyCodeLine{16         \mbox{\hyperlink{classGas_a72c22f9017710f7c97af4f727e481bd4}{Gas}}(\textcolor{keyword}{const} std::vector<double> \& elements);}
+\DoxyCodeLine{17         }
+\DoxyCodeLine{19         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGas_a292ef4704a70acb9aacf7bd10d04f7f3}{Mass}}();}
+\DoxyCodeLine{20         }
+\DoxyCodeLine{21         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGas_ac88f83f21474f4c9237923ed98a43ddc}{Mass}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{22     }
+\DoxyCodeLine{24         \textcolor{keywordtype}{double} \& \mbox{\hyperlink{classGas_a429a614472a47a8297cad9a5442270a9}{operator[]}}(\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{ElementID}} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{25         }
+\DoxyCodeLine{27         \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& \mbox{\hyperlink{classGas_a9b562988d2d6bcba6c1989d0ca99bc7f}{operator[]}}(\mbox{\hyperlink{EnumSets_8h_a8f434816783a791128b48a39ae663f15}{ElementID}} \textcolor{keywordtype}{id}) \textcolor{keyword}{const};}
+\DoxyCodeLine{28         }
+\DoxyCodeLine{30         \textcolor{keyword}{static} \mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGas_a2b2398801ceb8fc5b08b00beab3b4eea}{Primordial}}(\textcolor{keywordtype}{double} mass);}
+\DoxyCodeLine{31         }
+\DoxyCodeLine{33         \textcolor{keyword}{static} \mbox{\hyperlink{classGas}{Gas}} \mbox{\hyperlink{classGas_a6e79d1e5d17931e7ea6a9f823016f648}{Empty}}();}
+\DoxyCodeLine{34         }
+\DoxyCodeLine{35     \textcolor{keyword}{private}:}
+\DoxyCodeLine{37         std::vector<double> \mbox{\hyperlink{classGas_a3ed913e9c0c680090dfccb63d0aa6a8c}{Species}};}
+\DoxyCodeLine{38     }
+\DoxyCodeLine{39         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGas_a40e3560ba64fcaa3a5cac1477421854f}{CheckMass}}();}
+\DoxyCodeLine{40         }
+\DoxyCodeLine{41         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classGas_a3b5e714c1acc7dc0aab2dbd6351d84b2}{NeedsRecomputing}};}
+\DoxyCodeLine{42         \textcolor{keywordtype}{double} \mbox{\hyperlink{classGas_ae4c7a5c7975222332bc53bc4fabba9a3}{internal\_Mass}};}
+\DoxyCodeLine{43     }
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+
+\end{DoxyCode}

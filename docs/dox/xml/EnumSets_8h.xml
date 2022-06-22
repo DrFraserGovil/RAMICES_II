@@ -1,86 +1,186 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
   <compounddef id="EnumSets_8h" kind="file" language="C++">
     <compoundname>EnumSets.h</compoundname>
-    <includedby refid="ParameterLists_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h</includedby>
-    <includedby refid="GlobalParameters_8h" local="yes">/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h</includedby>
+    <includedby refid="GlobalParameters_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/GlobalParameters.h</includedby>
+    <includedby refid="ParameterLists_8h" local="yes">/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h</includedby>
     <invincdepgraph>
-      <node id="4">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Galaxy.h</label>
-        <link refid="src_2Galaxy_2Galaxy_8h"/>
+      <node id="6">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Galaxy.h</label>
+        <link refid="Galaxy_8h"/>
       </node>
-      <node id="11">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Stars/StarReservoir.h</label>
-        <link refid="StarReservoir_8h"/>
-      </node>
-      <node id="9">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasStream.h</label>
-        <link refid="GasStream_8h"/>
+      <node id="12">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/MigrationMatrix.h</label>
+        <link refid="MigrationMatrix_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="7">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h</label>
-        <link refid="old__src_2Galaxy_2Ring_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/Gas.h</label>
-        <link refid="Gas_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Galaxy/Ring.h</label>
-        <link refid="src_2Galaxy_2Ring_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Galaxy.h</label>
-        <link refid="old__src_2Galaxy_2Galaxy_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/ParameterLists.h</label>
-        <link refid="ParameterLists_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h</label>
-        <link refid="EnumSets_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Gas/GasReservoir.h</label>
-        <link refid="GasReservoir_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Galaxy/Ring.h</label>
+        <link refid="Ring_8h"/>
+        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="3">
-        <label>/home/jack/Documents/Work/RAMICES_II/src/Parameters/GlobalParameters.h</label>
-        <link refid="GlobalParameters_8h"/>
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/Gas.h</label>
+        <link refid="Gas_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
+      </node>
+      <node id="5">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasReservoir.h</label>
+        <link refid="GasReservoir_8h"/>
         <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Gas/GasStream.h</label>
+        <link refid="GasStream_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h</label>
+        <link refid="EnumSets_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/GlobalParameters.h</label>
+        <link refid="GlobalParameters_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
         <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/InitialisedData.h</label>
+        <link refid="InitialisedData_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/ParameterLists.h</label>
+        <link refid="ParameterLists_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/IMF.h</label>
+        <link refid="IMF_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/IsochroneTracker.h</label>
+        <link refid="IsochroneTracker_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/RemnantPopulation.h</label>
+        <link refid="RemnantPopulation_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/SLF.h</label>
+        <link refid="SLF_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StarReservoir.h</label>
+        <link refid="StarReservoir_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Stars/StellarPopulation.h</label>
+        <link refid="StellarPopulation_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/SimpleYield.h</label>
+        <link refid="SimpleYield_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/YieldGrid.h</label>
+        <link refid="YieldGrid_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>/Users/jf20/Documents/Physics/RAMICES_II/src/Yields/YieldRidge.h</label>
+        <link refid="YieldRidge_8h"/>
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
     </invincdepgraph>
@@ -194,18 +294,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h" line="7" column="15" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h" bodystart="7" bodyend="11"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h" line="7" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h" bodystart="7" bodyend="11"/>
       </memberdef>
       <memberdef kind="enum" id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" prot="public" static="no" strong="no">
         <type></type>
         <name>SourceProcess</name>
-        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2" prot="public">
-          <name>Primordial</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
         <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba5eded54a4939154f3a8794b2e3702935" prot="public">
           <name>Accreted</name>
           <briefdescription>
@@ -213,36 +306,15 @@
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba6b931856a2c41dafbac513228fead00d" prot="public">
-          <name>CCSN</name>
+        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba62dee9e51bf32a8f4cf671aecdc96adc" prot="public">
+          <name>Stellar</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238baf91104016e7ac32d698e35719246e224" prot="public">
-          <name>SNIa</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238badb82d907ddf6c04771cbaefe83152476" prot="public">
-          <name>NSM</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba708c0e4c443c8d8788ac87e0921883eb" prot="public">
-          <name>Collapsars</name>
-          <briefdescription>
-          </briefdescription>
-          <detaileddescription>
-          </detaileddescription>
-        </enumvalue>
-        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb" prot="public">
-          <name>Unknown</name>
+        <enumvalue id="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba2ceb04657b3ab64b911b7e8d78047b60" prot="public">
+          <name>Remnant</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
@@ -263,7 +335,174 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h" line="14" column="19" bodyfile="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h" bodystart="14" bodyend="18"/>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h" line="14" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h" bodystart="14" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="enum" id="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>YieldProcess</name>
+        <enumvalue id="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0a6b931856a2c41dafbac513228fead00d" prot="public">
+          <name>CCSN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0a06de0ec551929ae294bf76eaba87626f" prot="public">
+          <name>ECSN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0af91104016e7ac32d698e35719246e224" prot="public">
+          <name>SNIa</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0adb82d907ddf6c04771cbaefe83152476" prot="public">
+          <name>NSM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0ab52edeb962ed320c113a39a3b220b9ec" prot="public">
+          <name>AGB</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0a9654362db660c66ec6b9c7c0a316bca4" prot="public">
+          <name>YieldCount</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h" line="20" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="enum" id="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989" prot="public" static="no" strong="no">
+        <type></type>
+        <name>RemnantType</name>
+        <enumvalue id="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989aa097de3b160d734233cb21e79cf8ebb3" prot="public">
+          <name>DormantDwarf</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989a62faa15ef9032326d18857fbcee6c2d0" prot="public">
+          <name>CODwarf</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989adb033abd70c566531e2cdb65d88418f0" prot="public">
+          <name>NeutronStar</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989a1bbaf190d71ae607de6a8b351dfa9c2c" prot="public">
+          <name>DormantNS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989a6729ef816558d7b8c3ba5d91f3c11636" prot="public">
+          <name>MergerNS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989a0bbd34d49f8a33286ddc91256e4895b4" prot="public">
+          <name>BlackHole</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h" line="22" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="enum" id="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SourceID</name>
+        <enumvalue id="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915bac228dae5285571a714fb43ff71a46260" prot="public">
+          <name>Orfeo</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915ba9adbc5b03bc52253a060dd225f1f77f9" prot="public">
+          <name>Marigo</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915ba615b930b7429cdd3b3680dd78f9f1472" prot="public">
+          <name>Limongi</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915babe779c3b81ed316679583170388a9841" prot="public">
+          <name>Maeder</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915bab92f302712b561470bfc9be49649f99f" prot="public">
+          <name>Mixed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915ba4e81c184ac3ad48a389cd4454c4a05bb" prot="public">
+          <name>Unknown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915ba772d84e46498d2c2c04c35bfb43b64eb" prot="public">
+          <name>SourceCount</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enums to identify the theoretical basis for different yield tables. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h" line="25" column="1" bodyfile="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h" bodystart="25" bodyend="25"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -273,20 +512,24 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="2"><highlight class="normal"></highlight></codeline>
-<codeline lineno="7" refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af260a42c612c683947aba40e8e49142a" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>{<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a20fa2720571344499f799d2839b23c7e" kindref="member">Hydrogen</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aa34644900f0e5c1f8961367a789bcd86" kindref="member">Helium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a9da6d40a92c5df1a279634c5290edc4c" kindref="member">Metals</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a8750950e70ba4037061ecd568a56b944" kindref="member">Iron</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15ae54b22e3be885eb43db3925118a89f02" kindref="member">Oxygen</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aff5ab7e500a1c16d48b11aa93bb60439" kindref="member">Magnesium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a29aed61cddc081ff18d77c441b9fedb2" kindref="member">Carbon</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af260a42c612c683947aba40e8e49142a" kindref="member">Silicon</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a40f67c18f45fbcb3396df8fb55e41145" kindref="member">Calcium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a2481971aeae9ed91247d0e6c69447bcf" kindref="member">Manganese</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a306622f80fd1cfd979de999e20c08a91" kindref="member">Chromium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a075486eef49beec48c269d23371d4ba7" kindref="member">Cobalt</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15acb3c47b24392c8c6560eb7a7060a3dd9" kindref="member">Europium</ref>,</highlight></codeline>
+<codeline lineno="7" refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a40f67c18f45fbcb3396df8fb55e41145" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15" kindref="member">ElementID</ref><sp/>{<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a20fa2720571344499f799d2839b23c7e" kindref="member">Hydrogen</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aa34644900f0e5c1f8961367a789bcd86" kindref="member">Helium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a9da6d40a92c5df1a279634c5290edc4c" kindref="member">Metals</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a8750950e70ba4037061ecd568a56b944" kindref="member">Iron</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15ae54b22e3be885eb43db3925118a89f02" kindref="member">Oxygen</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15aff5ab7e500a1c16d48b11aa93bb60439" kindref="member">Magnesium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a29aed61cddc081ff18d77c441b9fedb2" kindref="member">Carbon</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af260a42c612c683947aba40e8e49142a" kindref="member">Silicon</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a40f67c18f45fbcb3396df8fb55e41145" kindref="member">Calcium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a2481971aeae9ed91247d0e6c69447bcf" kindref="member">Manganese</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a306622f80fd1cfd979de999e20c08a91" kindref="member">Chromium</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15a075486eef49beec48c269d23371d4ba7" kindref="member">Cobalt</ref>,<ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15acb3c47b24392c8c6560eb7a7060a3dd9" kindref="member">Europium</ref>,</highlight></codeline>
 <codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="9" refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e" kindref="member">ElementCount</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e" kindref="member">ElementCount</ref></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="11" refid="EnumSets_8h_1a8f434816783a791128b48a39ae663f15af5a58632ea54c6df5a7c7fa7c2be1e1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14" refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>{<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba79476b2be28a7083e31e983a2e0dd2d2" kindref="member">Primordial</ref>,<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba5eded54a4939154f3a8794b2e3702935" kindref="member">Accreted</ref>,<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba6b931856a2c41dafbac513228fead00d" kindref="member">CCSN</ref>,<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238baf91104016e7ac32d698e35719246e224" kindref="member">SNIa</ref>,<sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238badb82d907ddf6c04771cbaefe83152476" kindref="member">NSM</ref>,<sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba708c0e4c443c8d8788ac87e0921883eb" kindref="member">Collapsars</ref>,<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba4e81c184ac3ad48a389cd4454c4a05bb" kindref="member">Unknown</ref>,</highlight></codeline>
+<codeline lineno="14" refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba5eded54a4939154f3a8794b2e3702935" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238b" kindref="member">SourceProcess</ref><sp/>{<ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba5eded54a4939154f3a8794b2e3702935" kindref="member">Accreted</ref>,<sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba62dee9e51bf32a8f4cf671aecdc96adc" kindref="member">Stellar</ref>,<sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238ba2ceb04657b3ab64b911b7e8d78047b60" kindref="member">Remnant</ref>,</highlight></codeline>
 <codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="16" refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8" kindref="member">ProcessCount</ref></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8" kindref="member">ProcessCount</ref></highlight></codeline>
 <codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="EnumSets_8h_1a14c15ac21b42cff8eb5dcbc24534238babdfaa46020cf46760ea9c3be13d997a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20" refid="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0ab52edeb962ed320c113a39a3b220b9ec" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0" kindref="member">YieldProcess</ref><sp/>{<ref refid="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0a6b931856a2c41dafbac513228fead00d" kindref="member">CCSN</ref>,<sp/><ref refid="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0a06de0ec551929ae294bf76eaba87626f" kindref="member">ECSN</ref>,<ref refid="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0af91104016e7ac32d698e35719246e224" kindref="member">SNIa</ref>,<sp/><ref refid="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0adb82d907ddf6c04771cbaefe83152476" kindref="member">NSM</ref>,<sp/><ref refid="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0ab52edeb962ed320c113a39a3b220b9ec" kindref="member">AGB</ref>,<sp/><ref refid="EnumSets_8h_1ad34412cab389072b1f299a4c90b9d5e0a9654362db660c66ec6b9c7c0a316bca4" kindref="member">YieldCount</ref>};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989a0bbd34d49f8a33286ddc91256e4895b4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989" kindref="member">RemnantType</ref><sp/>{<ref refid="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989aa097de3b160d734233cb21e79cf8ebb3" kindref="member">DormantDwarf</ref>,<sp/><ref refid="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989a62faa15ef9032326d18857fbcee6c2d0" kindref="member">CODwarf</ref>,<sp/><ref refid="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989adb033abd70c566531e2cdb65d88418f0" kindref="member">NeutronStar</ref>,<sp/><ref refid="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989a1bbaf190d71ae607de6a8b351dfa9c2c" kindref="member">DormantNS</ref>,<sp/><ref refid="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989a6729ef816558d7b8c3ba5d91f3c11636" kindref="member">MergerNS</ref>,<sp/><ref refid="EnumSets_8h_1a0265631ca5dd95605f5d924b87a8a989a0bbd34d49f8a33286ddc91256e4895b4" kindref="member">BlackHole</ref>};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915ba615b930b7429cdd3b3680dd78f9f1472" refkind="member"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915b" kindref="member">SourceID</ref><sp/>{<ref refid="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915bac228dae5285571a714fb43ff71a46260" kindref="member">Orfeo</ref>,<ref refid="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915ba9adbc5b03bc52253a060dd225f1f77f9" kindref="member">Marigo</ref>,<ref refid="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915ba615b930b7429cdd3b3680dd78f9f1472" kindref="member">Limongi</ref>,<ref refid="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915babe779c3b81ed316679583170388a9841" kindref="member">Maeder</ref>,<ref refid="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915bab92f302712b561470bfc9be49649f99f" kindref="member">Mixed</ref>,<ref refid="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915ba4e81c184ac3ad48a389cd4454c4a05bb" kindref="member">Unknown</ref>,<sp/><ref refid="EnumSets_8h_1a8f4ca8118d99c14c2c24a2dc704e915ba772d84e46498d2c2c04c35bfb43b64eb" kindref="member">SourceCount</ref>};</highlight></codeline>
     </programlisting>
-    <location file="/home/jack/Documents/Work/RAMICES_II/src/Parameters/EnumSets.h"/>
+    <location file="/Users/jf20/Documents/Physics/RAMICES_II/src/Parameters/EnumSets.h"/>
   </compounddef>
 </doxygen>

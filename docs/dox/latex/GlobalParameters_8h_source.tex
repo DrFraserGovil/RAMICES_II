@@ -1,0 +1,54 @@
+\hypertarget{GlobalParameters_8h_source}{}\doxysection{Global\+Parameters.\+h}
+\label{GlobalParameters_8h_source}\index{/Users/jf20/Documents/Physics/RAMICES\_II/src/Parameters/GlobalParameters.h@{/Users/jf20/Documents/Physics/RAMICES\_II/src/Parameters/GlobalParameters.h}}
+\mbox{\hyperlink{GlobalParameters_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}JSL.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ParameterLists_8h}{ParameterLists.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{List_8h}{List.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{EnumSets_8h}{EnumSets.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define PI 3.14159265358979323846}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{comment}{//Options classes are sets of initialisations of Argument objetcs, such that they can be seprated \& categorised}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classGlobalParameters}{GlobalParameters}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{public}:}
+\DoxyCodeLine{22         \mbox{\hyperlink{classMetaValues}{MetaValues}} \mbox{\hyperlink{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}{Meta}};}
+\DoxyCodeLine{23         }
+\DoxyCodeLine{25         \mbox{\hyperlink{classOutputValues}{OutputValues}} \mbox{\hyperlink{classGlobalParameters_af049296ba286c001a8264e134bf1e114}{Output}};}
+\DoxyCodeLine{26         }
+\DoxyCodeLine{28         \mbox{\hyperlink{classResourceValues}{ResourceValues}} \mbox{\hyperlink{classGlobalParameters_a468c66dbdd7f702a8d0fa3e0965cb588}{Resources}};}
+\DoxyCodeLine{29         }
+\DoxyCodeLine{31         \mbox{\hyperlink{classElementValues}{ElementValues}} \mbox{\hyperlink{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}{Element}};}
+\DoxyCodeLine{32         }
+\DoxyCodeLine{34         \mbox{\hyperlink{classStellarValues}{StellarValues}} \mbox{\hyperlink{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}{Stellar}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{37         \mbox{\hyperlink{classYieldValues}{YieldValues}} \mbox{\hyperlink{classGlobalParameters_aa559d651b87f8bb4f5afc49fda08721e}{Yield}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{40         \mbox{\hyperlink{classThermalValues}{ThermalValues}} \mbox{\hyperlink{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}{Thermal}};}
+\DoxyCodeLine{41         }
+\DoxyCodeLine{43         \mbox{\hyperlink{classMigrationValues}{MigrationValues}} \mbox{\hyperlink{classGlobalParameters_a52342081dbf5b1dad0f7198138e0e577}{Migration}};}
+\DoxyCodeLine{44         }
+\DoxyCodeLine{46         \mbox{\hyperlink{classCatalogueValues}{CatalogueValues}} \mbox{\hyperlink{classGlobalParameters_a5a38e8a2f50b1b81b55bd810bc80b831}{Catalogue}};}
+\DoxyCodeLine{47         }
+\DoxyCodeLine{49         \mbox{\hyperlink{classGalaxyValues}{GalaxyValues}} \mbox{\hyperlink{classGlobalParameters_abe614bae6bfab6d1fbe2b5e9db5adaa3}{Galaxy}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{52         std::vector<ParamList *> \mbox{\hyperlink{classGlobalParameters_ad5ed3bfeb016b8c1aeb2570b5bdc8385}{ParamMembers}} = \{\&\mbox{\hyperlink{classGlobalParameters_acadf3dc072a866179ff6cbb659bfe9f9}{Meta}},\&\mbox{\hyperlink{classGlobalParameters_af049296ba286c001a8264e134bf1e114}{Output}},\&\mbox{\hyperlink{classGlobalParameters_a468c66dbdd7f702a8d0fa3e0965cb588}{Resources}},\&\mbox{\hyperlink{classGlobalParameters_a6c19b1581da94aa75d4007b045ca3668}{Element}},\&\mbox{\hyperlink{classGlobalParameters_a0fecec8fd7a856462e6d2a156bced778}{Stellar}},\&\mbox{\hyperlink{classGlobalParameters_a4286ecf9679555c20b9176178e3cafef}{Thermal}},\&\mbox{\hyperlink{classGlobalParameters_abe614bae6bfab6d1fbe2b5e9db5adaa3}{Galaxy}},\&\mbox{\hyperlink{classGlobalParameters_aa559d651b87f8bb4f5afc49fda08721e}{Yield}},\&\mbox{\hyperlink{classGlobalParameters_a52342081dbf5b1dad0f7198138e0e577}{Migration}},\&\mbox{\hyperlink{classGlobalParameters_a5a38e8a2f50b1b81b55bd810bc80b831}{Catalogue}}\};}
+\DoxyCodeLine{53         }
+\DoxyCodeLine{55         \mbox{\hyperlink{classGlobalParameters_a9dc5211c8317889b10c16daf49f7e916}{GlobalParameters}}();}
+\DoxyCodeLine{56         }
+\DoxyCodeLine{58         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGlobalParameters_a49a012a4c9a2972a33ae78ef2d500d32}{Initialise}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[]);}
+\DoxyCodeLine{59         }
+\DoxyCodeLine{61         \textcolor{keywordtype}{void} \mbox{\hyperlink{classGlobalParameters_ae941f8d2ee7d8317ed563751d838b46d}{SaveInputs}}();}
+\DoxyCodeLine{62         }
+\DoxyCodeLine{63 \};}
+
+\end{DoxyCode}

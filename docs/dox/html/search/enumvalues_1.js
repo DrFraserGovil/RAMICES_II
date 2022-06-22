@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['calcium_755',['Calcium',['../EnumSets_8h.html#a8f434816783a791128b48a39ae663f15a40f67c18f45fbcb3396df8fb55e41145',1,'EnumSets.h']]],
-  ['carbon_756',['Carbon',['../EnumSets_8h.html#a8f434816783a791128b48a39ae663f15a29aed61cddc081ff18d77c441b9fedb2',1,'EnumSets.h']]],
-  ['ccsn_757',['CCSN',['../EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238ba6b931856a2c41dafbac513228fead00d',1,'EnumSets.h']]],
-  ['chromium_758',['Chromium',['../EnumSets_8h.html#a8f434816783a791128b48a39ae663f15a306622f80fd1cfd979de999e20c08a91',1,'EnumSets.h']]],
-  ['cobalt_759',['Cobalt',['../EnumSets_8h.html#a8f434816783a791128b48a39ae663f15a075486eef49beec48c269d23371d4ba7',1,'EnumSets.h']]],
-  ['collapsars_760',['Collapsars',['../EnumSets_8h.html#a14c15ac21b42cff8eb5dcbc24534238ba708c0e4c443c8d8788ac87e0921883eb',1,'EnumSets.h']]]
+  ['blackhole_0',['BlackHole',['../EnumSets_8h.html#a0265631ca5dd95605f5d924b87a8a989a0bbd34d49f8a33286ddc91256e4895b4',1,'EnumSets.h']]],
+  ['bmag_1',['BMag',['../IsochroneTracker_8h.html#a744d41c1ece5b6f92c88cc5a295fd318a3e6a6deb6fcc8d51c32efabda6a23163',1,'IsochroneTracker.h']]],
+  ['bolometricmag_2',['BolometricMag',['../IsochroneTracker_8h.html#a744d41c1ece5b6f92c88cc5a295fd318a992b69ca46115083f35e0789836480b3',1,'IsochroneTracker.h']]]
 ];

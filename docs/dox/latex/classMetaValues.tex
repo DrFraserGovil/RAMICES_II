@@ -25,14 +25,16 @@ virtual void \mbox{\hyperlink{classMetaValues_ab692a7cd1b675b2655e077863f67952e}
 \doxysubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ std\+::string $>$ \mbox{\hyperlink{classMetaValues_a8b73fd409e1e258b7d638b8aebef72e2}{Resource\+Root}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Resources/\char`\"{},\char`\"{}resource\char`\"{})
-\begin{DoxyCompactList}\small\item\em The location of the directory which the code looks for its expected resource file structure. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ int $>$ \mbox{\hyperlink{classMetaValues_ac8e1adbfb77ba566a39caf86dfb46a11}{Parallel\+Threads}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(1,\char`\"{}thread\char`\"{})
+Argument$<$ int $>$ \mbox{\hyperlink{classMetaValues_ad3a7959c7c5f5152b4c4d96f1de74259}{Verbosity}} = Argument$<$int$>$(1, \char`\"{}verbose\char`\"{})
+\begin{DoxyCompactList}\small\item\em Controls whether the funky ASCII welcome message is played at the beginning of the code. \end{DoxyCompactList}\item 
+Argument$<$ int $>$ \mbox{\hyperlink{classMetaValues_ac8e1adbfb77ba566a39caf86dfb46a11}{Parallel\+Threads}} = Argument$<$int$>$(3,\char`\"{}thread\char`\"{})
 \begin{DoxyCompactList}\small\item\em The maximum number of parallel threads which can be active at any given time. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}{Time\+Step}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+1,\char`\"{}timestep\char`\"{})
+Argument$<$ double $>$ \mbox{\hyperlink{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}{Time\+Step}} = Argument$<$double$>$(0.\+01,\char`\"{}timestep\char`\"{})
 \begin{DoxyCompactList}\small\item\em The top level timestep used in the main chemical loop. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$ double $>$ \mbox{\hyperlink{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}{Simulation\+Duration}} = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(14.\+0,\char`\"{}duration\char`\"{})
-\begin{DoxyCompactList}\small\item\em The total duration of the chemical simulation. \end{DoxyCompactList}\item 
+Argument$<$ double $>$ \mbox{\hyperlink{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}{Simulation\+Duration}} = Argument$<$double$>$(10.\+0,\char`\"{}duration\char`\"{})
+\item 
+Argument$<$ int $>$ \mbox{\hyperlink{classMetaValues_af6e55c77f5910926182837e658e1137b}{Progress\+Hashes}} = Argument$<$int$>$(32,\char`\"{}progress-\/hashes\char`\"{})
+\begin{DoxyCompactList}\small\item\em The number of hashes used to display progress bars. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classMetaValues_a821c714405e01102e4311b31b175d49d}{Simulation\+Steps}}
 \begin{DoxyCompactList}\small\item\em The number of timesteps in the simulation, computed from \mbox{\hyperlink{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}{Simulation\+Duration}} and \mbox{\hyperlink{classMetaValues_a91fd337f6d6ad536e6174b3e769b3bcf}{Time\+Step}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
@@ -76,31 +78,27 @@ Reimplemented from \mbox{\hyperlink{classParamList_a7bc1e8cffb0062a056193e34b80f
 \index{MetaValues@{MetaValues}!ParallelThreads@{ParallelThreads}}
 \index{ParallelThreads@{ParallelThreads}!MetaValues@{MetaValues}}
 \doxysubsubsection{\texorpdfstring{ParallelThreads}{ParallelThreads}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$ Meta\+Values\+::\+Parallel\+Threads = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$int$>$(1,\char`\"{}thread\char`\"{})}
+{\footnotesize\ttfamily Argument$<$int$>$ Meta\+Values\+::\+Parallel\+Threads = Argument$<$int$>$(3,\char`\"{}thread\char`\"{})}
 
 
 
 The maximum number of parallel threads which can be active at any given time. 
 
-\mbox{\Hypertarget{classMetaValues_a8b73fd409e1e258b7d638b8aebef72e2}\label{classMetaValues_a8b73fd409e1e258b7d638b8aebef72e2}} 
-\index{MetaValues@{MetaValues}!ResourceRoot@{ResourceRoot}}
-\index{ResourceRoot@{ResourceRoot}!MetaValues@{MetaValues}}
-\doxysubsubsection{\texorpdfstring{ResourceRoot}{ResourceRoot}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$ Meta\+Values\+::\+Resource\+Root = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$std\+::string$>$(\char`\"{}Resources/\char`\"{},\char`\"{}resource\char`\"{})}
+\mbox{\Hypertarget{classMetaValues_af6e55c77f5910926182837e658e1137b}\label{classMetaValues_af6e55c77f5910926182837e658e1137b}} 
+\index{MetaValues@{MetaValues}!ProgressHashes@{ProgressHashes}}
+\index{ProgressHashes@{ProgressHashes}!MetaValues@{MetaValues}}
+\doxysubsubsection{\texorpdfstring{ProgressHashes}{ProgressHashes}}
+{\footnotesize\ttfamily Argument$<$int$>$ Meta\+Values\+::\+Progress\+Hashes = Argument$<$int$>$(32,\char`\"{}progress-\/hashes\char`\"{})}
 
 
 
-The location of the directory which the code looks for its expected resource file structure. 
+The number of hashes used to display progress bars. 
 
 \mbox{\Hypertarget{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}\label{classMetaValues_a99960686637e59874cc6cd5e1b7b71b8}} 
 \index{MetaValues@{MetaValues}!SimulationDuration@{SimulationDuration}}
 \index{SimulationDuration@{SimulationDuration}!MetaValues@{MetaValues}}
 \doxysubsubsection{\texorpdfstring{SimulationDuration}{SimulationDuration}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Meta\+Values\+::\+Simulation\+Duration = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(14.\+0,\char`\"{}duration\char`\"{})}
-
-
-
-The total duration of the chemical simulation. 
+{\footnotesize\ttfamily Argument$<$double$>$ Meta\+Values\+::\+Simulation\+Duration = Argument$<$double$>$(10.\+0,\char`\"{}duration\char`\"{})}
 
 \mbox{\Hypertarget{classMetaValues_a821c714405e01102e4311b31b175d49d}\label{classMetaValues_a821c714405e01102e4311b31b175d49d}} 
 \index{MetaValues@{MetaValues}!SimulationSteps@{SimulationSteps}}
@@ -116,14 +114,24 @@ The number of timesteps in the simulation, computed from \mbox{\hyperlink{classM
 \index{MetaValues@{MetaValues}!TimeStep@{TimeStep}}
 \index{TimeStep@{TimeStep}!MetaValues@{MetaValues}}
 \doxysubsubsection{\texorpdfstring{TimeStep}{TimeStep}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$ Meta\+Values\+::\+Time\+Step = \mbox{\hyperlink{classJSL_1_1Argument}{Argument}}$<$double$>$(0.\+1,\char`\"{}timestep\char`\"{})}
+{\footnotesize\ttfamily Argument$<$double$>$ Meta\+Values\+::\+Time\+Step = Argument$<$double$>$(0.\+01,\char`\"{}timestep\char`\"{})}
 
 
 
 The top level timestep used in the main chemical loop. 
 
+\mbox{\Hypertarget{classMetaValues_ad3a7959c7c5f5152b4c4d96f1de74259}\label{classMetaValues_ad3a7959c7c5f5152b4c4d96f1de74259}} 
+\index{MetaValues@{MetaValues}!Verbosity@{Verbosity}}
+\index{Verbosity@{Verbosity}!MetaValues@{MetaValues}}
+\doxysubsubsection{\texorpdfstring{Verbosity}{Verbosity}}
+{\footnotesize\ttfamily Argument$<$int$>$ Meta\+Values\+::\+Verbosity = Argument$<$int$>$(1, \char`\"{}verbose\char`\"{})}
+
+
+
+Controls whether the funky ASCII welcome message is played at the beginning of the code. 
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}
+/\+Users/jf20/\+Documents/\+Physics/\+RAMICES\+\_\+\+II/src/\+Parameters/\mbox{\hyperlink{ParameterLists_8h}{Parameter\+Lists.\+h}}\end{DoxyCompactItemize}

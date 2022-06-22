@@ -7,60 +7,210 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classStarReservoir_a3f60b3f4c8af1509dcc9332cd2f7d9da}{Star\+Reservoir}} (const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&\mbox{\hyperlink{classStarReservoir_a50c92bbb8e133593baca28ccb54bba0f}{Param}})
+\mbox{\hyperlink{classStarReservoir_a28c4d7e912919d958ac919251aaa115e}{Star\+Reservoir}} (int parent\+Ring, \mbox{\hyperlink{classInitialisedData}{Initialised\+Data}} \&data)
 \item 
-\mbox{\hyperlink{classStarReservoir_a4db0a7a429c235d914d6b021e1735d1b}{Mass}} ()
+double \mbox{\hyperlink{classStarReservoir_ad7243fb1678924b5514ec37f3bf194f4}{Alive\+Mass}} ()
 \item 
-void \mbox{\hyperlink{classStarReservoir_adbec993089ffb848b611cc57091586bd}{Birth}} (\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&gas)
+\mbox{\hyperlink{structMassReport}{Mass\+Report}} \mbox{\hyperlink{classStarReservoir_a5c4d8761a55c3a9b12501efe580092c7}{Dead\+Mass}} ()
+\item 
+void \mbox{\hyperlink{classStarReservoir_ad1ed522b41fb89649ad76c3d9867ce69}{Observations}} ()
+\item 
+void \mbox{\hyperlink{classStarReservoir_aeca96339fab71dc4136e44a6e11632e3}{Form}} (\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&gas, \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&igm)
+\item 
+void \mbox{\hyperlink{classStarReservoir_aa78dfd94aa81e491ef22176d7828751b}{Death}} (int current\+Time)
+\item 
+void \mbox{\hyperlink{classStarReservoir_a055cbcc4b92d33282c5125de19ff41f1}{Print\+Status}} (int t)
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{classGasStream}{Gas\+Stream}} $>$ \& \mbox{\hyperlink{classStarReservoir_a994c32ce225c0350a5e24b2154fbb49f}{Yields\+From}} (int t)
+\item 
+void \mbox{\hyperlink{classStarReservoir_ac45b307a340af598e28f8081af16cd65}{Save\+Event\+Rate}} (int t, std\+::stringstream \&output)
+\item 
+void \mbox{\hyperlink{classStarReservoir_a3a7a1aef699760dfa56c033f57ffba7c}{Assign\+Magnitudes}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classStellarPopulation}{Stellar\+Population}} $>$ \mbox{\hyperlink{classStarReservoir_afa02877deb4333f600d7916081f2a6ff}{Population}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} $>$ \mbox{\hyperlink{classStarReservoir_a0d8b28cb892d63dd02ace26aefdf76da}{Yield\+Output}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classStarReservoir_aa5e8b5e89146179c6168eb418a052793}{SFR\+\_\+\+Gas\+Loss}} (double cold\+Mass, double hot\+Mass, double eject\+Factor)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{classStarReservoir_a14d18cd77706e1159b5aceb92c45e911}{Star\+Populations}}
+\mbox{\hyperlink{classRemnantPopulation}{Remnant\+Population}} \mbox{\hyperlink{classStarReservoir_a16164e599a0ebbe983a9408acfa5bb2e}{Remnants}}
+\item 
+const int \mbox{\hyperlink{classStarReservoir_aa397315205191385f71166b062ec3036}{Parent\+Ring}}
+\item 
+double \mbox{\hyperlink{classStarReservoir_adde79f75939b70ad6304002e33f3ee23}{Parent\+Area}}
+\item 
+double \mbox{\hyperlink{classStarReservoir_aa679922f06e427853131ab1a4dca974e}{Temp\+\_\+\+Mass}}
+\item 
+const \mbox{\hyperlink{classIMF__Functor}{IMF\+\_\+\+Functor}} \& \mbox{\hyperlink{classStarReservoir_a2efd119bd0a557e4a47c7f13a60913dd}{IMF}}
+\item 
+\mbox{\hyperlink{classSLF__Functor}{SLF\+\_\+\+Functor}} \& \mbox{\hyperlink{classStarReservoir_ade2cee0c4d213c254da8af496d396f31}{SLF}}
+\item 
+int \mbox{\hyperlink{classStarReservoir_a0880ef819d027afc28705ac1afc1d723}{Population\+Index}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classStarEvents}{Star\+Events}} $>$ \mbox{\hyperlink{classStarReservoir_a7076b92b5da3307bd3ce15ea48adb527}{Event\+Rate}}
+\item 
+\mbox{\hyperlink{classInitialisedData}{Initialised\+Data}} \& \mbox{\hyperlink{classStarReservoir_a87057a6e84962fb07f8a1c331a044d4c}{Data}}
 \item 
 const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \& \mbox{\hyperlink{classStarReservoir_a50c92bbb8e133593baca28ccb54bba0f}{Param}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classStarReservoir_a3f60b3f4c8af1509dcc9332cd2f7d9da}\label{classStarReservoir_a3f60b3f4c8af1509dcc9332cd2f7d9da}} 
+\mbox{\Hypertarget{classStarReservoir_a28c4d7e912919d958ac919251aaa115e}\label{classStarReservoir_a28c4d7e912919d958ac919251aaa115e}} 
 \index{StarReservoir@{StarReservoir}!StarReservoir@{StarReservoir}}
 \index{StarReservoir@{StarReservoir}!StarReservoir@{StarReservoir}}
 \doxysubsubsection{\texorpdfstring{StarReservoir()}{StarReservoir()}}
-{\footnotesize\ttfamily Star\+Reservoir\+::\+Star\+Reservoir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \&}]{Param }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Star\+Reservoir\+::\+Star\+Reservoir (\begin{DoxyParamCaption}\item[{int}]{parent\+Ring,  }\item[{\mbox{\hyperlink{classInitialisedData}{Initialised\+Data}} \&}]{data }\end{DoxyParamCaption})}
 
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classStarReservoir_adbec993089ffb848b611cc57091586bd}\label{classStarReservoir_adbec993089ffb848b611cc57091586bd}} 
-\index{StarReservoir@{StarReservoir}!Birth@{Birth}}
-\index{Birth@{Birth}!StarReservoir@{StarReservoir}}
-\doxysubsubsection{\texorpdfstring{Birth()}{Birth()}}
-{\footnotesize\ttfamily void Star\+Reservoir\+::\+Birth (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&}]{gas }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classStarReservoir_ad7243fb1678924b5514ec37f3bf194f4}\label{classStarReservoir_ad7243fb1678924b5514ec37f3bf194f4}} 
+\index{StarReservoir@{StarReservoir}!AliveMass@{AliveMass}}
+\index{AliveMass@{AliveMass}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{AliveMass()}{AliveMass()}}
+{\footnotesize\ttfamily double Star\+Reservoir\+::\+Alive\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classStarReservoir_a4db0a7a429c235d914d6b021e1735d1b}\label{classStarReservoir_a4db0a7a429c235d914d6b021e1735d1b}} 
-\index{StarReservoir@{StarReservoir}!Mass@{Mass}}
-\index{Mass@{Mass}!StarReservoir@{StarReservoir}}
-\doxysubsubsection{\texorpdfstring{Mass()}{Mass()}}
-{\footnotesize\ttfamily Star\+Reservoir\+::\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classStarReservoir_a3a7a1aef699760dfa56c033f57ffba7c}\label{classStarReservoir_a3a7a1aef699760dfa56c033f57ffba7c}} 
+\index{StarReservoir@{StarReservoir}!AssignMagnitudes@{AssignMagnitudes}}
+\index{AssignMagnitudes@{AssignMagnitudes}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{AssignMagnitudes()}{AssignMagnitudes()}}
+{\footnotesize\ttfamily void Star\+Reservoir\+::\+Assign\+Magnitudes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classStarReservoir_a5c4d8761a55c3a9b12501efe580092c7}\label{classStarReservoir_a5c4d8761a55c3a9b12501efe580092c7}} 
+\index{StarReservoir@{StarReservoir}!DeadMass@{DeadMass}}
+\index{DeadMass@{DeadMass}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{DeadMass()}{DeadMass()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMassReport}{Mass\+Report}} Star\+Reservoir\+::\+Dead\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classStarReservoir_aa78dfd94aa81e491ef22176d7828751b}\label{classStarReservoir_aa78dfd94aa81e491ef22176d7828751b}} 
+\index{StarReservoir@{StarReservoir}!Death@{Death}}
+\index{Death@{Death}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{Death()}{Death()}}
+{\footnotesize\ttfamily void Star\+Reservoir\+::\+Death (\begin{DoxyParamCaption}\item[{int}]{current\+Time }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classStarReservoir_aeca96339fab71dc4136e44a6e11632e3}\label{classStarReservoir_aeca96339fab71dc4136e44a6e11632e3}} 
+\index{StarReservoir@{StarReservoir}!Form@{Form}}
+\index{Form@{Form}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{Form()}{Form()}}
+{\footnotesize\ttfamily void Star\+Reservoir\+::\+Form (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&}]{gas,  }\item[{\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&}]{igm }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classStarReservoir_ad1ed522b41fb89649ad76c3d9867ce69}\label{classStarReservoir_ad1ed522b41fb89649ad76c3d9867ce69}} 
+\index{StarReservoir@{StarReservoir}!Observations@{Observations}}
+\index{Observations@{Observations}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{Observations()}{Observations()}}
+{\footnotesize\ttfamily void Star\+Reservoir\+::\+Observations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classStarReservoir_a055cbcc4b92d33282c5125de19ff41f1}\label{classStarReservoir_a055cbcc4b92d33282c5125de19ff41f1}} 
+\index{StarReservoir@{StarReservoir}!PrintStatus@{PrintStatus}}
+\index{PrintStatus@{PrintStatus}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{PrintStatus()}{PrintStatus()}}
+{\footnotesize\ttfamily void Star\+Reservoir\+::\+Print\+Status (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classStarReservoir_ac45b307a340af598e28f8081af16cd65}\label{classStarReservoir_ac45b307a340af598e28f8081af16cd65}} 
+\index{StarReservoir@{StarReservoir}!SaveEventRate@{SaveEventRate}}
+\index{SaveEventRate@{SaveEventRate}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{SaveEventRate()}{SaveEventRate()}}
+{\footnotesize\ttfamily void Star\+Reservoir\+::\+Save\+Event\+Rate (\begin{DoxyParamCaption}\item[{int}]{t,  }\item[{std\+::stringstream \&}]{output }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classStarReservoir_aa5e8b5e89146179c6168eb418a052793}\label{classStarReservoir_aa5e8b5e89146179c6168eb418a052793}} 
+\index{StarReservoir@{StarReservoir}!SFR\_GasLoss@{SFR\_GasLoss}}
+\index{SFR\_GasLoss@{SFR\_GasLoss}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{SFR\_GasLoss()}{SFR\_GasLoss()}}
+{\footnotesize\ttfamily double Star\+Reservoir\+::\+SFR\+\_\+\+Gas\+Loss (\begin{DoxyParamCaption}\item[{double}]{cold\+Mass,  }\item[{double}]{hot\+Mass,  }\item[{double}]{eject\+Factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classStarReservoir_a994c32ce225c0350a5e24b2154fbb49f}\label{classStarReservoir_a994c32ce225c0350a5e24b2154fbb49f}} 
+\index{StarReservoir@{StarReservoir}!YieldsFrom@{YieldsFrom}}
+\index{YieldsFrom@{YieldsFrom}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{YieldsFrom()}{YieldsFrom()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classGasStream}{Gas\+Stream}} $>$ \& Star\+Reservoir\+::\+Yields\+From (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
 
 
 
 \doxysubsection{Field Documentation}
+\mbox{\Hypertarget{classStarReservoir_a87057a6e84962fb07f8a1c331a044d4c}\label{classStarReservoir_a87057a6e84962fb07f8a1c331a044d4c}} 
+\index{StarReservoir@{StarReservoir}!Data@{Data}}
+\index{Data@{Data}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{Data}{Data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classInitialisedData}{Initialised\+Data}}\& Star\+Reservoir\+::\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classStarReservoir_a7076b92b5da3307bd3ce15ea48adb527}\label{classStarReservoir_a7076b92b5da3307bd3ce15ea48adb527}} 
+\index{StarReservoir@{StarReservoir}!EventRate@{EventRate}}
+\index{EventRate@{EventRate}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{EventRate}{EventRate}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classStarEvents}{Star\+Events}}$>$ Star\+Reservoir\+::\+Event\+Rate\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classStarReservoir_a2efd119bd0a557e4a47c7f13a60913dd}\label{classStarReservoir_a2efd119bd0a557e4a47c7f13a60913dd}} 
+\index{StarReservoir@{StarReservoir}!IMF@{IMF}}
+\index{IMF@{IMF}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{IMF}{IMF}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classIMF__Functor}{IMF\+\_\+\+Functor}}\& Star\+Reservoir\+::\+IMF\hspace{0.3cm}{\ttfamily [private]}}
+
 \mbox{\Hypertarget{classStarReservoir_a50c92bbb8e133593baca28ccb54bba0f}\label{classStarReservoir_a50c92bbb8e133593baca28ccb54bba0f}} 
 \index{StarReservoir@{StarReservoir}!Param@{Param}}
 \index{Param@{Param}!StarReservoir@{StarReservoir}}
 \doxysubsubsection{\texorpdfstring{Param}{Param}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}}\& Star\+Reservoir\+::\+Param\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classStarReservoir_a14d18cd77706e1159b5aceb92c45e911}\label{classStarReservoir_a14d18cd77706e1159b5aceb92c45e911}} 
-\index{StarReservoir@{StarReservoir}!StarPopulations@{StarPopulations}}
-\index{StarPopulations@{StarPopulations}!StarReservoir@{StarReservoir}}
-\doxysubsubsection{\texorpdfstring{StarPopulations}{StarPopulations}}
-{\footnotesize\ttfamily std\+::vector$<$double$>$ Star\+Reservoir\+::\+Star\+Populations\hspace{0.3cm}{\ttfamily [private]}}
+\mbox{\Hypertarget{classStarReservoir_adde79f75939b70ad6304002e33f3ee23}\label{classStarReservoir_adde79f75939b70ad6304002e33f3ee23}} 
+\index{StarReservoir@{StarReservoir}!ParentArea@{ParentArea}}
+\index{ParentArea@{ParentArea}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{ParentArea}{ParentArea}}
+{\footnotesize\ttfamily double Star\+Reservoir\+::\+Parent\+Area\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classStarReservoir_aa397315205191385f71166b062ec3036}\label{classStarReservoir_aa397315205191385f71166b062ec3036}} 
+\index{StarReservoir@{StarReservoir}!ParentRing@{ParentRing}}
+\index{ParentRing@{ParentRing}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{ParentRing}{ParentRing}}
+{\footnotesize\ttfamily const int Star\+Reservoir\+::\+Parent\+Ring\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classStarReservoir_afa02877deb4333f600d7916081f2a6ff}\label{classStarReservoir_afa02877deb4333f600d7916081f2a6ff}} 
+\index{StarReservoir@{StarReservoir}!Population@{Population}}
+\index{Population@{Population}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{Population}{Population}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classStellarPopulation}{Stellar\+Population}}$>$ Star\+Reservoir\+::\+Population}
+
+\mbox{\Hypertarget{classStarReservoir_a0880ef819d027afc28705ac1afc1d723}\label{classStarReservoir_a0880ef819d027afc28705ac1afc1d723}} 
+\index{StarReservoir@{StarReservoir}!PopulationIndex@{PopulationIndex}}
+\index{PopulationIndex@{PopulationIndex}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{PopulationIndex}{PopulationIndex}}
+{\footnotesize\ttfamily int Star\+Reservoir\+::\+Population\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classStarReservoir_a16164e599a0ebbe983a9408acfa5bb2e}\label{classStarReservoir_a16164e599a0ebbe983a9408acfa5bb2e}} 
+\index{StarReservoir@{StarReservoir}!Remnants@{Remnants}}
+\index{Remnants@{Remnants}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{Remnants}{Remnants}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRemnantPopulation}{Remnant\+Population}} Star\+Reservoir\+::\+Remnants\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classStarReservoir_ade2cee0c4d213c254da8af496d396f31}\label{classStarReservoir_ade2cee0c4d213c254da8af496d396f31}} 
+\index{StarReservoir@{StarReservoir}!SLF@{SLF}}
+\index{SLF@{SLF}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{SLF}{SLF}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSLF__Functor}{SLF\+\_\+\+Functor}}\& Star\+Reservoir\+::\+SLF\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classStarReservoir_aa679922f06e427853131ab1a4dca974e}\label{classStarReservoir_aa679922f06e427853131ab1a4dca974e}} 
+\index{StarReservoir@{StarReservoir}!Temp\_Mass@{Temp\_Mass}}
+\index{Temp\_Mass@{Temp\_Mass}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{Temp\_Mass}{Temp\_Mass}}
+{\footnotesize\ttfamily double Star\+Reservoir\+::\+Temp\+\_\+\+Mass\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classStarReservoir_a0d8b28cb892d63dd02ace26aefdf76da}\label{classStarReservoir_a0d8b28cb892d63dd02ace26aefdf76da}} 
+\index{StarReservoir@{StarReservoir}!YieldOutput@{YieldOutput}}
+\index{YieldOutput@{YieldOutput}!StarReservoir@{StarReservoir}}
+\doxysubsubsection{\texorpdfstring{YieldOutput}{YieldOutput}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}}$>$ Star\+Reservoir\+::\+Yield\+Output}
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/src/\+Stars/\mbox{\hyperlink{StarReservoir_8h}{Star\+Reservoir.\+h}}\end{DoxyCompactItemize}
+/\+Users/jf20/\+Documents/\+Physics/\+RAMICES\+\_\+\+II/src/\+Stars/\mbox{\hyperlink{StarReservoir_8h}{Star\+Reservoir.\+h}}\end{DoxyCompactItemize}

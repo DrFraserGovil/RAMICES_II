@@ -1,18 +1,65 @@
-\hypertarget{Galaxy_8h}{}\doxysection{/home/jack/\+Documents/\+Work/\+R\+A\+M\+I\+C\+E\+S\+\_\+\+I\+I/old\+\_\+src/\+Galaxy/\+Galaxy.h File Reference}
-\label{Galaxy_8h}\index{/home/jack/Documents/Work/RAMICES\_II/old\_src/Galaxy/Galaxy.h@{/home/jack/Documents/Work/RAMICES\_II/old\_src/Galaxy/Galaxy.h}}
-{\ttfamily \#include $<$vector$>$}\newline
-{\ttfamily \#include $<$math.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}../\+Options.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}../\+Generic\+Functions/\+Logger.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}../\+Chemical\+Assemblers/\+Yield\+Grid.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$iostream$>$}\newline
-{\ttfamily \#include $<$iomanip$>$}\newline
-{\ttfamily \#include $<$fstream$>$}\newline
+\hypertarget{Galaxy_8h}{}\doxysection{/\+Users/jf20/\+Documents/\+Physics/\+RAMICES\+\_\+\+II/src/\+Galaxy/\+Galaxy.h File Reference}
+\label{Galaxy_8h}\index{/Users/jf20/Documents/Physics/RAMICES\_II/src/Galaxy/Galaxy.h@{/Users/jf20/Documents/Physics/RAMICES\_II/src/Galaxy/Galaxy.h}}
+{\ttfamily \#include \char`\"{}../\+Parameters/\+Initialised\+Data.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Ring.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Gas/\+Gas\+Reservoir.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Stars/\+IMF.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Stars/\+SLF.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Migration\+Matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$future$>$}\newline
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structMassKeeper}{Mass\+Keeper}}
-\item 
 class \mbox{\hyperlink{classGalaxy}{Galaxy}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4b}{Parallel\+Job}} \{ \newline
+\mbox{\hyperlink{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba713057e82d0bbe5bc547295c913419b8}{Ring\+Step}}
+, \mbox{\hyperlink{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4babbf57b97285d30bb1be42dbab0eb65ae}{Compounding}}
+, \mbox{\hyperlink{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba851b4730db5e253ae63f5ef94967dbf3}{Scattering}}
+, \mbox{\hyperlink{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba5132a2ec96693f88134dd4d2a34463f0}{Assign\+Isochrones}}
+, \newline
+\mbox{\hyperlink{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba74dc44b1d1e1754cd2ea96682f470f32}{Synthesis}}
+, \mbox{\hyperlink{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba72808c3beb66baf97932c94a8ee433c5}{Selection}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4b}\label{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4b}} 
+\index{Galaxy.h@{Galaxy.h}!ParallelJob@{ParallelJob}}
+\index{ParallelJob@{ParallelJob}!Galaxy.h@{Galaxy.h}}
+\doxysubsubsection{\texorpdfstring{ParallelJob}{ParallelJob}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4b}{Parallel\+Job}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RingStep@{RingStep}!Galaxy.h@{Galaxy.h}}\index{Galaxy.h@{Galaxy.h}!RingStep@{RingStep}}}\mbox{\Hypertarget{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba713057e82d0bbe5bc547295c913419b8}\label{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba713057e82d0bbe5bc547295c913419b8}} 
+Ring\+Step&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Compounding@{Compounding}!Galaxy.h@{Galaxy.h}}\index{Galaxy.h@{Galaxy.h}!Compounding@{Compounding}}}\mbox{\Hypertarget{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4babbf57b97285d30bb1be42dbab0eb65ae}\label{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4babbf57b97285d30bb1be42dbab0eb65ae}} 
+Compounding&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Scattering@{Scattering}!Galaxy.h@{Galaxy.h}}\index{Galaxy.h@{Galaxy.h}!Scattering@{Scattering}}}\mbox{\Hypertarget{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba851b4730db5e253ae63f5ef94967dbf3}\label{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba851b4730db5e253ae63f5ef94967dbf3}} 
+Scattering&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AssignIsochrones@{AssignIsochrones}!Galaxy.h@{Galaxy.h}}\index{Galaxy.h@{Galaxy.h}!AssignIsochrones@{AssignIsochrones}}}\mbox{\Hypertarget{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba5132a2ec96693f88134dd4d2a34463f0}\label{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba5132a2ec96693f88134dd4d2a34463f0}} 
+Assign\+Isochrones&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Synthesis@{Synthesis}!Galaxy.h@{Galaxy.h}}\index{Galaxy.h@{Galaxy.h}!Synthesis@{Synthesis}}}\mbox{\Hypertarget{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba74dc44b1d1e1754cd2ea96682f470f32}\label{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba74dc44b1d1e1754cd2ea96682f470f32}} 
+Synthesis&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Selection@{Selection}!Galaxy.h@{Galaxy.h}}\index{Galaxy.h@{Galaxy.h}!Selection@{Selection}}}\mbox{\Hypertarget{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba72808c3beb66baf97932c94a8ee433c5}\label{Galaxy_8h_ac5fdf1a4567e9cbaff6bc909779d2f4ba72808c3beb66baf97932c94a8ee433c5}} 
+Selection&\\
+\hline
+
+\end{DoxyEnumFields}
