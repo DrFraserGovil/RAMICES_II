@@ -166,7 +166,7 @@ void GasReservoir::Heat(double amountToHeat)
 	}
 }
 
-void GasReservoir::PassiveCool(double dt, bool isIGM)
+void GasReservoir::PassiveCool(double dt, bool isCGM)
 {
 	//~ double tau = Param.Thermal.GasCoolingTimeScale;
 	//~ double coolingFraction = (1.0 - exp(-dt/tau)); //basic exponential cooling law
@@ -183,7 +183,7 @@ void GasReservoir::PassiveCool(double dt, bool isIGM)
 	//~ double n = Param.Thermal.CoolingPower;
 	//~ int lambda = 1.0/Param.Thermal.GasCoolingTimeScale;
 	//~ double dormantPower = pow(Param.Thermal.DormantHotFraction,n);
-	//~ if (isIGM)
+	//~ if (isCGM)
 	//~ {
 		//~ dormantPower = 1e-99;
 		//~ lambda *= 100;
@@ -199,7 +199,7 @@ void GasReservoir::PassiveCool(double dt, bool isIGM)
 	//~ }
 	
 	double lambda = 1.0/Param.Thermal.GasCoolingTimeScale;
-	//~ if (isIGM)
+	//~ if (isCGM)
 		//~ lambda *= 100;
 	double newHot = HotMass() * exp( - lambda * dt);
 	
@@ -233,7 +233,7 @@ GasStream GasReservoir::AccretionStream(double amountToLose)
 	double initMass = ColdMass();
 	if (amountToLose > initMass)
 	{
-		std::cout << "You have just attempted to accrete gas from a reservoir exceeding the mass of the reservoir. This is likely because your IGM mass is too low." << std::endl;
+		std::cout << "You have just attempted to accrete gas from a reservoir exceeding the mass of the reservoir. This is likely because your CGM mass is too low." << std::endl;
 		exit(5);
 	}
 	

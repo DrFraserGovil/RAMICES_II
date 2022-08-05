@@ -19,7 +19,7 @@ class Ring
 		//Relic Reservoir
 		StarReservoir Stars;
 		GasReservoir Gas;
-		GasReservoir IGMBuffer;
+		GasReservoir CGMBuffer;
 		void MakeStars();
 		void KillStars(int time);
 		void Cool();
