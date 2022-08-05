@@ -76,10 +76,10 @@
       </memberdef>
       <memberdef kind="variable" id="classRing_1a1f1b47594aead03104f0217832b0b413" prot="public" static="no" mutable="no">
         <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref></type>
-        <definition>GasReservoir Ring::IGMBuffer</definition>
+        <definition>GasReservoir Ring::CGMBuffer</definition>
         <argsstring></argsstring>
-        <name>IGMBuffer</name>
-        <qualifiedname>Ring::IGMBuffer</qualifiedname>
+        <name>CGMBuffer</name>
+        <qualifiedname>Ring::CGMBuffer</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -515,7 +515,7 @@
           <edgelabel>RingCount</edgelabel>
         </childnode>
         <childnode refid="9" relation="usage">
-          <edgelabel>IGM_Mass</edgelabel>
+          <edgelabel>CGM_Mass</edgelabel>
           <edgelabel>InfallMass1</edgelabel>
           <edgelabel>InfallMass2</edgelabel>
           <edgelabel>InfallMassMerger</edgelabel>
@@ -528,7 +528,7 @@
           <edgelabel>...</edgelabel>
         </childnode>
         <childnode refid="18" relation="usage">
-          <edgelabel>IGMAbsorbing</edgelabel>
+          <edgelabel>CGMAbsorbing</edgelabel>
           <edgelabel>UsingVariableRingWidth</edgelabel>
         </childnode>
       </node>
@@ -700,7 +700,7 @@
         </childnode>
         <childnode refid="26" relation="usage">
           <edgelabel>Gas</edgelabel>
-          <edgelabel>IGMBuffer</edgelabel>
+          <edgelabel>CGMBuffer</edgelabel>
         </childnode>
         <childnode refid="23" relation="usage">
           <edgelabel>Data</edgelabel>
@@ -821,7 +821,7 @@
       <member refid="classRing_1a0244597e8a04a538b5b343bd3b8841eb" prot="private" virt="non-virtual"><scope>Ring</scope><name>Data</name></member>
       <member refid="classRing_1a07a56d858310883fcd0884168f672aa5" prot="public" virt="non-virtual"><scope>Ring</scope><name>Gas</name></member>
       <member refid="classRing_1a759d270dfd623a5a251ad94b9aac3636" prot="private" virt="non-virtual"><scope>Ring</scope><name>HotBuffer</name></member>
-      <member refid="classRing_1a1f1b47594aead03104f0217832b0b413" prot="public" virt="non-virtual"><scope>Ring</scope><name>IGMBuffer</name></member>
+      <member refid="classRing_1a1f1b47594aead03104f0217832b0b413" prot="public" virt="non-virtual"><scope>Ring</scope><name>CGMBuffer</name></member>
       <member refid="classRing_1af5dc7752646d67d66923b572a09e6817" prot="public" virt="non-virtual"><scope>Ring</scope><name>KillStars</name></member>
       <member refid="classRing_1a90bdb8683b920097f4a4b21e503d2ab8" prot="public" virt="non-virtual"><scope>Ring</scope><name>MakeStars</name></member>
       <member refid="classRing_1aaf04a946616f5ec362541acb5d8f64a7" prot="public" virt="non-virtual"><scope>Ring</scope><name>Mass</name></member>

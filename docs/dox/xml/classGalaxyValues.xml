@@ -70,11 +70,11 @@
       </memberdef>
       <memberdef kind="variable" id="classGalaxyValues_1a1b23ac0a65c02961c78fe6869e25bb2c" prot="public" static="no" mutable="no">
         <type>Argument&lt; bool &gt;</type>
-        <definition>Argument&lt;bool&gt; GalaxyValues::IGMAbsorbing</definition>
+        <definition>Argument&lt;bool&gt; GalaxyValues::CGMAbsorbing</definition>
         <argsstring></argsstring>
-        <name>IGMAbsorbing</name>
-        <qualifiedname>GalaxyValues::IGMAbsorbing</qualifiedname>
-        <initializer>= Argument&lt;bool&gt;(true,&quot;igm-absorb&quot;)</initializer>
+        <name>CGMAbsorbing</name>
+        <qualifiedname>GalaxyValues::CGMAbsorbing</qualifiedname>
+        <initializer>= Argument&lt;bool&gt;(true,&quot;cgm-absorb&quot;)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -145,13 +145,13 @@
       </memberdef>
       <memberdef kind="variable" id="classGalaxyValues_1a61a7e9021fb7dbf1f3b6cfbb1c9888ef" prot="public" static="no" mutable="no">
         <type>Argument&lt; double &gt;</type>
-        <definition>Argument&lt;double&gt; GalaxyValues::IGM_Mass</definition>
+        <definition>Argument&lt;double&gt; GalaxyValues::CGM_Mass</definition>
         <argsstring></argsstring>
-        <name>IGM_Mass</name>
-        <qualifiedname>GalaxyValues::IGM_Mass</qualifiedname>
-        <initializer>= Argument&lt;double&gt;(200,&quot;igm-mass&quot;)</initializer>
+        <name>CGM_Mass</name>
+        <qualifiedname>GalaxyValues::CGM_Mass</qualifiedname>
+        <initializer>= Argument&lt;double&gt;(200,&quot;cgm-mass&quot;)</initializer>
         <briefdescription>
-<para>Initial Mass of the IGM Reservoir. </para>
+<para>Initial Mass of the CGM Reservoir. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -453,7 +453,7 @@
           <edgelabel>RingCount</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
-          <edgelabel>IGM_Mass</edgelabel>
+          <edgelabel>CGM_Mass</edgelabel>
           <edgelabel>InfallMass1</edgelabel>
           <edgelabel>InfallMass2</edgelabel>
           <edgelabel>InfallMassMerger</edgelabel>
@@ -466,7 +466,7 @@
           <edgelabel>...</edgelabel>
         </childnode>
         <childnode refid="5" relation="usage">
-          <edgelabel>IGMAbsorbing</edgelabel>
+          <edgelabel>CGMAbsorbing</edgelabel>
           <edgelabel>UsingVariableRingWidth</edgelabel>
         </childnode>
       </node>
@@ -480,8 +480,8 @@
       <member refid="classParamList_1a5dd9bcd80fa4f11fd9607bd47f697ca2" prot="protected" virt="non-virtual"><scope>GalaxyValues</scope><name>argPointers</name></member>
       <member refid="classParamList_1a7ea5ff6efbbfd83e5c5c9a638bcd38d8" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>Configure</name></member>
       <member refid="classGalaxyValues_1a21533ba013a6f9a5b1df16191c7e93d2" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>GalaxyValues</name></member>
-      <member refid="classGalaxyValues_1a61a7e9021fb7dbf1f3b6cfbb1c9888ef" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>IGM_Mass</name></member>
-      <member refid="classGalaxyValues_1a1b23ac0a65c02961c78fe6869e25bb2c" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>IGMAbsorbing</name></member>
+      <member refid="classGalaxyValues_1a61a7e9021fb7dbf1f3b6cfbb1c9888ef" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>CGM_Mass</name></member>
+      <member refid="classGalaxyValues_1a1b23ac0a65c02961c78fe6869e25bb2c" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>CGMAbsorbing</name></member>
       <member refid="classGalaxyValues_1a684319d15ecbdd2434fd30de9e49236d" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>InfallMass1</name></member>
       <member refid="classGalaxyValues_1af9f7596b0a1d23af97619a0b3e8be305" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>InfallMass2</name></member>
       <member refid="classGalaxyValues_1a0da91cfc76c9acf27bc346c8282d3a63" prot="public" virt="non-virtual"><scope>GalaxyValues</scope><name>InfallMassMerger</name></member>

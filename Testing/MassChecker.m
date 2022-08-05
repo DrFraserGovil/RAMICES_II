@@ -25,7 +25,7 @@ function plotMassFile(fileName)
     mset = zeros(size(timeset));
     accActual = mset;
     accPred = mset;
-    igm = mset;
+    cgm = mset;
     mtotal = mset;
     stotal = mset;
     ctotal = mset;
@@ -44,7 +44,7 @@ function plotMassFile(fileName)
         sgm = f.StellarMass(selector);
         wdm = f.WDMass(selector);
         nsm = f.NSMass(selector);
-%         igm(i) = mean(f.IGMMass(selector));
+%         cgm(i) = mean(f.CGMMass(selector));
 
         mtotal(i) = sum(f.TotalMass(selector));
         stotal(i) = sum(sgm);

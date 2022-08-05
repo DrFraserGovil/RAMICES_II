@@ -1,12 +1,12 @@
 set(0,'defaultTextInterpreter','latex');
 set(groot, 'defaultAxesTickLabelInterpreter','latex'); set(groot, 'defaultLegendInterpreter','latex');
 set(0,'defaultAxesFontSize',16)
-global kappa eta Tc Th Tigm coolFac Mc0 Ms0 Mh0
+global kappa eta Tc Th Tcgm coolFac Mc0 Ms0 Mh0
 kappa = 0.3;
 eta = 0.5;
 Tc = 10;
 Th = 1e5;
-Tigm = 00;
+Tcgm = 00;
 coolFac = 1;
 Mc0 = 10;
 Ms0 = 0;
@@ -69,7 +69,7 @@ function plotAll(ts,Mc,Mh,Ms,style)
 end
 
 function [Mc,Mh,Ms] = bruteIntegrate(ts)
-    global kappa eta Tc Th Tigm coolFac Mc0 Ms0 Mh0
+    global kappa eta Tc Th Tcgm coolFac Mc0 Ms0 Mh0
     dt = ts(2) - ts(1);
     Mc = zeros(size(ts));
     Ms = Mc;
@@ -82,7 +82,7 @@ function [Mc,Mh,Ms] = bruteIntegrate(ts)
         Msdot = kappa * Mc(i-1)^1.4;
         xi = Mh(i-1)/(Mh(i-1) + Mc(i-1));
 %         Tav = Tc * (1-xi) + Th*xi
-        xdot = coolFac * (Tigm - Tc)/(Th-Tc) - coolFac * xi;
+        xdot = coolFac * (Tcgm - Tc)/(Th-Tc) - coolFac * xi;
         coolDot = (Mc(i-1) + Mh(i-1))*xdot;
 %         [xi,xdot,Msdot, coolDot]
 %         
@@ -99,7 +99,7 @@ function [Mc,Mh,Ms] = bruteIntegrate(ts)
 end
 
 function [Mc,Mh,Ms] = iterative(ts)
-    global kappa eta Tc Th Tigm coolFac Mc0 Ms0 Mh0
+    global kappa eta Tc Th Tcgm coolFac Mc0 Ms0 Mh0
     dt = ts(2) - ts(1);
     Mc = zeros(size(ts));
     Ms = Mc;
@@ -115,7 +115,7 @@ function [Mc,Mh,Ms] = iterative(ts)
        
        tot = Mc(i) + Mh(i);
        xi = Mh(i)/tot;
-       fac = (Tigm - Tc)/(Th - Tc);
+       fac = (Tcgm - Tc)/(Th - Tc);
        exper = exp(-coolFac *dt);
        xiEnd = (xi - fac)*exper + fac;
 %        [Mc(i),Mh(i),fac,exper,xi,xiEnd]
@@ -131,7 +131,7 @@ function [Mc,Mh,Ms] = iterative(ts)
 end
 
 function [Mc,Mh,Ms] = exponentialCool(ts)
-    global kappa eta Tc Th Tigm coolFac Mc0 Ms0 Mh0
+    global kappa eta Tc Th Tcgm coolFac Mc0 Ms0 Mh0
     dt = ts(2) - ts(1);
     Mc = zeros(size(ts));
     Ms = Mc;

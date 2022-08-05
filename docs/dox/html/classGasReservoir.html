@@ -118,7 +118,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a097ab7e6f76dc55a5d26a11862824e77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a097ab7e6f76dc55a5d26a11862824e77">Heat</a> (double amoutToHeat)</td></tr>
 <tr class="memdesc:a097ab7e6f76dc55a5d26a11862824e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heats up the specified amount of gas into the hot reservoir, keeping the elemental abundances of the cold gas reservoir constant.  <a href="classGasReservoir.html#a097ab7e6f76dc55a5d26a11862824e77">More...</a><br /></td></tr>
 <tr class="separator:a097ab7e6f76dc55a5d26a11862824e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bcd32922dac2b020de2499efe0d7e26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a4bcd32922dac2b020de2499efe0d7e26">PassiveCool</a> (double dt, bool isIGM)</td></tr>
+<tr class="memitem:a4bcd32922dac2b020de2499efe0d7e26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#a4bcd32922dac2b020de2499efe0d7e26">PassiveCool</a> (double dt, bool isCGM)</td></tr>
 <tr class="memdesc:a4bcd32922dac2b020de2499efe0d7e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the usual cooling mechanism.  <a href="classGasReservoir.html#a4bcd32922dac2b020de2499efe0d7e26">More...</a><br /></td></tr>
 <tr class="separator:a4bcd32922dac2b020de2499efe0d7e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa65b29009b11d92cec10d328783df1c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGasReservoir.html#aa65b29009b11d92cec10d328783df1c4">TransferFrom</a> (<a class="el" href="classGasReservoir.html">GasReservoir</a> &amp;givingGas, double massToMove)</td></tr>
@@ -154,7 +154,7 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a48858dc4bc562bfab187e76a0d45c8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >A <a class="el" href="classGasReservoir.html">GasReservoir</a> is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM. In practicality, they are a container for a vector of <a class="el" href="classGasStream.html">GasStream</a> objects + assorted ways for these objects to interact with one another </p>
+<div class="textblock"><p >A <a class="el" href="classGasReservoir.html">GasReservoir</a> is a heterogenously sourced pool of gas, such as those found within each ring, or representing the CGM. In practicality, they are a container for a vector of <a class="el" href="classGasStream.html">GasStream</a> objects + assorted ways for these objects to interact with one another </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af461f3f039a67daecb68c26f2fd6149f" name="af461f3f039a67daecb68c26f2fd6149f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af461f3f039a67daecb68c26f2fd6149f">&#9670;&nbsp;</a></span>GasReservoir() <span class="overload">[1/2]</span></h2>
@@ -597,7 +597,7 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>isIGM</em>&#160;</td>
+          <td class="paramname"><em>isCGM</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['igm_0',['IGM',['../classGalaxy.html#a9dcf49a989ebbd5b43b279a61fcc4570',1,'Galaxy']]],
-  ['igm_5fmass_1',['IGM_Mass',['../classGalaxyValues.html#a61a7e9021fb7dbf1f3b6cfbb1c9888ef',1,'GalaxyValues']]],
-  ['igmabsorbing_2',['IGMAbsorbing',['../classGalaxyValues.html#a1b23ac0a65c02961c78fe6869e25bb2c',1,'GalaxyValues']]],
-  ['igmbuffer_3',['IGMBuffer',['../classRing.html#a1f1b47594aead03104f0217832b0b413',1,'Ring']]],
+  ['cgm_0',['CGM',['../classGalaxy.html#a9dcf49a989ebbd5b43b279a61fcc4570',1,'Galaxy']]],
+  ['cgm_5fmass_1',['CGM_Mass',['../classGalaxyValues.html#a61a7e9021fb7dbf1f3b6cfbb1c9888ef',1,'GalaxyValues']]],
+  ['cgmabsorbing_2',['CGMAbsorbing',['../classGalaxyValues.html#a1b23ac0a65c02961c78fe6869e25bb2c',1,'GalaxyValues']]],
+  ['cgmbuffer_3',['CGMBuffer',['../classRing.html#a1f1b47594aead03104f0217832b0b413',1,'Ring']]],
   ['imf_4',['IMF',['../classInitialisedData.html#a3faf1e06dc9f0fff9ed6af9f475c8962',1,'InitialisedData::IMF()'],['../classStarReservoir.html#a2efd119bd0a557e4a47c7f13a60913dd',1,'StarReservoir::IMF()'],['../classStellarPopulation.html#a10465b079fb5ffbe71f329928612dd72',1,'StellarPopulation::IMF()']]],
   ['imf_5fmeanmass_5',['IMF_MeanMass',['../classIMF__Functor.html#aae9bf6d2edfb0c8b57872ab0000abb65',1,'IMF_Functor']]],
   ['imf_5fnormalisation_6',['IMF_Normalisation',['../classIMF__Functor.html#a0a5e19726fbb5dbfa3159dadb99d1f8f',1,'IMF_Functor']]],

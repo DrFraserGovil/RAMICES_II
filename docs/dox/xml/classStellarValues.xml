@@ -184,7 +184,7 @@
         <qualifiedname>StellarValues::EjectionFraction</qualifiedname>
         <initializer>= Argument&lt;double&gt;(0.45,&quot;eject&quot;)</initializer>
         <briefdescription>
-<para>The fraction of supernovae ejecta which is thrown into the IGM. </para>
+<para>The fraction of supernovae ejecta which is thrown into the CGM. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>

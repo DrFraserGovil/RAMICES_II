@@ -50,10 +50,10 @@
       </memberdef>
       <memberdef kind="variable" id="classGalaxy_1a9dcf49a989ebbd5b43b279a61fcc4570" prot="private" static="no" mutable="no">
         <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref></type>
-        <definition>GasReservoir Galaxy::IGM</definition>
+        <definition>GasReservoir Galaxy::CGM</definition>
         <argsstring></argsstring>
-        <name>IGM</name>
-        <qualifiedname>Galaxy::IGM</qualifiedname>
+        <name>CGM</name>
+        <qualifiedname>Galaxy::CGM</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -541,10 +541,10 @@
       </memberdef>
       <memberdef kind="function" id="classGalaxy_1a2052c8397464befff963854a2e994060" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void Galaxy::IGMOperations</definition>
+        <definition>void Galaxy::CGMOperations</definition>
         <argsstring>()</argsstring>
-        <name>IGMOperations</name>
-        <qualifiedname>Galaxy::IGMOperations</qualifiedname>
+        <name>CGMOperations</name>
+        <qualifiedname>Galaxy::CGMOperations</qualifiedname>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -792,7 +792,7 @@
         <label>Galaxy</label>
         <link refid="classGalaxy"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>IGM</edgelabel>
+          <edgelabel>CGM</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
           <edgelabel>Param</edgelabel>
@@ -810,7 +810,7 @@
           <edgelabel>RingCount</edgelabel>
         </childnode>
         <childnode refid="7" relation="usage">
-          <edgelabel>IGM_Mass</edgelabel>
+          <edgelabel>CGM_Mass</edgelabel>
           <edgelabel>InfallMass1</edgelabel>
           <edgelabel>InfallMass2</edgelabel>
           <edgelabel>InfallMassMerger</edgelabel>
@@ -823,7 +823,7 @@
           <edgelabel>...</edgelabel>
         </childnode>
         <childnode refid="16" relation="usage">
-          <edgelabel>IGMAbsorbing</edgelabel>
+          <edgelabel>CGMAbsorbing</edgelabel>
           <edgelabel>UsingVariableRingWidth</edgelabel>
         </childnode>
       </node>
@@ -1074,8 +1074,8 @@
       <member refid="classGalaxy_1a93ce34a3602d1aca3afd38470a25cd92" prot="public" virt="non-virtual"><scope>Galaxy</scope><name>Galaxy</name></member>
       <member refid="classGalaxy_1ac5745f8f154464d0d53af6cb2a625ace" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>GasMass</name></member>
       <member refid="classGalaxy_1afaad94ff4ab36cd98744c773e4b34923" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>GasScaleLength</name></member>
-      <member refid="classGalaxy_1a9dcf49a989ebbd5b43b279a61fcc4570" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>IGM</name></member>
-      <member refid="classGalaxy_1a2052c8397464befff963854a2e994060" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>IGMOperations</name></member>
+      <member refid="classGalaxy_1a9dcf49a989ebbd5b43b279a61fcc4570" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>CGM</name></member>
+      <member refid="classGalaxy_1a2052c8397464befff963854a2e994060" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>CGMOperations</name></member>
       <member refid="classGalaxy_1a80a875b0032811f506d3fd32264edb88" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>Infall</name></member>
       <member refid="classGalaxy_1a011bc80de73d4f673c7010dce77265c3" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>InfallMass</name></member>
       <member refid="classGalaxy_1a13564f4607192445efba53ad895a3672" prot="private" virt="non-virtual"><scope>Galaxy</scope><name>InsertInfallingGas</name></member>
