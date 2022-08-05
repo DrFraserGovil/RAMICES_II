@@ -4,7 +4,7 @@
 #include "GasStream.h"
 #include <sstream>
 /*!
- *  A GasReservoir is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM.
+ *  A GasReservoir is a heterogenously sourced pool of gas, such as those found within each ring, or representing the CGM.
  * In practicality, they are a container for a vector of GasStream objects + assorted ways for these objects to interact with one another
  * 
 */
@@ -65,7 +65,7 @@ class GasReservoir
 		void Heat(double amoutToHeat);
 		
 		//!Executes the usual cooling mechanism
-		void PassiveCool(double dt, bool isIGM);
+		void PassiveCool(double dt, bool isCGM);
 		
 		//! Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object
 		void TransferFrom(GasReservoir & givingGas, double massToMove);

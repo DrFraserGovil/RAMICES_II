@@ -80,7 +80,7 @@ double StarReservoir::SFR_GasLoss(double coldMass, double hotMass, double ejectF
 	
 }
 
-void StarReservoir::Form(GasReservoir & gas, GasReservoir & igm)
+void StarReservoir::Form(GasReservoir & gas, GasReservoir & cgm)
 {
 	//compute how much cold gas mass is lost to star formation (through stars + feedback)
 	const double initMass = gas.ColdMass();
@@ -101,7 +101,7 @@ void StarReservoir::Form(GasReservoir & gas, GasReservoir & igm)
 	//move the gas around + form the stars
 	gas.Deplete(starMassFormed,0.0);	
 	gas.Heat(heatedMass); 
-	igm.TransferAndHeat(gas,ejectedMass);
+	cgm.TransferAndHeat(gas,ejectedMass);
 
 	int newStarCount = Population[PopulationIndex].FormStars(starMassFormed,PopulationIndex,gas);
 	
