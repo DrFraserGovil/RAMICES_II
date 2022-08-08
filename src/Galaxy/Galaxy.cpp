@@ -628,7 +628,7 @@ void Galaxy::SaveState_Mass(double t)
 }
 std::string Galaxy::MassHeaders()
 {
-	return "Time, RingIndex, Radius, SurfaceArea, TotalMass, StellarMass, ColdGasMass, HotGasMass, WDMass, NSMass, BHMass,CGMMass";
+	return "Time, RingIndex, Radius, SurfaceArea, TotalMass, StellarMass, ColdGasMass, HotGasMass, WDMass, NSMass, BHMass, CGMMass";
 }
 
 void Galaxy::SaveState_Enrichment(double t)
