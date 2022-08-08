@@ -617,6 +617,7 @@ void Galaxy::SaveState_Mass(double t)
 		double Mcgm = CGM.Mass();
 		std::vector<double> vals = {Rings[i].Radius, Rings[i].Area,Mt,Ms,Mc,Mh,Mwd,Mns,Mbh,Mcgm};
 		output << t;
+		output << ", " << i ;
 		for (int j = 0; j < vals.size(); ++j)
 		{
 			output << ", " << vals[j];
@@ -627,7 +628,7 @@ void Galaxy::SaveState_Mass(double t)
 }
 std::string Galaxy::MassHeaders()
 {
-	return "Time, Radius, SurfaceArea, TotalMass, StellarMass, ColdGasMass, HotGasMass, WDMass, NSMass, BHMass,CGMMass";
+	return "Time, RingIndex, Radius, SurfaceArea, TotalMass, StellarMass, ColdGasMass, HotGasMass, WDMass, NSMass, BHMass,CGMMass";
 }
 
 void Galaxy::SaveState_Enrichment(double t)

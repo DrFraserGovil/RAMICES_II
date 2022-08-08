@@ -202,7 +202,7 @@ void StarReservoir::SaveEventRate(int t, std::stringstream & output)
 	{
 		EventRate[0].AddHeaders(output);
 	}
-	output << t * Param.Meta.TimeStep<< ", " << Param.Galaxy.RingRadius[ParentRing] << ", ";
+	output << t * Param.Meta.TimeStep<< ", " << ParentRing << ", "<< Param.Galaxy.RingRadius[ParentRing] << ", ";
 	EventRate[t].Save(output,Param.Meta.TimeStep);
 }
 
