@@ -30,7 +30,7 @@ void ParamList::StreamContentsTo(std::stringstream & stream)
 {
 	for (int i =0; i < argPointers.size(); ++i)
 	{
-		argPointers[i]->StreamTo(stream, ", ");
+		argPointers[i]->StreamTo(stream, " ");
 		stream << "\n";
 	}
 }

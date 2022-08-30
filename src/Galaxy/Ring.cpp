@@ -2,7 +2,7 @@
 
 const double pi = 3.141592654;
 //! Initialises itself into a primordial state
-Ring::Ring(int index, double mass,InitialisedData & data): Data(data), Param(data.Param), Width(data.Param.Galaxy.RingWidth[index]), Radius(data.Param.Galaxy.RingRadius[index]), Gas(GasReservoir::Primordial(mass,data.Param)), Stars(index,data), IGMBuffer(data.Param)
+Ring::Ring(int index, double mass,InitialisedData & data): Data(data), Param(data.Param), Width(data.Param.Galaxy.RingWidth[index]), Radius(data.Param.Galaxy.RingRadius[index]), Gas(GasReservoir::Primordial(mass,data.Param)), Stars(index,data), CGMBuffer(data.Param)
 {
 	RadiusIndex = index;
 	Area = 2 * pi * Radius * Width;
@@ -36,7 +36,7 @@ void Ring::TimeStep(int t)
 
 void Ring::MakeStars()
 {
-	Stars.Form(Gas,IGMBuffer);
+	Stars.Form(Gas,CGMBuffer);
 }
 void Ring::KillStars(int time)
 {
@@ -62,13 +62,14 @@ void neatLog(double value, std::stringstream & stream)
 {
 	if (isinf(value) || isnan(value))
 	{
-		stream << ",-";
+		stream << ", nan";
 	}
 	else
 	{
 		stream << ", " << value;
 	}
 }
+
 
 void Ring::SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, std::stringstream & logarithmicStreamCold, std::stringstream & absoluteStreamHot, std::stringstream & logarithmicStreamHot)
 {

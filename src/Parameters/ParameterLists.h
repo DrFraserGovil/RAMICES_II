@@ -192,7 +192,7 @@ class StellarValues : public ParamList
 		std::vector<double> LogZGrid;
 		double LogZDelta;
 
-		//!The fraction of supernovae ejecta which is thrown into the IGM
+		//!The fraction of supernovae ejecta which is thrown into the CGM
 		Argument<double> EjectionFraction = Argument<double>(0.45,"eject");
 		
 		//!For every 1 solar mass of stars which form, this fraction of gas is heated into the hot phase
@@ -395,7 +395,7 @@ class GalaxyValues : public ParamList
 		//!Width of the innermost ring (kpc)
 		Argument<double> Ring0Width = Argument<double>(0.05,"inner-ring-width");
 		
-		Argument<bool> IGMAbsorbing = Argument<bool>(true,"igm-absorb");
+		Argument<bool> CGMAbsorbing = Argument<bool>(true,"cgm-absorb");
 		
 		std::vector<double> RingRadius;
 		std::vector<double> RingWidth;
@@ -407,8 +407,8 @@ class GalaxyValues : public ParamList
 		//! Fraction of primordial gas which is hot
 		Argument<double> PrimordialHotFraction = Argument<double>(0,"primordial-hot");
 		
-		//!Initial Mass of the IGM Reservoir
-		Argument<double> IGM_Mass = Argument<double>(200,"igm-mass");
+		//!Initial Mass of the CGM Reservoir
+		Argument<double> CGM_Mass = Argument<double>(200,"cgm-mass");
 		
 		//! The initial exponential scale length of the galaxy
 		Argument<double> MinScaleLength = Argument<double>(0.75,"scale-length-min");
@@ -451,7 +451,7 @@ class GalaxyValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		GalaxyValues()
 		{
-			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &IGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2,  &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &IGMAbsorbing, &InfallMassMerger, & InfallTimeMerger, & MergerDelayTime,&MergerTurnOnWidth};
+			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &CGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2,  &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &CGMAbsorbing, &InfallMassMerger, & InfallTimeMerger, & MergerDelayTime,&MergerTurnOnWidth};
 		}
 		void Initialise(std::string resourceRoot);
 };

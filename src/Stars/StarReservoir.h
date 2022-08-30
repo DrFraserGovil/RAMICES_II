@@ -21,7 +21,7 @@ class StarReservoir
 		
 		
 		void Observations();
-		void Form(GasReservoir & gas, GasReservoir & igm);
+		void Form(GasReservoir & gas, GasReservoir & cgm);
 		void Death(int currentTime);
 		void PrintStatus(int t);
 		const std::vector<GasStream> & YieldsFrom(int t);

@@ -11,22 +11,22 @@ void OutputValues::Initialise(std::string resourceRoot)
 	JSL::mkdir(Root.Value);
 
 
-	GalaxyMassFile.Value = Root.Value + "/" + GalaxyMassFile.Value;
+	GalaxyMassFile.Value = Root.Value + GalaxyMassFile.Value;
 	JSL::initialiseFile(GalaxyMassFile.Value);
 
-	EventRateFile.Value = Root.Value + "/" + EventRateFile.Value;
+	EventRateFile.Value = Root.Value + EventRateFile.Value;
 	JSL::initialiseFile(EventRateFile.Value);
 	
-	AbsoluteColdGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Absolute_" + ColdGasDataFile.Value;
+	AbsoluteColdGasFile = Root.Value + ChemicalPrefactor.Value + "Absolute_" + ColdGasDataFile.Value;
 	JSL::initialiseFile(AbsoluteColdGasFile);
-	AbsoluteHotGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Absolute_" + HotGasDataFile.Value;
+	AbsoluteHotGasFile = Root.Value +  ChemicalPrefactor.Value + "Absolute_" + HotGasDataFile.Value;
 	JSL::initialiseFile(AbsoluteHotGasFile);
-	LogarithmicColdGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Log_" + ColdGasDataFile.Value;
+	LogarithmicColdGasFile = Root.Value +  ChemicalPrefactor.Value + "Log_" + ColdGasDataFile.Value;
 	JSL::initialiseFile(LogarithmicColdGasFile);
-	LogarithmicHotGasFile = Root.Value + "/" + ChemicalPrefactor.Value + "Log_" + HotGasDataFile.Value;
+	LogarithmicHotGasFile = Root.Value + ChemicalPrefactor.Value + "Log_" + HotGasDataFile.Value;
 	JSL::initialiseFile(LogarithmicHotGasFile);
 	
-	StarFile.Value = Root.Value + "/" + StarFile.Value;
+	StarFile.Value = Root.Value +  StarFile.Value;
 	
 	YieldSubdir.Value = Root.Value + YieldSubdir.Value;
 	JSL::mkdir(YieldSubdir.Value);
