@@ -28,7 +28,7 @@
     <member refid="classGalaxy_1acebf3c89d2dd1c75148f82aca4279c21" kind="variable"><name>Rings</name></member>
     <member refid="classGalaxy_1a8ad358e744945cb8e353798a0f043b2e" kind="variable"><name>Threads</name></member>
     <member refid="classGalaxy_1aff05d90382fd7620e493e78d24cfbb86" kind="variable"><name>Migrator</name></member>
-    <member refid="classGalaxy_1a9dcf49a989ebbd5b43b279a61fcc4570" kind="variable"><name>IGM</name></member>
+    <member refid="classGalaxy_1a9dcf49a989ebbd5b43b279a61fcc4570" kind="variable"><name>CGM</name></member>
     <member refid="classGalaxy_1af634c5a3bb615e5fc86cdc06c47163ca" kind="variable"><name>Param</name></member>
     <member refid="classGalaxy_1adb4c4d20dadf4c4950dc30a9cd4ca694" kind="variable"><name>Data</name></member>
     <member refid="classGalaxy_1acb2a2333f34c2f2f9a98fb0321d99090" kind="variable"><name>RingMasses</name></member>
@@ -55,7 +55,7 @@
     <member refid="classGalaxy_1ac5745f8f154464d0d53af6cb2a625ace" kind="function"><name>GasMass</name></member>
     <member refid="classGalaxy_1a0fcd1201164fd7cc6649db93e6640e06" kind="function"><name>ColdGasMass</name></member>
     <member refid="classGalaxy_1af7dc1d5cae8df3052cf1fdfb3243af8f" kind="function"><name>StarMass</name></member>
-    <member refid="classGalaxy_1a2052c8397464befff963854a2e994060" kind="function"><name>IGMOperations</name></member>
+    <member refid="classGalaxy_1a2052c8397464befff963854a2e994060" kind="function"><name>CGMOperations</name></member>
     <member refid="classGalaxy_1a0f4ea22ac9923c8f86336002cc505ce5" kind="function"><name>RelicMass</name></member>
     <member refid="classGalaxy_1a1f660f4324741739e2fe746f8057f743" kind="function"><name>Mass</name></member>
     <member refid="classGalaxy_1a4429308d9426e2dd167de7f8618b8bcb" kind="function"><name>SaveState</name></member>
@@ -72,12 +72,12 @@
     <member refid="classGalaxyValues_1a9d89e9b288bf1874d5895d0aba9ca6ed" kind="variable"><name>Radius</name></member>
     <member refid="classGalaxyValues_1a54c2ba4fac92cc9d7960c55fb29a6810" kind="variable"><name>UsingVariableRingWidth</name></member>
     <member refid="classGalaxyValues_1a7e5ddcf12388c18a4600a981b3200c1c" kind="variable"><name>Ring0Width</name></member>
-    <member refid="classGalaxyValues_1a1b23ac0a65c02961c78fe6869e25bb2c" kind="variable"><name>IGMAbsorbing</name></member>
+    <member refid="classGalaxyValues_1a1b23ac0a65c02961c78fe6869e25bb2c" kind="variable"><name>CGMAbsorbing</name></member>
     <member refid="classGalaxyValues_1a6451ce3867b2ec5ab6dfc98516f2137e" kind="variable"><name>RingRadius</name></member>
     <member refid="classGalaxyValues_1a6b0e10afed3b4751dd30b7c065f8ede4" kind="variable"><name>RingWidth</name></member>
     <member refid="classGalaxyValues_1a0b8bb4de49945b5bf21c44c46750482b" kind="variable"><name>PrimordialMass</name></member>
     <member refid="classGalaxyValues_1ae72dee5f4f6eb8c1c4573b5caa6d82af" kind="variable"><name>PrimordialHotFraction</name></member>
-    <member refid="classGalaxyValues_1a61a7e9021fb7dbf1f3b6cfbb1c9888ef" kind="variable"><name>IGM_Mass</name></member>
+    <member refid="classGalaxyValues_1a61a7e9021fb7dbf1f3b6cfbb1c9888ef" kind="variable"><name>CGM_Mass</name></member>
     <member refid="classGalaxyValues_1a239f649cbcecf52fbe441aabe2575d5b" kind="variable"><name>MinScaleLength</name></member>
     <member refid="classGalaxyValues_1a1eadee2260b53785ed45e4fc1adefa1b" kind="variable"><name>MaxScaleLength</name></member>
     <member refid="classGalaxyValues_1af6825df7eafbc2a2394beeb674f63c14" kind="variable"><name>ScaleLengthDelay</name></member>
@@ -371,7 +371,7 @@
     <member refid="classRing_1a646e6b4dc69c04926fecd53f2a60a001" kind="variable"><name>Area</name></member>
     <member refid="classRing_1aa1f7afc1d67b7f41b0edeec853043ae0" kind="variable"><name>Stars</name></member>
     <member refid="classRing_1a07a56d858310883fcd0884168f672aa5" kind="variable"><name>Gas</name></member>
-    <member refid="classRing_1a1f1b47594aead03104f0217832b0b413" kind="variable"><name>IGMBuffer</name></member>
+    <member refid="classRing_1a1f1b47594aead03104f0217832b0b413" kind="variable"><name>CGMBuffer</name></member>
     <member refid="classRing_1a7e78ffa118882a0d0be0d4198b336ed9" kind="variable"><name>RadiusIndex</name></member>
     <member refid="classRing_1a0244597e8a04a538b5b343bd3b8841eb" kind="variable"><name>Data</name></member>
     <member refid="classRing_1abd93716c681cac8d63d1334aa2fbf722" kind="variable"><name>Param</name></member>

@@ -243,7 +243,7 @@
       <memberdef kind="function" id="classStarReservoir_1aeca96339fab71dc4136e44a6e11632e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void StarReservoir::Form</definition>
-        <argsstring>(GasReservoir &amp;gas, GasReservoir &amp;igm)</argsstring>
+        <argsstring>(GasReservoir &amp;gas, GasReservoir &amp;cgm)</argsstring>
         <name>Form</name>
         <qualifiedname>StarReservoir::Form</qualifiedname>
         <param>
@@ -252,7 +252,7 @@
         </param>
         <param>
           <type><ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> &amp;</type>
-          <declname>igm</declname>
+          <declname>cgm</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -442,7 +442,7 @@
           <edgelabel>RingCount</edgelabel>
         </childnode>
         <childnode refid="8" relation="usage">
-          <edgelabel>IGM_Mass</edgelabel>
+          <edgelabel>CGM_Mass</edgelabel>
           <edgelabel>InfallMass1</edgelabel>
           <edgelabel>InfallMass2</edgelabel>
           <edgelabel>InfallMassMerger</edgelabel>
@@ -455,7 +455,7 @@
           <edgelabel>...</edgelabel>
         </childnode>
         <childnode refid="17" relation="usage">
-          <edgelabel>IGMAbsorbing</edgelabel>
+          <edgelabel>CGMAbsorbing</edgelabel>
           <edgelabel>UsingVariableRingWidth</edgelabel>
         </childnode>
       </node>

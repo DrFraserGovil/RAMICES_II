@@ -407,7 +407,7 @@
       <memberdef kind="function" id="classGasReservoir_1a4bcd32922dac2b020de2499efe0d7e26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void GasReservoir::PassiveCool</definition>
-        <argsstring>(double dt, bool isIGM)</argsstring>
+        <argsstring>(double dt, bool isCGM)</argsstring>
         <name>PassiveCool</name>
         <qualifiedname>GasReservoir::PassiveCool</qualifiedname>
         <param>
@@ -416,7 +416,7 @@
         </param>
         <param>
           <type>bool</type>
-          <declname>isIGM</declname>
+          <declname>isCGM</declname>
         </param>
         <briefdescription>
 <para>Executes the usual cooling mechanism. </para>
@@ -611,7 +611,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>A <ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM. In practicality, they are a container for a vector of <ref refid="classGasStream" kindref="compound">GasStream</ref> objects + assorted ways for these objects to interact with one another </para>
+<para>A <ref refid="classGasReservoir" kindref="compound">GasReservoir</ref> is a heterogenously sourced pool of gas, such as those found within each ring, or representing the CGM. In practicality, they are a container for a vector of <ref refid="classGasStream" kindref="compound">GasStream</ref> objects + assorted ways for these objects to interact with one another </para>
     </detaileddescription>
     <collaborationgraph>
       <node id="15">
@@ -670,7 +670,7 @@
           <edgelabel>RingCount</edgelabel>
         </childnode>
         <childnode refid="6" relation="usage">
-          <edgelabel>IGM_Mass</edgelabel>
+          <edgelabel>CGM_Mass</edgelabel>
           <edgelabel>InfallMass1</edgelabel>
           <edgelabel>InfallMass2</edgelabel>
           <edgelabel>InfallMassMerger</edgelabel>
@@ -683,7 +683,7 @@
           <edgelabel>...</edgelabel>
         </childnode>
         <childnode refid="15" relation="usage">
-          <edgelabel>IGMAbsorbing</edgelabel>
+          <edgelabel>CGMAbsorbing</edgelabel>
           <edgelabel>UsingVariableRingWidth</edgelabel>
         </childnode>
       </node>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['igmoperations_0',['IGMOperations',['../classGalaxy.html#a2052c8397464befff963854a2e994060',1,'Galaxy']]],
+  ['cgmoperations_0',['CGMOperations',['../classGalaxy.html#a2052c8397464befff963854a2e994060',1,'Galaxy']]],
   ['imf_1',['IMF',['../classIMF__Functor.html#a03e7a129dd3345025c2cc57b02f96e44',1,'IMF_Functor']]],
   ['imf_5ffunctor_2',['IMF_Functor',['../classIMF__Functor.html#a7df043f507ed23def4ff51f49041fce1',1,'IMF_Functor']]],
   ['infall_3',['Infall',['../classGalaxy.html#a80a875b0032811f506d3fd32264edb88',1,'Galaxy']]],

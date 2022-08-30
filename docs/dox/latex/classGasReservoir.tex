@@ -41,7 +41,7 @@ void \mbox{\hyperlink{classGasReservoir_a81bf7608a5ca448d267ce0a563786361}{Deple
 \begin{DoxyCompactList}\small\item\em Calls \mbox{\hyperlink{classGasStream_a44ab71ee97b6bf6cb7fba7ce0c861a32}{Gas\+Stream\+::\+Deplete(double, double)}} on each element of \mbox{\hyperlink{classGasReservoir_a605b8cee25a348cc3f2899b5108ba674}{Components}}, keeping the relative hot mass and cold mass contribution of each component equal. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGasReservoir_a097ab7e6f76dc55a5d26a11862824e77}{Heat}} (double amout\+To\+Heat)
 \begin{DoxyCompactList}\small\item\em Heats up the specified amount of gas into the hot reservoir, keeping the elemental abundances of the cold gas reservoir constant. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGasReservoir_a4bcd32922dac2b020de2499efe0d7e26}{Passive\+Cool}} (double dt, bool is\+IGM)
+void \mbox{\hyperlink{classGasReservoir_a4bcd32922dac2b020de2499efe0d7e26}{Passive\+Cool}} (double dt, bool is\+CGM)
 \begin{DoxyCompactList}\small\item\em Executes the usual cooling mechanism. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGasReservoir_aa65b29009b11d92cec10d328783df1c4}{Transfer\+From}} (\mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} \&giving\+Gas, double mass\+To\+Move)
 \begin{DoxyCompactList}\small\item\em Transfers the specified amount of mass across from the target, removing the mass from the target and adding it to the current object. Maintains the thermal, source and elemental ratios of the source object. \end{DoxyCompactList}\item 
@@ -72,7 +72,7 @@ const \mbox{\hyperlink{classGlobalParameters}{Global\+Parameters}} \& \mbox{\hyp
 
 
 \doxysubsection{Detailed Description}
-A \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} is a heterogenously sourced pool of gas, such as those found within each ring, or representing the IGM. In practicality, they are a container for a vector of \mbox{\hyperlink{classGasStream}{Gas\+Stream}} objects + assorted ways for these objects to interact with one another 
+A \mbox{\hyperlink{classGasReservoir}{Gas\+Reservoir}} is a heterogenously sourced pool of gas, such as those found within each ring, or representing the CGM. In practicality, they are a container for a vector of \mbox{\hyperlink{classGasStream}{Gas\+Stream}} objects + assorted ways for these objects to interact with one another 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}\label{classGasReservoir_af461f3f039a67daecb68c26f2fd6149f}} 
@@ -267,7 +267,7 @@ An annoyingly necessary redeclaration for when constant references don\textquote
 \index{GasReservoir@{GasReservoir}!PassiveCool@{PassiveCool}}
 \index{PassiveCool@{PassiveCool}!GasReservoir@{GasReservoir}}
 \doxysubsubsection{\texorpdfstring{PassiveCool()}{PassiveCool()}}
-{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Passive\+Cool (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{bool}]{is\+IGM }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Gas\+Reservoir\+::\+Passive\+Cool (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{bool}]{is\+CGM }\end{DoxyParamCaption})}
 
 
 

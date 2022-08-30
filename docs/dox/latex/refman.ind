@@ -1,0 +1,1673 @@
+\begin{theindex}
+
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Galaxy/Galaxy.h}, 
+		\hyperpage{129, 130}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Galaxy/MigrationMatrix.h}, 
+		\hyperpage{131}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Galaxy/Ring.h}, 
+		\hyperpage{132}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Gas/Gas.h}, 
+		\hyperpage{133}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Gas/GasReservoir.h}, 
+		\hyperpage{133, 134}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Gas/GasStream.h}, 
+		\hyperpage{135}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Parameters/EnumSets.h}, 
+		\hyperpage{136}, \hyperpage{138}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Parameters/GlobalParameters.h}, 
+		\hyperpage{139}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Parameters/InitialisedData.h}, 
+		\hyperpage{140}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Parameters/List.h}, 
+		\hyperpage{141}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Parameters/ParameterLists.h}, 
+		\hyperpage{142}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/IMF.h}, 
+		\hyperpage{147}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/IsochroneTracker.h}, 
+		\hyperpage{148, 149}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/RemnantPopulation.h}, 
+		\hyperpage{150}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/SLF.h}, 
+		\hyperpage{151}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/StarEvents.h}, 
+		\hyperpage{151, 152}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/StarReservoir.h}, 
+		\hyperpage{152}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Stars/StellarPopulation.h}, 
+		\hyperpage{153}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Yields/SimpleYield.h}, 
+		\hyperpage{155}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Yields/YieldGrid.h}, 
+		\hyperpage{155, 156}
+  \item {/Users/jf20/Documents/Physics/RAMICES\_II/src/Yields/YieldRidge.h}, 
+		\hyperpage{157}
+
+  \indexspace
+
+  \item {AbsoluteColdGasFile}
+    \subitem {OutputValues}, \hyperpage{74}
+  \item {AbsoluteHotGasFile}
+    \subitem {OutputValues}, \hyperpage{74}
+  \item {Absorb}
+    \subitem {GasReservoir}, \hyperpage{31, 32}
+    \subitem {GasStream}, \hyperpage{40}
+  \item {AbsorbMemory}
+    \subitem {GasReservoir}, \hyperpage{32}
+  \item {Accreted}
+    \subitem {EnumSets.h}, \hyperpage{138}
+  \item {AccretionStream}
+    \subitem {GasReservoir}, \hyperpage{32}
+  \item {Active}
+    \subitem {StellarPopulation}, \hyperpage{102}
+  \item {AddHeaders}
+    \subitem {StarEvents}, \hyperpage{95}
+  \item {AGB}
+    \subitem {EnumSets.h}, \hyperpage{138}
+  \item {AGB\_Initialise}
+    \subitem {YieldGrid}, \hyperpage{117}
+  \item {AGBDeaths}
+    \subitem {StarEvents}, \hyperpage{95}
+  \item {AGBYield}
+    \subitem {InitialisedData}, \hyperpage{54}
+    \subitem {StellarPopulation}, \hyperpage{104}
+  \item {Age}
+    \subitem {StellarPopulation}, \hyperpage{104}
+  \item {AliveMass}
+    \subitem {StarReservoir}, \hyperpage{97}
+  \item {Area}
+    \subitem {Ring}, \hyperpage{87}
+  \item {argPointers}
+    \subitem {ParamList}, \hyperpage{78}
+  \item {AssignIsochrones}
+    \subitem {Galaxy.h}, \hyperpage{130}
+  \item {AssignMagnitudes}
+    \subitem {Galaxy}, \hyperpage{14}
+    \subitem {StarReservoir}, \hyperpage{97}
+  \item {AzimuthalResolution}
+    \subitem {CatalogueValues}, \hyperpage{8}
+
+  \indexspace
+
+  \item {BH}
+    \subitem {MassReport}, \hyperpage{65}
+  \item {BirthGas}
+    \subitem {StellarPopulation}, \hyperpage{104}
+  \item {BirthIndex}
+    \subitem {IsoMass}, \hyperpage{64}
+    \subitem {StellarPopulation}, \hyperpage{105}
+  \item {BirthRadius}
+    \subitem {StellarPopulation}, \hyperpage{105}
+  \item {BlackHole}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {BlackHoleMass}
+    \subitem {RemnantPopulation}, \hyperpage{81}
+  \item {BMag}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {BolometricMag}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {BrightestStar}
+    \subitem {Galaxy}, \hyperpage{18}
+
+  \indexspace
+
+  \item {Calcium}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {CapturedTs}
+    \subitem {IsochroneTracker}, \hyperpage{62}
+  \item {CapturedZs}
+    \subitem {IsochroneTracker}, \hyperpage{62}
+  \item {Carbon}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {Catalogue}
+    \subitem {GlobalParameters}, \hyperpage{47}
+  \item {CatalogueEntry}
+    \subitem {StellarPopulation}, \hyperpage{102}
+  \item {CatalogueHeaders}
+    \subitem {StellarPopulation}, \hyperpage{102}
+  \item {CatalogueValues}, \hyperpage{7}
+    \subitem {AzimuthalResolution}, \hyperpage{8}
+    \subitem {CatalogueValues}, \hyperpage{8}
+    \subitem {IsochroneMagnitudeResolution}, \hyperpage{8}
+    \subitem {IsochroneTimeStep}, \hyperpage{8}
+    \subitem {RadialResolution}, \hyperpage{8}
+    \subitem {SampleCount}, \hyperpage{8}
+    \subitem {SolarRadius}, \hyperpage{9}
+    \subitem {SynthesisActive}, \hyperpage{9}
+    \subitem {VerticalHeightPower}, \hyperpage{9}
+    \subitem {VerticalHeightScaling}, \hyperpage{9}
+    \subitem {VerticalHeightStart}, \hyperpage{9}
+  \item {CCSN}
+    \subitem {EnumSets.h}, \hyperpage{138}
+    \subitem {StarEvents}, \hyperpage{95}
+  \item {CCSN\_Initialise}
+    \subitem {YieldGrid}, \hyperpage{118}
+  \item {CCSN\_MassCut}
+    \subitem {YieldValues}, \hyperpage{125}
+  \item {CCSNYield}
+    \subitem {InitialisedData}, \hyperpage{54}
+    \subitem {StellarPopulation}, \hyperpage{105}
+  \item {CGM}
+    \subitem {Galaxy}, \hyperpage{19}
+  \item {CGM\_Mass}
+    \subitem {GalaxyValues}, \hyperpage{22}
+  \item {CGMAbsorbing}
+    \subitem {GalaxyValues}, \hyperpage{22}
+  \item {CGMBuffer}
+    \subitem {Ring}, \hyperpage{88}
+  \item {CGMOperations}
+    \subitem {Galaxy}, \hyperpage{15}
+  \item {CheckMass}
+    \subitem {Gas}, \hyperpage{27}
+  \item {ChemicalPrefactor}
+    \subitem {OutputValues}, \hyperpage{74}
+  \item {ChimneyFactor}
+    \subitem {ThermalValues}, \hyperpage{113}
+  \item {Chromium}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {Cobalt}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {CODwarf}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {CODwarf\_MassCut}
+    \subitem {YieldValues}, \hyperpage{125}
+  \item {Cold}
+    \subitem {GasStream}, \hyperpage{41}
+  \item {ColdBuffer}
+    \subitem {Ring}, \hyperpage{88}
+  \item {ColdGasDataFile}
+    \subitem {OutputValues}, \hyperpage{75}
+  \item {ColdGasMass}
+    \subitem {Galaxy}, \hyperpage{14}
+  \item {ColdGasMetallicity}
+    \subitem {GasReservoir}, \hyperpage{33}
+  \item {ColdMass}
+    \subitem {GasReservoir}, \hyperpage{33}
+    \subitem {GasStream}, \hyperpage{41}
+  \item {Collapse\_MassCut}
+    \subitem {YieldValues}, \hyperpage{125}
+  \item {Components}
+    \subitem {GasReservoir}, \hyperpage{36}
+  \item {Composition}
+    \subitem {GasReservoir}, \hyperpage{33}
+  \item {Compound}
+    \subitem {MigrationMatrix}, \hyperpage{69}
+  \item {Compounding}
+    \subitem {Galaxy.h}, \hyperpage{130}
+  \item {CompoundScattering}
+    \subitem {Galaxy}, \hyperpage{14}
+  \item {ComputeMasses}
+    \subitem {GasStream}, \hyperpage{41}
+  \item {ComputeScattering}
+    \subitem {Galaxy}, \hyperpage{14}
+  \item {ComputeSelectionFunction}
+    \subitem {Ring}, \hyperpage{86}
+  \item {ComputeVisibilityFunction}
+    \subitem {Galaxy}, \hyperpage{14}
+  \item {Config}
+    \subitem {OutputValues}, \hyperpage{75}
+  \item {Configure}
+    \subitem {ParamList}, \hyperpage{78}
+  \item {Construct}
+    \subitem {IsochroneTracker}, \hyperpage{60}
+  \item {Cool}
+    \subitem {GasStream}, \hyperpage{42}
+    \subitem {Ring}, \hyperpage{86}
+  \item {CoolingPower}
+    \subitem {ThermalValues}, \hyperpage{113}
+  \item {Count}
+    \subitem {IsochroneCube}, \hyperpage{58}
+    \subitem {IsoMass}, \hyperpage{64}
+  \item {Countify}
+    \subitem {IsochroneEntry}, \hyperpage{59}
+  \item {Create}
+    \subitem {MigrationMatrix}, \hyperpage{69}
+  \item {CreateGrid}
+    \subitem {YieldGrid}, \hyperpage{118}
+
+  \indexspace
+
+  \item {Data}
+    \subitem {Galaxy}, \hyperpage{18}
+    \subitem {IsochroneCube}, \hyperpage{58}
+    \subitem {Ring}, \hyperpage{88}
+    \subitem {StarReservoir}, \hyperpage{99}
+    \subitem {StellarPopulation}, \hyperpage{105}
+  \item {DeadMass}
+    \subitem {StarReservoir}, \hyperpage{97}
+  \item {Death}
+    \subitem {StarReservoir}, \hyperpage{98}
+    \subitem {StellarPopulation}, \hyperpage{102}
+  \item {DeathIndex}
+    \subitem {IsoMass}, \hyperpage{64}
+  \item {Decay}
+    \subitem {RemnantPopulation}, \hyperpage{80}
+  \item {DeltaLogT}
+    \subitem {IsochroneTracker}, \hyperpage{62}
+  \item {Deplete}
+    \subitem {GasReservoir}, \hyperpage{33}
+    \subitem {GasStream}, \hyperpage{42}
+  \item {DepletionIndex}
+    \subitem {StellarPopulation}, \hyperpage{105}
+  \item {DiagonalMultiply}
+    \subitem {MigrationMatrix}, \hyperpage{69}
+  \item {DimmestStar}
+    \subitem {Galaxy}, \hyperpage{18}
+  \item {Dirty}
+    \subitem {GasStream}, \hyperpage{42}
+  \item {DispersionOrder}
+    \subitem {MigrationValues}, \hyperpage{71}
+  \item {DispersionTruncation}
+    \subitem {MigrationValues}, \hyperpage{72}
+  \item {Distribution}
+    \subitem {StellarPopulation}, \hyperpage{105}
+  \item {distribution}
+    \subitem {InitialisedData}, \hyperpage{54}
+    \subitem {IsochroneTracker}, \hyperpage{62}
+  \item {DormantDwarf}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {DormantHotFraction}
+    \subitem {ThermalValues}, \hyperpage{113}
+  \item {DormantNS}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {DormantNSMass}
+    \subitem {RemnantPopulation}, \hyperpage{81}
+  \item {DormantWDMass}
+    \subitem {RemnantPopulation}, \hyperpage{81}
+
+  \indexspace
+
+  \item {ECSN}
+    \subitem {EnumSets.h}, \hyperpage{138}
+    \subitem {StarEvents}, \hyperpage{95}
+  \item {ECSN\_Fraction}
+    \subitem {YieldValues}, \hyperpage{125}
+  \item {ECSN\_Initialise}
+    \subitem {YieldGrid}, \hyperpage{118}
+  \item {ECSN\_MassCut}
+    \subitem {YieldValues}, \hyperpage{126}
+  \item {ECSNYield}
+    \subitem {InitialisedData}, \hyperpage{54}
+    \subitem {StellarPopulation}, \hyperpage{105}
+  \item {Efficiency}
+    \subitem {StarEvents}, \hyperpage{95}
+  \item {EjectionFraction}
+    \subitem {StellarValues}, \hyperpage{109}
+  \item {Element}
+    \subitem {GlobalParameters}, \hyperpage{47}
+  \item {ElementCount}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {ElementDestruction}
+    \subitem {YieldGrid}, \hyperpage{118}
+  \item {ElementID}
+    \subitem {EnumSets.h}, \hyperpage{136}
+  \item {ElementNames}
+    \subitem {ElementValues}, \hyperpage{11}
+  \item {ElementProduction}
+    \subitem {YieldGrid}, \hyperpage{118}
+  \item {ElementValues}, \hyperpage{9}
+    \subitem {ElementNames}, \hyperpage{11}
+    \subitem {ElementValues}, \hyperpage{10}
+    \subitem {GiveElementsNames}, \hyperpage{10}
+    \subitem {Initialise}, \hyperpage{11}
+    \subitem {ProtonCounts}, \hyperpage{11}
+    \subitem {SolarAbundanceFile}, \hyperpage{11}
+    \subitem {SolarAbundanceFileDataColumn}, \hyperpage{11}
+    \subitem {SolarAbundanceFileNameColumn}, \hyperpage{12}
+    \subitem {SolarAbundances}, \hyperpage{12}
+  \item {Empty}
+    \subitem {Gas}, \hyperpage{28}
+  \item {EnumSets.h}
+    \subitem {Accreted}, \hyperpage{138}
+    \subitem {AGB}, \hyperpage{138}
+    \subitem {BlackHole}, \hyperpage{137}
+    \subitem {Calcium}, \hyperpage{137}
+    \subitem {Carbon}, \hyperpage{137}
+    \subitem {CCSN}, \hyperpage{138}
+    \subitem {Chromium}, \hyperpage{137}
+    \subitem {Cobalt}, \hyperpage{137}
+    \subitem {CODwarf}, \hyperpage{137}
+    \subitem {DormantDwarf}, \hyperpage{137}
+    \subitem {DormantNS}, \hyperpage{137}
+    \subitem {ECSN}, \hyperpage{138}
+    \subitem {ElementCount}, \hyperpage{137}
+    \subitem {ElementID}, \hyperpage{136}
+    \subitem {Europium}, \hyperpage{137}
+    \subitem {Helium}, \hyperpage{136}
+    \subitem {Hydrogen}, \hyperpage{136}
+    \subitem {Iron}, \hyperpage{137}
+    \subitem {Limongi}, \hyperpage{137}
+    \subitem {Maeder}, \hyperpage{137}
+    \subitem {Magnesium}, \hyperpage{137}
+    \subitem {Manganese}, \hyperpage{137}
+    \subitem {Marigo}, \hyperpage{137}
+    \subitem {MergerNS}, \hyperpage{137}
+    \subitem {Metals}, \hyperpage{136}
+    \subitem {Mixed}, \hyperpage{137}
+    \subitem {NeutronStar}, \hyperpage{137}
+    \subitem {NSM}, \hyperpage{138}
+    \subitem {Orfeo}, \hyperpage{137}
+    \subitem {Oxygen}, \hyperpage{137}
+    \subitem {ProcessCount}, \hyperpage{138}
+    \subitem {Remnant}, \hyperpage{138}
+    \subitem {RemnantType}, \hyperpage{137}
+    \subitem {Silicon}, \hyperpage{137}
+    \subitem {SNIa}, \hyperpage{138}
+    \subitem {SourceCount}, \hyperpage{137}
+    \subitem {SourceID}, \hyperpage{137}
+    \subitem {SourceProcess}, \hyperpage{138}
+    \subitem {Stellar}, \hyperpage{138}
+    \subitem {Unknown}, \hyperpage{137}
+    \subitem {YieldCount}, \hyperpage{138}
+    \subitem {YieldProcess}, \hyperpage{138}
+  \item {Europium}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {EventRate}
+    \subitem {StarReservoir}, \hyperpage{99}
+  \item {EventRateFile}
+    \subitem {OutputValues}, \hyperpage{75}
+  \item {Evolve}
+    \subitem {Galaxy}, \hyperpage{14}
+  \item {ExtractSample}
+    \subitem {IsochroneTracker}, \hyperpage{61}
+
+  \indexspace
+
+  \item {Feed}
+    \subitem {RemnantPopulation}, \hyperpage{80}
+  \item {FeedbackEjectFactor}
+    \subitem {ThermalValues}, \hyperpage{113}
+  \item {FeedbackFactor}
+    \subitem {StellarValues}, \hyperpage{109}
+  \item {FirstMoment}
+    \subitem {Integral}, \hyperpage{56}
+  \item {Form}
+    \subitem {StarReservoir}, \hyperpage{98}
+  \item {FormationCount}
+    \subitem {IMF\_Functor}, \hyperpage{50}
+  \item {FormStars}
+    \subitem {StellarPopulation}, \hyperpage{102}
+  \item {FullDeathScan}
+    \subitem {StellarPopulation}, \hyperpage{103}
+
+  \indexspace
+
+  \item {Galaxy}, \hyperpage{12}
+    \subitem {AssignMagnitudes}, \hyperpage{14}
+    \subitem {BrightestStar}, \hyperpage{18}
+    \subitem {CGM}, \hyperpage{19}
+    \subitem {CGMOperations}, \hyperpage{15}
+    \subitem {ColdGasMass}, \hyperpage{14}
+    \subitem {CompoundScattering}, \hyperpage{14}
+    \subitem {ComputeScattering}, \hyperpage{14}
+    \subitem {ComputeVisibilityFunction}, \hyperpage{14}
+    \subitem {Data}, \hyperpage{18}
+    \subitem {DimmestStar}, \hyperpage{18}
+    \subitem {Evolve}, \hyperpage{14}
+    \subitem {Galaxy}, \hyperpage{13}
+    \subitem {GasMass}, \hyperpage{15}
+    \subitem {GasScaleLength}, \hyperpage{15}
+    \subitem {GlobalParameters}, \hyperpage{47}
+    \subitem {Infall}, \hyperpage{15}
+    \subitem {InfallMass}, \hyperpage{15}
+    \subitem {InsertInfallingGas}, \hyperpage{15}
+    \subitem {LaunchParallelOperation}, \hyperpage{15}
+    \subitem {Mass}, \hyperpage{16}
+    \subitem {MassHeaders}, \hyperpage{16}
+    \subitem {Migrator}, \hyperpage{19}
+    \subitem {ParallelBars}, \hyperpage{19}
+    \subitem {Param}, \hyperpage{19}
+    \subitem {PredictSurfaceDensity}, \hyperpage{16}
+    \subitem {RelicMass}, \hyperpage{16}
+    \subitem {RingEvolve}, \hyperpage{16}
+    \subitem {RingMasses}, \hyperpage{19}
+    \subitem {Rings}, \hyperpage{19}
+    \subitem {SaveState}, \hyperpage{16}
+    \subitem {SaveState\_Enrichment}, \hyperpage{17}
+    \subitem {SaveState\_Events}, \hyperpage{17}
+    \subitem {SaveState\_Mass}, \hyperpage{17}
+    \subitem {ScatterGas}, \hyperpage{17}
+    \subitem {ScatterYields}, \hyperpage{17}
+    \subitem {SelectionFunction}, \hyperpage{17}
+    \subitem {StarMass}, \hyperpage{18}
+    \subitem {StellarSynthesis}, \hyperpage{18}
+    \subitem {SynthesiseObservations}, \hyperpage{18}
+    \subitem {SynthesisOutput}, \hyperpage{19}
+    \subitem {SynthesisProgress}, \hyperpage{19}
+    \subitem {Threads}, \hyperpage{20}
+  \item {Galaxy.h}
+    \subitem {AssignIsochrones}, \hyperpage{130}
+    \subitem {Compounding}, \hyperpage{130}
+    \subitem {ParallelJob}, \hyperpage{129}
+    \subitem {RingStep}, \hyperpage{130}
+    \subitem {Scattering}, \hyperpage{130}
+    \subitem {Selection}, \hyperpage{130}
+    \subitem {Synthesis}, \hyperpage{130}
+  \item {GalaxyMassFile}
+    \subitem {OutputValues}, \hyperpage{75}
+  \item {GalaxyValues}, \hyperpage{20}
+    \subitem {CGM\_Mass}, \hyperpage{22}
+    \subitem {CGMAbsorbing}, \hyperpage{22}
+    \subitem {GalaxyValues}, \hyperpage{22}
+    \subitem {InfallMass1}, \hyperpage{22}
+    \subitem {InfallMass2}, \hyperpage{23}
+    \subitem {InfallMassMerger}, \hyperpage{23}
+    \subitem {InfallTime1}, \hyperpage{23}
+    \subitem {InfallTime2}, \hyperpage{23}
+    \subitem {InfallTimeMerger}, \hyperpage{23}
+    \subitem {Initialise}, \hyperpage{22}
+    \subitem {MaxScaleLength}, \hyperpage{23}
+    \subitem {MaxSFRFraction}, \hyperpage{24}
+    \subitem {MergerDelayTime}, \hyperpage{24}
+    \subitem {MergerTurnOnWidth}, \hyperpage{24}
+    \subitem {MinScaleLength}, \hyperpage{24}
+    \subitem {PrimordialHotFraction}, \hyperpage{24}
+    \subitem {PrimordialMass}, \hyperpage{24}
+    \subitem {Radius}, \hyperpage{25}
+    \subitem {Ring0Width}, \hyperpage{25}
+    \subitem {RingCount}, \hyperpage{25}
+    \subitem {RingRadius}, \hyperpage{25}
+    \subitem {RingWidth}, \hyperpage{25}
+    \subitem {ScaleLengthDelay}, \hyperpage{25}
+    \subitem {ScaleLengthFinalTime}, \hyperpage{26}
+    \subitem {ScaleLengthTimeScale}, \hyperpage{26}
+    \subitem {UsingVariableRingWidth}, \hyperpage{26}
+  \item {Gas}, \hyperpage{26}
+    \subitem {CheckMass}, \hyperpage{27}
+    \subitem {Empty}, \hyperpage{28}
+    \subitem {Gas}, \hyperpage{27}
+    \subitem {internal\_Mass}, \hyperpage{29}
+    \subitem {Mass}, \hyperpage{28}
+    \subitem {NeedsRecomputing}, \hyperpage{29}
+    \subitem {operator[]}, \hyperpage{28}
+    \subitem {Primordial}, \hyperpage{29}
+    \subitem {Ring}, \hyperpage{88}
+    \subitem {Species}, \hyperpage{29}
+  \item {GasCoolingTimeScale}
+    \subitem {ThermalValues}, \hyperpage{113}
+  \item {GasMass}
+    \subitem {Galaxy}, \hyperpage{15}
+  \item {GasReservoir}, \hyperpage{30}
+    \subitem {Absorb}, \hyperpage{31, 32}
+    \subitem {AbsorbMemory}, \hyperpage{32}
+    \subitem {AccretionStream}, \hyperpage{32}
+    \subitem {ColdGasMetallicity}, \hyperpage{33}
+    \subitem {ColdMass}, \hyperpage{33}
+    \subitem {Components}, \hyperpage{36}
+    \subitem {Composition}, \hyperpage{33}
+    \subitem {Deplete}, \hyperpage{33}
+    \subitem {GasReservoir}, \hyperpage{31}
+    \subitem {Heat}, \hyperpage{34}
+    \subitem {HotMass}, \hyperpage{34}
+    \subitem {Mass}, \hyperpage{34}
+    \subitem {operator[]}, \hyperpage{34, 35}
+    \subitem {Param}, \hyperpage{36}
+    \subitem {PassiveCool}, \hyperpage{35}
+    \subitem {Primordial}, \hyperpage{35}
+    \subitem {TransferAndHeat}, \hyperpage{35}
+    \subitem {TransferColdFrom}, \hyperpage{35}
+    \subitem {TransferFrom}, \hyperpage{36}
+    \subitem {TransferHotFrom}, \hyperpage{36}
+    \subitem {Wipe}, \hyperpage{36}
+  \item {GasScaleLength}
+    \subitem {Galaxy}, \hyperpage{15}
+  \item {GasStream}, \hyperpage{37}
+    \subitem {Absorb}, \hyperpage{40}
+    \subitem {Cold}, \hyperpage{41}
+    \subitem {ColdMass}, \hyperpage{41}
+    \subitem {ComputeMasses}, \hyperpage{41}
+    \subitem {Cool}, \hyperpage{42}
+    \subitem {Deplete}, \hyperpage{42}
+    \subitem {Dirty}, \hyperpage{42}
+    \subitem {GasStream}, \hyperpage{38, 39}
+    \subitem {Heat}, \hyperpage{43}
+    \subitem {Hot}, \hyperpage{43}
+    \subitem {HotMass}, \hyperpage{43}
+    \subitem {internal\_Cold}, \hyperpage{44}
+    \subitem {internal\_ColdMass}, \hyperpage{44}
+    \subitem {internal\_Hot}, \hyperpage{44}
+    \subitem {internal\_HotMass}, \hyperpage{45}
+    \subitem {internal\_TotalMass}, \hyperpage{45}
+    \subitem {Mass}, \hyperpage{44}
+    \subitem {NeedsRecomputing}, \hyperpage{45}
+    \subitem {Source}, \hyperpage{45}
+  \item {generator}
+    \subitem {InitialisedData}, \hyperpage{54}
+    \subitem {IsochroneTracker}, \hyperpage{62}
+  \item {GetBracket}
+    \subitem {YieldGrid}, \hyperpage{118}
+  \item {GetProperties}
+    \subitem {IsochroneTracker}, \hyperpage{61}
+  \item {GiveElementsNames}
+    \subitem {ElementValues}, \hyperpage{10}
+  \item {GlobalParameters}, \hyperpage{45}
+    \subitem {Catalogue}, \hyperpage{47}
+    \subitem {Element}, \hyperpage{47}
+    \subitem {Galaxy}, \hyperpage{47}
+    \subitem {GlobalParameters}, \hyperpage{46}
+    \subitem {Initialise}, \hyperpage{47}
+    \subitem {Meta}, \hyperpage{47}
+    \subitem {Migration}, \hyperpage{48}
+    \subitem {Output}, \hyperpage{48}
+    \subitem {ParamMembers}, \hyperpage{48}
+    \subitem {Resources}, \hyperpage{48}
+    \subitem {SaveInputs}, \hyperpage{47}
+    \subitem {Stellar}, \hyperpage{48}
+    \subitem {Thermal}, \hyperpage{48}
+    \subitem {Yield}, \hyperpage{49}
+  \item {GlobalParameters.h}
+    \subitem {PI}, \hyperpage{139}
+  \item {Grid}
+    \subitem {IsochroneTracker}, \hyperpage{62}
+    \subitem {MigrationMatrix}, \hyperpage{70}
+    \subitem {SimpleYield}, \hyperpage{91}
+    \subitem {YieldGrid}, \hyperpage{120}
+
+  \indexspace
+
+  \item {hasSingle}
+    \subitem {YieldBracket}, \hyperpage{116}
+  \item {Heat}
+    \subitem {GasReservoir}, \hyperpage{34}
+    \subitem {GasStream}, \hyperpage{43}
+  \item {Helium}
+    \subitem {EnumSets.h}, \hyperpage{136}
+  \item {HMag}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {Hot}
+    \subitem {GasStream}, \hyperpage{43}
+  \item {HotBuffer}
+    \subitem {Ring}, \hyperpage{88}
+  \item {HotGasDataFile}
+    \subitem {OutputValues}, \hyperpage{75}
+  \item {HotInjection\_AGB}
+    \subitem {ThermalValues}, \hyperpage{113}
+  \item {HotInjection\_CCSN}
+    \subitem {ThermalValues}, \hyperpage{114}
+  \item {HotInjection\_NSM}
+    \subitem {ThermalValues}, \hyperpage{114}
+  \item {HotInjection\_SNIa}
+    \subitem {ThermalValues}, \hyperpage{114}
+  \item {hotInjectionFraction}
+    \subitem {SimpleYield}, \hyperpage{91}
+    \subitem {YieldGrid}, \hyperpage{120}
+  \item {HotMass}
+    \subitem {GasReservoir}, \hyperpage{34}
+    \subitem {GasStream}, \hyperpage{43}
+  \item {Hydrogen}
+    \subitem {EnumSets.h}, \hyperpage{136}
+
+  \indexspace
+
+  \item {IMag}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {IMF}
+    \subitem {IMF\_Functor}, \hyperpage{50}
+    \subitem {InitialisedData}, \hyperpage{54}
+    \subitem {StarReservoir}, \hyperpage{99}
+    \subitem {StellarPopulation}, \hyperpage{105}
+  \item {IMF\_Functor}, \hyperpage{49}
+    \subitem {FormationCount}, \hyperpage{50}
+    \subitem {IMF}, \hyperpage{50}
+    \subitem {IMF\_Functor}, \hyperpage{49}
+    \subitem {IMF\_MeanMass}, \hyperpage{51}
+    \subitem {IMF\_Normalisation}, \hyperpage{51}
+    \subitem {IMF\_Weighting}, \hyperpage{51}
+    \subitem {MomentCompute}, \hyperpage{50}
+    \subitem {Normalise}, \hyperpage{50}
+    \subitem {operator()}, \hyperpage{50}
+    \subitem {Param}, \hyperpage{51}
+    \subitem {Weighting}, \hyperpage{50}
+  \item {IMF\_MeanMass}
+    \subitem {IMF\_Functor}, \hyperpage{51}
+  \item {IMF\_Normalisation}
+    \subitem {IMF\_Functor}, \hyperpage{51}
+  \item {IMF\_Slope}
+    \subitem {StellarValues}, \hyperpage{109}
+  \item {IMF\_Weighting}
+    \subitem {IMF\_Functor}, \hyperpage{51}
+  \item {ImmortalMass}
+    \subitem {StellarValues}, \hyperpage{109}
+  \item {ImmortalStars}
+    \subitem {StellarPopulation}, \hyperpage{106}
+  \item {Infall}
+    \subitem {Galaxy}, \hyperpage{15}
+  \item {InfallMass}
+    \subitem {Galaxy}, \hyperpage{15}
+  \item {InfallMass1}
+    \subitem {GalaxyValues}, \hyperpage{22}
+  \item {InfallMass2}
+    \subitem {GalaxyValues}, \hyperpage{23}
+  \item {InfallMassMerger}
+    \subitem {GalaxyValues}, \hyperpage{23}
+  \item {InfallTime1}
+    \subitem {GalaxyValues}, \hyperpage{23}
+  \item {InfallTime2}
+    \subitem {GalaxyValues}, \hyperpage{23}
+  \item {InfallTimeMerger}
+    \subitem {GalaxyValues}, \hyperpage{23}
+  \item {InflowActive}
+    \subitem {MigrationValues}, \hyperpage{72}
+  \item {InflowParameterA}
+    \subitem {MigrationValues}, \hyperpage{72}
+  \item {InflowParameterB}
+    \subitem {MigrationValues}, \hyperpage{72}
+  \item {Initialise}
+    \subitem {ElementValues}, \hyperpage{11}
+    \subitem {GalaxyValues}, \hyperpage{22}
+    \subitem {GlobalParameters}, \hyperpage{47}
+    \subitem {MetaValues}, \hyperpage{67}
+    \subitem {OutputValues}, \hyperpage{74}
+    \subitem {ParamList}, \hyperpage{78}
+    \subitem {ResourceValues}, \hyperpage{83}
+    \subitem {StellarValues}, \hyperpage{108}
+    \subitem {YieldValues}, \hyperpage{125}
+  \item {InitialisedData}, \hyperpage{51}
+    \subitem {AGBYield}, \hyperpage{54}
+    \subitem {CCSNYield}, \hyperpage{54}
+    \subitem {distribution}, \hyperpage{54}
+    \subitem {ECSNYield}, \hyperpage{54}
+    \subitem {generator}, \hyperpage{54}
+    \subitem {IMF}, \hyperpage{54}
+    \subitem {InitialisedData}, \hyperpage{52}
+    \subitem {Isochrones}, \hyperpage{55}
+    \subitem {Log}, \hyperpage{52, 53}
+    \subitem {LogFlush}, \hyperpage{53}
+    \subitem {NormalDist}, \hyperpage{53}
+    \subitem {NSMYield}, \hyperpage{55}
+    \subitem {Param}, \hyperpage{55}
+    \subitem {ProgressBar}, \hyperpage{53}
+    \subitem {SLF}, \hyperpage{55}
+    \subitem {SNIaYield}, \hyperpage{55}
+    \subitem {UniformDist}, \hyperpage{53}
+    \subitem {UrgentLog}, \hyperpage{54}
+  \item {InitialiseLargeGrid}
+    \subitem {YieldGrid}, \hyperpage{119}
+  \item {InsertInfallingGas}
+    \subitem {Galaxy}, \hyperpage{15}
+  \item {Integral}, \hyperpage{55}
+    \subitem {FirstMoment}, \hyperpage{56}
+    \subitem {ZerothMoment}, \hyperpage{56}
+  \item {internal\_Cold}
+    \subitem {GasStream}, \hyperpage{44}
+  \item {internal\_ColdMass}
+    \subitem {GasStream}, \hyperpage{44}
+  \item {internal\_Hot}
+    \subitem {GasStream}, \hyperpage{44}
+  \item {internal\_HotMass}
+    \subitem {GasStream}, \hyperpage{45}
+  \item {internal\_Mass}
+    \subitem {Gas}, \hyperpage{29}
+  \item {internal\_MassCounter}
+    \subitem {StellarPopulation}, \hyperpage{106}
+  \item {internal\_TotalMass}
+    \subitem {GasStream}, \hyperpage{45}
+  \item {Interpolate}
+    \subitem {Interpolator}, \hyperpage{56}
+    \subitem {YieldBracket}, \hyperpage{115}
+  \item {Interpolator}, \hyperpage{56}
+    \subitem {Interpolate}, \hyperpage{56}
+    \subitem {LinearFactor}, \hyperpage{57}
+    \subitem {LowerID}, \hyperpage{57}
+    \subitem {UpperID}, \hyperpage{57}
+  \item {Iron}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {IsDepleted}
+    \subitem {StellarPopulation}, \hyperpage{106}
+  \item {isEnclosed}
+    \subitem {YieldBracket}, \hyperpage{116}
+  \item {IsLifetimeMonotonic}
+    \subitem {StellarPopulation}, \hyperpage{106}
+  \item {Isochrone}
+    \subitem {IsoMass}, \hyperpage{64}
+  \item {IsochroneCube}, \hyperpage{57}
+    \subitem {Count}, \hyperpage{58}
+    \subitem {Data}, \hyperpage{58}
+    \subitem {Value}, \hyperpage{58}
+    \subitem {Weighting}, \hyperpage{58}
+  \item {IsochroneDirectory}
+    \subitem {ResourceValues}, \hyperpage{83}
+  \item {IsochroneEntry}, \hyperpage{58}
+    \subitem {Countify}, \hyperpage{59}
+    \subitem {IsochroneEntry}, \hyperpage{59}
+    \subitem {operator[]}, \hyperpage{59}
+    \subitem {Properties}, \hyperpage{59}
+  \item {IsochroneMagnitudeResolution}
+    \subitem {CatalogueValues}, \hyperpage{8}
+  \item {IsochroneProperties}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {IsochroneRepository}
+    \subitem {ResourceValues}, \hyperpage{83}
+  \item {Isochrones}
+    \subitem {InitialisedData}, \hyperpage{55}
+  \item {IsochroneTimeStep}
+    \subitem {CatalogueValues}, \hyperpage{8}
+  \item {IsochroneTracker}, \hyperpage{60}
+    \subitem {CapturedTs}, \hyperpage{62}
+    \subitem {CapturedZs}, \hyperpage{62}
+    \subitem {Construct}, \hyperpage{60}
+    \subitem {DeltaLogT}, \hyperpage{62}
+    \subitem {distribution}, \hyperpage{62}
+    \subitem {ExtractSample}, \hyperpage{61}
+    \subitem {generator}, \hyperpage{62}
+    \subitem {GetProperties}, \hyperpage{61}
+    \subitem {Grid}, \hyperpage{62}
+    \subitem {IsochroneTracker}, \hyperpage{60}
+    \subitem {IsoLog}, \hyperpage{61}
+    \subitem {isTimeLogUniform}, \hyperpage{62}
+    \subitem {NormalSample}, \hyperpage{61}
+    \subitem {Param}, \hyperpage{63}
+    \subitem {ParseFile}, \hyperpage{61}
+    \subitem {UniformSample}, \hyperpage{61}
+    \subitem {UnsortedGrid}, \hyperpage{63}
+  \item {IsochroneTracker.h}
+    \subitem {BMag}, \hyperpage{148}
+    \subitem {BolometricMag}, \hyperpage{148}
+    \subitem {HMag}, \hyperpage{148}
+    \subitem {IMag}, \hyperpage{148}
+    \subitem {IsochroneProperties}, \hyperpage{148}
+    \subitem {JMag}, \hyperpage{148}
+    \subitem {KMag}, \hyperpage{148}
+    \subitem {Logg}, \hyperpage{148}
+    \subitem {logL}, \hyperpage{148}
+    \subitem {PropertyCount}, \hyperpage{148}
+    \subitem {PropertyNames}, \hyperpage{149}
+    \subitem {RMag}, \hyperpage{148}
+    \subitem {TEff}, \hyperpage{148}
+    \subitem {UMag}, \hyperpage{148}
+    \subitem {VMag}, \hyperpage{148}
+  \item {IsoLog}
+    \subitem {IsochroneTracker}, \hyperpage{61}
+  \item {IsoMass}, \hyperpage{63}
+    \subitem {BirthIndex}, \hyperpage{64}
+    \subitem {Count}, \hyperpage{64}
+    \subitem {DeathIndex}, \hyperpage{64}
+    \subitem {Isochrone}, \hyperpage{64}
+    \subitem {IsoMass}, \hyperpage{64}
+    \subitem {MassIndex}, \hyperpage{64}
+    \subitem {Metallicity}, \hyperpage{65}
+  \item {isTimeLogUniform}
+    \subitem {IsochroneTracker}, \hyperpage{62}
+
+  \indexspace
+
+  \item {JMag}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+
+  \indexspace
+
+  \item {KillStars}
+    \subitem {Ring}, \hyperpage{86}
+  \item {KMag}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+
+  \indexspace
+
+  \item {LaunchParallelOperation}
+    \subitem {Galaxy}, \hyperpage{15}
+  \item {LifeTime}
+    \subitem {SLF\_Functor}, \hyperpage{92}
+  \item {LifeTimeFile}
+    \subitem {ResourceValues}, \hyperpage{84}
+  \item {Limongi}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {LinearFactor}
+    \subitem {Interpolator}, \hyperpage{57}
+  \item {LoadLimongiYields}
+    \subitem {YieldGrid}, \hyperpage{119}
+  \item {LoadMaederYields}
+    \subitem {YieldGrid}, \hyperpage{119}
+  \item {LoadMarigoYields}
+    \subitem {YieldGrid}, \hyperpage{119}
+  \item {LoadOrfeoYields}
+    \subitem {YieldGrid}, \hyperpage{119}
+  \item {Log}
+    \subitem {InitialisedData}, \hyperpage{52, 53}
+  \item {LogarithmicColdGasFile}
+    \subitem {OutputValues}, \hyperpage{75}
+  \item {LogarithmicHotGasFile}
+    \subitem {OutputValues}, \hyperpage{76}
+  \item {LogFlush}
+    \subitem {InitialisedData}, \hyperpage{53}
+  \item {Logg}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {logL}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {LogZDelta}
+    \subitem {StellarValues}, \hyperpage{109}
+  \item {LogZGrid}
+    \subitem {StellarValues}, \hyperpage{109}
+  \item {LogZResolution}
+    \subitem {StellarValues}, \hyperpage{109}
+  \item {LongSNIaBuffer}
+    \subitem {RemnantPopulation}, \hyperpage{81}
+  \item {LowerID}
+    \subitem {Interpolator}, \hyperpage{57}
+  \item {LowerRidge}
+    \subitem {YieldBracket}, \hyperpage{116}
+
+  \indexspace
+
+  \item {Maeder}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {Magnesium}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {MakeStars}
+    \subitem {Ring}, \hyperpage{86}
+  \item {Manganese}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {Marigo}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {MarkovDispersionStrength}
+    \subitem {MigrationValues}, \hyperpage{72}
+  \item {Mass}
+    \subitem {Galaxy}, \hyperpage{16}
+    \subitem {Gas}, \hyperpage{28}
+    \subitem {GasReservoir}, \hyperpage{34}
+    \subitem {GasStream}, \hyperpage{44}
+    \subitem {RemnantOutput}, \hyperpage{79}
+    \subitem {RemnantPopulation}, \hyperpage{81}
+    \subitem {Ring}, \hyperpage{86}
+    \subitem {StellarPopulation}, \hyperpage{103}
+    \subitem {YieldPoint}, \hyperpage{122}
+  \item {MassDeltas}
+    \subitem {StellarValues}, \hyperpage{110}
+  \item {MassGrid}
+    \subitem {StellarValues}, \hyperpage{110}
+  \item {MassHeaders}
+    \subitem {Galaxy}, \hyperpage{16}
+  \item {MassIndex}
+    \subitem {IsoMass}, \hyperpage{64}
+  \item {MassOffset}
+    \subitem {YieldGrid}, \hyperpage{120}
+  \item {MassOverhang}
+    \subitem {YieldValues}, \hyperpage{126}
+  \item {MassReport}, \hyperpage{65}
+    \subitem {BH}, \hyperpage{65}
+    \subitem {NS}, \hyperpage{65}
+    \subitem {Total}, \hyperpage{65}
+    \subitem {WD}, \hyperpage{66}
+  \item {MassResolution}
+    \subitem {StellarValues}, \hyperpage{110}
+  \item {MaxLogZ}
+    \subitem {StellarValues}, \hyperpage{110}
+  \item {MaxMv}
+    \subitem {Ring}, \hyperpage{88}
+  \item {MaxScaleLength}
+    \subitem {GalaxyValues}, \hyperpage{23}
+  \item {MaxSFRFraction}
+    \subitem {GalaxyValues}, \hyperpage{24}
+  \item {MaxStealFraction}
+    \subitem {MigrationValues}, \hyperpage{72}
+  \item {MaxStellarMass}
+    \subitem {StellarValues}, \hyperpage{110}
+  \item {MergerDelayTime}
+    \subitem {GalaxyValues}, \hyperpage{24}
+  \item {MergerNS}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {MergerTurnOnWidth}
+    \subitem {GalaxyValues}, \hyperpage{24}
+  \item {Meta}
+    \subitem {GlobalParameters}, \hyperpage{47}
+  \item {Metallicity}
+    \subitem {IsoMass}, \hyperpage{65}
+    \subitem {StellarPopulation}, \hyperpage{106}
+  \item {MetallicityInterpolation}
+    \subitem {YieldGrid}, \hyperpage{119}
+  \item {Metals}
+    \subitem {EnumSets.h}, \hyperpage{136}
+  \item {MetaValues}, \hyperpage{66}
+    \subitem {Initialise}, \hyperpage{67}
+    \subitem {MetaValues}, \hyperpage{67}
+    \subitem {ParallelThreads}, \hyperpage{67}
+    \subitem {ProgressHashes}, \hyperpage{67}
+    \subitem {SimulationDuration}, \hyperpage{68}
+    \subitem {SimulationSteps}, \hyperpage{68}
+    \subitem {TimeStep}, \hyperpage{68}
+    \subitem {Verbosity}, \hyperpage{68}
+  \item {MetCheck}
+    \subitem {Ring}, \hyperpage{86}
+  \item {Migration}
+    \subitem {GlobalParameters}, \hyperpage{48}
+  \item {MigrationMatrix}, \hyperpage{68}
+    \subitem {Compound}, \hyperpage{69}
+    \subitem {Create}, \hyperpage{69}
+    \subitem {DiagonalMultiply}, \hyperpage{69}
+    \subitem {Grid}, \hyperpage{70}
+    \subitem {MigrationMatrix}, \hyperpage{69}
+    \subitem {NRings}, \hyperpage{70}
+    \subitem {Param}, \hyperpage{70}
+    \subitem {Print}, \hyperpage{70}
+  \item {MigrationValues}, \hyperpage{70}
+    \subitem {DispersionOrder}, \hyperpage{71}
+    \subitem {DispersionTruncation}, \hyperpage{72}
+    \subitem {InflowActive}, \hyperpage{72}
+    \subitem {InflowParameterA}, \hyperpage{72}
+    \subitem {InflowParameterB}, \hyperpage{72}
+    \subitem {MarkovDispersionStrength}, \hyperpage{72}
+    \subitem {MaxStealFraction}, \hyperpage{72}
+    \subitem {MigrationValues}, \hyperpage{71}
+  \item {Migrator}
+    \subitem {Galaxy}, \hyperpage{19}
+  \item {MinLogZ}
+    \subitem {StellarValues}, \hyperpage{110}
+  \item {MinMv}
+    \subitem {Ring}, \hyperpage{88}
+  \item {MinScaleLength}
+    \subitem {GalaxyValues}, \hyperpage{24}
+  \item {MinStellarMass}
+    \subitem {StellarValues}, \hyperpage{111}
+  \item {Mixed}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {MomentCompute}
+    \subitem {IMF\_Functor}, \hyperpage{50}
+  \item {MonotonicDeathScan}
+    \subitem {StellarPopulation}, \hyperpage{103}
+
+  \indexspace
+
+  \item {NeedsRecomputing}
+    \subitem {Gas}, \hyperpage{29}
+    \subitem {GasStream}, \hyperpage{45}
+  \item {NeutronStar}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {NormalDist}
+    \subitem {InitialisedData}, \hyperpage{53}
+  \item {Normalise}
+    \subitem {IMF\_Functor}, \hyperpage{50}
+  \item {NormalSample}
+    \subitem {IsochroneTracker}, \hyperpage{61}
+  \item {NotComputed}
+    \subitem {SLF\_Functor}, \hyperpage{93}
+  \item {NRings}
+    \subitem {MigrationMatrix}, \hyperpage{70}
+  \item {NS}
+    \subitem {MassReport}, \hyperpage{65}
+  \item {NSM}
+    \subitem {EnumSets.h}, \hyperpage{138}
+    \subitem {StarEvents}, \hyperpage{95}
+  \item {NSM\_ActiveFraction}
+    \subitem {YieldValues}, \hyperpage{126}
+  \item {NSM\_DelayTime}
+    \subitem {YieldValues}, \hyperpage{126}
+  \item {NSM\_Initialise}
+    \subitem {SimpleYield}, \hyperpage{90}
+  \item {NSM\_Scale}
+    \subitem {YieldValues}, \hyperpage{126}
+  \item {NSM\_TypicalMass}
+    \subitem {YieldValues}, \hyperpage{126}
+  \item {NSMBuffer}
+    \subitem {RemnantPopulation}, \hyperpage{81}
+  \item {NSMYield}
+    \subitem {InitialisedData}, \hyperpage{55}
+    \subitem {RemnantPopulation}, \hyperpage{81}
+  \item {NStarsFormed}
+    \subitem {StarEvents}, \hyperpage{96}
+  \item {NumericalResolution}
+    \subitem {ThermalValues}, \hyperpage{114}
+
+  \indexspace
+
+  \item {Observations}
+    \subitem {StarReservoir}, \hyperpage{98}
+  \item {operator()}
+    \subitem {IMF\_Functor}, \hyperpage{50}
+    \subitem {SimpleYield}, \hyperpage{90}
+    \subitem {SLF\_Functor}, \hyperpage{93}
+    \subitem {YieldGrid}, \hyperpage{119}
+  \item {operator[]}
+    \subitem {Gas}, \hyperpage{28}
+    \subitem {GasReservoir}, \hyperpage{34, 35}
+    \subitem {IsochroneEntry}, \hyperpage{59}
+    \subitem {StellarPopulation}, \hyperpage{103}
+  \item {Orfeo}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {Output}
+    \subitem {GlobalParameters}, \hyperpage{48}
+  \item {OutputValues}, \hyperpage{73}
+    \subitem {AbsoluteColdGasFile}, \hyperpage{74}
+    \subitem {AbsoluteHotGasFile}, \hyperpage{74}
+    \subitem {ChemicalPrefactor}, \hyperpage{74}
+    \subitem {ColdGasDataFile}, \hyperpage{75}
+    \subitem {Config}, \hyperpage{75}
+    \subitem {EventRateFile}, \hyperpage{75}
+    \subitem {GalaxyMassFile}, \hyperpage{75}
+    \subitem {HotGasDataFile}, \hyperpage{75}
+    \subitem {Initialise}, \hyperpage{74}
+    \subitem {LogarithmicColdGasFile}, \hyperpage{75}
+    \subitem {LogarithmicHotGasFile}, \hyperpage{76}
+    \subitem {OutputValues}, \hyperpage{74}
+    \subitem {Root}, \hyperpage{76}
+    \subitem {StarFile}, \hyperpage{76}
+    \subitem {YieldSubdir}, \hyperpage{76}
+  \item {Oxygen}
+    \subitem {EnumSets.h}, \hyperpage{137}
+
+  \indexspace
+
+  \item {ParallelBars}
+    \subitem {Galaxy}, \hyperpage{19}
+  \item {ParallelJob}
+    \subitem {Galaxy.h}, \hyperpage{129}
+  \item {ParallelThreads}
+    \subitem {MetaValues}, \hyperpage{67}
+  \item {Param}
+    \subitem {Galaxy}, \hyperpage{19}
+    \subitem {GasReservoir}, \hyperpage{36}
+    \subitem {IMF\_Functor}, \hyperpage{51}
+    \subitem {InitialisedData}, \hyperpage{55}
+    \subitem {IsochroneTracker}, \hyperpage{63}
+    \subitem {MigrationMatrix}, \hyperpage{70}
+    \subitem {RemnantPopulation}, \hyperpage{82}
+    \subitem {Ring}, \hyperpage{88}
+    \subitem {SimpleYield}, \hyperpage{91}
+    \subitem {SLF\_Functor}, \hyperpage{93}
+    \subitem {StarReservoir}, \hyperpage{99}
+    \subitem {StellarPopulation}, \hyperpage{106}
+    \subitem {YieldGrid}, \hyperpage{121}
+  \item {ParamList}, \hyperpage{77}
+    \subitem {argPointers}, \hyperpage{78}
+    \subitem {Configure}, \hyperpage{78}
+    \subitem {Initialise}, \hyperpage{78}
+    \subitem {StreamContentsTo}, \hyperpage{78}
+  \item {ParamMembers}
+    \subitem {GlobalParameters}, \hyperpage{48}
+  \item {ParentArea}
+    \subitem {StarReservoir}, \hyperpage{99}
+  \item {ParentRing}
+    \subitem {StarReservoir}, \hyperpage{99}
+  \item {ParseFile}
+    \subitem {IsochroneTracker}, \hyperpage{61}
+  \item {PassiveCool}
+    \subitem {GasReservoir}, \hyperpage{35}
+  \item {PI}
+    \subitem {GlobalParameters.h}, \hyperpage{139}
+  \item {Points}
+    \subitem {YieldRidge}, \hyperpage{123}
+  \item {Population}
+    \subitem {StarReservoir}, \hyperpage{99}
+  \item {PopulationIndex}
+    \subitem {StarReservoir}, \hyperpage{100}
+  \item {PrecomputedGrid}
+    \subitem {SLF\_Functor}, \hyperpage{94}
+  \item {PrecomputeGrid}
+    \subitem {SLF\_Functor}, \hyperpage{93}
+  \item {PredictLifetime}
+    \subitem {SLF\_Functor}, \hyperpage{93}
+  \item {PredictSurfaceDensity}
+    \subitem {Galaxy}, \hyperpage{16}
+  \item {PrepareIMF}
+    \subitem {StellarPopulation}, \hyperpage{103}
+  \item {Primordial}
+    \subitem {Gas}, \hyperpage{29}
+    \subitem {GasReservoir}, \hyperpage{35}
+  \item {PrimordialHotFraction}
+    \subitem {GalaxyValues}, \hyperpage{24}
+  \item {PrimordialMass}
+    \subitem {GalaxyValues}, \hyperpage{24}
+  \item {Print}
+    \subitem {MigrationMatrix}, \hyperpage{70}
+  \item {PrintStatus}
+    \subitem {StarReservoir}, \hyperpage{98}
+  \item {Process}
+    \subitem {SimpleYield}, \hyperpage{91}
+    \subitem {YieldGrid}, \hyperpage{121}
+  \item {ProcessCount}
+    \subitem {EnumSets.h}, \hyperpage{138}
+  \item {ProcessNames}
+    \subitem {YieldValues}, \hyperpage{126}
+  \item {ProcessTypes}
+    \subitem {YieldValues}, \hyperpage{127}
+  \item {ProgressBar}
+    \subitem {InitialisedData}, \hyperpage{53}
+  \item {ProgressHashes}
+    \subitem {MetaValues}, \hyperpage{67}
+  \item {Properties}
+    \subitem {IsochroneEntry}, \hyperpage{59}
+  \item {PropertyCount}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {PropertyNames}
+    \subitem {IsochroneTracker.h}, \hyperpage{149}
+  \item {ProtonCounts}
+    \subitem {ElementValues}, \hyperpage{11}
+  \item {PurityEnforce}
+    \subitem {YieldGrid}, \hyperpage{120}
+
+  \indexspace
+
+  \item {RadialResolution}
+    \subitem {CatalogueValues}, \hyperpage{8}
+  \item {Radius}
+    \subitem {GalaxyValues}, \hyperpage{25}
+    \subitem {Ring}, \hyperpage{89}
+  \item {RadiusIndex}
+    \subitem {Ring}, \hyperpage{89}
+  \item {RecoverMatter}
+    \subitem {StellarPopulation}, \hyperpage{104}
+  \item {Relic}
+    \subitem {StellarPopulation}, \hyperpage{104}
+  \item {RelicMass}
+    \subitem {Galaxy}, \hyperpage{16}
+  \item {Remnant}
+    \subitem {EnumSets.h}, \hyperpage{138}
+  \item {RemnantInject}
+    \subitem {SimpleYield}, \hyperpage{91}
+  \item {RemnantLocation}
+    \subitem {YieldGrid}, \hyperpage{121}
+  \item {RemnantOutput}, \hyperpage{79}
+    \subitem {Mass}, \hyperpage{79}
+    \subitem {Type}, \hyperpage{79}
+  \item {RemnantPopulation}, \hyperpage{79}
+    \subitem {BlackHoleMass}, \hyperpage{81}
+    \subitem {Decay}, \hyperpage{80}
+    \subitem {DormantNSMass}, \hyperpage{81}
+    \subitem {DormantWDMass}, \hyperpage{81}
+    \subitem {Feed}, \hyperpage{80}
+    \subitem {LongSNIaBuffer}, \hyperpage{81}
+    \subitem {Mass}, \hyperpage{81}
+    \subitem {NSMBuffer}, \hyperpage{81}
+    \subitem {NSMYield}, \hyperpage{81}
+    \subitem {Param}, \hyperpage{82}
+    \subitem {RemnantPopulation}, \hyperpage{80}
+    \subitem {ShortSNIaBuffer}, \hyperpage{82}
+    \subitem {SNIaYield}, \hyperpage{82}
+  \item {Remnants}
+    \subitem {StarReservoir}, \hyperpage{100}
+  \item {RemnantType}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {ResourceRoot}
+    \subitem {ResourceValues}, \hyperpage{84}
+  \item {Resources}
+    \subitem {GlobalParameters}, \hyperpage{48}
+  \item {ResourceValues}, \hyperpage{82}
+    \subitem {Initialise}, \hyperpage{83}
+    \subitem {IsochroneDirectory}, \hyperpage{83}
+    \subitem {IsochroneRepository}, \hyperpage{83}
+    \subitem {LifeTimeFile}, \hyperpage{84}
+    \subitem {ResourceRoot}, \hyperpage{84}
+    \subitem {ResourceValues}, \hyperpage{83}
+    \subitem {WelcomeFile}, \hyperpage{84}
+    \subitem {YieldRoot}, \hyperpage{84}
+  \item {RidgeStorage}
+    \subitem {YieldGrid}, \hyperpage{121}
+  \item {Ring}, \hyperpage{84}
+    \subitem {Area}, \hyperpage{87}
+    \subitem {CGMBuffer}, \hyperpage{88}
+    \subitem {ColdBuffer}, \hyperpage{88}
+    \subitem {ComputeSelectionFunction}, \hyperpage{86}
+    \subitem {Cool}, \hyperpage{86}
+    \subitem {Data}, \hyperpage{88}
+    \subitem {Gas}, \hyperpage{88}
+    \subitem {HotBuffer}, \hyperpage{88}
+    \subitem {KillStars}, \hyperpage{86}
+    \subitem {MakeStars}, \hyperpage{86}
+    \subitem {Mass}, \hyperpage{86}
+    \subitem {MaxMv}, \hyperpage{88}
+    \subitem {MetCheck}, \hyperpage{86}
+    \subitem {MinMv}, \hyperpage{88}
+    \subitem {Param}, \hyperpage{88}
+    \subitem {Radius}, \hyperpage{89}
+    \subitem {RadiusIndex}, \hyperpage{89}
+    \subitem {Ring}, \hyperpage{85}
+    \subitem {SaveChemicalHistory}, \hyperpage{86}
+    \subitem {SelectionEffect}, \hyperpage{87}
+    \subitem {SelectionGrid}, \hyperpage{89}
+    \subitem {Stars}, \hyperpage{89}
+    \subitem {Synthesis}, \hyperpage{87}
+    \subitem {TimeStep}, \hyperpage{87}
+    \subitem {UpdateMemory}, \hyperpage{87}
+    \subitem {Width}, \hyperpage{89}
+  \item {Ring0Width}
+    \subitem {GalaxyValues}, \hyperpage{25}
+  \item {RingCount}
+    \subitem {GalaxyValues}, \hyperpage{25}
+  \item {RingEvolve}
+    \subitem {Galaxy}, \hyperpage{16}
+  \item {RingMasses}
+    \subitem {Galaxy}, \hyperpage{19}
+  \item {RingRadius}
+    \subitem {GalaxyValues}, \hyperpage{25}
+  \item {Rings}
+    \subitem {Galaxy}, \hyperpage{19}
+  \item {RingStep}
+    \subitem {Galaxy.h}, \hyperpage{130}
+  \item {RingWidth}
+    \subitem {GalaxyValues}, \hyperpage{25}
+  \item {RMag}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {Root}
+    \subitem {OutputValues}, \hyperpage{76}
+
+  \indexspace
+
+  \item {SampleCount}
+    \subitem {CatalogueValues}, \hyperpage{8}
+  \item {Save}
+    \subitem {StarEvents}, \hyperpage{95}
+  \item {SaveChemicalHistory}
+    \subitem {Ring}, \hyperpage{86}
+  \item {SaveEventRate}
+    \subitem {StarReservoir}, \hyperpage{98}
+  \item {SaveGrid}
+    \subitem {YieldGrid}, \hyperpage{120}
+  \item {SaveInputs}
+    \subitem {GlobalParameters}, \hyperpage{47}
+  \item {SaveState}
+    \subitem {Galaxy}, \hyperpage{16}
+  \item {SaveState\_Enrichment}
+    \subitem {Galaxy}, \hyperpage{17}
+  \item {SaveState\_Events}
+    \subitem {Galaxy}, \hyperpage{17}
+  \item {SaveState\_Mass}
+    \subitem {Galaxy}, \hyperpage{17}
+  \item {ScaleLengthDelay}
+    \subitem {GalaxyValues}, \hyperpage{25}
+  \item {ScaleLengthFinalTime}
+    \subitem {GalaxyValues}, \hyperpage{26}
+  \item {ScaleLengthTimeScale}
+    \subitem {GalaxyValues}, \hyperpage{26}
+  \item {ScatterGas}
+    \subitem {Galaxy}, \hyperpage{17}
+  \item {Scattering}
+    \subitem {Galaxy.h}, \hyperpage{130}
+  \item {ScatterYields}
+    \subitem {Galaxy}, \hyperpage{17}
+  \item {SchmidtDensityCut}
+    \subitem {StellarValues}, \hyperpage{111}
+  \item {SchmidtLowPower}
+    \subitem {StellarValues}, \hyperpage{111}
+  \item {SchmidtMainPower}
+    \subitem {StellarValues}, \hyperpage{111}
+  \item {SchmidtPrefactor}
+    \subitem {StellarValues}, \hyperpage{111}
+  \item {Selection}
+    \subitem {Galaxy.h}, \hyperpage{130}
+  \item {SelectionEffect}
+    \subitem {Ring}, \hyperpage{87}
+  \item {SelectionFunction}
+    \subitem {Galaxy}, \hyperpage{17}
+  \item {SelectionGrid}
+    \subitem {Ring}, \hyperpage{89}
+  \item {SFR\_GasLoss}
+    \subitem {StarReservoir}, \hyperpage{98}
+  \item {ShortSNIaBuffer}
+    \subitem {RemnantPopulation}, \hyperpage{82}
+  \item {Silicon}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {SimpleYield}, \hyperpage{89}
+    \subitem {Grid}, \hyperpage{91}
+    \subitem {hotInjectionFraction}, \hyperpage{91}
+    \subitem {NSM\_Initialise}, \hyperpage{90}
+    \subitem {operator()}, \hyperpage{90}
+    \subitem {Param}, \hyperpage{91}
+    \subitem {Process}, \hyperpage{91}
+    \subitem {RemnantInject}, \hyperpage{91}
+    \subitem {SimpleYield}, \hyperpage{90}
+    \subitem {SNIa\_Initialise}, \hyperpage{91}
+  \item {SimulationDuration}
+    \subitem {MetaValues}, \hyperpage{68}
+  \item {SimulationSteps}
+    \subitem {MetaValues}, \hyperpage{68}
+  \item {SLF}
+    \subitem {InitialisedData}, \hyperpage{55}
+    \subitem {StarReservoir}, \hyperpage{100}
+    \subitem {StellarPopulation}, \hyperpage{106}
+  \item {SLF\_Functor}, \hyperpage{92}
+    \subitem {LifeTime}, \hyperpage{92}
+    \subitem {NotComputed}, \hyperpage{93}
+    \subitem {operator()}, \hyperpage{93}
+    \subitem {Param}, \hyperpage{93}
+    \subitem {PrecomputedGrid}, \hyperpage{94}
+    \subitem {PrecomputeGrid}, \hyperpage{93}
+    \subitem {PredictLifetime}, \hyperpage{93}
+    \subitem {SLF\_Functor}, \hyperpage{92}
+    \subitem {ValueInquiry}, \hyperpage{93}
+  \item {SNIa}
+    \subitem {EnumSets.h}, \hyperpage{138}
+    \subitem {StarEvents}, \hyperpage{96}
+  \item {SNIa\_ActiveFraction}
+    \subitem {YieldValues}, \hyperpage{127}
+  \item {SNIa\_DelayTime}
+    \subitem {YieldValues}, \hyperpage{127}
+  \item {SNIa\_Initialise}
+    \subitem {SimpleYield}, \hyperpage{91}
+  \item {SNIa\_LongFraction}
+    \subitem {YieldValues}, \hyperpage{127}
+  \item {SNIa\_LongScale}
+    \subitem {YieldValues}, \hyperpage{127}
+  \item {SNIa\_ShortScale}
+    \subitem {YieldValues}, \hyperpage{127}
+  \item {SNIa\_TypicalMass}
+    \subitem {YieldValues}, \hyperpage{127}
+  \item {SNIaYield}
+    \subitem {InitialisedData}, \hyperpage{55}
+    \subitem {RemnantPopulation}, \hyperpage{82}
+  \item {SolarAbundanceFile}
+    \subitem {ElementValues}, \hyperpage{11}
+  \item {SolarAbundanceFileDataColumn}
+    \subitem {ElementValues}, \hyperpage{11}
+  \item {SolarAbundanceFileNameColumn}
+    \subitem {ElementValues}, \hyperpage{12}
+  \item {SolarAbundances}
+    \subitem {ElementValues}, \hyperpage{12}
+  \item {SolarRadius}
+    \subitem {CatalogueValues}, \hyperpage{9}
+  \item {Source}
+    \subitem {GasStream}, \hyperpage{45}
+    \subitem {YieldRidge}, \hyperpage{123}
+  \item {SourceCount}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {SourceID}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {SourcePriority}
+    \subitem {YieldGrid}, \hyperpage{121}
+  \item {SourceProcess}
+    \subitem {EnumSets.h}, \hyperpage{138}
+  \item {Species}
+    \subitem {Gas}, \hyperpage{29}
+  \item {StarEvents}, \hyperpage{94}
+    \subitem {AddHeaders}, \hyperpage{95}
+    \subitem {AGBDeaths}, \hyperpage{95}
+    \subitem {CCSN}, \hyperpage{95}
+    \subitem {ECSN}, \hyperpage{95}
+    \subitem {Efficiency}, \hyperpage{95}
+    \subitem {NSM}, \hyperpage{95}
+    \subitem {NStarsFormed}, \hyperpage{96}
+    \subitem {Save}, \hyperpage{95}
+    \subitem {SNIa}, \hyperpage{96}
+    \subitem {StarEvents}, \hyperpage{94}
+    \subitem {StarMassFormed}, \hyperpage{96}
+  \item {StarFile}
+    \subitem {OutputValues}, \hyperpage{76}
+  \item {StarMass}
+    \subitem {Galaxy}, \hyperpage{18}
+  \item {StarMassFormed}
+    \subitem {StarEvents}, \hyperpage{96}
+  \item {StarReservoir}, \hyperpage{96}
+    \subitem {AliveMass}, \hyperpage{97}
+    \subitem {AssignMagnitudes}, \hyperpage{97}
+    \subitem {Data}, \hyperpage{99}
+    \subitem {DeadMass}, \hyperpage{97}
+    \subitem {Death}, \hyperpage{98}
+    \subitem {EventRate}, \hyperpage{99}
+    \subitem {Form}, \hyperpage{98}
+    \subitem {IMF}, \hyperpage{99}
+    \subitem {Observations}, \hyperpage{98}
+    \subitem {Param}, \hyperpage{99}
+    \subitem {ParentArea}, \hyperpage{99}
+    \subitem {ParentRing}, \hyperpage{99}
+    \subitem {Population}, \hyperpage{99}
+    \subitem {PopulationIndex}, \hyperpage{100}
+    \subitem {PrintStatus}, \hyperpage{98}
+    \subitem {Remnants}, \hyperpage{100}
+    \subitem {SaveEventRate}, \hyperpage{98}
+    \subitem {SFR\_GasLoss}, \hyperpage{98}
+    \subitem {SLF}, \hyperpage{100}
+    \subitem {StarReservoir}, \hyperpage{97}
+    \subitem {Temp\_Mass}, \hyperpage{100}
+    \subitem {YieldOutput}, \hyperpage{100}
+    \subitem {YieldsFrom}, \hyperpage{98}
+  \item {Stars}
+    \subitem {Ring}, \hyperpage{89}
+  \item {Stellar}
+    \subitem {EnumSets.h}, \hyperpage{138}
+    \subitem {GlobalParameters}, \hyperpage{48}
+  \item {StellarInject}
+    \subitem {YieldGrid}, \hyperpage{120}
+  \item {StellarPopulation}, \hyperpage{100}
+    \subitem {Active}, \hyperpage{102}
+    \subitem {AGBYield}, \hyperpage{104}
+    \subitem {Age}, \hyperpage{104}
+    \subitem {BirthGas}, \hyperpage{104}
+    \subitem {BirthIndex}, \hyperpage{105}
+    \subitem {BirthRadius}, \hyperpage{105}
+    \subitem {CatalogueEntry}, \hyperpage{102}
+    \subitem {CatalogueHeaders}, \hyperpage{102}
+    \subitem {CCSNYield}, \hyperpage{105}
+    \subitem {Data}, \hyperpage{105}
+    \subitem {Death}, \hyperpage{102}
+    \subitem {DepletionIndex}, \hyperpage{105}
+    \subitem {Distribution}, \hyperpage{105}
+    \subitem {ECSNYield}, \hyperpage{105}
+    \subitem {FormStars}, \hyperpage{102}
+    \subitem {FullDeathScan}, \hyperpage{103}
+    \subitem {IMF}, \hyperpage{105}
+    \subitem {ImmortalStars}, \hyperpage{106}
+    \subitem {internal\_MassCounter}, \hyperpage{106}
+    \subitem {IsDepleted}, \hyperpage{106}
+    \subitem {IsLifetimeMonotonic}, \hyperpage{106}
+    \subitem {Mass}, \hyperpage{103}
+    \subitem {Metallicity}, \hyperpage{106}
+    \subitem {MonotonicDeathScan}, \hyperpage{103}
+    \subitem {operator[]}, \hyperpage{103}
+    \subitem {Param}, \hyperpage{106}
+    \subitem {PrepareIMF}, \hyperpage{103}
+    \subitem {RecoverMatter}, \hyperpage{104}
+    \subitem {Relic}, \hyperpage{104}
+    \subitem {SLF}, \hyperpage{106}
+    \subitem {StellarPopulation}, \hyperpage{102}
+    \subitem {TempGas}, \hyperpage{106}
+  \item {StellarSynthesis}
+    \subitem {Galaxy}, \hyperpage{18}
+  \item {StellarValues}, \hyperpage{107}
+    \subitem {EjectionFraction}, \hyperpage{109}
+    \subitem {FeedbackFactor}, \hyperpage{109}
+    \subitem {IMF\_Slope}, \hyperpage{109}
+    \subitem {ImmortalMass}, \hyperpage{109}
+    \subitem {Initialise}, \hyperpage{108}
+    \subitem {LogZDelta}, \hyperpage{109}
+    \subitem {LogZGrid}, \hyperpage{109}
+    \subitem {LogZResolution}, \hyperpage{109}
+    \subitem {MassDeltas}, \hyperpage{110}
+    \subitem {MassGrid}, \hyperpage{110}
+    \subitem {MassResolution}, \hyperpage{110}
+    \subitem {MaxLogZ}, \hyperpage{110}
+    \subitem {MaxStellarMass}, \hyperpage{110}
+    \subitem {MinLogZ}, \hyperpage{110}
+    \subitem {MinStellarMass}, \hyperpage{111}
+    \subitem {SchmidtDensityCut}, \hyperpage{111}
+    \subitem {SchmidtLowPower}, \hyperpage{111}
+    \subitem {SchmidtMainPower}, \hyperpage{111}
+    \subitem {SchmidtPrefactor}, \hyperpage{111}
+    \subitem {StellarValues}, \hyperpage{108}
+  \item {StreamContentsTo}
+    \subitem {ParamList}, \hyperpage{78}
+  \item {Synthesis}
+    \subitem {Galaxy.h}, \hyperpage{130}
+    \subitem {Ring}, \hyperpage{87}
+  \item {SynthesisActive}
+    \subitem {CatalogueValues}, \hyperpage{9}
+  \item {SynthesiseObservations}
+    \subitem {Galaxy}, \hyperpage{18}
+  \item {SynthesisOutput}
+    \subitem {Galaxy}, \hyperpage{19}
+  \item {SynthesisProgress}
+    \subitem {Galaxy}, \hyperpage{19}
+
+  \indexspace
+
+  \item {TargetNi56Yield}
+    \subitem {YieldValues}, \hyperpage{127}
+  \item {TEff}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {Temp\_Mass}
+    \subitem {StarReservoir}, \hyperpage{100}
+  \item {TempGas}
+    \subitem {StellarPopulation}, \hyperpage{106}
+  \item {Thermal}
+    \subitem {GlobalParameters}, \hyperpage{48}
+  \item {ThermalValues}, \hyperpage{112}
+    \subitem {ChimneyFactor}, \hyperpage{113}
+    \subitem {CoolingPower}, \hyperpage{113}
+    \subitem {DormantHotFraction}, \hyperpage{113}
+    \subitem {FeedbackEjectFactor}, \hyperpage{113}
+    \subitem {GasCoolingTimeScale}, \hyperpage{113}
+    \subitem {HotInjection\_AGB}, \hyperpage{113}
+    \subitem {HotInjection\_CCSN}, \hyperpage{114}
+    \subitem {HotInjection\_NSM}, \hyperpage{114}
+    \subitem {HotInjection\_SNIa}, \hyperpage{114}
+    \subitem {NumericalResolution}, \hyperpage{114}
+    \subitem {ThermalValues}, \hyperpage{112}
+  \item {Threads}
+    \subitem {Galaxy}, \hyperpage{20}
+  \item {TimeStep}
+    \subitem {MetaValues}, \hyperpage{68}
+    \subitem {Ring}, \hyperpage{87}
+  \item {Total}
+    \subitem {MassReport}, \hyperpage{65}
+  \item {TransferAndHeat}
+    \subitem {GasReservoir}, \hyperpage{35}
+  \item {TransferColdFrom}
+    \subitem {GasReservoir}, \hyperpage{35}
+  \item {TransferFrom}
+    \subitem {GasReservoir}, \hyperpage{36}
+  \item {TransferHotFrom}
+    \subitem {GasReservoir}, \hyperpage{36}
+  \item {Type}
+    \subitem {RemnantOutput}, \hyperpage{79}
+
+  \indexspace
+
+  \item {UMag}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+  \item {UniformDist}
+    \subitem {InitialisedData}, \hyperpage{53}
+  \item {UniformSample}
+    \subitem {IsochroneTracker}, \hyperpage{61}
+  \item {Unknown}
+    \subitem {EnumSets.h}, \hyperpage{137}
+  \item {UnsortedGrid}
+    \subitem {IsochroneTracker}, \hyperpage{63}
+  \item {UpdateMemory}
+    \subitem {Ring}, \hyperpage{87}
+  \item {UpperID}
+    \subitem {Interpolator}, \hyperpage{57}
+  \item {UpperRidge}
+    \subitem {YieldBracket}, \hyperpage{116}
+  \item {UrgentLog}
+    \subitem {InitialisedData}, \hyperpage{54}
+  \item {UsingVariableRingWidth}
+    \subitem {GalaxyValues}, \hyperpage{26}
+
+  \indexspace
+
+  \item {Value}
+    \subitem {IsochroneCube}, \hyperpage{58}
+  \item {ValueInquiry}
+    \subitem {SLF\_Functor}, \hyperpage{93}
+  \item {Verbosity}
+    \subitem {MetaValues}, \hyperpage{68}
+  \item {VerticalHeightPower}
+    \subitem {CatalogueValues}, \hyperpage{9}
+  \item {VerticalHeightScaling}
+    \subitem {CatalogueValues}, \hyperpage{9}
+  \item {VerticalHeightStart}
+    \subitem {CatalogueValues}, \hyperpage{9}
+  \item {VMag}
+    \subitem {IsochroneTracker.h}, \hyperpage{148}
+
+  \indexspace
+
+  \item {WD}
+    \subitem {MassReport}, \hyperpage{66}
+  \item {Weighting}
+    \subitem {IMF\_Functor}, \hyperpage{50}
+    \subitem {IsochroneCube}, \hyperpage{58}
+  \item {WelcomeFile}
+    \subitem {ResourceValues}, \hyperpage{84}
+  \item {Width}
+    \subitem {Ring}, \hyperpage{89}
+  \item {Wipe}
+    \subitem {GasReservoir}, \hyperpage{36}
+
+  \indexspace
+
+  \item {Yield}
+    \subitem {GlobalParameters}, \hyperpage{49}
+    \subitem {YieldPoint}, \hyperpage{122}
+  \item {YieldBracket}, \hyperpage{114}
+    \subitem {hasSingle}, \hyperpage{116}
+    \subitem {Interpolate}, \hyperpage{115}
+    \subitem {isEnclosed}, \hyperpage{116}
+    \subitem {LowerRidge}, \hyperpage{116}
+    \subitem {UpperRidge}, \hyperpage{116}
+    \subitem {YieldBracket}, \hyperpage{115}
+  \item {YieldCount}
+    \subitem {EnumSets.h}, \hyperpage{138}
+  \item {YieldGrid}, \hyperpage{116}
+    \subitem {AGB\_Initialise}, \hyperpage{117}
+    \subitem {CCSN\_Initialise}, \hyperpage{118}
+    \subitem {CreateGrid}, \hyperpage{118}
+    \subitem {ECSN\_Initialise}, \hyperpage{118}
+    \subitem {ElementDestruction}, \hyperpage{118}
+    \subitem {ElementProduction}, \hyperpage{118}
+    \subitem {GetBracket}, \hyperpage{118}
+    \subitem {Grid}, \hyperpage{120}
+    \subitem {hotInjectionFraction}, \hyperpage{120}
+    \subitem {InitialiseLargeGrid}, \hyperpage{119}
+    \subitem {LoadLimongiYields}, \hyperpage{119}
+    \subitem {LoadMaederYields}, \hyperpage{119}
+    \subitem {LoadMarigoYields}, \hyperpage{119}
+    \subitem {LoadOrfeoYields}, \hyperpage{119}
+    \subitem {MassOffset}, \hyperpage{120}
+    \subitem {MetallicityInterpolation}, \hyperpage{119}
+    \subitem {operator()}, \hyperpage{119}
+    \subitem {Param}, \hyperpage{121}
+    \subitem {Process}, \hyperpage{121}
+    \subitem {PurityEnforce}, \hyperpage{120}
+    \subitem {RemnantLocation}, \hyperpage{121}
+    \subitem {RidgeStorage}, \hyperpage{121}
+    \subitem {SaveGrid}, \hyperpage{120}
+    \subitem {SourcePriority}, \hyperpage{121}
+    \subitem {StellarInject}, \hyperpage{120}
+    \subitem {YieldGrid}, \hyperpage{117}
+  \item {YieldOutput}
+    \subitem {StarReservoir}, \hyperpage{100}
+  \item {YieldPoint}, \hyperpage{121}
+    \subitem {Mass}, \hyperpage{122}
+    \subitem {Yield}, \hyperpage{122}
+    \subitem {YieldPoint}, \hyperpage{122}
+  \item {YieldProcess}
+    \subitem {EnumSets.h}, \hyperpage{138}
+  \item {YieldRidge}, \hyperpage{123}
+    \subitem {Points}, \hyperpage{123}
+    \subitem {Source}, \hyperpage{123}
+    \subitem {YieldRidge}, \hyperpage{123}
+    \subitem {Z}, \hyperpage{124}
+  \item {YieldRoot}
+    \subitem {ResourceValues}, \hyperpage{84}
+  \item {YieldsFrom}
+    \subitem {StarReservoir}, \hyperpage{98}
+  \item {YieldSubdir}
+    \subitem {OutputValues}, \hyperpage{76}
+  \item {YieldValues}, \hyperpage{124}
+    \subitem {CCSN\_MassCut}, \hyperpage{125}
+    \subitem {CODwarf\_MassCut}, \hyperpage{125}
+    \subitem {Collapse\_MassCut}, \hyperpage{125}
+    \subitem {ECSN\_Fraction}, \hyperpage{125}
+    \subitem {ECSN\_MassCut}, \hyperpage{126}
+    \subitem {Initialise}, \hyperpage{125}
+    \subitem {MassOverhang}, \hyperpage{126}
+    \subitem {NSM\_ActiveFraction}, \hyperpage{126}
+    \subitem {NSM\_DelayTime}, \hyperpage{126}
+    \subitem {NSM\_Scale}, \hyperpage{126}
+    \subitem {NSM\_TypicalMass}, \hyperpage{126}
+    \subitem {ProcessNames}, \hyperpage{126}
+    \subitem {ProcessTypes}, \hyperpage{127}
+    \subitem {SNIa\_ActiveFraction}, \hyperpage{127}
+    \subitem {SNIa\_DelayTime}, \hyperpage{127}
+    \subitem {SNIa\_LongFraction}, \hyperpage{127}
+    \subitem {SNIa\_LongScale}, \hyperpage{127}
+    \subitem {SNIa\_ShortScale}, \hyperpage{127}
+    \subitem {SNIa\_TypicalMass}, \hyperpage{127}
+    \subitem {TargetNi56Yield}, \hyperpage{127}
+    \subitem {YieldValues}, \hyperpage{125}
+
+  \indexspace
+
+  \item {Z}
+    \subitem {YieldRidge}, \hyperpage{124}
+  \item {ZerothMoment}
+    \subitem {Integral}, \hyperpage{56}
+
+\end{theindex}

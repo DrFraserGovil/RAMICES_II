@@ -6,9 +6,9 @@
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structGasRequest_1ad266fd3876b284d317b5b37ce13bac0f" prot="public" static="no" mutable="no">
         <type>double</type>
-        <definition>double GasRequest::IGM</definition>
+        <definition>double GasRequest::CGM</definition>
         <argsstring></argsstring>
-        <name>IGM</name>
+        <name>CGM</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -38,7 +38,7 @@
     <location file="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" line="13" column="1" bodyfile="/home/jack/Documents/Work/RAMICES_II/old_src/Galaxy/Ring.h" bodystart="12" bodyend="16"/>
     <listofallmembers>
       <member refid="structGasRequest_1a0e53faa0291662d8421753770d45c276" prot="public" virt="non-virtual"><scope>GasRequest</scope><name>Disc</name></member>
-      <member refid="structGasRequest_1ad266fd3876b284d317b5b37ce13bac0f" prot="public" virt="non-virtual"><scope>GasRequest</scope><name>IGM</name></member>
+      <member refid="structGasRequest_1ad266fd3876b284d317b5b37ce13bac0f" prot="public" virt="non-virtual"><scope>GasRequest</scope><name>CGM</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

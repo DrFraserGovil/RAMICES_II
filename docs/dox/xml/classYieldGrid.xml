@@ -556,7 +556,7 @@
           <edgelabel>RingCount</edgelabel>
         </childnode>
         <childnode refid="6" relation="usage">
-          <edgelabel>IGM_Mass</edgelabel>
+          <edgelabel>CGM_Mass</edgelabel>
           <edgelabel>InfallMass1</edgelabel>
           <edgelabel>InfallMass2</edgelabel>
           <edgelabel>InfallMassMerger</edgelabel>
@@ -569,7 +569,7 @@
           <edgelabel>...</edgelabel>
         </childnode>
         <childnode refid="15" relation="usage">
-          <edgelabel>IGMAbsorbing</edgelabel>
+          <edgelabel>CGMAbsorbing</edgelabel>
           <edgelabel>UsingVariableRingWidth</edgelabel>
         </childnode>
       </node>

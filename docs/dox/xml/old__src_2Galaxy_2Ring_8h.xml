@@ -502,7 +502,7 @@
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
 <codeline lineno="12" refid="structGasRequest" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structGasRequest" kindref="compound">GasRequest</ref></highlight></codeline>
 <codeline lineno="13"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="14" refid="structGasRequest_1ad266fd3876b284d317b5b37ce13bac0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structGasRequest_1ad266fd3876b284d317b5b37ce13bac0f" kindref="member">IGM</ref>;</highlight></codeline>
+<codeline lineno="14" refid="structGasRequest_1ad266fd3876b284d317b5b37ce13bac0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structGasRequest_1ad266fd3876b284d317b5b37ce13bac0f" kindref="member">CGM</ref>;</highlight></codeline>
 <codeline lineno="15" refid="structGasRequest_1a0e53faa0291662d8421753770d45c276" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structGasRequest_1a0e53faa0291662d8421753770d45c276" kindref="member">Disc</ref>;</highlight></codeline>
 <codeline lineno="16"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
