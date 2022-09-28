@@ -96,14 +96,28 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex, GasReservoir
 		budget +=  nStars * m/1e9;
 		
 		int deathIndex = timeIndex + SLF(i,formingMetallicity);
+		// int deathIndexDown;
+		// if (i ==0){
+		// 	deathIndexDown = deathIndex;
+		// }
+		// else{
+		// 	deathIndexDown = timeIndex + SLF(i-1,formingMetallicity);
+		// }
 		
 		//check for monotonicity
 		if (deathIndex < prevIndex)
 		{
 			deathIndex = prevIndex;
 		}
+		// if(deathIndexDown<prevIndexDown){
+		// 	deathIndexDown = prevIndexDown;
+		// }
+		// if(deathIndex > deathIndexDown){
+		// 	deathIndexDown = deathIndex;
+		// }
 		Distribution[i] = IsoMass(nStars,i,formingMetallicity, timeIndex,deathIndex);
 		prevIndex = deathIndex;
+		//prevIndexDown = deathIndexDown;
 	}
 	
 	//the remaining mass gets turned into immortal stars, al of which are assumed to have the minimum mortal mass
@@ -167,21 +181,26 @@ void StellarPopulation::MonotonicDeathScan(int time, std::vector<GasReservoir> &
 		 
 		 if (nStars > 0)
 		 {
-			double stellarMassReleased = nStars * starMass;
-			Distribution[DepletionIndex].Count = 0;
-			double gasMassReclaimed = stellarMassReleased / 1e9;
-			internal_MassCounter -= gasMassReclaimed;
 	
 			RemnantOutput newRem;
 			
 			if (starMass >= Param.Yield.CCSN_MassCut)
 			{
+				double stellarMassReleased = nStars * starMass;
+				double gasMassReclaimed = stellarMassReleased / 1e9;
+				internal_MassCounter -= gasMassReclaimed;
+				Distribution[DepletionIndex].Count = 0;
 				//~ std::cout << "CCSN Event: n = " << nStars << " m = " << Param.Stellar.MassGrid[massID] << "  z = " << z << std::endl;
 				newRem = CCSNYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
 				eventRate.CCSN += nStars;
+				--DepletionIndex;
 			}
 			else if (starMass >= Param.Yield.ECSN_MassCut)
 			{
+				double stellarMassReleased = nStars * starMass;
+				double gasMassReclaimed = stellarMassReleased / 1e9;
+				internal_MassCounter -= gasMassReclaimed;
+				Distribution[DepletionIndex].Count = 0;
 				//~ std::cout << "ECSN" << std::endl;
 				double ecsnStars = Param.Yield.ECSN_Fraction * nStars;
 				double ccsnStars = nStars - ecsnStars;
@@ -192,26 +211,62 @@ void StellarPopulation::MonotonicDeathScan(int time, std::vector<GasReservoir> &
 				//~ std::cout << "ECSN = " << eventRate.ECSN << std::endl;
 				eventRate.CCSN += ccsnStars;
 				newRem = CCSNYield(temporalYieldGrid[birthID],ccsnStars,massID,z,BirthGas);
+				--DepletionIndex;
 			}
 			else
 			{
-				newRem = AGBYield(temporalYieldGrid[birthID],nStars,massID,z,BirthGas);
-				eventRate.AGBDeaths += nStars;
+
+				int deathIndex = Distribution[DepletionIndex].DeathIndex;
+				int deathIndexDown = Distribution[DepletionIndex-1].DeathIndex;
+				
+				double depletionFraction;
+				if(deathIndex == deathIndexDown || deathIndex == deathIndexDown-1){
+					depletionFraction = 1.0;
+					Distribution[DepletionIndex].Count = 0;
+					// std::cout<< time<< " " << deathIndex<< " " << DepletionIndex<< " "<<deathIndexDown<< " " <<nStars*depletionFraction<< " " << nStars<< " " << depletionFraction<< " " << Distribution[DepletionIndex].Count<<"\n";
+					--DepletionIndex;
+				}
+				else{
+					depletionFraction = 1.0/(deathIndexDown-time);
+					++ Distribution[DepletionIndex].DeathIndex;
+					Distribution[DepletionIndex].Count -=nStars*depletionFraction; 
+					
+					// if(depletionFraction != 1.0){
+					// 	std::cout<< time<< " " << deathIndex<< " " << deathIndexDown<< " " <<nStars*depletionFraction<< " " << nStars<< " " << depletionFraction<< " " << Distribution[DepletionIndex].Count<<"\n";
+					// }
+				}
+
+				//std::cout<< time<< " " << deathIndex<<  " "<<deathIndexDown<< " "<< birthID <<" " << DepletionIndex<< " " <<nStars*depletionFraction<< " " << nStars<< " " << depletionFraction<< " " << Distribution[DepletionIndex].Count<<"\n";
+
+				double starsPerStep = nStars*depletionFraction;
+
+				double stellarMassReleased = starsPerStep * starMass;
+				double gasMassReclaimed = stellarMassReleased / 1e9;
+				internal_MassCounter -= gasMassReclaimed;
+
+				//std::cout<<time<< " "<<internal_MassCounter<<"\n";
+
+
+				newRem = AGBYield(temporalYieldGrid[birthID],starsPerStep,massID,z,BirthGas);
+				eventRate.AGBDeaths += starsPerStep;
+
+			// 	//if (newRem.Mass <=0.0){
+			// 		std::cout<< time<< " "<<newRem.Mass<<"rem\n";
+			// //	}
 			}
 			remnants.Feed(time,newRem);
+		}	
+		else{
+			--DepletionIndex;
 		}
 		
-		--DepletionIndex;
 	}
-	
-	
-	bool remainingStarsOutliveSimulation = Distribution[DepletionIndex].DeathIndex > Param.Meta.SimulationSteps;
+
+	bool remainingStarsOutliveSimulation = Distribution[DepletionIndex-1].DeathIndex > Param.Meta.SimulationSteps;
 	if (DepletionIndex < 0 || remainingStarsOutliveSimulation)
 	{
 		IsDepleted = true;
 	}
-	
-	
 	//~ GasStream output(CCSN,creation,Param.Thermal.HotInjection_CCSN);
 
 }
