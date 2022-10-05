@@ -410,6 +410,10 @@ class GalaxyValues : public ParamList
 		//!Initial Mass of the CGM Reservoir
 		Argument<double> CGM_Mass = Argument<double>(200,"cgm-mass");
 		
+		//!Final Mass of the CGM Reservoir, mass added is CGM_Mass_End - CGM_Mass
+		Argument<double> CGM_Mass_End = Argument<double>(200,"cgm-mass-end");
+		
+
 		//! The initial exponential scale length of the galaxy
 		Argument<double> MinScaleLength = Argument<double>(0.75,"scale-length-min");
 	
@@ -451,7 +455,7 @@ class GalaxyValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		GalaxyValues()
 		{
-			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &CGM_Mass, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2,  &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &CGMAbsorbing, &InfallMassMerger, & InfallTimeMerger, & MergerDelayTime,&MergerTurnOnWidth};
+			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &CGM_Mass, &CGM_Mass_End, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2,  &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &CGMAbsorbing, &InfallMassMerger, & InfallTimeMerger, & MergerDelayTime,&MergerTurnOnWidth};
 		}
 		void Initialise(std::string resourceRoot);
 };

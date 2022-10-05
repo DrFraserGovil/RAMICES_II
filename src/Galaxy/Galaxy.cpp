@@ -791,7 +791,7 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 
 void Galaxy::CGMOperations()
 {
-	double cgmEndMass = 600;
+	double cgmEndMass = Param.Galaxy.CGM_Mass_End;
 	double cgmGrowthPerStep = (cgmEndMass - Param.Galaxy.CGM_Mass )/Param.Meta.SimulationSteps;
 
 	GasReservoir igmGas = GasReservoir::Primordial(cgmGrowthPerStep,Param);
