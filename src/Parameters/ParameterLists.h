@@ -74,6 +74,12 @@ class OutputValues : public ParamList
 		std::string AbsoluteColdGasFile;
 		std::string LogarithmicHotGasFile;
 		std::string AbsoluteHotGasFile;
+
+		std::string LogarithmicCGMColdGasFile;
+		std::string LogarithmicCGMHotGasFile;
+		
+		std::string LogarithmicCGMColdGasFileEarly;
+		std::string LogarithmicCGMHotGasFileEarly;
 		
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array.
 		OutputValues()

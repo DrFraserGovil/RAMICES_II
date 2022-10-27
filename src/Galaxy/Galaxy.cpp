@@ -36,6 +36,7 @@ void Galaxy::Evolve()
 		
 		Data.ProgressBar(currentBars, timestep,finalStep);	
 		SaveState(t);
+		SaveState_CGM(t);
 		t += Param.Meta.TimeStep;
 		
 		
@@ -595,6 +596,23 @@ void Galaxy::SaveState(double t)
 	SaveState_Enrichment(t);
 	Data.Log("\tSaved state at " + std::to_string(t) + "\n",3);
 }
+
+
+void Galaxy::SaveState_CGM(double t){
+	std::stringstream outputAbsoluteCold_CGM;
+	std::stringstream outputLogarithmicCold_CGM;
+	std::stringstream outputAbsoluteHot_CGM;
+	std::stringstream outputLogarithmicHot_CGM;
+
+	int tt = round(t / Param.Meta.TimeStep);
+
+	CGM_SaveChemicalHistory(tt, outputAbsoluteCold_CGM, outputLogarithmicCold_CGM, outputAbsoluteHot_CGM, outputLogarithmicHot_CGM);
+
+		JSL::writeStringToFile(Param.Output.LogarithmicCGMColdGasFile, outputLogarithmicCold_CGM.str());
+		JSL::writeStringToFile(Param.Output.LogarithmicCGMHotGasFile, outputLogarithmicHot_CGM.str());
+}
+
+
 void Galaxy::SaveState_Mass(double t)
 {
 	std::stringstream output;
@@ -623,8 +641,9 @@ void Galaxy::SaveState_Mass(double t)
 			output << ", " << vals[j];
 		}
 		output << "\n";
-	}	
-	JSL::writeStringToFile(Param.Output.GalaxyMassFile,output.str());
+	}
+
+	JSL::writeStringToFile(Param.Output.GalaxyMassFile, output.str());
 }
 std::string Galaxy::MassHeaders()
 {
@@ -660,6 +679,156 @@ void Galaxy::SaveState_Enrichment(double t)
 		JSL::writeStringToFile(Param.Output.LogarithmicHotGasFile,outputLogarithmicHot.str());
 	}
 }
+
+
+void Galaxy::neatLogLog(double value, std::stringstream & stream)
+{
+	if (isinf(value) || isnan(value))
+	{
+		stream << ", -99.999";
+	}
+	else
+	{
+		stream << ", " << value;
+	}
+}
+
+void Galaxy::neatLogAbs(double value, std::stringstream & stream)
+{
+	if (isinf(value) || isnan(value))
+	{
+		stream << ", 0.0";
+	}
+	else
+	{
+		stream << ", " << value;
+	}
+}
+
+
+void Galaxy::CGM_SaveChemicalHistory(int t, std::stringstream & absoluteStreamCold, std::stringstream & logarithmicStreamCold, std::stringstream & absoluteStreamHot, std::stringstream & logarithmicStreamHot)
+{	
+	// std::cout<<"time " << t << " in CGM Log\n";
+
+	std::vector<std::vector<double>> HotBuffer(ProcessCount + 1, std::vector<double>(ElementCount,0.0));
+	std::vector<std::vector<double>> ColdBuffer(ProcessCount + 1, std::vector<double>(ElementCount,0.0));
+		
+	std::string basic = "";
+
+	if (t == 0)
+	{
+
+		std::string headers = "Time";
+		for (int p = -1; p < ProcessCount; ++p)
+		{
+			std::string processName;
+			if (p > -1)
+			{
+					processName = Param.Yield.ProcessNames[p];
+			}
+			else
+			{
+				processName = "Total";
+			}
+			for (int e = 0; e < ElementCount; ++e)
+			{
+				std::string elementName = Param.Element.ElementNames[e];
+			
+			
+				headers += ", " + processName+ "_" + elementName;
+			}
+		}
+		basic = headers + ", ColdGasMass, HotGasMass, TotalMass \n";
+		
+	}
+
+
+	basic += std::to_string(t*Param.Meta.TimeStep);
+	
+	absoluteStreamCold << basic;
+	logarithmicStreamCold  << basic;
+	absoluteStreamHot   << basic;
+	logarithmicStreamHot   << basic;
+	
+
+	// std::cout<<"time " << t << "bef in CGM Log\n";
+
+	const std::vector<GasStream> & target = CGM.Composition();
+
+	// std::cout<<"time " << t << "after in CGM Log\n";
+	
+	double coldMass = 0;
+	double hotMass = 0;
+	for (int p = 0; p < ProcessCount; ++p)
+	{
+		double processCold = target[p].ColdMass();
+		double processHot = target[p].HotMass();
+
+		// std::cout<< processCold << " " << processHot<< "\n";
+		
+		coldMass += processCold;
+		hotMass += processHot;
+		for (int e = 0; e < ElementCount; ++e)
+		{
+			ElementID elem = (ElementID)e;
+			double cold = target[p].Cold(elem);
+			double hot = target[p].Hot(elem);
+			
+		// std::cout<< cold << " " << hot << " " << p << " "<< e<< "\n";
+
+		// std::cout<< ColdBuffer[p][e]<<" "<< HotBuffer[p][e]<<"\n";
+
+			if (p == 0)
+			{
+				// std::cout<< ColdBuffer[p][e]<<" "<< HotBuffer[p][e]<<"\n";
+				ColdBuffer[p][e] = 0;
+				HotBuffer[p][e] = 0;
+			}
+			// std::cout<< " here \n";
+			ColdBuffer[0][e] += cold;
+			HotBuffer[0][e] += hot;
+			ColdBuffer[p+1][e] = cold/processCold;
+			HotBuffer[p+1][e] = hot/processHot;
+		}
+	} 
+	for (int e = 0; e < ElementCount; ++e)
+	{
+		ColdBuffer[0][e] /= (coldMass+1e-88);
+		HotBuffer[0][e] /= (hotMass+1e-88);
+	}
+	
+
+	for (int p = 0; p < ProcessCount + 1; ++p)
+	{
+		for (int e = 0; e < ElementCount; ++e)
+		{
+			double coldCorrect = coldMass;
+			double hotCorrect = hotMass;
+			if (p > 0)
+			{
+				coldCorrect = target[p-1].ColdMass();
+				hotCorrect = target[p-1].HotMass();
+			}
+
+
+			neatLogAbs(ColdBuffer[p][e] * coldCorrect, absoluteStreamCold);
+			neatLogAbs(HotBuffer[p][e] * hotCorrect, absoluteStreamHot);
+					
+			double logValueCold = log10(ColdBuffer[p][e] / Param.Element.SolarAbundances[e]);
+			double logValueHot = log10(HotBuffer[p][e]/Param.Element.SolarAbundances[e]);
+			
+			neatLogLog(logValueCold,logarithmicStreamCold);
+			neatLogLog(logValueHot,logarithmicStreamHot);
+	
+		}
+	}
+	absoluteStreamCold << ", "<< CGM.ColdMass() <<", " <<CGM.HotMass()<<", "<< CGM.Mass() << "\n";
+	logarithmicStreamCold  << ", "<< CGM.ColdMass() <<", " <<CGM.HotMass()<<", "<< CGM.Mass()<< "\n";
+	absoluteStreamHot   << ", "<< CGM.ColdMass() <<", " <<CGM.HotMass()<<", "<< CGM.Mass() << "\n";
+	logarithmicStreamHot   << ", "<< CGM.ColdMass() <<", " <<CGM.HotMass()<<", "<< CGM.Mass()<< "\n";
+}
+
+
 
 void Galaxy::SaveState_Events(double t)
 {
@@ -794,7 +963,7 @@ void Galaxy::CGMOperations()
 	double cgmEndMass = Param.Galaxy.CGM_Mass_End;
 	double cgmGrowthPerStep = (cgmEndMass - Param.Galaxy.CGM_Mass )/Param.Meta.SimulationSteps;
 
-	GasReservoir igmGas = GasReservoir::Primordial(cgmGrowthPerStep,Param);
+	GasReservoir cgmGas = GasReservoir::Primordial(cgmGrowthPerStep,Param);
 
 	CGM.PassiveCool(Param.Meta.TimeStep,true);
 	
