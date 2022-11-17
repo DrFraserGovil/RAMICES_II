@@ -28,6 +28,8 @@ class Gas
 		
 		//! \return A gas object of the specified mass but with a primordial elemental abundance distribution (X = 0.75, Y = 0.25 etc)
 		static Gas Primordial(double mass);
+
+		static Gas CGM_polluted(double mass);
 		
 		//! \return A default-constructed object, but name is clear that the object is empty
 		static Gas Empty();

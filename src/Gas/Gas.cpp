@@ -41,6 +41,25 @@ Gas Gas::Primordial(double mass)
 	return g;
 }
 
+Gas Gas::CGM_polluted(double mass)
+{
+	double primordialY = 0.25;
+
+	double cgm_mg = 1e-6;
+	double cgm_fe = 2.5e-6;
+	double cgm_eu = 1e-6;
+
+	double primordialX = 1.0 - primordialY - cgm_eu - cgm_fe - cgm_mg;
+
+	Gas g = Gas();
+	g.Species[Hydrogen] = primordialX * mass;
+	g.Species[Helium] = primordialY * mass;
+	g.Species[Magnesium] = cgm_mg * mass;
+	g.Species[Iron] = cgm_fe * mass;
+	g.Species[Europium] = cgm_eu * mass;
+	return g;
+} 
+
 double & Gas::operator[](ElementID id)
 {
 	NeedsRecomputing = true;

@@ -31,6 +31,20 @@ GasReservoir GasReservoir::Primordial(double mass, const GlobalParameters & para
 	return prim;
 	
 }
+
+GasReservoir GasReservoir::CGM_polluted(double mass, const GlobalParameters & param)
+{
+	GasReservoir prim(param);
+	
+	Gas g = Gas::CGM_polluted(mass);
+	double fh = param.Galaxy.PrimordialHotFraction;
+	GasStream primordialStream = GasStream(SourceProcess::Accreted,g,fh);
+	
+	prim.Absorb(primordialStream);
+	return prim;
+	
+}
+
 const GasStream & GasReservoir::operator[](SourceProcess source) const
 {
 	return Components[source];
