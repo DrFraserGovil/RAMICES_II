@@ -213,8 +213,10 @@ void GasReservoir::PassiveCool(double dt, bool isCGM)
 	//~ }
 	
 	double lambda = 1.0/Param.Thermal.GasCoolingTimeScale;
-	//~ if (isCGM)
-		//~ lambda *= 100;
+	if (isCGM){
+		lambda *= Param.Galaxy.CGM_cooling_factor;
+		}	
+
 	double newHot = HotMass() * exp( - lambda * dt);
 	
 	double cooledAmount = HotMass() - newHot;

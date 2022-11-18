@@ -418,6 +418,12 @@ class GalaxyValues : public ParamList
 		
 		//!Final Mass of the CGM Reservoir, mass added is CGM_Mass_End - CGM_Mass
 		Argument<double> CGM_Mass_End = Argument<double>(200,"cgm-mass-end");
+
+		//!Fraction of Gas added to the CGM that has current CGM abundance
+		Argument<double> CGM_pollutant_fraction = Argument<double>(1.0, "cgm-pollution");
+
+		//!Factor by which cooling rate is increased in the CGM
+		Argument<double> CGM_cooling_factor = Argument<double>(100, "cgm-cooling-factor");
 		
 
 		//! The initial exponential scale length of the galaxy
@@ -461,7 +467,7 @@ class GalaxyValues : public ParamList
 		//!Boring constructor -- slots in the relevant arguments into the ParamList::argPointer array
 		GalaxyValues()
 		{
-			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &CGM_Mass, &CGM_Mass_End, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2,  &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &CGMAbsorbing, &InfallMassMerger, & InfallTimeMerger, & MergerDelayTime,&MergerTurnOnWidth};
+			argPointers = {&RingCount, &PrimordialMass, &PrimordialHotFraction, &CGM_Mass, &CGM_Mass_End, &CGM_pollutant_fraction, &CGM_cooling_factor, &Radius, &MinScaleLength, &MaxScaleLength, &ScaleLengthDelay, &ScaleLengthTimeScale, &ScaleLengthFinalTime, &InfallMass1, &InfallMass2, &InfallTime1, &InfallTime2,  &MaxSFRFraction, &Ring0Width, &UsingVariableRingWidth, &CGMAbsorbing, &InfallMassMerger, & InfallTimeMerger, & MergerDelayTime,&MergerTurnOnWidth};
 		}
 		void Initialise(std::string resourceRoot);
 };
