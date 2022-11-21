@@ -971,7 +971,7 @@ void Galaxy::CGMOperations()
 
 	double polluted_mass = igm_polluted.Mass();
 
-	igm_polluted.Deplete(polluted_mass - cgmGrowthPerStep*(1.0 - Param.Galaxy.CGM_pollutant_fraction));
+	igm_polluted.Deplete(polluted_mass - cgmGrowthPerStep*(Param.Galaxy.CGM_pollutant_fraction));
 	CGM.Absorb(igm_polluted);
 
 	GasReservoir igm_primordial = GasReservoir::Primordial(cgmGrowthPerStep*(1.0-Param.Galaxy.CGM_pollutant_fraction), Param);
