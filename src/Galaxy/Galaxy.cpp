@@ -967,20 +967,20 @@ void Galaxy::CGMOperations()
 	double cgmGrowthPerStep = (cgmEndMass - Param.Galaxy.CGM_Mass )/Param.Meta.SimulationSteps;
 
 	 //copy cgm and then size down to right mass
-	GasReservoir igm_polluted = CGM;
+	GasReservoir cgm_polluted = CGM;
 
-	double polluted_mass = igm_polluted.Mass();
+	double polluted_mass = cgm_polluted.Mass();
 
-	igm_polluted.Deplete(polluted_mass - cgmGrowthPerStep*(Param.Galaxy.CGM_pollutant_fraction));
-	CGM.Absorb(igm_polluted);
+	cgm_polluted.Deplete(polluted_mass - cgmGrowthPerStep*(Param.Galaxy.CGM_pollutant_fraction));
+	CGM.Absorb(cgm_polluted);
 
-	GasReservoir igm_primordial = GasReservoir::Primordial(cgmGrowthPerStep*(1.0-Param.Galaxy.CGM_pollutant_fraction), Param);
+	GasReservoir cgm_primordial = GasReservoir::Primordial(cgmGrowthPerStep*(1.0-Param.Galaxy.CGM_pollutant_fraction), Param);
 
-	CGM.Absorb(igm_primordial);
+	CGM.Absorb(cgm_primordial);
 	
 
 	
-	//GasReservoir igmGas = GasReservoir::CGM_polluted(cgmGrowthPerStep,Param);
+	//GasReservoir cgmGas = GasReservoir::CGM_polluted(cgmGrowthPerStep,Param);
 
 
 	CGM.PassiveCool(Param.Meta.TimeStep,true);
