@@ -6,6 +6,11 @@
 #include "../Stars/StarReservoir.h"
 #include "../Stars/IMF.h"
 #include "../Stars/SLF.h"
+
+
+#include "../../../Agama/src/units.h"
+#include "../../../Agama/src/potential_factory.h"
+
 class Ring
 {
 	public:
@@ -33,7 +38,7 @@ class Ring
 		
 		void ComputeSelectionFunction(const double brightLimit, const double dimLimit);
 		void MetCheck(const std::string & location);
-		std::string Synthesis(const StellarPopulation & targetPopulation, double migrationFraction, double originRadius, double & totalSynthesised);
+		std::string Synthesis(const StellarPopulation & targetPopulation, double migrationFraction, double originRadius, double & totalSynthesised, const potential::PtrPotential& pot, const units::InternalUnits& unit);  
 	private:
 		
 		//~ std::vector<GasReservoir> PreviousEnrichment;

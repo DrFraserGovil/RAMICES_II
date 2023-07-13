@@ -277,7 +277,9 @@ void StellarPopulation::FullDeathScan(int time)
 
 std::string StellarPopulation::CatalogueHeaders()
 {
-	std::string s= "Radius, TrueAge, BirthIndex, BirthRadius, MeasuredAge, Mass, Metallicity";
+
+
+	std::string s= "GuidingRadius, TrueAge, BirthIndex, BirthRadius, MeasuredAge, Mass, Metallicity, observedRadius, X_kpc, Y_kpc, Z_kpc, vx_kms, vy_kms, vz_kms, Jr_kpckms, Jz_kpkms, Lz_kpckms";
 	for (int i = 1; i < ElementCount; ++i)
 	{
 		s += ", " + Param.Element.ElementNames[i] + "H";
@@ -288,11 +290,11 @@ std::string StellarPopulation::CatalogueHeaders()
 	}
 	return s;
 }
-std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentRadius, double birthRadius) const
+std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentGuidingRadius, double birthRadius, double age, const potential::PtrPotential& pot, const units::InternalUnits& unit) const
 {
-	int nManualEntries = 7;
+	int nManualEntries = 16;
 	std::vector<double> values(nManualEntries+PropertyCount+ElementCount - 1,0.0);
-	values[0] = currentRadius;
+	values[0] = currentGuidingRadius;
 	values[1] = Age;
 	values[2] = BirthIndex;
 	values[3] = birthRadius;
@@ -344,9 +346,80 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 	//~ typicalErrors[eOffset + Iron -1] = 0.04;
 	
 	
+	// set-up  dynamics:
+	double beta = 0.33;
+
+	double scalelength_sigmaz = 5; //kpc
+	double scalelength_sigmaR = 7.5; //kpc
+
+	double sigmaz10_R0 = 43; //km s
+	double sigmaR10_R0 = 28; //km s
+
+	double sigmaz_min = 7; //km s
+	double sigmaR_min = 7; //km s
+
+	double sigmaz10 = sigmaz10_R0 * std::exp(- birthRadius/scalelength_sigmaz);
+	double sigmaR10 = sigmaR10_R0 * std::exp(- birthRadius/scalelength_sigmaR);
+
+
+	double sigmaz = std::max(sigmaz_min, sigmaz10*std::pow((age/10.0), beta) );
+	double sigmaR = std::max(sigmaR_min, sigmaR10*std::pow((age/10.0), beta) );
+
+	double nu_z =1;
+	double nu_R =1;
+
+	// double dist_z = std::exp(-(nu_z * J_z)/sigmaz);
+	//function that samples a random numbers from a distribution accordings to dist_z:
+	std::uniform_real_distribution<double> dist_uni(0,1);
+	std::mt19937_64 generator;
+
 	std::string output = "";
 	for (int entry = 0; entry < ns.size(); ++entry)
 	{
+		//sample dynamics separately for each entry
+
+		double genZ = dist_uni(generator);
+		double genR = dist_uni(generator);
+
+		double Jz = - std::log(genZ)*sigmaz/nu_z;
+		double JR = - std::log(genR)*sigmaR/nu_R;
+
+		double RadiusGuiding = currentGuidingRadius;
+
+		// add vcirc and calculate Lz as vcirc*RadiusObserved, then sample R according to JR around RadiusObserved
+		double vcirc = 245 *RadiusGuiding/(RadiusGuiding+0.5);
+		double Lz = vcirc * RadiusGuiding;
+
+		actions::Actions acts;
+		acts.Jr = JR * unit.from_Kpc_kms;
+		acts.Jz = Jz * unit.from_Kpc_kms;
+		acts.Jphi = Lz * unit.from_Kpc_kms;
+
+
+		//sample angles
+		actions::Angles angles;
+		angles.thetar = 2*M_PI*dist_uni(generator);
+		angles.thetaz = 2*M_PI*dist_uni(generator);
+		angles.thetaphi = 2*M_PI*dist_uni(generator);
+
+
+		actions::ActionMapperTorus mapper(*pot, acts);
+
+		coord::PosVelCyl phasespace = mapper.map(actions::ActionAngles(acts, angles));
+		coord::PosVelCar phasespace_cart = coord::toPosVelCar(phasespace);
+
+		values[7] = phasespace.R;
+		values[8] = phasespace_cart.x;
+		values[9] = phasespace_cart.y;
+		values[10] = phasespace_cart.z;
+		values[11] = phasespace_cart.vx;
+		values[12] = phasespace_cart.vy;
+		values[13] = phasespace_cart.vz;
+		values[14] = acts.Jr;
+		values[15] = acts.Jz;
+		values[16] = acts.Jphi;
+		
+
 		int n = ns[entry];
 
 		for (int i = 0; i < PropertyCount; ++i)

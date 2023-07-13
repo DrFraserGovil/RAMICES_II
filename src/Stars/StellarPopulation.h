@@ -8,6 +8,10 @@
 #include "SLF.h"
 #include "StarEvents.h"
 #include "IsochroneTracker.h"
+
+#include "../../../Agama/src/units.h"
+#include "../../../Agama/src/potential_factory.h"
+#include "../../../Agama/src/actions_torus.h"
 //! A simple struct for tracking the number of stars of a given mass
 
 
@@ -51,7 +55,7 @@ class StellarPopulation
 		std::vector<GasStream> BirthGas;
 		
 		std::string CatalogueHeaders();
-		std::string CatalogueEntry(std::vector<int> popEntry, int m, double currentRadius, double birthRadius) const;
+		std::string CatalogueEntry(std::vector<int> popEntry, int m, double currentGuidingRadius, double birthRadius,double age, const potential::PtrPotential& pot, const units::InternalUnits& unit) const;
 		double Age;
 	private:
 		const GlobalParameters & Param;

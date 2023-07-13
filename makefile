@@ -7,15 +7,15 @@ CC = g++
 COMMANDLINE_OPTIONS = /dev/ttyS0
 
 # Compiler options during compilation
-COMPILE_OPTIONS =  -std=c++17 -pthread -O3 -w -march=native -Ilibs/JSL 
+COMPILE_OPTIONS =  -std=c++17 -pthread -O3 -w -march=native -Ilibs/JSL -L../Agama/exe
 
 #Header include directories
 HEADERS = 
 #Libraries for linking
-LIBS = -lpthread
+LIBS = -lpthread -lagama
 
 # Dependency options
-DEPENDENCY_OPTIONS =  -MM -std=c++17 -Ilibs/JSL
+DEPENDENCY_OPTIONS =  -MM -std=c++17 -Ilibs/JSL -L../Agama/exe
 
 
 

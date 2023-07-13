@@ -10,6 +10,12 @@
 #include <thread>
 #include <future>
 
+// #include "../../../Agama/src/actions_torus.h"
+#include "../../../Agama/src/units.h"
+#include "../../../Agama/src/potential_factory.h"
+
+
+
 enum ParallelJob {RingStep, Compounding, Scattering, AssignIsochrones,Synthesis,Selection};
 
 class Galaxy
@@ -81,5 +87,9 @@ class Galaxy
 		double DimmestStar;
 		double BrightestStar;
 		int ParallelBars = 0;
+
+		potential::PtrPotential pot;
+		const units::InternalUnits unit;
+		
 		
 };

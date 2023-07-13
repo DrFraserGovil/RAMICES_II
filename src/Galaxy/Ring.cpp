@@ -1,4 +1,5 @@
 #include "Ring.h"
+#include <random>
 
 const double pi = 3.141592654;
 //! Initialises itself into a primordial state
@@ -337,7 +338,7 @@ double Ring::SelectionEffect(double Mv, double age)
 	return val;
 }
 
-std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double migrateFrac, double originRadius, double & totalSynthesised)
+std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double migrateFrac, double originRadius, double & totalSynthesised, const potential::PtrPotential &pot, const units::InternalUnits& unit)
 {
 	std::string output = "";
 	double age = targetPopulation.Age;
@@ -364,7 +365,8 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 				double obs = observeFrac * count * crowdingFactor;
 				
 				int intObs = obs;
-
+				
+								
 				double targetRoll = (obs - intObs);
 				double diceRoll = (double)rand() / RAND_MAX;
 				if (diceRoll < targetRoll)
@@ -378,7 +380,9 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 			
 			if (totalObs > 0)
 			{
-				output += targetPopulation.CatalogueEntry(numberSynthesised,m,Radius,originRadius);
+
+				output += targetPopulation.CatalogueEntry(numberSynthesised,m,Radius,originRadius, age, pot, unit);
+
 				//~ SynthesisOutput[i] += output;
 				totalSynthesised += totalObs;
 			}

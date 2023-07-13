@@ -54,7 +54,9 @@ void Galaxy::Evolve()
 }
 
 void Galaxy::SynthesiseObservations()
-{
+{	
+	pot =  potential::readPotential("../Agama/data/McMillan17.ini", units::ExternalUnits(unit, units::Kpc, units::kms, units::Msun));
+
 	Data.Isochrones.Construct();
 	
 	Data.UrgentLog("\tAssigning Stellar Isochrones....");
@@ -90,7 +92,7 @@ void Galaxy::SynthesiseObservations()
 
 
 // Galactic Constructor
-Galaxy::Galaxy(InitialisedData &data) : Data(data), Param(data.Param), CGM(GasReservoir::CGM_polluted(data.Param.Galaxy.CGM_Mass, data.Param))
+Galaxy::Galaxy(InitialisedData &data) : Data(data), Param(data.Param), CGM(GasReservoir::CGM_polluted(data.Param.Galaxy.CGM_Mass, data.Param)), unit(units::galactic_Myr)
 {
 	
 	int currentRings = 0;
@@ -926,6 +928,8 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 {
 	int prog = 0;
 	bool coreContainsSolar = (Rings[ringstart].Radius < Param.Catalogue.SolarRadius) && (Rings[ringend-1].Radius > Param.Catalogue.SolarRadius);
+	
+	
 
 	for (int i = ringstart; i < ringend; ++i)
 	{
@@ -940,7 +944,7 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 				double migrateFrac = Migrator[t].Grid[i][j];
 				if (migrateFrac > 1e-8)
 				{
-					SynthesisOutput[i] += Rings[i].Synthesis(Rings[j].Stars.Population[t], migrateFrac,Rings[j].Radius,SynthesisProgress[threadID]);
+					SynthesisOutput[i] += Rings[i].Synthesis(Rings[j].Stars.Population[t], migrateFrac,Rings[j].Radius,SynthesisProgress[threadID], pot ,unit);
 					
 				}
 			}
