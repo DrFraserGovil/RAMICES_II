@@ -12,7 +12,7 @@ COMPILE_OPTIONS =  -std=c++17 -pthread -O3 -w -march=native -Ilibs/JSL -L../Agam
 #Header include directories
 HEADERS = 
 #Libraries for linking
-LIBS = -lpthread -lagama
+LIBS = -lpthread -lagama -L../Agama/exe
 
 # Dependency options
 DEPENDENCY_OPTIONS =  -MM -std=c++17 -Ilibs/JSL -L../Agama/exe
