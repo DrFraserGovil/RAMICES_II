@@ -52,7 +52,7 @@ class Ring
 		std::vector<std::vector<double>> ColdBuffer;
 		std::vector<std::vector<double>> HotBuffer;
 		
-		std::vector<std::vector<double>> SelectionGrid;
+		std::vector<std::vector<int>> SelectionGrid;
 		double MinMv;
 		double MaxMv;
 };

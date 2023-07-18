@@ -206,15 +206,7 @@ void Ring::MetCheck(const std::string & location)
 
 
 
-double tan_SkyCut(double theta)
-{
 
-	double order0 = 0.715;
-	double order1 = -1.24 * cos(theta) + 1.915 * sin(theta);
-	double order2 = -0.114 * cos(2*theta) - 0.2553*sin(2*theta);
-	
-	return order0 + order1 + order2;
-}
 
 void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 {
@@ -225,18 +217,18 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 	double dt = Param.Catalogue.IsochroneTimeStep;
 	int Nt = ceil((double)Param.Meta.SimulationDuration / dt) + 1;
 	double deltaM = (maxMv - minMv)/(Nm - 1);
-	SelectionGrid = std::vector<std::vector<double>>(Nt,std::vector<double>(Nm,0.0));
+	SelectionGrid = std::vector<std::vector<int>>(Nt,std::vector<int>(Nm,0));
 	
 	int Nr = Param.Catalogue.RadialResolution;
-	int Nphi = Param.Catalogue.AzimuthalResolution;
+	// int Nphi = Param.Catalogue.AzimuthalResolution;
 	
 	double dSol = Param.Catalogue.SolarRadius;
 	double dr = Width/(Nr);
-	double dphi = (2*M_PI)/(Nphi-1); 
+	// double dphi = (2*M_PI)/(Nphi-1); 
 	
-	double z0 = Param.Catalogue.VerticalHeightStart;
-	double kappa = Param.Catalogue.VerticalHeightScaling;
-	double tauN = Param.Catalogue.VerticalHeightPower;
+	// double z0 = Param.Catalogue.VerticalHeightStart;
+	// double kappa = Param.Catalogue.VerticalHeightScaling;
+	// double tauN = Param.Catalogue.VerticalHeightPower;
 	
 	
 	bool printy = (RadiusIndex == 40);
@@ -244,7 +236,7 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 	for (int t = 0; t < Nt; ++t)
 	{
 		double time = t* dt; 
-		double zBar = z0 + kappa * pow(time,tauN);
+		// double zBar = z0 + kappa * pow(time,tauN);
 		
 		for (int i = 0; i < Nm; ++i)
 		{
@@ -252,12 +244,25 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 			
 			double maxDistance = pow(10, (4.0 - Mv)/5);
 			double minDistance = pow(10, (2.0 - Mv)/5);
-			double val = 0;
-			double normVal = 0;
+			int val = 0;
+			// double normVal = 0;
 			for (int ri = 0; ri < Nr; ++ri)
 			{
-				double r = Radius - Width/2 + ri * dr;
-				double phiVal =0;
+				double distance = dSol -Radius- Width/2 + ri * dr;
+
+				if (distance <= maxDistance)
+				{
+					++val;
+				}
+				// normVal=+1;
+			}
+			if (val > 0){
+				val =1;
+			}
+			SelectionGrid[t][i] = val;
+
+			/*
+				// double phiVal =0;
 				for (int angle = 0; angle < Nphi; ++angle)
 				{
 					double phi= angle * dphi;
@@ -300,14 +305,45 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 					normVal += r * dr * dphi;
 				}
 				val += phiVal;
+				
 			}
 			val /= normVal;
 			SelectionGrid[t][i] = val;
-			
+			*/
 		}
 	}
 	
 }
+
+// double Ring::SelectionEffect(double Mv, double age)
+// {
+// 	int Nm = Param.Catalogue.IsochroneMagnitudeResolution;
+// 	double dt = Param.Catalogue.IsochroneTimeStep;
+// 	int Nt = ceil((double)Param.Meta.SimulationDuration / dt) + 1;
+// 	double deltaM = (MaxMv - MinMv)/(Nm - 1);
+
+// 	double mvProgress = (Mv - MinMv)/deltaM;
+// 	double tProgress = age/dt;
+// 	int mv_id = std::min(Nm - 2,std::max(0,(int)mvProgress));
+// 	int t_id = std::min(Nt - 2,std::max(0,(int)tProgress));
+	
+// 	double mvInterp = (mvProgress - mv_id);
+// 	double tInterp = (tProgress - t_id);
+	
+// 	double lowTVal = SelectionGrid[t_id][mv_id] + mvInterp * (SelectionGrid[t_id][mv_id+1]-SelectionGrid[t_id][mv_id]);
+// 	double highTVal = SelectionGrid[t_id+1][mv_id] + mvInterp * (SelectionGrid[t_id+1][mv_id+1] - SelectionGrid[t_id+1][mv_id]);
+// 	double val = lowTVal + tInterp * (highTVal - lowTVal);	
+	
+// 	//~ if (RadiusIndex == 99)
+// 	//~ {
+// 		//~ std::cout << "\tSelection effect call for ring " << RadiusIndex << " for Mv = " << Mv << " age " << age << " my grid coords are:\n";
+// 		//~ std::cout << "\t\t M is: " << mv_id
+// 		//~ std::cout << "\t\t LowT: " << t_id * dt << ": " << SelectionGrid[t_id][mv_id] << "-> " <<
+// 		//~ std::cout << "\t\t For final value: " << val << std::endl;
+// 	//~ }
+// 	return val;
+// }
+
 
 double Ring::SelectionEffect(double Mv, double age)
 {
@@ -321,12 +357,12 @@ double Ring::SelectionEffect(double Mv, double age)
 	int mv_id = std::min(Nm - 2,std::max(0,(int)mvProgress));
 	int t_id = std::min(Nt - 2,std::max(0,(int)tProgress));
 	
-	double mvInterp = (mvProgress - mv_id);
-	double tInterp = (tProgress - t_id);
+	// double mvInterp = (mvProgress - mv_id);
+	// double tInterp = (tProgress - t_id);
 	
-	double lowTVal = SelectionGrid[t_id][mv_id] + mvInterp * (SelectionGrid[t_id][mv_id+1]-SelectionGrid[t_id][mv_id]);
-	double highTVal = SelectionGrid[t_id+1][mv_id] + mvInterp * (SelectionGrid[t_id+1][mv_id+1] - SelectionGrid[t_id+1][mv_id]);
-	double val = lowTVal + tInterp * (highTVal - lowTVal);	
+	// double lowTVal = SelectionGrid[t_id][mv_id] + mvInterp * (SelectionGrid[t_id][mv_id+1]-SelectionGrid[t_id][mv_id]);
+	// double highTVal = SelectionGrid[t_id+1][mv_id] + mvInterp * (SelectionGrid[t_id+1][mv_id+1] - SelectionGrid[t_id+1][mv_id]);
+	double val = SelectionGrid[t_id][mv_id];
 	
 	//~ if (RadiusIndex == 99)
 	//~ {
@@ -352,21 +388,31 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 			std::vector<int> numberSynthesised(n,0);
 			double mass = Param.Stellar.MassGrid[m];
 			int totalObs = 0;
+
+			std::vector<double> MvVector(n,0);
 			for (int entry = 0; entry < n; ++entry)
 			{
 				
-				double Mv = iso.Value(entry,VMag);
+				MvVector[entry] = iso.Value(entry,VMag);
 				double populationWeighting = 1.0 / Param.Catalogue.SampleCount;
-				double observeFrac = SelectionEffect(Mv,age);
+				
+				int observeFrac = SelectionEffect(MvVector[entry],age);
 				double count = migrateFrac * targetPopulation.Distribution[m].Count * populationWeighting;
 				
 				double crowdingFactor =0.3;
 
 				double obs = observeFrac * count * crowdingFactor;
 				
-				int intObs = obs;
+				// std::cout<<"Ring: "<< RadiusIndex<<  "Mv: " << MvVector[entry] << " age: " << age << " observeFrac: " << observeFrac << " count: " << count << " obs: " << obs << std::endl;
+
 				
-								
+				//multiply by factpr to reduce observations
+				double obsProb = 0.01;
+
+				obs *= obsProb;
+
+				int intObs = obs;
+
 				double targetRoll = (obs - intObs);
 				double diceRoll = (double)rand() / RAND_MAX;
 				if (diceRoll < targetRoll)
@@ -381,7 +427,7 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 			if (totalObs > 0)
 			{
 
-				output += targetPopulation.CatalogueEntry(numberSynthesised,m,Radius,originRadius, age, pot, unit);
+				output += targetPopulation.CatalogueEntry(numberSynthesised,m,Radius,originRadius, age, pot, unit, MvVector);
 
 				//~ SynthesisOutput[i] += output;
 				totalSynthesised += totalObs;
@@ -392,3 +438,60 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 	}
 	return output;
 }
+
+
+// std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double migrateFrac, double originRadius, double & totalSynthesised, const potential::PtrPotential &pot, const units::InternalUnits& unit)
+// {
+// 	std::string output = "";
+// 	double age = targetPopulation.Age;
+// 	for (int m = 0; m < Param.Stellar.MassResolution; ++m)
+// 	{
+// 		//~ std::cout << "\t Mass " << m << std::endl;
+// 		if (targetPopulation.Distribution[m].Count > 0)
+// 		{		
+// 			const IsochroneCube & iso = targetPopulation.Distribution[m].Isochrone;
+// 			int n = iso.Count();
+// 			std::vector<int> numberSynthesised(n,0);
+// 			double mass = Param.Stellar.MassGrid[m];
+// 			int totalObs = 0;
+// 			for (int entry = 0; entry < n; ++entry)
+// 			{
+				
+// 				double Mv = iso.Value(entry,VMag);
+// 				double populationWeighting = 1.0 / Param.Catalogue.SampleCount;
+				
+// 				double observeFrac = SelectionEffect(Mv,age);
+// 				double count = migrateFrac * targetPopulation.Distribution[m].Count * populationWeighting;
+				
+// 				double crowdingFactor =0.3;
+
+// 				double obs = observeFrac * count * crowdingFactor;
+				
+// 				int intObs = obs;
+				
+								
+// 				double targetRoll = (obs - intObs);
+// 				double diceRoll = (double)rand() / RAND_MAX;
+// 				if (diceRoll < targetRoll)
+// 				{
+// 					++intObs;
+// 				}
+// 				numberSynthesised[entry] = intObs;
+// 				totalObs += intObs;
+// 			}
+			
+			
+// 			if (totalObs > 0)
+// 			{
+
+// 				output += targetPopulation.CatalogueEntry(numberSynthesised,m,Radius,originRadius, age, pot, unit);
+
+// 				//~ SynthesisOutput[i] += output;
+// 				totalSynthesised += totalObs;
+// 			}
+		
+			
+// 		}
+// 	}
+// 	return output;
+// }

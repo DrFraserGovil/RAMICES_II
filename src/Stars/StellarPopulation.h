@@ -55,7 +55,7 @@ class StellarPopulation
 		std::vector<GasStream> BirthGas;
 		
 		std::string CatalogueHeaders();
-		std::string CatalogueEntry(std::vector<int> popEntry, int m, double currentGuidingRadius, double birthRadius,double age, const potential::PtrPotential& pot, const units::InternalUnits& unit) const;
+		std::string CatalogueEntry(std::vector<int> popEntry, int m, double currentGuidingRadius, double birthRadius,double age, const potential::PtrPotential& pot, const units::InternalUnits& unit, std::vector<double> Mv) const;
 		double Age;
 	private:
 		const GlobalParameters & Param;
@@ -79,5 +79,7 @@ class StellarPopulation
 		
 		void RecoverMatter(int time,int nstars, int mass, GasReservoir & temporalYieldGrid, RemnantPopulation & remnants);
 		
+		// bool RejectStars(double mass, double Age, const coord::PosVelCar& PS, double Mv);
+
 		Gas TempGas;
 };

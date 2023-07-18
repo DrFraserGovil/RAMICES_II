@@ -933,7 +933,7 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 
 	for (int i = ringstart; i < ringend; ++i)
 	{
-		//~ std::cout << "Thread " << threadID << " at " << prog << std::endl;
+		std::cout << "Thread " << threadID << " at " << prog << std::endl;
 		int cTot = 0;
 		int cFilter = 0;
 		for (int j = 0; j < Rings.size(); ++j)
@@ -949,6 +949,7 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 				}
 			}
 			
+			std::cout<< "Ring " << i << " migration from Ring " <<j << "done (Ring "<< i -ringstart<<" of "<< ringend-ringstart<< ")"  <<std::endl;
 			
 		}
 

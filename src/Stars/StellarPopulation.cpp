@@ -290,7 +290,40 @@ std::string StellarPopulation::CatalogueHeaders()
 	}
 	return s;
 }
-std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentGuidingRadius, double birthRadius, double age, const potential::PtrPotential& pot, const units::InternalUnits& unit) const
+
+
+bool RejectStars(double mass, double Age, const coord::PosVelCar &PS, double Mv, double solar_radius)
+{
+
+	double x_solar = solar_radius;
+	double y_solar = 0.0;
+	double z_solar = 0.0;
+
+	//xx give ps_cyl instead of calculating it again?
+	double r = std::sqrt(PS.x*PS.x + PS.y*PS.y);
+	double phi = std::atan2(PS.y, PS.x);
+
+	double maxDistance = pow(10, (4.0 - Mv)/5);
+	double minDistance = pow(10, (2.0 - Mv)/5);
+
+	double distance3d = std::sqrt( (PS.x - x_solar)*(PS.x - x_solar) + (PS.y - y_solar)*(PS.y - y_solar) + (PS.z - z_solar)*(PS.z - z_solar) );
+	double distance2d = std::sqrt( (PS.x - x_solar)*(PS.x - x_solar) + (PS.y - y_solar)*(PS.y - y_solar) );
+
+	if (distance3d < maxDistance && distance3d > minDistance)
+	{
+		double phi_degree = std::asin(PS.z/distance2d) *180.0/M_PI;
+		double phiCut_degree = 10.0;
+		if(phi_degree>phiCut_degree){
+			return true;
+		}
+	}	
+	return false;
+
+
+}
+
+
+std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentGuidingRadius, double birthRadius, double age, const potential::PtrPotential& pot, const units::InternalUnits& unit, std::vector<double> Mv_vec) const
 {
 	int nManualEntries = 16;
 	std::vector<double> values(nManualEntries+PropertyCount+ElementCount - 1,0.0);
@@ -408,49 +441,68 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 		coord::PosVelCyl phasespace = mapper.map(actions::ActionAngles(acts, angles));
 		coord::PosVelCar phasespace_cart = coord::toPosVelCar(phasespace);
 
-		values[7] = phasespace.R;
-		values[8] = phasespace_cart.x;
-		values[9] = phasespace_cart.y;
-		values[10] = phasespace_cart.z;
-		values[11] = phasespace_cart.vx;
-		values[12] = phasespace_cart.vy;
-		values[13] = phasespace_cart.vz;
-		values[14] = acts.Jr;
-		values[15] = acts.Jz;
-		values[16] = acts.Jphi;
-		
+		double Mv = Mv_vec[entry];
+		double mass = Param.Stellar.MassGrid[m];
+		bool starObserved = RejectStars(mass, Age, phasespace_cart, Mv, Param.Catalogue.SolarRadius);
 
-		int n = ns[entry];
+		if (starObserved){
 
-		for (int i = 0; i < PropertyCount; ++i)
-		{
+			values[7] = phasespace.R;
+			values[8] = phasespace_cart.x;
+			values[9] = phasespace_cart.y;
+			values[10] = phasespace_cart.z;
+			values[11] = phasespace_cart.vx;
+			values[12] = phasespace_cart.vy;
+			values[13] = phasespace_cart.vz;
+			values[14] = acts.Jr;
+			values[15] = acts.Jz;
+			values[16] = acts.Jphi;
 			
-			//~ const InterpolantPair & e = Distribution[m].Isochrone.Data[entry];
-			
-			values[elemOffset + i] = Distribution[m].Isochrone.Value(entry,(IsochroneProperties)i);
-			++offset; 
-		}
-		
-		
-		for (int star = 0; star < n; ++star)
-		{
-			std::string line = "";
-			for (int k = 0; k < values.size(); ++k)
+
+			int n = ns[entry];
+
+			for (int i = 0; i < PropertyCount; ++i)
 			{
 				
+				//~ const InterpolantPair & e = Distribution[m].Isochrone.Data[entry];
 				
-				double r = Data.NormalDist();
-				double error = typicalErrors[k] * r;
-				double val = values[k] + error;
-				//~ std::cout << "Given " << values[k] << " and typical value " << typicalErrors[k] << " and random value " << r << " I scattered with error " << error << " giving " <<val << std::endl;
-				if (k > 0)
-				{
-					line += ", ";
-				}
-				line += std::to_string(val);
+				values[elemOffset + i] = Distribution[m].Isochrone.Value(entry,(IsochroneProperties)i);
+				++offset; 
 			}
-			output += line + "\n";
+			
+			
+			for (int star = 0; star < n; ++star)
+			{
+				std::string line = "";
+				for (int k = 0; k < values.size(); ++k)
+				{
+					
+					
+					double r = Data.NormalDist();
+					double error = typicalErrors[k] * r;
+					double val = values[k] + error;
+					//~ std::cout << "Given " << values[k] << " and typical value " << typicalErrors[k] << " and random value " << r << " I scattered with error " << error << " giving " <<val << std::endl;
+					if (k > 0)
+					{
+						line += ", ";
+					}
+					line += std::to_string(val);
+				}
+				output += line + "\n";
+			}
 		}
 	}
+	std::cout<< output;
 	return output;
 }
+
+// double tan_SkyCut(double theta)
+// {
+
+// 	double order0 = 0.715;
+// 	double order1 = -1.24 * cos(theta) + 1.915 * sin(theta);
+// 	double order2 = -0.114 * cos(2*theta) - 0.2553*sin(2*theta);
+	
+// 	return order0 + order1 + order2;
+// }
+
