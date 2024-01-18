@@ -305,12 +305,14 @@ bool RejectStars(double mass, double Age, const coord::PosVelCar &PS, double Mv,
 
 	double maxDistance = pow(10, (4.0 - Mv)/5);
 	double minDistance = pow(10, (2.0 - Mv)/5);
+	
+	std::cout<< "maxDistance = " << maxDistance << " minDistance = " << minDistance << "\n";
 
 	double distance3d = std::sqrt( (PS.x - x_solar)*(PS.x - x_solar) + (PS.y - y_solar)*(PS.y - y_solar) + (PS.z - z_solar)*(PS.z - z_solar) );
-	double distance2d = std::sqrt( (PS.x - x_solar)*(PS.x - x_solar) + (PS.y - y_solar)*(PS.y - y_solar) );
 
 	if (distance3d < maxDistance && distance3d > minDistance)
 	{
+		double distance2d = std::sqrt( (PS.x - x_solar)*(PS.x - x_solar) + (PS.y - y_solar)*(PS.y - y_solar) );
 		double phi_degree = std::asin(PS.z/distance2d) *180.0/M_PI;
 		double phiCut_degree = 10.0;
 		if(phi_degree>phiCut_degree){
@@ -323,10 +325,13 @@ bool RejectStars(double mass, double Age, const coord::PosVelCar &PS, double Mv,
 }
 
 
-std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentGuidingRadius, double birthRadius, double age, const potential::PtrPotential& pot, const units::InternalUnits& unit, std::vector<double> Mv_vec) const
+std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentRingRadius, double birthRadius, double age, const potential::PtrPotential& pot, const units::InternalUnits& unit, std::vector<double> Mv_vec) const
 {
 	int nManualEntries = 16;
 	std::vector<double> values(nManualEntries+PropertyCount+ElementCount - 1,0.0);
+	
+	double currentGuidingRadius = currentRingRadius - Param.Galaxy.RingWidth[0]/2.0;
+	currentGuidingRadius += Param.Galaxy.RingWidth[0]*rand()/RAND_MAX;
 	values[0] = currentGuidingRadius;
 	values[1] = Age;
 	values[2] = BirthIndex;
@@ -403,16 +408,15 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 
 	// double dist_z = std::exp(-(nu_z * J_z)/sigmaz);
 	//function that samples a random numbers from a distribution accordings to dist_z:
-	std::uniform_real_distribution<double> dist_uni(0,1);
-	std::mt19937_64 generator;
+	// std::uniform_real_distribution<double> dist_uni(0,1);
+	// std::mt19937_64 generator;
 
 	std::string output = "";
 	for (int entry = 0; entry < ns.size(); ++entry)
 	{
 		//sample dynamics separately for each entry
-
-		double genZ = dist_uni(generator);
-		double genR = dist_uni(generator);
+		double genZ = (double)rand()/RAND_MAX;
+		double genR = (double)rand()/RAND_MAX;
 
 		double Jz = - std::log(genZ)*sigmaz/nu_z;
 		double JR = - std::log(genR)*sigmaR/nu_R;
@@ -431,9 +435,9 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 
 		//sample angles
 		actions::Angles angles;
-		angles.thetar = 2*M_PI*dist_uni(generator);
-		angles.thetaz = 2*M_PI*dist_uni(generator);
-		angles.thetaphi = 2*M_PI*dist_uni(generator);
+		angles.thetar = 2*M_PI*(double)rand()/RAND_MAX;
+		angles.thetaz = 2*M_PI*(double)rand()/RAND_MAX;
+		angles.thetaphi = 2*M_PI*(double)rand()/RAND_MAX;
 
 
 		actions::ActionMapperTorus mapper(*pot, acts);
