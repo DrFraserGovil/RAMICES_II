@@ -9,9 +9,10 @@
 #include "StarEvents.h"
 #include "IsochroneTracker.h"
 
-#include "../../../Agama/src/units.h"
-#include "../../../Agama/src/potential_factory.h"
-#include "../../../Agama/src/actions_torus.h"
+
+#include "../../libs/Agama/src/units.h"
+#include "../../libs/Agama/src/potential_factory.h"
+#include "../../libs/Agama/src/actions_torus.h"
 //! A simple struct for tracking the number of stars of a given mass
 
 

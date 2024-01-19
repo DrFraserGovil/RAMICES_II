@@ -7,9 +7,8 @@
 #include "../Stars/IMF.h"
 #include "../Stars/SLF.h"
 
-
-#include "../../../Agama/src/units.h"
-#include "../../../Agama/src/potential_factory.h"
+#include "../../libs/Agama/src/units.h"
+#include "../../libs/Agama/src/potential_factory.h"
 
 class Ring
 {

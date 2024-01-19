@@ -292,7 +292,7 @@ std::string StellarPopulation::CatalogueHeaders()
 }
 
 
-bool RejectStars(double mass, double Age, const coord::PosVelCar &PS, double Mv, double solar_radius)
+bool RejectStars(double mass, double Age, const coord::PosVelCar &PS, const coord::PosVelCyl &PSCyl, double Mv, double solar_radius)
 {
 
 	double x_solar = solar_radius;
@@ -300,8 +300,8 @@ bool RejectStars(double mass, double Age, const coord::PosVelCar &PS, double Mv,
 	double z_solar = 0.0;
 
 	//xx give ps_cyl instead of calculating it again?
-	double r = std::sqrt(PS.x*PS.x + PS.y*PS.y);
-	double phi = std::atan2(PS.y, PS.x);
+	double r = PSCyl.R;
+	double phi = PSCyl.phi;
 
 	double maxDistance = pow(10, (4.0 - Mv)/5);
 	double minDistance = pow(10, (2.0 - Mv)/5);
@@ -315,12 +315,12 @@ bool RejectStars(double mass, double Age, const coord::PosVelCar &PS, double Mv,
 		double distance2d = std::sqrt( (PS.x - x_solar)*(PS.x - x_solar) + (PS.y - y_solar)*(PS.y - y_solar) );
 		double phi_degree = std::asin(PS.z/distance2d) *180.0/M_PI;
 		double phiCut_degree = 10.0;
-		if(phi_degree>phiCut_degree){
+		if(abs(phi_degree)>phiCut_degree){
 			// std::cout<< "accepted\n";
 			return true;
 		}
 	}
-	// std::cout<< "rejected\n";	
+	// std::cout<< "rejected! R = " << r << "distance = "<< distance3d << "\n";	
 	return false;
 
 
@@ -470,9 +470,7 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns,
 		double mass = Param.Stellar.MassGrid[m];
 
 
-
-
-		bool starObserved = RejectStars(mass, Age, phasespace_cart, Mv, Param.Catalogue.SolarRadius);
+		bool starObserved = RejectStars(mass, Age, phasespace_cart, phasespace, Mv, Param.Catalogue.SolarRadius);
 
 		if (starObserved){
 
