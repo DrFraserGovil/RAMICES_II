@@ -38,7 +38,14 @@ class Ring
 		
 		void ComputeSelectionFunction(const double brightLimit, const double dimLimit);
 		void MetCheck(const std::string & location);
-		std::string Synthesis(const StellarPopulation & targetPopulation, double migrationFraction, double originRadius, double & totalSynthesised, const potential::PtrPotential& pot, const units::InternalUnits& unit);  
+		std::string Synthesis(const StellarPopulation & targetPopulation, 
+		                      double migrationFraction, 
+							  double originRadius, 
+							  double & totalSynthesised, 
+							  const potential::PtrPotential& pot, 
+							  const units::InternalUnits& unit, 
+							  int &stars_this_ring,
+							  int& accepted_this_ring);  
 	private:
 		
 		//~ std::vector<GasReservoir> PreviousEnrichment;
@@ -55,4 +62,7 @@ class Ring
 		std::vector<std::vector<int>> SelectionGrid;
 		double MinMv;
 		double MaxMv;
+
+		// std::vector<double>deltaAzimuth;
+		// std::vector<double>scalingFactor;
 };

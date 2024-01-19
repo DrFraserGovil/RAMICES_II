@@ -306,7 +306,7 @@ bool RejectStars(double mass, double Age, const coord::PosVelCar &PS, double Mv,
 	double maxDistance = pow(10, (4.0 - Mv)/5);
 	double minDistance = pow(10, (2.0 - Mv)/5);
 	
-	std::cout<< "maxDistance = " << maxDistance << " minDistance = " << minDistance << "\n";
+	// std::cout<< "maxDistance = " << maxDistance << " minDistance = " << minDistance << "\n";
 
 	double distance3d = std::sqrt( (PS.x - x_solar)*(PS.x - x_solar) + (PS.y - y_solar)*(PS.y - y_solar) + (PS.z - z_solar)*(PS.z - z_solar) );
 
@@ -316,18 +316,28 @@ bool RejectStars(double mass, double Age, const coord::PosVelCar &PS, double Mv,
 		double phi_degree = std::asin(PS.z/distance2d) *180.0/M_PI;
 		double phiCut_degree = 10.0;
 		if(phi_degree>phiCut_degree){
+			// std::cout<< "accepted\n";
 			return true;
 		}
-	}	
+	}
+	// std::cout<< "rejected\n";	
 	return false;
 
 
 }
 
-
-std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double currentRingRadius, double birthRadius, double age, const potential::PtrPotential& pot, const units::InternalUnits& unit, std::vector<double> Mv_vec) const
+// ns: numberSynthesised; m: massBin
+std::string StellarPopulation::CatalogueEntry(std::vector<int> ns,
+											  int m,
+											  double currentRingRadius,
+											  double birthRadius, 
+											  double age, 
+											  const potential::PtrPotential& pot, 
+											  const units::InternalUnits& unit, 
+											  std::vector<double> Mv_vec,
+											  int& numberAccepted) const
 {
-	int nManualEntries = 16;
+	int nManualEntries = 17;
 	std::vector<double> values(nManualEntries+PropertyCount+ElementCount - 1,0.0);
 	
 	double currentGuidingRadius = currentRingRadius - Param.Galaxy.RingWidth[0]/2.0;
@@ -414,6 +424,9 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 	std::string output = "";
 	for (int entry = 0; entry < ns.size(); ++entry)
 	{
+
+		// mvVector = Distribution[m].Isochrone.Value(entry, (IsochroneProperties)i);
+
 		//sample dynamics separately for each entry
 		double genZ = (double)rand()/RAND_MAX;
 		double genR = (double)rand()/RAND_MAX;
@@ -442,14 +455,28 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 
 		actions::ActionMapperTorus mapper(*pot, acts);
 
+		double Mv = Mv_vec[entry];
 		coord::PosVelCyl phasespace = mapper.map(actions::ActionAngles(acts, angles));
+
+
+		double maxDistance = pow(10, (4.0 - Mv)/5);
+		
+		double deltaAzimuth = 2.0 * atan(maxDistance / Param.Catalogue.SolarRadius);
+		double scalingFactor = deltaAzimuth/(2.0 * M_PI);
+
+		phasespace.phi = phasespace.phi*scalingFactor;
 		coord::PosVelCar phasespace_cart = coord::toPosVelCar(phasespace);
 
-		double Mv = Mv_vec[entry];
 		double mass = Param.Stellar.MassGrid[m];
+
+
+
+
 		bool starObserved = RejectStars(mass, Age, phasespace_cart, Mv, Param.Catalogue.SolarRadius);
 
 		if (starObserved){
+
+			++numberAccepted;
 
 			values[7] = phasespace.R;
 			values[8] = phasespace_cart.x;
@@ -496,7 +523,7 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 			}
 		}
 	}
-	std::cout<< output;
+	// std::cout<< output;
 	return output;
 }
 

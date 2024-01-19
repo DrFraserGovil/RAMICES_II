@@ -864,7 +864,7 @@ void Galaxy::ComputeVisibilityFunction()
 	int Nt = ceil((double)Param.Meta.SimulationDuration / dt) + 1;
 	double minMv = 100;
 	double maxMv = -100;
-	
+
 	Data.UrgentLog("\tAscertaining Magnitude range\n" );
 	for (int i = 0; i < Param.Meta.SimulationSteps; ++i)
 	{
@@ -933,6 +933,8 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 
 	for (int i = ringstart; i < ringend; ++i)
 	{
+		int stars_this_ring =0;
+		int accepted_this_ring=0;
 		std::cout << "Thread " << threadID << " at " << prog << std::endl;
 		int cTot = 0;
 		int cFilter = 0;
@@ -942,22 +944,30 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 			for (int t = 0; t < Param.Meta.SimulationSteps -1; ++t)
 			{
 				double migrateFrac = Migrator[t].Grid[i][j];
+
+				int stars_this_loop = 0;
+				int accepted_this_loop = 0;
 				if (migrateFrac > 1e-8)
 				{
-					SynthesisOutput[i] += Rings[i].Synthesis(Rings[j].Stars.Population[t], migrateFrac,Rings[j].Radius,SynthesisProgress[threadID], pot ,unit);
+					SynthesisOutput[i] += Rings[i].Synthesis(Rings[j].Stars.Population[t], migrateFrac,Rings[j].Radius,SynthesisProgress[threadID], pot ,unit, stars_this_loop, accepted_this_loop);
 					
 				}
+				stars_this_ring += stars_this_loop;
+				accepted_this_ring += accepted_this_loop;
+
+				
 			}
 			
 			std::cout<< "Ring " << i << " migration from Ring " <<j << "done (Ring "<< i -ringstart<<" of "<< ringend-ringstart<< ")"  <<std::endl;
 			
 		}
 
+		std::cout<< "Ring " << i << " synthesised " <<stars_this_ring << " stars and accepted " << accepted_this_ring<<std::endl;
 
 		if (coreContainsSolar)
 		{
 			Data.ProgressBar(prog,i-ringstart,ringend-ringstart);
-			
+
 		}
 	}	
 

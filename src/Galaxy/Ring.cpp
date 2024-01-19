@@ -9,6 +9,9 @@ Ring::Ring(int index, double mass,InitialisedData & data): Data(data), Param(dat
 	Area = 2 * pi * Radius * Width;
 	//~ PreviousEnrichment.resize(Param.Meta.SimulationSteps);
 	//~ PreviousEnrichment[0] = Gas;
+	// //deltaAzimuth = std::vector<double>( Param.Catalogue.IsochroneMagnitudeResolution,0);
+	// //scalingFactor = std::vector<double>( Param.Catalogue.IsochroneMagnitudeResolution,0);
+
 	Data.Log("\tRing " + std::to_string(index) + " initialised\n",3);
 }
 
@@ -210,6 +213,8 @@ void Ring::MetCheck(const std::string & location)
 
 void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 {
+	
+
 	MinMv = minMv;
 	MaxMv = maxMv;
 	
@@ -219,6 +224,9 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 	double deltaM = (maxMv - minMv)/(Nm - 1);
 	SelectionGrid = std::vector<std::vector<int>>(Nt,std::vector<int>(Nm,0));
 	
+	// //std::vector<double>deltaAzimuth (Nm,0);
+	// //std::vector<double>scalingFactor (Nm,0);
+
 	int Nr = Param.Catalogue.RadialResolution;
 	// int Nphi = Param.Catalogue.AzimuthalResolution;
 	
@@ -246,6 +254,10 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 			double minDistance = pow(10, (2.0 - Mv)/5);
 			int val = 0;
 			// double normVal = 0;
+
+			// //deltaAzimuth[i] = 2.0 * atan(maxDistance / dSol);
+			// // scalingFactor[i] = 2.0*PI / deltaAzimuth[i];
+
 			for (int ri = 0; ri < Nr; ++ri)
 			{
 				double distance = dSol -Radius- Width/2 + ri * dr;
@@ -344,7 +356,7 @@ void Ring::ComputeSelectionFunction(double minMv,double maxMv)
 // 	return val;
 // }
 
-
+//shifting visibility depending on age
 double Ring::SelectionEffect(double Mv, double age)
 {
 	int Nm = Param.Catalogue.IsochroneMagnitudeResolution;
@@ -357,11 +369,11 @@ double Ring::SelectionEffect(double Mv, double age)
 	int mv_id = std::min(Nm - 2,std::max(0,(int)mvProgress));
 	int t_id = std::min(Nt - 2,std::max(0,(int)tProgress));
 	
-	// double mvInterp = (mvProgress - mv_id);
-	// double tInterp = (tProgress - t_id);
+	double mvInterp = (mvProgress - mv_id);
+	double tInterp = (tProgress - t_id);
 	
-	// double lowTVal = SelectionGrid[t_id][mv_id] + mvInterp * (SelectionGrid[t_id][mv_id+1]-SelectionGrid[t_id][mv_id]);
-	// double highTVal = SelectionGrid[t_id+1][mv_id] + mvInterp * (SelectionGrid[t_id+1][mv_id+1] - SelectionGrid[t_id+1][mv_id]);
+	double lowTVal = SelectionGrid[t_id][mv_id] + mvInterp * (SelectionGrid[t_id][mv_id+1]-SelectionGrid[t_id][mv_id]);
+	double highTVal = SelectionGrid[t_id+1][mv_id] + mvInterp * (SelectionGrid[t_id+1][mv_id+1] - SelectionGrid[t_id+1][mv_id]);
 	double val = SelectionGrid[t_id][mv_id];
 	
 	//~ if (RadiusIndex == 99)
@@ -374,12 +386,23 @@ double Ring::SelectionEffect(double Mv, double age)
 	return val;
 }
 
-std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double migrateFrac, double originRadius, double & totalSynthesised, const potential::PtrPotential &pot, const units::InternalUnits& unit)
+std::string Ring::Synthesis(const StellarPopulation & targetPopulation, 
+							double migrateFrac, 
+							double originRadius, 
+							double & totalSynthesised, 
+							const potential::PtrPotential &pot, 
+							const units::InternalUnits& unit, 
+							int &stars_this_ring,
+							int &accepted_this_ring)
 {
 	std::string output = "";
 	double age = targetPopulation.Age;
+
+	// std::cout<<"Ring: "<< RadiusIndex<< " originRadius %"<< originRadius << std::endl;
+
 	for (int m = 0; m < Param.Stellar.MassResolution; ++m)
 	{
+		int prog = 0;
 		//~ std::cout << "\t Mass " << m << std::endl;
 		if (targetPopulation.Distribution[m].Count > 0)
 		{		
@@ -390,15 +413,29 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 			int totalObs = 0;
 
 			std::vector<double> MvVector(n,0);
+
 			for (int entry = 0; entry < n; ++entry)
 			{
 				
 				MvVector[entry] = iso.Value(entry,VMag);
+				double maxDistance = pow(10, (4.0 - MvVector[entry])/5);
+
+				double deltaAzimuth = 2.0 * atan(maxDistance / Param.Catalogue.SolarRadius);
+				double scalingFactor = deltaAzimuth/(2.0 * M_PI);
+
+				double azimuthalCompressionWeighting = 1.0 / scalingFactor;
+
+
+
+
+				//todo what is sample count?
 				double populationWeighting = 1.0 / Param.Catalogue.SampleCount;
 				
 				int observeFrac = SelectionEffect(MvVector[entry],age);
-				double count = migrateFrac * targetPopulation.Distribution[m].Count * populationWeighting;
+				double count = migrateFrac * targetPopulation.Distribution[m].Count * populationWeighting * azimuthalCompressionWeighting;
 				
+
+
 				double crowdingFactor =0.3;
 
 				double obs = observeFrac * count * crowdingFactor;
@@ -406,8 +443,8 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 				// std::cout<<"Ring: "<< RadiusIndex<<  "Mv: " << MvVector[entry] << " age: " << age << " observeFrac: " << observeFrac << " count: " << count << " obs: " << obs << std::endl;
 
 				
-				//multiply by factpr to reduce observations
-				double obsProb = 0.01;
+				//multiply by factor to reduce observations
+				double obsProb = 0.001;
 
 				obs *= obsProb;
 
@@ -421,21 +458,30 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 				}
 				numberSynthesised[entry] = intObs;
 				totalObs += intObs;
+				
+				// std::cout<<"count "<<count<<" targetPopulation.Distribution[m].Count "<< targetPopulation.Distribution[m].Count<< " numberSynthesised "<< intObs<<" totalObs "<<totalObs<< std::endl;
+
+				
 			}
 			
-			
+			int numberAccepted = 0;
 			if (totalObs > 0)
 			{
 
-				output += targetPopulation.CatalogueEntry(numberSynthesised,m,Radius,originRadius, age, pot, unit, MvVector);
+				output += targetPopulation.CatalogueEntry(numberSynthesised,m,Radius,originRadius, age, pot, unit, MvVector, numberAccepted);
 
 				//~ SynthesisOutput[i] += output;
 				totalSynthesised += totalObs;
 			}
 		
-			
+			stars_this_ring += totalObs;
+			accepted_this_ring += numberAccepted;
 		}
+
+	// Data.ProgressBar(prog,m,Param.Stellar.MassResolution);
+
 	}
+	// std::cout<<"Ring: "<< RadiusIndex<< " originRadius "<< originRadius << " stars_this_ring: " << stars_this_ring << std::endl;
 	return output;
 }
 

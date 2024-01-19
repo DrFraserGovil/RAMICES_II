@@ -55,7 +55,14 @@ class StellarPopulation
 		std::vector<GasStream> BirthGas;
 		
 		std::string CatalogueHeaders();
-		std::string CatalogueEntry(std::vector<int> popEntry, int m, double currentGuidingRadius, double birthRadius,double age, const potential::PtrPotential& pot, const units::InternalUnits& unit, std::vector<double> Mv) const;
+		std::string CatalogueEntry(std::vector<int> popEntry, 
+								   int m, 
+								   double currentGuidingRadius, 
+								   double birthRadius,double age, 
+								   const potential::PtrPotential& pot, 
+								   const units::InternalUnits& unit, 
+								   std::vector<double> Mv,
+								   int& numberAccepted) const;
 		double Age;
 	private:
 		const GlobalParameters & Param;
