@@ -337,7 +337,10 @@ double Ring::SelectionEffect(double Mv, double age)
 	return val;
 }
 
-std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double migrateFrac, double originRadius, double & totalSynthesised)
+std::string Ring::Synthesis(const StellarPopulation & targetPopulation,
+						    double migrateFrac, 
+							double originRadius, 
+							double & totalSynthesised)
 {
 	std::string output = "";
 	double age = targetPopulation.Age;
@@ -387,4 +390,22 @@ std::string Ring::Synthesis(const StellarPopulation & targetPopulation, double m
 		}
 	}
 	return output;
+}
+
+
+std::string Ring::SynthesisDistribution(const StellarPopulation &targetPopulation, 
+										double migrateFrac, 
+										double originRadius, 
+										double &totalSynthesised)
+{
+	// loop through each timestep and find the stellar mass born at that timestep and its metallicity. 
+	double populationMass = migrateFrac* targetPopulation.FormingMass;
+
+	// std::cout << "in synthesis distribution" << std::endl;
+	std::string output = "";
+	output = targetPopulation.DistributionEntry(Radius, originRadius, populationMass);
+
+	// std::cout << "output is " << output << std::endl;
+	return output;
+
 }

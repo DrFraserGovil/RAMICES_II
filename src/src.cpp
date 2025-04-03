@@ -85,10 +85,15 @@ int main(int argc, char** argv)
 	auto endTime = std::chrono::system_clock::now();
 	Data.UrgentLog("\tMain Computation loop complete in " + JSL::FormatClock(startTime,endTime) + ".\n");
 	
-	if (Params.Catalogue.SynthesisActive)
+	if (Params.Catalogue.StellarSynthesisActive)
 	{
 		Data.UrgentLog("Beginning Synthesis of mock catalogue\n");
 		g.SynthesiseObservations();
+	}
+	if (Params.Catalogue.PopulationSynthesisActive)
+	{
+		Data.UrgentLog("Writing all born and migrated populations to file\n");
+		g.SynthesisePopulations();
 	}
 	
 	

@@ -49,9 +49,12 @@ class StellarPopulation
 		IsoMass ImmortalStars;
 		
 		std::vector<GasStream> BirthGas;
+		double FormingMass;
 		
 		std::string CatalogueHeaders();
+		std::string DistributionHeaders();
 		std::string CatalogueEntry(std::vector<int> popEntry, int m, double currentRadius, double birthRadius) const;
+		std::string DistributionEntry(double currentRadius, double birthRadius, double population_mass) const;
 		double Age;
 	private:
 		const GlobalParameters & Param;

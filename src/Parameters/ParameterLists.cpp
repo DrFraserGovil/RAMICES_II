@@ -37,6 +37,8 @@ void OutputValues::Initialise(std::string resourceRoot)
 	
 
 	StarFile.Value = Root.Value +  StarFile.Value;
+
+	PopFile.Value = Root.Value + PopFile.Value;
 	
 	YieldSubdir.Value = Root.Value + YieldSubdir.Value;
 	JSL::mkdir(YieldSubdir.Value);

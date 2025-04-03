@@ -53,6 +53,8 @@ void Galaxy::Evolve()
 	//~ }
 }
 
+
+
 void Galaxy::SynthesiseObservations()
 {
 	Data.Isochrones.Construct();
@@ -86,6 +88,41 @@ void Galaxy::SynthesiseObservations()
 		JSL::writeStringToFile(Param.Output.StarFile.Value, SynthesisOutput[i]);
 		Data.ProgressBar(bars, i,Rings.size());
 	}
+}
+
+
+void Galaxy::SynthesisePopulations()
+{
+	ParallelBars = 0;
+
+	// giving the populations their right age
+	for (int t = 0; t < Param.Meta.SimulationSteps -1; ++t)
+	{
+		double age = (Param.Meta.SimulationSteps - 2 - t) * Param.Meta.TimeStep;			
+		for (int j = 0; j < Rings.size(); ++j)
+		{
+			Rings[j].Stars.Population[t].Age = age;
+		}
+				
+	}
+	
+	SynthesisOutput.resize(Rings.size());
+
+	
+	ParallelBars = 0;
+	Data.UrgentLog("\tDistributing Population:\t");
+	LaunchParallelOperation(Param.Meta.SimulationDuration,Rings.size(), PopSynthesis);
+	
+	Data.UrgentLog("\tWriting to file:\t");
+	JSL::initialiseFile(Param.Output.PopFile.Value);
+	JSL::writeStringToFile(Param.Output.PopFile.Value, Rings[0].Stars.Population[0].DistributionHeaders() + "\n");
+	int bars = 0;
+	for (int i = 0; i < Rings.size(); ++i)
+	{
+		JSL::writeStringToFile(Param.Output.PopFile.Value, SynthesisOutput[i]);
+		Data.ProgressBar(bars, i, Rings.size());
+	}
+
 }
 
 
@@ -177,6 +214,12 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 				Threads[n] = std::thread(&Galaxy::SelectionFunction,this,start,end,n);
 				break;
 			}
+
+			case PopSynthesis:
+			{
+				Threads[n] = std::thread(&Galaxy::PopulationSynthesis,this,start,end,n);
+				break;
+			}
 		}
 		++n;
 		
@@ -215,6 +258,11 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 		case Selection:
 		{
 			SelectionFunction(start,end,N-1);
+		}
+		case PopSynthesis:
+		{
+			PopulationSynthesis(start,end,N-1);
+			break;
 		}
 	}
 	
@@ -959,6 +1007,40 @@ void Galaxy::StellarSynthesis(int ringstart, int ringend, int threadID)
 
 }
 
+void Galaxy::PopulationSynthesis(int ringstart, int ringend, int threadID)
+ //this is writes out an entry for each population that was born at a certain ring or migrated there for each timestep
+ {
+ 	bool coreContainsRing1 = (ringstart < 1) && (ringend - 1 > 1);
+ 	int prog = 0;
+ 	for (int i = ringstart; i < ringend; ++i)
+ 	{
+ 		// std::cout << "Thread " << threadID << " at " << prog << std::endl;
+ 		int cTot = 0;
+ 		int cFilter = 0;
+ 		for (int j = 0; j < Rings.size(); ++j)
+ 		{
+ 
+ 			for (int t = 0; t < Param.Meta.SimulationSteps -1; ++t)
+ 			{
+ 				double migrateFrac = Migrator[t].Grid[i][j];
+ 				if (migrateFrac > 1e-8)
+ 				{
+ 					// std::cout << "Thread "<< threadID<< " Ring " << i << " Migration from " << j << " at time " << t << " with frac " << migrateFrac << std::endl;	
+
+ 					SynthesisOutput[i] += Rings[i].SynthesisDistribution(Rings[j].Stars.Population[t], migrateFrac,Rings[j].Radius,SynthesisProgress[threadID]);
+ 					
+ 					// std::cout << "Thread "<< threadID<< " Ring " << i << " Migration from " << j << " at time " << t << " with frac " << migrateFrac << " done" << std::endl;
+ 				}
+ 				
+ 			}
+ 		}
+ 
+ 		if (coreContainsRing1)
+ 		{
+ 			Data.ProgressBar(prog, i - ringstart, ringend - ringstart);
+ 		}
+ 	}
+ }
 
 
 void Galaxy::CGMOperations()

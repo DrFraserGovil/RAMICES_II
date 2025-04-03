@@ -10,7 +10,7 @@
 #include <thread>
 #include <future>
 
-enum ParallelJob {RingStep, Compounding, Scattering, AssignIsochrones,Synthesis,Selection};
+enum ParallelJob {RingStep, Compounding, Scattering, AssignIsochrones,Synthesis,Selection,PopSynthesis};
 
 class Galaxy
 {
@@ -18,6 +18,8 @@ class Galaxy
 		Galaxy(InitialisedData & Data);
 		void Evolve();
 		void SynthesiseObservations();
+		void SynthesisePopulations();
+
 		std::vector<Ring> Rings;
 	private:
 		
@@ -75,6 +77,8 @@ class Galaxy
 		void ComputeVisibilityFunction();
 		void SelectionFunction(int ringstart, int ringend, int threadID);
 		void StellarSynthesis(int ringstart, int ringend,int threadID);
+		void PopulationSynthesis(int ringstart, int ringend,int threadID);
+
 		std::vector<std::string> SynthesisOutput;
 		std::vector<double> SynthesisProgress;
 		

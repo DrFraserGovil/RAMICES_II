@@ -70,8 +70,9 @@ int StellarPopulation::FormStars(double formingMass, int timeIndex, GasReservoir
 	BirthIndex = timeIndex;
 	Metallicity = formingMetallicity;
 	BirthGas = formingGas.Composition();
+	FormingMass = formingMass;
 	double c = BirthGas[Remnant].ColdMass();
-	double d= BirthGas[Accreted].ColdMass();
+	double d = BirthGas[Accreted].ColdMass();
 
 	
 	int prevIndex = timeIndex;
@@ -379,5 +380,55 @@ std::string StellarPopulation::CatalogueEntry(std::vector<int> ns, int m, double
 			output += line + "\n";
 		}
 	}
+	return output;
+}
+
+std::string StellarPopulation::DistributionHeaders()
+ {
+ 	std::string s = "Radius, TrueAge, BirthIndex, BirthRadius, PopulationMass, Metallicity";
+ 	for (int i = 1; i < ElementCount; ++i)
+ 	{
+ 		s += ", " + Param.Element.ElementNames[i] + "H";
+ 	}
+ 	return s;
+ }
+
+
+
+ /*Does not give individual stars but instead the mass and composition of the stellar population of a certain age that migrated from birth radius to current radius*/
+ std::string StellarPopulation::DistributionEntry(double currentRadius, 
+	double birthRadius,
+	double population_mass) const
+{
+	// std::cout<< "in distribution entry\n";
+
+	std::string output = "";
+	output += std::to_string(currentRadius) + ", ";
+	output += std::to_string(Age) + ", ";
+	output += std::to_string(BirthIndex) + ", ";
+	output += std::to_string(birthRadius) + ", ";
+	output += std::to_string(population_mass) + ", ";
+	output += std::to_string(Metallicity) ;
+
+	double H_Content = 1e-99;
+	for (int p = 0; p < ProcessCount; ++p)
+	{
+		H_Content += BirthGas[p].Cold(Hydrogen);
+	}
+	double Solar_H = Param.Element.SolarAbundances[Hydrogen];
+
+	for (int i = 1; i < ElementCount; ++i)
+	{
+		double Element_Content = 1e-99;
+		for (int p = 0; p < ProcessCount; ++p)
+		{
+			Element_Content += BirthGas[p].Cold((ElementID)i);
+		}
+		double logVal = log10(Element_Content / H_Content) - log10(Param.Element.SolarAbundances[(ElementID)i] / Solar_H);
+		output += ", " + std::to_string(logVal) ;
+	}
+
+
+	output += "\n";
 	return output;
 }
