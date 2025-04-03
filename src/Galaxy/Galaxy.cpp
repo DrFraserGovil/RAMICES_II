@@ -65,6 +65,8 @@ void Galaxy::SynthesiseObservations()
 	
 	SynthesisProgress.resize(Param.Meta.ParallelThreads);
 	ComputeVisibilityFunction();
+
+	Data.UrgentLog("\tComputed Visibility Function....\n");
 	
 	SynthesisOutput.resize(Rings.size());
 	
@@ -258,6 +260,7 @@ void Galaxy::LaunchParallelOperation(int timestep, int nOperations, ParallelJob 
 		case Selection:
 		{
 			SelectionFunction(start,end,N-1);
+			break;
 		}
 		case PopSynthesis:
 		{
