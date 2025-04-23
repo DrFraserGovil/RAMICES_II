@@ -1,0 +1,350 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{tikz-uml}
+\usepackage{lscape}
+\usepackage{pgfplots}
+
+% \sloppy
+% \hyphenpenalty 10000000
+\setlength\parindent{0pt}
+\setlength\parskip{10pt}
+\usepackage{soul} 
+\usepackage{xifthen}
+
+\newboolean{completed}
+\setboolean{completed}{false}
+\newboolean{firstpass}
+\setboolean{firstpass}{true}
+
+\title{RAMICES III}
+\author{(JF)$^2$G}
+\def\d{\mathrm d}
+\newcommand\fitem[2]
+			{
+				\textbf{#1:} #2
+			}
+			\newcommand\citem[3][0]
+			{
+				\ifthenelse{\equal{#1}{1} \OR \boolean{completed}}
+				{
+					\ifthenelse{\NOT \boolean{firstpass}}
+					{
+						\item {\fitem{\st{#2}}{\st{#3}}}
+					}{
+					}
+				}
+				{
+					\ifthenelse{\boolean{firstpass}}
+					{\item \fitem{#2}{#3}}{}
+					
+				}
+			}
+			\def\emptyItem
+			{
+				\item[] \vspace{-20pt}
+			}
+			\newcommand\cparent[4][0]
+			{
+				\if#11
+					\setboolean{completed}{true}
+				\fi
+
+				\ifthenelse{\equal{#1}{0} \AND \boolean{firstpass}}
+				{
+					\citem[#1]{#2}{#3}
+					\begin{enumerate}
+						#4
+						\emptyItem{}
+					\end{enumerate}
+					\setboolean{firstpass}{false}
+					\begin{enumerate}
+						#4
+						\emptyItem{}						
+					\end{enumerate}
+					\setboolean{firstpass}{true}
+				}
+				{
+					\ifthenelse{\boolean{firstpass}}
+					{}
+					{
+						\ifthenelse{\equal{#1}{1}}
+						{
+						\citem[#1]{#2}{#3}
+					\begin{enumerate}
+						#4
+						\emptyItem{}
+					\end{enumerate}
+						}{}
+					}
+				}
+				\setboolean{completed}{false}
+			}
+
+			\newcommand\fancyList[1]
+			{
+				\begin{enumerate}
+					\setboolean{firstpass}{true}
+					#1
+					\setboolean{firstpass}{false}
+					#1
+					\emptyItem{}
+				\end{enumerate}
+			}
+
+			\usepackage[framemethod=tikz]{mdframed}
+			\mdfdefinestyle{mpdframe}{
+				frametitlebackgroundcolor   =black!15,
+				frametitlerule          =true,
+					roundcorner     =10pt,
+					middlelinewidth     =1pt,
+					innermargin     =.20cm,
+					outermargin     =0.2cm,
+					innerleftmargin     =0.2cm,
+					innerrightmargin        =0.2cm,
+					innertopmargin      =\topskip,
+					innerbottommargin   =\topskip,
+						}
+			%   Studies
+			\mdfdefinestyle{a}{%
+					style=mpdframe,
+					frametitle={Aside},
+				}
+			\newmdenv[style=a]{aside}
+\begin{document}
+\setcounter{tocdepth}{2}
+\maketitle
+\tableofcontents
+	\def\RTwo{\texttt{R2}}
+	\newpage
+	\section{Design Thesis}
+
+		\subsection{Oh no, here we go again}
+
+			We're refactoring RAMICES. Again.
+
+			Why? Why would we do this to ourselves? What on God's Green Earth would drive us to such extreme lengths, when we could be doing so much else with our lives?
+			
+			The long story short is that more than 3 years have passed since it was written: we've both learned a lot. There's also been a bit of space between its original design and the idea that it would have a lifetime outside of my thesis\footnote{My thesis made some grand claims about it being a general purpose code. Lies.}
+
+			In particular, there was one big black mark that has hung over RAMICES II (\RTwo) which was the stellar catalogue synthesis: Jenny has since found a whole bunch of stuff that's basically held together by hope and good intentions - or simply not held together at all. 
+
+			\subsubsection{Don't Be So Dramatic}
+
+				I'm being deliberately hyperbolic here. It's worth noting in writing that I don't expect this to be anywhere near as painful as the original Great Refactoring. \RTwo{} is leagues ahead of its predecessor in terms of being able to be read by a mortal mind without causing it to fragment into a trillion tiny pieces. 
+
+				If all goes well, this will be a nice quick project that results in a vastly superior end product. Make a wish, children!
+
+				Some of that means doing some up front work, however, which is what this document is designed for.
+
+		\subsection{Needs, Nice To Haves \& Leave-Alones}
+			This section is therefore designed to lay out some basic things we're trying to accomplish
+			here - rather than just taking things apart for the sake of taking them apart\footnote{Ask me about `The Pig Torch incident' some time.}.
+		
+			To that end, I'm setting forth 3 categories:
+			{ 
+			\subsubsection{The Needs}
+
+			A Need is some aspect of the refactor, be it functionality, property, upgrade or anything else on the `to-do list', which we consider essential, and which the project is not considered complete until it is implemented. Needs fix fundamental flaws in the previous iteration.
+				
+				\fancyList{
+					\citem{Temporal Binning}{Next section details a major overhaul of the current mass-binning of stars. This is the main driver of the refactor, and is therefore a Need}
+					\citem{Stellar Catalogue}{I have never been happy with the catalogue synthesis. It was always considered a temporary solution. If we're Doing Things Properly, I would consider it necessary to redesign this section.}
+					\cparent{Better modularisation}{A key design principle of \RTwo{} was modularisation. This has been successful to an extent, but a lot of stuff was still hardcoded in at the last second.}
+					{
+						\citem{NSD}{This is more of a `don't lose it', because Jenny has already put a lot of work into this bit!}
+						\citem{More Flexibility}{Less hardcoding of core functions (like the IMF) so that we can have them as toggles.}
+					}
+					\cparent{Better Output}{This encompasses a lot of things, but a better way to detect what's going on inside is important.}
+					{
+						\citem{Logging Framework}{Should be easy to replace cout calls with a LOG entity similar to that used in GenCHORD}
+						\citem{Archiver}{No more dozens of loose files! The GenCHORD archiver should make packaging up our output much nicer}
+					}
+					\citem{Better makefile}{That makefile is an abomination wrought of lack of knowledge, and only persists because it still works (somehow). I have a better makefile I use now, I will retrofit it in.}
+					\citem{Documentation}{I think I already have a doxygen auto-setup in place, should expand on that \& actually have some documentation}
+					
+				}
+			
+			\subsubsection{The Nice To Haves}
+
+				Nice-To-Have is something which is not considered critical, and which we could `ship' (i.e. write \& publish) without, but which we can add if we have the time. Nice To Haves are things you distract yourself with when you don't want to do a Need, but which can be ignored if needs be.
+				\fancyList{
+					\cparent{Remove Streams}{One-upon-a-time it seemed useful to differentiate chemicals by stream-origin (i.e. stellar, accreted etc). However this just adds overhead to any Gas Operations, and I don't think it really adds anything. Strip it out.}
+					{
+						\citem{Tracer pseudo-Elements}{We could think about adding in a `tracer element' option? This is speculative at this point}
+					}
+					\cparent{Config Interface}{As \RTwo{} has grown, the config files have sprawled. A nice GUI would make configuring much easier}
+					{
+						\citem[1]{GUI Framework}{Write a generic GUI framework for writing JSL-compliant config files}
+						\citem[0]{JSL::Argument Rework}{JSL::Argument currently only accepts configs OR command-line arguments, which means a unique config file for each launch -- problematic if we launch an iterative bunch. Rework it so it uses config \textit{first}, then overwrites it with CLA.}
+						\citem{Write the GUI}{Use the framework to actually write the GUI -- should be only a few lines of code per-parameter, but we have a lot of parameters!}
+					}
+					\cparent{Unit Testing}{Or some other kind of testing framework so that we can run tests \& check that updates haven't broken anything}
+					{
+						\citem{Interface/Layer Design}{This is a fairly major shift in design principles (see below). But would make the code much easier to test.}
+					}
+					\citem{Variable Timestep}{Smaller timesteps are often important in the early galaxy, whilst at late times you're just wasting CPU cycles. Being able to `speed up' the simulation at later times would be quite pleasing.}
+					\citem{Variable Ringwidth}{Variable width is presently supported by the code, but there is no actual method for a user to propose a non-uniform ring width}
+					\citem{Isochrone Warning Flags}{Check if the isochrone density/lifetime grid is poor around a proposed simulation resolution, and produce a warning that this can alter the expected CCSN resolution by several timesteps.}
+				}
+			\subsubsection{Leave-Alones}
+
+				This is stuff which -- upfront -- we decide we are going to leave alone, and not attempt. \RTwo{} is perfectly functional in many ways, and there's no need to reinvent the wheel. There might have to be some minor refactoring in terms of putting the jigsaw pieces back into place, but the fundamental algorithms and large-scale functionality should remain exactly as it was. Leave-Alones are things which -- where possible -- are simply copied-and-pasted from \RTwo{}.
+				\fancyList
+				{
+					\citem{Chemical Yields}{I think this section is probably fine. It reads in external data and creates a yield grid. I don't think we need to touch that bit.}
+				}
+			}
+	\newpage
+	% % \section{Service-Layer Design}
+
+
+	\newpage
+
+	\section{Diagrams}
+
+	
+	% \begin{tikzpicture} 
+	% 	% \begin{umlpackage}{Overall Design} 
+
+	% 	\begin{umlcomponent}[fill=white]{RAMICES III}
+		
+	% 	\begin{umlcomponent}[x=5,y=-3]{Main Simulation} 
+			
+	% 	\end{umlcomponent}
+		
+	% 	\begin{umlcomponent}[y=0]{ISIS}
+	% 		% \umlnote{ISIS}{Interpolated Stellar Isochrone States}
+	% 	\end{umlcomponent}
+
+	% 	\umlHVassemblyconnector[with port,interface={Isochrone File}]{Main Simulation}{ISIS}
+
+	% 	\begin{umlcomponent}[y=-6]{SET}
+	% 		% \textit{Stellar Ejecta Transmuter}
+	% 	\end{umlcomponent}
+
+	% 	\umlVHVassemblyconnector[with port,interface={Yield File},below]{Main Simulation-south-port}{SET}
+	% 	% \umlnote[y=3]{ISIS}{\textit{\scriptsize Interpolated Stellar Isochrone States}}
+	% 	\end{umlcomponent} 
+	% 	\end{tikzpicture}
+
+		% \begin{landscape}
+		\resizebox{\linewidth}{!}{
+		\begin{tikzpicture} 
+			\begin{umlpackage}{RAMICES}
+				\umlclass[x=0,y=5]{Simulation}
+				{
+					-Galaxy : Galaxy
+					\\
+					-Sampler : StellarSampler
+				}
+				{
+					+RunSimulation() : void
+					\\
+					+SamplePopulation(): void
+				}
+
+				\umlclass{Galaxy}{
+					\# Rings : std::vector<Ring>
+					\\
+					\# Mixer : MigrationHandler
+					\\
+					- Reservoir : \& ExternalReservoir
+				}
+				{
+					+ Evolve()
+				}
+
+				\begin{umlcomponent}[x=8,y=5]{CLIO}
+					\umlclass{StellarSampler}{
+							- SelectionFunction : ??
+							\\
+							- Isochrones : ??
+						}
+						{
+							+ GetPopulation(galaxy : Galaxy)
+						}
+					
+					
+
+				\end{umlcomponent}
+				\umlnote[x=9,y=9]{CLIO}{\textit{\scriptsize Calculate Lifetimes and Isochrone-Observables}}
+				\umlrequiredinterface[distance=7cm,interface=isoFile]{CLIO}
+				% 
+				\umlHVHcompo{Simulation}{StellarSampler}
+				\umlVHVassoc[anchor2=70]{StellarSampler}{Galaxy}
+				\umlclass[x=8,type=Interface]{ExternalReservoir}{
+					
+				}
+				{
+					\umlvirt{+ProvideOnfall() : Gas}
+					\\
+					\umlvirt{+AcceptEjecta(Gas:): Gas}
+				}
+
+				
+				\umlVHVcompo{Simulation}{Galaxy}
+				% \umlVHVcompo{Simulation}{IGM}
+				\umlcompo{Galaxy}{ExternalReservoir}
+
+				\umlclass[width=1ex,x = 8,y=-5,]{Growth Manager}
+				{
+					- GrowthProfile : ??
+				}
+				{
+					+ GetGrowth() : ??
+				}
+
+
+				\umlVHVcompo[anchor1=-70,anchor2=100]{Galaxy}{Growth Manager}
+				\umlassoc[]{Growth Manager}{ExternalReservoir}
+
+				\umlclass[width=1ex,x = 14,y=0,]{IGM}
+				{
+					\# Gas : Gas
+				}
+				{}
+
+				\umlclass[width=1ex,x = 14,y=-3,]{NSDReservoir}
+				{
+					\# InjectionEnrichment : Gas
+				}
+				{}
+				\umlimpl{IGM}{ExternalReservoir}
+				\umlHVHimpl{NSDReservoir}{ExternalReservoir}
+
+				\umlclass[width=1ex,x = -8,y=0,]{MigrationHandler}
+				{
+					- ScatteringMatrix : ??
+				}
+				{
+					- ComputeScatteringMatrix(): void
+					\\
+					+ GetScattering() : ??
+				}
+				\umlcompo[]{Galaxy}{MigrationHandler}
+
+
+				\begin{umlcomponent}[x=-8,y=-5]{MERYT}
+					\umlclass{YieldGrid}{
+							
+						}
+						{
+						
+						}
+					
+					
+
+				\end{umlcomponent}
+				\umlnote[x=-5,y=-8]{MERYT}{\textit{\scriptsize MEtal and Remnant Yield Tables}}
+				\umlrequiredinterface[distance=7cm,interface=yieldFile]{MERYT}
+			\end{umlpackage}
+		\end{tikzpicture}
+		}
+
+		(Note: + is public, \# is protected and - is private)
+		% \end{landscape}
+	\end{document}

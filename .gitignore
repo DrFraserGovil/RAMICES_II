@@ -9,6 +9,9 @@ RAMICES_II*
 *.o
 *.obj
 
+# Mac stuff
+*VS_Store
+
 # Precompiled Headers
 *.gch
 *.pch
