@@ -12,6 +12,9 @@ RAMICES_II*
 # Mac stuff
 *VS_Store
 
+# Build stuff
+*build/
+
 # Precompiled Headers
 *.gch
 *.pch
