@@ -489,4 +489,77 @@
 					\caption[foo]{Identical to Fig. \ref{F:Multismooth}, with the addition of $M = 7$ and $8M_\odot$ isochrones - either side of the CCSN boundary.}\label{F:CCSN_Bracket}
 					\end{center}
 			\end{figure}
+
+	\newpage
+	\section{Population Reconstruction}
+
+		The methods presented above are sufficient to generate the aggregate statistics required to fuel the bulk of the chemical evolution simulation. However, they do this by abstracting the `active' population of stars into an integral, such that we never have to track the actual distribution of stars. This is a powerful tool, since it removes the need for binning, it means that when we actually come to a time when we care about the distribution of stars, that information is not available to us.
+
+		We must therefore come up with a similar methodology for extracting $n(m,\Delta)\d m$, the number of stars in the range $[m,m+\d m]$ which are alive \textbf{at the end} of the $\Delta^\text{th}$ timestep after the population is born. The fact that this measure occurs at the \textit{end} of the timestep is a crucial detail: the stars are formed between $\Delta$ and $\Delta + \delta$, and we wish to compute an instantaneous snapshot of stars which are alive at the end of this step. This differs from the previous methodology where we not only accounted for stars being born over a finite timestep, but the observation itself was over a finite timestep (i.e. `how many supernovae occurred in this window').
+
+		We assume once again that we are in the situation of uniform temporal bins, such that we can work in terms of $\Delta$, the time after the population is born, in which case:
+		\begin{equation}
+			n(m,\Delta,Z) = n_\text{born}(m) \text{Prob(alive at $t=\Delta + \delta |$ born $0\leq t < \delta$, mass $m$, metallicity $Z$)}
+		\end{equation}
+		Where $n_\text{born}(m)$ is the initial distribution of stars, which is simply:
+		\begin{align}
+			n_\text{born}(m) &= N_\text{form} \zeta(m)
+			\\ 
+			& = \frac{M_\text{form}}{\bar{M}} \zeta(m)
+		\end{align} 
+		Note that $n_\text{born}$ is a distinct quantity from $n(m,0)$ -- one is the birth distribution of all stars born, the other the snapshot of that distribution accounting for the fact that some (i.e. high mass) stars will die even during the first timestep. Since $M_\text{form}$ is a galactic-scale quantity (and hence the `multiplicative prefactor' that we do not know until runtime), it is most convenient for us to consider $\xi(m,\Delta)$, the distribution of living stars, expressed as a fraction of the original star count:
+		\begin{align}
+			n(m,\Delta) & = N_\text{form} \xi(m,\Delta) 
+			\\
+			\xi(m,\Delta) &= \zeta(m)\text{Prob(alive at $t=\Delta + \delta |m, Z$)}
+		\end{align}
+		Note that although we will refer to $\xi$ as a distribution, it is not a true probability distribution function, since:
+		\begin{equation}
+			\int_0^\infty \xi(m,\Delta) \d m = \frac{N_\text{alive}(\Delta)}{N_\text{form}} < 1
+		\end{equation}
+		The probability that a star born at $0 \leq t < \delta$, of mass $m$ is alive at $\Delta + \delta$ is simply the probability that their lifetime has not yet elapsed, smeared over the distribution of their birth times:
+		\begin{equation}
+			\text{Prob(alive at $t=\Delta + \delta |\tau$)} = \text{Prob}\left(t + \tau \geq \Delta + \delta | 0 \leq t < \delta, \tau\right)
+		\end{equation}
+		Once again assuming that stars are born uniformly across their time bin\footnote{This is equivalent to assuming that the SFR is constant across the time bin. This is a much `safer' assumption than the assumption of stellar properties being constant across a mass bin, which is what got us into this mess. We are confident that we can run simulations to a high enough resolutions that galactic-scale changes are small across a simulation step.}
+		\begin{align}
+			\text{Prob}\left(t + \tau \geq \Delta + \delta | \text{etc}\right) = \mathcal{S}(\tau,\Delta,\delta)
+			\\
+			S(\tau,\Delta,\delta)\begin{cases}
+				0 & \tau < \Delta
+				\\
+				\frac{\tau - \Delta}{\delta} & \Delta \leq \tau < \Delta + \delta
+				\\
+				1 & \tau \geq \Delta + \delta
+			\end{cases}
+		\end{align}
+		Since we know $m$, not $\tau$:
+		\begin{equation}
+			\text{Prob(alive at }t=\Delta + \delta |M,Z) = \int_0^\infty \mathcal{S}(\tau^\prime,\Delta,\delta) \text{Prob}(\tau(M,Z) = \tau^\prime) \d \tau^\prime
+		\end{equation}
+		If we know the functional form of $\tau(M,Z)$, then the second probability is a dirac delta, and we recover:
+		\begin{equation}
+			\text{TrueProb(alive at }t=\Delta + \delta |M,Z) = \mathcal{S}\left(\tau(M,Z),\Delta,\delta\right)
+		\end{equation}
+		If, however, we are once again estimating the lifetime from gridded input, assuming a uniform distribution:
+		\begin{equation}
+			\text{GridProb(alive at }t=\Delta + \delta |M,Z_j) = \frac{Q(\tau_a^+) - Q(\tau_a^-)}{\tau_a^+ - \tau_a^-}
+		\end{equation}
+		Where
+		\begin{align}
+			M_a &\leq M < M_{a+1}
+			\\
+			\tau_a^- &= \text{min}(\tau_{a,j},\tau_{a+1,j})
+			\\
+			\tau_a^+ &= \text{max}(\tau_{a,j},\tau_{a+1,j})
+			\\
+			Q(x) &= \begin{cases}
+			0 & x < \Delta
+			\\
+			\frac{(x-\Delta)^2}{2\delta} & \Delta \leq x < \Delta + \delta
+			\\
+			x - \Delta - \frac{\delta}{2} & x \geq \Delta + \delta
+			\end{cases}
+		\end{align}
+		We note again that these results are very similar to those computed for $\mathcal{F}$, but the distribution is now a `linear step' (and an integral thereof), rather than a triangle function. This is because the observation is a snapshot, rather than a window.
 \end{document}

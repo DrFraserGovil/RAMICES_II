@@ -20,6 +20,14 @@
 \newboolean{firstpass}
 \setboolean{firstpass}{true}
 
+\hypersetup{
+    colorlinks,
+    linkcolor={black},
+    citecolor={blue!50!black},
+    urlcolor={blue!90!black},
+	filecolor={blue!90!black}
+}
+
 \title{RAMICES III}
 \author{(JF)$^2$G}
 \def\d{\mathrm d}
@@ -119,7 +127,6 @@
 \maketitle
 % \tableofcontents
 	\def\RTwo{\texttt{R2}}
-	\newpage
 	
 
 		\section*{Oh no, here we go again}
@@ -138,74 +145,83 @@
 
 				If all goes well, this will be a nice quick project that results in a vastly superior end product. Make a wish, children!
 
-				Some of that means doing some up front work, however, which is what this document is designed for.
-
-
-		\section{Design Thesis}
-		\section*{Needs, Nice To Haves \& Leave-Alones}
-			This section is therefore designed to lay out some basic things we're trying to accomplish
-			here - rather than just taking things apart for the sake of taking them apart\footnote{Ask me about `The Pig Torch incident' some time.}.
-		
-			To that end, I'm setting forth 3 categories:
-			{ \newpage
-			\subsection{The Needs}
-
-			A Need is some aspect of the refactor, be it functionality, property, upgrade or anything else on the `to-do list', which we consider essential, and which the project is not considered complete until it is implemented. Needs fix fundamental flaws in the previous iteration.
 				
-				\fancyList{
-					\citem{Temporal Binning}{\href{theory.pdf}{An attached theory document} details a major overhaul of the current mass-binning of stars. This is the main driver of the refactor, and is therefore a Need}
-					\citem{Stellar Catalogue}{I have never been happy with the catalogue synthesis. It was always considered a temporary solution. If we're Doing Things Properly, I would consider it necessary to redesign this section.}
-					\cparent{Better modularisation}{A key design principle of \RTwo{} was modularisation. This has been successful to an extent, but a lot of stuff was still hardcoded in at the last second.}
-					{
-						\citem{NSD}{This is more of a `don't lose it', because Jenny has already put a lot of work into this bit!}
-						\citem{More Flexibility}{Less hardcoding of core functions (like the IMF) so that we can have them as toggles.}
-					}
-					\cparent{Better Output}{This encompasses a lot of things, but a better way to detect what's going on inside is important.}
-					{
-						\citem{Logging Framework}{Should be easy to replace cout calls with a LOG entity similar to that used in GenCHORD}
-						\citem{Archiver}{No more dozens of loose files! The GenCHORD archiver should make packaging up our output much nicer}
-					}
-					\citem{Better makefile}{That makefile is an abomination wrought of lack of knowledge, and only persists because it still works (somehow). I have a better makefile I use now, I will retrofit it in.}
-					\citem{Documentation}{I think I already have a doxygen auto-setup in place, should expand on that \& actually have some documentation}
-					\cparent{Better git management}{The git got a bit....out of control. We'd like to have things a bit better handled}
-					{
-						\citem[1]{Rewrite history}{Revisit the existing git history and try to untangle the gordian knot}
-						\citem[1]{Proper versioning and release}{Learn how to use git tag etc.}
-						\citem{Projects}{Whislt this document is a nice statement of purpose, it's not really viable for this to be the main project tracking centre! Use a git project to track things}
-					}
-				}
+				
+			\subsubsection*{What This Document Is}
+
+				Ensuring that this new code update is swift, and non-brain melting means doing some work up front: an up-front statement of intent, and a record of our internal thoughts and decisions which lead to certain elements of the design. That way, when someone says `why is $X$ like $Y$', they can look at this document to understand those decision.
+
+			\subsubsection*{What it isn't}
+				
+				This is \textbf{not} a checklist of everything that needs doing on a day to day basis. There will be a list of things that we think of at the start, but as new challenges arise, we'll track them using \href{{https://github.com/users/DrFraserGovil/projects/3/views/1}}{a more suitable project tracking system.}
+
+		\newpage
+		\section{Up Front Thoughts}
+
 			
-			\subsection{The Nice To Haves}
+			The main argument we should justify in this document is why a complete code refactor is necessary, rather than simply `tidying up' the old code.
 
-				Nice-To-Have is something which is not considered critical, and which we could `ship' (i.e. write \& publish) without, but which we can add if we have the time. Nice To Haves are things you distract yourself with when you don't want to do a Need, but which can be ignored if needs be.
-				\fancyList{
-					\cparent{Remove Streams}{One-upon-a-time it seemed useful to differentiate chemicals by stream-origin (i.e. stellar, accreted etc). However this just adds overhead to any Gas Operations, and I don't think it really adds anything. Strip it out.}
-					{
-						\citem{Tracer pseudo-Elements}{We could think about adding in a `tracer element' option? This is speculative at this point}
-					}
-					\cparent{Config Interface}{As \RTwo{} has grown, the config files have sprawled. A nice GUI would make configuring much easier}
-					{
-						\citem[1]{GUI Framework}{Write a generic GUI framework for writing JSL-compliant config files}
-						\citem[0]{JSL::Argument Rework}{JSL::Argument currently only accepts configs OR command-line arguments, which means a unique config file for each launch -- problematic if we launch an iterative bunch. Rework it so it uses config \textit{first}, then overwrites it with CLA.}
-						\citem{Write the GUI}{Use the framework to actually write the GUI -- should be only a few lines of code per-parameter, but we have a lot of parameters!}
-					}
-					\cparent{Unit Testing}{Or some other kind of testing framework so that we can run tests \& check that updates haven't broken anything}
-					{
-						\citem{Interface/Layer Design}{This is a fairly major shift in design principles (see below). But would make the code much easier to test.}
-					}
-					\citem{Variable Timestep}{Smaller timesteps are often important in the early galaxy, whilst at late times you're just wasting CPU cycles. Being able to `speed up' the simulation at later times would be quite pleasing.}
-					\citem{Variable Ringwidth}{Variable width is presently supported by the code, but there is no actual method for a user to propose a non-uniform ring width}
-					\citem{Isochrone Warning Flags}{Check if the isochrone density/lifetime grid is poor around a proposed simulation resolution, and produce a warning that this can alter the expected CCSN resolution by several timesteps.}
-					\citem{Documentation branch}{One of the annoying things with the autogenerated documentation was that }
-				}
-			\subsection{Leave-Alones}
+			I think we highlight that the following four things are the main target of RAMICES III:
+			\begin{enumerate}
+				\item \textbf{A Revised Population-Tracking Method} 
+				
+				\href{theory.pdf}{An attached theory document} details a major overhaul of the current mass-binning of stars. This requires a complete rewrite of the internal logic of the stellar tracking system
 
-				This is stuff which -- upfront -- we decide we are going to leave alone, and not attempt. \RTwo{} is perfectly functional in many ways, and there's no need to reinvent the wheel. There might have to be some minor refactoring in terms of putting the jigsaw pieces back into place, but the fundamental algorithms and large-scale functionality should remain exactly as it was. Leave-Alones are things which -- where possible -- are simply copied-and-pasted from \RTwo{}.
-				\fancyList
-				{
-					\citem{Chemical Yields}{I think this section is probably fine. It reads in external data and creates a yield grid. I don't think we need to touch that bit.}
-				}
-			}
+				\item \textbf{A Revised Stellar Catalogue System}
+				
+				The current system of synthesising stellar catalogues and selection functions has never been to my satisfaction.
+				\item \textbf{Improved Modularity} 
+				
+				\RTwo{} is a drastic improvement over its predecessor in terms of being able to `plug and play' new modules\footnote{This is evidence by Jenny's NSD work, which remains astounding to me that it worked at all.}, but many things are still somewhat hardcoded and assumed, simply because they were necessary for the Thesis development.
+				\item \textbf{More Sophisticated Development}
+				
+				\RTwo{} was written in three months of PhD-Crunch. It is not a particularly pretty sight, there is little to no internal documentation, and things such as the git history are best left unspoken-of. We should like to write these things with a mind to future maintenance and use by people who still have their sanity.
+			\end{enumerate}
+
+			\subsection{Other Design Thoughts}
+
+				\subsubsection{Test-Driven Development}
+
+					A risk of scientific software design is that you end up attributing some intriguing scientific interpretation to a software bug. Both \texttt{R1} and \RTwo{} are highly state-dependent systems with a lot of external state-modification. This can make debugging the system highly difficult, and allows for the possibility of strange and unusual software bugs. 
+					
+					When refactoring the code we should strive to adhere to the following principles:
+					\begin{itemize}
+						\item \textit{Functions should return values, not modify input objects}
+						
+						It is generally easier to validate if \texttt{float y} is the expected value of \texttt{float f(T x)}, than checking to see if \texttt{x.y} matches expectations after calling \texttt{void f(T \& x)}
+
+						\item \textit{Complex Actions should have their own helper Functor}
+						
+						Rather than relying on writing a long method for (say) the Galaxy to handle the radial mixing prescription, give the Galaxy as \texttt{MixingHandling} object which can be called. Since this then separates out the radial mixing from the other state of the Galaxy, this allows for a more easy testing 
+
+						\item \textit{Objects should have (static) factory methods}
+						
+						This allows us to initialise objects into a known state, and thereby test them (and apply tests to them) from controlled starting points
+
+						\item \textit{Test early, test often}
+						
+						Each meaningful functional unit should have its own test - and the tests should be written (or at least, conceptualised) before the function itself is written. 
+					\end{itemize}
+
+				\subsubsection{Code Re-Use}
+
+					Much of the code is dedicated to specialised scientific algorithms which is largely independent of the overarching software design.
+
+					We're not throwing the baby out with the bathwater: these sections of the code are largely going to be perfectly functional. We do not need to rewrite, for example, the section of code dedicated to the generation of Stellar Yield Tables from SynthNet data: the algorithm is fine -- we just need to ensure that the final product is written into a new, compliant object, instead of a \texttt{std::vector<std::vector<std::vector<double>>>}, as it is currently.
+					
+					Where possible, therefore, we will try to re-use algorithmic code, wrapping it inside our new design paradigm.
+				
+				\subsubsection{Minimises JSL Dependence}
+					
+					The JSL library is good at what it does (which is act as a central repo for C++ code that I use all the time). 
+
+					However, it's not particularly suitable for deployment into an external codebase. We should extract the useful parts and have them as part of the core Ramices sourcecode.
+
+					\textcolor{red}{We should think about how much of JSL to port over. Do we want to include the JSL::gnuplot library to have plotting integrated into the simulation?} 
+				\subsubsection{Input \& Output}
+					The JSL::Argument package already does a reasonable job of allowing for runtime configuration of the simulation, through standard command-line arguments and configuration files. However, manually messing around with config files is irksome. Jack has already developed a fun python module which allows for easy construction of a config-file GUI. We should implement our own -- this requires no rewriting of the config-handling system, but is instead a system built 
+
+
 	\newpage
 	% % \section{Service-Layer Design}
 
@@ -215,29 +231,29 @@
 	\section{Diagrams}
 
 	
-	% \begin{tikzpicture} 
-	% 	% \begin{umlpackage}{Overall Design} 
+	\begin{tikzpicture} 
+		% \begin{umlpackage}{Overall Design} 
 
-	% 	\begin{umlcomponent}[fill=white]{RAMICES III}
+		\begin{umlcomponent}[fill=white]{RAMICES III}
 		
-	% 	\begin{umlcomponent}[x=5,y=-3]{Main Simulation} 
+		\begin{umlcomponent}[x=5,y=-3]{Main Simulation} 
 			
-	% 	\end{umlcomponent}
+		\end{umlcomponent}
 		
-	% 	\begin{umlcomponent}[y=0]{ISIS}
-	% 		% \umlnote{ISIS}{Interpolated Stellar Isochrone States}
-	% 	\end{umlcomponent}
+		\begin{umlcomponent}[y=0]{ISIS}
+			% \umlnote{ISIS}{Interpolated Stellar Isochrone States}
+		\end{umlcomponent}
 
-	% 	\umlHVassemblyconnector[with port,interface={Isochrone File}]{Main Simulation}{ISIS}
+		\umlHVassemblyconnector[with port,interface={Isochrone File}]{Main Simulation}{ISIS}
 
-	% 	\begin{umlcomponent}[y=-6]{SET}
-	% 		% \textit{Stellar Ejecta Transmuter}
-	% 	\end{umlcomponent}
+		\begin{umlcomponent}[y=-6]{SET}
+			% \textit{Stellar Ejecta Transmuter}
+		\end{umlcomponent}
 
-	% 	\umlVHVassemblyconnector[with port,interface={Yield File},below]{Main Simulation-south-port}{SET}
-	% 	% \umlnote[y=3]{ISIS}{\textit{\scriptsize Interpolated Stellar Isochrone States}}
-	% 	\end{umlcomponent} 
-	% 	\end{tikzpicture}
+		\umlVHVassemblyconnector[with port,interface={Yield File},below]{Main Simulation-south-port}{SET}
+		% \umlnote[y=3]{ISIS}{\textit{\scriptsize Interpolated Stellar Isochrone States}}
+		\end{umlcomponent} 
+		\end{tikzpicture}
 
 		% \begin{landscape}
 		\resizebox{\linewidth}{!}{
