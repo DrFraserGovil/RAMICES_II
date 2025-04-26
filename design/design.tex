@@ -223,8 +223,109 @@
 
 
 	\newpage
-	% % \section{Service-Layer Design}
+		\section{Modular Design}
+			
+			In keeping with our design principle that a GCE simulation is a cohesive collection of disparate parts, we shall endeavour to write the code in a way which minimises the interactions between these distinct segments. This will make validation easier, and improve the modularity -- by minimising the interaction between units, we make it much more possible to `swap out' various units, and thereby extend this code to perform more physics than it was originally designed for! From a software design standpoint, it also isolates individual units which is a good design principle.
 
+			Of course, it also means that we get to decide what to call each of the individual modules. That being said, I remember the annoyance of trying to remember what \texttt{ariadne} did versus \texttt{persephone}. The temptation to give everything fun, thematic names is great, but it's not sustainable in the long term. I suggest that modules have a `formal name' which describes what they do\footnote{And by sheer happenstance, happens to have a fun, Egyptian-thematic acronym.}, and a `code name', which is a short, snappy name used to refer to them in the code, even if it's not fully representative of what the module is doing.
+
+			\newcommand\module[4]
+			{
+				\item[\texttt{#1}]					
+				\def\temp{#3}
+				\ifx\temp\empty
+				
+				\else
+				(or, {\it #4}: \texttt{#3})
+				\fi
+
+
+				#2
+			}
+			\begin{description}	
+			\module{ramices}
+			{
+				This is the main simulation module, and the focal point of the code. The RaMiCES module will incorporate all of the information form the other modules, and channel information from one module to another. 
+			}{}{}
+			\module{isochrone}
+			{
+				This module is responsible for the interpretation of Isochrone information. This is used at two points in the code: first for inferring the mass-lifetime relationship of stars and the (much more complex) task of inferring the properties of the stars at the end of the simulation, such that an observable catalogue can be synthesised.
+				}{CLIO}{Computed Lifetimes \& Isochrone Observables}
+			
+			\module{yield}
+			{
+				This modules is responsible for computing the end-of-lifetime processes: the elemental composition of ejecta, as well as determining the nature of any remnants. It should be possible for this module to be lifted more or less wholesale from the original code -- given that the \RTwo{} implementation was already lifted out of the version I wrote for \texttt{R1}.
+			}{MeRYT}{Metal \& Remnant Yield Tables}
+
+			\module{population}
+			{
+				This module is the one which will probably require the most new theory, and comprises the module which generates the 
+			}{OSyRIS}{Observation Synthesis, Reflecting Instrument Selection}
+
+			\module{utility}
+			{
+				This is a basic module containing a bunch of `stuff' -- mainly the non-scientific portions of the code, such as loggers, parallel code execution, file readers and so on. The utility module is a basic grab-bag of functions which are used in multiple places. 
+			}{THOTH}{Testers, Handlers, Operators, Templates \& Helpers}
+
+			\module{test}
+			{
+				This is the unit test module. It is the most important module if we are committed to going ahead with a Test-Driven Development philosophy, and the one that should have considerable thought put into before the others. The test module is obviously unusual.
+			}{ATeN}{Automated Testing Network}
+			\end{description}
+	\newpage
+		\section{PyRamices}
+
+			One potential issue with our `neater output' ideology\footnote{This will take the form of packaging the dozens of files into basic tarballs, for which I already have a neat C++ implementation} is that it makes post-processing of the data troublesome. Of course, since tarballs are common data-types, we could just expect users to un-tar when they want to access files -- but then files spill out all over the place, and we're back to square one.
+
+			Given that we are already in the process of implementing a (Python-based) GUI framework for the code, the logical extension is to provide an entire wrapper environment. This would (largely) amount to a wrapper class and some aliased calls to the excellent pytar library. That way you can configure, run and then post-process the data, all from within python.
+
+			An approximate design looks like this:
+			\begin{center}
+				\resizebox{\linewidth}{!}{
+			\begin{tikzpicture} 
+			\begin{umlpackage}[fill=white]{PyRamices and Ramices}
+		
+				\begin{umlpackage}[x=0,y=0,name={ramices}]{RAMICES} 
+					
+					\umlclass[x=0,y=0]{ConfigHandler}{}{+ readConfigFile()}
+					\umlclass[x=10,y=0]{OutputHandler}{}{+ writeOutputFiles()}
+					\umlclass[x=5,y=0]{Simulation}{- Reader : ConfigHandler 
+					\\
+					- Writer : OutputHandler}{+ DoComplexStuff()}
+					\umlclass[x=10,y=-3]{TarWriter}{-Buffer : string}{+WriteToTar()}
+					\umlcompo{Simulation}{ConfigHandler}
+					\umlcompo{Simulation}{OutputHandler}
+					\umluniassoc{TarWriter}{OutputHandler}
+
+				\end{umlpackage}
+
+
+				\begin{umlpackage}[x=5,y=5]{pyramices}
+					\umlemptyclass[x=0,y=0]{Core}
+
+					\umlemptyclass[x=-3,y=0]{config}
+					\umlemptyclass[x=-6,y=1]{config-GUI}
+					\umlassoc{config}{config-GUI}
+					\umluniassoc{config}{Core}
+					
+					\umlemptyclass[x=4,y=0]{PostProcessor}
+					\umlemptyclass[x=7,y=1]{PyTar}
+					\umlemptyclass[x=3,y=2]{Maptlotlib}
+					\umluniassoc{PyTar}{PostProcessor}
+					\umluniassoc{Maptlotlib}{PostProcessor}
+					\umluniassoc{PostProcessor}{Core}
+					
+				\end{umlpackage}
+				
+				\umlVHVassemblyconnector[with port,interface={config file~~~~~},anchor2=40,right]{config}{ConfigHandler}
+				\umlVHVassemblyconnector[with port,interface={output files},anchor2=40,right]{PostProcessor}{OutputHandler}
+
+				\end{umlpackage} 
+				\end{tikzpicture}
+				}
+			\end{center}
+
+			Functionally, all `pyramices' needs to do is generate config files, launch instances of the main simulation, and then read output files -- this is stuff we would be doing already, and so it cannot hurt to formalise it.
 
 	\newpage
 
