@@ -1,73 +1,69 @@
-# Project Name (executable)
-PROJECT = RAMICES_II
+## This is a custom makefile built with the help of an LLM because I don't know how makefiles work and have been using the same one for 10 years. 
+## Fingers crossed.
+
+# Project Names
+PROJECT = ramices
+
 # Compiler
 CC = g++
 
-# Run Options       
-COMMANDLINE_OPTIONS = /dev/ttyS0
+# Compiler and Linker Options
+CXXFLAGS = -std=c++20 -pthread -O3 -Wall
+LDFLAGS = -lpthread
 
-# Compiler options during compilation
-COMPILE_OPTIONS =  -std=c++17 -pthread -O3 -w -march=native -Ilibs/JSL 
+# Dependency Flags
+DEPFLAGS = -MMD -MP
 
-#Header include directories
-HEADERS = 
-#Libraries for linking
-LIBS = -lpthread
+# Source and Build Directories
+SRC_DIR = src
+BUILD_DIR = build
 
-# Dependency options
-DEPENDENCY_OPTIONS =  -MM -std=c++17 -Ilibs/JSL
-
+### DON'T EDIT BELOW HERE
 
 
+# Find all source files
+SOURCE_FILES := $(shell find $(SRC_DIR) -name "*.cpp")
+
+# Generate object files
+OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/main/%.o, $(SOURCE_FILES))
+
+# Dependency Files
+DEPS := $(OBJECTS:.o=.d)
 
 
+# Default Target: Build both projects
+.PHONY: all
+all: $(PROJECT)
 
-#-- Do not edit below this line --
-
-# Subdirs to search for additional source files
-SUBDIRS := $(shell ls src -F | grep "\/" )
-DIRS := ./ $(SUBDIRS)
-SOURCE_FILES := $(foreach d, $(DIRS), $(wildcard src/$(d)*.cpp) )
-
-# Create an object file of every cpp file
-OBJECTS = $(patsubst %.cpp, %.o, $(SOURCE_FILES))
-
-# Dependencies
-DEPENDENCIES = $(patsubst %.cpp, %.d, $(SOURCE_FILES))
-
-# Create .d files
-%.d: %.cpp
-	$(CC) $(DEPENDENCY_OPTIONS) $< -MT "$*.o $*.d" -MF $*.d
-
-# Make $(PROJECT) the default target
-all: $(DEPENDENCIES) $(PROJECT)
-
+# Build Main Project
 $(PROJECT): $(OBJECTS)
-	$(CC) -o $(PROJECT) $(OBJECTS) $(LIBS)
+	@echo "Linking $(PROJECT)..."
+	$(CC) -o $@ $^ $(LDFLAGS)
 
-# Include dependencies (if there are any)
-ifneq "$(strip $(DEPENDENCIES))" ""
-  include $(DEPENDENCIES)
-endif
+# Compile Main Source Files
+$(BUILD_DIR)/main/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(dir $@)
+	@echo "Compiling $< for $(PROJECT)..."
+	$(CC) $(CXXFLAGS) $(DEPFLAGS) -c -o $@ $<
 
-# Compile every cpp file to an object
-%.o: %.cpp
-	$(CC) -c $(COMPILE_OPTIONS) -o $@ $< $(HEADERS)
+# Include Dependencies
+-include $(DEPS)
 
-# Build & Run Project
+# Run Main Project
+.PHONY: run
 run: $(PROJECT)
-	./$(PROJECT) 
+	./$(PROJECT)
 
-# Clean & Debug
-.PHONY: makefile-debug
-makefile-debug:
-
+# Clean Targets
 .PHONY: clean
 clean:
-	rm -f $(PROJECT) $(OBJECTS)
+	@echo "Cleaning up..."
+	rm -rf $(PROJECT) $(BUILD_DIR)
 
 .PHONY: depclean
 depclean:
-	rm -f $(DEPENDENCIES)
+	@echo "Removing dependency files..."
+	rm -f $(DEPS) 
 
+.PHONY: clean-all
 clean-all: clean depclean
