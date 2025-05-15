@@ -2,9 +2,11 @@
 #include "utility/Log.h"
 int main(int argc, char ** argv)
 {
-    LOGCFG.SetLevel(3);
-    LOGCFG.headers = true;
+    LogConfig.SetLevel(1);
+    LOG(DEBUG) << "Welcome to RAMICES III";
     LOG(INFO) << "Welcome to RAMICES III";
     LOG(WARN) << "Welcome to RAMICES III";
+    LOG(ERROR) << "Welcome to RAMICES III";
+    LOG(DEBUG);
     return (0);
 }
