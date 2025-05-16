@@ -1,6 +1,6 @@
 #pragma once
-#include "catch_amalgamated.hpp"
-#include "../utility/Log.h"
+#include "../catch_amalgamated.hpp"
+#include "../../utility/Log.h"
 
 
 // Helper function to capture stdout

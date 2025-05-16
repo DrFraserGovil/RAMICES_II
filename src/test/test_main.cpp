@@ -1,7 +1,7 @@
 
 #include "catch_amalgamated.hpp"
 
-#include "logger_tests.h"
+#include "utility/utility_main.h"
 // unsigned int Factorial( unsigned int number ) {
 //     return number <= 1 ? number : Factorial(number-1)*number;
 // }
