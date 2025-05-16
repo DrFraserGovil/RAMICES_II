@@ -21,6 +21,21 @@ enum LogLevel
     DEBUG, //Ludicrously indepth stuff.
 };
 
+inline LogLevel LogLevelConvert(int level)
+{
+	switch(level){
+		case 0: 
+			return ERROR; break;
+		case 1:
+			return WARN;break;
+		case 2:
+			return INFO;break;
+		case 3:
+			return DEBUG;break;
+		default:
+			throw std::runtime_error(std::to_string(level) + "is not a valid logging level");break;
+	}
+}
 
 struct ConfigObject
 {

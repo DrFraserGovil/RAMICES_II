@@ -20,8 +20,8 @@ std::string capture_stdout(std::function<void()> func) {
     // Return the captured string
     return ss.str();
 }
-
-TEST_CASE("Logger", "[log]") {
+using namespace Catch::Matchers;
+TEST_CASE("Logger Core", "[log]") {
     ConfigObject cfg;
 
     SECTION("Log Configuration Object") 
@@ -64,7 +64,7 @@ TEST_CASE("Logger", "[log]") {
 			cfg.SetNewline(false); REQUIRE(cfg.AppendNewline == false);
 		}
     }
-	using namespace Catch::Matchers;
+	
 	SECTION("Core Logger Output")
 	{
 		// Control the global config object for testing
@@ -97,14 +97,14 @@ TEST_CASE("Logger", "[log]") {
 				std::string terminalOutput = capture_stdout([&]() {
 					(LoggerCore(level,0,"mock-function","mock-file")) << "Debug message";
 				});
-				REQUIRE_THAT(terminalOutput, ContainsSubstring("\033[3")); //check that a (non-default) ANSI codes is present during the 
+				REQUIRE_THAT(terminalOutput, StartsWith("\033[")); //check that an ANSI codes is inserted at the beginning of input. We don't care which -- that's an implementation detail that can be changed
 				REQUIRE_THAT(terminalOutput, EndsWith("\033[0m\n"));  //check that the default ANSI code (white) is inserted at the end
 
 				LogConfig.TerminalOutput = false;
 				std::string fileOutput = capture_stdout([&]() {
 					(LoggerCore(DEBUG,0,"mock-function","mock-file")) << "Debug message";
 				});
-				REQUIRE_THAT(fileOutput,!ContainsSubstring("\033[3")); //check the above tests fail when terminal output deactivated
+				REQUIRE_THAT(fileOutput,!StartsWith("\033[")); //check the above tests fail when terminal output deactivated
 				REQUIRE_THAT(fileOutput, !EndsWith("\033[0m\n"));
 			}
 		}
@@ -126,13 +126,13 @@ TEST_CASE("Logger", "[log]") {
 				if (level <= 1)
 				{
 					REQUIRE_THAT(variedLevelOutput,ContainsSubstring(name+"function"));
-					REQUIRE_THAT(variedLevelOutput,ContainsSubstring("398"));
+					REQUIRE_THAT(variedLevelOutput,ContainsSubstring("Line 398"));
 					REQUIRE_THAT(variedLevelOutput,ContainsSubstring(name+"file"));
 				}
 				else
 				{
 					REQUIRE_THAT(variedLevelOutput,!ContainsSubstring(name+"function"));
-					REQUIRE_THAT(variedLevelOutput,!ContainsSubstring("398"));
+					REQUIRE_THAT(variedLevelOutput,!ContainsSubstring("Line 398"));
 					REQUIRE_THAT(variedLevelOutput,!ContainsSubstring(name+"file"));
 				}
 
@@ -168,10 +168,45 @@ TEST_CASE("Logger", "[log]") {
 		{
 			std::string output = capture_stdout([&]() {
 				(LoggerCore(DEBUG,0,"mock-function","mock-file"));
-				REQUIRE(output.empty());
 			});
+			REQUIRE(output.empty());
 		}
 
 		LogConfig = originalConfig;
 	}	
+}
+
+TEST_CASE("Logger Macro","[log]")
+{
+	ConfigObject originalConfig = LogConfig; // Save original config
+	LogConfig.SetHeader(true);
+	LogConfig.SetNewline(false); //set these so no linebreaks in unit test output. Purely for human readability.
+	LogConfig.TerminalOutput = false; // Also supress ANSI codes.
+	std::vector<std::string> names = {"ERROR","WARN","INFO","DEBUG"};
+	for (int trueLevel = 0; trueLevel < 4; ++trueLevel)
+	{
+		LogConfig.SetLevel(trueLevel);
+
+		for (int mockLevel = 0; mockLevel < 4; ++mockLevel)
+		{
+			auto mock = LogLevelConvert(mockLevel);
+			std::string logOutput = capture_stdout([&]() {
+				LOG(mock) << "Test log" << " secondary log" << "tertiary log"; // deliberately ruined spaces
+			});
+
+			if (mockLevel > trueLevel)
+			{
+				REQUIRE(logOutput.empty());
+			}
+			else
+			{
+				std::string expectedHeader = "[" + names[mockLevel] + "]";
+				REQUIRE_THAT(logOutput,ContainsSubstring(expectedHeader));
+				std::string expectedBody = "Test log secondary logtertiary log"; //testing the deliberately ruined spaces
+				REQUIRE_THAT(logOutput,ContainsSubstring(expectedBody));
+			}
+		}
+	}
+
+	LogConfig = originalConfig;
 }

@@ -20,20 +20,10 @@ ConfigObject::ConfigObject(LogLevel level,bool header,bool newline)
 
 
 
+
 void ConfigObject::SetLevel(int level)
 {
-	switch(level){
-		case 0: 
-			Level=ERROR; break;
-		case 1:
-			Level=WARN;break;
-		case 2:
-			Level=INFO;break;
-		case 3:
-			Level=DEBUG;break;
-		default:
-			throw std::runtime_error(std::to_string(level) + "is not a valid logging level");break;
-	}
+	Level = LogLevelConvert(level);
 }
 void ConfigObject::SetLevel(LogLevel level)
 {
