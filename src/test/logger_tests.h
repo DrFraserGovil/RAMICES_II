@@ -64,7 +64,7 @@ TEST_CASE("Logger", "[log]") {
 			cfg.SetNewline(false); REQUIRE(cfg.AppendNewline == false);
 		}
     }
-
+	using namespace Catch::Matchers;
 	SECTION("Core Logger Output")
 	{
 		// Control the global config object for testing
@@ -72,6 +72,7 @@ TEST_CASE("Logger", "[log]") {
 		
 		LogConfig.TerminalOutput = false; // Assume terminal for colored tests
 		LogConfig.SetHeader(false);
+		
 		SECTION("Check Logger Text (with newlines)") {
 
 
@@ -93,18 +94,18 @@ TEST_CASE("Logger", "[log]") {
 			for (LogLevel level: r)
 			{
 				LogConfig.TerminalOutput = true;
-				std::string output = capture_stdout([&]() {
+				std::string terminalOutput = capture_stdout([&]() {
 					(LoggerCore(level,0,"mock-function","mock-file")) << "Debug message";
 				});
-				REQUIRE(output.find("\033[3") != std::string::npos); //check that a (non-default) ANSI codes is present during the 
-				REQUIRE(output.find("\033[0m") != std::string::npos);  //check that the default ANSI code (white) is inserted at the end
+				REQUIRE_THAT(terminalOutput, ContainsSubstring("\033[3")); //check that a (non-default) ANSI codes is present during the 
+				REQUIRE_THAT(terminalOutput, EndsWith("\033[0m\n"));  //check that the default ANSI code (white) is inserted at the end
 
 				LogConfig.TerminalOutput = false;
-				output = capture_stdout([&]() {
+				std::string fileOutput = capture_stdout([&]() {
 					(LoggerCore(DEBUG,0,"mock-function","mock-file")) << "Debug message";
 				});
-				REQUIRE_FALSE(output.find("\033[3") != std::string::npos); 
-				REQUIRE_FALSE(output.find("\033[0m") != std::string::npos); 
+				REQUIRE_THAT(fileOutput,!ContainsSubstring("\033[3")); //check the above tests fail when terminal output deactivated
+				REQUIRE_THAT(fileOutput, !EndsWith("\033[0m\n"));
 			}
 		}
 		
@@ -115,24 +116,24 @@ TEST_CASE("Logger", "[log]") {
 			int i = 0;
 			for (LogLevel level: r)
 			{
-				LogConfig.TerminalOutput = true;
+				LogConfig.TerminalOutput = false;
+				LogConfig.AppendNewline= false;
 				std::string name = "mock-" + names[i] + "-";
 				++i;
-				std::string output = capture_stdout([&]() {
+				std::string variedLevelOutput = capture_stdout([&]() {
 					(LoggerCore(level,398,name + "function",name+"file")) << "Debug message";
 				});
 				if (level <= 1)
 				{
-					// REQUIRE(output)
-					REQUIRE(output.find(name+"function") != std::string::npos);
-					REQUIRE(output.find("398") != std::string::npos);
-					REQUIRE(output.find(name+"file") != std::string::npos);
+					REQUIRE_THAT(variedLevelOutput,ContainsSubstring(name+"function"));
+					REQUIRE_THAT(variedLevelOutput,ContainsSubstring("398"));
+					REQUIRE_THAT(variedLevelOutput,ContainsSubstring(name+"file"));
 				}
 				else
 				{
-					REQUIRE_FALSE(output.find(name+"function") != std::string::npos);
-					REQUIRE_FALSE(output.find("398") != std::string::npos);
-					REQUIRE_FALSE(output.find(name+"file") != std::string::npos);
+					REQUIRE_THAT(variedLevelOutput,!ContainsSubstring(name+"function"));
+					REQUIRE_THAT(variedLevelOutput,!ContainsSubstring("398"));
+					REQUIRE_THAT(variedLevelOutput,!ContainsSubstring(name+"file"));
 				}
 
 			}
@@ -144,21 +145,22 @@ TEST_CASE("Logger", "[log]") {
 			std::vector<std::string> names = {"DEBUG","INFO","WARN","ERROR"};
 			int i = 0;
 			LogConfig.TerminalOutput = false;
+			LogConfig.AppendNewline= false;
 			for (LogLevel level: r)
 			{
 				LogConfig.SetHeader(true);
-				std::string outputPresent = capture_stdout([&]() {
+				std::string headerPresent = capture_stdout([&]() {
 					(LoggerCore(level,0,"mock-function","mock-file")) << "Debug message";
 				});
 				std::string search = "[" + names[i] + "]";
-				REQUIRE(outputPresent.find(search) != std::string::npos); //check that the header successfully inserted when in true mode
+				REQUIRE_THAT(headerPresent,ContainsSubstring(search));//check that the header successfully inserted when in true mode
 				++i;
 
 				LogConfig.SetHeader(false);
-				std::string outputAbsent = capture_stdout([&]() {
-					(LoggerCore(DEBUG,0,"mock-function","mock-file")) << "Debug message";
+				std::string headerAbsent = capture_stdout([&]() {
+					(LoggerCore(level,0,"mock-function","mock-file")) << "Debug message";
 				});
-				REQUIRE_FALSE(outputAbsent.find(search) != std::string::npos); // check that it's absent in false mode
+				REQUIRE_THAT(headerAbsent, !ContainsSubstring(search)); // check that it's absent in false mode
 			}
 		}
 
