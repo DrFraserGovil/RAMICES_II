@@ -26,8 +26,11 @@ TEST_CASE("Random class seeding and bounds", "[random][utility]") {
             sameSeed_int1.push_back(r1.UniformInteger(0, 100));
             sameSeed_int2.push_back(r2.UniformInteger(0, 100));
         }
-        REQUIRE(SequencesEqual(sameSeed_int1, sameSeed_int2));
-
+        CHECK(SequencesEqual(sameSeed_int1, sameSeed_int2));
+        for (int i = 0; i <num_samples;++i)
+        {
+            REQUIRE(sameSeed_int1[i]==sameSeed_int2[i]);
+        }
         std::vector<double> sameSeed_double1;
         std::vector<double> sameSeed_double2;
         for(int i = 0; i < num_samples; ++i) {

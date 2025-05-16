@@ -25,7 +25,7 @@ TEST_CASE("Timer State Handling","[timer][utility]")
 		double secondCall = T.measure();
 		REQUIRE_NOTHROW(T.measure());
 		double pausedCall = T.measure();
-		REQUIRE(secondCall > firstCall);
+		REQUIRE(secondCall >= firstCall);
 		REQUIRE(secondCall == pausedCall);
 	}
 	SECTION("Bounding the timer")

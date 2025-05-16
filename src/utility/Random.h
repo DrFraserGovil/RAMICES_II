@@ -16,9 +16,9 @@ class Random
 		};
 		Random(uint32_t seed)
 		{
-			std::random_device rd;
-			Seed(rd());
-			// Seed(seed);
+			// std::random_device rd;
+			// Seed(rd());
+			Seed(seed);
 		};
 		void Seed(u_int32_t seed)
 		{
