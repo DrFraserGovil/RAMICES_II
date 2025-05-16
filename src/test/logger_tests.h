@@ -21,7 +21,7 @@ std::string capture_stdout(std::function<void()> func) {
     return ss.str();
 }
 using namespace Catch::Matchers;
-TEST_CASE("Logger Core", "[log]") {
+TEST_CASE("Logger Core", "[log][utility]") {
     ConfigObject cfg;
 
     SECTION("Log Configuration Object") 
@@ -176,7 +176,7 @@ TEST_CASE("Logger Core", "[log]") {
 	}	
 }
 
-TEST_CASE("Logger Macro","[log]")
+TEST_CASE("Logger Macro","[log][utility]")
 {
 	ConfigObject originalConfig = LogConfig; // Save original config
 	LogConfig.SetHeader(true);
