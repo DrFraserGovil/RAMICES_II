@@ -1,8 +1,11 @@
 # Prerequisites
 *.d
 Output/
-RAMICES_II*
+ramices*
 *.asv
+
+
+
 # Compiled Object files
 *.slo
 *.lo
@@ -11,7 +14,8 @@ RAMICES_II*
 
 # Mac stuff
 *VS_Store
-
+.vscode 
+old_src/
 # Build stuff
 *build/
 
