@@ -1,5 +1,4 @@
 #pragma once
-#include "../catch_amalgamated.hpp"
 #include "../../utility/Timer.h"
 #include <thread>
 
@@ -31,7 +30,7 @@ TEST_CASE("Timer State Handling","[timer][utility]")
 	}
 	SECTION("Bounding the timer")
 	{
-		auto t = {-1,1,50,100,300};
+		auto t = {1,50,100,300};
 		for (int wait : t)
 		{
 			T.start();

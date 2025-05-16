@@ -1,5 +1,4 @@
 #pragma once
-#include "../catch_amalgamated.hpp"
 #include "../../utility/Log.h"
 
 
