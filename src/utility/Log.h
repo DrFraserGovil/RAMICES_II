@@ -11,8 +11,9 @@
 #include <cstdio>   // For fileno() and stderr
 #include <iostream>
 #include <exception>
-
-
+#include <mutex>
+#include <sstream>
+extern std::mutex GlobalLogMutex;
 enum LogLevel 
 {
     ERROR,  //Uh uh, stuff broke
@@ -81,13 +82,14 @@ class LoggerCore
             {
                 StreamActive = true;
                 Header();
-                std::cout << Insert;
+                Buffer << Insert;
             }
-            std::cout << msg;
+            Buffer << msg;
 
             return *this;
         } 
     private:
+        std::stringstream Buffer;
         LogLevel Level;
         bool StreamActive;
         std::string Insert;
@@ -103,22 +105,27 @@ class LoggerCore
             } 
             if (LogConfig.TerminalOutput)
             {
-                std::cout << fmt;
+                Buffer << fmt;
             }
             if (LogConfig.ShowHeaders)
             {
-                std::cout << label;
+                Buffer << label;
             }
         }
         void endMessage()
         {
             if (LogConfig.TerminalOutput)
             {
-                std::cout << "\033[0m";
+                Buffer << "\033[0m";
             }
             if (LogConfig.AppendNewline)
             {
-                std::cout << "\n"; 
+                Buffer << "\n"; 
+            }
+
+            {
+                std::unique_lock<std::mutex> lock(GlobalLogMutex);
+                std::cout << Buffer.str();
             }
         }
 };

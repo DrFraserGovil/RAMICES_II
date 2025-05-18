@@ -1,5 +1,6 @@
 #include "Log.h"
 
+std::mutex GlobalLogMutex;
 bool isTerminal() {
     return isatty(fileno(stdout));
 }
