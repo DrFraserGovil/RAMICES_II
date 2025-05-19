@@ -153,9 +153,9 @@ class ParallelPool
    
     template<class LoopBodyCallable, class... Args>
     auto For(int Ntask, LoopBodyCallable loopBody, Args&&... args) -> VoidOrVector<LoopBodyCallable,Args...>
-    {   
+    {    
         COMPILE_TIME_REFERENCE_CATCHER(1,LoopBodyCallable,Args); //errors generated here are just intellisense not getting the macro!
-        
+
         if (TasksRemaining > 0 && InterleavingWarning )
         {
             LOG(WARN) << "Beginning a parallel-for loop whilst other asynchronous tasks are running is not advised.\n\tFor loops are blocking and occupy the main thread, so this may degrade performance.\n\tCall Synchronise before launching a Parallel-For.";

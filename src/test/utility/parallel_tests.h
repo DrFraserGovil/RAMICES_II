@@ -1,7 +1,7 @@
 #pragma once
 #include "../catch_amalgamated.hpp" 
 #include "../../utility/parallel.h"
-
+#include "../../utility/Timer.h"
 void createAndDestroy(int n)
 {
 	auto P = ParallelPool(n);
@@ -348,4 +348,46 @@ TEST_CASE("ParallelPool Destructor Behavior", "[parallel][destructor]")
         // Expect destruction to be very fast (e.g., < 50ms for thread shutdown)
         REQUIRE(duration.count() < 50);
     }
+}
+
+
+bool isPrimeSlow(long long int value)
+{
+	if (value%2 ==0) return false;
+	int maxVal = sqrt(value);
+	
+	for (int i =3; i<=maxVal; ++i)
+	{
+		if (value %i ==0)
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+
+bool performanceFunction(int i)
+{
+	long long int val = pow(10,13) + 2*i+1;
+	return isPrimeSlow(val);
+}
+
+double time(int nWorkers)
+{
+	Timer T;
+	ParallelPool Parallel(nWorkers);
+	T.start();
+	auto out = Parallel.For(1e4,performanceFunction);
+	return T.measure();
+}
+
+TEST_CASE("Parallel performance gains","[parallel][performance]")
+{
+	double timeOneWorker = time(1);
+	double timeTwoWorkers = time(2);
+	double timeThreeWorkers = time(3);
+
+	CHECK(timeTwoWorkers < timeOneWorker);
+	CHECK(timeThreeWorkers < timeTwoWorkers);
 }

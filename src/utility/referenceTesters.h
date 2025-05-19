@@ -39,6 +39,7 @@ template <typename R, typename C, typename... Args>
 struct function_traits<R (C::*)(Args...) const> : function_traits<R (*)(Args...)> {};
 
 #define COMPILE_TIME_REFERENCE_CATCHER(inserted_count, CallableType, ArgsTypes) \
+static_assert(sizeof...(ArgsTypes) >= 0, "Dummy expansion for Intellisense"); /* Dummy usage */ \
     /* First, a sanity check: ensure number of args passed matches callable's arity */ \
     static_assert(function_traits<CallableType>::arity == (inserted_count + sizeof...(ArgsTypes)), \
         "\n\n\tError: The number of arguments passed to Task/For does not match the callable's expected arity.\n\n"); \
