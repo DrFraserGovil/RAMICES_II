@@ -2,7 +2,11 @@
 
 ParallelPool::ParallelPool(size_t nCores)
 {
-	if (nCores == 0) nCores = 1;
+	InterleavingWarning = true;
+	if (nCores == 0 || nCores > 300)
+	{
+		throw std::runtime_error("You must request a number of cores between 1 and 300. The main thread counts amongst these cores.");
+	} 
 	StopWorkers = false;
 	int nWorkers = nCores -1;
 	Workers.reserve(nWorkers);
@@ -61,9 +65,9 @@ void ParallelPool::WorkerMain(int workerID) {
 		task();
 		
 		//finish the task
-		--TasksRemaining;
-		 {
-			 std::unique_lock<std::mutex> lock(SyncMutex);
+		{
+			std::unique_lock<std::mutex> lock(SyncMutex);
+			--TasksRemaining;
 			 ThreadSynchroniser.notify_one();
 		 }
 	}

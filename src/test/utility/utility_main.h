@@ -2,3 +2,4 @@
 #include "timer_test.h"
 #include "random_test.h"
 #include "archiver_test.h"
+#include "parallel_tests.h"
