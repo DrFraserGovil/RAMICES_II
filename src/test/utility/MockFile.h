@@ -1,6 +1,7 @@
 #pragma once
 #include <filesystem> // C++17 for temporary paths and removal
 #include <iostream>
+#include <fstream>
 extern int MockFileID;
 std::filesystem::path inline makeTemp() {
     ++MockFileID;
@@ -21,6 +22,16 @@ struct MockFile
 	~MockFile()
 	{
 		std::filesystem::remove_all(Path);
+	}
+
+	template<class T>
+	void operator<<(const T &msg)
+	{
+		std::ofstream pipe;
+
+		pipe.open(Path,std::ios::app);
+		pipe << msg;
+		pipe.close();
 	}
 };
 
