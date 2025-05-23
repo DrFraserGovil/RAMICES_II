@@ -3,3 +3,4 @@
 #include "random_test.h"
 #include "archiver_test.h"
 #include "parallel_tests.h"
+#include "fileparser_tests.h"
