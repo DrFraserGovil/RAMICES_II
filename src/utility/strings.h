@@ -11,7 +11,7 @@
 
 //Splits a string -- but has the limitation that the output is only meaningful so long as the original string survives.
 //Copies out of the string view do persist
-std::vector<std::string_view> split(std::string_view s, std::string_view delimiter) {
+std::vector<std::string_view> inline split(std::string_view s, std::string_view delimiter) {
     std::vector<std::string_view> tokens;
     size_t start = 0;
     size_t end = s.find(delimiter);
@@ -26,7 +26,7 @@ std::vector<std::string_view> split(std::string_view s, std::string_view delimit
     return tokens;
 }
 
-std::string_view trim(std::string_view sv)
+std::string_view inline trim(std::string_view sv)
 {
     // Find the first non-whitespace character
     size_t first = 0;
@@ -46,14 +46,14 @@ std::string_view trim(std::string_view sv)
 }
 
 
-bool insensitiveEqualsChar(char a, char b)
+bool inline insensitiveEqualsChar(char a, char b)
 {
     return std::tolower(static_cast<unsigned char>(a)) ==
            std::tolower(static_cast<unsigned char>(b));
 }
 
 
-bool insensitiveEquals(const std::string_view a, const std::string_view b)
+bool inline insensitiveEquals(const std::string_view a, const std::string_view b)
 {
     return a.size() == b.size() &&
            std::equal(a.begin(), a.end(), b.begin(), insensitiveEqualsChar);

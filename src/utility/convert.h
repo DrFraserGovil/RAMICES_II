@@ -1,6 +1,8 @@
+#pragma once
 #include <string_view>
 #include <vector>
 #include <regex>
+#include <charconv>
 #include "strings.h"
 /*
     This file provides a robust return-value interface for converting string-views (and, implicitly, strings) into a candidate type
