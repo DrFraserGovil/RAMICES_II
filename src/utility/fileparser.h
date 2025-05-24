@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Log.h"
-#include "StringSplit.h"
-#include "stringViewConverters.h"
+#include "strings.h"
+#include "convert.h"
 template <typename Func>
 void forLineIn(const std::string& fileName, Func lineProcessor) {
     std::ifstream file(fileName);

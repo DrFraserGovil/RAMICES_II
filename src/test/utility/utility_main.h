@@ -4,3 +4,4 @@
 #include "archiver_test.h"
 #include "parallel_tests.h"
 #include "fileparser_tests.h"
+#include "converter_tests.h"
