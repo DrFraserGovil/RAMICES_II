@@ -6,7 +6,7 @@ void createAndDestroy(int n)
 {
 	auto P = ParallelPool(n);
 }
-TEST_CASE("Parallel Creation", "[parallel]")
+TEST_CASE("Parallel Creation", "[parallel][utility]")
 {
 	REQUIRE_NOTHROW(createAndDestroy(1));
 	REQUIRE_NOTHROW(createAndDestroy(10));
@@ -69,7 +69,7 @@ bool IsReuseStable(int vecsize,int nWorkers)
 
 
 
-TEST_CASE("Parallel For Loops","[parallel]")
+TEST_CASE("Parallel For Loops","[parallel][utility]")
 {
 	SECTION("Atomic Pointer Capture")
 	{
@@ -141,7 +141,7 @@ int returnTask(int a,int b)
 	return a*b;
 }
 
-TEST_CASE("Task execution","[parallel]")
+TEST_CASE("Task execution","[parallel][utility]")
 {
 	SECTION("Void-Async Tasks")
 	{
@@ -205,7 +205,7 @@ std::unique_ptr<int> squareUniquePtr(std::unique_ptr<int> p) {
 
 // // --- New TEST_CASEs / Sections ---
 
-TEST_CASE("Task Return Values and Argument Handling", "[parallel][task]")
+TEST_CASE("Task Return Values and Argument Handling", "[parallel][task][utility]")
 {
     ParallelPool P(4); // Use a few workers for these tests
 
@@ -259,7 +259,7 @@ TEST_CASE("Task Return Values and Argument Handling", "[parallel][task]")
     }
 }
 
-TEST_CASE("Interleaving For and Task Execution", "[parallel][concurrency]")
+TEST_CASE("Interleaving For and Task Execution", "[parallel][concurrency][utility]")
 {
     ParallelPool P(4);
 	P.InterleavingWarning = false;
@@ -307,7 +307,7 @@ TEST_CASE("Interleaving For and Task Execution", "[parallel][concurrency]")
     }
 }
 
-TEST_CASE("ParallelPool Destructor Behavior", "[parallel][destructor]")
+TEST_CASE("ParallelPool Destructor Behavior", "[parallel][destructor][utility]")
 {
     SECTION("Destructor waits for pending tasks")
     {
@@ -382,7 +382,7 @@ double time(int nWorkers)
 	return T.measure();
 }
 
-TEST_CASE("Parallel performance gains","[parallel][performance]")
+TEST_CASE("Parallel performance gains","[parallel][performance][utility]")
 {
 	double timeOneWorker = time(1);
 	double timeTwoWorkers = time(2);

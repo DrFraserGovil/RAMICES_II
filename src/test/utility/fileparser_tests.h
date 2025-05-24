@@ -5,7 +5,7 @@
 #include "../../utility/fileparser.h"
 
 
-TEST_CASE("Reads files correctly","[file][read]")
+TEST_CASE("Reads files correctly","[file][read][utility]")
 {
 	MockFile F;
 	int linesWritten = 100;
@@ -38,7 +38,7 @@ void GenerateVectorFile(MockFile & file, std::string delimiter, int linesWritten
 }
 
 
-TEST_CASE("Reads vector input correctly","[file]")
+TEST_CASE("Reads vector input correctly","[file][utility]")
 {
 	
 	MockFile F;

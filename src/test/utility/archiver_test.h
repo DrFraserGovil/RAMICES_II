@@ -14,7 +14,7 @@ using namespace JAR; // Use your namespace
 // Helper to generate a temporary file path
 
 
-TEST_CASE("Archive Writing", "[archive][filesystem]")
+TEST_CASE("Archive Writing", "[archive][filesystem][utility]")
 {
 	MockFile file;
 	auto A = JAR::Archive(file.Name(),std::ios::out);
@@ -25,7 +25,7 @@ TEST_CASE("Archive Writing", "[archive][filesystem]")
 }
 
 
-TEST_CASE("Archive Reading","[archive][filesystem]")
+TEST_CASE("Archive Reading","[archive][filesystem][utility]")
 {
 	MockFile file;
 	auto A = JAR::Archive((std::string)file.Name(),std::ios::out);
@@ -69,7 +69,7 @@ TEST_CASE("Archive Reading","[archive][filesystem]")
 
 
 
-TEST_CASE("External tar test","[archive][filesystem][system]")
+TEST_CASE("External tar test","[archive][filesystem][system][utility]")
 {
 	MockFile file;
 	auto A = JAR::Archive((std::string)file.Name(),std::ios::out);

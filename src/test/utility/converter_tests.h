@@ -5,7 +5,7 @@
 #include "../../utility/fileparser.h"
 #include "coutCatch.h"
 
-TEST_CASE("Basic conversion","[utility][convert]")
+TEST_CASE("Edge case handling","[utility][convert][edgecase]")
 {
 
 	SECTION("Check errors")
@@ -59,7 +59,10 @@ TEST_CASE("Basic conversion","[utility][convert]")
 		//check that string does *not* trim!s
 		REQUIRE(convert<std::string>(" hi") == " hi");
 	}
+}
 
+TEST_CASE("Basic types","[utility][convert]")
+{
 	SECTION("Integral types")
 	{
 		// Basic Valid Cases
@@ -106,7 +109,10 @@ TEST_CASE("Basic conversion","[utility][convert]")
 		});
 		REQUIRE_THAT(errorMessage,ContainsSubstring("ERROR"));
 	}
+}
 
+TEST_CASE("Vector-conversion","[utility][convert][vector]")
+{
 	SECTION("Vector -ints")
 	{
 		// Basic Valid Cases
