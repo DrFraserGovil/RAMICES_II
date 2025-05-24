@@ -3,7 +3,7 @@
 #include <string>
 #include <string_view>
 #include "../../utility/fileparser.h"
-
+#include "../MockFile.h"
 
 TEST_CASE("Reads files correctly","[file][read][utility]")
 {

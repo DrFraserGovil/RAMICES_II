@@ -1,5 +1,5 @@
 #pragma once
-
+#include <fstream>
 #include "Log.h"
 #include "strings.h"
 #include "convert.h"

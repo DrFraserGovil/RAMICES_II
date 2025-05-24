@@ -1,6 +1,6 @@
 #pragma once
 #include "../../utility/Log.h"
-#include "coutCatch.h"
+#include "../coutCatch.h"
 
 using namespace Catch::Matchers;
 TEST_CASE("Logger Core", "[log][utility]") {
