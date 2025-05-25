@@ -9,7 +9,7 @@ TEST_RUNNER = ramices_test
 CC = g++
 
 # Compiler and Linker Options
-CXXFLAGS = -std=c++20 -pthread -O3 -Wall 
+CXXFLAGS = -std=c++20 -pthread -O3 -Wall
 LDFLAGS = -lpthread
 
 # Dependency Flags

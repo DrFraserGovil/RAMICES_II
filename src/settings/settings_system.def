@@ -1,0 +1,4 @@
+SETTING(size_t,Verbosity,2,"v")
+SETTING(std::string,Output,"_none_","o")
+SETTING(std::vector<int>,TestVec,std::vector<int>({1,2}),"vec")
+

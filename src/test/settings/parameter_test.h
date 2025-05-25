@@ -59,7 +59,7 @@ TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 {
 	using Settings::Parameter;
 	
-	std::vector<std::string> initialList = {"spoofed_name","-arg1","5","-arg2","chicken","-arg3","0"};
+	std::vector<std::string> initialList = {"spoofed_name","-arg1","-5","-arg2","chicken","-arg3","0"};
 	
 	SECTION("Basic assignment")
 	{
@@ -70,7 +70,7 @@ TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 
 		Parameter<int> arg1(1,"arg1");
 		REQUIRE_NOTHROW(arg1.Parse(cmd.argc,cmd.argv)); //just for safety
-		REQUIRE(arg1.Value == 5); //check that value has been updated
+		REQUIRE(arg1.Value == -5); //check that value has been updated
 		
 		Parameter<std::string>arg2("none","arg2");
 		REQUIRE_NOTHROW(arg2.Parse(cmd.argc,cmd.argv)); //just for safety
@@ -85,7 +85,7 @@ TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 		SpoofedStructure cmd(initialList);
 		Parameter<double>arg1Double(1,"arg1");
 		arg1Double.Parse(cmd.argc,cmd.argv);
-		REQUIRE_THAT(arg1Double.Value,WithinAbs(5.0,1e-15));
+		REQUIRE_THAT(arg1Double.Value,WithinAbs(-5.0,1e-15));
 	}
 
 	SECTION("Boolean flag behaviour")

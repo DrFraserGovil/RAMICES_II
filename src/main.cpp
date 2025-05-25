@@ -4,11 +4,16 @@
 #include "utility/Timer.h"
 #include "utility/Random.h"
 
-
+#include "settings/SettingGroups.h"
 int main(int argc, char ** argv)
 {
-    LogConfig.SetLevel(3);
    
+   
+    System S;
+    S.Parse(argc,argv);
+    LogConfig.SetLevel(S.Verbosity);
+    
+    LOG(INFO) << S.Verbosity;
 
 
     return (0);

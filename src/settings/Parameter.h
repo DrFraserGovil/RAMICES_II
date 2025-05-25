@@ -3,6 +3,7 @@
 #include <string>
 #include "../utility/convert.h"
 #include "../utility/fileparser.h"
+#include <cctype>
 extern std::vector<std::string> GlobalParameterStrings;
 
 
@@ -163,7 +164,16 @@ namespace Settings
 
 			bool NextElementIsValue(char * nextElement)
 			{
-				return nextElement[0] != '-';
+				bool hasDash = (nextElement[0] == '-'); //dashes signify commands, but also negative nos.
+				bool isSingleCharacter = (strlen(nextElement) == 1);
+
+				if (!hasDash || isSingleCharacter)
+				{
+					return true; //entries that are not preceeded by a dash, or are a single character long, cannot be command triggers
+				}
+
+				return isdigit(nextElement[1]); //detect if the next string is a number, if so return true. This is the case of a negative no.
+				
 			}
 
 			void Convert(std::string_view sv)
