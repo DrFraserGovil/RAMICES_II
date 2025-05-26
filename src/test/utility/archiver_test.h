@@ -8,7 +8,7 @@
 
 #include <fstream>
 #include <stdio.h>
-#include "../MockFile.h"
+#include "../mock/MockFile.h"
 using namespace JAR; // Use your namespace
 
 // Helper to generate a temporary file path

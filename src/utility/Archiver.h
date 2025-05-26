@@ -19,6 +19,7 @@
 #include <cstring>
 #include <stdexcept>
 #include "Log.h"
+#include "convert.h"
 namespace JAR
 {
 	struct ReadMetaData
@@ -46,7 +47,7 @@ namespace JAR
 		private:
 			std::fstream Stream;
 			std::unordered_map<std::string, ReadMetaData> FileIndex;
-			constexpr static size_t BLOCK_SIZE = 512;
+			static constexpr size_t BLOCK_SIZE = 512;
 			bool IndexBuilt;
 			bool HasWritten;
 			bool OpenedStream;
@@ -57,22 +58,11 @@ namespace JAR
 			bool ReadBlock(char*buffer);
 			void WriteCleanup(unsigned int tail_length = 512u * 2u);
 			bool HasClosed;
-			// void ActivateStream(std::string archivePath, std::ios_base::openmode mode);
-		public:
-			Archive();
-			Archive(std::string archivePath);
-			Archive(std::string archivePath, std::ios_base::openmode mode);
-
-			~Archive();
-			std::vector<std::string> ListFiles();
-			void Open(std::string archivePath, std::ios_base::openmode mode);
-			void Write(WriteMetaData &&input);
-			void Write(const std::string & fileName, const std::string & data);
-			std::string GetText(std::string file);
-
+			
 			//this is templated in case you ever want to stream things directly into non-string lines for whatever reason
+			//(i.e. string_views which have less memory overhead, but have to be careful with lifetimes)
 			template<class T>
-			void StreamFile(std::string fileName, std::function<void(T)> data_callback)
+			void StreamBlocks(std::string fileName, std::function<void(T)> data_callback)
 			{
 				static_assert(std::is_constructible<T, const char*, size_t>::value, "T must be constructible from char* and size_t");
 				if (!IndexBuilt || !OpenedStream)
@@ -99,73 +89,91 @@ namespace JAR
 					remainingSize -= chunk_size;
 				}
 			};
+		public:
+			Archive();
+			Archive(std::string archivePath);
+			Archive(std::string archivePath, std::ios_base::openmode mode);
+
+			~Archive();
+			std::vector<std::string> ListFiles();
+			void Open(std::string archivePath, std::ios_base::openmode mode);
+			void Write(WriteMetaData &&input);
+			void Write(const std::string & fileName, const std::string & data);
+			std::string GetText(std::string file);
+
+			
 
 			void Close();
-			template<typename... ColumnTypes>
-			void ReadTabular(const std::string& fileName, std::vector<std::tuple<ColumnTypes...>>& rows, char delimiter = ' ')
+
+			//iterates through the blocks of a file, and calls the callback function *on every complete line*
+			template<class T>
+			void ForLineIn(const std::string & fileName,std::function<void(T)> perLineFunction)
 			{
-				rows.clear();
-
-				std::string overflow;
-
-				StreamFile<std::string>(fileName, [&](const std::string& block) {
+				//have to be clever because StreamBlocks (and the tar protocol in general) does not guarantee blocks are complete lines
+				std::string overflow; //entity for holding overflow from the previous block
+				StreamBlocks<std::string>(fileName, [&](const std::string& block) 
+				{
 					std::string data = overflow + block;
 					overflow.clear();
 
-					size_t start = 0, end = 0;
-
-					while (end < data.size()) {
-						// Find the end of the current line
+					size_t start = 0;
+					size_t end = 0;
+					while (end < data.size()) 
+					{
+						// If no newline is found, is an incomplete line
+						//therefore have to break out of loop and save data into the overflow
 						end = data.find('\n', start);
-
-						// If no newline is found, this might be an incomplete line
-						if (end == std::string::npos) {
+						if (end == std::string::npos)
+						{
 							overflow = data.substr(start);
 							break;
 						}
 
+						//otherwise we can extract the line and act upon it
 						std::string_view line(data.data() + start, end - start);
 
-						// Parse the line into a tuple
-						std::tuple<ColumnTypes...> row;
-						size_t columnIndex = 0;
-						size_t tokenStart = 0;
+						perLineFunction(line);
+					}
+					start = end +1;
 
-						// Lambda to parse each token
-						auto parseToken = [&](auto& columnValue) {
-							size_t tokenEnd = line.find(delimiter, tokenStart);
-							if (tokenStart >= line.size()) {
-								throw std::runtime_error("Insufficient columns in line: " + std::string(line));
-							}
+				});
+			}
 
-							std::string_view token = line.substr(tokenStart, tokenEnd - tokenStart);
-							tokenStart = (tokenEnd == std::string_view::npos) ? std::string_view::npos : tokenEnd + 1;
 
-							if constexpr (std::is_integral_v<std::decay_t<decltype(columnValue)>>) {
-								auto [ptr, ec] = std::from_chars(token.data(), token.data() + token.size(), columnValue);
-								if (ec != std::errc{}) {
-									throw std::runtime_error("Failed to parse integer value in column " + std::to_string(columnIndex));
-								}
-							} else if constexpr (std::is_floating_point_v<std::decay_t<decltype(columnValue)>>) {
-								columnValue = std::stod(std::string(token)); // Fallback for floating-point
-							} else {
-								columnValue = std::string(token); // Fallback for string-like types
-							}
+			template<typename...ColumnTypes>
+			void ForLineInTabularFile(const std::string& fileName, std::vector<std::tuple<ColumnTypes...>>& rows, char delimiter = ' ')
+			{
+				forLineIn(fileName,[&](std::string_view line){
+					// Parse the line into a tuple
+					std::tuple<ColumnTypes...> row;
+					size_t columnIndex = 0;
+					size_t tokenStart = 0;
 
-							columnIndex++;
-						};
-
-						// Apply the parsing function to each element of the tuple
-						std::apply([&](auto&... columnValues) { (parseToken(columnValues), ...); }, row);
-
-						// Ensure there are no extra columns
-						if (tokenStart < line.size()) {
-							throw std::runtime_error("Too many columns in line: " + std::string(line));
+					// Lambda to parse each token
+					auto parseToken = [&](auto& columnValue) {
+						size_t tokenEnd = line.find(delimiter, tokenStart);
+						if (tokenStart >= line.size()) {
+							throw std::runtime_error("Insufficient columns in line: " + std::string(line));
 						}
 
-						rows.push_back(std::move(row));
-						start = end + 1;
+						std::string_view token = line.substr(tokenStart, tokenEnd - tokenStart);
+						tokenStart = (tokenEnd == std::string_view::npos) ? std::string_view::npos : tokenEnd + 1;
+
+						columnValue = convert<decltype(columnValue)>(token);
+
+						columnIndex++;
+					};
+
+					// Apply the parsing function to each element of the tuple
+					std::apply([&](auto&... columnValues) { (parseToken(columnValues), ...); }, row);
+
+					// Ensure there are no extra columns
+					if (tokenStart < line.size()) {
+						throw std::runtime_error("Too many columns in line: " + std::string(line));
 					}
+
+					rows.push_back(std::move(row));
+
 				});
 			}
 			Archive(const Archive&) = delete;

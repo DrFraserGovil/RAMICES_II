@@ -1,8 +1,8 @@
 #pragma once
 #include "../catch_amalgamated.hpp" 
 #include "../../settings/Parameter.h"
-#include "../MockFile.h"
-#include "../coutCatch.h"
+#include "../mock/MockFile.h"
+#include "../mock/coutCatch.h"
 TEST_CASE("Basic Parameter behaviour","[parameter][settings]")
 {
 	using Settings::Parameter;

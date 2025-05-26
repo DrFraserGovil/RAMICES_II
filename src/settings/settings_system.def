@@ -1,4 +1,5 @@
 SETTING(size_t,Verbosity,2,"v")
-SETTING(std::string,Output,"_none_","o")
-SETTING(std::vector<int>,TestVec,std::vector<int>({1,2}),"vec")
+SETTING(size_t,ParallelThreads,1,"thread")
+SETTING(std::string,Output,"output.gce","o")
+SETTING(std::string,ArchiveExtension,".gce","extension");
 

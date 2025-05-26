@@ -3,7 +3,7 @@
 #include <string>
 #include <string_view>
 #include "../../utility/fileparser.h"
-#include "../coutCatch.h"
+#include "../mock/coutCatch.h"
 
 TEST_CASE("Edge case handling","[utility][convert][edgecase]")
 {

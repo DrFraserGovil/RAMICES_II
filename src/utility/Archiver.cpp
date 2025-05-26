@@ -185,7 +185,7 @@ namespace JAR
 	std::string Archive::GetText(std::string fileName)
 	{
 		std::string buffer = "";
-		StreamFile<std::string>(fileName,[&](std::string block)
+		StreamBlocks<std::string>(fileName,[&](std::string block)
 		{
 			buffer += block;
 		});
