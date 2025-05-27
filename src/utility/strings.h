@@ -11,7 +11,13 @@
 
 //Splits a string -- but has the limitation that the output is only meaningful so long as the original string survives.
 //Copies out of the string view do persist
-std::vector<std::string_view> inline split(std::string_view s, std::string_view delimiter) {
+std::vector<std::string_view> inline split(std::string_view s, std::string_view delimiter) 
+{
+    if (delimiter.size() == 0)
+    {
+        LOG(ERROR) << "Cannot use an empty delimiter to split, this is meaningless";
+        throw std::runtime_error("Split called with empty delimiter");
+    }
     std::vector<std::string_view> tokens;
     size_t start = 0;
     size_t end = s.find(delimiter);
@@ -58,3 +64,4 @@ bool inline insensitiveEquals(const std::string_view a, const std::string_view b
     return a.size() == b.size() &&
            std::equal(a.begin(), a.end(), b.begin(), insensitiveEqualsChar);
 }
+

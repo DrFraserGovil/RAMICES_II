@@ -30,34 +30,7 @@ void forSplitLineIn(const std::string& fileName, std::string delimiter, Func vec
 }
 
 
-// Helper function to create a tuple from a vector of string_views
-// This uses std::index_sequence and a fold expression for compile-time unpacking
-template <typename... Ts, std::size_t... Is>
-std::tuple<Ts...> ImplicitTupleConverter(const std::vector<std::string_view>& sv_vec,std::index_sequence<Is...>)
-{
-    return std::make_tuple(convert<Ts>(sv_vec[Is])...);
-}
 
-// Main helper to handle size checks and dispatch to the impl function
-template <typename... Ts>
-std::tuple<Ts...> inline tupleFromStringViews(const std::vector<std::string_view>& sv_vec)
-{
-    constexpr std::size_t expected_size = sizeof...(Ts);
-
-    if (sv_vec.size() < expected_size) 
-	{
-        LOG(ERROR) << "Tuple conversion error: Not enough tokens (" << sv_vec.size()<< ") to fill tuple of size " << expected_size;
-        throw std::logic_error("Tuple conversion: Not enough tokens in line.");
-    }
-    if (sv_vec.size() > expected_size)
-	{
-        LOG(WARN) << "Tuple conversion warning: Too many tokens (" << sv_vec.size() << ") for tuple of size " << expected_size<< ". Extra tokens will be ignored.";
-        // You could also throw an error here if strict adherence to column count is required.
-    }
-
-    // Now, call the implementation which will do the actual conversions
-    return ImplicitTupleConverter<Ts...>(sv_vec, std::index_sequence_for<Ts...>{});
-}
 
 template <typename... Ts, typename Func>
 void forLineTupleIn(const std::string& fileName, std::string_view delimiter, Func tupleProcessor)
@@ -71,7 +44,7 @@ void forLineTupleIn(const std::string& fileName, std::string_view delimiter, Fun
         {
             std::vector<std::string_view> sv_vec = split(line, delimiter);
             // Convert the vector of string_views into the desired tuple
-            std::tuple<Ts...> parsed_tuple = tupleFromStringViews<Ts...>(sv_vec);
+            std::tuple<Ts...> parsed_tuple = convertTuple<Ts...>(sv_vec);
             // Pass the fully typed tuple to the user's lambda
             tupleProcessor(parsed_tuple);
         }

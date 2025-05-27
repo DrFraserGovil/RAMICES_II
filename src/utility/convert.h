@@ -94,6 +94,24 @@ struct Converter<bool> {
     }
 };
 
+// **NEW SPECIALIZATION FOR char**
+template <>
+struct Converter<char> {
+    static char convert(std::string_view sv)
+    {
+        // Trim whitespace first
+        sv = trim(sv);
+        // A single char conversion should only accept a single character string_view
+        if (sv.length() != 1) {
+            LOG(ERROR) << "Cannot convert string_view '" << sv << "' to char: Expected a single character.";
+            throw std::logic_error("Could not complete conversion: Expected single character.");
+        }
+        return sv[0];
+    }
+    // No need for CheckErrors or RejectEmpty for char, as the length check covers it.
+};
+
+
 // Specialization for double (using std::stod as required by Apple Clang limitation)
 //This is really, really annoying that this is necessary. Apple-clang does not currently support from_chars for non-integral types
 //Have to use the slow version for Apple people (which includes me!)
@@ -242,4 +260,30 @@ template <>
 float inline convert<float>(std::string_view sv)
 {
     return Converter<double>::convert(sv);
+}
+
+
+
+// Helper function to create a tuple from a vector of string_views
+// This uses std::index_sequence and a fold expression for compile-time unpacking
+template <typename... Ts, std::size_t... Is>
+std::tuple<Ts...> ImplicitTupleConverter(const std::vector<std::string_view>& sv_vec,std::index_sequence<Is...>)
+{
+    return std::make_tuple(convert<Ts>(sv_vec[Is])...);
+}
+
+// Main helper to handle size checks and dispatch to the impl function
+template <typename... Ts>
+std::tuple<Ts...> inline convertTuple(const std::vector<std::string_view>& sv_vec)
+{
+    constexpr std::size_t expected_size = sizeof...(Ts);
+    if (sv_vec.size() != expected_size) 
+	{
+        LOG(ERROR) << "Tuple conversion error: Token count in vector (" << sv_vec.size()<< ") does not equal tuple size (" << expected_size <<")";
+        throw std::logic_error("Tuple conversion: Incorrect token count.");
+    }
+    
+
+    // Now, call the implementation which will do the actual conversions
+    return ImplicitTupleConverter<Ts...>(sv_vec, std::index_sequence_for<Ts...>{});
 }
