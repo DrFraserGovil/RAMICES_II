@@ -65,7 +65,7 @@ class SETTINGS_CATEGORY
 			#endif
 		}
 
-		void Parse(const std::string & configFile, std::string delimiter)
+		void Configure(const std::string & configFile, std::string delimiter)
 		{
 			#define SETTING(type, name, defaultValue, trigger) name.Configure(configFile,delimiter);
 			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecdelimiter) name.Configure(configFile,delimiter);
@@ -77,7 +77,15 @@ class SETTINGS_CATEGORY
 			#endif
 		}
 
-
+		template<class T>
+		void ToStream(T & stream, std::string argDelimiter)
+		{
+			#define SETTING(type, name, defaultValue, trigger) stream << name.ToString(argDelimiter) << "\n";  
+			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecDelimiter) stream << name.ToString(argDelimiter,vecDelimiter) << "\n";
+			#include SETTINGS_FILE
+			#undef SETTING
+			#undef SETTING_VECTOR
+		}
 };
 
 #undef SETTINGS_FILE

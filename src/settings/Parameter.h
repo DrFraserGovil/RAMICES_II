@@ -4,6 +4,7 @@
 #include "../utility/convert.h"
 #include "../utility/fileparser.h"
 #include <cctype>
+#include "../utility/MakeString.h"
 extern std::vector<std::string> GlobalParameterStrings;
 
 
@@ -138,6 +139,19 @@ namespace Settings
 					}
 				}	
 				
+			}
+
+			std::string ToString()
+			{
+				return MakeString(Value);
+			}
+			std::string ToString(std::string argDelimiter)
+			{
+				return TriggerString + argDelimiter + MakeString(Value);
+			}
+			std::string ToString(std::string argDelimiter,std::string vecDelimiter)
+			{
+				return TriggerString + argDelimiter + MakeString(Value,vecDelimiter);
 			}
 		private:
 			std::string TriggerString;

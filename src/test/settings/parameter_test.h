@@ -46,6 +46,11 @@ struct SpoofedStructure
 	std::vector<std::string> copyVector;
 	SpoofedStructure(std::vector<std::string> input)
 	{
+		Digest(input);
+	}
+
+	void Digest(std::vector<std::string> input)
+	{
 		copyVector = input;
 		for (const std::string& s : copyVector) {
 			internalVector.push_back(const_cast<char*>(s.c_str()));
