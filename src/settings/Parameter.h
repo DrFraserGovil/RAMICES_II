@@ -5,7 +5,7 @@
 #include "../utility/fileparser.h"
 #include <cctype>
 #include "../utility/MakeString.h"
-extern std::vector<std::string> GlobalParameterStrings;
+#include <unordered_map> 
 
 
 
@@ -26,11 +26,9 @@ namespace Settings
 			std::string VectorParseDelimiter;
 			Parameter(T defaultValue, std::string argument) : InternalValue(defaultValue), TriggerString(argument)
 			{
-				ValidateTriggerString();
 			}
-			Parameter(T defaultValue, std::string argument,std::string vectorDelimiter) : InternalValue(defaultValue), TriggerString(argument)
-			{
-				
+			Parameter(T defaultValue, std::string argument,std::string vectorDelimiter) : Parameter(defaultValue,argument)
+			{			
 				if constexpr (is_vector<T>::value)
 				{
 					hasParseDelimiter = true;
@@ -40,7 +38,6 @@ namespace Settings
 				{
 					throw std::logic_error("You cannot pass a vector-delimiter to a non-vector Parameter");
 				}
-				ValidateTriggerString();
 			}
 			Parameter(T defaultValue, std::string argument,int argc, char * argv[]) : Parameter(defaultValue,argument) //calling this here means the destructor is called if Parse throws an error
 			{
@@ -52,15 +49,6 @@ namespace Settings
 				Parse(argc,argv);
 			}
 
-			~Parameter()
-			{
-				auto it = std::find(GlobalParameterStrings.begin(), GlobalParameterStrings.end(), TriggerString);
-				if (it != GlobalParameterStrings.end())
-				{
-					GlobalParameterStrings.erase(it);
-				}
-				
-			}
 
 			void SetValue(T value)
 			{
@@ -172,29 +160,42 @@ namespace Settings
 			{
 				return TriggerString + argDelimiter + MakeString(InternalValue,vecDelimiter);
 			}
+
+			//check no naming conflicts
+			void ValidateTrigger(std::unordered_map<std::string, std::string> & triggerRegister,std::string parentName)
+			{
+				// Attempt to insert the TriggerString as the key and its parentName as the value
+                // insert() returns a pair: {iterator to element, bool indicating if insertion happened}
+                auto [it, inserted] = triggerRegister.insert({TriggerString, parentName});
+
+                // If 'inserted' is false, it means TriggerString was already a key in the map
+                if (!inserted)
+                {
+                    // The iterator 'it' now points to the existing element
+                    throw std::logic_error("Settings::Parameter objects must have a unique argument identifier. '" + TriggerString + "' is already in use."
+                                           " First defined in category '" + it->second + "'." // Access the value of the existing element
+                                           " Found again in category '" + parentName + "'."); // Current category name
+                }
+                // If 'inserted' is true, the trigger was successfully added, no error thrown.
+			}
+
+			//the Trigger String is usually an invariant. It is useful when unit testing to be able to change them, however. 
+			//This is not a part of the standard API, so ignore this!
+			#ifdef UNITTEST 
+				void SetTrigger(std::string newtrigger)
+				{
+					TriggerString = newtrigger;
+				}
+				std::string GetTrigger()
+				{
+					return TriggerString;
+				}
+			#endif
 		private:
 			T InternalValue;
 			std::string TriggerString;
 			
-			//check no naming conflicts
-			void ValidateTriggerString()
-			{
-				if (TriggerString == "help" || TriggerString == "h")
-				{
-					throw std::logic_error("'help' and 'h' are reserved strings. You cannot create a Settings::Parameter object with this trigger string");
-				}
-
-				for (std::string existingTrigger : GlobalParameterStrings)
-				{
-					if (TriggerString == existingTrigger)
-					{
-						throw std::logic_error("Settings::Parameter objects must have a unique argument identifier. '" + TriggerString + "' is already in use");
-					}
-				}
-
-				//if it passed the tests, add the TriggerString to the back of the global list
-				GlobalParameterStrings.push_back(TriggerString);
-			}
+			
 
 			bool NextElementIsValue(char * nextElement)
 			{

@@ -32,6 +32,12 @@
 #ifndef SETTINGS_CATEGORY
 	#error "Must define a settings category
 #endif
+
+//allows conversion of the macro into a string with a layer of indirection
+#define STRINGIFY0(v) #v
+#define STRINGIFY(v) STRINGIFY0(v)
+
+
 #include <string>
 #include "Parameter.h"
 class SETTINGS_CATEGORY
@@ -40,7 +46,6 @@ class SETTINGS_CATEGORY
 		#define SETTING(type, name, defaultValue, trigger) Settings::Parameter<type> name =  Settings::Parameter<type>(defaultValue,trigger);
 		#define SETTING_VECTOR(type,name,defaultValue,trigger,delimiter)  Settings::Parameter<type> name =  Settings::Parameter<type>(defaultValue,trigger,delimiter) ;
 		#include SETTINGS_FILE // Include the specific settings list
-		#undef SETTING_DEF
 		#undef SETTING
 		#undef SETTING_VECTOR
 
@@ -82,6 +87,15 @@ class SETTINGS_CATEGORY
 		{
 			#define SETTING(type, name, defaultValue, trigger) stream << name.ToString(argDelimiter) << "\n";  
 			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecDelimiter) stream << name.ToString(argDelimiter,vecDelimiter) << "\n";
+			#include SETTINGS_FILE
+			#undef SETTING
+			#undef SETTING_VECTOR
+		}
+
+		void ValidateTriggers(std::unordered_map<std::string, std::string> & triggerRegister)
+		{
+			#define SETTING(type, name, defaultValue, trigger) name.ValidateTrigger(triggerRegister,STRINGIFY(SETTINGS_CATEGORY));  
+			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecDelimiter) name.ValidateTrigger(triggerRegister,STRINGIFY(SETTINGS_CATEGORY));
 			#include SETTINGS_FILE
 			#undef SETTING
 			#undef SETTING_VECTOR

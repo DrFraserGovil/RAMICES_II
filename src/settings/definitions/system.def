@@ -1,4 +1,5 @@
 SETTING(size_t,Verbosity,2,"v")
+SETTING(bool,UseLogHeaders,true,"log-headers")
 SETTING(size_t,ParallelThreads,1,"thread")
 SETTING(std::string,Output,"output.gce","o")
 SETTING(std::string,ArchiveExtension,".gce","extension");

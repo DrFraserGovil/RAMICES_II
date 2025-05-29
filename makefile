@@ -12,6 +12,9 @@ CC = g++
 CXXFLAGS = -std=c++20 -pthread -O3 -Wall
 LDFLAGS = -lpthread
 
+#additional options when compiling the test -- mostly a global '#define UNITTEST'
+TEST_CXXFLAGS = $(CXXFLAGS) -DUNITTEST
+
 # Dependency Flags
 DEPFLAGS = -MMD -MP
 
@@ -76,7 +79,7 @@ test: $(TEST_OBJECTS)
 $(BUILD_TEST_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(dir $@)
 	@echo "Compiling $< for $(TEST_RUNNER)..."
-	$(CC) $(CXXFLAGS) $(DEPFLAGS) -c -o $@ $<
+	$(CC) $(TEST_CXXFLAGS) $(DEPFLAGS) -c -o $@ $<
 
 # Run Tests
 .PHONY: full

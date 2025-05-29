@@ -24,22 +24,6 @@ TEST_CASE("Basic Parameter behaviour","[parameter][settings]")
 	REQUIRE(msg.empty()); //but this time no error
 }
 
-TEST_CASE("Parameters have unique identifiers","[parameter][settings][errors]")
-{
-	using Settings::Parameter;
-	Parameter<int> P(5,"test");
-
-	REQUIRE_THROWS(Parameter<double>(3.4,"test"));
-	REQUIRE_NOTHROW(Parameter<double>(3.4,"test2"));
-	
-	//check destructor
-	{
-		Parameter<int> Q(10,"nameFreedWhenOutOfScope");
-		REQUIRE_THROWS(Parameter<int>(10,"nameFreedWhenOutOfScope"));
-	}
-	REQUIRE_NOTHROW(Parameter<int>(10,"nameFreedWhenOutOfScope"));
-}
-
 
 //generates a suitable argc/argv pair from an input vector<string>
 //surprisingly difficult to generate -- need to ensure the object the pointers refer to remain in scope

@@ -111,14 +111,11 @@ TEST_CASE("Writing Settings to file (and recovering it)","[settings][save]")
 	std::stringstream capture;
 	
 	SettingsValidator SavedToFile;
-	SavedToFile.TestVector.SetValue(std::vector<int>({1,2,3,4,5,6}));
+	SavedToFile.TestVector.SetValue(std::vector<int>({1,2,3,4,5,6}),true);
 	REQUIRE_NOTHROW(SavedToFile.ToStream(capture,"__"));
 	MockFile file;
 	file << capture.str();
 
-	//do something very bad -- we're duplicating a settings entity which will throw errors
-	//therefore clear the global register
-	GlobalParameterStrings.clear();
 
 
 	SettingsValidator Recovered;
