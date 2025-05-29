@@ -45,7 +45,7 @@ class SETTINGS_CATEGORY
 {
 	public:
 		#define SETTING(type, name, defaultValue, trigger, description) Settings::Parameter<type> name =  Settings::Parameter<type>(defaultValue,trigger);
-		#define SETTING_VECTOR(type,name,defaultValue,trigger,delimiter)  Settings::Parameter<type> name =  Settings::Parameter<type>(defaultValue,trigger,delimiter) ;
+		#define SETTING_VECTOR(type,name,defaultValue,trigger,delimiter)  Settings::Parameter<type> name =  Settings::Parameter<type>(defaultValue,trigger,delimiter, description) ;
 		#include SETTINGS_FILE // Include the specific settings list
 		#undef SETTING
 		#undef SETTING_VECTOR
@@ -61,7 +61,7 @@ class SETTINGS_CATEGORY
 		void Parse(int argc, char**argv)
 		{
 			#define SETTING(type, name, defaultValue, trigger, description) name.Parse(argc, argv);
-			#define SETTING_VECTOR(type, name, defaultValue, trigger, delimiter) name.Parse(argc, argv);
+			#define SETTING_VECTOR(type, name, defaultValue, trigger, delimiter, description) name.Parse(argc, argv);
 			#include SETTINGS_FILE
 			#undef SETTING
 			#undef SETTING_VECTOR
@@ -74,7 +74,7 @@ class SETTINGS_CATEGORY
 		void Configure(const std::string & configFile, std::string delimiter)
 		{
 			#define SETTING(type, name, defaultValue, trigger, description) name.Configure(configFile,delimiter);
-			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecdelimiter) name.Configure(configFile,delimiter);
+			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecdelimiter, description) name.Configure(configFile,delimiter);
 			#include SETTINGS_FILE
 			#undef SETTING
 			#undef SETTING_VECTOR
@@ -87,7 +87,7 @@ class SETTINGS_CATEGORY
 		void ToStream(T & stream, std::string argDelimiter)
 		{
 			#define SETTING(type, name, defaultValue, trigger, description) stream << name.ToString(argDelimiter) << "\n";  
-			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecDelimiter) stream << name.ToString(argDelimiter,vecDelimiter) << "\n";
+			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecDelimiter, description) stream << name.ToString(argDelimiter,vecDelimiter) << "\n";
 			#include SETTINGS_FILE
 			#undef SETTING
 			#undef SETTING_VECTOR
@@ -97,7 +97,7 @@ class SETTINGS_CATEGORY
 		void ValidateTriggers(std::unordered_map<std::string, std::string> & triggerRegister)
 		{
 			#define SETTING(type, name, defaultValue, trigger, description) name.ValidateTrigger(triggerRegister,STRINGIFY(SETTINGS_CATEGORY));  
-			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecDelimiter) name.ValidateTrigger(triggerRegister,STRINGIFY(SETTINGS_CATEGORY));
+			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecdelimiter, description) name.ValidateTrigger(triggerRegister,STRINGIFY(SETTINGS_CATEGORY));
 			#include SETTINGS_FILE
 			#undef SETTING
 			#undef SETTING_VECTOR
@@ -110,7 +110,7 @@ class SETTINGS_CATEGORY
 			HelpMessages message;
 			message.Name = STRINGIFY(SETTINGS_CATEGORY);
 			#define SETTING(type, name, defaultValue, trigger, description) message.AddMessage(name.GetTrigger(),(type)(defaultValue),STRINGIFY(name),description);
-			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecDelimiter) message.AddMessage(name.GetTrigger(),(type)(defaultValue),STRINGIFY(name),"");
+			#define SETTING_VECTOR(type, name, defaultValue, trigger, vecdelimiter, description) message.AddMessage(name.GetTrigger(),(type)(defaultValue),STRINGIFY(name),description);
 			#include SETTINGS_FILE
 			#undef SETTING
 			#undef SETTING_VECTOR
