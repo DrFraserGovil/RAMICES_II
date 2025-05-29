@@ -40,6 +40,7 @@
 
 #include <string>
 #include "Parameter.h"
+#include "HelpMessages.h"
 class SETTINGS_CATEGORY
 {
 	public:

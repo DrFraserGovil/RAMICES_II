@@ -1,5 +1,5 @@
-SETTING(int,TestInt,3,"int")
-SETTING(double,TestDouble,0.0,"double")
-SETTING(bool,TestBool,false,"bool")
-SETTING(std::vector<int>,TestVector,std::vector<int>({3,4,5}),"vector")
+SETTING(int,TestInt,3,"int","spoofint")
+SETTING(double,TestDouble,0.0,"double","spooftest")
+SETTING(bool,TestBool,false,"bool","spoof")
+SETTING(std::vector<int>,TestVector,std::vector<int>({3,4,5}),"vector","spoof")
 
