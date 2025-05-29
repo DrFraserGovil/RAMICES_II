@@ -100,7 +100,7 @@ class LoggerCore
             switch(Level) {
                 case DEBUG: fmt = "\033[34m";label = "[DEBUG] "; break;
                 case INFO: fmt="\033[37m";label = "[INFO]  "; break;
-                case WARN: fmt="\033[33m";label = "[WARN]  "; break;
+                case WARN: fmt="\033[38;5;141m";label = "[WARN]  "; break;
                 case ERROR: fmt="\033[31m";label = "[ERROR] "; break;
             } 
             if (LogConfig.TerminalOutput)

@@ -21,14 +21,14 @@ namespace Settings
 	class Parameter
 	{
 		public:
-			T Value;
+			
 			bool hasParseDelimiter=false;
 			std::string VectorParseDelimiter;
-			Parameter(T defaultValue, std::string argument) : Value(defaultValue), TriggerString(argument)
+			Parameter(T defaultValue, std::string argument) : InternalValue(defaultValue), TriggerString(argument)
 			{
 				ValidateTriggerString();
 			}
-			Parameter(T defaultValue, std::string argument,std::string vectorDelimiter) : Value(defaultValue), TriggerString(argument)
+			Parameter(T defaultValue, std::string argument,std::string vectorDelimiter) : InternalValue(defaultValue), TriggerString(argument)
 			{
 				
 				if constexpr (is_vector<T>::value)
@@ -62,19 +62,38 @@ namespace Settings
 				
 			}
 
-			//! Allow the Argument object to be implicitly cast into the value of #Value, and hence treated as an object of the templated type.
+			void SetValue(T value)
+			{
+				SetValue(value,false);
+			}
+			void SetValue(T value, bool confirmSafe)
+			{
+				if (!confirmSafe)
+				{
+					LOG(WARN) << "Parameter with signature -" << TriggerString << " modified by non-standard means to a value of " << ToString() << ".\n\tParameter values should normally only be modified via parsing/configuration.\n\tPlease ensure this was intended behaviour.";
+				}
+				InternalValue = value;
+
+			}
+
+			const T & Value()
+			{
+				return InternalValue;
+			}
+
+			//! Allow the Argument object to be implicitly cast into the value of #InternalValue, and hence treated as an object of the templated type.
 			operator T()
 			{
-				return Value;
+				return InternalValue;
 			}
 			
 			//! Annoying const version
 			operator T() const
 			{
-				return Value;
+				return InternalValue;
 			}
 
-			//!Iterate through a configuration file, extracting Name/Value pairs and calling Parse() in them. Each Name/Value pair should be on a new line in the file, and separated by the *configDelimiter*. \param configFile The path to the file to open and parse for configuration data \param configDelimiter The delimiter used to separate Name/Value pairs in the cofiguration file
+			//!Iterate through a configuration file, extracting Name/InternalValue pairs and calling Parse() in them. Each Name/InternalValue pair should be on a new line in the file, and separated by the *configDelimiter*. \param configFile The path to the file to open and parse for configuration data \param configDelimiter The delimiter used to separate Name/InternalValue pairs in the cofiguration file
 			void Configure(std::string configFile, std::string configDelimiter)
 			{
 				forSplitLineIn(configFile,configDelimiter,[&](auto linevec)
@@ -106,7 +125,7 @@ namespace Settings
 				
 			}
 			
-			//!Iterate through the provided commandline args, extracting Name/Value pairs and calling Parse() on them. \param argc The number of arguments passed to the program \param argv[] The argument list (argv[0] is assumed to be the the name of the program, and is ignored)
+			//!Iterate through the provided commandline args, extracting Name/InternalValue pairs and calling Parse() on them. \param argc The number of arguments passed to the program \param argv[] The argument list (argv[0] is assumed to be the the name of the program, and is ignored)
 			void Parse( int argc, char * argv[])
 			{
 				bool foundTrigger= false;
@@ -125,7 +144,7 @@ namespace Settings
 						{
 							if constexpr (std::is_same_v<bool, T>)
 							{
-								Value = true;
+								InternalValue = true;
 							}
 							else
 							{
@@ -143,17 +162,18 @@ namespace Settings
 
 			std::string ToString()
 			{
-				return MakeString(Value);
+				return MakeString(InternalValue);
 			}
 			std::string ToString(std::string argDelimiter)
 			{
-				return TriggerString + argDelimiter + MakeString(Value);
+				return TriggerString + argDelimiter + MakeString(InternalValue);
 			}
 			std::string ToString(std::string argDelimiter,std::string vecDelimiter)
 			{
-				return TriggerString + argDelimiter + MakeString(Value,vecDelimiter);
+				return TriggerString + argDelimiter + MakeString(InternalValue,vecDelimiter);
 			}
 		private:
+			T InternalValue;
 			std::string TriggerString;
 			
 			//check no naming conflicts
@@ -196,16 +216,16 @@ namespace Settings
 				{
 					if (hasParseDelimiter)
 					{
-						Value = convert<T>(sv,VectorParseDelimiter);
+						InternalValue = convert<T>(sv,VectorParseDelimiter);
 					}
 					else
 					{
-						Value = convert<T>(sv);
+						InternalValue = convert<T>(sv);
 					}
 				}
 				else
 				{
-					Value = convert<T>(sv);
+					InternalValue = convert<T>(sv);
 				}
 			}
 	};

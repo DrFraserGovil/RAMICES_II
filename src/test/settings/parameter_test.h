@@ -13,10 +13,15 @@ TEST_CASE("Basic Parameter behaviour","[parameter][settings]")
 
 	//....unless it's a string, because they're weird
 	Parameter<std::string> P2("hi","test2");
-	REQUIRE(P2.Value == "hi");
+	REQUIRE(P2.Value() == "hi");
 
-	P2.Value = "toast";
-	REQUIRE(P2.Value == "toast"); //internal values are mutable
+	auto msg = capture_stdout([&](){ P2.SetValue("toast");});
+	REQUIRE(P2.Value() == "toast"); //internal values are mutable
+	REQUIRE_THAT(msg,ContainsSubstring("[WARN]")); //but throw a warning if you modify them without confirming that's what you want
+
+	msg = capture_stdout([&](){ P2.SetValue("eggs",true);});
+	REQUIRE(P2.Value() == "eggs"); //still mutable
+	REQUIRE(msg.empty()); //but this time no error
 }
 
 TEST_CASE("Parameters have unique identifiers","[parameter][settings][errors]")
@@ -75,14 +80,14 @@ TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 
 		Parameter<int> arg1(1,"arg1");
 		REQUIRE_NOTHROW(arg1.Parse(cmd.argc,cmd.argv)); //just for safety
-		REQUIRE(arg1.Value == -5); //check that value has been updated
+		REQUIRE(arg1.Value() == -5); //check that value has been updated
 		
 		Parameter<std::string>arg2("none","arg2");
 		REQUIRE_NOTHROW(arg2.Parse(cmd.argc,cmd.argv)); //just for safety
-		REQUIRE(arg2.Value == "chicken"); //check that value has been updated
+		REQUIRE(arg2.Value() == "chicken"); //check that value has been updated
 		Parameter<bool>arg3(true,"arg3");
 		REQUIRE_NOTHROW(arg3.Parse(cmd.argc,cmd.argv)); //just for safety
-		REQUIRE(arg3.Value == false); //check that value has been updated
+		REQUIRE(arg3.Value() == false); //check that value has been updated
 	}
 
 	SECTION("Mutability - can read int-strings as doubles")
@@ -90,7 +95,7 @@ TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 		SpoofedStructure cmd(initialList);
 		Parameter<double>arg1Double(1,"arg1");
 		arg1Double.Parse(cmd.argc,cmd.argv);
-		REQUIRE_THAT(arg1Double.Value,WithinAbs(-5.0,1e-15));
+		REQUIRE_THAT(arg1Double.Value(),WithinAbs(-5.0,1e-15));
 	}
 
 	SECTION("Boolean flag behaviour")
@@ -137,7 +142,7 @@ TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 
 			Parameter<std::string> stringTest("null","arg2");
 			stringTest.Configure(file.Path," ");
-			REQUIRE(stringTest.Value == "hello world");
+			REQUIRE(stringTest.Value() == "hello world");
 
 			{
 				Parameter<int> vecThrow(0,"arg3");

@@ -76,7 +76,7 @@ void SettingsValidator::Validate()
 {
 	if (TestInt < 0)
 	{
-		TestDouble.Value = 8;
+		TestDouble.SetValue(8,true);
 	}
 }
 TEST_CASE("Settings-Macro with validation","[settings][parse][configure][validation]")
@@ -105,12 +105,13 @@ TEST_CASE("Settings-Macro with validation","[settings][parse][configure][validat
 	}
 }
 
+typedef std::vector<int> vec;
 TEST_CASE("Writing Settings to file (and recovering it)","[settings][save]")
 {
 	std::stringstream capture;
 	
 	SettingsValidator SavedToFile;
-	SavedToFile.TestVector.Value = {1,2,3,4,5,6};
+	SavedToFile.TestVector.SetValue(std::vector<int>({1,2,3,4,5,6}));
 	REQUIRE_NOTHROW(SavedToFile.ToStream(capture,"__"));
 	MockFile file;
 	file << capture.str();
@@ -126,10 +127,12 @@ TEST_CASE("Writing Settings to file (and recovering it)","[settings][save]")
 	REQUIRE(SavedToFile.TestInt == Recovered.TestInt);
 	REQUIRE(SavedToFile.TestDouble == Recovered.TestDouble);
 	REQUIRE(SavedToFile.TestBool == Recovered.TestBool);
-	REQUIRE(SavedToFile.TestVector.Value.size() == Recovered.TestVector.Value.size());
+	
+	int initialSize =((vec)SavedToFile.TestVector).size();
+	REQUIRE(initialSize == ((vec)Recovered.TestVector).size());
 
-	for (int i = 0; i < Recovered.TestVector.Value.size(); ++i)
+	for (int i = 0; i < initialSize; ++i)
 	{
-		REQUIRE(SavedToFile.TestVector.Value[i] == Recovered.TestVector.Value[i]);
+		REQUIRE(((vec)SavedToFile.TestVector)[i] == ((vec)Recovered.TestVector)[i]);
 	}
 }
