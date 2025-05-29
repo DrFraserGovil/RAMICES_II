@@ -3,6 +3,7 @@
 #define SETTINGS_CATEGORY SystemSettings
 #define SETTINGS_FILE "definitions/system.def"
 #define SETTINGS_VALIDATE
+#include "HelpMessages.h"
 #include "SettingsConstructor.h"
 void SystemSettings::Validate()
 {

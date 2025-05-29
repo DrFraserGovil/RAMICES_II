@@ -4,17 +4,12 @@
 #include "utility/Timer.h"
 #include "utility/Random.h"
 
-#include "settings/SettingGroups.h"
+#include "settings/SimulationSettings.h"
 int main(int argc, char ** argv)
 {
+   SimulationSettings Settings;
+   Settings.Initialise(argc,argv);
    
-   
-    System S;
-    S.Parse(argc,argv);
-    LogConfig.SetLevel(S.Verbosity);
-    
-    LOG(INFO) << S.Verbosity;
-
 
     return (0);
 }

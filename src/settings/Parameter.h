@@ -186,11 +186,11 @@ namespace Settings
 				{
 					TriggerString = newtrigger;
 				}
-				std::string GetTrigger()
-				{
-					return TriggerString;
-				}
 			#endif
+			std::string GetTrigger()
+			{
+				return TriggerString;
+			}
 		private:
 			T InternalValue;
 			std::string TriggerString;

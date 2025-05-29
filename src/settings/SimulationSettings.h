@@ -1,7 +1,11 @@
 #pragma once
+#include <string>
 #include "SettingGroups.h"
 #include "../utility/Log.h"
+#include "HelpMessages.h"
 const std::string NULLFILE= "__none__";
+
+
 class SimulationSettings
 {
 	public:
@@ -23,9 +27,7 @@ class SimulationSettings
 
 		void Initialise(int argc, char**argv)
 		{
-			//read these first because they tell us if a config file exists
-			ConfigureFile.Parse(argc,argv);
-			ConfigureDelimiter.Parse(argc,argv);
+			SpecialCommandParsers(argc,argv);
 
 			//configure *first*
 			if (ConfigureFile.Value() != NULLFILE)
@@ -51,6 +53,57 @@ class SimulationSettings
 	private:
 		Settings::Parameter<std::string> ConfigureFile = Settings::Parameter<std::string>(NULLFILE,"config");
 		Settings::Parameter<std::string> ConfigureDelimiter= Settings::Parameter<std::string>(" ","config-delimiter");
+
+		Settings::Parameter<bool> QuickHelp = Settings::Parameter<bool>(false,"h");
+		Settings::Parameter<bool> Help = Settings::Parameter<bool>(false,"help"); //need both because I'm limited to one-trigger-per parameter!
+
+		void SpecialCommandParsers(int argc,char**argv)
+		{
+			//read these first because they tell us if a config file exists
+			ConfigureFile.Parse(argc,argv);
+			ConfigureDelimiter.Parse(argc,argv);
+			QuickHelp.Parse(argc,argv);
+			Help.Parse(argc,argv);
+
+			//!now the most special of all
+			if (QuickHelp.Value() || Help.Value())
+			{
+				HelpMessage();
+			}
+		}
+
+		void HelpMessage()
+		{
+			std::cout << "\nRAMICES III Help Page\n\n\tUsage: ramices [options]\n\n";
+			
+			HelpMessages SpecialMessage;
+			SpecialMessage.Name = "SpecialSettings";
+			SpecialMessage.AddMessage("configure",std::string("__none__"),"ConfigureFile","When not equal to '__none__', the system will attempt to read this file in as a configuration file.\nConfiguration files work the same as command line arguments, each line should contain a singleflag and a value\nIMPORTANT: Flags in config files omit the '-'");
+			SpecialMessage.AddMessage("configure-delimiter",std::string(" "),"ConfigureDelimiter","The string which separates the flag from the values in the config file.\nOnly the first instance of the flag is counted, subsequent occurrences are ignored.");
+			SpecialMessage.AddMessage("h,  -help",false,"Help","When true, activates the help page, then exits");
+
+			std::vector<HelpMessages> Messages({SpecialMessage});
+
+			
+			
+			#define S_GROUP(type,name) Messages.push_back(name.CryForHelp());
+			SETTINGS_GROUPS
+			#undef S_GROUP
+			
+			std::pair<int,int> sizeBuffer({0,0});
+			for (auto message : Messages)
+			{
+				message.scanSizes(sizeBuffer);
+			}
+			for (auto message : Messages)
+			{
+				message.print(sizeBuffer);
+			}
+			// #define S_GROUP(type,name) name.CryForHelp();
+			// SETTINGS_GROUPS
+			// #undef S_GROUP
+			exit(1);
+		}
 
 		void ParseAll(int argc, char**argv)
 		{

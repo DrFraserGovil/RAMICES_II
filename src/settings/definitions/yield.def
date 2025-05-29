@@ -1,3 +1,3 @@
-SETTING(double,EjectionFraction,0.45,"eject")
-SETTING(double,TargetNi56Yield,0.1,"ideal-ni56")
-SETTING(double,SNIaDelayTime,0.2,"sn1a-delay")
+SETTING(double,EjectionFraction,0.45,"eject","The fraction of stellar ejecta placed into the CGM")
+SETTING(double,TargetNi56Yield,0.1,"ideal-ni56","The Ni56 calibration value for SNII events (solar masses)")
+SETTING(double,SNIaDelayTime,0.2,"sn1a-delay","The delay time between a progenitor dying and the initiation of SNIa events (Gyr)")
