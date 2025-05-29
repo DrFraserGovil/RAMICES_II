@@ -1,0 +1,4 @@
+SETTING(double,FeedbackFactor,0.5,"feedback-heat")
+SETTING(double,HotInjection_CCSN,0.7,"hot-ccsn")
+SETTING(double,HotInjection_AGB,0.4,"hot-agb")
+SETTING(double,HotInjection_SN1a,0.4,"hot-sn1a")

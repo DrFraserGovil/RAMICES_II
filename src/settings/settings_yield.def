@@ -1,0 +1,3 @@
+SETTING(double,EjectionFraction,0.45,"eject")
+SETTING(double,TargetNi56Yield,0.1,"ideal-ni56")
+SETTING(double,SNIaDelayTime,0.2,"sn1a-delay")

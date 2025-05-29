@@ -1,0 +1,5 @@
+SETTING(double,MaxStellarMass,100,"max-star-mass")
+SETTING(double,MinStellarMass,0.1,"min-star-mass")
+SETTING(double,MaxLogZ,-0.1,"max-star-logz")
+SETTING(double,MinLogZ,-6,"min-star-logz")
+SETTING(int,MetallicityResolution,100,"logz-resolution")
