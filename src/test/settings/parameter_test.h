@@ -5,7 +5,7 @@
 #include "../mock/coutCatch.h"
 TEST_CASE("Basic Parameter behaviour","[parameter][settings]")
 {
-	using Settings::Parameter;
+	using Setting::Parameter;
 	Parameter<int> P(5,"test");
 
 	//Parameter<T> acts as if it were of type T under equality
@@ -51,7 +51,7 @@ struct SpoofedStructure
 
 TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 {
-	using Settings::Parameter;
+	using Setting::Parameter;
 	
 	std::vector<std::string> initialList = {"spoofed_name","-arg1","-5","-arg2","chicken","-arg3","0"};
 	

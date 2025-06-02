@@ -9,7 +9,7 @@
 
 
 
-namespace Settings
+namespace Setting
 {
 	//some help metafunctions to help identify vector types
 	template <typename T>
@@ -172,7 +172,7 @@ namespace Settings
                 if (!inserted)
                 {
                     // The iterator 'it' now points to the existing element
-                    throw std::logic_error("Settings::Parameter objects must have a unique argument identifier. '" + TriggerString + "' is already in use."
+                    throw std::logic_error("Setting::Parameter objects must have a unique argument identifier. '" + TriggerString + "' is already in use."
                                            " First defined in category '" + it->second + "'." // Access the value of the existing element
                                            " Found again in category '" + parentName + "'."); // Current category name
                 }

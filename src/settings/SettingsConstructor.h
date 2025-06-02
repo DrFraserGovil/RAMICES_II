@@ -1,8 +1,8 @@
 /*
-	This is an X-Macro which constructs container-classes for Settings::Parameter objects
+	This is an X-Macro which constructs container-classes for Setting::Parameter objects
 	Parameters should be define in a .def file using the following syntax: 
 
-		Settings::Parameter<type> Name(defaultValue, triggerString)  -->   SETTING(type, Name, defaultValue, trigger, description)
+		Setting::Parameter<type> Name(defaultValue, triggerString)  -->   SETTING(type, Name, defaultValue, trigger, description)
 
 	A SETTING_VECTOR also exists, which allows a 5th parameter:  SETTING_VECTOR(type, Name, defaultValue, trigger, vectorStringDelimiter)
 	
@@ -12,7 +12,7 @@
 		#define SETTINGS_FILE example.def //this is the file containing the SETTINGs
 		#include "/path/SettingsConstructor.h" //this file
 
-	This constructs a class named `Example' with member variables equal to each of the Settings. 
+	This constructs a class named `Example' with member variables equal to each of the Setting. 
 	Calling .Parse() and .Configure() on this class will call them sequentially on all member variables.
 
 	Optionally, you may declare:
@@ -44,8 +44,8 @@
 class SETTINGS_CATEGORY
 {
 	public:
-		#define SETTING(type, name, defaultValue, trigger, description) Settings::Parameter<type> name =  Settings::Parameter<type>(defaultValue,trigger);
-		#define SETTING_VECTOR(type,name,defaultValue,trigger,delimiter)  Settings::Parameter<type> name =  Settings::Parameter<type>(defaultValue,trigger,delimiter, description) ;
+		#define SETTING(type, name, defaultValue, trigger, description) Setting::Parameter<type> name =  Setting::Parameter<type>(defaultValue,trigger);
+		#define SETTING_VECTOR(type,name,defaultValue,trigger,delimiter)  Setting::Parameter<type> name =  Setting::Parameter<type>(defaultValue,trigger,delimiter, description) ;
 		#include SETTINGS_FILE // Include the specific settings list
 		#undef SETTING
 		#undef SETTING_VECTOR

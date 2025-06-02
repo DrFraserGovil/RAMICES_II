@@ -51,7 +51,7 @@ struct MakeStringStruct<std::string, void> {
 template<typename T_Inner>
 struct MakeStringStruct<std::vector<T_Inner>, void> {
     // This `convert` function takes an additional `delimiter_str` argument.
-    // The `Settings::Parameter` object (which stores the delimiter) will provide this.
+    // The `Setting::Parameter` object (which stores the delimiter) will provide this.
 
 	static std::string convert(const std::vector<T_Inner>& vec)
 	{

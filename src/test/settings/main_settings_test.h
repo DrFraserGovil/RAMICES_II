@@ -33,7 +33,7 @@ TEST_CASE("Container enforces string uniqueness","[settings][parameter]")
 	*/
 
 
-	REQUIRE_NOTHROW(Settings::Parameter<bool>(false,Settings.Thermal.FeedbackFactor.GetTrigger())); //trigger-guards are non-global, so can do this (but probably shouldn't)
+	REQUIRE_NOTHROW(Setting::Parameter<bool>(false,Settings.Thermal.FeedbackFactor.GetTrigger())); //trigger-guards are non-global, so can do this (but probably shouldn't)
 	Settings.System.ParallelThreads.SetTrigger(Settings.Thermal.FeedbackFactor.GetTrigger());
 	REQUIRE_THROWS(Settings.Validate());
 }

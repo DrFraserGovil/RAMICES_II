@@ -562,4 +562,58 @@
 			\end{cases}
 		\end{align}
 		We note again that these results are very similar to those computed for $\mathcal{F}$, but the distribution is now a `linear step' (and an integral thereof), rather than a triangle function. This is because the observation is a snapshot, rather than a window.
+
+	\newpage 
+	\section{It's Just a Phase}
+
+		In the original R1 and R2 code, the gas phase was split into two components; a hot phase and a gas phase. Stars formed from the cold gas phase, ejected their matter mostly into the hot phase, which then cooled into the cold phase. 
+		\begin{center}
+			\begin{tikzpicture}
+				\node[draw] (cold) at (0,0) {Cold ISM};
+				\node[draw] (hot) at (3,3) {Hot ISM};
+				\node[draw] (stars) at (6,0) {Stars};
+
+				\draw[->] (cold)--++(0,3) node[above]{\small Feedback}--(hot);
+				\draw[->] (cold)--(stars)  node[midway,below]{\small SFR};
+				\draw[->] (hot)--++(0,-1) --++(-2.9,0)node[above,midway]{\small Cooling}--++(0,-1.7);
+				\node at (6,2) (break) {};
+				\draw[->] (stars) --++(0,1.5) node[midway,right]{\small Ejecta} --++(-1,0)--++(0,1.5)--(hot);
+				\draw[->] (5,1.5) --++(-4.8,0)--++(0,-1.2);
+				% \draw[->] (break)
+				% \draw[->] (hot)--++(0,-1) --++(-2.9,0)node[above right]{\small Cooling}--++(0,-1.7);
+				% \draw
+			\end{tikzpicture}
+		\end{center} 
+
+		The equations governing this were quite simple, for the hot, cold and stellar masses, we find the global equations are:
+		\begin{align}
+			\dot{M}_c &= R_\text{cool} - f_\text{feedback} - \rho_\text{sfr} + (1-f_h) Y_\text{eject}
+			\\
+			\dot{M}_h &= -R_\text{cool} + f_\text{feedback} + f_h Y_\text{eject}
+			\\
+			\dot{M}_* & = \rho_\text{sfr} - \mu_\text{death}
+		\end{align}
+		For elemental species, it is trivial to find that, assuming these processes are element-invariant: and $\xi_y^x = \frac{M_y^x}{M_y}$ is the fraction of gas in phase $y$ which is element $x$:
+		\begin{align}
+			\dot{M}_c^x &= R_\text{cool}\xi_h^x - f_\text{feedback}\xi_c^x - \rho_\text{sfr}\xi_c^x + (1-f_h) Y^x_\text{eject}
+			\\
+			\dot{M}_h &= -R_\text{cool}\xi_h^x  + f_\text{feedback}\xi_c^x  + f_h Y^x_\text{eject}
+		\end{align}
+		Most of these processes have a simple analytical expression in R1 (and indeed, R2):
+		\begin{align}
+			\rho_\text{sfr} &= \alpha M_c^n
+			\\
+			R_\text{cool} & = \lambda M_h
+			\\
+			f_\text{feedback} & = \eta \rho_\text{sfr}
+		\end{align}
+		It is only the connection between death rate and yield which was complex (determined by yield grids and isochrones). For the purposes of this demonstration, we will assume a simple form for these:
+		\begin{align}
+			\mu_\text{death} & = \mu M_*
+			\\
+			Y^x_\text{eject} & = (1-f_\text{remnant}) y_x \mu_\text{death}
+		\end{align}
+		We also assume that $M_c$ is fed by a constant amount of (pristine) cold gas. 
+
+		Nominally what we have here are a bunch of coupled differential equations which (in the case $n=1$), can be analytically solved (this is what my SACEM paper did). Practically speaking, it's easier just to simulate it, however.
 \end{document}

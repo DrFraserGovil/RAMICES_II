@@ -1,11 +1,11 @@
 #pragma once
+#include "HelpMessages.h"
 
 #define SETTINGS_CATEGORY SystemSettings
 #define SETTINGS_FILE "definitions/system.def"
 #define SETTINGS_VALIDATE
-#include "HelpMessages.h"
 #include "SettingsConstructor.h"
-void SystemSettings::Validate()
+void inline SystemSettings::Validate()
 {
 	if (Verbosity > 3)
 	{

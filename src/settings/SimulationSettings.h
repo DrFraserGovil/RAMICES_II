@@ -6,6 +6,9 @@
 const std::string NULLFILE= "__none__";
 
 
+//This is a manager object for a number of Settings. 
+//It is populated by the Settings_Groups defined in SettingGroups.h, and uses some X-macro techniques to ensure that it auto-populates itself.
+
 class SimulationSettings
 {
 	public:
@@ -51,11 +54,11 @@ class SimulationSettings
 			#undef S_GROUP
 		}
 	private:
-		Settings::Parameter<std::string> ConfigureFile = Settings::Parameter<std::string>(NULLFILE,"config");
-		Settings::Parameter<std::string> ConfigureDelimiter= Settings::Parameter<std::string>(" ","config-delimiter");
+		Setting::Parameter<std::string> ConfigureFile = Setting::Parameter<std::string>(NULLFILE,"config");
+		Setting::Parameter<std::string> ConfigureDelimiter= Setting::Parameter<std::string>(" ","config-delimiter");
 
-		Settings::Parameter<bool> QuickHelp = Settings::Parameter<bool>(false,"h");
-		Settings::Parameter<bool> Help = Settings::Parameter<bool>(false,"help"); //need both because I'm limited to one-trigger-per parameter!
+		Setting::Parameter<bool> QuickHelp = Setting::Parameter<bool>(false,"h");
+		Setting::Parameter<bool> Help = Setting::Parameter<bool>(false,"help"); //need both because I'm limited to one-trigger-per parameter!
 
 		void SpecialCommandParsers(int argc,char**argv)
 		{
@@ -99,9 +102,7 @@ class SimulationSettings
 			{
 				message.print(sizeBuffer);
 			}
-			// #define S_GROUP(type,name) name.CryForHelp();
-			// SETTINGS_GROUPS
-			// #undef S_GROUP
+
 			exit(1);
 		}
 
@@ -133,3 +134,5 @@ class SimulationSettings
 
 		}
 };
+
+extern SimulationSettings Settings;
