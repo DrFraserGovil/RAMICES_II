@@ -7,7 +7,6 @@
 #include "settings/SimulationSettings.h"
 int main(int argc, char ** argv)
 {
-//    SimulationSettings Settings;
    Settings.Initialise(argc,argv);
    
 
