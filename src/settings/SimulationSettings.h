@@ -3,6 +3,7 @@
 #include "SettingGroups.h"
 #include "../utility/Log.h"
 #include "HelpMessages.h"
+#include "EnumSets.h" //included here as a sneaky way to include the enums everywhere that settings are included
 const std::string NULLFILE= "__none__";
 
 
@@ -26,6 +27,7 @@ class SimulationSettings
 		void Validate()
 		{
 			RegisterMemberStrings();
+			
 		}
 
 		void Initialise(int argc, char**argv)
@@ -42,8 +44,9 @@ class SimulationSettings
 			ParseAll(argc,argv);
 
 
-			//initialise the logging system so we can begin to communicate
-			LogConfig.SetLevel(System.Verbosity);
+			#define S_GROUP(type,name) name.Validate();
+			SETTINGS_GROUPS
+			#undef S_GROUP
 		}
 		
 		template<class T>

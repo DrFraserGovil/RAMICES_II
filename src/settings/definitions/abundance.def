@@ -1,0 +1,5 @@
+SETTING(double,PrimordialHydrogen,0.75,"primordial-h","The default fraction (by mass) of matter which is hydrogen")
+SETTING(double,PrimordialHelium,0.24,"primordial-he","The default fraction (by mass) of matter which is helium")
+SETTING(double,PrimordialMagnesium,1e-10,"primordial-mg","The default fraction (by mass) of matter which is magnesium")
+SETTING(std::vector<double>,PrimordialAbundances,std::vector<double>{},"primordial-abundances","A vector containing the abundances of the primordial gas. \nTakes precedence over all other forms of specifying primordial abundance, but should only be used if confident in the element-ordering system.")
+SETTING(std::string,PrimordialAbundancesFile,"__none__","primordial-abundances-source","If not equal to __none__, the system will attempt to locate this file and read it in as the a space-delimited file.\n The left column is the element name, the right is the fraction of that element in the primordial gas,")

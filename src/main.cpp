@@ -9,6 +9,5 @@ int main(int argc, char ** argv)
 {
    Settings.Initialise(argc,argv);
    
-
     return (0);
 }

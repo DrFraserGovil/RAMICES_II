@@ -1,0 +1,14 @@
+
+Element(Hydrogen,H)
+Element(Helium, He)
+Element(Iron, Fe)
+Element(Oxygen, O)
+Element(Magnesium, Mg)
+Element(Carbon, C)
+Element(Silicon, Si)
+Element(Calcium, Ca)
+Element(Manganese, Mn)
+Element(Chromium, Cr)
+Element(Cobalt, Co)
+Element(Europium, Eu)
+Element(UnspecifiedMetal, Zu) // Special outlet for 'metals other than those currently listed'

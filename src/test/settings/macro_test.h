@@ -88,21 +88,11 @@ TEST_CASE("Settings-Macro with validation","[settings][parse][configure][validat
 		REQUIRE_FALSE(ValidateTest.TestDouble == 8);
 		SpoofedStructure cmd({"-int","-9","-double","99.9","-bool","true"});
 		ValidateTest.Parse(cmd.argc,cmd.argv);
+		ValidateTest.Validate();
 		int valueEnforcedByValidation = 8;
 		REQUIRE(ValidateTest.TestDouble == valueEnforcedByValidation);
 	}
 
-	SECTION("Parsing-validation")
-	{
-		MockFile file;
-		file << "int -18 \n";
-		file << "double -17e3 \n";
-		file << "bool 1 \n";
-		
-		ValidateTest.Configure(file.Name()," ");
-		int valueEnforcedByValidation = 8;
-		REQUIRE(ValidateTest.TestDouble == valueEnforcedByValidation);
-	}
 }
 
 typedef std::vector<int> vec;

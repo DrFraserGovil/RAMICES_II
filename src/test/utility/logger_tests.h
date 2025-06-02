@@ -160,7 +160,6 @@ TEST_CASE("Logger Core", "[log][utility]") {
 
 TEST_CASE("Logger Macro","[log][utility]")
 {
-	ConfigObject originalConfig = LogConfig; // Save original config
 	LogConfig.SetHeader(true);
 	LogConfig.SetNewline(false); //set these so no linebreaks in unit test output. Purely for human readability.
 	LogConfig.TerminalOutput = false; // Also supress ANSI codes.
@@ -190,5 +189,5 @@ TEST_CASE("Logger Macro","[log][utility]")
 		}
 	}
 
-	LogConfig = originalConfig;
+	LogConfig.SetLevel(1);
 }

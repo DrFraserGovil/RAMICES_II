@@ -34,9 +34,10 @@
 #endif
 
 //allows conversion of the macro into a string with a layer of indirection
-#define STRINGIFY0(v) #v
-#define STRINGIFY(v) STRINGIFY0(v)
-
+#ifndef STRINGIFY
+	#define STRINGIFY0(v) #v
+	#define STRINGIFY(v) STRINGIFY0(v)
+#endif
 
 #include <string>
 #include "Parameter.h"
@@ -52,10 +53,8 @@ class SETTINGS_CATEGORY
 
 		#ifdef SETTINGS_VALIDATE
 			void Validate();
-			SETTINGS_CATEGORY()
-			{
-				Validate();
-			}
+		#else
+		void Validate(){};
 		#endif
 
 		void Parse(int argc, char**argv)
@@ -66,9 +65,9 @@ class SETTINGS_CATEGORY
 			#undef SETTING
 			#undef SETTING_VECTOR
 
-			#ifdef SETTINGS_VALIDATE
-				Validate();
-			#endif
+			// #ifdef SETTINGS_VALIDATE
+			// 	Validate();
+			// #endif
 		}
 
 		void Configure(const std::string & configFile, std::string delimiter)
@@ -78,9 +77,9 @@ class SETTINGS_CATEGORY
 			#include SETTINGS_FILE
 			#undef SETTING
 			#undef SETTING_VECTOR
-			#ifdef SETTINGS_VALIDATE
-				Validate();
-			#endif
+			// #ifdef SETTINGS_VALIDATE
+			// 	Validate();
+			// #endif
 		}
 
 		template<class T>
