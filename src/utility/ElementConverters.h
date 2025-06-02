@@ -1,4 +1,4 @@
-
+#pragma once
 	
 	const inline std::vector<std::string>& SpeciesNames(bool longNames)
 		{
@@ -15,7 +15,6 @@
 			}(); 
 
 			static const std::vector<std::string> shortnames = []() {
-				LOG(WARN) << "Constructing shorts!";
 				std::vector<std::string> temp_names;
 				temp_names.resize(Element::Count); ///s Pre-allocate for efficiency
 	
@@ -46,7 +45,7 @@
 		}
 
 		// Optional: String to Enum (no change needed here as it calls GetSpeciesNames())
-		inline Element::Species FromName(const std::string& name)
+		inline Element::Species FromName(std::string_view name)
 		{
 			for (int i = 0; i < Element::Count; ++i)
 			{
@@ -55,5 +54,5 @@
 					return static_cast<Element::Species>(i);
 				}
 			}
-			throw std::invalid_argument("Unknown Element::Species name: " + name);
+			throw std::invalid_argument("Unknown Element::Species name: " + std::string(name));
 		}

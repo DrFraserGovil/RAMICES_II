@@ -20,8 +20,33 @@ void AbundanceSettings::Validate()
 {
 	// LOG()
 	auto primArray = PrimordialAbundances.Value();
-	primArray.resize(Element::Count,0.0); //resize to the correct size, adding in zeros and truncating
 	
+	if (primArray.size() != 0)
+	{
+		LOG(WARN) << "We do not recommend directly modifying the PrimordialAbundance array. Please ensure you know what you are doing";
+		primArray.resize(Element::Count,0.0); //resize to the correct size, adding in zeros and truncating
+	}
+	else
+	{
+		
+		primArray.resize(Element::Count,0.0);
+		using namespace Element;
+		primArray[Hydrogen] = PrimordialHydrogen;
+		primArray[Helium] = PrimordialHelium;
+		primArray[Magnesium] = PrimordialMagnesium;
+		LOG(WARN) << PrimordialAbundancesFile.Value();
+		if (PrimordialAbundancesFile.Value() != "__none__")
+		{
+			forSplitLineIn(PrimordialAbundancesFile," ",[&](auto line){
+				Element::Species i = Element::FromName(line[0]);
+				double value = convert<double>(line[1]);
+				primArray[i] = value;
+			});
+		}
+	}
+
+	
+
 	double v=0;
 	for (auto el : primArray)
 	{
@@ -33,9 +58,16 @@ void AbundanceSettings::Validate()
 	}
 	else
 	{
-		for (auto & el : primArray)
+		if (v< 1.0)
 		{
-			el /= v;
+			primArray[Element::UnspecifiedMetal] = 1.0 - v;
+		}
+		else
+		{
+			for (auto & el : primArray)
+			{
+				el /= v;
+			}
 		}
 	}
 	PrimordialAbundances.SetValue(primArray,true);
