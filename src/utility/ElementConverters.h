@@ -31,6 +31,11 @@
 	
 		};
 
+		inline Element::Species FromInteger(int index)
+		{
+			return static_cast<Element::Species>(index);
+		}
+
 		inline std::string Name(Element::Species s,bool useLongName = true)
 		{
 			if (s >= 0 && s < Element::Count)
@@ -41,7 +46,7 @@
 		}
 		inline std::string Name(int s,bool useLongName = true)
 		{
-			return Name(static_cast<Element::Species>(s),useLongName);
+			return Name(FromInteger(s),useLongName);
 		}
 
 		// Optional: String to Enum (no change needed here as it calls GetSpeciesNames())
@@ -49,7 +54,7 @@
 		{
 			for (int i = 0; i < Element::Count; ++i)
 			{
-				if (SpeciesNames(true)[i] == name || SpeciesNames(false)[i] == name)
+				if (insensitiveEquals( SpeciesNames(true)[i], name) || insensitiveEquals(SpeciesNames(false)[i], name))
 				{
 					return static_cast<Element::Species>(i);
 				}

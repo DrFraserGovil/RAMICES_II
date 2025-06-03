@@ -52,9 +52,9 @@ class SETTINGS_CATEGORY
 		#undef SETTING_VECTOR
 
 		#ifdef SETTINGS_VALIDATE
-			void Validate();
+			bool Validate();
 		#else
-		void Validate(){};
+		bool Validate(){return false;};
 		#endif
 
 		void Parse(int argc, char**argv)

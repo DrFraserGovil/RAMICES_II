@@ -1,7 +1,7 @@
 #include "SettingGroups.h"
 
 
-void SystemSettings::Validate()
+bool SystemSettings::Validate()
 {
 	if (Verbosity > 3)
 	{
@@ -14,9 +14,10 @@ void SystemSettings::Validate()
 		LogConfig.SetHeader(UseLogHeaders);
 		LogConfig.SetNewline(true);
 	#endif
+	return true;
 }
 
-void AbundanceSettings::Validate()
+bool AbundanceSettings::Validate()
 {
 	// LOG()
 	auto primArray = PrimordialAbundances.Value();
@@ -34,7 +35,7 @@ void AbundanceSettings::Validate()
 		primArray[Hydrogen] = PrimordialHydrogen;
 		primArray[Helium] = PrimordialHelium;
 		primArray[Magnesium] = PrimordialMagnesium;
-		LOG(WARN) << PrimordialAbundancesFile.Value();
+		primArray[Iron] = PrimordialIron;
 		if (PrimordialAbundancesFile.Value() != "__none__")
 		{
 			forSplitLineIn(PrimordialAbundancesFile," ",[&](auto line){
@@ -72,4 +73,5 @@ void AbundanceSettings::Validate()
 	}
 	PrimordialAbundances.SetValue(primArray,true);
 	LOG(DEBUG) << "Set primordial array to " << PrimordialAbundances.ToString();
+	return true;
 }

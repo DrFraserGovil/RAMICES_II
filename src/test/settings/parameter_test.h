@@ -1,8 +1,7 @@
 #pragma once
 #include "../catch_amalgamated.hpp" 
 #include "../../settings/Parameter.h"
-#include "../mock/MockFile.h"
-#include "../mock/coutCatch.h"
+#include "../mock/mockObjects.h"
 TEST_CASE("Basic Parameter behaviour","[parameter][settings]")
 {
 	using Setting::Parameter;
@@ -25,29 +24,6 @@ TEST_CASE("Basic Parameter behaviour","[parameter][settings]")
 }
 
 
-//generates a suitable argc/argv pair from an input vector<string>
-//surprisingly difficult to generate -- need to ensure the object the pointers refer to remain in scope
-struct SpoofedStructure
-{
-	int argc;
-	char** argv;
-	std::vector<char*> internalVector;
-	std::vector<std::string> copyVector;
-	SpoofedStructure(std::vector<std::string> input)
-	{
-		Digest(input);
-	}
-
-	void Digest(std::vector<std::string> input)
-	{
-		copyVector = input;
-		for (const std::string& s : copyVector) {
-			internalVector.push_back(const_cast<char*>(s.c_str()));
-		}
-		argc = internalVector.size();
-		argv = internalVector.data(); 
-	}
-};
 
 TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 {
@@ -57,7 +33,7 @@ TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 	
 	SECTION("Basic assignment")
 	{
-		SpoofedStructure cmd(initialList);
+		ArgSpoofer cmd(initialList);
 
 		Parameter<int> nonMatchingArg(1,"test");
 		REQUIRE_NOTHROW(nonMatchingArg.Parse(cmd.argc,cmd.argv)); // don't throw if you don't find your value
@@ -76,7 +52,7 @@ TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 
 	SECTION("Mutability - can read int-strings as doubles")
 	{
-		SpoofedStructure cmd(initialList);
+		ArgSpoofer cmd(initialList);
 		Parameter<double>arg1Double(1,"arg1");
 		arg1Double.Parse(cmd.argc,cmd.argv);
 		REQUIRE_THAT(arg1Double.Value(),WithinAbs(-5.0,1e-15));
@@ -85,7 +61,7 @@ TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 	SECTION("Boolean flag behaviour")
 	{
 		std::vector<std::string> boolList = {"spoofed_name","-bool1","0","-bool2","1","-flag"};
-		SpoofedStructure cmd(boolList);
+		ArgSpoofer cmd(boolList);
 
 		Parameter<bool> bool1(true,"bool1",cmd.argc,cmd.argv);
 		Parameter<bool> bool2(false,"bool2",cmd.argc,cmd.argv);
@@ -101,7 +77,7 @@ TEST_CASE("Parsing values","[parameter][settings][parse][commandline]")
 	SECTION("Flag/trigger ordering")
 	{
 		std::vector<std::string> throwList = {"spoofed_name","-noargument","-int","1","-ender"};
-		SpoofedStructure cmd(throwList);
+		ArgSpoofer cmd(throwList);
 		
 		REQUIRE_THROWS(Parameter<double>(1.0,"noargument",cmd.argc,cmd.argv));
 		REQUIRE_THROWS(Parameter<int>(1.0,"noargument",cmd.argc,cmd.argv));

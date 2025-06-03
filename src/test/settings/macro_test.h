@@ -32,7 +32,7 @@ TEST_CASE("Compile time constraints on ","[settings][compilation]")
 
 TEST_CASE("Parsing Settings-Macro Object","[settings][parsing]")
 {
-	SpoofedStructure cmd({"-int","-9","-double","99.9","-bool","true"});
+	ArgSpoofer cmd({"-int","-9","-double","99.9","-bool","true"});
 
 	TestSettings ParseTest;
 	ParseTest.Parse(cmd.argc,cmd.argv);
@@ -72,12 +72,13 @@ TEST_CASE("Configuring Settings-Macro Object","[settings][configure]")
 #define SETTINGS_VALIDATE
 #include "../../settings/SettingsConstructor.h"
 
-void SettingsValidator::Validate()
+bool SettingsValidator::Validate()
 {
 	if (TestInt < 0)
 	{
 		TestDouble.SetValue(8,true);
 	}
+	return true;
 }
 TEST_CASE("Settings-Macro with validation","[settings][parse][configure][validation]")
 {
@@ -86,7 +87,7 @@ TEST_CASE("Settings-Macro with validation","[settings][parse][configure][validat
 	SECTION("Parsing-validation")
 	{
 		REQUIRE_FALSE(ValidateTest.TestDouble == 8);
-		SpoofedStructure cmd({"-int","-9","-double","99.9","-bool","true"});
+		ArgSpoofer cmd({"-int","-9","-double","99.9","-bool","true"});
 		ValidateTest.Parse(cmd.argc,cmd.argv);
 		ValidateTest.Validate();
 		int valueEnforcedByValidation = 8;

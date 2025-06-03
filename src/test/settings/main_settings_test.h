@@ -2,8 +2,7 @@
 #include "../catch_amalgamated.hpp" 
 #include "../../settings/SimulationSettings.h"
 
-#include "../mock/MockFile.h"
-#include "../mock/coutCatch.h"
+#include "../mock/mockObjects.h"
 
 TEST_CASE("Compile-time testing","[compilation][settings]")
 {
@@ -42,7 +41,7 @@ TEST_CASE("SimulationSettings parses cmdline","[settings][parse]")
 {
 	SimulationSettings Settings;
 
-	SpoofedStructure cmd({"-v","3","-thread","8","-feedback-heat","0.01"});
+	ArgSpoofer cmd({"-v","3","-thread","8","-feedback-heat","0.01"});
 	REQUIRE_NOTHROW(Settings.Initialise(cmd.argc,cmd.argv));
 
 	REQUIRE(Settings.System.Verbosity == 3);
@@ -59,7 +58,7 @@ TEST_CASE("SimulationSettings reads config files","[settings][configure]")
 	f << "thread_18\n";
 
 
-	SpoofedStructure cmd({"-config",f.Name(),"-config-delimiter","_"});
+	ArgSpoofer cmd({"-config",f.Name(),"-config-delimiter","_"});
 	SimulationSettings Settings;
 	REQUIRE_NOTHROW(Settings.Initialise(cmd.argc,cmd.argv));
 
@@ -75,7 +74,7 @@ TEST_CASE("SimulationSettings reads config files and cmd-lines","[settings][pars
 	f << "feedback-heat_0.07\n";
 	f << "thread_18\n";
 
-	SpoofedStructure cmd({"-config",f.Name(),"-config-delimiter","_","-v","3","-feedback-heat","0.5"});
+	ArgSpoofer cmd({"-config",f.Name(),"-config-delimiter","_","-v","3","-feedback-heat","0.5"});
 	SimulationSettings Settings;
 	REQUIRE_NOTHROW(Settings.Initialise(cmd.argc,cmd.argv));
 
