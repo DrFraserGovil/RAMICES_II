@@ -15,7 +15,7 @@
 
 
 
-// #define CATCH_AMALGAMATED_CUSTOM_MAIN 1  //////// JACK ADDED THIS. See line 4772 of the .cpp file!
+#define CATCH_AMALGAMATED_CUSTOM_MAIN 1  //////// JACK ADDED THIS. See line 4772 of the .cpp file!
 
 #ifndef CATCH_AMALGAMATED_HPP_INCLUDED
 #define CATCH_AMALGAMATED_HPP_INCLUDED

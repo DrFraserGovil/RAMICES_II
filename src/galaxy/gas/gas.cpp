@@ -41,7 +41,12 @@ double Gas::MassOf(Element::Species id)
 }
 double Gas::FractionOf(Element::Species id)
 {
-	return internalMassOf[id]/Mass();
+	double m = Mass();
+	if (m== 0)
+	{
+		return 0;
+	}
+	return internalMassOf[id]/m;
 }
 
 void Gas::ComputeMass()
@@ -54,14 +59,42 @@ void Gas::ComputeMass()
 	NeedsRecomputing = false;
 }
 
-Gas Gas::Primordial(double mass)
+
+//Factories
+Gas Gas::WithComposition(double mass,const std::vector<double> & composition)
 {
-	Gas g;
+	if (mass < 0)
+	{
+		LOG(ERROR) << "Cannot create a gas object with negative mass (" << mass << " < 0)";
+		throw std::logic_error("Unphysical quantity encountered");
+	}
+	auto g = Gas();
 	for (int el = 0; el < Element::Count; ++el)
 	{
-		g[el] = Settings.Abundance.PrimordialAbundances.Value()[el] * mass;
+		g[el] = composition[el] * mass;
 	}
 	g.NeedsRecomputing = true;
 	return g;
 }
 
+Gas Gas::WithMass(const std::vector<double> & massArray)
+{
+	auto g = Gas();
+	for (int el = 0; el < Element::Count; ++el)
+	{
+		g[el] = massArray[el];
+	}
+	g.NeedsRecomputing = true;
+	return g;
+}
+
+Gas Gas::Primordial(double mass)
+{
+	return Gas::WithComposition(mass,Settings.Abundance.PrimordialAbundances);
+}
+
+Gas Gas::Empty()
+{
+	auto g =  Gas();
+	return g;
+}

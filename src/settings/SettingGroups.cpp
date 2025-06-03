@@ -19,7 +19,7 @@ bool SystemSettings::Validate()
 
 bool AbundanceSettings::Validate()
 {
-	// LOG()
+	
 	auto primArray = PrimordialAbundances.Value();
 	
 	if (primArray.size() != 0)

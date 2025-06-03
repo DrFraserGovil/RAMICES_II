@@ -20,16 +20,10 @@ class SimulationSettings
 
 		SimulationSettings()
 		{
-			
-			Validate();
+			Register();
 		}
 
-		void Validate()
-		{
-			RegisterMemberStrings();
-			
-		}
-
+		
 		void Initialise(int argc, char**argv)
 		{
 			SpecialCommandParsers(argc,argv);
@@ -42,11 +36,7 @@ class SimulationSettings
 
 			//then, we call the parsers -- allows for configs to be post-hoc modified by cmd-line calls
 			ParseAll(argc,argv);
-
-
-			#define S_GROUP(type,name) name.Validate();
-			SETTINGS_GROUPS
-			#undef S_GROUP
+			ValidateAll();
 		}
 		
 		template<class T>
@@ -56,12 +46,22 @@ class SimulationSettings
 			SETTINGS_GROUPS
 			#undef S_GROUP
 		}
+
+		
+
+		void Register()
+		{
+			RegisterMemberStrings();	
+		}
 	private:
 		Setting::Parameter<std::string> ConfigureFile = Setting::Parameter<std::string>(NULLFILE,"config");
 		Setting::Parameter<std::string> ConfigureDelimiter= Setting::Parameter<std::string>(" ","config-delimiter");
 
 		Setting::Parameter<bool> QuickHelp = Setting::Parameter<bool>(false,"h");
 		Setting::Parameter<bool> Help = Setting::Parameter<bool>(false,"help"); //need both because I'm limited to one-trigger-per parameter!
+
+		
+
 
 		void SpecialCommandParsers(int argc,char**argv)
 		{
@@ -118,6 +118,13 @@ class SimulationSettings
 		void ConfigureAll()
 		{
 			#define S_GROUP(type,name) name.Configure(ConfigureFile,ConfigureDelimiter);
+			SETTINGS_GROUPS
+			#undef S_GROUP
+		}
+
+		void ValidateAll(bool force=true)
+		{
+			#define S_GROUP(type,name) name.Validate();
 			SETTINGS_GROUPS
 			#undef S_GROUP
 		}

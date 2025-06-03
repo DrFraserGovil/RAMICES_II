@@ -1,12 +1,26 @@
 #pragma once
 
 #include "../../settings/SimulationSettings.h"
+#include "../../utility/Log.h"
 class Gas
 {
 	public:
+		//No public constructor, instead have some factory functions so you can be sure with what you're getting
 
-		//! Default Constructor initialises the chunk of gas to have zero mass
-		Gas();
+		//! The default entry point, creates an empty gas object  \return A gas object with no mass, and no elemental composition
+		static Gas Empty();
+
+		//! Create a gas object with a specified mass, and elemental composition   \param mass the final mass of the gas object \param composition A fractional array of length Element::Count which specifies the fraction of the total mass composed of each corresponding element. \returns A gas object with a specified mass and fractional composition
+		static Gas WithComposition(double mass, const std::vector<double> & composition);
+
+		//! Creates the object with a direct copy of the mas grid. The final mass is equal to the sum of massArray.
+		static Gas WithMass(const std::vector<double> & massArray);
+		// 
+		//! \return A gas object of the specified mass but with a primordial elemental abundance distribution (X = 0.75, Y = 0.25 etc)
+		static Gas Primordial(double mass);
+	
+		
+
 		
 	
 		//! \return The current total mass within the #Species array
@@ -21,17 +35,16 @@ class Gas
 		double & operator[](Element::Species id);
 		double & operator[](int id);
 		
-		//! \return A gas object of the specified mass but with a primordial elemental abundance distribution (X = 0.75, Y = 0.25 etc)
-		static Gas Primordial(double mass);
-		
-		//! \return A default-constructed object, but name is clear that the object is empty
-		static Gas Empty();
-		
+	
 		// double Mass() const;
 		// //! An annoyingly necessary redeclaration for when the object is const and normal references don't behave nicely
 		// const double & operator[](Element::Species id) const;
 		
 	private:
+		//! Default Constructor initialises the chunk of gas to have zero mass
+		Gas();
+		
+
 		//! The central mass array. Has ::ElementCount elements, indexed by ElementID
 		std::vector<double> internalMassOf;
 	
