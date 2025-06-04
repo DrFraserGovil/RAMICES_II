@@ -72,7 +72,11 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 		}
 		RegisterChanges();
 	}
-
+	void Gas::Absorb(Element::Species element, double amount)
+	{
+		internalMassOf[element] += amount;
+		RegisterChanges();
+	}
 	void Gas::DepleteByFraction(double frac)
 	{
 		if (frac < 0 || frac > 1)
@@ -80,27 +84,31 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 			LOG(ERROR) << "Cannot deplete gas by a fraction '" << frac << "', values must be in range [0,1]";
 			throw std::logic_error("Unphysical quantity encountered");
 		}
-		double remainingFraction = 1.0 - frac;
-		for (int i = 0; i < Element::Count; ++i)
-		{
-			internalMassOf[i] *= remainingFraction;
-		}
-		RegisterChanges();
+		
+		internalDeplete(frac);
 	}
-	void Gas::DepleteByMass(double mass)
+	void Gas::DepleteByMass(double massToDeplete)
 	{
 		double m = Mass();
-		if (m == 0)
+		//do some error checking
+		if (m == 0 && massToDeplete == 0) //about to divide by m, so m==0 needs special handling, even if it is physical
 		{
-			if (mass == 0)
-			{
-				return;
-			}
-			LOG(ERROR) << "Cannot deplete a non-zero amount of gas from an empty gas reservoir";
+			return;
+		}
+		if (massToDeplete < 0 || massToDeplete > m)
+		{
+			LOG(ERROR) << "Cannot move a mass " << massToDeplete << ". Value must be in range [0," << m << "]";
 			throw std::logic_error("Unphysical quantity encountered");
 		}
-		double depletionFraction = mass/m;
-		DepleteByFraction(depletionFraction);
+		
+		double depletionFraction = massToDeplete/m;
+		internalDeplete(depletionFraction);
+	}
+
+
+	void Gas::Transfer(Gas & source, Gas & destination)
+	{
+		internalTransfer(source,destination,1.0);
 	}
 
 	void Gas::TransferFraction(Gas & source, Gas & destination, double fraction)
@@ -110,51 +118,54 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 			LOG(ERROR) << "Cannot move a fraction '" << fraction << "' of gas, values must be in range [0,1]";
 			throw std::logic_error("Unphysical quantity encountered");
 		}
+		if (source.Mass() == 0 && fraction > 0)
+		{
+			LOG(WARN) << "Attempted to move a non-zero fraction of gas from a zero-mass object. Nothing happened."; 
+			return;
+		}
 		internalTransfer(source,destination,fraction);
 	}
 
 	void Gas::TransferMass(Gas & source, Gas & destination,double massToTransfer)
 	{
 		double m = source.Mass();
-
 		//do some error checking
-		if (massToTransfer < 0)
+		if (massToTransfer < 0 || massToTransfer > m)
 		{
-			LOG(ERROR) << "Cannot move a negative mass of gas";
+			LOG(ERROR) << "Cannot transfer a mass " << massToTransfer << ". Value must be in range [0," << m << "]";
 			throw std::logic_error("Unphysical quantity encountered");
 		}
-		if (m == 0) //about to divide by m, so m==0 needs special handling, even if it is physical
+		if (m == 0 && massToTransfer == 0) //about to divide by m, so m==0 needs special handling, even if it is physical
 		{
-			if (massToTransfer == 0)
-			{
-				return;
-			}
-			LOG(ERROR) << "Cannot move a non-zero amount of gas from an empty gas reservoir";
-			throw std::logic_error("Unphysical quantity encountered");
+			return;
 		}
-		if (massToTransfer > m)
-		{
-			LOG(WARN) << "Attempting to transfer " << massToTransfer << " units from a gas of mass " << m << ". Moving all available mass instead, but mass conservation may be violated";
-			massToTransfer = m; 
-		}
-		
+			
 		double depletionFraction = massToTransfer/m;
 		internalTransfer(source,destination,depletionFraction);
 	}
 
-	void Gas::internalTransfer(Gas & source, Gas & destination, double depletionFraction)
+	void Gas::internalTransfer(Gas & source, Gas & destination, double transferFraction)
 	{
 		//assumes error checking already handled properly
-		double sourceRetain = 1.0 - depletionFraction;
+		double sourceRetain = 1.0 - transferFraction;
 		for (int i = 0; i < Element::Count; ++i)
 		{
-			destination.internalMassOf[i] += depletionFraction * source.internalMassOf[i];
+			destination.internalMassOf[i] += transferFraction * source.internalMassOf[i];
 			source.internalMassOf[i] *= sourceRetain;
 		}
 		source.RegisterChanges();
 		destination.RegisterChanges();
 	}
 
+	void Gas::internalDeplete(double depletionFraction)
+	{
+		double remainingFraction = 1.0 - depletetionFraction;
+		for (int i = 0; i < Element::Count; ++i)
+		{
+			internalMassOf[i] *= remainingFraction;
+		}
+		RegisterChanges();
+	}
 //Internal functions
 	void Gas::RegisterChanges()
 	{
