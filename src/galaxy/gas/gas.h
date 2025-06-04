@@ -23,6 +23,12 @@ class Gas
 	
 		const std::vector<double> & Composition() const;
 
+
+		static void TransferFraction(Gas & source, Gas & destination, double fraction);
+		static void TransferMass(Gas & source, Gas & destination, double mass);
+
+
+
 		void Absorb(const Gas & input);
 		void DepleteByFraction(double amount);
 		void DepleteByMass(double amount);
@@ -50,7 +56,7 @@ class Gas
 		//! Default Constructor initialises the chunk of gas to have zero mass
 		Gas();
 		
-
+		static void internalTransfer(Gas & source, Gas & destination, double depletionFraction);
 		//! The central mass array. Has ::ElementCount elements, indexed by ElementID
 		std::vector<double> internalMassOf;
 		

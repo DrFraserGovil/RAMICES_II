@@ -99,8 +99,60 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 			LOG(ERROR) << "Cannot deplete a non-zero amount of gas from an empty gas reservoir";
 			throw std::logic_error("Unphysical quantity encountered");
 		}
-		double depletionFraction = mass/Mass();
+		double depletionFraction = mass/m;
 		DepleteByFraction(depletionFraction);
+	}
+
+	void Gas::TransferFraction(Gas & source, Gas & destination, double fraction)
+	{
+		if (fraction < 0 || fraction > 1)
+		{
+			LOG(ERROR) << "Cannot move a fraction '" << fraction << "' of gas, values must be in range [0,1]";
+			throw std::logic_error("Unphysical quantity encountered");
+		}
+		internalTransfer(source,destination,fraction);
+	}
+
+	void Gas::TransferMass(Gas & source, Gas & destination,double massToTransfer)
+	{
+		double m = source.Mass();
+
+		//do some error checking
+		if (massToTransfer < 0)
+		{
+			LOG(ERROR) << "Cannot move a negative mass of gas";
+			throw std::logic_error("Unphysical quantity encountered");
+		}
+		if (m == 0) //about to divide by m, so m==0 needs special handling, even if it is physical
+		{
+			if (massToTransfer == 0)
+			{
+				return;
+			}
+			LOG(ERROR) << "Cannot move a non-zero amount of gas from an empty gas reservoir";
+			throw std::logic_error("Unphysical quantity encountered");
+		}
+		if (massToTransfer > m)
+		{
+			LOG(WARN) << "Attempting to transfer " << massToTransfer << " units from a gas of mass " << m << ". Moving all available mass instead, but mass conservation may be violated";
+			massToTransfer = m; 
+		}
+		
+		double depletionFraction = massToTransfer/m;
+		internalTransfer(source,destination,depletionFraction);
+	}
+
+	void Gas::internalTransfer(Gas & source, Gas & destination, double depletionFraction)
+	{
+		//assumes error checking already handled properly
+		double sourceRetain = 1.0 - depletionFraction;
+		for (int i = 0; i < Element::Count; ++i)
+		{
+			destination.internalMassOf[i] += depletionFraction * source.internalMassOf[i];
+			source.internalMassOf[i] *= sourceRetain;
+		}
+		source.RegisterChanges();
+		destination.RegisterChanges();
 	}
 
 //Internal functions
@@ -144,6 +196,7 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 			LOG(ERROR) << "Cannot create a gas object with negative mass (" << mass << " < 0)";
 			throw std::logic_error("Unphysical quantity encountered");
 		}
+		
 		if (composition.size() != Element::Count)
 		{
 			LOG(ERROR) << "Partial composition vectors are invalid. Cannot construct a gas object without a correctly sized composition";
@@ -153,8 +206,17 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 		for (int el = 0; el < Element::Count; ++el)
 		{
 			g[el] = composition[el] * mass;
+			g.internalComposition[el] = composition[el];
 		}
-		g.massNeedsRecomputing = true;
+		g.internal_Mass = mass;
+		g.massNeedsRecomputing = false;
+		g.compNeedsRecomputing = false;
+
+		if (mass == 0)
+		{
+			LOG(WARN) << "Constructed a gas with specified composition, but zero mass. This is usually unintended";
+			g.compNeedsRecomputing = true; // flag here because the default copy doesn't work on 0 mass-gases
+		}
 		return g;
 	}
 
@@ -176,6 +238,11 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 
 	Gas Gas::WithSameComposition(double mass, const Gas & targetGas)
 	{
+		if (targetGas.Mass() == 0)
+		{
+			LOG(ERROR) << "Gas to be copied has zero mass, and hence no composition to copy";
+			throw std::logic_error("Unphysical quantity encountered");
+		}
 		return Gas::WithComposition(mass,targetGas.Composition());
 	}
 
