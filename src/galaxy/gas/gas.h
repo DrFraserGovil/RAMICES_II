@@ -2,77 +2,162 @@
 
 #include "../../settings/SimulationSettings.h"
 #include "../../utility/Log.h"
+#include <vector>
+
 class Gas
 {
-	public:
-		//No public constructor, instead have some factory functions so you can be sure with what you're getting
+    public:
+        // Factory functions (no public constructor)
 
-		//! The default entry point, creates an empty gas object  \return A gas object with no mass, and no elemental composition
-		static Gas Empty();
+        //! \brief Creates an empty gas object (zero mass, zero composition).
+        //! \return An empty Gas object.
+        static Gas Empty();
 
-		//! Create a gas object with a specified mass, and elemental composition   \param mass the final mass of the gas object \param composition A fractional array of length Element::Count which specifies the fraction of the total mass composed of each corresponding element. \returns A gas object with a specified mass and fractional composition
-		static Gas WithComposition(double mass, const std::vector<double> & composition);
+        //! \brief Creates a gas with specified total mass and elemental composition.
+        //! \param mass Total mass of the gas.
+        //! \param composition Fractional elemental composition (vector of size `Element::Count`).
+        //! \return A Gas object with the given mass and composition.
+        //! \throws std::logic_error If mass is negative.
+        //! \throws std::runtime_error If composition vector size is incorrect.
+        //! \warning Logs if mass is zero.
+        static Gas WithComposition(double mass, const std::vector<double> & composition);
 
-		static Gas WithSameComposition(double mass, const Gas & targetGas);
+        //! \brief Creates a new gas with specified mass and the same composition as a target gas.
+        //! \param mass Desired total mass for the new gas.
+        //! \param targetGas The Gas object whose composition will be copied.
+        //! \return A new Gas object.
+        //! \throws std::logic_error If targetGas has zero mass.
+        static Gas WithSameComposition(double mass, const Gas & targetGas);
 
-		//! Creates the object with a direct copy of the mas grid. The final mass is equal to the sum of massArray.
-		static Gas WithMass(const std::vector<double> & massArray);
-		// 
-		//! \return A gas object of the specified mass but with a primordial elemental abundance distribution (X = 0.75, Y = 0.25 etc)
-		static Gas Primordial(double mass);
-	
-		const std::vector<double> & Composition() const;
+        //! \brief Creates a gas object from an elemental mass grid.
+        //! \param massArray Vector of absolute masses for each element (size `Element::Count`).
+        //! \return A Gas object with the specified elemental mass distribution.
+        //! \throws std::runtime_error If massArray size is incorrect.
+        //! \throws std::logic_error If any element in massArray is negative.
+        static Gas WithMass(const std::vector<double> & massArray);
 
+        //! \brief Creates a gas object with specified mass and primordial elemental abundances.
+        //! \param mass Total mass of the primordial gas.
+        //! \return A primordial Gas object.
+        static Gas Primordial(double mass);
 
-		static void Transfer(Gas & source, Gas & destination);
-		static void TransferFraction(Gas & source, Gas & destination, double fraction);
-		static void TransferMass(Gas & source, Gas & destination, double mass);
+        // Property queries (const methods)
 
+        //! \brief Returns a const reference to the elemental composition (mass fractions).
+        //! \return `std::vector<double>` of elemental mass fractions.
+        const std::vector<double> & Composition() const;
 
-		void Absorb(Element::Species element, double amount);
-		void Absorb(const Gas & input);
-		void DepleteByFraction(double amount);
-		void DepleteByMass(double amount);
-	
-		//! \return The current total mass within the #Species array
-		double Mass() const;
-		
-		//! \return The current metallicity
-		double Metallicity() const;
-		
-		double FractionOf(Element::Species id) const;
-		double MassOf(Element::Species id) const;
-		//! \return A reference to the indexed member of #Species, allowing for vector like access
-		double & operator[](Element::Species id);
-		double & operator[](int id);
-		double  operator[](Element::Species id) const;
-		double  operator[](int id) const;
-		
-	
-		// double Mass() const;
-		// //! An annoyingly necessary redeclaration for when the object is const and normal references don't behave nicely
-		// const double & operator[](Element::Species id) const;
-		
-	private:
-		//! Default Constructor initialises the chunk of gas to have zero mass
-		Gas();
-		
-		static void internalTransfer(Gas & source, Gas & destination, double transferFraction);
+        //! \brief Returns the total mass of the gas.
+        //! \return Total mass.
+        double Mass() const;
 
-		void internalDeplete(double depletionFraction);
-		//! The central mass array. Has ::ElementCount elements, indexed by ElementID
-		std::vector<double> internalMassOf;
-		
-		void ComputeMass() const;
-		void ComputeComposition() const;
-		void RegisterChanges();
+        //! \brief Returns the metallicity (mass fraction of elements heavier than H/He).
+        //! \return Metallicity (0.0 to 1.0).
+        double Metallicity() const;
 
-		//caches declared mutable so that const Gas doesn't return nonsense values
-		//mutable means that they are non-const even in a const. object
-		//that's fine here because they're internal caches
-		mutable bool massNeedsRecomputing;
-		mutable bool compNeedsRecomputing;
-		mutable std::vector<double> internalComposition;
-		mutable double internal_Mass;
-	
+        //! \brief Returns the mass fraction of a specific elemental species.
+        //! \param id The `Element::Species` or integer index.
+        //! \return Fractional abundance of the element.
+        double FractionOf(Element::Species id) const;
+
+        //! \brief Returns the absolute mass of a specific elemental species.
+        //! \param id The `Element::Species` or integer index.
+        //! \return Absolute mass of the element.
+        double MassOf(Element::Species id) const;
+
+        // Operators (Access and Modification)
+
+        //! \brief Mutable access to an element's mass by `Element::Species` ID.
+        //! \param id `Element::Species` ID.
+        //! \return Mutable reference to the element's mass.
+        double & operator[](Element::Species id);
+
+        //! \brief Mutable access to an element's mass by integer index.
+        //! \param id Integer index.
+        //! \return Mutable reference to the element's mass.
+        double & operator[](int id);
+
+        //! \brief Read-only access to an element's mass by `Element::Species` ID.
+        //! \param id `Element::Species` ID.
+        //! \return Constant mass of the element.
+        double  operator[](Element::Species id) const;
+
+        //! \brief Read-only access to an element's mass by integer index.
+        //! \param id Integer index.
+        //! \return Constant mass of the element.
+        double  operator[](int id) const;
+
+        // Modification methods
+
+        //! \brief Absorbs a specific amount of a single elemental species.
+        //! \param element The `Element::Species` to absorb.
+        //! \param amount Absolute mass to add.
+        //! \throws std::logic_error If amount is negative.
+        void Absorb(Element::Species element, double amount);
+
+        //! \brief Absorbs the entire mass and composition of another Gas object.
+        //! \param input The Gas object to absorb from (unchanged).
+        void Absorb(const Gas & input);
+
+        //! \brief Depletes a specified fraction of the gas's total mass.
+        //! \param amount Fraction to deplete (0.0 to 1.0).
+        //! \throws std::logic_error If amount is out of range.
+        void DepleteByFraction(double amount);
+
+        //! \brief Depletes a specified absolute mass from the gas.
+        //! \param amount Absolute mass to deplete.
+        //! \throws std::logic_error If amount is negative or exceeds total mass.
+        //! \warning Logs if depleting non-zero from empty gas.
+        void DepleteByMass(double amount);
+
+        // Static Transfer methods
+
+        //! \brief Transfers all mass and composition from source to destination.
+        //! \param source Gas to transfer from (becomes empty).
+        //! \param destination Gas to transfer to.
+        static void Transfer(Gas & source, Gas & destination);
+
+        //! \brief Transfers a fraction of mass from source to destination.
+        //! \param source Gas to transfer from.
+        //! \param destination Gas to transfer to.
+        //! \param fraction Fraction to transfer (0.0 to 1.0).
+        //! \throws std::logic_error If fraction is out of range.
+        //! \warning Logs if transferring non-zero fraction from empty source.
+        static void TransferFraction(Gas & source, Gas & destination, double fraction);
+
+        //! \brief Transfers an absolute mass from source to destination.
+        //! \param source Gas to transfer from.
+        //! \param destination Gas to transfer to.
+        //! \param mass Absolute mass to transfer.
+        //! \throws std::logic_error If mass is negative or exceeds source's total mass.
+        //! \warning Logs if transferring non-zero mass from empty source.
+        static void TransferMass(Gas & source, Gas & destination, double mass);
+
+    private:
+        //! \brief Private constructor (use factory functions).
+        Gas();
+
+        //! \brief Internal helper for mass transfer logic.
+        static void internalTransfer(Gas & source, Gas & destination, double transferFraction);
+
+        //! \brief Internal helper for mass depletion logic.
+        void internalDeplete(double depletionFraction);
+
+        //! \brief Stores absolute mass of each elemental species.
+        std::vector<double> internalMassOf;
+
+        //! \brief Flags caches for recomputation after modifications.
+        void RegisterChanges();
+
+        //! \brief Computes and caches total mass.
+        void ComputeMass() const;
+
+        //! \brief Computes and caches elemental composition.
+        void ComputeComposition() const;
+
+        // Internal caches (mutable for const methods)
+        mutable bool massNeedsRecomputing;
+        mutable bool compNeedsRecomputing;
+        mutable std::vector<double> internalComposition;
+        mutable double internal_Mass;
 };
