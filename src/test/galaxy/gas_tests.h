@@ -215,14 +215,14 @@ TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
 		{
 			//now check errors
 			//test the extreme ends of the spectrum
-			REQUIRE_NOTHROW(baseGas.DepleteByFraction(1));
+			REQUIRE_NOTHROW(baseGas.Deplete(1,Gas::Move::Fraction));
 			baseGas = Gas::WithComposition(1,composition); //refill after depletion
-			REQUIRE_NOTHROW(baseGas.DepleteByFraction(0));
+			REQUIRE_NO_WARN(baseGas.Deplete(0,Gas::Move::Fraction));
 
 			//and now outside those domains
-			auto msg = REQUIRE_ERROR(baseGas.DepleteByFraction(2));
+			auto msg = REQUIRE_ERROR(baseGas.Deplete(2,Gas::Move::Fraction));
 			REQUIRE_THAT(msg,ContainsSubstring("must be in range [0,1]"));
-			msg = REQUIRE_ERROR(baseGas.DepleteByFraction(-1));
+			msg = REQUIRE_ERROR(baseGas.Deplete(-1,Gas::Move::Fraction));
 			REQUIRE_THAT(msg,ContainsSubstring("must be in range [0,1]"));
 
 		}
@@ -232,7 +232,7 @@ TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
 			double reducingFraction = 0.5;
 			for (int repeat = 0; repeat < 5; ++repeat)
 			{
-				baseGas.DepleteByFraction(reducingFraction);
+				baseGas.Deplete(reducingFraction,Gas::Move::Fraction);
 				for (int element = 0; element < Element::Count; ++element)
 				{
 					auto species = Element::FromInteger(element);
@@ -257,15 +257,15 @@ TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
 		{
 			//now check errors
 			//test the extreme ends of the spectrum
-			REQUIRE_NOTHROW(baseGas.DepleteByMass(startMass));
+			REQUIRE_NOTHROW(baseGas.Deplete(startMass,Gas::Move::Mass));
 			baseGas = Gas::WithComposition(startMass,composition);//refill after depletion
-			REQUIRE_NOTHROW(baseGas.DepleteByMass(0));
+			REQUIRE_NOTHROW(baseGas.Deplete(0,Gas::Move::Mass));
 
 
 			//and now outside those domains
-			std::string msg = REQUIRE_ERROR(baseGas.DepleteByMass(startMass + 1));
+			std::string msg = REQUIRE_ERROR(baseGas.Deplete(startMass + 1,Gas::Move::Mass));
 			REQUIRE_THAT(msg,ContainsSubstring("must be in range [0,3]"));
-			msg = REQUIRE_ERROR(baseGas.DepleteByMass(-2));
+			msg = REQUIRE_ERROR(baseGas.Deplete(-2,Gas::Move::Mass));
 			REQUIRE_THAT(msg,ContainsSubstring("must be in range [0,3]"));
 		}
 		
@@ -274,7 +274,7 @@ TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
 			double reducingMass = 0.5;
 			for (int repeat = 0; repeat < 5; ++repeat)
 			{
-				baseGas.DepleteByMass(reducingMass);
+				baseGas.Deplete(reducingMass,Gas::Move::Mass);
 				double expectedMass = startMass - reducingMass*(repeat+1);
 				REQUIRE_THAT(baseGas.Mass(), WithinAbs(expectedMass,1e-8));
 				for (int element = 0; element < Element::Count; ++element)
@@ -305,7 +305,7 @@ TEST_CASE("Gas transfer mechanisms","[physics][gas][galaxy]")
 				auto comp = RandomComposition();
 				auto adderGas = Gas::WithComposition(gasMass,comp);
 				
-				Gas::TransferFraction(adderGas,acceptingGas,transferFraction);
+				Gas::Transfer(adderGas,acceptingGas,transferFraction);
 
 				double expectedMass = gasMass * transferFraction * (repeat +1);
 				REQUIRE_THAT(acceptingGas.Mass(),WithinAbs(expectedMass,1e-8));
@@ -325,13 +325,14 @@ TEST_CASE("Gas transfer mechanisms","[physics][gas][galaxy]")
 		{
 			auto nonEmptyGas = Gas::Empty(); nonEmptyGas.Absorb(Element::Hydrogen,5);
 
-			REQUIRE_ERROR(Gas::TransferFraction(nonEmptyGas,acceptingGas,1.5)); //move more than 100%
-			REQUIRE_ERROR(Gas::TransferFraction(nonEmptyGas,acceptingGas,-1)); //move less than 0%
+			//note using the default overload here -- no Gas::Move::Fraction call. This ensures the expected default behaviour is maintained!
+			REQUIRE_ERROR(Gas::Transfer(nonEmptyGas,acceptingGas,1.5)); //move more than 100%
+			REQUIRE_ERROR(Gas::Transfer(nonEmptyGas,acceptingGas,-1)); //move less than 0%
 
-			auto msg = REQUIRE_WARN(Gas::TransferFraction(acceptingGas,nonEmptyGas,0.5)); //gives a warning that moving any fraction > 0 of a zero-mass is pointless
+			auto msg = REQUIRE_WARN(Gas::Transfer(acceptingGas,nonEmptyGas,0.5)); //gives a warning that moving any fraction > 0 of a zero-mass is pointless
 			REQUIRE_THAT(msg,ContainsSubstring("Nothing happened"));
 
-			REQUIRE_NO_WARN(Gas::TransferFraction(acceptingGas,nonEmptyGas,0)); //no warning if you move 0% of a 0-mass object
+			REQUIRE_NO_WARN(Gas::Transfer(acceptingGas,nonEmptyGas,0)); //no warning if you move 0% of a 0-mass object
 		}
 	}
 
@@ -348,7 +349,7 @@ TEST_CASE("Gas transfer mechanisms","[physics][gas][galaxy]")
 				auto comp = RandomComposition();
 				auto adderGas = Gas::WithComposition(gasMass,comp);
 				
-				Gas::TransferMass(adderGas,acceptingGas,transferMass);
+				Gas::Transfer(adderGas,acceptingGas,transferMass,Gas::Move::Mass);
 
 				double expectedMass = transferMass * (repeat +1);
 				REQUIRE_THAT(acceptingGas.Mass(),WithinAbs(expectedMass,1e-8));
@@ -368,13 +369,13 @@ TEST_CASE("Gas transfer mechanisms","[physics][gas][galaxy]")
 		{
 			auto nonEmptyGas = Gas::Empty(); nonEmptyGas.Absorb(Element::Hydrogen,5);
 
-			REQUIRE_ERROR(Gas::TransferMass(nonEmptyGas,acceptingGas,-1)); //move less than 0%
-			REQUIRE_ERROR(Gas::TransferMass(acceptingGas,nonEmptyGas,0.5)); //gives a warning that moving any fraction > 0 of a zero-mass is pointless
-			REQUIRE_ERROR(Gas::TransferMass(nonEmptyGas,acceptingGas,6)); //moving more than 100% throws
+			REQUIRE_ERROR(Gas::Transfer(nonEmptyGas,acceptingGas,-1,Gas::Move::Mass)); //move less than 0%
+			REQUIRE_ERROR(Gas::Transfer(acceptingGas,nonEmptyGas,0.5,Gas::Move::Mass)); //gives a warning that moving any fraction > 0 of a zero-mass is pointless
+			REQUIRE_ERROR(Gas::Transfer(nonEmptyGas,acceptingGas,6,Gas::Move::Mass)); //moving more than 100% throws
 
 			// REQUIRE_THAT(msg,ContainsSubstring("Nothing happened"));
 
-			REQUIRE_NO_WARN(Gas::TransferFraction(acceptingGas,nonEmptyGas,0)); //no warning if you move 0% of a 0-mass object
+			REQUIRE_NO_WARN(Gas::Transfer(acceptingGas,nonEmptyGas,0)); //no warning if you move 0% of a 0-mass object
 		}
 	}
 
@@ -405,7 +406,8 @@ TEST_CASE("Gas transfer mechanisms","[physics][gas][galaxy]")
 			auto destinationGas = Gas::WithComposition(10.0, RandomComposition()); // Non-empty destination
 
 			double initialDestMass = destinationGas.Mass();
-			Gas::Transfer(emptySource, destinationGas); // Transfer from empty source
+			auto msg = REQUIRE_WARN(Gas::Transfer(emptySource, destinationGas)); // Transfer from empty source
+			REQUIRE_THAT(msg,ContainsSubstring("Nothing happened"));
 
 			REQUIRE_THAT(emptySource.Mass(), WithinAbs(0.0, 1e-8)); // Source remains empty
 			REQUIRE_THAT(destinationGas.Mass(), WithinAbs(initialDestMass, 1e-8)); // Destination mass unchanged

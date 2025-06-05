@@ -4,9 +4,12 @@
 #include "../../utility/Log.h"
 #include <vector>
 
+enum class Move {Fraction, Mass};
+
 class Gas
 {
     public:
+	
         // Factory functions (no public constructor)
 
         //! \brief Creates an empty gas object (zero mass, zero composition).
@@ -56,12 +59,12 @@ class Gas
         double Metallicity() const;
 
         //! \brief Returns the mass fraction of a specific elemental species.
-        //! \param id The `Element::Species` or integer index.
+        //! \param id The `Element::Species`
         //! \return Fractional abundance of the element.
         double FractionOf(Element::Species id) const;
 
         //! \brief Returns the absolute mass of a specific elemental species.
-        //! \param id The `Element::Species` or integer index.
+        //! \param id The `Element::Species` 
         //! \return Absolute mass of the element.
         double MassOf(Element::Species id) const;
 
@@ -93,55 +96,45 @@ class Gas
         //! \param element The `Element::Species` to absorb.
         //! \param amount Absolute mass to add.
         //! \throws std::logic_error If amount is negative.
-        void Absorb(Element::Species element, double amount);
+        void Absorb(Element::Species element, double mass);
 
         //! \brief Absorbs the entire mass and composition of another Gas object.
         //! \param input The Gas object to absorb from (unchanged).
         void Absorb(const Gas & input);
 
-        //! \brief Depletes a specified fraction of the gas's total mass.
-        //! \param amount Fraction to deplete (0.0 to 1.0).
-        //! \throws std::logic_error If amount is out of range.
-        void DepleteByFraction(double amount);
+		//! \brief Depletes a specified amount of the gas's total mass, keeping abundance levels constant.
+		//! \param amount Either the fraction(0.0 to 1.0) of mass to deplete, or the absolute mass
+		//! \param type Enum flag which controls how `amount' is interpreted (either a Fraction or Mass) 
+		//! \throws std::logic_error If amount is out of range.
+		void Deplete(double amount=1.0, Move type=Move::Fraction);
 
-        //! \brief Depletes a specified absolute mass from the gas.
-        //! \param amount Absolute mass to deplete.
-        //! \throws std::logic_error If amount is negative or exceeds total mass.
-        //! \warning Logs if depleting non-zero from empty gas.
-        void DepleteByMass(double amount);
-
+		//! Overload of Deplete(mass,Move:Mass)
+		void DepleteMass(double mass){Deplete(mass,Move::Mass);};
+		//! Overload of Deplete(mass,Move:Fraction)
+		void DepleteFraction(double fraction){Deplete(fraction,Move::Fraction);};
+			
         // Static Transfer methods
-
-        //! \brief Transfers all mass and composition from source to destination.
-        //! \param source Gas to transfer from (becomes empty).
-        //! \param destination Gas to transfer to.
-        static void Transfer(Gas & source, Gas & destination);
-
-        //! \brief Transfers a fraction of mass from source to destination.
+        //! \brief Transfers gas from source to destination.
         //! \param source Gas to transfer from.
         //! \param destination Gas to transfer to.
-        //! \param fraction Fraction to transfer (0.0 to 1.0).
+        //! \param amount Either the fraction to transfer (0.0 to 1.0), or the absolute mass
+        //! \param amount Either the fraction to transfer (0.0 to 1.0), or the absolute mass
         //! \throws std::logic_error If fraction is out of range.
-        //! \warning Logs if transferring non-zero fraction from empty source.
-        static void TransferFraction(Gas & source, Gas & destination, double fraction);
+        static void Transfer(Gas & source, Gas & destination, double amount = 1,Move type=Move::Fraction);
+        
+		//! Overload of Transfer(source,destination,mass,Move::Mass)
+		static void TransferMass(Gas & source, Gas & destination, double mass){Transfer(source,destination,mass,Move::Mass);};
 
-        //! \brief Transfers an absolute mass from source to destination.
-        //! \param source Gas to transfer from.
-        //! \param destination Gas to transfer to.
-        //! \param mass Absolute mass to transfer.
-        //! \throws std::logic_error If mass is negative or exceeds source's total mass.
-        //! \warning Logs if transferring non-zero mass from empty source.
-        static void TransferMass(Gas & source, Gas & destination, double mass);
+
+		//! Overload of Transfer(source,destination,mass,Move::Fraction)
+		static void TransferFraction(Gas & source, Gas & destination, double fraction){Transfer(source,destination,fraction,Move::Fraction);};
+
 
     private:
         //! \brief Private constructor (use factory functions).
         Gas();
-
-        //! \brief Internal helper for mass transfer logic.
-        static void internalTransfer(Gas & source, Gas & destination, double transferFraction);
-
-        //! \brief Internal helper for mass depletion logic.
-        void internalDeplete(double depletionFraction);
+       
+		double validateMovement(double amount, Move type,const std::string & callingFunction);
 
         //! \brief Stores absolute mass of each elemental species.
         std::vector<double> internalMassOf;

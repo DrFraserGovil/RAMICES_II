@@ -77,95 +77,40 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 		internalMassOf[element] += amount;
 		RegisterChanges();
 	}
-	void Gas::DepleteByFraction(double frac)
+
+
+	void Gas::Deplete(double amount, Move type)
 	{
-		if (frac < 0 || frac > 1)
-		{
-			LOG(ERROR) << "Cannot deplete gas by a fraction '" << frac << "', values must be in range [0,1]";
-			throw std::logic_error("Unphysical quantity encountered");
-		}
 		
-		internalDeplete(frac);
-	}
-	void Gas::DepleteByMass(double massToDeplete)
-	{
-		double m = Mass();
-		//do some error checking
-		if (m == 0 && massToDeplete == 0) //about to divide by m, so m==0 needs special handling, even if it is physical
+		double fraction = validateMovement(amount,type,"Gas::Deplete");
+
+		if (fraction > 0)
 		{
-			return;
+			double remainingFraction = 1.0 - fraction;
+			for (int i = 0; i < Element::Count; ++i)
+			{
+				internalMassOf[i] *= remainingFraction;
+			}
+			RegisterChanges();
 		}
-		if (massToDeplete < 0 || massToDeplete > m)
-		{
-			LOG(ERROR) << "Cannot move a mass " << massToDeplete << ". Value must be in range [0," << m << "]";
-			throw std::logic_error("Unphysical quantity encountered");
-		}
-		
-		double depletionFraction = massToDeplete/m;
-		internalDeplete(depletionFraction);
 	}
 
-
-	void Gas::Transfer(Gas & source, Gas & destination)
+	void Gas::Transfer(Gas & source, Gas & destination, double amount,Move type)
 	{
-		internalTransfer(source,destination,1.0);
+		double transferFraction = source.validateMovement(amount,type,"Gas::Transfer");
+		if (transferFraction > 0)
+		{
+			double sourceRetain = 1.0 - transferFraction;
+			for (int i = 0; i < Element::Count; ++i)
+			{
+				destination.internalMassOf[i] += transferFraction * source.internalMassOf[i];
+				source.internalMassOf[i] *= sourceRetain;
+			}
+			source.RegisterChanges();
+			destination.RegisterChanges();
+		}
 	}
 
-	void Gas::TransferFraction(Gas & source, Gas & destination, double fraction)
-	{
-		if (fraction < 0 || fraction > 1)
-		{
-			LOG(ERROR) << "Cannot move a fraction '" << fraction << "' of gas, values must be in range [0,1]";
-			throw std::logic_error("Unphysical quantity encountered");
-		}
-		if (source.Mass() == 0 && fraction > 0)
-		{
-			LOG(WARN) << "Attempted to move a non-zero fraction of gas from a zero-mass object. Nothing happened."; 
-			return;
-		}
-		internalTransfer(source,destination,fraction);
-	}
-
-	void Gas::TransferMass(Gas & source, Gas & destination,double massToTransfer)
-	{
-		double m = source.Mass();
-		//do some error checking
-		if (massToTransfer < 0 || massToTransfer > m)
-		{
-			LOG(ERROR) << "Cannot transfer a mass " << massToTransfer << ". Value must be in range [0," << m << "]";
-			throw std::logic_error("Unphysical quantity encountered");
-		}
-		if (m == 0 && massToTransfer == 0) //about to divide by m, so m==0 needs special handling, even if it is physical
-		{
-			return;
-		}
-			
-		double depletionFraction = massToTransfer/m;
-		internalTransfer(source,destination,depletionFraction);
-	}
-
-	void Gas::internalTransfer(Gas & source, Gas & destination, double transferFraction)
-	{
-		//assumes error checking already handled properly
-		double sourceRetain = 1.0 - transferFraction;
-		for (int i = 0; i < Element::Count; ++i)
-		{
-			destination.internalMassOf[i] += transferFraction * source.internalMassOf[i];
-			source.internalMassOf[i] *= sourceRetain;
-		}
-		source.RegisterChanges();
-		destination.RegisterChanges();
-	}
-
-	void Gas::internalDeplete(double depletionFraction)
-	{
-		double remainingFraction = 1.0 - depletetionFraction;
-		for (int i = 0; i < Element::Count; ++i)
-		{
-			internalMassOf[i] *= remainingFraction;
-		}
-		RegisterChanges();
-	}
 //Internal functions
 	void Gas::RegisterChanges()
 	{
@@ -198,7 +143,45 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 		compNeedsRecomputing = false;
 	}
 	
-
+	double Gas::validateMovement(double amount, Move type,const std::string & callingFunction)
+	{
+		switch (type)
+		{
+			case (Move::Fraction):
+			{
+				
+				if (amount < 0 || amount > 1)
+				{
+					LOG(ERROR) << "Cannot call " << callingFunction << " with a fraction '" << amount << "', values must be in range [0,1]";
+					throw std::logic_error("Unphysical quantity encountered");
+				}
+				if (Mass() == 0 && amount > 0)
+				{
+					LOG(WARN) << "Attempted to call " << callingFunction << " on a non-zero fraction of gas from a zero-mass object. Nothing happened."; 
+					return 0;
+				}
+				return amount;
+				break;
+			}
+			case (Move::Mass):
+			{
+				double m = Mass();
+				//do some error checking
+				if (m == 0 && amount == 0) //about to divide by m, so m==0 needs special handling, even if it is physical
+				{
+					return 0;
+				}
+				if (amount < 0 || amount > m)
+				{
+					LOG(ERROR) << "Cannot call " << callingFunction << " on a mass " << amount << ". Value must be in range [0," << m << "]";
+					throw std::logic_error("Unphysical quantity encountered");
+				}
+				
+				return amount/m;
+				break;//technically unneccessary but always good practice to remember a break to prevent fallthrough!
+			}
+		}
+	}
 //Factories
 	Gas Gas::WithComposition(double mass,const std::vector<double> & composition)
 	{
@@ -216,7 +199,7 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 		auto g = Gas();
 		for (int el = 0; el < Element::Count; ++el)
 		{
-			g[el] = composition[el] * mass;
+			g.internalMassOf[el] = composition[el] * mass;
 			g.internalComposition[el] = composition[el];
 		}
 		g.internal_Mass = mass;
@@ -234,11 +217,12 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 	Gas Gas::WithMass(const std::vector<double> & massArray)
 	{
 		auto g = Gas();
+
 		for (int el = 0; el < Element::Count; ++el)
 		{
-			g[el] = massArray[el];
+			g.internalMassOf[el] = massArray[el];
 		}
-		g.massNeedsRecomputing = true;
+		g.RegisterChanges();
 		return g;
 	}
 
