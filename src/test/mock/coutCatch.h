@@ -24,24 +24,3 @@ std::string capture_stdout(std::function<void()> func)
 
 
 
-// #define _internal_catch_throw_macro(...)
-#define REQUIRE_ERROR(...) \
-    [&]() -> std::string { \
-        std::string captured_msg = capture_stdout([&]() {REQUIRE_THROWS(__VA_ARGS__); }); \
-        REQUIRE_THAT(captured_msg, Catch::Matchers::ContainsSubstring("[ERROR]")); \
-        return captured_msg; \
-    }() // Immediately invoke the lambda
-
-#define REQUIRE_WARN(...) \
-    [&]() -> std::string { \
-        std::string captured_msg = capture_stdout([&]() { __VA_ARGS__; }); \
-        REQUIRE_THAT(captured_msg, Catch::Matchers::ContainsSubstring("[WARN]")); \
-        return captured_msg; \
-    }() // Immediately invoke the lambda
-
-#define REQUIRE_NO_WARN(...) \
-    [&]() -> std::string { \
-        std::string captured_msg = capture_stdout([&]() { __VA_ARGS__; }); \
-        REQUIRE_THAT(captured_msg, !Catch::Matchers::ContainsSubstring("[WARN]")); \
-        return captured_msg; \
-    }() // Immediately invoke the lambda

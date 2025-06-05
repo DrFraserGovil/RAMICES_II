@@ -1,7 +1,6 @@
 #pragma once
-#include "../catch_amalgamated.hpp" 
+#include "../catch_extended.h" 
 #include "../../galaxy/gas/gas.h"
-#include "../mock/mockObjects.h"
 #include "../../utility/Random.h"
 using namespace Catch::Matchers;
 Random R;
@@ -23,7 +22,7 @@ std::vector<double> RandomComposition(double mass = 1)
 }
 
 
-TEST_CASE("Basic gas functionality","[gas][physics][galaxy]")
+TEST_CASE("Gas Constructors","[gas][physics][galaxy][constructors]")
 {
 	// Settings.ValidateAll();
 	SECTION("Factory Functions")
@@ -139,7 +138,7 @@ TEST_CASE("Basic gas functionality","[gas][physics][galaxy]")
 	}
 }
 
-TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
+TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy][interface]")
 {
 	auto g = Gas::Empty();
 
@@ -203,8 +202,11 @@ TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
 		REQUIRE_THAT(absorbingGas[Element::Europium],WithinAbs(4,1e-8));
 		
 	}
+}
 
 
+TEST_CASE("Gas depletion","[gas][physics][galaxy][depletion]")
+{
 	SECTION("Gas::DepleteByFraction")
 	{
 		auto composition = RandomComposition();
@@ -215,14 +217,14 @@ TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
 		{
 			//now check errors
 			//test the extreme ends of the spectrum
-			REQUIRE_NOTHROW(baseGas.Deplete(1,Gas::Move::Fraction));
+			REQUIRE_NOTHROW(baseGas.Deplete(1,Move::Fraction));
 			baseGas = Gas::WithComposition(1,composition); //refill after depletion
-			REQUIRE_NO_WARN(baseGas.Deplete(0,Gas::Move::Fraction));
+			REQUIRE_NO_WARN(baseGas.Deplete(0,Move::Fraction));
 
 			//and now outside those domains
-			auto msg = REQUIRE_ERROR(baseGas.Deplete(2,Gas::Move::Fraction));
+			auto msg = REQUIRE_ERROR(baseGas.Deplete(2,Move::Fraction));
 			REQUIRE_THAT(msg,ContainsSubstring("must be in range [0,1]"));
-			msg = REQUIRE_ERROR(baseGas.Deplete(-1,Gas::Move::Fraction));
+			msg = REQUIRE_ERROR(baseGas.Deplete(-1,Move::Fraction));
 			REQUIRE_THAT(msg,ContainsSubstring("must be in range [0,1]"));
 
 		}
@@ -232,7 +234,7 @@ TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
 			double reducingFraction = 0.5;
 			for (int repeat = 0; repeat < 5; ++repeat)
 			{
-				baseGas.Deplete(reducingFraction,Gas::Move::Fraction);
+				baseGas.Deplete(reducingFraction,Move::Fraction);
 				for (int element = 0; element < Element::Count; ++element)
 				{
 					auto species = Element::FromInteger(element);
@@ -257,15 +259,15 @@ TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
 		{
 			//now check errors
 			//test the extreme ends of the spectrum
-			REQUIRE_NOTHROW(baseGas.Deplete(startMass,Gas::Move::Mass));
+			REQUIRE_NOTHROW(baseGas.Deplete(startMass,Move::Mass));
 			baseGas = Gas::WithComposition(startMass,composition);//refill after depletion
-			REQUIRE_NOTHROW(baseGas.Deplete(0,Gas::Move::Mass));
+			REQUIRE_NOTHROW(baseGas.Deplete(0,Move::Mass));
 
 
 			//and now outside those domains
-			std::string msg = REQUIRE_ERROR(baseGas.Deplete(startMass + 1,Gas::Move::Mass));
+			std::string msg = REQUIRE_ERROR(baseGas.Deplete(startMass + 1,Move::Mass));
 			REQUIRE_THAT(msg,ContainsSubstring("must be in range [0,3]"));
-			msg = REQUIRE_ERROR(baseGas.Deplete(-2,Gas::Move::Mass));
+			msg = REQUIRE_ERROR(baseGas.Deplete(-2,Move::Mass));
 			REQUIRE_THAT(msg,ContainsSubstring("must be in range [0,3]"));
 		}
 		
@@ -274,7 +276,7 @@ TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
 			double reducingMass = 0.5;
 			for (int repeat = 0; repeat < 5; ++repeat)
 			{
-				baseGas.Deplete(reducingMass,Gas::Move::Mass);
+				baseGas.Deplete(reducingMass,Move::Mass);
 				double expectedMass = startMass - reducingMass*(repeat+1);
 				REQUIRE_THAT(baseGas.Mass(), WithinAbs(expectedMass,1e-8));
 				for (int element = 0; element < Element::Count; ++element)
@@ -290,7 +292,7 @@ TEST_CASE("Basic Gas modification & updates","[gas][physics][galaxy]")
 	}
 }
 
-TEST_CASE("Gas transfer mechanisms","[physics][gas][galaxy]")
+TEST_CASE("Gas transfer mechanisms","[physics][gas][galaxy][transfer]")
 {
 	SECTION("Fractional transfer")
 	{
@@ -325,7 +327,7 @@ TEST_CASE("Gas transfer mechanisms","[physics][gas][galaxy]")
 		{
 			auto nonEmptyGas = Gas::Empty(); nonEmptyGas.Absorb(Element::Hydrogen,5);
 
-			//note using the default overload here -- no Gas::Move::Fraction call. This ensures the expected default behaviour is maintained!
+			//note using the default overload here -- no Move::Fraction call. This ensures the expected default behaviour is maintained!
 			REQUIRE_ERROR(Gas::Transfer(nonEmptyGas,acceptingGas,1.5)); //move more than 100%
 			REQUIRE_ERROR(Gas::Transfer(nonEmptyGas,acceptingGas,-1)); //move less than 0%
 
@@ -349,7 +351,7 @@ TEST_CASE("Gas transfer mechanisms","[physics][gas][galaxy]")
 				auto comp = RandomComposition();
 				auto adderGas = Gas::WithComposition(gasMass,comp);
 				
-				Gas::Transfer(adderGas,acceptingGas,transferMass,Gas::Move::Mass);
+				Gas::Transfer(adderGas,acceptingGas,transferMass,Move::Mass);
 
 				double expectedMass = transferMass * (repeat +1);
 				REQUIRE_THAT(acceptingGas.Mass(),WithinAbs(expectedMass,1e-8));
@@ -369,9 +371,9 @@ TEST_CASE("Gas transfer mechanisms","[physics][gas][galaxy]")
 		{
 			auto nonEmptyGas = Gas::Empty(); nonEmptyGas.Absorb(Element::Hydrogen,5);
 
-			REQUIRE_ERROR(Gas::Transfer(nonEmptyGas,acceptingGas,-1,Gas::Move::Mass)); //move less than 0%
-			REQUIRE_ERROR(Gas::Transfer(acceptingGas,nonEmptyGas,0.5,Gas::Move::Mass)); //gives a warning that moving any fraction > 0 of a zero-mass is pointless
-			REQUIRE_ERROR(Gas::Transfer(nonEmptyGas,acceptingGas,6,Gas::Move::Mass)); //moving more than 100% throws
+			REQUIRE_ERROR(Gas::Transfer(nonEmptyGas,acceptingGas,-1,Move::Mass)); //move less than 0%
+			REQUIRE_ERROR(Gas::Transfer(acceptingGas,nonEmptyGas,0.5,Move::Mass)); //gives a warning that moving any fraction > 0 of a zero-mass is pointless
+			REQUIRE_ERROR(Gas::Transfer(nonEmptyGas,acceptingGas,6,Move::Mass)); //moving more than 100% throws
 
 			// REQUIRE_THAT(msg,ContainsSubstring("Nothing happened"));
 

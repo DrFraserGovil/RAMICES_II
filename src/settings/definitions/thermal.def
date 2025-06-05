@@ -2,3 +2,4 @@ SETTING(double,FeedbackFactor,0.5,"feedback-heat","The amount of cold gas heated
 SETTING(double,HotInjection_CCSN,0.7,"hot-ccsn","The fraction of CCSN ejecta placed into the hot phase")
 SETTING(double,HotInjection_AGB,0.4,"hot-agb","The fraction of AGB ejecta placed into the hot phase")
 SETTING(double,HotInjection_SN1a,0.4,"hot-sn1a","The fraction of SN1a ejecta placed into the hot phase")
+SETTING(double,PrimordialTemperature,0.01,"primordial-temp","The fraction of primordial gas which is in the hot phase at simulation start")

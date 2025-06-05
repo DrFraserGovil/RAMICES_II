@@ -23,7 +23,7 @@ class Gas
         //! \throws std::logic_error If mass is negative.
         //! \throws std::runtime_error If composition vector size is incorrect.
         //! \warning Logs if mass is zero.
-        static Gas WithComposition(double mass, const std::vector<double> & composition);
+        static Gas WithComposition(double mass, const std::vector<double> & composition,bool forceAcceptZeroMass = false);
 
         //! \brief Creates a new gas with specified mass and the same composition as a target gas.
         //! \param mass Desired total mass for the new gas.
@@ -31,6 +31,13 @@ class Gas
         //! \return A new Gas object.
         //! \throws std::logic_error If targetGas has zero mass.
         static Gas WithSameComposition(double mass, const Gas & targetGas);
+
+		 //! \brief Creates a new gas with the same composition as a target gas, and amass equal to a specified fraction of the original mass.
+        //! \param fraction The value used to compute new_mass = fraction * targetGas.Mass() for the new object 
+        //! \param targetGas The Gas object whose composition will be copied.
+        //! \return A new Gas object.
+        //! \throws std::logic_error If targetGas has zero mass.
+		static Gas FractionalCopy(double fraction, const Gas & target);
 
         //! \brief Creates a gas object from an elemental mass grid.
         //! \param massArray Vector of absolute masses for each element (size `Element::Count`).
@@ -98,9 +105,10 @@ class Gas
         //! \throws std::logic_error If amount is negative.
         void Absorb(Element::Species element, double mass);
 
-        //! \brief Absorbs the entire mass and composition of another Gas object.
+        //! \brief Absorbs the specified fraction of another Gas object.
         //! \param input The Gas object to absorb from (unchanged).
-        void Absorb(const Gas & input);
+		//! \param fraction The fraction of the total object to absorb
+        void Absorb(const Gas & input,double fraction=1.0);
 
 		//! \brief Depletes a specified amount of the gas's total mass, keeping abundance levels constant.
 		//! \param amount Either the fraction(0.0 to 1.0) of mass to deplete, or the absolute mass

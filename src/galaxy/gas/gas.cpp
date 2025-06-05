@@ -64,11 +64,11 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 		return internalMassOf[id];
 	}
 
-	void Gas::Absorb(const Gas & input)
+	void Gas::Absorb(const Gas & input,double fraction)
 	{
 		for (int i = 0; i < Element::Count; ++i)
 		{
-			internalMassOf[i] += input.internalMassOf[i];
+			internalMassOf[i] += input.internalMassOf[i]*fraction;
 		}
 		RegisterChanges();
 	}
@@ -182,15 +182,24 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 			}
 		}
 	}
+
+
 //Factories
-	Gas Gas::WithComposition(double mass,const std::vector<double> & composition)
+	Gas Gas::WithComposition(double mass,const std::vector<double> & composition,bool forceAcceptZeroMass)
 	{
 		if (mass < 0)
 		{
 			LOG(ERROR) << "Cannot create a gas object with negative mass (" << mass << " < 0)";
 			throw std::logic_error("Unphysical quantity encountered");
 		}
-		
+		if (mass == 0)
+		{
+			if (!forceAcceptZeroMass)
+			{
+				LOG(WARN) << "Constructed a gas with specified composition, but zero mass. This is usually unintended";
+			}
+			return Gas::Empty();
+		}
 		if (composition.size() != Element::Count)
 		{
 			LOG(ERROR) << "Partial composition vectors are invalid. Cannot construct a gas object without a correctly sized composition";
@@ -206,11 +215,7 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 		g.massNeedsRecomputing = false;
 		g.compNeedsRecomputing = false;
 
-		if (mass == 0)
-		{
-			LOG(WARN) << "Constructed a gas with specified composition, but zero mass. This is usually unintended";
-			g.compNeedsRecomputing = true; // flag here because the default copy doesn't work on 0 mass-gases
-		}
+		
 		return g;
 	}
 
@@ -238,7 +243,12 @@ Gas::Gas() : internalMassOf(Element::Count,0.0), internalComposition(Element::Co
 			LOG(ERROR) << "Gas to be copied has zero mass, and hence no composition to copy";
 			throw std::logic_error("Unphysical quantity encountered");
 		}
-		return Gas::WithComposition(mass,targetGas.Composition());
+		return Gas::WithComposition(mass,targetGas.Composition(),true);
+	}
+
+	Gas Gas::FractionalCopy(double fraction, const Gas & targetGas)
+	{
+		return WithSameComposition(fraction*targetGas.Mass(),targetGas);
 	}
 
 	Gas Gas::Empty()
