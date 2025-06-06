@@ -163,6 +163,8 @@ TEST_CASE("Reservoir Depletion","[reservoir][gas][physics][depletion]")
 			expectedMass*=(1.0 - depleteFrac);
 			reservoir.Deplete(depleteFrac);
 			REQUIRE_APPROX(reservoir.TotalMass(),expectedMass); //mass is gone
+			REQUIRE_APPROX(reservoir.Cold.Mass(),expectedMass*(1.0-temp));
+			REQUIRE_APPROX(reservoir.Hot.Mass(),expectedMass*(temp));
 			REQUIRE_VEC_APPROX(reservoir.Cold.Composition(), coldComp); //cold composition remains the same
 			REQUIRE_VEC_APPROX(reservoir.Hot.Composition(), hotComp); //hot composition remains the same
 			REQUIRE_APPROX(reservoir.GetTemperature(),temp); //temperature remains the same
@@ -179,6 +181,8 @@ TEST_CASE("Reservoir Depletion","[reservoir][gas][physics][depletion]")
 			expectedMass -= depleteMass;
 			reservoir.Deplete(depleteMass,Move::Mass);
 			REQUIRE_APPROX(reservoir.TotalMass(),expectedMass); //mass is gone
+			REQUIRE_APPROX(reservoir.Cold.Mass(),expectedMass*(1.0-temp));
+			REQUIRE_APPROX(reservoir.Hot.Mass(),expectedMass*(temp));
 			REQUIRE_VEC_APPROX(reservoir.Cold.Composition(), coldComp); //cold composition remains the same
 			REQUIRE_VEC_APPROX(reservoir.Hot.Composition(), hotComp); //hot composition remains the same
 			REQUIRE_APPROX(reservoir.GetTemperature(),temp); //temperature remains the same
@@ -227,34 +231,38 @@ TEST_CASE("Reservoir Depletion","[reservoir][gas][physics][depletion]")
 }
 
 
-std::vector<double> expectedComposition(std::vector<double> base, std::vector<double> mixer,double mix)
+std::vector<double> expectedComposition(const std::vector<double> base,double baseMass,const std::vector<double> mixer,double mixerMass)
 {
 	auto copy = std::vector<double>(base.size(),0);
 	for (int i = 0; i < base.size(); ++i)
 	{
-		copy[i] = base[i] * (1.0 - mix) + mixer[i] * mix;
+		double origM = baseMass * base[i];
+		double newM = mixerMass * mixer[i];
+		copy[i] =(origM + newM)/(baseMass + mixerMass);
+		LOG(INFO) << Element::Name(i) << " " <<base[i] << "  " << origM << " " << newM << " " << baseMass << " " << mixerMass << " " << copy[i];
 	}
 	return copy;
 }
 
-TEST_CASE("Reservoir transfers")
+TEST_CASE("Reservoir transfers","[reservoir][gas][physics][transfer]")
 {
 	auto coldComp= RandomComposition();
 	auto hotComp= RandomComposition();
 	double totalMass = 10;
-	double temp = R.UniformDouble(0.1,0.9);
+	double restemp = R.UniformDouble(0.1,0.9);
 
-	auto cold = Gas::WithComposition(totalMass*(1.0 - temp),coldComp);
-	auto hot = Gas::WithComposition(totalMass * temp,hotComp);
+	auto cold = Gas::WithComposition(totalMass*(1.0 - restemp),coldComp);
+	auto hot = Gas::WithComposition(totalMass * restemp,hotComp);
 
 	
 	SECTION("Transfer in a gas object")
 	{
 		double inputMass = 5;
-		auto newComp = RandomComposition();
+		auto newComp = std::vector<double>(coldComp.size(),0.0);
+		newComp[0] = 1.0;
 		
 		std::vector<double> temps = {0.0,0.2,0.5,0.6,1.0};
-		std::vector<double> transferFrac = {0.1,0.5,1};
+		std::vector<double> transferFrac = {0.1,0.5,0.999};
 		SECTION("Double-temps")
 		{
 			for (auto transfer : transferFrac)
@@ -262,20 +270,28 @@ TEST_CASE("Reservoir transfers")
 				for (auto sourceTemp : temps)
 				{
 					auto reservoir = GasReservoir::FromGas(cold,hot);
+				
 					auto source = Gas::WithComposition(inputMass,newComp);
 
 					GasReservoir::Transfer(source,reservoir,sourceTemp,transfer,Move::Fraction);
 
-					double expectedColdMass = totalMass * (1.0 - temp) + inputMass*transfer*(1.0 - sourceTemp);
-					double expectedHotMass = totalMass * ( temp) + inputMass*transfer*(sourceTemp);
+					double expectedColdMass = totalMass * (1.0 - restemp) + inputMass*transfer*(1.0 - sourceTemp);
+					double expectedHotMass = totalMass * ( restemp) + inputMass*transfer*(sourceTemp);
+					
+					REQUIRE_APPROX(source.Mass(),inputMass*(1.0-transfer));//check mass lost from source
+					REQUIRE_VEC_APPROX(source.Composition(),newComp);//but composition unchanged
 					REQUIRE_APPROX(reservoir.Cold.Mass(),expectedColdMass);
 					REQUIRE_APPROX(reservoir.Hot.Mass(),expectedHotMass);
 
-					REQUIRE_APPROX(source.Mass(),inputMass*(1.0-transfer));//check mass lost from source
-					REQUIRE_VEC_APPROX(source.Composition(),newComp);//but mass unchanged
-
-					REQUIRE_VEC_APPROX(reservoir.Cold.Composition(),expectedComposition(coldComp,newComp,(1.0-sourceTemp)*transfer));
-					REQUIRE_VEC_APPROX(reservoir.Hot.Composition(),expectedComposition(hotComp,newComp,(sourceTemp)*transfer));
+					
+					for (int i = 0; i < Element::Count; ++i)
+					{
+						auto element = Element::FromInteger(i);
+						double expectedHotAmount = hot.MassOf(element) + inputMass * newComp[element] * sourceTemp*transfer;
+						REQUIRE_APPROX(reservoir.Hot.MassOf(element),expectedHotAmount);
+						double expectedColdAmount = cold.MassOf(element) + inputMass * newComp[element] * (1.0-sourceTemp)*transfer;
+						REQUIRE_APPROX(reservoir.Cold.MassOf(element),expectedColdAmount);
+					}
 					
 				}
 			}

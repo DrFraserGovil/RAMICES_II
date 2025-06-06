@@ -107,21 +107,31 @@
 		//however: this does it `in place' to avoid invocation overhead
 		
 		TemperatureValidate(sourceTemperature);
-		auto [coldTransfer,hotTransfer] = TemperatureBalancer(amount,type,sourceTemperature);
-		if (coldTransfer> 0)
+		
+
+		//sequential fractional transfers are a *pain* due to intermediary mass changes. Force into mass space right here
+		if (type == Move::Fraction)
 		{
-			Gas::Transfer(source,destination.Cold,coldTransfer,type);
+			amount *= source.Mass();
+		}
+		auto [coldTransfer,hotTransfer] = TemperatureBalancer(amount,Move::Mass,sourceTemperature);
+
+		if (coldTransfer > 0)
+		{
+			Gas::Transfer(source,destination.Cold,coldTransfer,Move::Mass);
 		}
 		if (hotTransfer > 0)
 		{
-			Gas::Transfer(source,destination.Hot,hotTransfer,type);
+			Gas::Transfer(source,destination.Hot,hotTransfer,Move::Mass);
 		}
+
 	}
 	void GasReservoir::Transfer(GasReservoir & source, GasReservoir & destination, double amount, Move type)
 	{
 		//the same balancing code used for depletion (which is how the source experiences it)
 		//peg the balancer to the *source*, not the destination, as it's the source's temp which remains unchanged
 		auto [coldTransfer,hotTransfer] = TemperatureBalancer(amount,type,source.GetTemperature());
+		
 		if (coldTransfer> 0)
 		{
 			Gas::Transfer(source.Cold,destination.Cold,coldTransfer,type);
