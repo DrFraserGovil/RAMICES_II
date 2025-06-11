@@ -54,9 +54,27 @@ TEST_CASE("SimulationSettings reads config files","[settings][configure]")
 {
 	MockFile f;
 	f << "v_5\n";
-	f << "\n";
 	f << "feedback-heat_0.07\n";
 	f << "thread_18\n";
+
+
+	ArgSpoofer cmd({"-config",f.Name(),"-config-delimiter","_"});
+	SimulationSettings Settings;
+	REQUIRE_NOTHROW(Settings.Initialise(cmd.argc,cmd.argv));
+
+	REQUIRE(Settings.System.ParallelThreads == 18);
+	REQUIRE(Settings.Thermal.FeedbackFactor == 0.07);
+	REQUIRE(Settings.System.Verbosity == 3); //Validate catches a v > 5, and resets it to 3 so this is a cheeky check
+}
+
+TEST_CASE("SimulationSettings reads *unusual* config files","[settings][configure][edgecase]")
+{
+	//same test as above, but with some unusual additions to the config file, to ensure that it parses correctly
+	MockFile f;
+	f << "v_5\n";
+	f << "\n";  //blank line
+	f << "feedback-heat_0.07 //this is a test comment, it should be ignored\n"; //comment
+	f << "thread_18"; //no terminating line break
 
 
 	ArgSpoofer cmd({"-config",f.Name(),"-config-delimiter","_"});

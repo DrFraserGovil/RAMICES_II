@@ -32,6 +32,7 @@ std::vector<std::string_view> inline split(std::string_view s, std::string_view 
     return tokens;
 }
 
+
 std::string_view inline trim(std::string_view sv)
 {
     // Find the first non-whitespace character
@@ -50,6 +51,18 @@ std::string_view inline trim(std::string_view sv)
 
     return sv.substr(first, last - first);
 }
+
+std::string_view inline trim(std::string_view sv,const std::string & commentIndicator)
+{
+    auto commentStart = sv.find(commentIndicator);
+    if (commentStart != std::string::npos)
+    {
+        sv = sv.substr(0,commentStart);
+    }
+    return trim(sv);
+}
+
+
 
 
 bool inline insensitiveEqualsChar(char a, char b)

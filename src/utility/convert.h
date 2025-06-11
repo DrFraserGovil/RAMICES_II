@@ -20,7 +20,7 @@ struct Converter
 {
 	static T convert(std::string_view sv)
 	{
-        sv = trim(sv);
+        sv = trim(sv,"//");
         RejectEmpty(sv);
         
         //create an object and read from_chars into it. Some implicit type conversion is allowed here (i.e. if T is a bool)
@@ -79,7 +79,7 @@ template <>
 struct Converter<bool> {
     static bool convert(std::string_view sv) 
 	{
-        auto snap = trim(sv);
+        auto snap = trim(sv,"//");
         if (snap == "1" || insensitiveEquals(snap,"true"))
         {
             return true;
@@ -100,7 +100,7 @@ struct Converter<char> {
     static char convert(std::string_view sv)
     {
         // Trim whitespace first
-        sv = trim(sv);
+        sv = trim(sv,"//");
         // A single char conversion should only accept a single character string_view
         if (sv.length() != 1) {
             LOG(ERROR) << "Cannot convert string_view '" << sv << "' to char: Expected a single character.";
@@ -122,7 +122,7 @@ struct Converter<char> {
     {
         static double convert(std::string_view sv)
         {
-            sv = trim(sv);
+            sv = trim(sv,"//");
             RejectEmpty(sv);
 
             try
@@ -180,7 +180,7 @@ struct Converter<std::vector<T_Inner>>
     // Overload 2: Takes string_view and a custom delimiter
     static std::vector<T_Inner> convert(std::string_view sv, std::string_view element_delimiter,typename std::enable_if_t<!std::is_same_v<T_Inner, char>>* = nullptr) 
     {
-        sv = trim(sv);
+        sv = trim(sv,"//");
         if (sv.empty()) 
         {
             LOG(ERROR) << "Empty-vectors can only be instantiated if they have enclosing braces -- empty strings are not valid.";
