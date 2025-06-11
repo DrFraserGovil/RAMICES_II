@@ -54,6 +54,7 @@ TEST_CASE("SimulationSettings reads config files","[settings][configure]")
 {
 	MockFile f;
 	f << "v_5\n";
+	f << "\n";
 	f << "feedback-heat_0.07\n";
 	f << "thread_18\n";
 

@@ -47,6 +47,17 @@ struct MakeStringStruct<std::string, void> {
     }
 };
 
+
+// Specialization for `std::string_view`
+template<>
+struct MakeStringStruct<std::string_view, void> {
+    static std::string convert(const std::string_view& value) {
+        // For plain strings, just return the value.
+        // If your strings can contain the delimiter, you might need quoting logic here.
+        return std::string(value);
+    }
+};
+
 // Specialization for `std::vector<T_Inner>`
 template<typename T_Inner>
 struct MakeStringStruct<std::vector<T_Inner>, void> {
