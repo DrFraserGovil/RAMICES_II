@@ -17,6 +17,21 @@ namespace Setting
 	template <typename U>
 	struct is_vector<std::vector<U>> : std::true_type {};
 
+	bool inline ElementIsValue(char * nextElement)
+	{
+		bool hasDash = (nextElement[0] == '-'); //dashes signify commands, but also negative nos.
+		bool isSingleCharacter = (strlen(nextElement) == 1);
+
+		if (!hasDash || isSingleCharacter)
+		{
+			return true; //entries that are not preceeded by a dash, or are a single character long, cannot be command triggers
+		}
+
+		return isdigit(nextElement[1]); //detect if the next string is a number, if so return true. This is the case of a negative no.
+		
+	}
+
+
 	template<class T>
 	class Parameter
 	{
@@ -124,7 +139,7 @@ namespace Setting
 					if (std::string(argv[idx]) == target)
 					{
 						foundTrigger = true;
-						if (idx < argc -1 && NextElementIsValue(argv[idx+1]))
+						if (idx < argc -1 && ElementIsValue(argv[idx+1]))
 						{
 							Convert(argv[idx+1]);
 						}
@@ -197,19 +212,7 @@ namespace Setting
 			
 			
 
-			bool NextElementIsValue(char * nextElement)
-			{
-				bool hasDash = (nextElement[0] == '-'); //dashes signify commands, but also negative nos.
-				bool isSingleCharacter = (strlen(nextElement) == 1);
-
-				if (!hasDash || isSingleCharacter)
-				{
-					return true; //entries that are not preceeded by a dash, or are a single character long, cannot be command triggers
-				}
-
-				return isdigit(nextElement[1]); //detect if the next string is a number, if so return true. This is the case of a negative no.
-				
-			}
+			
 
 			void Convert(std::string_view sv)
 			{

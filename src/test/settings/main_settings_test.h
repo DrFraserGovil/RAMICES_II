@@ -1,8 +1,6 @@
 #pragma once
-#include "../catch_amalgamated.hpp" 
+#include "../catch_extended.h" 
 #include "../../settings/SimulationSettings.h"
-
-#include "../mock/mockObjects.h"
 
 TEST_CASE("Compile-time testing","[compilation][settings]")
 {
@@ -73,7 +71,8 @@ TEST_CASE("SimulationSettings reads *unusual* config files","[settings][configur
 	MockFile f;
 	f << "v_5\n";
 	f << "\n";  //blank line
-	f << "feedback-heat_0.07 //this is a test comment, it should be ignored\n"; //comment
+	f << "//This line is only a comment\n"; //full line comment
+	f << "feedback-heat_0.07 //this is a test comment, it should be ignored\n"; //inline comment
 	f << "thread_18"; //no terminating line break
 
 
@@ -100,4 +99,47 @@ TEST_CASE("SimulationSettings reads config files and cmd-lines","[settings][pars
 	REQUIRE(Settings.System.ParallelThreads == 18); //this was not in the cmd line, so remains at the config value
 	REQUIRE(Settings.Thermal.FeedbackFactor == 0.5); 
 	REQUIRE(Settings.System.Verbosity == 3); 
+}
+
+TEST_CASE("Warnings & Errors","[settings][configure][edgecase][warnings][errors]")
+{
+	MockFile f;
+	f << "v_1\n";
+	f << "feedback-heat_0.07\n";
+	f << "thread_18\n";
+
+	SimulationSettings Settings;
+	ArgSpoofer cmd({"-config",f.Name(),"-config-delimiter","_"});
+	ArgSpoofer cmdSafeDuplicate({"-config",f.Name(),"-config-delimiter","_","-thread","10"});
+
+
+	SECTION("Duplicate arguments throw an error")
+	{
+		f << "thread_10\n";
+		auto msg = REQUIRE_ERROR(Settings.Initialise(cmd.argc,cmd.argv));
+		REQUIRE_THAT(msg,ContainsSubstring("thread"));//check it is throwing off duplicated thread 
+
+		ArgSpoofer cmdBadDuplicate({"-v","5","-v","10"});
+		msg = REQUIRE_ERROR(Settings.Initialise(cmdBadDuplicate.argc,cmdBadDuplicate.argv));
+		REQUIRE_THAT(msg,ContainsSubstring("thread"));//check it is throwing off duplicated thread 
+	}
+	SECTION("Duplicated arguments are permitted if in different modes; with cmd overriding them")
+	{
+		REQUIRE_NO_WARN(Settings.Initialise(cmdSafeDuplicate.argc,cmdSafeDuplicate.argv));
+
+		REQUIRE(Settings.System.ParallelThreads == 10); //not 18, the config value
+	}
+
+	SECTION("Throws warnings from bad cmd")
+	{
+		ArgSpoofer cmdNoDash({"-v","5","thread","10"}); //note thread, not -thread
+		auto msg = REQUIRE_WARN(Settings.Initialise(cmdNoDash.argc,cmdNoDash.argv));
+		REQUIRE_THAT(msg,ContainsSubstring("thread"));
+
+
+		//check a warning is thrown if you give a parameter it doesn't recognise
+		ArgSpoofer cmdFalseParam({"-nonExistentParameter","5"});
+		msg = REQUIRE_WARN(Settings.Initialise(cmdFalseParam.argc,cmdFalseParam.argv));
+		REQUIRE_THAT(msg,ContainsSubstring("nonExistentParameter"));
+	}
 }
