@@ -1,3 +1,6 @@
+SETTING(std::string,IsochroneDirectory,"Resources/Isochrones","iso-dir","The relative path to the directory in which the raw isochrone files are located.\nThis option is unused if both a lifetime archive and an observable archive is specified.")
+SETTING(std::string,LifetimeFile,"__none__","lifetime","If not __none__, used as an isochrone lifetime input file. Expects a .iso file.")
+SETTING(std::string,LifetimeFileOutput,"__none__","lifetime-output","If lifetimes read in from the raw isochrone files (and not __none__), outputs the processed .iso files to this location.")
 SETTING(double,MaxStellarMass,100,"max-star-mass","The maximum mass of a star it is possible to make (solar units)")
 SETTING(double,MinStellarMass,0.1,"min-star-mass","The minimum mass of a star it is possible to make (solar units)")
 SETTING(double,MaxLogZ,-0.1,"max-star-logz","The maximum metallicity possible in stars and gas")
