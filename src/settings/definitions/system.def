@@ -2,4 +2,5 @@ SETTING(size_t,Verbosity,2,"v","The output level of the code\n0: ERROR-level\n1:
 SETTING(bool,UseLogHeaders,true,"log-headers","When true, includes log-header information such as message level and source code identifiers")
 SETTING(size_t,ParallelThreads,1,"thread","The number of threads on which to execute the code.\nAny number greater than 1 spins up a ThreadPool to manage async operations")
 SETTING(std::string,Output,"output.gce","o","The name of the GCE-archive into which output is placed")
-
+SETTING(double,SimulationDuration,10.,"duration","The duration (in Gyr) of the main GCE loop")
+SETTING(int,SimulationResolution,1000,"resolution","The number of timesteps used in the main GCE loop. The simulation timestep is equal to SimulationDuration/SimulationResolution")
