@@ -13,6 +13,7 @@
 #include <exception>
 #include <mutex>
 #include <sstream>
+
 extern std::mutex GlobalLogMutex;
 enum LogLevel 
 {
@@ -51,6 +52,7 @@ struct ConfigObject
     void SetLevel(int level);
     void SetHeader(bool value);
     void SetNewline(bool value);
+    void Initialise(int level,bool header,std::string welcomeFile);
 };
 extern ConfigObject LogConfig;
 class LoggerCore

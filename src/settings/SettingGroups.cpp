@@ -9,11 +9,16 @@ bool SystemSettings::Validate()
 	}
 	//initialise the logging system so we can begin to communicate.
 	//But only do this when *not* in testing mode, as testing gets messed up otherwise!
+	
 	#ifndef UNITTEST
-		LogConfig.SetLevel(Verbosity);
-		LogConfig.SetHeader(UseLogHeaders);
+		std::string welcomeFile = ResourceDirectory.Value() + "/welcome.dat";
+		LogConfig.Initialise(Verbosity,UseLogHeaders,welcomeFile);	
+	#else
+		LogConfig.SetLevel(2);
+		LogConfig.SetHeader(true);
 		LogConfig.SetNewline(true);
 	#endif
+	
 	return true;
 }
 
