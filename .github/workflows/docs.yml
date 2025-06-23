@@ -59,9 +59,9 @@ jobs:
       # Check if the main index.html file was generated.
       # This helps ensure the build step actually produced files.
       run: |
-        if [ -f docs/_build/html/main.html ]; then
+        if [ -f docs/_build/html/index.html ]; then
           echo "Documentation built successfully!"
         else
-          echo "Error: main.html not found in docs/_build/html/. Build might have failed."
+          echo "Error: main.html not found in docs/_build/index/. Build might have failed."
           exit 1
         fi
