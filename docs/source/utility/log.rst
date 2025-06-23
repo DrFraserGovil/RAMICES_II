@@ -7,15 +7,18 @@ RAMICES III uses a custom-built logging system for printing output to the termin
 
 
 .. doxygendefine:: LOG
+    :path:
 
-Log Levels
+Modifying Logs
 ---------------
 
-.. doxygenenum:: LogLevel
+.. toctree::
+    log_levels
+    log_config
+    log_globals
+    log_core
+    :maxdepth: 1
 
-
-Configuration
-----------------
 
 Usage
 ---------
@@ -25,7 +28,7 @@ Usage
 
     //test.cpp
 
-
+    #include "Log.h"
     void testPrint(LogLevel level)
     {
         LogConfig.SetLevel(level)
@@ -38,15 +41,29 @@ Usage
     int main(int argc, char**argv)
     {
         LogConfig.SetLevel(INFO)
-        testPrint(INFO);
-        testPrint(ERROR);
+        testPrint(DEBUG);
+        testPrint(WARN);
     }
 
-Internal Documentation
-=========================
-
-The following 
 
 
-.. doxygenclass:: LoggerCore
+
+.. raw:: html
+
+    <div class="highlight log-output-box"> <pre><code>
+    <span class="log-debug">[DEBUG] This is detailed debugging</span><br>
+    <span class="log-info">[INFO]   &nbspThis is progress information</span><br>
+    <span class="log-warn">[WARN]   &nbspLine 7 of src/main.cpp in function testPrint</span><br>
+    <span class="log-warn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThis is a warning that something went wrong</span><br>
+    <span class="log-warn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBut was recovered.</span><br>
+    <span class="log-error">[ERROR] Line 8 of src/main.cpp in function testPrint</span><br>
+    <span class="log-error">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspomething has gone very badly wrong</span><br>
+    <span class="log-warn">[WARN]   &nbspLine 7 of src/main.cpp in function testPrint</span><br>
+    <span class="log-warn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBut was recovered.</span><br>
+    <span class="log-error">[ERROR] Line 8 of src/main.cpp in function testPrint</span><br>
+    <span class="log-error">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSomething has gone very badly wrong</span>
+    </code></pre></div> 
+
+
+
 

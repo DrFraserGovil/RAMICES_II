@@ -1,0 +1,45 @@
+.log-debug { color: #518ef0;background-color: #18191a; }
+.log-info { color: white; }
+.log-warn { color: #b96df7; }
+.log-error { color: #fc3835; font-weight: bold; }
+
+
+
+/* Ensure all log spans take up the full line width */
+div.highlight.log-output-box pre code span {
+    display: block; /* Make spans take full width */
+
+	
+    /* If your text aligns with the overall box, you might not need this.
+       Or, if the indent is part of the span's content, the background will cover it. */
+}
+
+/* Style for the overall Log Output Box */
+div.highlight.log-output-box {
+    background: #18191a; /* Overall very dark grey background for the box */
+	color: #18191a;
+    border: 1px solid #444; /* Darker border */
+    border-left: 3px solid #666;
+    /* padding: 10px; */
+    margin-bottom: 1em;
+    overflow-x: auto;
+    font-family: monospace;
+    font-size: 1.5em;
+    line-height: 1.5;
+    color: #fff; /* Default text color for anything not explicitly spanned */
+}
+
+/* Ensure the content inside is also monospace and correct font size */
+div.highlight.log-output-box pre,
+div.highlight.log-output-box pre code { /* Apply to both if unsure */
+    margin: 0;
+    padding: 0;
+	font-size: 0.8em;
+}
+/* If you need to ensure br tags work as actual line breaks (likely not needed with display: block) */
+div.highlight.log-output-box pre code br {
+    display: none; /* Hide <br> tags if spans are block-level, as they'll create extra line breaks */
+	margin: 0; /* Important: Remove default code margins */
+    padding: 0; /* Important: Remove default code padding */
+	/* font-size: 1.5em; */
+}

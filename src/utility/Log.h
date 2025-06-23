@@ -10,52 +10,14 @@
 #include <unistd.h> // For isatty()
 #include <cstdio>   // For fileno() and stderr
 #include <iostream>
-#include <exception>
 #include <mutex>
 #include <sstream>
 #include "strings.h"
-
+#include "LogHelpers.h"
+//
 extern std::mutex GlobalLogMutex;
-enum LogLevel 
-{
-    ERROR,  //Uh uh, stuff broke
-    WARN,  //Problems arose, but were handled
-    INFO,  //Nice to know
-    DEBUG, //Ludicrously indepth stuff.
-};
 
-inline LogLevel LogLevelConvert(int level)
-{
-	switch(level){
-		case 0: 
-			return ERROR; break;
-		case 1:
-			return WARN;break;
-		case 2:
-			return INFO;break;
-		case 3:
-			return DEBUG;break;
-		default:
-			throw std::runtime_error(std::to_string(level) + "is not a valid logging level");break;
-	}
-}
 
-struct ConfigObject
-{
-    bool ShowHeaders;
-    LogLevel Level;
-    bool TerminalOutput;
-    bool AppendNewline;
-    ConfigObject(int level = 2,bool header = true,bool newline = true);
-    ConfigObject(LogLevel level ,bool header = true,bool newline=true);
-
-    void SetLevel(LogLevel level);
-    void SetLevel(int level);
-    void SetHeader(bool value);
-    void SetNewline(bool value);
-    void Initialise(int level,bool header,std::string welcomeFile);
-};
-extern ConfigObject LogConfig;
 class LoggerCore
 {
     public:
@@ -162,3 +124,4 @@ class LoggerCore
 #define LOG(level) \
     if (!(level <= LogConfig.Level)) {} \
     else (LoggerCore(level,__LINE__,__func__,__FILE__))
+

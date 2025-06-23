@@ -28,7 +28,7 @@ extensions = [ 'sphinx.ext.autodoc',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.inheritance_diagram',
-    'breathe'
+    'breathe',
 ]
 
 breathe_projects = {
@@ -37,9 +37,12 @@ breathe_projects = {
 breathe_default_project = "RAMICES_III"
 breathe_default_members = ('members', 'undoc-members','private-members','protected-members')
 
+highlight_language = 'c++'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
+# html_theme = 'default'
 html_static_path = ['_static']
+html_css_files=['custom.css']

@@ -13,7 +13,6 @@ It is an iterative improvement over R2
 	:caption: Contents:
 
 
-
 Indices and tables
 ==================
 
