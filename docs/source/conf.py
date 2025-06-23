@@ -11,7 +11,7 @@ copyright = '2025, JFG&JF'
 author = 'JFG&JF'
 release = '0.0'
 
-root_doc = 'main'
+root_doc = 'index'
 html_show_sourcelink = False
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

@@ -10,7 +10,8 @@ echo "Step 1: Running Doxygen..."
 # CRITICAL CHANGE: Change directory to 'docs/' BEFORE running doxygen
 # This means doxygen will look for doxy.config in 'docs/'
 # and use paths like XML_OUTPUT = dox/xml relative to 'docs/'
-cd docs/
+# cd docs/
+mkdir _build
 doxygen doxy.config # doxy.config is now in the current directory (docs/)
 
 # We are already in the 'docs/' directory, so no need for another 'cd docs/'
