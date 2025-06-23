@@ -34,7 +34,9 @@ build:
     # We stay in 'docs/source/' to run 'make html' because your Makefile is there.
     # The Makefile should be configured to output to '../../_build/html/' (relative to docs/source/)
     # to place the final HTML in my_project_root/docs/_build/html/.
-    - (cd docs && make html)
+    - (cd docs && python -m sphinx.cmd.build -b html source $READTHEDOCS_OUTPUT/html) # <--- CHANGE THIS LINE
+
+    - (mv docs/_build $READTHEDOCS_OUTPUT)
 
 # Define the output formats you want Read the Docs to build and host.
 # formats:
