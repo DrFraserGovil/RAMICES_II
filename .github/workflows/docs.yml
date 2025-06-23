@@ -30,7 +30,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5 # Action to set up Python environment
       with:
-        python-version: '3.9' # Match the Python version you specified in .readthedocs.yaml
+        python-version: '3.12.11' # Match the Python version you specified in .readthedocs.yaml
 
     - name: Install Doxygen
       # Doxygen isn't always pre-installed on GitHub Actions runners, so install it.
