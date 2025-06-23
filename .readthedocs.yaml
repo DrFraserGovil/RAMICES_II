@@ -25,13 +25,13 @@ build:
     # Step 2: Run Doxygen to generate XML output.
     # We change directory to 'docs/source/' because doxy.config is there
     # and its XML_OUTPUT path ('dox/xml') is relative to that directory.
-    - (cd docs/source && doxygen doxy.config)
+    - (cd docs && doxygen doxy.config)
 
     # Step 3: Build Sphinx HTML documentation.
     # We stay in 'docs/source/' to run 'make html' because your Makefile is there.
     # The Makefile should be configured to output to '../../_build/html/' (relative to docs/source/)
     # to place the final HTML in my_project_root/docs/_build/html/.
-    - (cd docs/source && make html)
+    - (cd docs && make html)
 
 # Define the output formats you want Read the Docs to build and host.
 # formats:
