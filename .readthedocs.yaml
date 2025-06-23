@@ -35,7 +35,7 @@ build:
 
 # Define the output formats you want Read the Docs to build and host.
 formats:
-  - html
+  - "html"
   # - pdf # Uncomment this line if you want Read the Docs to also generate a PDF version.
         # This typically requires LaTeX packages to be installed in the build environment,
         # which RTD usually handles if you specify 'pdf' format.
