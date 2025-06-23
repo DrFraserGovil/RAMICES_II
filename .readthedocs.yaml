@@ -12,7 +12,7 @@ sphinx:
 build:
   os: ubuntu-lts-latest # Use a modern Ubuntu environment for consistency
   tools:
-    python: "3.12.11"   # Specify the Python version. Match your local setup or a stable RTD one.
+    python: "3.12"   # Specify the Python version. Match your local setup or a stable RTD one.
     # doxygen: "1.11.0" # Specify Doxygen version. Check RTD documentation for available versions.
 
   # Custom commands to execute during the build process.
