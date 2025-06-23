@@ -3,6 +3,7 @@
 #include <vector>
 #include <regex>
 #include <charconv>
+#include "Log.h"
 #include "strings.h"
 /*
     This file provides a robust return-value interface for converting string-views (and, implicitly, strings) into a candidate type
@@ -199,7 +200,7 @@ struct Converter<std::vector<T_Inner>>
         {
             if (elem_sv.empty())
             {
-                LOG(ERROR) << "Element " << i << " of the vector " << sv << " is empty.\n\tVector-conversion does not accept empty strings (even if empty strings are allowed for base type";
+                LOG(ERROR) << "Element " << i << " of the vector " << sv << " is empty.\nVector-conversion does not accept empty strings (even if empty strings are allowed for base type";
                 throw std::logic_error("Vectors cannot convert empty arguments");
             }
             ++i;

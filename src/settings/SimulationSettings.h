@@ -15,7 +15,9 @@ class SimulationSettings
 	public:
 		
 		SETTINGS_GROUPS
+		#undef S_GROUP
 
+		
 		int UnusuedVariableForCheckingDoxygen = 5;
 
 		//!Default constructor

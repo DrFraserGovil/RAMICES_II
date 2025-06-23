@@ -7,7 +7,7 @@ template <typename Func>
 void forLineIn(const std::string& fileName, Func lineProcessor) {
     std::ifstream file(fileName);
     if (!file.is_open()) {
-		LOG(ERROR) << "Could not find the file '" + fileName + "'.\n\tPlease provide a valid filepath.";
+		LOG(ERROR) << "Could not find the file '" + fileName + "'.\nPlease provide a valid filepath.";
 		throw std::runtime_error("Could not open file");
     }
 

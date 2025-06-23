@@ -13,6 +13,7 @@
 #include <exception>
 #include <mutex>
 #include <sstream>
+#include "strings.h"
 
 extern std::mutex GlobalLogMutex;
 enum LogLevel 
@@ -58,7 +59,7 @@ extern ConfigObject LogConfig;
 class LoggerCore
 {
     public:
-        LoggerCore(LogLevel level,int line,std::string function,std::string file)
+        LoggerCore(LogLevel level,int callingLine,const std::string & callingFunction,std::string callingFile)
         {
 
             StreamActive = false;
@@ -66,8 +67,8 @@ class LoggerCore
             Insert = "";
             if (Level <= 1)
             {
-                Insert = "Line " + std::to_string(line) + " of " + file + " in function " + function;
-                Insert += "\n       \t";
+                Insert = "Line " + std::to_string(callingLine) + " of " + callingFile + " in function " + callingFunction;
+                Insert += "\n";
             }
         };
         ~LoggerCore()
@@ -120,15 +121,30 @@ class LoggerCore
             {
                 Buffer << "\033[0m";
             }
-            if (LogConfig.AppendNewline)
+            std::string linebreak = "\n";
+            if (LogConfig.ShowHeaders)
             {
-                Buffer << "\n"; 
+               linebreak += "\t";
             }
+
+            auto message = split(Buffer.view(),"\n");
+            std::string buffer = "";
 
             {
                 std::unique_lock<std::mutex> lock(GlobalLogMutex);
-                std::cout << Buffer.str();
+                std::cout << message[0];
+                for (int i = 1; i < message.size(); ++i)
+                {
+                    std::cout << linebreak << message[i];
+                }
+
+                if (LogConfig.AppendNewline)
+                {
+                    std::cout << "\n"; 
+                }
             }
+
+        
         }
 };
 
@@ -137,8 +153,7 @@ class LoggerCore
 /*!
     @brief The main log interface. Pipe output to it as you would std::cout.
     
-    @details LOG is a specialised macro-interface to the LoggerCore object to allow a non-trivial optimisation.
-    If the level check evaluates to false, then the <<'d inputs are completely ignored and are not executed, useful for skipping `expensive' operations during a ::DEBUG run.
+    @details LOG is a specialised macro-interface to the LoggerCore object.  If the level check evaluates to false, then the <<'d inputs are completely ignored and are not executed, useful for skipping `expensive' operations during a ::DEBUG run.
 
     @param level A ::LogLevel object, if greater than the LogConfig::Level value, nothing happens (and the expansion is ignored) 
     @returns A temporary LoggerCore object, which functions as a specialised Stream object, accepting values passed via '<<'

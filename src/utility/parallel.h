@@ -158,7 +158,7 @@ class ParallelPool
 
         if (TasksRemaining > 0 && InterleavingWarning )
         {
-            LOG(WARN) << "Beginning a parallel-for loop whilst other asynchronous tasks are running is not advised.\n\tFor loops are blocking and occupy the main thread, so this may degrade performance.\n\tCall Synchronise before launching a Parallel-For.";
+            LOG(WARN) << "Beginning a parallel-for loop whilst other asynchronous tasks are running is not advised.\nFor loops are blocking and occupy the main thread, so this may degrade performance.\n\tCall Synchronise before launching a Parallel-For.";
         }
       
     

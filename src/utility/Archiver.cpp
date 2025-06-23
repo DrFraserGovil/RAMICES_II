@@ -179,7 +179,7 @@ namespace Archiver
 
 		if (zeroBlockCount >= 2)
 		{
-			LOG(DEBUG) << "Located end of Archive.\n\tSuccessfully constructed an index of the archive.";
+			LOG(DEBUG) << "Located end of Archive.\nSuccessfully constructed an index of the archive.";
 		}
 		else
 		{
