@@ -45,6 +45,7 @@ jobs:
       run: |
         echo "Running Doxygen..."
         cd docs
+        mkdir -p _build/dox/
         doxygen doxy.config
 
     - name: Build Sphinx HTML
