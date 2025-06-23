@@ -25,6 +25,9 @@ build:
     # Step 2: Run Doxygen to generate XML output.
     # We change directory to 'docs/source/' because doxy.config is there
     # and its XML_OUTPUT path ('dox/xml') is relative to that directory.
+
+    - (cd docs && mkdir _build/dox)
+    
     - (cd docs && doxygen doxy.config)
 
     # Step 3: Build Sphinx HTML documentation.
