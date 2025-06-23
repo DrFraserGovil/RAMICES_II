@@ -59,6 +59,9 @@ void ConfigObject::Initialise(int level, bool header,std::string welcomeFile)
 		{
 			LOG(INFO) << fmt << line;	
 		});
+
+		
+		
 	}
 	catch(...)
 	{
@@ -66,6 +69,8 @@ void ConfigObject::Initialise(int level, bool header,std::string welcomeFile)
 		throw std::runtime_error("Invalid resource directory");
 	}
 	SetHeader(header);
+	LOG(DEBUG) << "Logging system initialised";
+	
 }
 
 ConfigObject LogConfig;

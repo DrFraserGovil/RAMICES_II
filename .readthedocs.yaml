@@ -1,0 +1,48 @@
+# .readthedocs.yaml
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+version: 2
+
+# Specify the directory containing your Sphinx conf.py relative to the repository root.
+sphinx:
+  configuration: docs/source/conf.py
+
+# Define the build environment and steps.
+build:
+  os: ubuntu-latest # Use a modern Ubuntu environment for consistency
+  tools:
+    python: "3.12.11"   # Specify the Python version. Match your local setup or a stable RTD one.
+    doxygen: "1.11.0" # Specify Doxygen version. Check RTD documentation for available versions.
+
+  # Custom commands to execute during the build process.
+  # These commands are run from the root of your repository.
+  commands:
+    # Step 1: Install Python dependencies (Sphinx, Breathe, any theme, etc.)
+    # The -r flag reads package names from your requirements.txt file.
+    - pip install -r docs/source/requirements.txt # Path to your requirements.txt
+
+    # Step 2: Run Doxygen to generate XML output.
+    # We change directory to 'docs/source/' because doxy.config is there
+    # and its XML_OUTPUT path ('dox/xml') is relative to that directory.
+    - (cd docs/source && doxygen doxy.config)
+
+    # Step 3: Build Sphinx HTML documentation.
+    # We stay in 'docs/source/' to run 'make html' because your Makefile is there.
+    # The Makefile should be configured to output to '../../_build/html/' (relative to docs/source/)
+    # to place the final HTML in my_project_root/docs/_build/html/.
+    - (cd docs/source && make html)
+
+# Define the output formats you want Read the Docs to build and host.
+formats:
+  - html
+  # - pdf # Uncomment this line if you want Read the Docs to also generate a PDF version.
+        # This typically requires LaTeX packages to be installed in the build environment,
+        # which RTD usually handles if you specify 'pdf' format.
+
+# Python configuration, mainly for installing requirements.
+python:
+  install:
+    # This is an alternative/additional way RTD uses to install requirements.
+    # It ensures the environment is set up correctly.
+    - requirements: docs/source/requirements.txt

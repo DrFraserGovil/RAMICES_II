@@ -1,5 +1,25 @@
 #!/bin/bash
 
-doxygen doxy.config
+# Ensure we are in the project root directory
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+cd "$SCRIPT_DIR"
+
+echo "--- Building Documentation Locally ---"
+
+echo "Step 1: Running Doxygen..."
+# CRITICAL CHANGE: Change directory to 'docs/' BEFORE running doxygen
+# This means doxygen will look for doxy.config in 'docs/'
+# and use paths like XML_OUTPUT = dox/xml relative to 'docs/'
+cd docs/
+doxygen doxy.config # doxy.config is now in the current directory (docs/)
+
+# We are already in the 'docs/' directory, so no need for another 'cd docs/'
+echo "Step 2: Building Sphinx HTML..."
+# Run the Sphinx Makefile from the current directory (docs/)
 make html
 
+echo "--- Documentation Build Complete ---"
+# The output path is now relative to the project root again for convenience
+cd .. # Go back to project root to report path correctly
+echo "You can find the generated HTML documentation at: docs/_build/html/index.html"
+echo "Open this file in your web browser to review changes."

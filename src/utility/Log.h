@@ -134,10 +134,16 @@ class LoggerCore
 
 
 
-/*
-    The logger is wrapped in a macro interface to allow a non-trivial optimisation.
+/*!
+    @brief The main log interface. 
+    
+    @details The logger is wrapped in a macro interface to allow a non-trivial optimisation.
     If the level check evaluates to false, then the <<'d inputs are completely ignored and are not executed.
-    That means that potentially expensive function calls can be omitted -- or prevents excessive string formatting inside tight loops that might otherwise be useful during a [DEBUG] call.
+    That means that potentially expensive function calls can be omitted -- or prevents excessive string formatting inside tight loops that might otherwise be useful during a ::DEBUG call.
+
+    @param level A ::LogLevel object, if greater than the LogConfig::Level value, nothing happens (and the expansion is ignored) 
+    @returns A temporary LoggerCore object, which functions as a specialised Stream object, accepting values passed via '<<'
+
 */
 #define LOG(level) \
     if (!(level <= LogConfig.Level)) {} \

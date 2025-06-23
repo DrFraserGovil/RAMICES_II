@@ -3,6 +3,8 @@
 Output/
 ramices*
 *.asv
+*/unittest* // unit test only file
+
 
 *.DS_Store
 
