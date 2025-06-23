@@ -26,8 +26,8 @@ build:
     # We change directory to 'docs/source/' because doxy.config is there
     # and its XML_OUTPUT path ('dox/xml') is relative to that directory.
 
-    - (cd docs && mkdir _build/dox)
-    
+    - (cd docs && mkdir _build)
+
     - (cd docs && doxygen doxy.config)
 
     # Step 3: Build Sphinx HTML documentation.
