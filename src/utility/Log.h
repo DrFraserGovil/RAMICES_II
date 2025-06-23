@@ -135,11 +135,10 @@ class LoggerCore
 
 
 /*!
-    @brief The main log interface. 
+    @brief The main log interface. Pipe output to it as you would std::cout.
     
-    @details The logger is wrapped in a macro interface to allow a non-trivial optimisation.
-    If the level check evaluates to false, then the <<'d inputs are completely ignored and are not executed.
-    That means that potentially expensive function calls can be omitted -- or prevents excessive string formatting inside tight loops that might otherwise be useful during a ::DEBUG call.
+    @details LOG is a specialised macro-interface to the LoggerCore object to allow a non-trivial optimisation.
+    If the level check evaluates to false, then the <<'d inputs are completely ignored and are not executed, useful for skipping `expensive' operations during a ::DEBUG run.
 
     @param level A ::LogLevel object, if greater than the LogConfig::Level value, nothing happens (and the expansion is ignored) 
     @returns A temporary LoggerCore object, which functions as a specialised Stream object, accepting values passed via '<<'

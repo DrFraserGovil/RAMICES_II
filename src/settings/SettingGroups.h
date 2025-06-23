@@ -34,3 +34,12 @@
 	S_GROUP(ThermalSettings, Thermal)\
 	S_GROUP(YieldSettings, Yield)\
 	S_GROUP(AbundanceSettings,Abundance)\
+
+
+// SGroupDefinition.h
+#ifndef S_GROUP_DEFINITION_H
+#define S_GROUP_DEFINITION_H
+
+#define S_GROUP(type,name) type name;
+
+#endif // S_GROUP_DEFINITION_H

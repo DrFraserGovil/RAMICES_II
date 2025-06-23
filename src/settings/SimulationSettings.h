@@ -14,10 +14,11 @@ class SimulationSettings
 {
 	public:
 		
-		#define S_GROUP(type,name) type name;
 		SETTINGS_GROUPS
-		#undef S_GROUP
 
+		int UnusuedVariableForCheckingDoxygen = 5;
+
+		//!Default constructor
 		SimulationSettings()
 		{
 			Register();
@@ -38,6 +39,7 @@ class SimulationSettings
 			ParseAll(argc,argv);
 			ValidateAll();
 		}
+		
 		
 		template<class T>
 		void ToStream(T & stream)
@@ -230,3 +232,5 @@ class SimulationSettings
 };
 
 extern SimulationSettings Settings;
+
+#define S_GROUP(type,name) type name; //define here for the documentation preprocessor....
