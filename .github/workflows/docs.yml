@@ -1,0 +1,66 @@
+# .github/workflows/docs.yml
+name: Docs CI
+
+# Define when this workflow should run
+on:
+  push:
+    branches:
+      - refactor # Trigger the workflow on pushes to the 'main' branch
+    paths:
+      - 'docs/**' # Only run if changes occur within the 'docs/' directory
+      - '.readthedocs.yaml' # Or if the Read the Docs configuration file changes
+      - '.github/workflows/docs.yml' # Or if this workflow file itself changes
+      # Add other files like 'doxy.config' if it's outside 'docs/' and affects docs build.
+  pull_request:
+    branches:
+      - refactor # Trigger the workflow on pull requests targeting the 'main' branch
+    paths:
+      - 'docs/**'
+      - '.readthedocs.yaml'
+      - '.github/workflows/docs.yml'
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest # Specify the operating system for the GitHub Actions runner
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4 # Action to clone your repository
+
+    - name: Set up Python
+      uses: actions/setup-python@v5 # Action to set up Python environment
+      with:
+        python-version: '3.9' # Match the Python version you specified in .readthedocs.yaml
+
+    - name: Install Doxygen
+      # Doxygen isn't always pre-installed on GitHub Actions runners, so install it.
+      run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
+
+    - name: Install Python dependencies
+      # Install Sphinx, Breathe, and any theme from your requirements.txt
+      run: pip install -r docs/source/requirements.txt
+
+    - name: Run Doxygen
+      # Change directory to docs/source/ before running Doxygen
+      run: |
+        echo "Running Doxygen..."
+        cd docs/source
+        doxygen doxy.config
+
+    - name: Build Sphinx HTML
+      # Change directory to docs/source/ before running make html
+      run: |
+        echo "Building Sphinx HTML..."
+        cd docs/source
+        make html # Your Makefile in docs/source/ should output to ../_build/html/
+
+    - name: Verify build output (Optional but Recommended)
+      # Check if the main index.html file was generated.
+      # This helps ensure the build step actually produced files.
+      run: |
+        if [ -f docs/_build/html/index.html ]; then
+          echo "Documentation built successfully!"
+        else
+          echo "Error: index.html not found in docs/_build/html/. Build might have failed."
+          exit 1
+        fi
