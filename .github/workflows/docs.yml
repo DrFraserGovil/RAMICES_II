@@ -44,23 +44,23 @@ jobs:
       # Change directory to docs/source/ before running Doxygen
       run: |
         echo "Running Doxygen..."
-        cd docs/source
+        cd docs
         doxygen doxy.config
 
     - name: Build Sphinx HTML
       # Change directory to docs/source/ before running make html
       run: |
         echo "Building Sphinx HTML..."
-        cd docs/source
+        cd docs
         make html # Your Makefile in docs/source/ should output to ../_build/html/
 
     - name: Verify build output (Optional but Recommended)
       # Check if the main index.html file was generated.
       # This helps ensure the build step actually produced files.
       run: |
-        if [ -f docs/_build/html/index.html ]; then
+        if [ -f docs/_build/html/main.html ]; then
           echo "Documentation built successfully!"
         else
-          echo "Error: index.html not found in docs/_build/html/. Build might have failed."
+          echo "Error: main.html not found in docs/_build/html/. Build might have failed."
           exit 1
         fi
