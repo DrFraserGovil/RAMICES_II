@@ -19,34 +19,40 @@
 /*!
     The executor of the \ref LOG functionality.
 */
-class LoggerCore
+namespace GlobalLog
 {
-    public:
-        LoggerCore(LogLevel level,int callingLine,const std::string & callingFunction,std::string callingFile);
-        ~LoggerCore();
-        
-        template<class T>
-        LoggerCore &operator<<(const T &msg)
-        {
-            if (!StreamActive)
+    class LoggerCore
+    {
+        public:
+            LoggerCore(LogLevel level,int callingLine,const std::string & callingFunction,std::string callingFile);
+            ~LoggerCore();
+            
+            template<class T>
+            LoggerCore &operator<<(const T &msg)
             {
-                StreamActive = true;
-                Header();
-                Buffer << Insert;
-            }
-            Buffer << msg;
-            return *this;
-        } 
-    private:
-        std::stringstream Buffer;
-        LogLevel Level;
-        bool StreamActive;
-        std::string Insert;
-        static int PreviousLogLines;
-        void Header();
-        
-        void endMessage();
-};
+                if (!StreamActive)
+                {
+                    StreamActive = true;
+                    Header();
+                    Buffer << Insert;
+                }
+                Buffer << msg;
+                return *this;
+            } 
+
+            void Erase(int nLines);
+
+            void ErasePrevious();
+        private:
+            std::stringstream Buffer;
+            LogLevel Level;
+            bool StreamActive;
+            std::string Insert;
+            void Header();
+            
+            void endMessage();
+    };
+}
 
 
 
@@ -59,6 +65,6 @@ class LoggerCore
     @returns If the level is suitable, a temporary LoggerCore object, which functions as a specialised Stream object, accepting values passed via '<<'. Otherwise, does nothing, and does not evaluate any subsequent pipe commands
 */
 #define LOG(level) \
-    if (!(level <= LogConfig.Level)) {} \
-    else (LoggerCore(level,__LINE__,__func__,__FILE__))
+    if (!(level <= GlobalLog::Config.Level)) {} \
+    else (GlobalLog::LoggerCore(level,__LINE__,__func__,__FILE__))
 

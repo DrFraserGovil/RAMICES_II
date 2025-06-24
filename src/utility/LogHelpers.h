@@ -9,10 +9,12 @@
 */
 enum LogLevel 
 {
-    ERROR, //!< Level 0. Used to indicate points where the code is throwing errors. 
-    WARN,  //!< Level 1. Used to indicate where problems were encountered, but a default assumption was made. Also used to indicate `are you sure about this?'
-    INFO,  //!< Level 2. General progress information.
-    DEBUG, //!< Level 3. High density of information, likely to bottleneck code. Used for debugging information
+    ERROR=0, //!< Level 0. Used to indicate points where the code is throwing errors. 
+    WARN=1,  //!< Level 1. Used to indicate where problems were encountered, but a default assumption was made. Also used to indicate `are you sure about this?'
+    INFO=2,  //!< Level 2. General progress information.
+    DEBUG=3, //!< Level 3. High density of information, likely to bottleneck code. Used for debugging information
+
+	MAXLEVEL //!<Used as an indicator of the 'allowed max log level' -- used only for loop checks etc. Should never be assigned to
 };
 
 //! Convert integers to LogLevels. @param level an integer between 0 and 3 @throws runtime_error if level is out of bounds @returns The corresponding LogLevel 
@@ -54,6 +56,9 @@ struct ConfigObject
     void Initialise(int level,bool header,std::string welcomeFile);
 };
 
-
-extern ConfigObject LogConfig;
-extern std::mutex GlobalLogMutex;
+namespace GlobalLog
+{
+	extern ConfigObject Config;
+	extern std::mutex StreamMutex;
+	extern std::vector<size_t> PreviousLines;
+}

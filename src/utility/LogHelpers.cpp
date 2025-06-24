@@ -1,7 +1,7 @@
 #include "LogHelpers.h"
 
 #include "fileparser.h"
-std::mutex GlobalLogMutex;
+
 bool isTerminal() {
     return isatty(fileno(stdout));
 }
@@ -74,5 +74,10 @@ void ConfigObject::Initialise(int level, bool header,std::string welcomeFile)
 	
 }
 
-ConfigObject LogConfig;
 
+namespace GlobalLog
+{
+	ConfigObject Config;
+	std::vector<size_t> PreviousLines = std::vector<size_t>(LogLevel::MAXLEVEL,0);
+	std::mutex StreamMutex;
+}

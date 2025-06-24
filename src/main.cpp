@@ -6,6 +6,7 @@
 
 #include "settings/SimulationSettings.h"
 #include "population/lifetime.h"
+#include <thread>
 // int main(int argc, char ** argv)
 // {
 //     Settings.Initialise(argc,argv);
@@ -18,17 +19,23 @@
 
 void testPrint(LogLevel level)
     {
-        LogConfig.SetLevel(level);
-        LOG(DEBUG) << "This is detailed debugging";
+        GlobalLog::Config.SetLevel(level);
+        LOG(ERROR) << "Something has gone very badly wrong";
         LOG(INFO) << "This is progress information";
         LOG(WARN) << "This is a warning that something went wrong\nBut was recovered.";
-        LOG(ERROR) << "Something has gone very badly wrong";
+        LOG(DEBUG) << "This is detailed debugging";
     }
 
     int main(int argc, char**argv)
     {
         Settings.Initialise(argc,argv);
-        LogConfig.SetLevel(INFO);
         testPrint(DEBUG);
+
+        sleep(2);
+        LOG(INFO).ErasePrevious();
+        sleep(2);
+        LOG(WARN).ErasePrevious();
+        sleep(2);
+        LOG(INFO).ErasePrevious();
         testPrint(WARN);
     }

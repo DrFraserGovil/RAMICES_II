@@ -12,11 +12,11 @@ bool SystemSettings::Validate()
 	
 	#ifndef UNITTEST
 		std::string welcomeFile = ResourceDirectory.Value() + "/welcome.dat";
-		LogConfig.Initialise(Verbosity,UseLogHeaders,welcomeFile);	
+		GlobalLog::Config.Initialise(Verbosity,UseLogHeaders,welcomeFile);	
 	#else
-		LogConfig.SetLevel(2);
-		LogConfig.SetHeader(true);
-		LogConfig.SetNewline(true);
+		GlobalLog::Config.SetLevel(2);
+		GlobalLog::Config.SetHeader(true);
+		GlobalLog::Config.SetNewline(true);
 	#endif
 	
 	return true;
