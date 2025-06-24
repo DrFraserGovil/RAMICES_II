@@ -3,14 +3,26 @@
 Logging System
 ++++++++++++++++++
 
-RAMICES III uses a custom-built logging system for printing output to the terminal
+RAMICES III uses a custom-built logging system for printing output to the terminal. The `LOG` command is designed simply to replace the usual `std::cout`, with the following additional features:
 
+* Certain Logs can be suppressed at runtime, allowing for a more or less verbose output
+* Logs automatically format themselves with log-highlighting and (optionally) header banners
+* Log-lines can be erased with a simple command
+* Highlighting and erasing options are disabled if the 
+
+
+
+The LOG Command
+-----------------
 
 .. doxygendefine:: LOG
-    :path:
+    
 
 Modifying Logs
 ---------------
+
+Logging output can be controlled in a variety of different ways.
+
 
 .. toctree::
     log_levels
@@ -23,6 +35,7 @@ Modifying Logs
 Usage
 ---------
 
+    
 
 .. code-block:: c++
 
@@ -57,8 +70,9 @@ Usage
     <span class="log-warn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThis is a warning that something went wrong</span><br>
     <span class="log-warn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBut was recovered.</span><br>
     <span class="log-error">[ERROR] Line 8 of src/main.cpp in function testPrint</span><br>
-    <span class="log-error">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspomething has gone very badly wrong</span><br>
+    <span class="log-error">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSomething has gone very badly wrong</span><br>
     <span class="log-warn">[WARN]   &nbspLine 7 of src/main.cpp in function testPrint</span><br>
+     <span class="log-warn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspThis is a warning that something went wrong</span><br>
     <span class="log-warn">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBut was recovered.</span><br>
     <span class="log-error">[ERROR] Line 8 of src/main.cpp in function testPrint</span><br>
     <span class="log-error">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSomething has gone very badly wrong</span>

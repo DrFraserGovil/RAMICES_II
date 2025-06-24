@@ -1,5 +1,6 @@
 #pragma once
 #include <exception>
+#include <mutex>
 #include <string>
 /*!
     An encoding for different levels of logs. Levels are hierarchical: WARN includes ERROR, and INFO includes WARN (and therefore, also ERROR).
@@ -52,4 +53,7 @@ struct ConfigObject
     void SetNewline(bool value);
     void Initialise(int level,bool header,std::string welcomeFile);
 };
+
+
 extern ConfigObject LogConfig;
+extern std::mutex GlobalLogMutex;

@@ -1,77 +1,75 @@
 #include "Log.h"
-#include "fileparser.h"
-std::mutex GlobalLogMutex;
-bool isTerminal() {
-    return isatty(fileno(stdout));
-}
-ConfigObject::ConfigObject(int level,bool header,bool newline)
-{
-	SetLevel(level);
-	SetHeader(header);
-	SetNewline(newline);
-	TerminalOutput = isTerminal();
-}
-ConfigObject::ConfigObject(LogLevel level,bool header,bool newline)
-{
-	SetLevel(level);
-	SetHeader(header);
-	SetNewline(newline);
-	TerminalOutput = isTerminal();
-}
 
 
-
-
-void ConfigObject::SetLevel(int level)
+LoggerCore::LoggerCore(LogLevel level,int callingLine,const std::string & callingFunction,std::string callingFile)
 {
-	Level = LogLevelConvert(level);
-}
-void ConfigObject::SetLevel(LogLevel level)
-{
+
+	StreamActive = false;
 	Level = level;
-}
-void ConfigObject::SetHeader(bool val)
-{
-	ShowHeaders = val;
-}
-void ConfigObject::SetNewline(bool val)
-{
-	AppendNewline = val;
+	Insert = "";
+	if (Level <= 1)
+	{
+		Insert = "Line " + std::to_string(callingLine) + " of " + callingFile + " in function " + callingFunction;
+		Insert += "\n";
+	}
 }
 
-void ConfigObject::Initialise(int level, bool header,std::string welcomeFile)
+LoggerCore::~LoggerCore()
 {
-	SetNewline(true);
-	SetLevel(level);
-	
-	
-	SetHeader(false);//set header to false temporarily
-	//force in some special colours!
-	auto fmt = "\033[38;5;228m";
-	if (!TerminalOutput)
+	if (StreamActive)
 	{
-		fmt = "";
+		endMessage();
+	}
+}
+
+void LoggerCore::Header()
+{
+	std::string label;
+	std::string fmt;
+	switch(Level) {
+		case DEBUG: fmt = ANSI::BLUE_FONT;label = "[DEBUG] "; break;
+		case INFO: fmt=ANSI::WHITE_FONT;label = "[INFO]  "; break;
+		case WARN: fmt=ANSI::PURPLE_FONT;label = "[WARN]  "; break;
+		case ERROR: fmt=ANSI::RED_FONT;label = "[ERROR] "; break;
+	} 
+	if (LogConfig.TerminalOutput)
+	{
+		Buffer << fmt;
+	}
+	if (LogConfig.ShowHeaders)
+	{
+		Buffer << label;
+	}
+}
+
+void LoggerCore::endMessage()
+{
+	if (LogConfig.TerminalOutput)
+	{
+		Buffer << "\033[0m";
+	}
+	std::string linebreak = "\n";
+	if (LogConfig.ShowHeaders)
+	{
+	   linebreak += "\t";
 	}
 
-	try
+	auto message = split(Buffer.view(),"\n");
+	std::string buffer = "";
+
 	{
-		forLineIn(welcomeFile,[&](auto line)
+		std::unique_lock<std::mutex> lock(GlobalLogMutex);
+		std::cout << message[0];
+		for (int i = 1; i < message.size(); ++i)
 		{
-			LOG(INFO) << fmt << line;	
-		});
+			std::cout << linebreak << message[i];
+		}
 
-		
-		
+		if (LogConfig.AppendNewline)
+		{
+			std::cout << "\n"; 
+		}
 	}
-	catch(...)
-	{
-		LOG(ERROR) << "Failed to locate the welcome file. This is usually an indicator of a malformed ResourceDirectory. Please ensure System::ResourceDirectory points to a valid file location";
-		throw std::runtime_error("Invalid resource directory");
-	}
-	SetHeader(header);
-	LOG(DEBUG) << "Logging system initialised";
-	
+
+
 }
-
-ConfigObject LogConfig;
-
