@@ -15,25 +15,25 @@ RAMICES III uses a custom-built logging system for printing output to the termin
 The LOG Command
 -----------------
 
-.. doxygendefine:: LOG
-    
+  .. doxygendefine:: LOG
+      
 
-Modifying Logs
----------------
 
-Logging output can be controlled in a variety of different ways.
-
+Detailed Documentation
+-------------------------
 
 .. toctree::
     log_levels
     log_config
+    log_erase
     log_globals
     log_core
+    log_ansi
     :maxdepth: 1
 
 
-Usage
----------
+Basic Usage
+----------------
 
     
 
@@ -53,7 +53,6 @@ Usage
 
     int main(int argc, char**argv)
     {
-        LogConfig.SetLevel(INFO)
         testPrint(DEBUG);
         testPrint(WARN);
     }

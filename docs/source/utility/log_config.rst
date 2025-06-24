@@ -5,7 +5,9 @@ ConfigObject
 
 .. warning::
 
-    The LogConfig is initialised within SimulationSettings, and should not otherwise be modified.
+    Only a single ConfigObject should ever exist, :doc:`GlobalLog::Config<log_globals>`. It is initialised within SimulationSettings, and should not otherwise be modified.
+
+    Any other ConfigObjects are ignored.
 
     
-.. doxygenstruct:: ConfigObject
+.. doxygenstruct:: GlobalLog::ConfigObject

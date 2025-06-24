@@ -7,5 +7,5 @@ Logger Core
 The following 
 
 
-.. doxygenclass:: LoggerCore
+.. doxygenclass:: GlobalLog::LoggerCore
 

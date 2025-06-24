@@ -87,7 +87,6 @@ namespace  GlobalLog
 	{
 		if (GlobalLog::Config.TerminalOutput)
 		{	
-			std::unique_lock<std::mutex> lock(GlobalLog::StreamMutex);
 			for (int i = 0; i < nLines; ++i)
 			{
 				std::cout << ANSI::CURSOR_UP << ANSI::CURSOR_TO_COL1 << ANSI::CLEAR_LINE;
@@ -110,19 +109,21 @@ namespace  GlobalLog
 			size_t block = 0;
 			for (int i = 0; i < Level; ++i)
 			{
-				if (PreviousLines[i] < erase && (block == 0 || PreviousLines[i] < block))
+				int pli = PreviousLines[i];
+				if (pli < erase && pli > 0 && (block == 0 || pli < block))
 				{
 					block = PreviousLines[i];
 				}
 			}
+			size_t safe = 0;
 			if (block > 0)
 			{
-				size_t safe = 0;
 				for (int i = Level +1; i < LogLevel::MAXLEVEL; ++i)
 				{
-					if (PreviousLines[i] > safe && PreviousLines[i] < block)
+					int pli = PreviousLines[i];
+					if (pli > safe && pli < block && pli > 0 )
 					{
-						safe = PreviousLines[i];
+						safe = pli;
 					}
 				}
 				erase = safe;
