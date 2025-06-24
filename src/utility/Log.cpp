@@ -4,20 +4,19 @@ namespace  GlobalLog
 {
 	LoggerCore::LoggerCore(LogLevel level,int callingLine,const std::string & callingFunction,std::string callingFile)
 	{
-
 		StreamActive = false;
 		Level = level;
 		Insert = "";
 		if (Level <= 1)
 		{
-			Insert = "Line " + std::to_string(callingLine) + " of " + callingFile + " in function " + callingFunction;
+			Insert = "Line " + std::to_string(callingLine) + " of " + callingFile + " in function " + callingFunction ;
 			Insert += "\n";
 		}
 	}
 
 	LoggerCore::~LoggerCore()
 	{
-		if (StreamActive)
+		if (StreamActive) //only add the output to stream if "<<" was actually called
 		{
 			endMessage();
 		}
@@ -48,20 +47,27 @@ namespace  GlobalLog
 	{
 		if (Config.TerminalOutput)
 		{
-			Buffer << "\033[0m";
+			Buffer << ANSI::DEFAULT_FONT; //reset the font colors for all subsequent data
 		}
+
+
+		//now format the data so that linebreaks are suitably indented
 		std::string linebreak = "\n";
 		if (Config.ShowHeaders)
 		{
-		linebreak += "\t";
+			linebreak += "\t";
 		}
-
 		auto message = split(Buffer.view(),"\n");
 		std::string buffer = "";
 
+		//iterate across all lines in the entry 
 		{
-			std::unique_lock<std::mutex> lock(GlobalLog::StreamMutex);
-			std::cout << message[0];
+			std::unique_lock<std::mutex> lock(GlobalLog::StreamMutex); //lock the stream to prevent interleaving
+
+			//the first line automatically includes the correct indentation -- the header accounts for that
+			std::cout << message[0]; 
+
+			//subequent lines need to indent (or not) based on the presence of the header.
 			for (int i = 1; i < message.size(); ++i)
 			{
 				std::cout << linebreak << message[i];
@@ -71,9 +77,9 @@ namespace  GlobalLog
 			{
 				std::cout << "\n"; 
 			}
+
+			//save the data to the 'erase' memory banks
 			auto nlines = message.size();
-
-
 			GlobalLog::PreviousLines[Level] =0;
 			for (int i = 0; i < LogLevel::MAXLEVEL; ++i)
 			{ 
