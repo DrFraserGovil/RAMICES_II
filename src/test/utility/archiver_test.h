@@ -1,5 +1,5 @@
 #pragma once
-#include "../catch_amalgamated.hpp" 
+#include "../catch_extended.h" 
 #include "../../utility/Archiver.h" // Adjust path as needed
 #include <iostream>
 #include <fstream>
@@ -8,8 +8,7 @@
 
 #include <fstream>
 #include <stdio.h>
-#include "../mock/MockFile.h"
-#include "../mock/coutCatch.h"
+
 using namespace Archiver;
 
 // Helper to generate a temporary file path
@@ -26,6 +25,18 @@ TEST_CASE("Archive Writing", "[archive][filesystem][utility][write]")
 		REQUIRE_NOTHROW(A.WriteFile("test-file","some data"));
 	}
 
+	SECTION("Throws warning if filename repeated")
+	{
+		REQUIRE_NOTHROW(A.WriteFile("test-file","some data"));
+		REQUIRE_WARN(A.WriteFile("test-file","some more data"));
+	}
+
+	SECTION("Throws if writing to closed archive")
+	{
+		A.ExpectEmpty(true);
+		A.Close();
+		REQUIRE_ERROR(A.WriteFile("test-file2","some data"));
+	}
 
 }
 
@@ -135,6 +146,19 @@ TEST_CASE("Archive Reading","[archive][filesystem][utility][read]")
 
 		}
 	}
+
+	SECTION("Repeated files overwrite with newest taking precedence")
+	{
+		MockFile f2;
+		Archive dup(f2.Name(),Write);
+		
+		dup.WriteFile("duplicate.txt","original text");
+		REQUIRE_WARN(dup.WriteFile("duplicate.txt","updated text"));
+		dup.Close();
+		Archive B(f2.Name(),Read);
+		
+		REQUIRE_THAT(B.GetText("duplicate.txt"),ContainsSubstring("updated"));
+	}
 }
 
 
@@ -201,7 +225,6 @@ TEST_CASE("Write using file-streams","[archive][filesystem][system][utility]")
 		REQUIRE(B.GetText("testfile") == "test data");
 		
 	}
-
 	SECTION("Chained writing")
 	{
 		A.ActivateStream("testfile") << "test" << " " << "data";

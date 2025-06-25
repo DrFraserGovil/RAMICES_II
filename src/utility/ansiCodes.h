@@ -12,5 +12,4 @@ namespace ANSI {
 	const std::string WHITE_FONT = COLOR + "7m"; //!<Set text color to white
 	const std::string PURPLE_FONT = COLOR + "8;5;141m"; //!< Set text color to purple
 	const std::string RED_FONT = COLOR + "1m"; //!<Set text color to red
-	const std::string DEFAULT_FONT = COLOR + "0m"; //!<Set text color to red
 }

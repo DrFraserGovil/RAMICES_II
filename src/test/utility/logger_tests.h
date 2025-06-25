@@ -4,7 +4,7 @@
 
 using namespace Catch::Matchers;
 TEST_CASE("Logger Core", "[log][utility]") {
-    ConfigObject cfg;
+    GlobalLog::ConfigObject cfg;
 
     SECTION("Log Configuration Object") 
 	{
@@ -35,37 +35,28 @@ TEST_CASE("Logger Core", "[log][utility]") {
 			cfg.SetLevel(DEBUG); REQUIRE(cfg.Level == DEBUG);
 		}
 	
-		SECTION("SetHeader") {
-			cfg.SetHeader(false); REQUIRE(cfg.ShowHeaders == false);
-			cfg.SetHeader(true); REQUIRE(cfg.ShowHeaders == true);
-		}
-
-		SECTION("SetNewline")
-		{
-			cfg.SetNewline(true); REQUIRE(cfg.AppendNewline == true);
-			cfg.SetNewline(false); REQUIRE(cfg.AppendNewline == false);
-		}
+		
     }
 	
 	SECTION("Core Logger Output")
 	{
 		// Control the global config object for testing
-		ConfigObject originalConfig = LogConfig; // Save original config
+		auto originalConfig = GlobalLog::Config; // Save original config
 		
-		LogConfig.TerminalOutput = false; // Assume terminal for colored tests
-		LogConfig.SetHeader(false);
+		GlobalLog::Config.TerminalOutput = false; // Assume terminal for colored tests
+		GlobalLog::Config.ShowHeaders = (false);
 		
 		SECTION("Check Logger Text (with newlines)") {
 
 
 			std::string output = capture_stdout([&]() {
-				(LoggerCore(DEBUG,0,"mock-function","mock-file")) << "Debug message";
+				(GlobalLog::LoggerCore(DEBUG,0,"mock-function","mock-file")) << "Debug message";
 			});
 			REQUIRE(output == "Debug message\n");
 
-			LogConfig.SetNewline(false);
+			GlobalLog::Config.AppendNewline = (false);
 			std::string noLinebreakOutput = capture_stdout([&]() {
-				(LoggerCore(DEBUG,0,"mock-function","mock-file")) << "Debug message";
+				(GlobalLog::LoggerCore(DEBUG,0,"mock-function","mock-file")) << "Debug message";
 			});
 			REQUIRE(noLinebreakOutput == "Debug message"); // as above, but with no linebreak
 		}
@@ -75,16 +66,16 @@ TEST_CASE("Logger Core", "[log][utility]") {
 			auto r = {DEBUG,INFO,WARN,ERROR};
 			for (LogLevel level: r)
 			{
-				LogConfig.TerminalOutput = true;
+				GlobalLog::Config.TerminalOutput = true;
 				std::string terminalOutput = capture_stdout([&]() {
-					(LoggerCore(level,0,"mock-function","mock-file")) << "Debug message";
+					(GlobalLog::LoggerCore(level,0,"mock-function","mock-file")) << "Debug message";
 				});
 				REQUIRE_THAT(terminalOutput, StartsWith("\033[")); //check that an ANSI codes is inserted at the beginning of input. We don't care which -- that's an implementation detail that can be changed
 				REQUIRE_THAT(terminalOutput, EndsWith("\033[0m\n"));  //check that the default ANSI code (white) is inserted at the end
 
-				LogConfig.TerminalOutput = false;
+				GlobalLog::Config.TerminalOutput = false;
 				std::string fileOutput = capture_stdout([&]() {
-					(LoggerCore(DEBUG,0,"mock-function","mock-file")) << "Debug message";
+					(GlobalLog::LoggerCore(DEBUG,0,"mock-function","mock-file")) << "Debug message";
 				});
 				REQUIRE_THAT(fileOutput,!StartsWith("\033[")); //check the above tests fail when terminal output deactivated
 				REQUIRE_THAT(fileOutput, !EndsWith("\033[0m\n"));
@@ -98,12 +89,12 @@ TEST_CASE("Logger Core", "[log][utility]") {
 			int i = 0;
 			for (LogLevel level: r)
 			{
-				LogConfig.TerminalOutput = false;
-				LogConfig.AppendNewline= false;
+				GlobalLog::Config.TerminalOutput = false;
+				GlobalLog::Config.AppendNewline= false;
 				std::string name = "mock-" + names[i] + "-";
 				++i;
 				std::string variedLevelOutput = capture_stdout([&]() {
-					(LoggerCore(level,398,name + "function",name+"file")) << "Debug message";
+					(GlobalLog::LoggerCore(level,398,name + "function",name+"file")) << "Debug message";
 				});
 				if (level <= 1)
 				{
@@ -126,21 +117,21 @@ TEST_CASE("Logger Core", "[log][utility]") {
 			auto r = {DEBUG,INFO,WARN,ERROR};
 			std::vector<std::string> names = {"DEBUG","INFO","WARN","ERROR"};
 			int i = 0;
-			LogConfig.TerminalOutput = false;
-			LogConfig.AppendNewline= false;
+			GlobalLog::Config.TerminalOutput = false;
+			GlobalLog::Config.AppendNewline= false;
 			for (LogLevel level: r)
 			{
-				LogConfig.SetHeader(true);
+				GlobalLog::Config.ShowHeaders = (true);
 				std::string headerPresent = capture_stdout([&]() {
-					(LoggerCore(level,0,"mock-function","mock-file")) << "Debug message";
+					(GlobalLog::LoggerCore(level,0,"mock-function","mock-file")) << "Debug message";
 				});
 				std::string search = "[" + names[i] + "]";
 				REQUIRE_THAT(headerPresent,ContainsSubstring(search));//check that the header successfully inserted when in true mode
 				++i;
 
-				LogConfig.SetHeader(false);
+				GlobalLog::Config.ShowHeaders = (false);
 				std::string headerAbsent = capture_stdout([&]() {
-					(LoggerCore(level,0,"mock-function","mock-file")) << "Debug message";
+					(GlobalLog::LoggerCore(level,0,"mock-function","mock-file")) << "Debug message";
 				});
 				REQUIRE_THAT(headerAbsent, !ContainsSubstring(search)); // check that it's absent in false mode
 			}
@@ -149,24 +140,24 @@ TEST_CASE("Logger Core", "[log][utility]") {
 		SECTION("Empty log")
 		{
 			std::string output = capture_stdout([&]() {
-				(LoggerCore(DEBUG,0,"mock-function","mock-file"));
+				(GlobalLog::LoggerCore(DEBUG,0,"mock-function","mock-file"));
 			});
 			REQUIRE(output.empty());
 		}
 
-		LogConfig = originalConfig;
+		GlobalLog::Config = originalConfig;
 	}	
 }
 
 TEST_CASE("Logger Macro","[log][utility]")
 {
-	LogConfig.SetHeader(true);
-	LogConfig.SetNewline(false); //set these so no linebreaks in unit test output. Purely for human readability.
-	LogConfig.TerminalOutput = false; // Also supress ANSI codes.
+	GlobalLog::Config.ShowHeaders = (true);
+	GlobalLog::Config.AppendNewline = (false); //set these so no linebreaks in unit test output. Purely for human readability.
+	GlobalLog::Config.TerminalOutput = false; // Also supress ANSI codes.
 	std::vector<std::string> names = {"ERROR","WARN","INFO","DEBUG"};
 	for (int trueLevel = 0; trueLevel < 4; ++trueLevel)
 	{
-		LogConfig.SetLevel(trueLevel);
+		GlobalLog::Config.SetLevel(trueLevel);
 
 		for (int mockLevel = 0; mockLevel < 4; ++mockLevel)
 		{
@@ -189,5 +180,5 @@ TEST_CASE("Logger Macro","[log][utility]")
 		}
 	}
 
-	LogConfig.SetLevel(1);
+	GlobalLog::Config.SetLevel(1);
 }

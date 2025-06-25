@@ -42,10 +42,18 @@ namespace Archiver
 		std::string const &uname{"root"};                                             /// file owner username
 		std::string const &gname{"root"};                                             /// file owner group name
 	};
+
+	//!Custom counterparts to std::ios_base::openmode
 	enum ArchiveMode
 	{
 		Read,
+
+		//
 		Write,
+
+		Append,
+
+		//! The state invoked by the default initialiser of the Archive. Archives in this Modes throw an error if used for Reading or Writing. 
 		Uninitialised
 	};
 
@@ -57,6 +65,7 @@ namespace Archiver
 			bool HasClosed;
 			bool FileOpen;
 			bool ExpectingEmpty = false;
+			bool RequiresDuplicateCleanup;
 			std::string OpenFileName;
 			std::stringstream FileBuffer;
 			//magic numbers
@@ -71,9 +80,11 @@ namespace Archiver
 			//writes the terminating strings to archive
 			void OpenForWriting();
 			void WriteCleanup(unsigned int tailBlockRepetition= 2u);
-			
+			void CheckWriteRegistry(std::string fileName);
+
 			//reading functions
 			void OpenForReading();
+			void OpenForAppending();
 			void BuildIndex();
 			bool ReadBlock(char*buffer);
 			void StreamBlocks(std::string fileName, std::function<void(std::string)> dataCallback);

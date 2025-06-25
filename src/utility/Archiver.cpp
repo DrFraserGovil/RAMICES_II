@@ -1,5 +1,5 @@
 #include "Archiver.h"
-
+#include "MakeString.h"
 namespace Archiver
 {
 	Archive::Archive(){HasClosed = false;Mode = Uninitialised;};
@@ -30,8 +30,11 @@ namespace Archiver
 			case(Write):
 				OpenForWriting();
 				break;
+			case(Append):
+				OpenForAppending();
+				break;
 			default:
-				LOG(ERROR) << "Must open a file in either Read or Write mode";
+				LOG(ERROR) << "Must open a file in either Read, Write or Append mode";
 				throw std::runtime_error("Opened archive in invalid state");
 		}
 	}
@@ -45,14 +48,17 @@ namespace Archiver
 			LOG(ERROR) << "The archive " << Name << " could not be opened in READ mode";
 			throw std::runtime_error("Failed to open archive: " + Name);
 		}
+		FileIndex.clear(); //empty any old file indices
 		BuildIndex();
 		Mode = Read;//manually assign -- therefore checks to CheckRead validate that this function has completed
 	}
 
 	void Archive::OpenForWriting()
 	{
-		LOG(DEBUG) << "Opening a file stream in WRITE mode";
-		if (std::filesystem::exists(Name))
+		LOG(DEBUG) << "Opening a file stream in WRITE mode at location " << Name;
+		bool fileExists = std::filesystem::exists(Name);
+		bool expectFileExist = Mode == Append;
+		if (fileExists && !expectFileExist)
 		{
 			LOG(WARN) << "A file with the name " << Name << " already exists at the specified location. It is being overwritten.";
 		}
@@ -62,10 +68,34 @@ namespace Archiver
 			LOG(ERROR) << "The archive " << Name << " could not be opened in the WRITE mode";
 			throw std::runtime_error("Failed to open archive: " + Name);
 		}
+		FileIndex.clear();
 		HasWritten = false;
 		HasClosed = false;
 		FileOpen = false;
+		RequiresDuplicateCleanup = false;
 		Mode = Write; //manually assign -- therefore checks to CheckWrite validate that this function has completed
+	}
+
+	void Archive::OpenForAppending()
+	{
+		OpenForReading();
+		
+		
+		auto fileNames = ListFiles();
+		std::vector<std::string> fileContents;
+		for (auto file: fileNames)
+		{
+			fileContents.push_back(GetText(file));
+		}
+		Stream.close();//force close the read stream here
+		Mode = Append; //force insert here for the OpenForWriting
+		OpenForWriting();
+		for (int i = 0; i < fileNames.size(); ++i)
+		{
+			WriteFile(fileNames[i],fileContents[i]);
+		}
+		Mode = Append;//reapply the Append mode after OpenForWriting resets it
+
 	}
 
 	Archive::~Archive()
@@ -77,7 +107,7 @@ namespace Archiver
 	}
 	void Archive::Close()
 	{
-		if (Mode == Write)
+		if (Mode == Write || Mode == Append)
 		{
 			if (FileOpen)
 			{
@@ -90,11 +120,20 @@ namespace Archiver
 
 			//append the termination sequence
 			WriteCleanup();
+			
+			if (RequiresDuplicateCleanup)
+			{
+				Stream.close(); //force the stream to close to flush the null bytes immediately
+				Archive temp(Name,Append);
+				temp.RequiresDuplicateCleanup = false; 
+				temp.Close();
+			}
 		}
 
 
 		if (Stream.is_open())
 		{
+			LOG(INFO) << "closing stream";
 			Stream.close();
 		}
 		HasClosed = true;
@@ -105,9 +144,30 @@ namespace Archiver
 		Stream << std::string(tailBlockRepetition * BLOCK_SIZE, '\0');
 	}
 
+	void Archive::CheckWriteRegistry(std::string fileName)
+	{
+		if (FileIndex.find(fileName) == FileIndex.end())
+		{
+			ReadMetaData spoofed;
+			spoofed.filename = fileName;
+			FileIndex[fileName] = spoofed;
+		}
+		else
+		{
+			if (Mode != Append)
+			{
+				LOG(WARN) << "A file with the name " << fileName << " already exists in the archive.\nIt will be overwritten";
+			}
+			RequiresDuplicateCleanup = true;
+		}
+	}
+
 	void Archive::CheckValidState(ArchiveMode targetState)
 	{
-		if (Mode != targetState)
+		bool wrongMode = (Mode != targetState);
+		bool appendException = ((targetState == Write) && (Mode == Append));
+
+		if (wrongMode && !appendException)
 		{
 			if (Mode == Write)
 			{
@@ -121,7 +181,13 @@ namespace Archiver
 			{
 				LOG(ERROR) << "Cannot call read functions on an Uninitialised archive: must complete a call to Open()!";
 			}
-			throw std::runtime_error("Accessed Read-functions whilst in invalid state");
+			throw std::runtime_error("Accessed archive functions whilst in invalid state");
+		}
+
+		if ((Mode == Write || Mode == Append) && HasClosed)
+		{
+			LOG(ERROR) << "Cannot write to an archive after it has been closed";
+			throw std::runtime_error("Accessing closed archive");
 		}
 	}
 	
@@ -256,6 +322,7 @@ namespace Archiver
 	//a default writer which constructs a metadata file with basic input
 	void Archive::WriteFile(const std::string & file,const std::string & data)
 	{
+		CheckWriteRegistry(file);
 		// WriteMetaData md;
 		WriteFile({
 			.filename{file},
@@ -266,6 +333,7 @@ namespace Archiver
 	std::stringstream & Archive::ActivateStream(const std::string & filename)
 	{
 		CheckValidState(Write);
+		CheckWriteRegistry(filename);
 		if (FileOpen)
 		{
 			LOG(WARN) << "Closing file " << OpenFileName << " automatically. Can only have one open filestream at a time"; 
@@ -280,7 +348,11 @@ namespace Archiver
 	void Archive::DeactivateStream()
 	{
 		FileOpen = false;
-		WriteFile(OpenFileName,FileBuffer.str());
+		// WriteFile(OpenFileName,FileBuffer.str());
+		WriteFile({
+			.filename{OpenFileName},
+			.data{std::as_bytes(std::span<const char>{FileBuffer.str()})},
+		});
 	}
 
 	std::string Archive::GetText(std::string fileName)

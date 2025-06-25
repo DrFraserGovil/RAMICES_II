@@ -47,7 +47,7 @@ namespace  GlobalLog
 	{
 		if (Config.TerminalOutput)
 		{
-			Buffer << ANSI::DEFAULT_FONT; //reset the font colors for all subsequent data
+			Buffer << ANSI::RESET_FORMAT; //reset the font colors for all subsequent data
 		}
 
 

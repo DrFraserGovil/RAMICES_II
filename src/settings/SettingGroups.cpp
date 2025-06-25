@@ -9,14 +9,13 @@ bool SystemSettings::Validate()
 	}
 	//initialise the logging system so we can begin to communicate.
 	//But only do this when *not* in testing mode, as testing gets messed up otherwise!
-	
 	#ifndef UNITTEST
 		std::string welcomeFile = ResourceDirectory.Value() + "/welcome.dat";
 		GlobalLog::Config.Initialise(Verbosity,UseLogHeaders,welcomeFile);	
 	#else
 		GlobalLog::Config.SetLevel(2);
-		GlobalLog::Config.SetHeader(true);
-		GlobalLog::Config.SetNewline(true);
+		GlobalLog::Config.ShowHeaders = true;
+		GlobalLog::Config.AppendNewline = true;
 	#endif
 	
 	return true;
