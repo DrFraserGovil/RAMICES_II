@@ -9,8 +9,9 @@ The *Testers, Handlers, Operators & Templates & Helpers* (TOTH) module contains 
 	archiver
 	convert
 	log
+	MakeString
 	:maxdepth: 1
-	:caption: TOTH Contents:
+	:caption: THOTH Contents:
 
 
 

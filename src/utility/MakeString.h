@@ -6,8 +6,12 @@
 #include <string_view> // For delimiter in vector case
 
 
-// Primary template for basic types (numbers, chars, bools) that can be stringifyed to string
-// We'll use SFINAE to ensure this only applies to arithmetic types, and then specialize others.
+/*! @brief Internal interface for MakeString. 
+    
+@details As with convert(), we use `typename`
+    , an internal struct and SFINAE to enforce type behaviour and allow vector partial specialisation. 
+    Default struct only applies to numeric types. Overloads handle the others
+*/
 template<typename T, typename = void> // Generic template
 struct MakeStringStruct
 {
@@ -15,13 +19,15 @@ struct MakeStringStruct
     // Using stringstream for more control over floating point precision than std::to_string
     template<typename U = T, typename = std::enable_if_t<std::is_arithmetic_v<U>>>
     static std::string stringify(const U& value) {
-        std::stringstream ss;
-        ss << value;
-        return ss.str();
+        // std::stringstream ss;
+        // ss << value;
+        return std::to_string(value);
     }
 };
 
-// Specialization for `bool`
+//! @brief Specialization for `bool`
+//! @param value A boolean true or false
+//! @returns The string 'true' or 'false', as appropriate
 template<>
 struct MakeStringStruct<bool, void> {
     static std::string stringify(bool value) {
@@ -29,7 +35,8 @@ struct MakeStringStruct<bool, void> {
     }
 };
 
-// Specialization for `char`
+//! Specialization for `char`
+//! @details Converting chars to strings is surprisingly unintuitive. This makes it easier.
 template<>
 struct MakeStringStruct<char, void> {
     static std::string stringify(char value) {
@@ -37,7 +44,8 @@ struct MakeStringStruct<char, void> {
     }
 };
 
-// Specialization for `std::string`
+//! Specialization for `std::string` 
+//! @details This exists for performance reasons more than anything else - it's quicker than the streaming used for numerics.
 template<>
 struct MakeStringStruct<std::string, void> {
     static std::string stringify(const std::string& value) {
@@ -48,7 +56,7 @@ struct MakeStringStruct<std::string, void> {
 };
 
 
-// Specialization for `std::string_view`
+//! Specialization for `std::string_view`
 template<>
 struct MakeStringStruct<std::string_view, void> {
     static std::string stringify(const std::string_view& value) {
@@ -58,17 +66,17 @@ struct MakeStringStruct<std::string_view, void> {
     }
 };
 
-// Specialization for `std::vector<T_Inner>`
 template<typename T_Inner>
 struct MakeStringStruct<std::vector<T_Inner>, void> {
-    // This `stringify` function takes an additional `delimiter_str` argument.
-    // The `Setting::Parameter` object (which stores the delimiter) will provide this.
-
+    //! @brief Specialization for `std::vector<T_Inner>`
+    //! @details Calls with default delimiter
 	static std::string stringify(const std::vector<T_Inner>& vec)
 	{
-		return stringify(vec,", ");
+        return stringify(vec,", ");
 	}
-
+    
+    //! @brief Specialization for `std::vector<T_Inner>`
+    //! @details Calls with custom delimiter
     static std::string stringify(const std::vector<T_Inner>& vec, std::string_view delimiter_str) {
         std::string result = "["; // Consistent with your `StripEndCaps` for parsing vectors
 
@@ -84,12 +92,22 @@ struct MakeStringStruct<std::vector<T_Inner>, void> {
     }
 };
 
+/*! @brief Converts the object into a string. 
+    @brief If the object is a vector, the default delimiter - "," - is used.
+    @param obj An object (usually a numeric, boolean or vector) to be converted
+    @returns A string representation
+*/
 template<typename T>
 std::string inline MakeString(T obj)
 {
 	return MakeStringStruct<T>::stringify(obj);
 };
 
+/*! @brief Converts a vector into a string
+    @param obj An object (usually a numeric, boolean or vector) to be converted
+    @param delimiter The character(s) which delimit the elements of the vector
+    @returns A string representation
+*/
 template<typename T>
 std::string inline MakeString(T obj,std::string delimiter)
 {
