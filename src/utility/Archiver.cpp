@@ -2,6 +2,8 @@
 #include "MakeString.h"
 namespace Archiver
 {
+
+	
 	Archive::Archive(){HasClosed = false;Mode = Uninitialised;};
 	Archive::Archive(std::string archivePath, ArchiveMode mode)
 	{	
@@ -39,6 +41,22 @@ namespace Archiver
 		}
 	}
 
+	void Archive::ChangeMode(ArchiveMode mode)
+	{
+		if (Mode == Uninitialised)
+		{
+			LOG(ERROR) << "You must open an archive before you can change the mode";
+			throw std::logic_error("ChangeMode called before Open");
+		}
+		if (Mode == Write)
+		{
+			LOG(WARN) << "Changing into Write mode will overwrite the previous archive. Use Append to preserve existing structure";
+		}
+
+		Close();
+		Open(Name,mode);
+	}
+
 	void Archive::OpenForReading()
 	{
 		LOG(DEBUG) << "Opening a file stream in READ mode";
@@ -55,7 +73,7 @@ namespace Archiver
 
 	void Archive::OpenForWriting()
 	{
-		LOG(DEBUG) << "Opening a file stream in WRITE mode at location " << Name;
+		LOG(DEBUG) << "Opening a file stream in WRITE mode";
 		bool fileExists = std::filesystem::exists(Name);
 		bool expectFileExist = Mode == Append;
 		if (fileExists && !expectFileExist)
@@ -133,7 +151,6 @@ namespace Archiver
 
 		if (Stream.is_open())
 		{
-			LOG(INFO) << "closing stream";
 			Stream.close();
 		}
 		HasClosed = true;
@@ -181,13 +198,13 @@ namespace Archiver
 			{
 				LOG(ERROR) << "Cannot call read functions on an Uninitialised archive: must complete a call to Open()!";
 			}
-			throw std::runtime_error("Accessed archive functions whilst in invalid state");
+			throw std::logic_error("Accessed archive functions whilst in invalid state");
 		}
 
 		if ((Mode == Write || Mode == Append) && HasClosed)
 		{
 			LOG(ERROR) << "Cannot write to an archive after it has been closed";
-			throw std::runtime_error("Accessing closed archive");
+			throw std::logic_error("Accessing closed archive");
 		}
 	}
 	

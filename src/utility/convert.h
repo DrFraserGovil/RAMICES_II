@@ -19,7 +19,7 @@
 template<typename T>
 struct Converter
 {
-	static T convert(std::string_view sv)
+	static T internalConvert(std::string_view sv)
 	{
         sv = trim(sv,"//");
         RejectEmpty(sv);
@@ -68,7 +68,7 @@ struct Converter
 //Could just rely on user to call this manually, but it's nicer to have a unified interface
 template <>
 struct Converter<std::string> {
-    static std::string convert(std::string_view sv) 
+    static std::string internalConvert(std::string_view sv) 
 	{
 
         return std::string(sv);
@@ -78,7 +78,7 @@ struct Converter<std::string> {
 // Full specialization for boolean (because from_chars can't do boolean)
 template <>
 struct Converter<bool> {
-    static bool convert(std::string_view sv) 
+    static bool internalConvert(std::string_view sv) 
 	{
         auto snap = trim(sv,"//");
         if (snap == "1" || insensitiveEquals(snap,"true"))
@@ -98,7 +98,7 @@ struct Converter<bool> {
 // **NEW SPECIALIZATION FOR char**
 template <>
 struct Converter<char> {
-    static char convert(std::string_view sv)
+    static char internalConvert(std::string_view sv)
     {
         // Trim whitespace first
         sv = trim(sv,"//");
@@ -121,7 +121,7 @@ struct Converter<char> {
     template <>
     struct Converter<double>
     {
-        static double convert(std::string_view sv)
+        static double internalConvert(std::string_view sv)
         {
             sv = trim(sv,"//");
             RejectEmpty(sv);
@@ -172,14 +172,14 @@ struct Converter<std::vector<T_Inner>>
     // Use SFINAE to disable this specialization if T_Inner is 'char'
     // to prevent ambiguity with std::string (which can be confused with std::vector<char>)
     // Overload 1: Takes only string_view, uses default delimiter
-	static std::vector<T_Inner> convert(std::string_view sv,typename std::enable_if_t<!std::is_same_v<T_Inner, char>>* = nullptr)
+	static std::vector<T_Inner> internalConvert(std::string_view sv,typename std::enable_if_t<!std::is_same_v<T_Inner, char>>* = nullptr)
     {
         // Calls the other overload with a default delimiter
-        return convert(sv, ",", nullptr); // Pass nullptr for the dummy SFINAE arg
+        return internalConvert(sv, ",", nullptr); // Pass nullptr for the dummy SFINAE arg
     }
 
     // Overload 2: Takes string_view and a custom delimiter
-    static std::vector<T_Inner> convert(std::string_view sv, std::string_view element_delimiter,typename std::enable_if_t<!std::is_same_v<T_Inner, char>>* = nullptr) 
+    static std::vector<T_Inner> internalConvert(std::string_view sv, std::string_view element_delimiter,typename std::enable_if_t<!std::is_same_v<T_Inner, char>>* = nullptr) 
     {
         sv = trim(sv,"//");
         if (sv.empty()) 
@@ -204,7 +204,7 @@ struct Converter<std::vector<T_Inner>>
                 throw std::logic_error("Vectors cannot convert empty arguments");
             }
             ++i;
-            result_vec.push_back(Converter<T_Inner>::convert(elem_sv));
+            result_vec.push_back(Converter<T_Inner>::internalConvert(elem_sv));
         }
         return result_vec;
     }
@@ -242,7 +242,7 @@ struct Converter<std::vector<T_Inner>>
 template <typename T>
 T inline convert(std::string_view sv)
 {
-    return Converter<T>::convert(sv);
+    return Converter<T>::internalConvert(sv);
 }
 
 
@@ -253,14 +253,14 @@ template <typename U, typename Alloc> struct is_vector_specialization<std::vecto
 template <typename T,typename = std::enable_if_t<is_vector_specialization<T>::value>>
 T inline convert(std::string_view sv, std::string_view delimiter)
 {   
-    return Converter<T>::convert(sv, delimiter);
+    return Converter<T>::internalConvert(sv, delimiter);
 }
 
 //a hack for double-> float implicit conversion. Prevents needing to rewrite
 template <>
 float inline convert<float>(std::string_view sv)
 {
-    return Converter<double>::convert(sv);
+    return Converter<double>::internalConvert(sv);
 }
 
 

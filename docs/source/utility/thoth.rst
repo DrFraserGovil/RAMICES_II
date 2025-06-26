@@ -7,6 +7,7 @@ The *Testers, Handlers, Operators & Templates & Helpers* (TOTH) module contains 
 
 .. toctree::
 	archiver
+	convert
 	log
 	:maxdepth: 1
 	:caption: TOTH Contents:

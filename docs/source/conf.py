@@ -32,9 +32,9 @@ extensions = [ 'sphinx.ext.autodoc',
 ]
 
 breathe_projects = {
-    "RAMICES_III":"../_build/dox/xml/",
+    "RAMICESIII":"../_build/dox/xml/",
     }
-breathe_default_project = "RAMICES_III"
+breathe_default_project = "RAMICESIII"
 breathe_default_members = ('members', 'undoc-members','private-members','protected-members')
 
 highlight_language = 'c++'
@@ -46,3 +46,5 @@ html_theme = 'sphinx_rtd_theme'
 # html_theme = 'default'
 html_static_path = ['_static']
 html_css_files=['custom.css']
+
+add_function_parentheses=False
