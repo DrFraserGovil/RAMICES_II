@@ -51,8 +51,8 @@ The simplest reading method acts to simply copy the file into a std::string obje
 
 .. code-block:: console
 
-    $ echo -e "hi!\n\tThis is a greeting!" >> "hi.txt"; 
-    $ echo -e "bye!\n\tThis is a farewell!" >> "bye.txt"; 
+    $ echo -e "hi!\n\tThis is a greeting!" > "hi.txt"; 
+    $ echo -e "bye!\n\tThis is a farewell!" > "bye.txt"; 
     $ tar -cf test.archive hi.txt bye.txt
     $ ./test.out
     The archive is open! What is inside?
@@ -97,8 +97,8 @@ Many times it is desirable not only to access the text, but to process it. The :
 
 .. code-block:: console
 
-    $ echo -e "hi!\n\tThis is a greeting!" >> "hi.txt"; 
-    $ echo -e "bye!\n\tThis is a farewell!" >> "bye.txt"; 
+    $ echo -e "hi!\n\tThis is a greeting!" > "hi.txt"; 
+    $ echo -e "bye!\n\tThis is a farewell!" > "bye.txt"; 
     $ tar -cf test.archive hi.txt bye.txt
     $ ./test.out
     The letter 'e' occurs 3 times in the archive
@@ -165,7 +165,7 @@ As with GetTabular, but instead of returning a vector of the tuples, it performs
         Archive A("test.archive",Read);
         
         int accumulator = 0;
-        A.ForLineIn("animals.txt"," ",[&](auto line)//auto because tuples are long
+        A.ForLineIn<std::string,int,double>("animals.txt"," ",[&](auto line)//auto because tuples are long
         {
             if (std::get<1>(line) > 5)
             {
