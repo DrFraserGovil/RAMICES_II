@@ -10,6 +10,7 @@ The *Testers, Handlers, Operators & Templates & Helpers* (TOTH) module contains 
 	convert
 	log
 	MakeString
+	strings
 	:maxdepth: 1
 	:caption: THOTH Contents:
 
