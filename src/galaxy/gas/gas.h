@@ -18,11 +18,11 @@ class Gas
 
         //! \brief Creates a gas with specified total mass and elemental composition.
         //! \param mass Total mass of the gas.
-        //! \param composition Fractional elemental composition (vector of size `Element::Count`).
+        //! \param composition Fractional elemental composition (vector of size ::Element::Count).
         //! \return A Gas object with the given mass and composition.
         //! \throws std::logic_error If mass is negative.
         //! \throws std::runtime_error If composition vector size is incorrect.
-        //! \warning Logs if mass is zero.
+        //! \throws Warning If mass is zero.
         static Gas WithComposition(double mass, const std::vector<double> & composition,bool forceAcceptZeroMass = false);
 
         //! \brief Creates a new gas with specified mass and the same composition as a target gas.

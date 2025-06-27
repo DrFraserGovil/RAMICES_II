@@ -9,8 +9,8 @@
 #include <future>
 #include "Log.h"
 #include "referenceTesters.h"
-//Alias for a complex compile-time type. If the function is a void-returning-callable, returns void, else returns std::vector<ReturnType>.
-//T_Args are included in case T_LoopBodyCallable is itself a template function with a conditional return type; ridiculous futureproofing, but we're here now.
+//!Alias for a complex compile-time type. If the function is a void-returning-callable, returns void, else returns std::vector<ReturnType>.
+//!T_Args are included in case T_LoopBodyCallable is itself a template function with a conditional return type; ridiculous futureproofing, but we're here now.
 template<class T_LoopBodyCallable, class... T_Args>
 using VoidOrVector =
     std::conditional_t<std::is_same_v<std::invoke_result_t<T_LoopBodyCallable, int, T_Args...>, void>,
@@ -19,8 +19,10 @@ using VoidOrVector =
 
 
 
-//Defines an object which spins up a bunch of workers which wait for new asynchronous tasks to be given to them.
-//It is primarily designed for the 'For' loop; the generalised 'Task' interface will probably be rarely used.
+/*!
+    Spins up a bunch of workers which wait for new asynchronous tasks to be given to them.
+    @details It is primarily designed for the 'For' loop; the generalised 'Task' interface will probably be rarely used.
+*/
 class ParallelPool
 {
     private:

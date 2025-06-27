@@ -1,6 +1,19 @@
 #pragma once 
 #include <functional>
 
+/*!
+    FEAR YE WHO ENTER HERE
+
+    This code is a bunch of awful, awful template metaprogramming
+
+    It is designed to allow the parallel code to perform some compile time checks. 
+
+    The end goal is the `COMPILE_TIME_REFERENCE_CHECKER'. This checks that the function which is being performed in parallel has the suitable number of of arguments being passed to it, and so on.
+
+    This was written with the aid of an LLM, and so might be totally awful and inefficient. 
+*/
+
+
 // Helper trait to detect if a type is a std::reference_wrapper
 template<typename T>
 struct is_reference_wrapper : std::false_type {};

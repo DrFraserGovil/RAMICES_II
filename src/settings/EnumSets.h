@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <string>
-
+// #include "ElementHelper.h"
 /*!
  * Defines a globally recognised ordering of the elements + provides them with a nice readable name.
  * 
@@ -14,23 +14,20 @@
 #endif
 
 
+
+
 namespace  Element
 {
-
-
-
 	enum Species {
-
+		
+		
 		#define Element(name,shortname) name,
 		#include "definitions/elements.def"
 		#undef Element
-
-		Count//!<The final entry should always be Count, this allows you to iterate over all previous elements
-		};
-
-
+		
+		Count//!<The final entry should always be Count, this allows you to iterate over all previous elements	
+	};
 	#include "../utility/ElementConverters.h"
-
 }
 
 //! Defines a globally recognised registry of yield processes
